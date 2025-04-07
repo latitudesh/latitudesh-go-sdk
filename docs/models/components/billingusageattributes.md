@@ -1,0 +1,12 @@
+# BillingUsageAttributes
+
+
+## Fields
+
+| Field                                                                             | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `Project`                                                                         | [*components.BillingUsageProject](../../models/components/billingusageproject.md) | :heavy_minus_sign:                                                                | The project in which the returned usage belongs to                                |
+| `Period`                                                                          | [*components.Period](../../models/components/period.md)                           | :heavy_minus_sign:                                                                | The period from the returned billing cycle                                        |
+| `Price`                                                                           | **float64*                                                                        | :heavy_minus_sign:                                                                | The total usage price in cents                                                    |
+| `Threshold`                                                                       | **float64*                                                                        | :heavy_minus_sign:                                                                | The threshold which we use to charge your usage, in cents                         |
+| `Products`                                                                        | [][components.Products](../../models/components/products.md)                      | :heavy_minus_sign:                                                                | N/A                                                                               |

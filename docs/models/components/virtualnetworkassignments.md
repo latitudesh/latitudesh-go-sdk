@@ -1,0 +1,9 @@
+# VirtualNetworkAssignments
+
+
+## Fields
+
+| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `Data`                                                                                                | [][components.VirtualNetworkAssignment](../../models/components/virtualnetworkassignment.md)          | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
+| `Meta`                                                                                                | [*components.VirtualNetworkAssignmentsMeta](../../models/components/virtualnetworkassignmentsmeta.md) | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |

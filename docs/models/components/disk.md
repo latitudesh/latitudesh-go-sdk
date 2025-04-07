@@ -1,0 +1,9 @@
+# Disk
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `Type`                                                                                            | [*components.VirtualMachinePlansDataType](../../models/components/virtualmachineplansdatatype.md) | :heavy_minus_sign:                                                                                | The type of the disk                                                                              |
+| `Size`                                                                                            | [*components.Size](../../models/components/size.md)                                               | :heavy_minus_sign:                                                                                | N/A                                                                                               |

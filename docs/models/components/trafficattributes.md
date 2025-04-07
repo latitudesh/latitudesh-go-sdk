@@ -1,0 +1,14 @@
+# TrafficAttributes
+
+
+## Fields
+
+| Field                                                                    | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `FromDate`                                                               | **int64*                                                                 | :heavy_minus_sign:                                                       | The start timestamp. Must be a unix timestamp                            |
+| `ToDate`                                                                 | **int64*                                                                 | :heavy_minus_sign:                                                       | The end timestamp. Must be a unix timestamp                              |
+| `Regions`                                                                | [][components.TrafficRegions](../../models/components/trafficregions.md) | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `TotalInboundGb`                                                         | **int64*                                                                 | :heavy_minus_sign:                                                       | Value in GB                                                              |
+| `TotalOutboundGb`                                                        | **int64*                                                                 | :heavy_minus_sign:                                                       | Value in GB                                                              |
+| `TotalInbound95thPercentileMbps`                                         | **float64*                                                               | :heavy_minus_sign:                                                       | Value in MBps                                                            |
+| `TotalOutbound95thPercentileMbps`                                        | **float64*                                                               | :heavy_minus_sign:                                                       | Value in MBps                                                            |

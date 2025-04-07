@@ -1,0 +1,10 @@
+# VirtualMachinePlansData
+
+
+## Fields
+
+| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `ID`                                                                                                  | **string*                                                                                             | :heavy_minus_sign:                                                                                    | The ID of the plan                                                                                    |
+| `Type`                                                                                                | [*components.VirtualMachinePlansType](../../models/components/virtualmachineplanstype.md)             | :heavy_minus_sign:                                                                                    | The type of the resource                                                                              |
+| `Attributes`                                                                                          | [*components.VirtualMachinePlansAttributes](../../models/components/virtualmachineplansattributes.md) | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |

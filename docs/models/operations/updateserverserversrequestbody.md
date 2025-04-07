@@ -1,0 +1,10 @@
+# UpdateServerServersRequestBody
+
+
+## Fields
+
+| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `ID`                                                                                                  | **string*                                                                                             | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
+| `Type`                                                                                                | [*operations.UpdateServerServersType](../../models/operations/updateserverserverstype.md)             | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
+| `Attributes`                                                                                          | [*operations.UpdateServerServersAttributes](../../models/operations/updateserverserversattributes.md) | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |

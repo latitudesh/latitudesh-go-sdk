@@ -1,0 +1,10 @@
+# GetBillingUsageRequest
+
+
+## Fields
+
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `FilterProducts`                                                                               | []*string*                                                                                     | :heavy_minus_sign:                                                                             | Allows to filter the billing usage for specific products. It accepts an array of product ids.<br/> |
+| `FilterPlan`                                                                                   | **string*                                                                                      | :heavy_minus_sign:                                                                             | Accepts a plan name and allows to filter the usage for that plan.<br/>                         |
+| `FilterProject`                                                                                | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |

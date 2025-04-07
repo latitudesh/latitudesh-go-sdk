@@ -1,0 +1,10 @@
+# VirtualNetworkError
+
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `ID`                                                                                          | **string*                                                                                     | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `Type`                                                                                        | [*components.VirtualNetworkType1](../../models/components/virtualnetworktype1.md)             | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `Attributes`                                                                                  | [*components.VirtualNetworkAttributes1](../../models/components/virtualnetworkattributes1.md) | :heavy_minus_sign:                                                                            | N/A                                                                                           |

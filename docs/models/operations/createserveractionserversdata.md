@@ -1,0 +1,9 @@
+# CreateServerActionServersData
+
+
+## Fields
+
+| Field                                                                                                             | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `Type`                                                                                                            | [operations.CreateServerActionServersType](../../models/operations/createserveractionserverstype.md)              | :heavy_check_mark:                                                                                                | N/A                                                                                                               |
+| `Attributes`                                                                                                      | [*operations.CreateServerActionServersAttributes](../../models/operations/createserveractionserversattributes.md) | :heavy_minus_sign:                                                                                                | N/A                                                                                                               |

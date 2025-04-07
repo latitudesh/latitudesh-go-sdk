@@ -1,0 +1,10 @@
+# TrafficQuotaData
+
+
+## Fields
+
+| Field                                                                                   | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `ID`                                                                                    | **string*                                                                               | :heavy_minus_sign:                                                                      | N/A                                                                                     |
+| `Type`                                                                                  | [*components.TrafficQuotaType](../../models/components/trafficquotatype.md)             | :heavy_minus_sign:                                                                      | N/A                                                                                     |
+| `Attributes`                                                                            | [*components.TrafficQuotaAttributes](../../models/components/trafficquotaattributes.md) | :heavy_minus_sign:                                                                      | N/A                                                                                     |

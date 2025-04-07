@@ -1,0 +1,112 @@
+overlay: 1.0.0
+x-speakeasy-jsonpath: rfc9535
+info:
+  title: Speakeasy Modifications
+  version: 0.0.2
+  x-speakeasy-metadata:
+    after: ""
+    before: ""
+    type: speakeasy-modifications
+actions:
+  - target: $["paths"]["/projects/{project_id}/user_data/{user_data_id}"]["get"]
+    update:
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      after: sdk.userData.get()
+      before: sdk.userData.getProjectUserData()
+      created_at: 1744060642586
+      reviewed_at: 1744062986578
+      type: method-name
+  - target: $["paths"]["/servers/{server_id}/actions"]["post"]
+    update:
+      x-speakeasy-name-override: runAction
+    x-speakeasy-metadata:
+      after: sdk.servers.runAction()
+      before: sdk.Servers.actions()
+      created_at: 1744060642586
+      reviewed_at: 1744062986578
+      type: method-name
+  - target: $["paths"]["/virtual_networks/{vlan_id}"]["delete"]
+    update:
+      x-speakeasy-group: virtualNetworks
+      x-speakeasy-name-override: delete
+    x-speakeasy-metadata:
+      after: sdk.virtualNetworks.delete()
+      before: sdk.privateNetworks.deleteVirtualNetwork()
+      created_at: 1744060642586
+      reviewed_at: 1744062986578
+      type: method-name
+  - target: $["paths"]["/plans/virtual_machines"]["get"]
+    update:
+      x-speakeasy-group: plans.vm
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.plans.vm.list()
+      before: sdk.Plans.listVMPlans()
+      created_at: 1744060642586
+      reviewed_at: 1744062986578
+      type: method-name
+  - target: $["paths"]["/projects/{project_id}/user_data/{user_data_id}"]["delete"]
+    update:
+      x-speakeasy-group: projectsUserData
+    x-speakeasy-metadata:
+      after: sdk.projectsUserData.delete()
+      before: sdk.userData.delete()
+      created_at: 1744060642586
+      reviewed_at: 1744062986578
+      type: method-name
+  - target: $["paths"]["/projects/{project_id}/user_data"]["get"]
+    update:
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.userData.list()
+      before: sdk.userData.listProjectUserData()
+      created_at: 1744060642586
+      reviewed_at: 1744062986578
+      type: method-name
+  - target: $["paths"]["/firewalls/{firewall_id}/assignments"]["post"]
+    update:
+      x-speakeasy-group: firewalls.assignments
+      x-speakeasy-name-override: create
+    x-speakeasy-metadata:
+      after: sdk.firewalls.assignments.create()
+      before: sdk.Firewalls.assign()
+      created_at: 1744060642586
+      reviewed_at: 1744062986578
+      type: method-name
+  - target: $["paths"]["/team/members"]["get"]
+    update:
+      x-speakeasy-group: teams.members
+    x-speakeasy-metadata:
+      after: sdk.teams.members.list()
+      before: sdk.teamsMembers.list()
+      created_at: 1744060642586
+      reviewed_at: 1744062986578
+      type: method-name
+  - target: $["paths"]["/projects/{project_id}/ssh_keys"]["post"]
+    update:
+      x-speakeasy-group: projects.sshKeys
+    x-speakeasy-metadata:
+      after: sdk.projects.sshKeys.create()
+      before: sdk.sshKeys.create()
+      created_at: 1744060642586
+      reviewed_at: 1744062986578
+      type: method-name
+  - target: $["paths"]["/team/members"]["post"]
+    update:
+      x-speakeasy-group: teamMembers
+    x-speakeasy-metadata:
+      after: sdk.teamMembers.add()
+      before: sdk.teamsMembers.add()
+      created_at: 1744060642586
+      reviewed_at: 1744062986578
+      type: method-name
+  - target: $["paths"]["/projects/{project_id}/ssh_keys"]["get"]
+    update:
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.sshKeys.list()
+      before: sdk.sshKeys.listForProject()
+      created_at: 1744060642586
+      reviewed_at: 1744062986578
+      type: method-name

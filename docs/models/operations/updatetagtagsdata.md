@@ -1,0 +1,10 @@
+# UpdateTagTagsData
+
+
+## Fields
+
+| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `ID`                                                                                      | **string*                                                                                 | :heavy_minus_sign:                                                                        | N/A                                                                                       |
+| `Type`                                                                                    | [*operations.UpdateTagTagsType](../../models/operations/updatetagtagstype.md)             | :heavy_minus_sign:                                                                        | N/A                                                                                       |
+| `Attributes`                                                                              | [*operations.UpdateTagTagsAttributes](../../models/operations/updatetagtagsattributes.md) | :heavy_minus_sign:                                                                        | N/A                                                                                       |

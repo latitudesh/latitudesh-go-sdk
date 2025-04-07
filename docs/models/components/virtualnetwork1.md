@@ -1,0 +1,10 @@
+# VirtualNetwork1
+
+
+## Fields
+
+| Field                                                                                       | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `ID`                                                                                        | **string*                                                                                   | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `Type`                                                                                      | [*components.VirtualNetworkType](../../models/components/virtualnetworktype.md)             | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `Attributes`                                                                                | [*components.VirtualNetworkAttributes](../../models/components/virtualnetworkattributes.md) | :heavy_minus_sign:                                                                          | N/A                                                                                         |

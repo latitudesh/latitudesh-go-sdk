@@ -1,0 +1,10 @@
+# FirewallServer
+
+
+## Fields
+
+| Field                                                                                       | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `ID`                                                                                        | **string*                                                                                   | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `Type`                                                                                      | [*components.FirewallServerType](../../models/components/firewallservertype.md)             | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `Attributes`                                                                                | [*components.FirewallServerAttributes](../../models/components/firewallserverattributes.md) | :heavy_minus_sign:                                                                          | N/A                                                                                         |

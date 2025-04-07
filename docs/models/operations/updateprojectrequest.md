@@ -1,0 +1,9 @@
+# UpdateProjectRequest
+
+
+## Fields
+
+| Field                                                                                                       | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `ProjectID`                                                                                                 | *string*                                                                                                    | :heavy_check_mark:                                                                                          | The project ID or Slug                                                                                      |
+| `RequestBody`                                                                                               | [*operations.UpdateProjectProjectsRequestBody](../../models/operations/updateprojectprojectsrequestbody.md) | :heavy_minus_sign:                                                                                          | N/A                                                                                                         |

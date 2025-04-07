@@ -1,0 +1,9 @@
+# PostProjectUserDataUserDataData
+
+
+## Fields
+
+| Field                                                                                                                 | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `Type`                                                                                                                | [operations.PostProjectUserDataUserDataType](../../models/operations/postprojectuserdatauserdatatype.md)              | :heavy_check_mark:                                                                                                    | N/A                                                                                                                   |
+| `Attributes`                                                                                                          | [*operations.PostProjectUserDataUserDataAttributes](../../models/operations/postprojectuserdatauserdataattributes.md) | :heavy_minus_sign:                                                                                                    | N/A                                                                                                                   |
