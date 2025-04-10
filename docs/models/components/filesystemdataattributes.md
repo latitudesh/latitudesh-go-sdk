@@ -1,0 +1,10 @@
+# FilesystemDataAttributes
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `Name`                                                                                | **string*                                                                             | :heavy_minus_sign:                                                                    | N/A                                                                                   |
+| `SizeInGb`                                                                            | **int64*                                                                              | :heavy_minus_sign:                                                                    | N/A                                                                                   |
+| `Project`                                                                             | [*components.FilesystemDataProject](../../models/components/filesystemdataproject.md) | :heavy_minus_sign:                                                                    | N/A                                                                                   |

@@ -1,0 +1,38 @@
+speakeasyVersion: 1.531.0
+sources:
+    Latitudesh-OAS:
+        sourceNamespace: latitudesh-oas
+        sourceRevisionDigest: sha256:c97cc757b5dfc861041da54323f55b0081f5433345eb3d5d6c914c8e7cb3433a
+        sourceBlobDigest: sha256:28ad3ac32a750cccf0a3c9300ad8449d420764706e47e98c62c32c4a70807a0a
+        tags:
+            - latest
+            - v3
+targets:
+    latitudesh:
+        source: Latitudesh-OAS
+        sourceNamespace: latitudesh-oas
+        sourceRevisionDigest: sha256:c97cc757b5dfc861041da54323f55b0081f5433345eb3d5d6c914c8e7cb3433a
+        sourceBlobDigest: sha256:28ad3ac32a750cccf0a3c9300ad8449d420764706e47e98c62c32c4a70807a0a
+        codeSamplesNamespace: latitudesh-oas-go-code-samples
+        codeSamplesRevisionDigest: sha256:19720383c01d40f898b7bcef64a8af661e2f92409007c09583c23ff9f3e1942a
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        Latitudesh-OAS:
+            inputs:
+                - location: registry.speakeasyapi.dev/latitude/latitude/latitude-sh-api:main
+            overlays:
+                - location: .speakeasy/speakeasy-modifications-overlay.yaml
+            registry:
+                location: registry.speakeasyapi.dev/latitude/latitude/latitudesh-oas
+    targets:
+        latitudesh:
+            target: go
+            source: Latitudesh-OAS
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/latitude/latitude/latitudesh-oas-go-code-samples
+                labelOverride:
+                    fixedValue: Go (SDK)
+                blocking: false

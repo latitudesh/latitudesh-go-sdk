@@ -1,0 +1,9 @@
+# CreateServerServersData
+
+
+## Fields
+
+| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `Type`                                                                                                | [operations.CreateServerServersType](../../models/operations/createserverserverstype.md)              | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
+| `Attributes`                                                                                          | [*operations.CreateServerServersAttributes](../../models/operations/createserverserversattributes.md) | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |

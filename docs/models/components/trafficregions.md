@@ -1,0 +1,13 @@
+# TrafficRegions
+
+
+## Fields
+
+| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `RegionSlug`                                                               | **string*                                                                  | :heavy_minus_sign:                                                         | N/A                                                                        |
+| `TotalInboundGb`                                                           | **int64*                                                                   | :heavy_minus_sign:                                                         | Value in GB                                                                |
+| `TotalOutboundGb`                                                          | **int64*                                                                   | :heavy_minus_sign:                                                         | Value in GB                                                                |
+| `TotalInbound95thPercentileMbps`                                           | **float64*                                                                 | :heavy_minus_sign:                                                         | Value in MBps                                                              |
+| `TotalOutbound95thPercentileMbps`                                          | **float64*                                                                 | :heavy_minus_sign:                                                         | Value in MBps                                                              |
+| `Data`                                                                     | [][components.TrafficDataData](../../models/components/trafficdatadata.md) | :heavy_minus_sign:                                                         | N/A                                                                        |

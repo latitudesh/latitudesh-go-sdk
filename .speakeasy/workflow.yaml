@@ -1,0 +1,20 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    Latitudesh-OAS:
+        inputs:
+            - location: registry.speakeasyapi.dev/latitude/latitude/latitude-sh-api:main
+        overlays:
+            - location: .speakeasy/speakeasy-modifications-overlay.yaml
+        registry:
+            location: registry.speakeasyapi.dev/latitude/latitude/latitudesh-oas
+targets:
+    latitudesh:
+        target: go
+        source: Latitudesh-OAS
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/latitude/latitude/latitudesh-oas-go-code-samples
+            labelOverride:
+                fixedValue: Go (SDK)
+            blocking: false

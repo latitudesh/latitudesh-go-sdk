@@ -1,0 +1,41 @@
+configVersion: 2.0.0
+generation:
+  devContainers:
+    enabled: true
+    schemaPath: registry.speakeasyapi.dev/latitude/latitude/latitude-sh-api:main
+  sdkClassName: Latitudesh
+  maintainOpenAPIOrder: true
+  usageSnippets:
+    optionalPropertyRendering: withExample
+  useClassNamesForArrayFields: true
+  fixes:
+    nameResolutionDec2023: true
+    nameResolutionFeb2025: false
+    parameterOrderingFeb2024: true
+    requestResponseComponentNamesFeb2024: true
+    securityFeb2025: true
+  auth:
+    oAuth2ClientCredentialsEnabled: true
+    oAuth2PasswordEnabled: true
+go:
+  version: 0.0.5
+  additionalDependencies: {}
+  allowUnknownFieldsInWeakUnions: false
+  clientServerStatusCodesAsErrors: true
+  defaultErrorName: APIError
+  envVarPrefix: LATITUDESH
+  flattenGlobalSecurity: true
+  imports:
+    option: openapi
+    paths:
+      callbacks: models/callbacks
+      errors: models/components
+      operations: models/operations
+      shared: models/components
+      webhooks: models/webhooks
+  inputModelSuffix: input
+  maxMethodParams: 4
+  methodArguments: require-security-and-request
+  outputModelSuffix: output
+  packageName: github.com/latitudesh/latitudesh-go-sdk
+  responseFormat: envelope-http

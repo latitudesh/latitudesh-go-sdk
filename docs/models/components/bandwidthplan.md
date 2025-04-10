@@ -1,0 +1,10 @@
+# BandwidthPlan
+
+
+## Fields
+
+| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `ID`                                                                                      | **string*                                                                                 | :heavy_minus_sign:                                                                        | N/A                                                                                       |
+| `Type`                                                                                    | [*components.BandwidthPlanType](../../models/components/bandwidthplantype.md)             | :heavy_minus_sign:                                                                        | N/A                                                                                       |
+| `Attributes`                                                                              | [*components.BandwidthPlanAttributes](../../models/components/bandwidthplanattributes.md) | :heavy_minus_sign:                                                                        | N/A                                                                                       |

@@ -1,0 +1,10 @@
+# UserDataProperties
+
+
+## Fields
+
+| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `ID`                                                                                                | **string*                                                                                           | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
+| `Type`                                                                                              | [components.UserDataPropertiesType](../../models/components/userdatapropertiestype.md)              | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `Attributes`                                                                                        | [*components.UserDataPropertiesAttributes](../../models/components/userdatapropertiesattributes.md) | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |

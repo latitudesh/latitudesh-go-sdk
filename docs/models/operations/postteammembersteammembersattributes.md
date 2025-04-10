@@ -1,0 +1,11 @@
+# PostTeamMembersTeamMembersAttributes
+
+
+## Fields
+
+| Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `FirstName`                                                                      | **string*                                                                        | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `LastName`                                                                       | **string*                                                                        | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `Email`                                                                          | *string*                                                                         | :heavy_check_mark:                                                               | N/A                                                                              |
+| `Role`                                                                           | [operations.PostTeamMembersRole](../../models/operations/postteammembersrole.md) | :heavy_check_mark:                                                               | N/A                                                                              |

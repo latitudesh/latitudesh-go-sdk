@@ -1,0 +1,10 @@
+# UpdateAPIKeyData
+
+
+## Fields
+
+| Field                                                                                   | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `ID`                                                                                    | **string*                                                                               | :heavy_minus_sign:                                                                      | N/A                                                                                     |
+| `Type`                                                                                  | [components.UpdateAPIKeyType](../../models/components/updateapikeytype.md)              | :heavy_check_mark:                                                                      | N/A                                                                                     |
+| `Attributes`                                                                            | [*components.UpdateAPIKeyAttributes](../../models/components/updateapikeyattributes.md) | :heavy_minus_sign:                                                                      | N/A                                                                                     |

@@ -1,0 +1,9 @@
+# VirtualMachinePayloadData
+
+
+## Fields
+
+| Field                                                                                                     | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `Type`                                                                                                    | [*components.VirtualMachinePayloadType](../../models/components/virtualmachinepayloadtype.md)             | :heavy_minus_sign:                                                                                        | N/A                                                                                                       |
+| `Attributes`                                                                                              | [*components.VirtualMachinePayloadAttributes](../../models/components/virtualmachinepayloadattributes.md) | :heavy_minus_sign:                                                                                        | N/A                                                                                                       |

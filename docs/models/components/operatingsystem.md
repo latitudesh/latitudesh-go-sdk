@@ -1,0 +1,12 @@
+# OperatingSystem
+
+
+## Fields
+
+| Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `Name`                                                                          | **string*                                                                       | :heavy_minus_sign:                                                              | The OS name                                                                     |
+| `Slug`                                                                          | **string*                                                                       | :heavy_minus_sign:                                                              | The OS slug                                                                     |
+| `Version`                                                                       | **string*                                                                       | :heavy_minus_sign:                                                              | The OS description                                                              |
+| `Features`                                                                      | [*components.ServerDataFeatures](../../models/components/serverdatafeatures.md) | :heavy_minus_sign:                                                              | N/A                                                                             |
+| `Distro`                                                                        | [*components.Distro](../../models/components/distro.md)                         | :heavy_minus_sign:                                                              | N/A                                                                             |

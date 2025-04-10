@@ -1,0 +1,15 @@
+# UserInclude
+
+
+## Fields
+
+| Field                                                                     | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `ID`                                                                      | **string*                                                                 | :heavy_minus_sign:                                                        | N/A                                                                       |
+| `FirstName`                                                               | **string*                                                                 | :heavy_minus_sign:                                                        | N/A                                                                       |
+| `LastName`                                                                | **string*                                                                 | :heavy_minus_sign:                                                        | N/A                                                                       |
+| `Email`                                                                   | **string*                                                                 | :heavy_minus_sign:                                                        | N/A                                                                       |
+| `AuthenticationFactorID`                                                  | **string*                                                                 | :heavy_minus_sign:                                                        | N/A                                                                       |
+| `CreatedAt`                                                               | **string*                                                                 | :heavy_minus_sign:                                                        | N/A                                                                       |
+| `UpdatedAt`                                                               | **string*                                                                 | :heavy_minus_sign:                                                        | N/A                                                                       |
+| `Role`                                                                    | [*components.UserIncludeRole](../../models/components/userincluderole.md) | :heavy_minus_sign:                                                        | N/A                                                                       |

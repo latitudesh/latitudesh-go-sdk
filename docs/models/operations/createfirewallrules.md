@@ -1,0 +1,11 @@
+# CreateFirewallRules
+
+
+## Fields
+
+| Field                                                                                   | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `From`                                                                                  | **string*                                                                               | :heavy_minus_sign:                                                                      | N/A                                                                                     |
+| `To`                                                                                    | **string*                                                                               | :heavy_minus_sign:                                                                      | N/A                                                                                     |
+| `Protocol`                                                                              | [*operations.CreateFirewallProtocol](../../models/operations/createfirewallprotocol.md) | :heavy_minus_sign:                                                                      | N/A                                                                                     |
+| `Port`                                                                                  | **string*                                                                               | :heavy_minus_sign:                                                                      | Port number or range (e.g., "80", "80-443")                                             |
