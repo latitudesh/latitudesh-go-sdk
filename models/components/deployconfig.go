@@ -95,17 +95,6 @@ func (o *DeployConfigData) GetAttributes() *DeployConfigAttributes {
 	return o.Attributes
 }
 
-type DeployConfigError struct {
-	Data *DeployConfigData `json:"data,omitempty"`
-}
-
-var _ error = &DeployConfigError{}
-
-func (e *DeployConfigError) Error() string {
-	data, _ := json.Marshal(e)
-	return string(data)
-}
-
 type DeployConfig struct {
 	Data *DeployConfigData `json:"data,omitempty"`
 }
@@ -115,4 +104,15 @@ func (o *DeployConfig) GetData() *DeployConfigData {
 		return nil
 	}
 	return o.Data
+}
+
+type DeployConfigError struct {
+	Data *DeployConfigData `json:"data,omitempty"`
+}
+
+var _ error = &DeployConfigError{}
+
+func (e *DeployConfigError) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
 }
