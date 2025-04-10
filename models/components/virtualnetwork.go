@@ -139,19 +139,6 @@ func (o *VirtualNetworkAttributes1) GetAssignmentsCount() *int64 {
 	return o.AssignmentsCount
 }
 
-type VirtualNetworkError struct {
-	ID         *string                    `json:"id,omitempty"`
-	Type       *VirtualNetworkType1       `json:"type,omitempty"`
-	Attributes *VirtualNetworkAttributes1 `json:"attributes,omitempty"`
-}
-
-var _ error = &VirtualNetworkError{}
-
-func (e *VirtualNetworkError) Error() string {
-	data, _ := json.Marshal(e)
-	return string(data)
-}
-
 type VirtualNetwork struct {
 	ID         *string                    `json:"id,omitempty"`
 	Type       *VirtualNetworkType1       `json:"type,omitempty"`
@@ -177,4 +164,17 @@ func (o *VirtualNetwork) GetAttributes() *VirtualNetworkAttributes1 {
 		return nil
 	}
 	return o.Attributes
+}
+
+type VirtualNetworkError struct {
+	ID         *string                    `json:"id,omitempty"`
+	Type       *VirtualNetworkType1       `json:"type,omitempty"`
+	Attributes *VirtualNetworkAttributes1 `json:"attributes,omitempty"`
+}
+
+var _ error = &VirtualNetworkError{}
+
+func (e *VirtualNetworkError) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
 }
