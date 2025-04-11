@@ -275,9 +275,8 @@ func (e *VirtualMachinePlansStockLevel) UnmarshalJSON(data []byte) error {
 
 type VirtualMachinePlansAttributes struct {
 	// The name of the plan
-	Name  *string                   `json:"name,omitempty"`
-	Specs *VirtualMachinePlansSpecs `json:"specs,omitempty"`
-	// The regions where the plan is available
+	Name    *string                      `json:"name,omitempty"`
+	Specs   *VirtualMachinePlansSpecs    `json:"specs,omitempty"`
 	Regions []VirtualMachinePlansRegions `json:"regions,omitempty"`
 	// The stock level of the plan
 	StockLevel *VirtualMachinePlansStockLevel `json:"stock_level,omitempty"`
