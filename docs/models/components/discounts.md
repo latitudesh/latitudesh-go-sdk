@@ -1,0 +1,10 @@
+# Discounts
+
+
+## Fields
+
+| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                | Example                                                                    |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `Description`                                                              | *string*                                                                   | :heavy_check_mark:                                                         | Description of the discount                                                | Monthly Discount - Accelerate                                              |
+| `Type`                                                                     | [components.BillingUsageType](../../models/components/billingusagetype.md) | :heavy_check_mark:                                                         | Type of discount (percentage or fixed amount)                              |                                                                            |
+| `Value`                                                                    | *float32*                                                                  | :heavy_check_mark:                                                         | Value of the discount (percentage or amount)                               | 5                                                                          |
