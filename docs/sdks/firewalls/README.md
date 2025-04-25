@@ -225,9 +225,7 @@ func main() {
         Data: operations.UpdateFirewallFirewallsData{
             Type: operations.UpdateFirewallFirewallsTypeFirewalls,
             Attributes: &operations.UpdateFirewallFirewallsAttributes{
-                Rules: []operations.UpdateFirewallFirewallsRules{
-
-                },
+                Rules: []operations.UpdateFirewallFirewallsRules{},
             },
         },
     })

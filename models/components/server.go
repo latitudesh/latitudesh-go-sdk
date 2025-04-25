@@ -28,6 +28,18 @@ func (o *Server) GetMeta() *ServerMeta {
 	return o.Meta
 }
 
+type ServerError struct {
+	Data *ServerData `json:"data,omitempty"`
+	Meta *ServerMeta `json:"meta,omitempty"`
+}
+
+var _ error = &ServerError{}
+
+func (e *ServerError) Error() string {
+	data, _ := json.Marshal(e)
+	return string(data)
+}
+
 type Server1 struct {
 	Data *ServerData `json:"data,omitempty"`
 	Meta *ServerMeta `json:"meta,omitempty"`
@@ -45,16 +57,4 @@ func (o *Server1) GetMeta() *ServerMeta {
 		return nil
 	}
 	return o.Meta
-}
-
-type ServerError struct {
-	Data *ServerData `json:"data,omitempty"`
-	Meta *ServerMeta `json:"meta,omitempty"`
-}
-
-var _ error = &ServerError{}
-
-func (e *ServerError) Error() string {
-	data, _ := json.Marshal(e)
-	return string(data)
 }
