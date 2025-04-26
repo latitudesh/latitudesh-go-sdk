@@ -93,7 +93,7 @@ type ServerDataPlan struct {
 	ID *string `json:"id,omitempty"`
 	// The plan name
 	Name *string `json:"name,omitempty"`
-	// hourly/monthly pricing. Defaults to `hourly`. Appliable for `on_demand` projects only.
+	// hourly/monthly pricing. Defaults to `hourly`. Applicable for `on_demand` projects only.
 	Billing *string `json:"billing,omitempty"`
 }
 
