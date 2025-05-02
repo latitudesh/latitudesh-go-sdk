@@ -3,6 +3,7 @@
 package operations
 
 import (
+	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
@@ -21,6 +22,21 @@ type GetProjectsRequest struct {
 	FilterTags *string `queryParam:"style=form,explode=true,name=filter[tags]"`
 	// The `last_renewal_date` and `next_renewal_date` are provided as extra attributes that show previous and future billing cycle dates. To request it, just set `extra_fields[projects]=last_renewal_date,next_renewal_date` in the query string.
 	ExtraFieldsProjects *string `queryParam:"style=form,explode=true,name=extra_fields[projects]"`
+	// Number of items to return per page
+	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
+	// Page number to return (starts at 1)
+	PageNumber *int64 `default:"1" queryParam:"style=form,explode=true,name=page[number]"`
+}
+
+func (g GetProjectsRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(g, "", false)
+}
+
+func (g *GetProjectsRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &g, "", false, false); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (o *GetProjectsRequest) GetFilterName() *string {
@@ -72,10 +88,26 @@ func (o *GetProjectsRequest) GetExtraFieldsProjects() *string {
 	return o.ExtraFieldsProjects
 }
 
+func (o *GetProjectsRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
+func (o *GetProjectsRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
 type GetProjectsResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Filtered by multiple tags
 	Projects *components.Projects
+
+	Next func() (*GetProjectsResponse, error)
 }
 
 func (o *GetProjectsResponse) GetHTTPMeta() components.HTTPMetadata {

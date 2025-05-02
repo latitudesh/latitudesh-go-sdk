@@ -11,6 +11,7 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
 	"github.com/latitudesh/latitudesh-go-sdk/retry"
+	"github.com/spyzhov/ajson"
 	"net/http"
 	"net/url"
 )
@@ -260,9 +261,11 @@ func (s *Firewalls) Create(ctx context.Context, request operations.CreateFirewal
 
 // List firewalls
 // List firewalls
-func (s *Firewalls) List(ctx context.Context, filterProject *string, opts ...operations.Option) (*operations.ListFirewallsResponse, error) {
+func (s *Firewalls) List(ctx context.Context, filterProject *string, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.ListFirewallsResponse, error) {
 	request := operations.ListFirewallsRequest{
 		FilterProject: filterProject,
+		PageSize:      pageSize,
+		PageNumber:    pageNumber,
 	}
 
 	o := operations.Options{}
@@ -420,6 +423,52 @@ func (s *Firewalls) List(ctx context.Context, filterProject *string, opts ...ope
 			Request:  req,
 			Response: httpRes,
 		},
+	}
+	res.Next = func() (*operations.ListFirewallsResponse, error) {
+		rawBody, err := utils.ConsumeRawBody(httpRes)
+		if err != nil {
+			return nil, err
+		}
+
+		b, err := ajson.Unmarshal(rawBody)
+		if err != nil {
+			return nil, err
+		}
+		var p int64 = 1
+		if pageNumber != nil {
+			p = *pageNumber
+		}
+		nP := int64(p + 1)
+		r, err := ajson.Eval(b, "$.data")
+		if err != nil {
+			return nil, err
+		}
+		if !r.IsArray() {
+			return nil, nil
+		}
+		arr, err := r.GetArray()
+		if err != nil {
+			return nil, err
+		}
+		if len(arr) == 0 {
+			return nil, nil
+		}
+
+		l := 0
+		if pageSize != nil {
+			l = int(*pageSize)
+		}
+		if len(arr) < l {
+			return nil, nil
+		}
+
+		return s.List(
+			ctx,
+			filterProject,
+			pageSize,
+			&nP,
+			opts...,
+		)
 	}
 
 	switch {
@@ -1143,9 +1192,11 @@ func (s *Firewalls) Delete(ctx context.Context, firewallID string, opts ...opera
 
 // ListAssignments - Firewall Assignments
 // List servers assigned to a firewall
-func (s *Firewalls) ListAssignments(ctx context.Context, firewallID string, opts ...operations.Option) (*operations.GetFirewallAssignmentsResponse, error) {
+func (s *Firewalls) ListAssignments(ctx context.Context, firewallID string, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetFirewallAssignmentsResponse, error) {
 	request := operations.GetFirewallAssignmentsRequest{
 		FirewallID: firewallID,
+		PageSize:   pageSize,
+		PageNumber: pageNumber,
 	}
 
 	o := operations.Options{}
@@ -1196,6 +1247,10 @@ func (s *Firewalls) ListAssignments(ctx context.Context, firewallID string, opts
 	}
 	req.Header.Set("Accept", "application/vnd.api+json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
+
+	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
+		return nil, fmt.Errorf("error populating query params: %w", err)
+	}
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -1299,6 +1354,52 @@ func (s *Firewalls) ListAssignments(ctx context.Context, firewallID string, opts
 			Request:  req,
 			Response: httpRes,
 		},
+	}
+	res.Next = func() (*operations.GetFirewallAssignmentsResponse, error) {
+		rawBody, err := utils.ConsumeRawBody(httpRes)
+		if err != nil {
+			return nil, err
+		}
+
+		b, err := ajson.Unmarshal(rawBody)
+		if err != nil {
+			return nil, err
+		}
+		var p int64 = 1
+		if pageNumber != nil {
+			p = *pageNumber
+		}
+		nP := int64(p + 1)
+		r, err := ajson.Eval(b, "$.data")
+		if err != nil {
+			return nil, err
+		}
+		if !r.IsArray() {
+			return nil, nil
+		}
+		arr, err := r.GetArray()
+		if err != nil {
+			return nil, err
+		}
+		if len(arr) == 0 {
+			return nil, nil
+		}
+
+		l := 0
+		if pageSize != nil {
+			l = int(*pageSize)
+		}
+		if len(arr) < l {
+			return nil, nil
+		}
+
+		return s.ListAssignments(
+			ctx,
+			firewallID,
+			pageSize,
+			&nP,
+			opts...,
+		)
 	}
 
 	switch {

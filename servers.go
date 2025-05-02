@@ -11,6 +11,7 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
 	"github.com/latitudesh/latitudesh-go-sdk/retry"
+	"github.com/spyzhov/ajson"
 	"net/http"
 	"net/url"
 )
@@ -183,6 +184,68 @@ func (s *Servers) List(ctx context.Context, request operations.GetServersRequest
 			Request:  req,
 			Response: httpRes,
 		},
+	}
+	res.Next = func() (*operations.GetServersResponse, error) {
+		rawBody, err := utils.ConsumeRawBody(httpRes)
+		if err != nil {
+			return nil, err
+		}
+
+		b, err := ajson.Unmarshal(rawBody)
+		if err != nil {
+			return nil, err
+		}
+		var p int64 = 1
+		if request.PageNumber != nil {
+			p = *request.PageNumber
+		}
+		nP := int64(p + 1)
+		r, err := ajson.Eval(b, "$.data")
+		if err != nil {
+			return nil, err
+		}
+		if !r.IsArray() {
+			return nil, nil
+		}
+		arr, err := r.GetArray()
+		if err != nil {
+			return nil, err
+		}
+		if len(arr) == 0 {
+			return nil, nil
+		}
+
+		l := 0
+		if request.PageSize != nil {
+			l = int(*request.PageSize)
+		}
+		if len(arr) < l {
+			return nil, nil
+		}
+
+		return s.List(
+			ctx,
+			operations.GetServersRequest{
+				FilterProject:      request.FilterProject,
+				FilterRegion:       request.FilterRegion,
+				FilterHostname:     request.FilterHostname,
+				FilterCreatedAtGte: request.FilterCreatedAtGte,
+				FilterCreatedAtLte: request.FilterCreatedAtLte,
+				FilterLabel:        request.FilterLabel,
+				FilterStatus:       request.FilterStatus,
+				FilterPlan:         request.FilterPlan,
+				FilterGpu:          request.FilterGpu,
+				FilterRAMEql:       request.FilterRAMEql,
+				FilterRAMGte:       request.FilterRAMGte,
+				FilterRAMLte:       request.FilterRAMLte,
+				FilterDisk:         request.FilterDisk,
+				FilterTags:         request.FilterTags,
+				ExtraFieldsServers: request.ExtraFieldsServers,
+				PageSize:           request.PageSize,
+				PageNumber:         &nP,
+			},
+			opts...,
+		)
 	}
 
 	switch {

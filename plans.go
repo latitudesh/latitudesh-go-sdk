@@ -11,6 +11,7 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
 	"github.com/latitudesh/latitudesh-go-sdk/retry"
+	"github.com/spyzhov/ajson"
 	"net/http"
 	"net/url"
 )
@@ -462,10 +463,12 @@ func (s *Plans) Get(ctx context.Context, planID string, opts ...operations.Optio
 
 // ListBandwidth - List all bandwidth plans
 // Lists all bandwidth plans.
-func (s *Plans) ListBandwidth(ctx context.Context, apiVersion *string, filterID *string, opts ...operations.Option) (*operations.GetBandwidthPlansResponse, error) {
+func (s *Plans) ListBandwidth(ctx context.Context, apiVersion *string, filterID *string, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetBandwidthPlansResponse, error) {
 	request := operations.GetBandwidthPlansRequest{
 		APIVersion: apiVersion,
 		FilterID:   filterID,
+		PageSize:   pageSize,
+		PageNumber: pageNumber,
 	}
 
 	o := operations.Options{}
@@ -625,6 +628,53 @@ func (s *Plans) ListBandwidth(ctx context.Context, apiVersion *string, filterID 
 			Request:  req,
 			Response: httpRes,
 		},
+	}
+	res.Next = func() (*operations.GetBandwidthPlansResponse, error) {
+		rawBody, err := utils.ConsumeRawBody(httpRes)
+		if err != nil {
+			return nil, err
+		}
+
+		b, err := ajson.Unmarshal(rawBody)
+		if err != nil {
+			return nil, err
+		}
+		var p int64 = 1
+		if pageNumber != nil {
+			p = *pageNumber
+		}
+		nP := int64(p + 1)
+		r, err := ajson.Eval(b, "$.data")
+		if err != nil {
+			return nil, err
+		}
+		if !r.IsArray() {
+			return nil, nil
+		}
+		arr, err := r.GetArray()
+		if err != nil {
+			return nil, err
+		}
+		if len(arr) == 0 {
+			return nil, nil
+		}
+
+		l := 0
+		if pageSize != nil {
+			l = int(*pageSize)
+		}
+		if len(arr) < l {
+			return nil, nil
+		}
+
+		return s.ListBandwidth(
+			ctx,
+			apiVersion,
+			filterID,
+			pageSize,
+			&nP,
+			opts...,
+		)
 	}
 
 	switch {

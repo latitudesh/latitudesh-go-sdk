@@ -3,6 +3,7 @@
 package operations
 
 import (
+	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
@@ -13,6 +14,21 @@ type GetVirtualNetworksAssignmentsRequest struct {
 	FilterVid *string `queryParam:"style=form,explode=true,name=filter[vid]"`
 	// The virtual network ID to filter by
 	FilterVirtualNetworkID *string `queryParam:"style=form,explode=true,name=filter[virtual_network_id]"`
+	// Number of items to return per page
+	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
+	// Page number to return (starts at 1)
+	PageNumber *int64 `default:"1" queryParam:"style=form,explode=true,name=page[number]"`
+}
+
+func (g GetVirtualNetworksAssignmentsRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(g, "", false)
+}
+
+func (g *GetVirtualNetworksAssignmentsRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &g, "", false, false); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (o *GetVirtualNetworksAssignmentsRequest) GetFilterServer() *string {
@@ -36,10 +52,26 @@ func (o *GetVirtualNetworksAssignmentsRequest) GetFilterVirtualNetworkID() *stri
 	return o.FilterVirtualNetworkID
 }
 
+func (o *GetVirtualNetworksAssignmentsRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
+func (o *GetVirtualNetworksAssignmentsRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
 type GetVirtualNetworksAssignmentsResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Success
 	VirtualNetworkAssignments *components.VirtualNetworkAssignments
+
+	Next func() (*GetVirtualNetworksAssignmentsResponse, error)
 }
 
 func (o *GetVirtualNetworksAssignmentsResponse) GetHTTPMeta() components.HTTPMetadata {

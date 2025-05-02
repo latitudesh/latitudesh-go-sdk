@@ -87,7 +87,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Plans.Get(ctx, "plan_w49QDB55qagKb")
+    res, err := s.Plans.Get(ctx, "plan_W6Q2D9plqKLpr")
     if err != nil {
         log.Fatal(err)
     }
@@ -139,12 +139,24 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Plans.ListBandwidth(ctx, nil, nil)
+    res, err := s.Plans.ListBandwidth(ctx, nil, nil, nil, nil)
     if err != nil {
         log.Fatal(err)
     }
     if res.BandwidthPlans != nil {
-        // handle response
+        for {
+            // handle items
+
+            res, err = res.Next()
+
+            if err != nil {
+                // handle error
+            }
+
+            if res == nil {
+                break
+            }
+        }
     }
 }
 ```
@@ -156,6 +168,8 @@ func main() {
 | `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
 | `apiVersion`                                             | **string*                                                | :heavy_minus_sign:                                       | N/A                                                      |
 | `filterID`                                               | **string*                                                | :heavy_minus_sign:                                       | The plan ID to filter by                                 |
+| `pageSize`                                               | **int64*                                                 | :heavy_minus_sign:                                       | Number of items to return per page                       |
+| `pageNumber`                                             | **int64*                                                 | :heavy_minus_sign:                                       | Page number to return (starts at 1)                      |
 | `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
 
 ### Response
@@ -197,7 +211,7 @@ func main() {
         Data: &operations.UpdatePlansBandwidthPlansData{
             Type: operations.UpdatePlansBandwidthPlansTypeBandwidthPackages.ToPointer(),
             Attributes: &operations.UpdatePlansBandwidthPlansAttributes{
-                Project: latitudeshgosdk.String("proj_1ZJrdxNnDg4LV"),
+                Project: latitudeshgosdk.String("proj_VE1Wd3EKDXnZJ"),
                 Quantity: latitudeshgosdk.Int64(5),
                 RegionSlug: latitudeshgosdk.String("brazil"),
             },

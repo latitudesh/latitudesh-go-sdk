@@ -34,7 +34,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserData.List(ctx, "proj_kjQwdEa7dYNVP", nil)
+    res, err := s.UserData.List(ctx, "proj_z2A3DV4wdnawP", nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -88,7 +88,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserData.Create(ctx, "proj_A05EdQW5DvKYQ", operations.PostProjectUserDataUserDataRequestBody{
+    res, err := s.UserData.Create(ctx, "proj_1ZJrdxvyDg4LV", operations.PostProjectUserDataUserDataRequestBody{
         Data: operations.PostProjectUserDataUserDataData{
             Type: operations.PostProjectUserDataUserDataTypeUserData,
             Attributes: &operations.PostProjectUserDataUserDataAttributes{
@@ -149,7 +149,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserData.Get(ctx, "proj_VE1Wd3GadXnZJ", "ud_Ee8pKq05DWAob", nil)
+    res, err := s.UserData.Get(ctx, "proj_vYAZqG44DMQ94", "ud_lQraYDPeOpjwW", nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -204,9 +204,9 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserData.Update(ctx, "proj_1ZJrdxvyDg4LV", "ud_GlxWpD6KOm6rk", &operations.PutProjectUserDataUserDataRequestBody{
+    res, err := s.UserData.Update(ctx, "proj_e8pKq0aKDWAob", "ud_2695BdKrOevVo", &operations.PutProjectUserDataUserDataRequestBody{
         Data: operations.PutProjectUserDataUserDataData{
-            ID: "ud_GlxWpD6KOm6rk",
+            ID: "ud_2695BdKrOevVo",
             Type: operations.PutProjectUserDataUserDataTypeUserData,
             Attributes: &operations.PutProjectUserDataUserDataAttributes{
                 Content: latitudeshgosdk.String("I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"),

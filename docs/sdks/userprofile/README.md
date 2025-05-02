@@ -85,9 +85,9 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserProfile.Update(ctx, "user_QJPQJNXX62cWNMr9BZ0kcXGgKzpW", operations.PatchUserProfileUserProfileRequestBody{
+    res, err := s.UserProfile.Update(ctx, "user_3pwPRamaN8FKz8EELKNmH0XMvvyR", operations.PatchUserProfileUserProfileRequestBody{
         Data: operations.PatchUserProfileUserProfileData{
-            ID: "user_QJPQJNXX62cWNMr9BZ0kcXGgKzpW",
+            ID: "user_3pwPRamaN8FKz8EELKNmH0XMvvyR",
             Type: operations.PatchUserProfileUserProfileTypeUsers,
             Attributes: &operations.PatchUserProfileUserProfileAttributes{
                 Role: operations.PatchUserProfileUserProfileRoleCollaborator.ToPointer(),

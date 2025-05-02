@@ -219,6 +219,7 @@ type Products struct {
 	ID                    *string     `json:"id,omitempty"`
 	Resource              *string     `json:"resource,omitempty"`
 	Name                  *string     `json:"name,omitempty"`
+	Proration             *bool       `json:"proration,omitempty"`
 	Discounts             []Discounts `json:"discounts,omitempty"`
 	Discountable          *bool       `json:"discountable,omitempty"`
 	Description           *string     `json:"description,omitempty"`
@@ -265,6 +266,13 @@ func (o *Products) GetName() *string {
 		return nil
 	}
 	return o.Name
+}
+
+func (o *Products) GetProration() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Proration
 }
 
 func (o *Products) GetDiscounts() []Discounts {

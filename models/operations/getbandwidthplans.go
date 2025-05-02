@@ -11,6 +11,10 @@ type GetBandwidthPlansRequest struct {
 	APIVersion *string `default:"2023-06-01" header:"style=simple,explode=false,name=API-Version"`
 	// The plan ID to filter by
 	FilterID *string `queryParam:"style=form,explode=true,name=filter[id]"`
+	// Number of items to return per page
+	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
+	// Page number to return (starts at 1)
+	PageNumber *int64 `default:"1" queryParam:"style=form,explode=true,name=page[number]"`
 }
 
 func (g GetBandwidthPlansRequest) MarshalJSON() ([]byte, error) {
@@ -38,10 +42,26 @@ func (o *GetBandwidthPlansRequest) GetFilterID() *string {
 	return o.FilterID
 }
 
+func (o *GetBandwidthPlansRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
+func (o *GetBandwidthPlansRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
 type GetBandwidthPlansResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Success
 	BandwidthPlans *components.BandwidthPlans
+
+	Next func() (*GetBandwidthPlansResponse, error)
 }
 
 func (o *GetBandwidthPlansResponse) GetHTTPMeta() components.HTTPMetadata {

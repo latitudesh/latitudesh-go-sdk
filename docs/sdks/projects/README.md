@@ -36,13 +36,25 @@ func main() {
     )
 
     res, err := s.Projects.List(ctx, operations.GetProjectsRequest{
-        FilterTags: latitudeshgosdk.String("tag_ezo5vGxZXVU3ozExYeXaCMJzvp0"),
+        FilterTags: latitudeshgosdk.String("tag_R3YGrW8m0NSAm0l5Wp6XTnnww9r"),
     })
     if err != nil {
         log.Fatal(err)
     }
     if res.Projects != nil {
-        // handle response
+        for {
+            // handle items
+
+            res, err = res.Next()
+
+            if err != nil {
+                // handle error
+            }
+
+            if res == nil {
+                break
+            }
+        }
     }
 }
 ```
@@ -93,9 +105,9 @@ func main() {
         Data: &operations.CreateProjectProjectsData{
             Type: operations.CreateProjectProjectsTypeProjects,
             Attributes: &operations.CreateProjectProjectsAttributes{
-                Name: "Mosciski Group",
+                Name: "Cormier-Corkery",
                 ProvisioningType: operations.CreateProjectProvisioningTypeOnDemand,
-                Description: latitudeshgosdk.String("Three egg whites with spinach, mushrooms, caramelized onions, tomatoes and low-fat feta cheese. With herbed quinoa, and your choice of rye or whole-grain toast."),
+                Description: latitudeshgosdk.String("Thick slices of French toast bread, brown sugar, half-and-half and vanilla, topped with powdered sugar. With two eggs served any style, and your choice of smoked bacon or smoked ham."),
                 Environment: operations.CreateProjectEnvironmentDevelopment.ToPointer(),
             },
         },
@@ -152,13 +164,13 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Projects.Update(ctx, "proj_Z8rodm2Yq1jLB", &operations.UpdateProjectProjectsRequestBody{
+    res, err := s.Projects.Update(ctx, "proj_LGXPdWpgqnNWk", &operations.UpdateProjectProjectsRequestBody{
         Data: operations.UpdateProjectProjectsData{
             Type: operations.UpdateProjectProjectsTypeProjects,
             Attributes: &operations.UpdateProjectProjectsAttributes{
                 Tags: []string{
-                    "tag_zNzZ1bp9Nos8E1YzEzGGce8vkMp",
-                    "tag_L8KGx7Rp46sLPgmGPeARFEMLyxw",
+                    "tag_mELJ1g6Z31SG0xzYx9e5fV91K7W",
+                    "tag_wR5nAvxpnJiRn8AppN0JilvWY0y",
                 },
             },
         },

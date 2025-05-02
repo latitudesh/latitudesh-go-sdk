@@ -3,6 +3,7 @@
 package operations
 
 import (
+	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
@@ -13,6 +14,21 @@ type GetVirtualNetworksRequest struct {
 	FilterProject *string `queryParam:"style=form,explode=true,name=filter[project]"`
 	// The tags ids to filter by, separated by comma, e.g. `filter[tags]=tag_1,tag_2`will return ssh keys with `tag_1` AND `tag_2`
 	FilterTags *string `queryParam:"style=form,explode=true,name=filter[tags]"`
+	// Number of items to return per page
+	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
+	// Page number to return (starts at 1)
+	PageNumber *int64 `default:"1" queryParam:"style=form,explode=true,name=page[number]"`
+}
+
+func (g GetVirtualNetworksRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(g, "", false)
+}
+
+func (g *GetVirtualNetworksRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &g, "", false, false); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (o *GetVirtualNetworksRequest) GetFilterLocation() *string {
@@ -36,10 +52,26 @@ func (o *GetVirtualNetworksRequest) GetFilterTags() *string {
 	return o.FilterTags
 }
 
+func (o *GetVirtualNetworksRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
+func (o *GetVirtualNetworksRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
 type GetVirtualNetworksResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// List virtual networks filtered by tag
 	VirtualNetworks *components.VirtualNetworks
+
+	Next func() (*GetVirtualNetworksResponse, error)
 }
 
 func (o *GetVirtualNetworksResponse) GetHTTPMeta() components.HTTPMetadata {
