@@ -50,18 +50,30 @@ func main() {
     )
 
     res, err := s.Servers.List(ctx, operations.GetServersRequest{
-        FilterProject: latitudeshgosdk.String("proj_W6Q2D9lGqKLpr"),
+        FilterProject: latitudeshgosdk.String("proj_g1mbDwrZqLv5B"),
         FilterRegion: latitudeshgosdk.String("SAO"),
         FilterRAMEql: latitudeshgosdk.Int64(32),
         FilterRAMGte: latitudeshgosdk.Int64(40),
         FilterRAMLte: latitudeshgosdk.Int64(40),
-        FilterTags: latitudeshgosdk.String("tag_EVZVklJKJpUXr3eZ46ylUoEJXZP"),
+        FilterTags: latitudeshgosdk.String("tag_0yrQNVQRLwHy0XwEGM6ESwLrW2PA"),
     })
     if err != nil {
         log.Fatal(err)
     }
     if res.Servers != nil {
-        // handle response
+        for {
+            // handle items
+
+            res, err = res.Next()
+
+            if err != nil {
+                // handle error
+            }
+
+            if res == nil {
+                break
+            }
+        }
     }
 }
 ```
@@ -112,7 +124,7 @@ func main() {
         Data: &operations.CreateServerServersData{
             Type: operations.CreateServerServersTypeServers,
             Attributes: &operations.CreateServerServersAttributes{
-                Project: latitudeshgosdk.String("proj_LGXPdWK8dnNWk"),
+                Project: latitudeshgosdk.String("proj_W6Q2D93GdKLpr"),
                 Plan: operations.CreateServerPlanC2SmallX86.ToPointer(),
                 Site: operations.CreateServerSiteSao.ToPointer(),
                 OperatingSystem: operations.CreateServerOperatingSystemUbuntu2204X64Lts.ToPointer(),
@@ -172,7 +184,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.Get(ctx, "sv_RMLydp70OQKr1", nil)
+    res, err := s.Servers.Get(ctx, "sv_aNmodjGeqbE8W", nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -225,7 +237,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.Update(ctx, "sv_Gr47qleMDAg0m", operations.UpdateServerServersRequestBody{})
+    res, err := s.Servers.Update(ctx, "sv_3YjJOLLNOvZ87", operations.UpdateServerServersRequestBody{})
     if err != nil {
         log.Fatal(err)
     }
@@ -279,7 +291,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.Delete(ctx, "sv_GMy1Db3NON50m", nil)
+    res, err := s.Servers.Delete(ctx, "sv_WeGoqAZNDP7nz", nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -332,7 +344,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.GetDeployConfig(ctx, "sv_xkjQwdENqYNVP")
+    res, err := s.Servers.GetDeployConfig(ctx, "sv_pRMLydp0dQKr1")
     if err != nil {
         log.Fatal(err)
     }
@@ -384,7 +396,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.UpdateDeployConfig(ctx, "sv_Z8rodmnGq1jLB", operations.UpdateServerDeployConfigServersRequestBody{
+    res, err := s.Servers.UpdateDeployConfig(ctx, "sv_g1mbDweZdLv5B", operations.UpdateServerDeployConfigServersRequestBody{
         Type: operations.UpdateServerDeployConfigServersTypeDeployConfig,
     })
     if err != nil {
@@ -440,7 +452,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.Lock(ctx, "sv_w49QDBmQqagKb")
+    res, err := s.Servers.Lock(ctx, "sv_059EqYX2dQj8p")
     if err != nil {
         log.Fatal(err)
     }
@@ -491,7 +503,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.Unlock(ctx, "sv_LMmAD8E4Owop2")
+    res, err := s.Servers.Unlock(ctx, "sv_aNmodjoyqbE8W")
     if err != nil {
         log.Fatal(err)
     }
@@ -543,7 +555,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.CreateOutOfBandConnection(ctx, "sv_RMLydpoXOQKr1", operations.CreateServerOutOfBandServersRequestBody{
+    res, err := s.Servers.CreateOutOfBandConnection(ctx, "sv_z2A3DVpQdnawP", operations.CreateServerOutOfBandServersRequestBody{
         Data: operations.CreateServerOutOfBandServersData{
             Type: operations.CreateServerOutOfBandServersTypeOutOfBand,
             Attributes: &operations.CreateServerOutOfBandServersAttributes{
@@ -603,7 +615,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.ListOutOfBandConnections(ctx, "sv_059EqYX2dQj8p")
+    res, err := s.Servers.ListOutOfBandConnections(ctx, "sv_1ZJrdx34Og4LV")
     if err != nil {
         log.Fatal(err)
     }
@@ -660,7 +672,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.RunAction(ctx, "sv_z2A3DVpQdnawP", operations.CreateServerActionServersRequestBody{
+    res, err := s.Servers.RunAction(ctx, "sv_LYV8DZAQq5QoE", operations.CreateServerActionServersRequestBody{
         Data: operations.CreateServerActionServersData{
             Type: operations.CreateServerActionServersTypeActions,
             Attributes: &operations.CreateServerActionServersAttributes{
@@ -724,7 +736,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.CreateIpmiSession(ctx, "sv_0MK4O44ROa95w")
+    res, err := s.Servers.CreateIpmiSession(ctx, "sv_8NkvdyGKDeLpx")
     if err != nil {
         log.Fatal(err)
     }
@@ -776,7 +788,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.StartRescueMode(ctx, "sv_pbV0DgjKq4AWz")
+    res, err := s.Servers.StartRescueMode(ctx, "sv_k0Ryqv9adW36X")
     if err != nil {
         log.Fatal(err)
     }
@@ -828,7 +840,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.ExitRescueMode(ctx, "sv_QraYDP15OpjwW")
+    res, err := s.Servers.ExitRescueMode(ctx, "sv_KXgRdRRodv9k5")
     if err != nil {
         log.Fatal(err)
     }
@@ -880,7 +892,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.ScheduleDeletion(ctx, "sv_yQrJdNMGO30gv")
+    res, err := s.Servers.ScheduleDeletion(ctx, "sv_enPbqoBJdA2MQ")
     if err != nil {
         log.Fatal(err)
     }
@@ -932,7 +944,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.UnscheduleDeletion(ctx, "sv_1R3zq2JxqWxyn")
+    res, err := s.Servers.UnscheduleDeletion(ctx, "sv_Z8rodmJGq1jLB")
     if err != nil {
         log.Fatal(err)
     }
@@ -985,7 +997,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.Reinstall(ctx, "sv_GMy1Db2NDN50m", operations.CreateServerReinstallServersRequestBody{
+    res, err := s.Servers.Reinstall(ctx, "sv_WeGoqAWNOP7nz", operations.CreateServerReinstallServersRequestBody{
         Data: operations.CreateServerReinstallServersData{
             Type: operations.CreateServerReinstallServersTypeReinstalls,
             Attributes: &operations.CreateServerReinstallServersAttributes{

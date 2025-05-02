@@ -35,9 +35,9 @@ func main() {
         Data: operations.PostTeamMembersTeamMembersData{
             Type: operations.PostTeamMembersTeamMembersTypeMemberships,
             Attributes: &operations.PostTeamMembersTeamMembersAttributes{
-                FirstName: latitudeshgosdk.String("Dianne"),
-                LastName: latitudeshgosdk.String("Bahringer"),
-                Email: "theron_keeling@balistreri.test",
+                FirstName: latitudeshgosdk.String("Napoleon"),
+                LastName: latitudeshgosdk.String("Rogahn"),
+                Email: "teddy_champlin@glover-boyer.test",
                 Role: operations.PostTeamMembersRoleCollaborator,
             },
         },

@@ -31,7 +31,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.ProjectsUserData.Delete(ctx, "proj_lxWpD62zDm6rk", "123")
+    res, err := s.ProjectsUserData.Delete(ctx, "proj_GnzRD5X6qM5yw", "123")
     if err != nil {
         log.Fatal(err)
     }

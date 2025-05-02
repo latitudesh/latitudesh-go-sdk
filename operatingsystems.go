@@ -11,6 +11,7 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
 	"github.com/latitudesh/latitudesh-go-sdk/retry"
+	"github.com/spyzhov/ajson"
 	"net/http"
 	"net/url"
 )
@@ -27,7 +28,12 @@ func newOperatingSystems(sdkConfig sdkConfiguration) *OperatingSystems {
 
 // List all operating systems available
 // Lists all operating systems available to deploy and reinstall.
-func (s *OperatingSystems) List(ctx context.Context, opts ...operations.Option) (*operations.GetPlansOperatingSystemResponse, error) {
+func (s *OperatingSystems) List(ctx context.Context, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetPlansOperatingSystemResponse, error) {
+	request := operations.GetPlansOperatingSystemRequest{
+		PageSize:   pageSize,
+		PageNumber: pageNumber,
+	}
+
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -76,6 +82,10 @@ func (s *OperatingSystems) List(ctx context.Context, opts ...operations.Option) 
 	}
 	req.Header.Set("Accept", "application/vnd.api+json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
+
+	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
+		return nil, fmt.Errorf("error populating query params: %w", err)
+	}
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -179,6 +189,51 @@ func (s *OperatingSystems) List(ctx context.Context, opts ...operations.Option) 
 			Request:  req,
 			Response: httpRes,
 		},
+	}
+	res.Next = func() (*operations.GetPlansOperatingSystemResponse, error) {
+		rawBody, err := utils.ConsumeRawBody(httpRes)
+		if err != nil {
+			return nil, err
+		}
+
+		b, err := ajson.Unmarshal(rawBody)
+		if err != nil {
+			return nil, err
+		}
+		var p int64 = 1
+		if pageNumber != nil {
+			p = *pageNumber
+		}
+		nP := int64(p + 1)
+		r, err := ajson.Eval(b, "$.data")
+		if err != nil {
+			return nil, err
+		}
+		if !r.IsArray() {
+			return nil, nil
+		}
+		arr, err := r.GetArray()
+		if err != nil {
+			return nil, err
+		}
+		if len(arr) == 0 {
+			return nil, nil
+		}
+
+		l := 0
+		if pageSize != nil {
+			l = int(*pageSize)
+		}
+		if len(arr) < l {
+			return nil, nil
+		}
+
+		return s.List(
+			ctx,
+			pageSize,
+			&nP,
+			opts...,
+		)
 	}
 
 	switch {

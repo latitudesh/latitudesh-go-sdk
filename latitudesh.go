@@ -187,9 +187,9 @@ func New(opts ...SDKOption) *Latitudesh {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "v3",
-			SDKVersion:        "1.0.1",
-			GenVersion:        "2.591.1",
-			UserAgent:         "speakeasy-sdk/go 1.0.1 2.591.1 v3 github.com/latitudesh/latitudesh-go-sdk",
+			SDKVersion:        "1.1.0",
+			GenVersion:        "2.596.2",
+			UserAgent:         "speakeasy-sdk/go 1.1.0 2.596.2 v3 github.com/latitudesh/latitudesh-go-sdk",
 			ServerDefaults: []map[string]string{
 				{
 					"latitude_api_key": "<insert your api key here>",

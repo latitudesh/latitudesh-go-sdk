@@ -3,11 +3,27 @@
 package operations
 
 import (
+	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
 type ListFirewallsRequest struct {
 	FilterProject *string `queryParam:"style=form,explode=true,name=filter[project]"`
+	// Number of items to return per page
+	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
+	// Page number to return (starts at 1)
+	PageNumber *int64 `default:"1" queryParam:"style=form,explode=true,name=page[number]"`
+}
+
+func (l ListFirewallsRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *ListFirewallsRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (o *ListFirewallsRequest) GetFilterProject() *string {
@@ -17,10 +33,26 @@ func (o *ListFirewallsRequest) GetFilterProject() *string {
 	return o.FilterProject
 }
 
+func (o *ListFirewallsRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
+func (o *ListFirewallsRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
 type ListFirewallsResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Success
 	Firewalls *components.Firewalls
+
+	Next func() (*ListFirewallsResponse, error)
 }
 
 func (o *ListFirewallsResponse) GetHTTPMeta() components.HTTPMetadata {

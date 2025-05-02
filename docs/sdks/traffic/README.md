@@ -31,7 +31,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Traffic.Get(ctx, "2025-01-05T21:14:55Z", "2025-02-05T21:14:55Z", latitudeshgosdk.Int64(187), latitudeshgosdk.Int64(301))
+    res, err := s.Traffic.Get(ctx, "2025-03-28T18:40:31Z", "2025-04-28T18:40:31Z", latitudeshgosdk.Int64(196), latitudeshgosdk.Int64(306))
     if err != nil {
         log.Fatal(err)
     }

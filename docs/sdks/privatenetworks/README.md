@@ -27,6 +27,7 @@ import(
 	"context"
 	"os"
 	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
 	"log"
 )
 
@@ -37,25 +38,39 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.PrivateNetworks.List(ctx, latitudeshgosdk.String("SAO"), latitudeshgosdk.String("lightweight-iron-keyboard"), latitudeshgosdk.String("tag_jVnnao8eYWSQW5EKKR4QH5bQllx"))
+    res, err := s.PrivateNetworks.List(ctx, operations.GetVirtualNetworksRequest{
+        FilterLocation: latitudeshgosdk.String("SAO"),
+        FilterProject: latitudeshgosdk.String("awesome-copper-clock"),
+        FilterTags: latitudeshgosdk.String("tag_KLmjvaEPE7uL9G9E42pxTrEK96Jn"),
+    })
     if err != nil {
         log.Fatal(err)
     }
     if res.VirtualNetworks != nil {
-        // handle response
+        for {
+            // handle items
+
+            res, err = res.Next()
+
+            if err != nil {
+                // handle error
+            }
+
+            if res == nil {
+                break
+            }
+        }
     }
 }
 ```
 
 ### Parameters
 
-| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                                       | [context.Context](https://pkg.go.dev/context#Context)                                                                       | :heavy_check_mark:                                                                                                          | The context to use for the request.                                                                                         |
-| `filterLocation`                                                                                                            | **string*                                                                                                                   | :heavy_minus_sign:                                                                                                          | The location slug to filter by                                                                                              |
-| `filterProject`                                                                                                             | **string*                                                                                                                   | :heavy_minus_sign:                                                                                                          | The project id or slug to filter by                                                                                         |
-| `filterTags`                                                                                                                | **string*                                                                                                                   | :heavy_minus_sign:                                                                                                          | The tags ids to filter by, separated by comma, e.g. `filter[tags]=tag_1,tag_2`will return ssh keys with `tag_1` AND `tag_2` |
-| `opts`                                                                                                                      | [][operations.Option](../../models/operations/option.md)                                                                    | :heavy_minus_sign:                                                                                                          | The options for this request.                                                                                               |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.GetVirtualNetworksRequest](../../models/operations/getvirtualnetworksrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `opts`                                                                                       | [][operations.Option](../../models/operations/option.md)                                     | :heavy_minus_sign:                                                                           | The options for this request.                                                                |
 
 ### Response
 
@@ -98,7 +113,7 @@ func main() {
             Attributes: operations.CreateVirtualNetworkPrivateNetworksAttributes{
                 Description: "São Paulo VLAN",
                 Site: operations.CreateVirtualNetworkPrivateNetworksSiteMia.ToPointer(),
-                Project: "aerodynamic-marble-bench",
+                Project: "enormous-paper-clock",
             },
         },
     })
@@ -155,7 +170,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.PrivateNetworks.Update(ctx, "vlan_pRMLydp0dQKr1", operations.UpdateVirtualNetworkPrivateNetworksRequestBody{
+    res, err := s.PrivateNetworks.Update(ctx, "vlan_zGr47qlMDAg0m", operations.UpdateVirtualNetworkPrivateNetworksRequestBody{
         Data: operations.UpdateVirtualNetworkPrivateNetworksData{
             Type: operations.UpdateVirtualNetworkPrivateNetworksTypeVirtualNetworks,
             Attributes: &operations.UpdateVirtualNetworkPrivateNetworksAttributes{},
@@ -256,6 +271,7 @@ import(
 	"context"
 	"os"
 	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
 	"log"
 )
 
@@ -266,25 +282,38 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.PrivateNetworks.ListAssignments(ctx, latitudeshgosdk.String("208"), latitudeshgosdk.String("4"), nil)
+    res, err := s.PrivateNetworks.ListAssignments(ctx, operations.GetVirtualNetworksAssignmentsRequest{
+        FilterServer: latitudeshgosdk.String("217"),
+        FilterVid: latitudeshgosdk.String("8"),
+    })
     if err != nil {
         log.Fatal(err)
     }
     if res.VirtualNetworkAssignments != nil {
-        // handle response
+        for {
+            // handle items
+
+            res, err = res.Next()
+
+            if err != nil {
+                // handle error
+            }
+
+            if res == nil {
+                break
+            }
+        }
     }
 }
 ```
 
 ### Parameters
 
-| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `filterServer`                                           | **string*                                                | :heavy_minus_sign:                                       | The server ID to filter by                               |
-| `filterVid`                                              | **string*                                                | :heavy_minus_sign:                                       | The vlan ID to filter by                                 |
-| `filterVirtualNetworkID`                                 | **string*                                                | :heavy_minus_sign:                                       | The virtual network ID to filter by                      |
-| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+| Parameter                                                                                                          | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                                              | :heavy_check_mark:                                                                                                 | The context to use for the request.                                                                                |
+| `request`                                                                                                          | [operations.GetVirtualNetworksAssignmentsRequest](../../models/operations/getvirtualnetworksassignmentsrequest.md) | :heavy_check_mark:                                                                                                 | The request object to use for the request.                                                                         |
+| `opts`                                                                                                             | [][operations.Option](../../models/operations/option.md)                                                           | :heavy_minus_sign:                                                                                                 | The options for this request.                                                                                      |
 
 ### Response
 
@@ -324,8 +353,8 @@ func main() {
         Data: &operations.AssignServerVirtualNetworkPrivateNetworksData{
             Type: operations.AssignServerVirtualNetworkPrivateNetworksTypeVirtualNetworkAssignment,
             Attributes: &operations.AssignServerVirtualNetworkPrivateNetworksAttributes{
-                ServerID: "sv_aNmodj6ZdbE8W",
-                VirtualNetworkID: vlan_g1mbDwG0DLv5B,
+                ServerID: "sv_pbV0DgQGd4AWz",
+                VirtualNetworkID: vlan_059EqYe2qQj8p,
             },
         },
     })
@@ -381,7 +410,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.PrivateNetworks.RemoveAssignment(ctx, "vnasg_695BdKagDevVo")
+    res, err := s.PrivateNetworks.RemoveAssignment(ctx, "vnasg_LA73qk8WDaJ2o")
     if err != nil {
         log.Fatal(err)
     }

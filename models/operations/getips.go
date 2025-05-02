@@ -5,6 +5,7 @@ package operations
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
@@ -77,6 +78,21 @@ type GetIpsRequest struct {
 	FilterAddress *string `queryParam:"style=form,explode=true,name=filter[address]"`
 	// The `region` and `server` are provided as extra attributes that is lazy loaded. To request it, just set `extra_fields[ip_addresses]=region,server` in the query string.
 	ExtraFieldsIPAddresses *string `queryParam:"style=form,explode=true,name=extra_fields[ip_addresses]"`
+	// Number of items to return per page
+	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
+	// Page number to return (starts at 1)
+	PageNumber *int64 `default:"1" queryParam:"style=form,explode=true,name=page[number]"`
+}
+
+func (g GetIpsRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(g, "", false)
+}
+
+func (g *GetIpsRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &g, "", false, false); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (o *GetIpsRequest) GetFilterServer() *string {
@@ -128,10 +144,26 @@ func (o *GetIpsRequest) GetExtraFieldsIPAddresses() *string {
 	return o.ExtraFieldsIPAddresses
 }
 
+func (o *GetIpsRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
+func (o *GetIpsRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
 type GetIpsResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Success
 	IPAddresses *components.IPAddresses
+
+	Next func() (*GetIpsResponse, error)
 }
 
 func (o *GetIpsResponse) GetHTTPMeta() components.HTTPMetadata {

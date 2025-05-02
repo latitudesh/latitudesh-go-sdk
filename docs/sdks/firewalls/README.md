@@ -42,7 +42,7 @@ func main() {
             Type: operations.CreateFirewallTypeFirewalls,
             Attributes: &operations.CreateFirewallAttributes{
                 Name: "my-firewall",
-                Project: "small-rubber-lamp",
+                Project: "sleek-steel-shirt",
                 Rules: []operations.CreateFirewallRules{
                     operations.CreateFirewallRules{
                         From: latitudeshgosdk.String("192.168.42.72"),
@@ -117,12 +117,24 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Firewalls.List(ctx, latitudeshgosdk.String("aerodynamic-silk-pants"))
+    res, err := s.Firewalls.List(ctx, latitudeshgosdk.String("lightweight-silk-table"), nil, nil)
     if err != nil {
         log.Fatal(err)
     }
     if res.Firewalls != nil {
-        // handle response
+        for {
+            // handle items
+
+            res, err = res.Next()
+
+            if err != nil {
+                // handle error
+            }
+
+            if res == nil {
+                break
+            }
+        }
     }
 }
 ```
@@ -133,6 +145,8 @@ func main() {
 | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
 | `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
 | `filterProject`                                          | **string*                                                | :heavy_minus_sign:                                       | N/A                                                      |
+| `pageSize`                                               | **int64*                                                 | :heavy_minus_sign:                                       | Number of items to return per page                       |
+| `pageNumber`                                             | **int64*                                                 | :heavy_minus_sign:                                       | Page number to return (starts at 1)                      |
 | `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
 
 ### Response
@@ -333,12 +347,24 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Firewalls.ListAssignments(ctx, "fw_93YjJOLydvZ87")
+    res, err := s.Firewalls.ListAssignments(ctx, "fw_93YjJOLydvZ87", nil, nil)
     if err != nil {
         log.Fatal(err)
     }
     if res.FirewallServer != nil {
-        // handle response
+        for {
+            // handle items
+
+            res, err = res.Next()
+
+            if err != nil {
+                // handle error
+            }
+
+            if res == nil {
+                break
+            }
+        }
     }
 }
 ```
@@ -349,6 +375,8 @@ func main() {
 | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
 | `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
 | `firewallID`                                             | *string*                                                 | :heavy_check_mark:                                       | The Firewall ID                                          |
+| `pageSize`                                               | **int64*                                                 | :heavy_minus_sign:                                       | Number of items to return per page                       |
+| `pageNumber`                                             | **int64*                                                 | :heavy_minus_sign:                                       | Page number to return (starts at 1)                      |
 | `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
 
 ### Response

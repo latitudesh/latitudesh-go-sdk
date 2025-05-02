@@ -11,6 +11,7 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
 	"github.com/latitudesh/latitudesh-go-sdk/retry"
+	"github.com/spyzhov/ajson"
 	"net/http"
 	"net/url"
 )
@@ -27,13 +28,7 @@ func newPrivateNetworks(sdkConfig sdkConfiguration) *PrivateNetworks {
 
 // List all Virtual Networks
 // Lists virtual networks assigned to a project
-func (s *PrivateNetworks) List(ctx context.Context, filterLocation *string, filterProject *string, filterTags *string, opts ...operations.Option) (*operations.GetVirtualNetworksResponse, error) {
-	request := operations.GetVirtualNetworksRequest{
-		FilterLocation: filterLocation,
-		FilterProject:  filterProject,
-		FilterTags:     filterTags,
-	}
-
+func (s *PrivateNetworks) List(ctx context.Context, request operations.GetVirtualNetworksRequest, opts ...operations.Option) (*operations.GetVirtualNetworksResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -189,6 +184,56 @@ func (s *PrivateNetworks) List(ctx context.Context, filterLocation *string, filt
 			Request:  req,
 			Response: httpRes,
 		},
+	}
+	res.Next = func() (*operations.GetVirtualNetworksResponse, error) {
+		rawBody, err := utils.ConsumeRawBody(httpRes)
+		if err != nil {
+			return nil, err
+		}
+
+		b, err := ajson.Unmarshal(rawBody)
+		if err != nil {
+			return nil, err
+		}
+		var p int64 = 1
+		if request.PageNumber != nil {
+			p = *request.PageNumber
+		}
+		nP := int64(p + 1)
+		r, err := ajson.Eval(b, "$.data")
+		if err != nil {
+			return nil, err
+		}
+		if !r.IsArray() {
+			return nil, nil
+		}
+		arr, err := r.GetArray()
+		if err != nil {
+			return nil, err
+		}
+		if len(arr) == 0 {
+			return nil, nil
+		}
+
+		l := 0
+		if request.PageSize != nil {
+			l = int(*request.PageSize)
+		}
+		if len(arr) < l {
+			return nil, nil
+		}
+
+		return s.List(
+			ctx,
+			operations.GetVirtualNetworksRequest{
+				FilterLocation: request.FilterLocation,
+				FilterProject:  request.FilterProject,
+				FilterTags:     request.FilterTags,
+				PageSize:       request.PageSize,
+				PageNumber:     &nP,
+			},
+			opts...,
+		)
 	}
 
 	switch {
@@ -910,13 +955,7 @@ func (s *PrivateNetworks) Get(ctx context.Context, vlanID string, opts ...operat
 
 // ListAssignments - List all servers assigned to virtual networks
 // Returns a list of all servers assigned to virtual networks.
-func (s *PrivateNetworks) ListAssignments(ctx context.Context, filterServer *string, filterVid *string, filterVirtualNetworkID *string, opts ...operations.Option) (*operations.GetVirtualNetworksAssignmentsResponse, error) {
-	request := operations.GetVirtualNetworksAssignmentsRequest{
-		FilterServer:           filterServer,
-		FilterVid:              filterVid,
-		FilterVirtualNetworkID: filterVirtualNetworkID,
-	}
-
+func (s *PrivateNetworks) ListAssignments(ctx context.Context, request operations.GetVirtualNetworksAssignmentsRequest, opts ...operations.Option) (*operations.GetVirtualNetworksAssignmentsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -1072,6 +1111,56 @@ func (s *PrivateNetworks) ListAssignments(ctx context.Context, filterServer *str
 			Request:  req,
 			Response: httpRes,
 		},
+	}
+	res.Next = func() (*operations.GetVirtualNetworksAssignmentsResponse, error) {
+		rawBody, err := utils.ConsumeRawBody(httpRes)
+		if err != nil {
+			return nil, err
+		}
+
+		b, err := ajson.Unmarshal(rawBody)
+		if err != nil {
+			return nil, err
+		}
+		var p int64 = 1
+		if request.PageNumber != nil {
+			p = *request.PageNumber
+		}
+		nP := int64(p + 1)
+		r, err := ajson.Eval(b, "$.data")
+		if err != nil {
+			return nil, err
+		}
+		if !r.IsArray() {
+			return nil, nil
+		}
+		arr, err := r.GetArray()
+		if err != nil {
+			return nil, err
+		}
+		if len(arr) == 0 {
+			return nil, nil
+		}
+
+		l := 0
+		if request.PageSize != nil {
+			l = int(*request.PageSize)
+		}
+		if len(arr) < l {
+			return nil, nil
+		}
+
+		return s.ListAssignments(
+			ctx,
+			operations.GetVirtualNetworksAssignmentsRequest{
+				FilterServer:           request.FilterServer,
+				FilterVid:              request.FilterVid,
+				FilterVirtualNetworkID: request.FilterVirtualNetworkID,
+				PageSize:               request.PageSize,
+				PageNumber:             &nP,
+			},
+			opts...,
+		)
 	}
 
 	switch {

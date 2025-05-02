@@ -3,8 +3,41 @@
 package operations
 
 import (
+	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
+
+type GetPlansOperatingSystemRequest struct {
+	// Number of items to return per page
+	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
+	// Page number to return (starts at 1)
+	PageNumber *int64 `default:"1" queryParam:"style=form,explode=true,name=page[number]"`
+}
+
+func (g GetPlansOperatingSystemRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(g, "", false)
+}
+
+func (g *GetPlansOperatingSystemRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &g, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *GetPlansOperatingSystemRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
+func (o *GetPlansOperatingSystemRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
 
 // GetPlansOperatingSystemResponseBody - Success
 type GetPlansOperatingSystemResponseBody struct {
@@ -22,6 +55,8 @@ type GetPlansOperatingSystemResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Success
 	Object *GetPlansOperatingSystemResponseBody
+
+	Next func() (*GetPlansOperatingSystemResponse, error)
 }
 
 func (o *GetPlansOperatingSystemResponse) GetHTTPMeta() components.HTTPMetadata {

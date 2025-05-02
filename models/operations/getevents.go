@@ -3,6 +3,7 @@
 package operations
 
 import (
+	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
@@ -23,6 +24,21 @@ type GetEventsRequest struct {
 	FilterCreatedAtLte *string `queryParam:"style=form,explode=true,name=filter[created_at][lte]"`
 	// The created at between date range date1, date2 (inclusive) to filter by, in ISO formatting (yyyy-MM-dd'T'HH:mm:ss)
 	FilterCreatedAt []string `queryParam:"style=form,explode=true,name=filter[created_at]"`
+	// Number of items to return per page
+	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
+	// Page number to return (starts at 1)
+	PageNumber *int64 `default:"1" queryParam:"style=form,explode=true,name=page[number]"`
+}
+
+func (g GetEventsRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(g, "", false)
+}
+
+func (g *GetEventsRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &g, "", false, false); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (o *GetEventsRequest) GetFilterAuthor() *string {
@@ -81,6 +97,20 @@ func (o *GetEventsRequest) GetFilterCreatedAt() []string {
 	return o.FilterCreatedAt
 }
 
+func (o *GetEventsRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
+func (o *GetEventsRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
 // GetEventsResponseBody - Success
 type GetEventsResponseBody struct {
 	Data []components.Events `json:"data,omitempty"`
@@ -97,6 +127,8 @@ type GetEventsResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Success
 	Object *GetEventsResponseBody
+
+	Next func() (*GetEventsResponse, error)
 }
 
 func (o *GetEventsResponse) GetHTTPMeta() components.HTTPMetadata {
