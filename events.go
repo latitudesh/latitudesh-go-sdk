@@ -26,9 +26,9 @@ func newEvents(sdkConfig sdkConfiguration) *Events {
 	}
 }
 
-// List all Events
+// GetEvents - List all Events
 // Lists all events.
-func (s *Events) List(ctx context.Context, request operations.GetEventsRequest, opts ...operations.Option) (*operations.GetEventsResponse, error) {
+func (s *Events) GetEvents(ctx context.Context, request operations.GetEventsRequest, opts ...operations.Option) (*operations.GetEventsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -223,7 +223,7 @@ func (s *Events) List(ctx context.Context, request operations.GetEventsRequest, 
 			return nil, nil
 		}
 
-		return s.List(
+		return s.GetEvents(
 			ctx,
 			operations.GetEventsRequest{
 				FilterAuthor:       request.FilterAuthor,

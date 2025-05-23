@@ -5,13 +5,13 @@
 
 ### Available Operations
 
-* [List](#list) - List all Plans
-* [Get](#get) - Retrieve a Plan
-* [ListBandwidth](#listbandwidth) - List all bandwidth plans
-* [UpdateBandwidth](#updatebandwidth) - Buy or remove bandwidth packages
-* [ListStorage](#liststorage) - List all Storage Plans
+* [GetPlans](#getplans) - List all Plans
+* [GetPlan](#getplan) - Retrieve a Plan
+* [GetBandwidthPlans](#getbandwidthplans) - List all bandwidth plans
+* [UpdatePlansBandwidth](#updateplansbandwidth) - Buy or remove bandwidth packages
+* [GetStoragePlans](#getstorageplans) - List all Storage Plans
 
-## List
+## GetPlans
 
 Lists all plans. Availability by region is included in `attributes.regions.locations.available[*]` node for a given plan.
 
@@ -36,7 +36,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Plans.List(ctx, operations.GetPlansRequest{})
+    res, err := s.Plans.GetPlans(ctx, operations.GetPlansRequest{})
     if err != nil {
         log.Fatal(err)
     }
@@ -64,7 +64,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## Get
+## GetPlan
 
 Retrieve a Plan
 
@@ -87,7 +87,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Plans.Get(ctx, "plan_W6Q2D9plqKLpr")
+    res, err := s.Plans.GetPlan(ctx, "plan_W6Q2D9plqKLpr")
     if err != nil {
         log.Fatal(err)
     }
@@ -116,7 +116,7 @@ func main() {
 | components.ErrorObject   | 404                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## ListBandwidth
+## GetBandwidthPlans
 
 Lists all bandwidth plans.
 
@@ -139,7 +139,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Plans.ListBandwidth(ctx, nil, nil, nil, nil)
+    res, err := s.Plans.GetBandwidthPlans(ctx, nil, nil, nil, nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -182,7 +182,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## UpdateBandwidth
+## UpdatePlansBandwidth
 
 Allow to increase or decrease bandwidth packages. Only admins and owners can request.
 
@@ -207,7 +207,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Plans.UpdateBandwidth(ctx, operations.UpdatePlansBandwidthPlansRequestBody{
+    res, err := s.Plans.UpdatePlansBandwidth(ctx, operations.UpdatePlansBandwidthPlansRequestBody{
         Data: &operations.UpdatePlansBandwidthPlansData{
             Type: operations.UpdatePlansBandwidthPlansTypeBandwidthPackages.ToPointer(),
             Attributes: &operations.UpdatePlansBandwidthPlansAttributes{
@@ -245,7 +245,7 @@ func main() {
 | components.ErrorObject   | 403                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## ListStorage
+## GetStoragePlans
 
 List all Storage Plans
 
@@ -268,7 +268,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Plans.ListStorage(ctx)
+    res, err := s.Plans.GetStoragePlans(ctx)
     if err != nil {
         log.Fatal(err)
     }

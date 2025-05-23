@@ -5,12 +5,12 @@
 
 ### Available Operations
 
-* [List](#list) - List API Keys
-* [Create](#create) - Create API Key
-* [Regenerate](#regenerate) - Regenerate API Key
-* [Delete](#delete) - Delete API Key
+* [GetAPIKeys](#getapikeys) - List API Keys
+* [PostAPIKey](#postapikey) - Create API Key
+* [UpdateAPIKey](#updateapikey) - Regenerate API Key
+* [DeleteAPIKey](#deleteapikey) - Delete API Key
 
-## List
+## GetAPIKeys
 
 Returns a list of all API keys from the team members
 
@@ -34,7 +34,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.APIKeys.List(ctx)
+    res, err := s.APIKeys.GetAPIKeys(ctx)
     if err != nil {
         log.Fatal(err)
     }
@@ -61,7 +61,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## Create
+## PostAPIKey
 
 Create a new API Key that is tied to the current user account. The created API key is only listed ONCE upon creation. It can however be regenerated or deleted.
 
@@ -86,7 +86,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.APIKeys.Create(ctx, components.CreateAPIKey{
+    res, err := s.APIKeys.PostAPIKey(ctx, components.CreateAPIKey{
         Data: &components.Data{
             Type: components.CreateAPIKeyTypeAPIKeys,
             Attributes: &components.CreateAPIKeyAttributes{},
@@ -120,7 +120,7 @@ func main() {
 | components.ErrorObject   | 400, 422                 | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## Regenerate
+## UpdateAPIKey
 
 Regenerate an existing API Key that is tied to the current user. This overrides the previous key.
 
@@ -145,7 +145,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.APIKeys.Regenerate(ctx, "tok_pRMLydp0dQKr1", components.UpdateAPIKey{
+    res, err := s.APIKeys.UpdateAPIKey(ctx, "tok_pRMLydp0dQKr1", components.UpdateAPIKey{
         Data: &components.UpdateAPIKeyData{
             ID: latitudeshgosdk.String("tok_pRMLydp0dQKr1"),
             Type: components.UpdateAPIKeyTypeAPIKeys,
@@ -181,7 +181,7 @@ func main() {
 | components.ErrorObject   | 400, 404                 | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## Delete
+## DeleteAPIKey
 
 Delete an existing API Key. Once deleted, the API Key can no longer be used to access the API.
 
@@ -205,7 +205,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.APIKeys.Delete(ctx, "tok_xkjQwdENqYNVP")
+    res, err := s.APIKeys.DeleteAPIKey(ctx, "tok_xkjQwdENqYNVP")
     if err != nil {
         log.Fatal(err)
     }

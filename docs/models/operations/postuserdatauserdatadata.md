@@ -1,0 +1,9 @@
+# PostUserDataUserDataData
+
+
+## Fields
+
+| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `Type`                                                                                                  | [operations.PostUserDataUserDataType](../../models/operations/postuserdatauserdatatype.md)              | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
+| `Attributes`                                                                                            | [*operations.PostUserDataUserDataAttributes](../../models/operations/postuserdatauserdataattributes.md) | :heavy_minus_sign:                                                                                      | N/A                                                                                                     |

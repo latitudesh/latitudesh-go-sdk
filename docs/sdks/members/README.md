@@ -5,9 +5,9 @@
 
 ### Available Operations
 
-* [List](#list) - List all Team Members
+* [GetTeamMembers](#getteammembers) - List all Team Members
 
-## List
+## GetTeamMembers
 
 List all Team Members
 
@@ -30,7 +30,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Teams.Members.List(ctx, nil, nil)
+    res, err := s.Teams.Members.GetTeamMembers(ctx, nil, nil)
     if err != nil {
         log.Fatal(err)
     }

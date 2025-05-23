@@ -5,12 +5,12 @@
 
 ### Available Operations
 
-* [CreateFilesystem](#createfilesystem) - Create a filesystem for a project
-* [ListFilesystems](#listfilesystems) - List filesystems
-* [DeleteFilesystem](#deletefilesystem) - Delete a filesystem for a project
-* [UpdateFilesystem](#updatefilesystem) - Update a filesystem for a project
+* [PostStorageFilesystems](#poststoragefilesystems) - Create a filesystem for a project
+* [GetStorageFilesystems](#getstoragefilesystems) - List filesystems
+* [DeleteStorageFilesystems](#deletestoragefilesystems) - Delete a filesystem for a project
+* [PatchStorageFilesystems](#patchstoragefilesystems) - Update a filesystem for a project
 
-## CreateFilesystem
+## PostStorageFilesystems
 
 Allows you to add persistent storage to a project. These filesystems can be used to store data across your servers.
 
@@ -34,7 +34,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Storage.CreateFilesystem(ctx, operations.PostStorageFilesystemsStorageRequestBody{
+    res, err := s.Storage.PostStorageFilesystems(ctx, operations.PostStorageFilesystemsStorageRequestBody{
         Data: operations.PostStorageFilesystemsStorageData{
             Type: operations.PostStorageFilesystemsStorageTypeFilesystems,
             Attributes: operations.PostStorageFilesystemsStorageAttributes{
@@ -70,7 +70,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## ListFilesystems
+## GetStorageFilesystems
 
 Lists all the filesystems from a team.
 
@@ -93,7 +93,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Storage.ListFilesystems(ctx, latitudeshgosdk.String("small-bronze-gloves"))
+    res, err := s.Storage.GetStorageFilesystems(ctx, latitudeshgosdk.String("small-bronze-gloves"))
     if err != nil {
         log.Fatal(err)
     }
@@ -121,7 +121,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## DeleteFilesystem
+## DeleteStorageFilesystems
 
 Allows you to remove persistent storage from a project.
 
@@ -144,7 +144,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Storage.DeleteFilesystem(ctx, "fs_123")
+    res, err := s.Storage.DeleteStorageFilesystems(ctx, "fs_123")
     if err != nil {
         log.Fatal(err)
     }
@@ -172,7 +172,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## UpdateFilesystem
+## PatchStorageFilesystems
 
 Allow you to upgrade the size of a filesystem.
 
@@ -196,7 +196,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Storage.UpdateFilesystem(ctx, "fs_7vYAZqGBdMQ94", operations.PatchStorageFilesystemsStorageRequestBody{
+    res, err := s.Storage.PatchStorageFilesystems(ctx, "fs_7vYAZqGBdMQ94", operations.PatchStorageFilesystemsStorageRequestBody{
         Data: operations.PatchStorageFilesystemsStorageData{
             ID: "fs_7vYAZqGBdMQ94",
             Type: operations.PatchStorageFilesystemsStorageTypeFilesystems,

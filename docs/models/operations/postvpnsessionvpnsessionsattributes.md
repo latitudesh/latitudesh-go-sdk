@@ -1,9 +1,9 @@
-# PostVpnSessionVpnSessionsAttributes
+# PostVPNSessionVPNSessionsAttributes
 
 
 ## Fields
 
 | Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `Site`                                                                                                | [*operations.PostVpnSessionVpnSessionsSite](../../models/operations/postvpnsessionvpnsessionssite.md) | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
+| `Site`                                                                                                | [*operations.PostVPNSessionVPNSessionsSite](../../models/operations/postvpnsessionvpnsessionssite.md) | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
 | `ServerID`                                                                                            | **string*                                                                                             | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |

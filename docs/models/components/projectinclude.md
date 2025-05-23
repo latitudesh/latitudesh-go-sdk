@@ -15,3 +15,4 @@
 | `Environment`                                             | **string*                                                 | :heavy_minus_sign:                                        | N/A                                                       |
 | `Billing`                                                 | [*components.Billing](../../models/components/billing.md) | :heavy_minus_sign:                                        | N/A                                                       |
 | `Stats`                                                   | [*components.Stats](../../models/components/stats.md)     | :heavy_minus_sign:                                        | N/A                                                       |
+| `ProvisioningType`                                        | **string*                                                 | :heavy_minus_sign:                                        | N/A                                                       |

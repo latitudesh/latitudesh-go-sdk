@@ -5,9 +5,9 @@
 
 ### Available Operations
 
-* [RemoveMember](#removemember) - Remove a Team Member
+* [DestroyTeamMember](#destroyteammember) - Remove a Team Member
 
-## RemoveMember
+## DestroyTeamMember
 
 Remove a Team Member
 
@@ -30,7 +30,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.TeamsMembers.RemoveMember(ctx, "user_GMy1DbMLqN50m")
+    res, err := s.TeamsMembers.DestroyTeamMember(ctx, "user_GMy1DbMLqN50m")
     if err != nil {
         log.Fatal(err)
     }

@@ -5,10 +5,10 @@
 
 ### Available Operations
 
-* [List](#list) - List IPs
-* [Get](#get) - Retrieve an IP
+* [GetIps](#getips) - List IPs
+* [GetIP](#getip) - Retrieve an IP
 
-## List
+## GetIps
 
 List all Management and Additional IP Addresses.
  • Management IPs are IPs that are used for the management IP of a device.
@@ -36,7 +36,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.IPAddresses.List(ctx, operations.GetIpsRequest{
+    res, err := s.IPAddresses.GetIps(ctx, operations.GetIpsRequest{
         FilterServer: latitudeshgosdk.String("46"),
         FilterProject: latitudeshgosdk.String("59"),
     })
@@ -80,7 +80,7 @@ func main() {
 | components.ErrorObject   | 422                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## Get
+## GetIP
 
 Retrieve an IP Address
 
@@ -103,7 +103,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.IPAddresses.Get(ctx, "ip_059EqY7kOQj8p", nil)
+    res, err := s.IPAddresses.GetIP(ctx, "ip_059EqY7kOQj8p", nil)
     if err != nil {
         log.Fatal(err)
     }

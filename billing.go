@@ -25,9 +25,9 @@ func newBilling(sdkConfig sdkConfiguration) *Billing {
 	}
 }
 
-// ListUsage - List Billing Usage
+// GetBillingUsage - List Billing Usage
 // Returns the billing usage of a project
-func (s *Billing) ListUsage(ctx context.Context, filterProject string, filterProducts []string, filterPlan *string, opts ...operations.Option) (*operations.GetBillingUsageResponse, error) {
+func (s *Billing) GetBillingUsage(ctx context.Context, filterProject string, filterProducts []string, filterPlan *string, opts ...operations.Option) (*operations.GetBillingUsageResponse, error) {
 	request := operations.GetBillingUsageRequest{
 		FilterProducts: filterProducts,
 		FilterPlan:     filterPlan,

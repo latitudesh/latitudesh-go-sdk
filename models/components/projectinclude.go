@@ -65,16 +65,17 @@ func (o *Stats) GetVlans() *int64 {
 }
 
 type ProjectInclude struct {
-	ID             *string  `json:"id,omitempty"`
-	Name           *string  `json:"name,omitempty"`
-	Slug           *string  `json:"slug,omitempty"`
-	Description    *string  `json:"description,omitempty"`
-	BillingType    *string  `json:"billing_type,omitempty"`
-	BillingMethod  *string  `json:"billing_method,omitempty"`
-	BandwidthAlert *bool    `json:"bandwidth_alert,omitempty"`
-	Environment    *string  `json:"environment,omitempty"`
-	Billing        *Billing `json:"billing,omitempty"`
-	Stats          *Stats   `json:"stats,omitempty"`
+	ID               *string  `json:"id,omitempty"`
+	Name             *string  `json:"name,omitempty"`
+	Slug             *string  `json:"slug,omitempty"`
+	Description      *string  `json:"description,omitempty"`
+	BillingType      *string  `json:"billing_type,omitempty"`
+	BillingMethod    *string  `json:"billing_method,omitempty"`
+	BandwidthAlert   *bool    `json:"bandwidth_alert,omitempty"`
+	Environment      *string  `json:"environment,omitempty"`
+	Billing          *Billing `json:"billing,omitempty"`
+	Stats            *Stats   `json:"stats,omitempty"`
+	ProvisioningType *string  `json:"provisioning_type,omitempty"`
 }
 
 func (o *ProjectInclude) GetID() *string {
@@ -145,4 +146,11 @@ func (o *ProjectInclude) GetStats() *Stats {
 		return nil
 	}
 	return o.Stats
+}
+
+func (o *ProjectInclude) GetProvisioningType() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ProvisioningType
 }

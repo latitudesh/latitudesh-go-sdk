@@ -26,9 +26,9 @@ func newRoles(sdkConfig sdkConfiguration) *Roles {
 	}
 }
 
-// List all Roles
+// GetRoles - List all Roles
 // Returns a list of all roles that can be assigned to users
-func (s *Roles) List(ctx context.Context, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetRolesResponse, error) {
+func (s *Roles) GetRoles(ctx context.Context, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetRolesResponse, error) {
 	request := operations.GetRolesRequest{
 		PageSize:   pageSize,
 		PageNumber: pageNumber,
@@ -228,7 +228,7 @@ func (s *Roles) List(ctx context.Context, pageSize *int64, pageNumber *int64, op
 			return nil, nil
 		}
 
-		return s.List(
+		return s.GetRoles(
 			ctx,
 			pageSize,
 			&nP,
@@ -282,8 +282,8 @@ func (s *Roles) List(ctx context.Context, pageSize *int64, pageNumber *int64, op
 
 }
 
-// Get - Retrieve Role
-func (s *Roles) Get(ctx context.Context, roleID string, opts ...operations.Option) (*operations.GetRoleIDResponse, error) {
+// GetRoleID - Retrieve Role
+func (s *Roles) GetRoleID(ctx context.Context, roleID string, opts ...operations.Option) (*operations.GetRoleIDResponse, error) {
 	request := operations.GetRoleIDRequest{
 		RoleID: roleID,
 	}

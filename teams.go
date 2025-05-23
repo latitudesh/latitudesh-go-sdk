@@ -28,8 +28,8 @@ func newTeams(sdkConfig sdkConfiguration) *Teams {
 	}
 }
 
-// Get - Retrieve the team
-func (s *Teams) Get(ctx context.Context, opts ...operations.Option) (*operations.GetTeamResponse, error) {
+// GetTeam - Retrieve the team
+func (s *Teams) GetTeam(ctx context.Context, opts ...operations.Option) (*operations.GetTeamResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -229,8 +229,8 @@ func (s *Teams) Get(ctx context.Context, opts ...operations.Option) (*operations
 
 }
 
-// Create a team
-func (s *Teams) Create(ctx context.Context, request operations.PostTeamTeamsRequestBody, opts ...operations.Option) (*operations.PostTeamResponse, error) {
+// PostTeam - Create a team
+func (s *Teams) PostTeam(ctx context.Context, request operations.PostTeamTeamsRequestBody, opts ...operations.Option) (*operations.PostTeamResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -460,8 +460,8 @@ func (s *Teams) Create(ctx context.Context, request operations.PostTeamTeamsRequ
 
 }
 
-// Update a team
-func (s *Teams) Update(ctx context.Context, teamID string, requestBody operations.PatchCurrentTeamTeamsRequestBody, opts ...operations.Option) (*operations.PatchCurrentTeamResponse, error) {
+// PatchCurrentTeam - Update a team
+func (s *Teams) PatchCurrentTeam(ctx context.Context, teamID string, requestBody operations.PatchCurrentTeamTeamsRequestBody, opts ...operations.Option) (*operations.PatchCurrentTeamResponse, error) {
 	request := operations.PatchCurrentTeamRequest{
 		TeamID:      teamID,
 		RequestBody: requestBody,

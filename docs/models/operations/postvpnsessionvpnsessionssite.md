@@ -1,26 +1,26 @@
-# PostVpnSessionVpnSessionsSite
+# PostVPNSessionVPNSessionsSite
 
 
 ## Values
 
 | Name                                | Value                               |
 | ----------------------------------- | ----------------------------------- |
-| `PostVpnSessionVpnSessionsSiteAsh`  | ASH                                 |
-| `PostVpnSessionVpnSessionsSiteBgt`  | BGT                                 |
-| `PostVpnSessionVpnSessionsSiteBue`  | BUE                                 |
-| `PostVpnSessionVpnSessionsSiteChi`  | CHI                                 |
-| `PostVpnSessionVpnSessionsSiteDal`  | DAL                                 |
-| `PostVpnSessionVpnSessionsSiteFra`  | FRA                                 |
-| `PostVpnSessionVpnSessionsSiteLax`  | LAX                                 |
-| `PostVpnSessionVpnSessionsSiteLon`  | LON                                 |
-| `PostVpnSessionVpnSessionsSiteMex`  | MEX                                 |
-| `PostVpnSessionVpnSessionsSiteMex2` | MEX2                                |
-| `PostVpnSessionVpnSessionsSiteMia`  | MIA                                 |
-| `PostVpnSessionVpnSessionsSiteMia2` | MIA2                                |
-| `PostVpnSessionVpnSessionsSiteNyc`  | NYC                                 |
-| `PostVpnSessionVpnSessionsSiteSan`  | SAN                                 |
-| `PostVpnSessionVpnSessionsSiteSao`  | SAO                                 |
-| `PostVpnSessionVpnSessionsSiteSao2` | SAO2                                |
-| `PostVpnSessionVpnSessionsSiteSyd`  | SYD                                 |
-| `PostVpnSessionVpnSessionsSiteTyo`  | TYO                                 |
-| `PostVpnSessionVpnSessionsSiteTyo2` | TYO2                                |
+| `PostVPNSessionVPNSessionsSiteAsh`  | ASH                                 |
+| `PostVPNSessionVPNSessionsSiteBgt`  | BGT                                 |
+| `PostVPNSessionVPNSessionsSiteBue`  | BUE                                 |
+| `PostVPNSessionVPNSessionsSiteChi`  | CHI                                 |
+| `PostVPNSessionVPNSessionsSiteDal`  | DAL                                 |
+| `PostVPNSessionVPNSessionsSiteFra`  | FRA                                 |
+| `PostVPNSessionVPNSessionsSiteLax`  | LAX                                 |
+| `PostVPNSessionVPNSessionsSiteLon`  | LON                                 |
+| `PostVPNSessionVPNSessionsSiteMex`  | MEX                                 |
+| `PostVPNSessionVPNSessionsSiteMex2` | MEX2                                |
+| `PostVPNSessionVPNSessionsSiteMia`  | MIA                                 |
+| `PostVPNSessionVPNSessionsSiteMia2` | MIA2                                |
+| `PostVPNSessionVPNSessionsSiteNyc`  | NYC                                 |
+| `PostVPNSessionVPNSessionsSiteSan`  | SAN                                 |
+| `PostVPNSessionVPNSessionsSiteSao`  | SAO                                 |
+| `PostVPNSessionVPNSessionsSiteSao2` | SAO2                                |
+| `PostVPNSessionVPNSessionsSiteSyd`  | SYD                                 |
+| `PostVPNSessionVPNSessionsSiteTyo`  | TYO                                 |
+| `PostVPNSessionVPNSessionsSiteTyo2` | TYO2                                |

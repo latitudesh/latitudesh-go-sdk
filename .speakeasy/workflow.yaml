@@ -3,11 +3,14 @@ speakeasyVersion: latest
 sources:
     Latitudesh-OAS:
         inputs:
-            - location: registry.speakeasyapi.dev/latitude/latitude/latitude-sh-api:main
+            - location: https://api.latitude.sh/api-docs/v3/swagger.json
         overlays:
             - location: .speakeasy/speakeasy-modifications-overlay.yaml
         registry:
             location: registry.speakeasyapi.dev/latitude/latitude/latitudesh-oas
+    api-docs:
+        inputs:
+            - location: https://api.latitude.sh/api-docs/v3/swagger.json
 targets:
     latitudesh:
         target: go

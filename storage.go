@@ -25,9 +25,9 @@ func newStorage(sdkConfig sdkConfiguration) *Storage {
 	}
 }
 
-// CreateFilesystem - Create a filesystem for a project
+// PostStorageFilesystems - Create a filesystem for a project
 // Allows you to add persistent storage to a project. These filesystems can be used to store data across your servers.
-func (s *Storage) CreateFilesystem(ctx context.Context, request operations.PostStorageFilesystemsStorageRequestBody, opts ...operations.Option) (*operations.PostStorageFilesystemsResponse, error) {
+func (s *Storage) PostStorageFilesystems(ctx context.Context, request operations.PostStorageFilesystemsStorageRequestBody, opts ...operations.Option) (*operations.PostStorageFilesystemsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -240,9 +240,9 @@ func (s *Storage) CreateFilesystem(ctx context.Context, request operations.PostS
 
 }
 
-// ListFilesystems - List filesystems
+// GetStorageFilesystems - List filesystems
 // Lists all the filesystems from a team.
-func (s *Storage) ListFilesystems(ctx context.Context, filterProject *string, opts ...operations.Option) (*operations.GetStorageFilesystemsResponse, error) {
+func (s *Storage) GetStorageFilesystems(ctx context.Context, filterProject *string, opts ...operations.Option) (*operations.GetStorageFilesystemsResponse, error) {
 	request := operations.GetStorageFilesystemsRequest{
 		FilterProject: filterProject,
 	}
@@ -430,9 +430,9 @@ func (s *Storage) ListFilesystems(ctx context.Context, filterProject *string, op
 
 }
 
-// DeleteFilesystem - Delete a filesystem for a project
+// DeleteStorageFilesystems - Delete a filesystem for a project
 // Allows you to remove persistent storage from a project.
-func (s *Storage) DeleteFilesystem(ctx context.Context, filesystemID string, opts ...operations.Option) (*operations.DeleteStorageFilesystemsResponse, error) {
+func (s *Storage) DeleteStorageFilesystems(ctx context.Context, filesystemID string, opts ...operations.Option) (*operations.DeleteStorageFilesystemsResponse, error) {
 	request := operations.DeleteStorageFilesystemsRequest{
 		FilesystemID: filesystemID,
 	}
@@ -620,9 +620,9 @@ func (s *Storage) DeleteFilesystem(ctx context.Context, filesystemID string, opt
 
 }
 
-// UpdateFilesystem - Update a filesystem for a project
+// PatchStorageFilesystems - Update a filesystem for a project
 // Allow you to upgrade the size of a filesystem.
-func (s *Storage) UpdateFilesystem(ctx context.Context, filesystemID string, requestBody operations.PatchStorageFilesystemsStorageRequestBody, opts ...operations.Option) (*operations.PatchStorageFilesystemsResponse, error) {
+func (s *Storage) PatchStorageFilesystems(ctx context.Context, filesystemID string, requestBody operations.PatchStorageFilesystemsStorageRequestBody, opts ...operations.Option) (*operations.PatchStorageFilesystemsResponse, error) {
 	request := operations.PatchStorageFilesystemsRequest{
 		FilesystemID: filesystemID,
 		RequestBody:  requestBody,

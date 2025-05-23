@@ -5,12 +5,12 @@
 
 ### Available Operations
 
-* [Create](#create) - Create a Virtual Machine
-* [List](#list) - Get Teams Virtual Machines
-* [Get](#get) - Get a Virtual Machine
-* [Delete](#delete) - Destroy a Virtual Machine
+* [CreateVirtualMachine](#createvirtualmachine) - Create a Virtual Machine
+* [IndexVirtualMachine](#indexvirtualmachine) - Get Teams Virtual Machines
+* [ShowVirtualMachine](#showvirtualmachine) - Get a Virtual Machine
+* [DestroyVirtualMachine](#destroyvirtualmachine) - Destroy a Virtual Machine
 
-## Create
+## CreateVirtualMachine
 
 Creates a new Virtual Machine.
 
@@ -35,7 +35,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VirtualMachines.Create(ctx, components.VirtualMachinePayload{
+    res, err := s.VirtualMachines.CreateVirtualMachine(ctx, components.VirtualMachinePayload{
         Data: &components.VirtualMachinePayloadData{
             Type: components.VirtualMachinePayloadTypeVirtualMachines.ToPointer(),
             Attributes: &components.VirtualMachinePayloadAttributes{},
@@ -68,7 +68,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## List
+## IndexVirtualMachine
 
 Show all Team's Virtual Machines.
 
@@ -92,7 +92,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VirtualMachines.List(ctx, nil)
+    res, err := s.VirtualMachines.IndexVirtualMachine(ctx, nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -120,7 +120,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## Get
+## ShowVirtualMachine
 
 Show a Virtual Machine.
 
@@ -144,7 +144,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VirtualMachines.Get(ctx, "vm_w5AEmq7XDBkWX")
+    res, err := s.VirtualMachines.ShowVirtualMachine(ctx, "vm_w5AEmq7XDBkWX")
     if err != nil {
         log.Fatal(err)
     }
@@ -172,7 +172,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## Delete
+## DestroyVirtualMachine
 
 Destroys a Virtual Machine.
 
@@ -196,7 +196,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VirtualMachines.Delete(ctx, "<id>")
+    res, err := s.VirtualMachines.DestroyVirtualMachine(ctx, "<id>")
     if err != nil {
         log.Fatal(err)
     }
