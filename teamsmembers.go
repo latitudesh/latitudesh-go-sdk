@@ -24,8 +24,8 @@ func newTeamsMembers(sdkConfig sdkConfiguration) *TeamsMembers {
 	}
 }
 
-// RemoveMember - Remove a Team Member
-func (s *TeamsMembers) RemoveMember(ctx context.Context, userID string, opts ...operations.Option) (*operations.DestroyTeamMemberResponse, error) {
+// DestroyTeamMember - Remove a Team Member
+func (s *TeamsMembers) DestroyTeamMember(ctx context.Context, userID string, opts ...operations.Option) (*operations.DestroyTeamMemberResponse, error) {
 	request := operations.DestroyTeamMemberRequest{
 		UserID: userID,
 	}

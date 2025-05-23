@@ -1,0 +1,9 @@
+# PostSSHKeySSHKeysData
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `Type`                                                                                            | [operations.PostSSHKeySSHKeysType](../../models/operations/postsshkeysshkeystype.md)              | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `Attributes`                                                                                      | [*operations.PostSSHKeySSHKeysAttributes](../../models/operations/postsshkeysshkeysattributes.md) | :heavy_minus_sign:                                                                                | N/A                                                                                               |

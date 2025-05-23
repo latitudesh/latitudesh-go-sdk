@@ -1,16 +1,16 @@
-# VpnSessions
-(*VpnSessions*)
+# VPNSessions
+(*VPNSessions*)
 
 ## Overview
 
 ### Available Operations
 
-* [List](#list) - List all Active VPN Sessions
-* [Create](#create) - Create a VPN Session
-* [RefreshPassword](#refreshpassword) - Refresh a VPN Session
-* [Delete](#delete) - Delete a VPN Session
+* [GetVpnSessions](#getvpnsessions) - List all Active VPN Sessions
+* [PostVpnSession](#postvpnsession) - Create a VPN Session
+* [PutVpnSession](#putvpnsession) - Refresh a VPN Session
+* [DeleteVpnSession](#deletevpnsession) - Delete a VPN Session
 
-## List
+## GetVpnSessions
 
 List all Active VPN Sessions
 
@@ -34,7 +34,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VpnSessions.List(ctx, operations.FilterLocationSao.ToPointer())
+    res, err := s.VPNSessions.GetVpnSessions(ctx, operations.FilterLocationSao.ToPointer())
     if err != nil {
         log.Fatal(err)
     }
@@ -63,7 +63,7 @@ func main() {
 | components.ErrorObject   | 422                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## Create
+## PostVpnSession
 
 Creates a new VPN Session.
 `NOTE:` The VPN credentials are only listed ONCE upon creation. They can however be refreshed or deleted.
@@ -89,10 +89,10 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VpnSessions.Create(ctx, operations.PostVpnSessionVpnSessionsRequestBody{
-        Data: &operations.PostVpnSessionVpnSessionsData{
-            Attributes: &operations.PostVpnSessionVpnSessionsAttributes{
-                Site: operations.PostVpnSessionVpnSessionsSiteSao.ToPointer(),
+    res, err := s.VPNSessions.PostVpnSession(ctx, operations.PostVPNSessionVPNSessionsRequestBody{
+        Data: &operations.PostVPNSessionVPNSessionsData{
+            Attributes: &operations.PostVPNSessionVPNSessionsAttributes{
+                Site: operations.PostVPNSessionVPNSessionsSiteSao.ToPointer(),
                 ServerID: latitudeshgosdk.String("sv_wg3ZDrKyO5QlP"),
             },
         },
@@ -111,7 +111,7 @@ func main() {
 | Parameter                                                                                                          | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
 | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
 | `ctx`                                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                                              | :heavy_check_mark:                                                                                                 | The context to use for the request.                                                                                |
-| `request`                                                                                                          | [operations.PostVpnSessionVpnSessionsRequestBody](../../models/operations/postvpnsessionvpnsessionsrequestbody.md) | :heavy_check_mark:                                                                                                 | The request object to use for the request.                                                                         |
+| `request`                                                                                                          | [operations.PostVPNSessionVPNSessionsRequestBody](../../models/operations/postvpnsessionvpnsessionsrequestbody.md) | :heavy_check_mark:                                                                                                 | The request object to use for the request.                                                                         |
 | `opts`                                                                                                             | [][operations.Option](../../models/operations/option.md)                                                           | :heavy_minus_sign:                                                                                                 | The options for this request.                                                                                      |
 
 ### Response
@@ -125,7 +125,7 @@ func main() {
 | components.ErrorObject   | 422                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## RefreshPassword
+## PutVpnSession
 
 Refreshing an existing VPN Session will create new credentials for that session
 
@@ -149,7 +149,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VpnSessions.RefreshPassword(ctx, "vpn_6VE1Wd37dXnZJ")
+    res, err := s.VPNSessions.PutVpnSession(ctx, "vpn_6VE1Wd37dXnZJ")
     if err != nil {
         log.Fatal(err)
     }
@@ -178,7 +178,7 @@ func main() {
 | components.ErrorObject   | 404                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## Delete
+## DeleteVpnSession
 
 Deletes an existing VPN Session.
 
@@ -202,7 +202,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VpnSessions.Delete(ctx, "invalid")
+    res, err := s.VPNSessions.DeleteVpnSession(ctx, "invalid")
     if err != nil {
         log.Fatal(err)
     }

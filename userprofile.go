@@ -25,9 +25,9 @@ func newUserProfile(sdkConfig sdkConfiguration) *UserProfile {
 	}
 }
 
-// Get user profile
+// GetUserProfile - Get user profile
 // Retrieve the current user profile
-func (s *UserProfile) Get(ctx context.Context, opts ...operations.Option) (*operations.GetUserProfileResponse, error) {
+func (s *UserProfile) GetUserProfile(ctx context.Context, opts ...operations.Option) (*operations.GetUserProfileResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -227,9 +227,9 @@ func (s *UserProfile) Get(ctx context.Context, opts ...operations.Option) (*oper
 
 }
 
-// Update User Profile
+// PatchUserProfile - Update User Profile
 // Update the current user profile
-func (s *UserProfile) Update(ctx context.Context, id string, requestBody operations.PatchUserProfileUserProfileRequestBody, opts ...operations.Option) (*operations.PatchUserProfileResponse, error) {
+func (s *UserProfile) PatchUserProfile(ctx context.Context, id string, requestBody operations.PatchUserProfileUserProfileRequestBody, opts ...operations.Option) (*operations.PatchUserProfileResponse, error) {
 	request := operations.PatchUserProfileRequest{
 		ID:          id,
 		RequestBody: requestBody,
@@ -464,9 +464,9 @@ func (s *UserProfile) Update(ctx context.Context, id string, requestBody operati
 
 }
 
-// ListTeams - List User Teams
+// GetUserTeams - List User Teams
 // Returns a list of all teams the user belongs to
-func (s *UserProfile) ListTeams(ctx context.Context, opts ...operations.Option) (*operations.GetUserTeamsResponse, error) {
+func (s *UserProfile) GetUserTeams(ctx context.Context, opts ...operations.Option) (*operations.GetUserTeamsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,

@@ -7,22 +7,24 @@ import (
 )
 
 type GetTrafficConsumptionRequest struct {
-	FilterServer  *int64 `queryParam:"style=form,explode=true,name=filter[server]"`
-	FilterProject *int64 `queryParam:"style=form,explode=true,name=filter[project]"`
+	// The server id to filter by
+	FilterServer *string `queryParam:"style=form,explode=true,name=filter[server]"`
+	// The project id to filter by
+	FilterProject *string `queryParam:"style=form,explode=true,name=filter[project]"`
 	// The start timestamp to retrieve the traffic. You must provide in ISO8601 format. Example: filter[date][gte]=2024-04-01T00:00:00Z
 	FilterDateGte string `queryParam:"style=form,explode=true,name=filter[date][gte]"`
 	// The end timestamp to retrieve the traffic. You must provide in ISO8601 format. Example: filter[date][gte]=2024-04-31T23:59:59Z
 	FilterDateLte string `queryParam:"style=form,explode=true,name=filter[date][lte]"`
 }
 
-func (o *GetTrafficConsumptionRequest) GetFilterServer() *int64 {
+func (o *GetTrafficConsumptionRequest) GetFilterServer() *string {
 	if o == nil {
 		return nil
 	}
 	return o.FilterServer
 }
 
-func (o *GetTrafficConsumptionRequest) GetFilterProject() *int64 {
+func (o *GetTrafficConsumptionRequest) GetFilterProject() *string {
 	if o == nil {
 		return nil
 	}

@@ -5,12 +5,12 @@
 
 ### Available Operations
 
-* [List](#list) - List all Projects
-* [Create](#create) - Create a Project
-* [Update](#update) - Update a Project
-* [Delete](#delete) - Delete a Project
+* [GetProjects](#getprojects) - List all Projects
+* [CreateProject](#createproject) - Create a Project
+* [UpdateProject](#updateproject) - Update a Project
+* [DeleteProject](#deleteproject) - Delete a Project
 
-## List
+## GetProjects
 
 Returns a list of all projects for the current team
 
@@ -35,7 +35,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Projects.List(ctx, operations.GetProjectsRequest{
+    res, err := s.Projects.GetProjects(ctx, operations.GetProjectsRequest{
         FilterTags: latitudeshgosdk.String("tag_R3YGrW8m0NSAm0l5Wp6XTnnww9r"),
     })
     if err != nil {
@@ -77,7 +77,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## Create
+## CreateProject
 
 Create a Project
 
@@ -101,7 +101,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Projects.Create(ctx, operations.CreateProjectProjectsRequestBody{
+    res, err := s.Projects.CreateProject(ctx, operations.CreateProjectProjectsRequestBody{
         Data: &operations.CreateProjectProjectsData{
             Type: operations.CreateProjectProjectsTypeProjects,
             Attributes: &operations.CreateProjectProjectsAttributes{
@@ -140,7 +140,7 @@ func main() {
 | components.ErrorObject   | 400, 403, 422            | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## Update
+## UpdateProject
 
 Update a Project
 
@@ -164,7 +164,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Projects.Update(ctx, "proj_LGXPdWpgqnNWk", &operations.UpdateProjectProjectsRequestBody{
+    res, err := s.Projects.UpdateProject(ctx, "proj_LGXPdWpgqnNWk", &operations.UpdateProjectProjectsRequestBody{
         Data: operations.UpdateProjectProjectsData{
             Type: operations.UpdateProjectProjectsTypeProjects,
             Attributes: &operations.UpdateProjectProjectsAttributes{
@@ -204,7 +204,7 @@ func main() {
 | components.ErrorObject   | 403, 404, 422            | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## Delete
+## DeleteProject
 
 Delete a Project
 
@@ -227,7 +227,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Projects.Delete(ctx, "invalid")
+    res, err := s.Projects.DeleteProject(ctx, "invalid")
     if err != nil {
         log.Fatal(err)
     }

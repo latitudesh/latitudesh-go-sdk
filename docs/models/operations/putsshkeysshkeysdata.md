@@ -1,0 +1,10 @@
+# PutSSHKeySSHKeysData
+
+
+## Fields
+
+| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `ID`                                                                                            | **string*                                                                                       | :heavy_minus_sign:                                                                              | N/A                                                                                             |
+| `Type`                                                                                          | [operations.PutSSHKeySSHKeysType](../../models/operations/putsshkeysshkeystype.md)              | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `Attributes`                                                                                    | [*operations.PutSSHKeySSHKeysAttributes](../../models/operations/putsshkeysshkeysattributes.md) | :heavy_minus_sign:                                                                              | N/A                                                                                             |

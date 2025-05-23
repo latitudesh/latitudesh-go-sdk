@@ -25,8 +25,8 @@ func newTraffic(sdkConfig sdkConfiguration) *Traffic {
 	}
 }
 
-// Get - Retrieve Traffic consumption
-func (s *Traffic) Get(ctx context.Context, filterDateGte string, filterDateLte string, filterServer *int64, filterProject *int64, opts ...operations.Option) (*operations.GetTrafficConsumptionResponse, error) {
+// GetTrafficConsumption - Retrieve Traffic consumption
+func (s *Traffic) GetTrafficConsumption(ctx context.Context, filterDateGte string, filterDateLte string, filterServer *string, filterProject *string, opts ...operations.Option) (*operations.GetTrafficConsumptionResponse, error) {
 	request := operations.GetTrafficConsumptionRequest{
 		FilterServer:  filterServer,
 		FilterProject: filterProject,
@@ -239,8 +239,8 @@ func (s *Traffic) Get(ctx context.Context, filterDateGte string, filterDateLte s
 
 }
 
-// GetQuota - Retrieve Traffic Quota
-func (s *Traffic) GetQuota(ctx context.Context, filterProject *string, opts ...operations.Option) (*operations.GetTrafficQuotaResponse, error) {
+// GetTrafficQuota - Retrieve Traffic Quota
+func (s *Traffic) GetTrafficQuota(ctx context.Context, filterProject *string, opts ...operations.Option) (*operations.GetTrafficQuotaResponse, error) {
 	request := operations.GetTrafficQuotaRequest{
 		FilterProject: filterProject,
 	}

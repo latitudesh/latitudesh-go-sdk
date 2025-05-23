@@ -26,9 +26,9 @@ func newOperatingSystems(sdkConfig sdkConfiguration) *OperatingSystems {
 	}
 }
 
-// List all operating systems available
+// GetPlansOperatingSystem - List all operating systems available
 // Lists all operating systems available to deploy and reinstall.
-func (s *OperatingSystems) List(ctx context.Context, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetPlansOperatingSystemResponse, error) {
+func (s *OperatingSystems) GetPlansOperatingSystem(ctx context.Context, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetPlansOperatingSystemResponse, error) {
 	request := operations.GetPlansOperatingSystemRequest{
 		PageSize:   pageSize,
 		PageNumber: pageNumber,
@@ -228,7 +228,7 @@ func (s *OperatingSystems) List(ctx context.Context, pageSize *int64, pageNumber
 			return nil, nil
 		}
 
-		return s.List(
+		return s.GetPlansOperatingSystem(
 			ctx,
 			pageSize,
 			&nP,

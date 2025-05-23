@@ -31,7 +31,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VirtualNetworks.Delete(ctx, invalid-id)
+    res, err := s.VirtualNetworks.Delete(ctx, nil)
     if err != nil {
         log.Fatal(err)
     }

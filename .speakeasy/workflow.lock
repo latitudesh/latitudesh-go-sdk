@@ -1,32 +1,34 @@
-speakeasyVersion: 1.542.0
+speakeasyVersion: 1.550.0
 sources:
     Latitudesh-OAS:
         sourceNamespace: latitudesh-oas
-        sourceRevisionDigest: sha256:57bae77738831a36c1d1da6e044104097ce88c7b4d8fbeb9d00e15a53768acc1
-        sourceBlobDigest: sha256:d613eecebfffc46217b2348ad6a2171ab8862706366bf192c2b57f92316da65b
+        sourceRevisionDigest: sha256:0b97962fe550522bbe97a710799a64c35ce67e6ab08da8a6ea2fc13ace3e80bf
+        sourceBlobDigest: sha256:e7cc9d3981c9c63637844493719b592ee28a822859da0d41dd42328b19825b36
         tags:
             - latest
-            - speakeasy-sdk-regen-1745607728
-            - v3
+            - "2023-06-01"
 targets:
     latitudesh:
         source: Latitudesh-OAS
         sourceNamespace: latitudesh-oas
-        sourceRevisionDigest: sha256:57bae77738831a36c1d1da6e044104097ce88c7b4d8fbeb9d00e15a53768acc1
-        sourceBlobDigest: sha256:d613eecebfffc46217b2348ad6a2171ab8862706366bf192c2b57f92316da65b
+        sourceRevisionDigest: sha256:0b97962fe550522bbe97a710799a64c35ce67e6ab08da8a6ea2fc13ace3e80bf
+        sourceBlobDigest: sha256:e7cc9d3981c9c63637844493719b592ee28a822859da0d41dd42328b19825b36
         codeSamplesNamespace: latitudesh-oas-go-code-samples
-        codeSamplesRevisionDigest: sha256:5bcac5fa91ed2ba0d2ddf705bfcac6091649ade43a7a0a56fb7a2c4d090861e0
+        codeSamplesRevisionDigest: sha256:7604637a5a590117ae8d325ee182b92cb0d8114784ac72c9ddff395aeecda040
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
     sources:
         Latitudesh-OAS:
             inputs:
-                - location: registry.speakeasyapi.dev/latitude/latitude/latitude-sh-api:main
+                - location: https://api.latitude.sh/api-docs/v3/swagger.json
             overlays:
                 - location: .speakeasy/speakeasy-modifications-overlay.yaml
             registry:
                 location: registry.speakeasyapi.dev/latitude/latitude/latitudesh-oas
+        api-docs:
+            inputs:
+                - location: https://api.latitude.sh/api-docs/v3/swagger.json
     targets:
         latitudesh:
             target: go

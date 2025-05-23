@@ -5,12 +5,14 @@
 
 ### Available Operations
 
-* [Create](#create) - Create a Project SSH Key
+* [~~PostProjectSSHKey~~](#postprojectsshkey) - Create a Project SSH Key :warning: **Deprecated**
 
-## Create
+## ~~PostProjectSSHKey~~
 
 Allow you create SSH Keys in a project. These keys can be used to access servers after deploy and reinstall actions.
 
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -32,7 +34,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Projects.SSHKeys.Create(ctx, "proj_wg3ZDrMyq5QlP", operations.PostProjectSSHKeyProjectsSSHKeysRequestBody{
+    res, err := s.Projects.SSHKeys.PostProjectSSHKey(ctx, "proj_wg3ZDrMyq5QlP", operations.PostProjectSSHKeyProjectsSSHKeysRequestBody{
         Data: operations.PostProjectSSHKeyProjectsSSHKeysData{
             Type: operations.PostProjectSSHKeyProjectsSSHKeysTypeSSHKeys,
             Attributes: &operations.PostProjectSSHKeyProjectsSSHKeysAttributes{

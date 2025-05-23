@@ -29,9 +29,9 @@ func newFirewalls(sdkConfig sdkConfiguration) *Firewalls {
 	}
 }
 
+// CreateFirewall - Create a firewall
 // Create a firewall
-// Create a firewall
-func (s *Firewalls) Create(ctx context.Context, request operations.CreateFirewallFirewallsRequestBody, opts ...operations.Option) (*operations.CreateFirewallResponse, error) {
+func (s *Firewalls) CreateFirewall(ctx context.Context, request operations.CreateFirewallFirewallsRequestBody, opts ...operations.Option) (*operations.CreateFirewallResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -259,9 +259,9 @@ func (s *Firewalls) Create(ctx context.Context, request operations.CreateFirewal
 
 }
 
+// ListFirewalls - List firewalls
 // List firewalls
-// List firewalls
-func (s *Firewalls) List(ctx context.Context, filterProject *string, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.ListFirewallsResponse, error) {
+func (s *Firewalls) ListFirewalls(ctx context.Context, filterProject *string, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.ListFirewallsResponse, error) {
 	request := operations.ListFirewallsRequest{
 		FilterProject: filterProject,
 		PageSize:      pageSize,
@@ -462,7 +462,7 @@ func (s *Firewalls) List(ctx context.Context, filterProject *string, pageSize *i
 			return nil, nil
 		}
 
-		return s.List(
+		return s.ListFirewalls(
 			ctx,
 			filterProject,
 			pageSize,
@@ -517,9 +517,9 @@ func (s *Firewalls) List(ctx context.Context, filterProject *string, pageSize *i
 
 }
 
-// Get - Retrieve Firewall
+// GetFirewall - Retrieve Firewall
 // Retrieve a firewall
-func (s *Firewalls) Get(ctx context.Context, firewallID string, opts ...operations.Option) (*operations.GetFirewallResponse, error) {
+func (s *Firewalls) GetFirewall(ctx context.Context, firewallID string, opts ...operations.Option) (*operations.GetFirewallResponse, error) {
 	request := operations.GetFirewallRequest{
 		FirewallID: firewallID,
 	}
@@ -744,9 +744,9 @@ func (s *Firewalls) Get(ctx context.Context, firewallID string, opts ...operatio
 
 }
 
-// Update Firewall
+// UpdateFirewall - Update Firewall
 // Update a firewall
-func (s *Firewalls) Update(ctx context.Context, firewallID string, requestBody operations.UpdateFirewallFirewallsRequestBody, opts ...operations.Option) (*operations.UpdateFirewallResponse, error) {
+func (s *Firewalls) UpdateFirewall(ctx context.Context, firewallID string, requestBody operations.UpdateFirewallFirewallsRequestBody, opts ...operations.Option) (*operations.UpdateFirewallResponse, error) {
 	request := operations.UpdateFirewallRequest{
 		FirewallID:  firewallID,
 		RequestBody: requestBody,
@@ -981,9 +981,9 @@ func (s *Firewalls) Update(ctx context.Context, firewallID string, requestBody o
 
 }
 
-// Delete Firewall
+// DeleteFirewall - Delete Firewall
 // Delete a firewall
-func (s *Firewalls) Delete(ctx context.Context, firewallID string, opts ...operations.Option) (*operations.DeleteFirewallResponse, error) {
+func (s *Firewalls) DeleteFirewall(ctx context.Context, firewallID string, opts ...operations.Option) (*operations.DeleteFirewallResponse, error) {
 	request := operations.DeleteFirewallRequest{
 		FirewallID: firewallID,
 	}
@@ -1190,9 +1190,9 @@ func (s *Firewalls) Delete(ctx context.Context, firewallID string, opts ...opera
 
 }
 
-// ListAssignments - Firewall Assignments
+// GetFirewallAssignments - Firewall Assignments
 // List servers assigned to a firewall
-func (s *Firewalls) ListAssignments(ctx context.Context, firewallID string, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetFirewallAssignmentsResponse, error) {
+func (s *Firewalls) GetFirewallAssignments(ctx context.Context, firewallID string, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetFirewallAssignmentsResponse, error) {
 	request := operations.GetFirewallAssignmentsRequest{
 		FirewallID: firewallID,
 		PageSize:   pageSize,
@@ -1393,7 +1393,7 @@ func (s *Firewalls) ListAssignments(ctx context.Context, firewallID string, page
 			return nil, nil
 		}
 
-		return s.ListAssignments(
+		return s.GetFirewallAssignments(
 			ctx,
 			firewallID,
 			pageSize,
@@ -1469,9 +1469,9 @@ func (s *Firewalls) ListAssignments(ctx context.Context, firewallID string, page
 
 }
 
-// DeleteAssignment - Delete Firewall Assignment
+// DeleteFirewallAssignment - Delete Firewall Assignment
 // Remove a server from a firewall
-func (s *Firewalls) DeleteAssignment(ctx context.Context, firewallID string, assignmentID string, opts ...operations.Option) (*operations.DeleteFirewallAssignmentResponse, error) {
+func (s *Firewalls) DeleteFirewallAssignment(ctx context.Context, firewallID string, assignmentID string, opts ...operations.Option) (*operations.DeleteFirewallAssignmentResponse, error) {
 	request := operations.DeleteFirewallAssignmentRequest{
 		FirewallID:   firewallID,
 		AssignmentID: assignmentID,

@@ -25,9 +25,9 @@ func newVirtualMachines(sdkConfig sdkConfiguration) *VirtualMachines {
 	}
 }
 
-// Create a Virtual Machine
+// CreateVirtualMachine - Create a Virtual Machine
 // Creates a new Virtual Machine.
-func (s *VirtualMachines) Create(ctx context.Context, request components.VirtualMachinePayload, opts ...operations.Option) (*operations.CreateVirtualMachineResponse, error) {
+func (s *VirtualMachines) CreateVirtualMachine(ctx context.Context, request components.VirtualMachinePayload, opts ...operations.Option) (*operations.CreateVirtualMachineResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -238,9 +238,9 @@ func (s *VirtualMachines) Create(ctx context.Context, request components.Virtual
 
 }
 
-// List - Get Teams Virtual Machines
+// IndexVirtualMachine - Get Teams Virtual Machines
 // Show all Team's Virtual Machines.
-func (s *VirtualMachines) List(ctx context.Context, filterProject *string, opts ...operations.Option) (*operations.IndexVirtualMachineResponse, error) {
+func (s *VirtualMachines) IndexVirtualMachine(ctx context.Context, filterProject *string, opts ...operations.Option) (*operations.IndexVirtualMachineResponse, error) {
 	request := operations.IndexVirtualMachineRequest{
 		FilterProject: filterProject,
 	}
@@ -428,9 +428,9 @@ func (s *VirtualMachines) List(ctx context.Context, filterProject *string, opts 
 
 }
 
-// Get a Virtual Machine
+// ShowVirtualMachine - Get a Virtual Machine
 // Show a Virtual Machine.
-func (s *VirtualMachines) Get(ctx context.Context, virtualMachineID string, opts ...operations.Option) (*operations.ShowVirtualMachineResponse, error) {
+func (s *VirtualMachines) ShowVirtualMachine(ctx context.Context, virtualMachineID string, opts ...operations.Option) (*operations.ShowVirtualMachineResponse, error) {
 	request := operations.ShowVirtualMachineRequest{
 		VirtualMachineID: virtualMachineID,
 	}
@@ -614,9 +614,9 @@ func (s *VirtualMachines) Get(ctx context.Context, virtualMachineID string, opts
 
 }
 
-// Delete - Destroy a Virtual Machine
+// DestroyVirtualMachine - Destroy a Virtual Machine
 // Destroys a Virtual Machine.
-func (s *VirtualMachines) Delete(ctx context.Context, virtualMachineID string, opts ...operations.Option) (*operations.DestroyVirtualMachineResponse, error) {
+func (s *VirtualMachines) DestroyVirtualMachine(ctx context.Context, virtualMachineID string, opts ...operations.Option) (*operations.DestroyVirtualMachineResponse, error) {
 	request := operations.DestroyVirtualMachineRequest{
 		VirtualMachineID: virtualMachineID,
 	}

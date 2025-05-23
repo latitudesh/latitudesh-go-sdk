@@ -52,7 +52,7 @@ func main() {
 		latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
 	)
 
-	res, err := s.APIKeys.List(ctx)
+	res, err := s.APIKeys.GetAPIKeys(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -93,7 +93,7 @@ func main() {
 		latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
 	)
 
-	res, err := s.APIKeys.List(ctx)
+	res, err := s.APIKeys.GetAPIKeys(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -113,28 +113,28 @@ func main() {
 
 ### [APIKeys](docs/sdks/apikeys/README.md)
 
-* [List](docs/sdks/apikeys/README.md#list) - List API Keys
-* [Create](docs/sdks/apikeys/README.md#create) - Create API Key
-* [Regenerate](docs/sdks/apikeys/README.md#regenerate) - Regenerate API Key
-* [Delete](docs/sdks/apikeys/README.md#delete) - Delete API Key
+* [GetAPIKeys](docs/sdks/apikeys/README.md#getapikeys) - List API Keys
+* [PostAPIKey](docs/sdks/apikeys/README.md#postapikey) - Create API Key
+* [UpdateAPIKey](docs/sdks/apikeys/README.md#updateapikey) - Regenerate API Key
+* [DeleteAPIKey](docs/sdks/apikeys/README.md#deleteapikey) - Delete API Key
 
 ### [Billing](docs/sdks/billing/README.md)
 
-* [ListUsage](docs/sdks/billing/README.md#listusage) - List Billing Usage
+* [GetBillingUsage](docs/sdks/billing/README.md#getbillingusage) - List Billing Usage
 
 ### [Events](docs/sdks/events/README.md)
 
-* [List](docs/sdks/events/README.md#list) - List all Events
+* [GetEvents](docs/sdks/events/README.md#getevents) - List all Events
 
 ### [Firewalls](docs/sdks/firewalls/README.md)
 
-* [Create](docs/sdks/firewalls/README.md#create) - Create a firewall
-* [List](docs/sdks/firewalls/README.md#list) - List firewalls
-* [Get](docs/sdks/firewalls/README.md#get) - Retrieve Firewall
-* [Update](docs/sdks/firewalls/README.md#update) - Update Firewall
-* [Delete](docs/sdks/firewalls/README.md#delete) - Delete Firewall
-* [ListAssignments](docs/sdks/firewalls/README.md#listassignments) - Firewall Assignments
-* [DeleteAssignment](docs/sdks/firewalls/README.md#deleteassignment) - Delete Firewall Assignment
+* [CreateFirewall](docs/sdks/firewalls/README.md#createfirewall) - Create a firewall
+* [ListFirewalls](docs/sdks/firewalls/README.md#listfirewalls) - List firewalls
+* [GetFirewall](docs/sdks/firewalls/README.md#getfirewall) - Retrieve Firewall
+* [UpdateFirewall](docs/sdks/firewalls/README.md#updatefirewall) - Update Firewall
+* [DeleteFirewall](docs/sdks/firewalls/README.md#deletefirewall) - Delete Firewall
+* [GetFirewallAssignments](docs/sdks/firewalls/README.md#getfirewallassignments) - Firewall Assignments
+* [DeleteFirewallAssignment](docs/sdks/firewalls/README.md#deletefirewallassignment) - Delete Firewall Assignment
 
 #### [Firewalls.Assignments](docs/sdks/assignments/README.md)
 
@@ -142,21 +142,21 @@ func main() {
 
 ### [IPAddresses](docs/sdks/ipaddresses/README.md)
 
-* [List](docs/sdks/ipaddresses/README.md#list) - List IPs
-* [Get](docs/sdks/ipaddresses/README.md#get) - Retrieve an IP
+* [GetIps](docs/sdks/ipaddresses/README.md#getips) - List IPs
+* [GetIP](docs/sdks/ipaddresses/README.md#getip) - Retrieve an IP
 
 
 ### [OperatingSystems](docs/sdks/operatingsystems/README.md)
 
-* [List](docs/sdks/operatingsystems/README.md#list) - List all operating systems available
+* [GetPlansOperatingSystem](docs/sdks/operatingsystems/README.md#getplansoperatingsystem) - List all operating systems available
 
 ### [Plans](docs/sdks/plans/README.md)
 
-* [List](docs/sdks/plans/README.md#list) - List all Plans
-* [Get](docs/sdks/plans/README.md#get) - Retrieve a Plan
-* [ListBandwidth](docs/sdks/plans/README.md#listbandwidth) - List all bandwidth plans
-* [UpdateBandwidth](docs/sdks/plans/README.md#updatebandwidth) - Buy or remove bandwidth packages
-* [ListStorage](docs/sdks/plans/README.md#liststorage) - List all Storage Plans
+* [GetPlans](docs/sdks/plans/README.md#getplans) - List all Plans
+* [GetPlan](docs/sdks/plans/README.md#getplan) - Retrieve a Plan
+* [GetBandwidthPlans](docs/sdks/plans/README.md#getbandwidthplans) - List all bandwidth plans
+* [UpdatePlansBandwidth](docs/sdks/plans/README.md#updateplansbandwidth) - Buy or remove bandwidth packages
+* [GetStoragePlans](docs/sdks/plans/README.md#getstorageplans) - List all Storage Plans
 
 #### [Plans.VM](docs/sdks/vm/README.md)
 
@@ -164,134 +164,144 @@ func main() {
 
 ### [PrivateNetworks](docs/sdks/privatenetworks/README.md)
 
-* [List](docs/sdks/privatenetworks/README.md#list) - List all Virtual Networks
-* [Create](docs/sdks/privatenetworks/README.md#create) - Create a Virtual Network
-* [Update](docs/sdks/privatenetworks/README.md#update) - Update a Virtual Network
-* [Get](docs/sdks/privatenetworks/README.md#get) - Retrieve a Virtual Network
-* [ListAssignments](docs/sdks/privatenetworks/README.md#listassignments) - List all servers assigned to virtual networks
-* [Assign](docs/sdks/privatenetworks/README.md#assign) - Assign Virtual network
-* [RemoveAssignment](docs/sdks/privatenetworks/README.md#removeassignment) - Delete Virtual Network Assignment
+* [GetVirtualNetworks](docs/sdks/privatenetworks/README.md#getvirtualnetworks) - List all Virtual Networks
+* [CreateVirtualNetwork](docs/sdks/privatenetworks/README.md#createvirtualnetwork) - Create a Virtual Network
+* [UpdateVirtualNetwork](docs/sdks/privatenetworks/README.md#updatevirtualnetwork) - Update a Virtual Network
+* [GetVirtualNetwork](docs/sdks/privatenetworks/README.md#getvirtualnetwork) - Retrieve a Virtual Network
+* [GetVirtualNetworksAssignments](docs/sdks/privatenetworks/README.md#getvirtualnetworksassignments) - List all servers assigned to virtual networks
+* [AssignServerVirtualNetwork](docs/sdks/privatenetworks/README.md#assignservervirtualnetwork) - Assign Virtual network
+* [DeleteVirtualNetworksAssignments](docs/sdks/privatenetworks/README.md#deletevirtualnetworksassignments) - Delete Virtual Network Assignment
 
 ### [Projects](docs/sdks/projects/README.md)
 
-* [List](docs/sdks/projects/README.md#list) - List all Projects
-* [Create](docs/sdks/projects/README.md#create) - Create a Project
-* [Update](docs/sdks/projects/README.md#update) - Update a Project
-* [Delete](docs/sdks/projects/README.md#delete) - Delete a Project
+* [GetProjects](docs/sdks/projects/README.md#getprojects) - List all Projects
+* [CreateProject](docs/sdks/projects/README.md#createproject) - Create a Project
+* [UpdateProject](docs/sdks/projects/README.md#updateproject) - Update a Project
+* [DeleteProject](docs/sdks/projects/README.md#deleteproject) - Delete a Project
 
-#### [Projects.SSHKeys](docs/sdks/latitudeshsshkeys/README.md)
+#### [~~Projects.SSHKeys~~](docs/sdks/latitudeshsshkeys/README.md)
 
-* [Create](docs/sdks/latitudeshsshkeys/README.md#create) - Create a Project SSH Key
+* [~~PostProjectSSHKey~~](docs/sdks/latitudeshsshkeys/README.md#postprojectsshkey) - Create a Project SSH Key :warning: **Deprecated**
 
-### [ProjectsUserData](docs/sdks/projectsuserdata/README.md)
+### [~~ProjectsUserData~~](docs/sdks/projectsuserdata/README.md)
 
-* [Delete](docs/sdks/projectsuserdata/README.md#delete) - Delete a Project User Data
+* [~~DeleteProjectUserData~~](docs/sdks/projectsuserdata/README.md#deleteprojectuserdata) - Delete a Project User Data :warning: **Deprecated**
 
 ### [Regions](docs/sdks/regions/README.md)
 
-* [List](docs/sdks/regions/README.md#list) - List all Regions
-* [Get](docs/sdks/regions/README.md#get) - Retrieve a Region
+* [GetRegions](docs/sdks/regions/README.md#getregions) - List all Regions
+* [GetRegion](docs/sdks/regions/README.md#getregion) - Retrieve a Region
 
 ### [Roles](docs/sdks/roles/README.md)
 
-* [List](docs/sdks/roles/README.md#list) - List all Roles
-* [Get](docs/sdks/roles/README.md#get) - Retrieve Role
+* [GetRoles](docs/sdks/roles/README.md#getroles) - List all Roles
+* [GetRoleID](docs/sdks/roles/README.md#getroleid) - Retrieve Role
 
 ### [Servers](docs/sdks/servers/README.md)
 
-* [List](docs/sdks/servers/README.md#list) - List all Servers
-* [Create](docs/sdks/servers/README.md#create) - Deploy Server
-* [Get](docs/sdks/servers/README.md#get) - Retrieve a Server
-* [Update](docs/sdks/servers/README.md#update) - Update Server
-* [Delete](docs/sdks/servers/README.md#delete) - Remove Server
-* [GetDeployConfig](docs/sdks/servers/README.md#getdeployconfig) - Retrieve Deploy Config
-* [UpdateDeployConfig](docs/sdks/servers/README.md#updatedeployconfig) - Update Deploy Config
-* [Lock](docs/sdks/servers/README.md#lock) - Lock the server
-* [Unlock](docs/sdks/servers/README.md#unlock) - Unlock the server
-* [CreateOutOfBandConnection](docs/sdks/servers/README.md#createoutofbandconnection) - Start Out of Band Connection
-* [ListOutOfBandConnections](docs/sdks/servers/README.md#listoutofbandconnections) - List Out of Band Connections
+* [GetServers](docs/sdks/servers/README.md#getservers) - List all Servers
+* [CreateServer](docs/sdks/servers/README.md#createserver) - Deploy Server
+* [GetServer](docs/sdks/servers/README.md#getserver) - Retrieve a Server
+* [UpdateServer](docs/sdks/servers/README.md#updateserver) - Update Server
+* [DestroyServer](docs/sdks/servers/README.md#destroyserver) - Remove Server
+* [GetServerDeployConfig](docs/sdks/servers/README.md#getserverdeployconfig) - Retrieve Deploy Config
+* [UpdateServerDeployConfig](docs/sdks/servers/README.md#updateserverdeployconfig) - Update Deploy Config
+* [ServerLock](docs/sdks/servers/README.md#serverlock) - Lock the server
+* [ServerUnlock](docs/sdks/servers/README.md#serverunlock) - Unlock the server
+* [CreateServerOutOfBand](docs/sdks/servers/README.md#createserveroutofband) - Start Out of Band Connection
+* [GetServerOutOfBand](docs/sdks/servers/README.md#getserveroutofband) - List Out of Band Connections
 * [RunAction](docs/sdks/servers/README.md#runaction) - Run Server Action
 * [CreateIpmiSession](docs/sdks/servers/README.md#createipmisession) - Generate IPMI credentials
-* [StartRescueMode](docs/sdks/servers/README.md#startrescuemode) - Puts a Server in rescue mode
-* [ExitRescueMode](docs/sdks/servers/README.md#exitrescuemode) - Exits rescue mode for a Server
-* [ScheduleDeletion](docs/sdks/servers/README.md#scheduledeletion) - Schedule the server deletion
-* [UnscheduleDeletion](docs/sdks/servers/README.md#unscheduledeletion) - Unschedule the server deletion
-* [Reinstall](docs/sdks/servers/README.md#reinstall) - Run Server Reinstall
+* [ServerStartRescueMode](docs/sdks/servers/README.md#serverstartrescuemode) - Puts a Server in rescue mode
+* [ServerExitRescueMode](docs/sdks/servers/README.md#serverexitrescuemode) - Exits rescue mode for a Server
+* [ServerScheduleDeletion](docs/sdks/servers/README.md#serverscheduledeletion) - Schedule the server deletion
+* [ServerUnscheduleDeletion](docs/sdks/servers/README.md#serverunscheduledeletion) - Unschedule the server deletion
+* [CreateServerReinstall](docs/sdks/servers/README.md#createserverreinstall) - Run Server Reinstall
 
 ### [SSHKeys](docs/sdks/sshkeys/README.md)
 
-* [List](docs/sdks/sshkeys/README.md#list) - List all Project SSH Keys
-* [Get](docs/sdks/sshkeys/README.md#get) - Retrieve a Project SSH Key
-* [Update](docs/sdks/sshkeys/README.md#update) - Update a Project SSH Key
-* [Delete](docs/sdks/sshkeys/README.md#delete) - Delete a Project SSH Key
+* [~~List~~](docs/sdks/sshkeys/README.md#list) - List all Project SSH Keys :warning: **Deprecated**
+* [~~GetProjectSSHKey~~](docs/sdks/sshkeys/README.md#getprojectsshkey) - Retrieve a Project SSH Key :warning: **Deprecated**
+* [~~PutProjectSSHKey~~](docs/sdks/sshkeys/README.md#putprojectsshkey) - Update a Project SSH Key :warning: **Deprecated**
+* [~~DeleteProjectSSHKey~~](docs/sdks/sshkeys/README.md#deleteprojectsshkey) - Delete a Project SSH Key :warning: **Deprecated**
+* [GetSSHKeys](docs/sdks/sshkeys/README.md#getsshkeys) - List all SSH Keys
+* [PostSSHKey](docs/sdks/sshkeys/README.md#postsshkey) - Create a SSH Key
+* [GetSSHKey](docs/sdks/sshkeys/README.md#getsshkey) - Retrieve a SSH Key
+* [PutSSHKey](docs/sdks/sshkeys/README.md#putsshkey) - Update a SSH Key
+* [DeleteSSHKey](docs/sdks/sshkeys/README.md#deletesshkey) - Delete a SSH Key
 
 ### [Storage](docs/sdks/storage/README.md)
 
-* [CreateFilesystem](docs/sdks/storage/README.md#createfilesystem) - Create a filesystem for a project
-* [ListFilesystems](docs/sdks/storage/README.md#listfilesystems) - List filesystems
-* [DeleteFilesystem](docs/sdks/storage/README.md#deletefilesystem) - Delete a filesystem for a project
-* [UpdateFilesystem](docs/sdks/storage/README.md#updatefilesystem) - Update a filesystem for a project
+* [PostStorageFilesystems](docs/sdks/storage/README.md#poststoragefilesystems) - Create a filesystem for a project
+* [GetStorageFilesystems](docs/sdks/storage/README.md#getstoragefilesystems) - List filesystems
+* [DeleteStorageFilesystems](docs/sdks/storage/README.md#deletestoragefilesystems) - Delete a filesystem for a project
+* [PatchStorageFilesystems](docs/sdks/storage/README.md#patchstoragefilesystems) - Update a filesystem for a project
 
 ### [Tags](docs/sdks/tags/README.md)
 
-* [List](docs/sdks/tags/README.md#list) - List all Tags
-* [Create](docs/sdks/tags/README.md#create) - Create a Tag
-* [Update](docs/sdks/tags/README.md#update) - Update Tag
-* [Delete](docs/sdks/tags/README.md#delete) - Delete Tag
+* [GetTags](docs/sdks/tags/README.md#gettags) - List all Tags
+* [CreateTag](docs/sdks/tags/README.md#createtag) - Create a Tag
+* [UpdateTag](docs/sdks/tags/README.md#updatetag) - Update Tag
+* [DestroyTag](docs/sdks/tags/README.md#destroytag) - Delete Tag
 
 ### [TeamMembers](docs/sdks/teammembers/README.md)
 
-* [Add](docs/sdks/teammembers/README.md#add) - Add a Team Member
+* [PostTeamMembers](docs/sdks/teammembers/README.md#postteammembers) - Add a Team Member
 
 ### [Teams](docs/sdks/teams/README.md)
 
-* [Get](docs/sdks/teams/README.md#get) - Retrieve the team
-* [Create](docs/sdks/teams/README.md#create) - Create a team
-* [Update](docs/sdks/teams/README.md#update) - Update a team
+* [GetTeam](docs/sdks/teams/README.md#getteam) - Retrieve the team
+* [PostTeam](docs/sdks/teams/README.md#postteam) - Create a team
+* [PatchCurrentTeam](docs/sdks/teams/README.md#patchcurrentteam) - Update a team
 
 #### [Teams.Members](docs/sdks/members/README.md)
 
-* [List](docs/sdks/members/README.md#list) - List all Team Members
+* [GetTeamMembers](docs/sdks/members/README.md#getteammembers) - List all Team Members
 
 ### [TeamsMembers](docs/sdks/teamsmembers/README.md)
 
-* [RemoveMember](docs/sdks/teamsmembers/README.md#removemember) - Remove a Team Member
+* [DestroyTeamMember](docs/sdks/teamsmembers/README.md#destroyteammember) - Remove a Team Member
 
 ### [Traffic](docs/sdks/traffic/README.md)
 
-* [Get](docs/sdks/traffic/README.md#get) - Retrieve Traffic consumption
-* [GetQuota](docs/sdks/traffic/README.md#getquota) - Retrieve Traffic Quota
+* [GetTrafficConsumption](docs/sdks/traffic/README.md#gettrafficconsumption) - Retrieve Traffic consumption
+* [GetTrafficQuota](docs/sdks/traffic/README.md#gettrafficquota) - Retrieve Traffic Quota
 
 ### [UserData](docs/sdks/userdata/README.md)
 
-* [List](docs/sdks/userdata/README.md#list) - List all Project User Data
-* [Create](docs/sdks/userdata/README.md#create) - Create a Project User Data
-* [Get](docs/sdks/userdata/README.md#get) - Retrieve a Project User Data
-* [Update](docs/sdks/userdata/README.md#update) - Update a Project User Data
+* [~~List~~](docs/sdks/userdata/README.md#list) - List all Project User Data :warning: **Deprecated**
+* [~~PostProjectUserData~~](docs/sdks/userdata/README.md#postprojectuserdata) - Create a Project User Data :warning: **Deprecated**
+* [~~Get~~](docs/sdks/userdata/README.md#get) - Retrieve a Project User Data :warning: **Deprecated**
+* [~~PutProjectUserData~~](docs/sdks/userdata/README.md#putprojectuserdata) - Update a Project User Data :warning: **Deprecated**
+* [GetUsersData](docs/sdks/userdata/README.md#getusersdata) - List all User Data
+* [PostUserData](docs/sdks/userdata/README.md#postuserdata) - Create an User Data
+* [GetUserData](docs/sdks/userdata/README.md#getuserdata) - Retrieve an User Data
+* [PatchUserData](docs/sdks/userdata/README.md#patchuserdata) - Update an User Data
+* [DeleteUserData](docs/sdks/userdata/README.md#deleteuserdata) - Delete an User Data
 
 ### [UserProfile](docs/sdks/userprofile/README.md)
 
-* [Get](docs/sdks/userprofile/README.md#get) - Get user profile
-* [Update](docs/sdks/userprofile/README.md#update) - Update User Profile
-* [ListTeams](docs/sdks/userprofile/README.md#listteams) - List User Teams
+* [GetUserProfile](docs/sdks/userprofile/README.md#getuserprofile) - Get user profile
+* [PatchUserProfile](docs/sdks/userprofile/README.md#patchuserprofile) - Update User Profile
+* [GetUserTeams](docs/sdks/userprofile/README.md#getuserteams) - List User Teams
 
 ### [VirtualMachines](docs/sdks/virtualmachines/README.md)
 
-* [Create](docs/sdks/virtualmachines/README.md#create) - Create a Virtual Machine
-* [List](docs/sdks/virtualmachines/README.md#list) - Get Teams Virtual Machines
-* [Get](docs/sdks/virtualmachines/README.md#get) - Get a Virtual Machine
-* [Delete](docs/sdks/virtualmachines/README.md#delete) - Destroy a Virtual Machine
+* [CreateVirtualMachine](docs/sdks/virtualmachines/README.md#createvirtualmachine) - Create a Virtual Machine
+* [IndexVirtualMachine](docs/sdks/virtualmachines/README.md#indexvirtualmachine) - Get Teams Virtual Machines
+* [ShowVirtualMachine](docs/sdks/virtualmachines/README.md#showvirtualmachine) - Get a Virtual Machine
+* [DestroyVirtualMachine](docs/sdks/virtualmachines/README.md#destroyvirtualmachine) - Destroy a Virtual Machine
 
 ### [VirtualNetworks](docs/sdks/virtualnetworks/README.md)
 
 * [Delete](docs/sdks/virtualnetworks/README.md#delete) - Delete a Virtual Network
 
-### [VpnSessions](docs/sdks/vpnsessions/README.md)
+### [VPNSessions](docs/sdks/vpnsessions/README.md)
 
-* [List](docs/sdks/vpnsessions/README.md#list) - List all Active VPN Sessions
-* [Create](docs/sdks/vpnsessions/README.md#create) - Create a VPN Session
-* [RefreshPassword](docs/sdks/vpnsessions/README.md#refreshpassword) - Refresh a VPN Session
-* [Delete](docs/sdks/vpnsessions/README.md#delete) - Delete a VPN Session
+* [GetVpnSessions](docs/sdks/vpnsessions/README.md#getvpnsessions) - List all Active VPN Sessions
+* [PostVpnSession](docs/sdks/vpnsessions/README.md#postvpnsession) - Create a VPN Session
+* [PutVpnSession](docs/sdks/vpnsessions/README.md#putvpnsession) - Refresh a VPN Session
+* [DeleteVpnSession](docs/sdks/vpnsessions/README.md#deletevpnsession) - Delete a VPN Session
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -322,7 +332,7 @@ func main() {
 		latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
 	)
 
-	res, err := s.Events.List(ctx, operations.GetEventsRequest{})
+	res, err := s.Events.GetEvents(ctx, operations.GetEventsRequest{})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -371,7 +381,7 @@ func main() {
 		latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
 	)
 
-	res, err := s.APIKeys.List(ctx, operations.WithRetries(
+	res, err := s.APIKeys.GetAPIKeys(ctx, operations.WithRetries(
 		retry.Config{
 			Strategy: "backoff",
 			Backoff: &retry.BackoffStrategy{
@@ -422,7 +432,7 @@ func main() {
 		latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
 	)
 
-	res, err := s.APIKeys.List(ctx)
+	res, err := s.APIKeys.GetAPIKeys(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -441,7 +451,7 @@ Handling errors in this SDK should largely match your expectations. All operatio
 
 By Default, an API error will return `components.APIError`. When custom error responses are specified for an operation, the SDK may also return their associated error. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation.
 
-For example, the `Create` function may return the following errors:
+For example, the `PostAPIKey` function may return the following errors:
 
 | Error Type             | Status Code | Content Type             |
 | ---------------------- | ----------- | ------------------------ |
@@ -469,7 +479,7 @@ func main() {
 		latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
 	)
 
-	res, err := s.APIKeys.Create(ctx, components.CreateAPIKey{
+	res, err := s.APIKeys.PostAPIKey(ctx, components.CreateAPIKey{
 		Data: &components.Data{
 			Type:       components.CreateAPIKeyTypeAPIKeys,
 			Attributes: &components.CreateAPIKeyAttributes{},
@@ -533,7 +543,7 @@ func main() {
 		latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
 	)
 
-	res, err := s.APIKeys.List(ctx)
+	res, err := s.APIKeys.GetAPIKeys(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -561,11 +571,11 @@ func main() {
 	ctx := context.Background()
 
 	s := latitudeshgosdk.New(
-		latitudeshgosdk.WithServerURL("https://api.latitude.sh"),
+		latitudeshgosdk.WithServerURL("http://api.latitude.sh"),
 		latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
 	)
 
-	res, err := s.APIKeys.List(ctx)
+	res, err := s.APIKeys.GetAPIKeys(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}

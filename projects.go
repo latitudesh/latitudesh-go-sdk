@@ -29,9 +29,9 @@ func newProjects(sdkConfig sdkConfiguration) *Projects {
 	}
 }
 
-// List all Projects
+// GetProjects - List all Projects
 // Returns a list of all projects for the current team
-func (s *Projects) List(ctx context.Context, request operations.GetProjectsRequest, opts ...operations.Option) (*operations.GetProjectsResponse, error) {
+func (s *Projects) GetProjects(ctx context.Context, request operations.GetProjectsRequest, opts ...operations.Option) (*operations.GetProjectsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -226,7 +226,7 @@ func (s *Projects) List(ctx context.Context, request operations.GetProjectsReque
 			return nil, nil
 		}
 
-		return s.List(
+		return s.GetProjects(
 			ctx,
 			operations.GetProjectsRequest{
 				FilterName:          request.FilterName,
@@ -289,8 +289,8 @@ func (s *Projects) List(ctx context.Context, request operations.GetProjectsReque
 
 }
 
-// Create a Project
-func (s *Projects) Create(ctx context.Context, request operations.CreateProjectProjectsRequestBody, opts ...operations.Option) (*operations.CreateProjectResponse, error) {
+// CreateProject - Create a Project
+func (s *Projects) CreateProject(ctx context.Context, request operations.CreateProjectProjectsRequestBody, opts ...operations.Option) (*operations.CreateProjectResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -522,8 +522,8 @@ func (s *Projects) Create(ctx context.Context, request operations.CreateProjectP
 
 }
 
-// Update a Project
-func (s *Projects) Update(ctx context.Context, projectID string, requestBody *operations.UpdateProjectProjectsRequestBody, opts ...operations.Option) (*operations.UpdateProjectResponse, error) {
+// UpdateProject - Update a Project
+func (s *Projects) UpdateProject(ctx context.Context, projectID string, requestBody *operations.UpdateProjectProjectsRequestBody, opts ...operations.Option) (*operations.UpdateProjectResponse, error) {
 	request := operations.UpdateProjectRequest{
 		ProjectID:   projectID,
 		RequestBody: requestBody,
@@ -760,8 +760,8 @@ func (s *Projects) Update(ctx context.Context, projectID string, requestBody *op
 
 }
 
-// Delete a Project
-func (s *Projects) Delete(ctx context.Context, projectID string, opts ...operations.Option) (*operations.DeleteProjectResponse, error) {
+// DeleteProject - Delete a Project
+func (s *Projects) DeleteProject(ctx context.Context, projectID string, opts ...operations.Option) (*operations.DeleteProjectResponse, error) {
 	request := operations.DeleteProjectRequest{
 		ProjectID: projectID,
 	}

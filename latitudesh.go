@@ -95,7 +95,7 @@ type Latitudesh struct {
 	VirtualMachines  *VirtualMachines
 	PrivateNetworks  *PrivateNetworks
 	VirtualNetworks  *VirtualNetworks
-	VpnSessions      *VpnSessions
+	VPNSessions      *VPNSessions
 
 	sdkConfiguration sdkConfiguration
 }
@@ -186,10 +186,10 @@ func New(opts ...SDKOption) *Latitudesh {
 	sdk := &Latitudesh{
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
-			OpenAPIDocVersion: "v3",
-			SDKVersion:        "1.1.0",
-			GenVersion:        "2.596.2",
-			UserAgent:         "speakeasy-sdk/go 1.1.0 2.596.2 v3 github.com/latitudesh/latitudesh-go-sdk",
+			OpenAPIDocVersion: "2023-06-01",
+			SDKVersion:        "1.2.0",
+			GenVersion:        "2.610.0",
+			UserAgent:         "speakeasy-sdk/go 1.2.0 2.610.0 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
 			ServerDefaults: []map[string]string{
 				{
 					"latitude_api_key": "<insert your api key here>",
@@ -272,7 +272,7 @@ func New(opts ...SDKOption) *Latitudesh {
 
 	sdk.VirtualNetworks = newVirtualNetworks(sdk.sdkConfiguration)
 
-	sdk.VpnSessions = newVpnSessions(sdk.sdkConfiguration)
+	sdk.VPNSessions = newVPNSessions(sdk.sdkConfiguration)
 
 	return sdk
 }

@@ -5,9 +5,9 @@
 
 ### Available Operations
 
-* [List](#list) - List all Events
+* [GetEvents](#getevents) - List all Events
 
-## List
+## GetEvents
 
 Lists all events.
 
@@ -32,7 +32,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Events.List(ctx, operations.GetEventsRequest{})
+    res, err := s.Events.GetEvents(ctx, operations.GetEventsRequest{})
     if err != nil {
         log.Fatal(err)
     }

@@ -25,9 +25,9 @@ func newAPIKeys(sdkConfig sdkConfiguration) *APIKeys {
 	}
 }
 
-// List API Keys
+// GetAPIKeys - List API Keys
 // Returns a list of all API keys from the team members
-func (s *APIKeys) List(ctx context.Context, opts ...operations.Option) (*operations.GetAPIKeysResponse, error) {
+func (s *APIKeys) GetAPIKeys(ctx context.Context, opts ...operations.Option) (*operations.GetAPIKeysResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -227,9 +227,9 @@ func (s *APIKeys) List(ctx context.Context, opts ...operations.Option) (*operati
 
 }
 
-// Create API Key
+// PostAPIKey - Create API Key
 // Create a new API Key that is tied to the current user account. The created API key is only listed ONCE upon creation. It can however be regenerated or deleted.
-func (s *APIKeys) Create(ctx context.Context, request components.CreateAPIKey, opts ...operations.Option) (*operations.PostAPIKeyResponse, error) {
+func (s *APIKeys) PostAPIKey(ctx context.Context, request components.CreateAPIKey, opts ...operations.Option) (*operations.PostAPIKeyResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -459,9 +459,9 @@ func (s *APIKeys) Create(ctx context.Context, request components.CreateAPIKey, o
 
 }
 
-// Regenerate API Key
+// UpdateAPIKey - Regenerate API Key
 // Regenerate an existing API Key that is tied to the current user. This overrides the previous key.
-func (s *APIKeys) Regenerate(ctx context.Context, apiKeyID string, updateAPIKey components.UpdateAPIKey, opts ...operations.Option) (*operations.UpdateAPIKeyResponse, error) {
+func (s *APIKeys) UpdateAPIKey(ctx context.Context, apiKeyID string, updateAPIKey components.UpdateAPIKey, opts ...operations.Option) (*operations.UpdateAPIKeyResponse, error) {
 	request := operations.UpdateAPIKeyRequest{
 		APIKeyID:     apiKeyID,
 		UpdateAPIKey: updateAPIKey,
@@ -696,9 +696,9 @@ func (s *APIKeys) Regenerate(ctx context.Context, apiKeyID string, updateAPIKey 
 
 }
 
-// Delete API Key
+// DeleteAPIKey - Delete API Key
 // Delete an existing API Key. Once deleted, the API Key can no longer be used to access the API.
-func (s *APIKeys) Delete(ctx context.Context, apiKeyID string, opts ...operations.Option) (*operations.DeleteAPIKeyResponse, error) {
+func (s *APIKeys) DeleteAPIKey(ctx context.Context, apiKeyID string, opts ...operations.Option) (*operations.DeleteAPIKeyResponse, error) {
 	request := operations.DeleteAPIKeyRequest{
 		APIKeyID: apiKeyID,
 	}

@@ -25,8 +25,8 @@ func newTeamMembers(sdkConfig sdkConfiguration) *TeamMembers {
 	}
 }
 
-// Add a Team Member
-func (s *TeamMembers) Add(ctx context.Context, request operations.PostTeamMembersTeamMembersRequestBody, opts ...operations.Option) (*operations.PostTeamMembersResponse, error) {
+// PostTeamMembers - Add a Team Member
+func (s *TeamMembers) PostTeamMembers(ctx context.Context, request operations.PostTeamMembersTeamMembersRequestBody, opts ...operations.Option) (*operations.PostTeamMembersResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,

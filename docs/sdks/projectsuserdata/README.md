@@ -5,12 +5,14 @@
 
 ### Available Operations
 
-* [Delete](#delete) - Delete a Project User Data
+* [~~DeleteProjectUserData~~](#deleteprojectuserdata) - Delete a Project User Data :warning: **Deprecated**
 
-## Delete
+## ~~DeleteProjectUserData~~
 
 Allow you remove User Data in a project.
 
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -31,7 +33,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.ProjectsUserData.Delete(ctx, "proj_GnzRD5X6qM5yw", "123")
+    res, err := s.ProjectsUserData.DeleteProjectUserData(ctx, "proj_x1ZJrdx5qg4LV", "123")
     if err != nil {
         log.Fatal(err)
     }

@@ -5,9 +5,9 @@
 
 ### Available Operations
 
-* [ListUsage](#listusage) - List Billing Usage
+* [GetBillingUsage](#getbillingusage) - List Billing Usage
 
-## ListUsage
+## GetBillingUsage
 
 Returns the billing usage of a project
 
@@ -31,7 +31,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Billing.ListUsage(ctx, "proj_6059EqYkOQj8p", []string{
+    res, err := s.Billing.GetBillingUsage(ctx, "proj_6059EqYkOQj8p", []string{
         "si_pttmsx3d",
         "si_nmru52ev",
     }, latitudeshgosdk.String("plan.name"))

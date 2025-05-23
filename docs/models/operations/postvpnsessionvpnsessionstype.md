@@ -1,8 +1,8 @@
-# PostVpnSessionVpnSessionsType
+# PostVPNSessionVPNSessionsType
 
 
 ## Values
 
 | Name                                       | Value                                      |
 | ------------------------------------------ | ------------------------------------------ |
-| `PostVpnSessionVpnSessionsTypeVpnSessions` | vpn_sessions                               |
+| `PostVPNSessionVPNSessionsTypeVpnSessions` | vpn_sessions                               |

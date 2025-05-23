@@ -5,9 +5,9 @@
 
 ### Available Operations
 
-* [Add](#add) - Add a Team Member
+* [PostTeamMembers](#postteammembers) - Add a Team Member
 
-## Add
+## PostTeamMembers
 
 Add a Team Member
 
@@ -31,7 +31,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.TeamMembers.Add(ctx, operations.PostTeamMembersTeamMembersRequestBody{
+    res, err := s.TeamMembers.PostTeamMembers(ctx, operations.PostTeamMembersTeamMembersRequestBody{
         Data: operations.PostTeamMembersTeamMembersData{
             Type: operations.PostTeamMembersTeamMembersTypeMemberships,
             Attributes: &operations.PostTeamMembersTeamMembersAttributes{

@@ -5,15 +5,15 @@
 
 ### Available Operations
 
-* [Create](#create) - Create a firewall
-* [List](#list) - List firewalls
-* [Get](#get) - Retrieve Firewall
-* [Update](#update) - Update Firewall
-* [Delete](#delete) - Delete Firewall
-* [ListAssignments](#listassignments) - Firewall Assignments
-* [DeleteAssignment](#deleteassignment) - Delete Firewall Assignment
+* [CreateFirewall](#createfirewall) - Create a firewall
+* [ListFirewalls](#listfirewalls) - List firewalls
+* [GetFirewall](#getfirewall) - Retrieve Firewall
+* [UpdateFirewall](#updatefirewall) - Update Firewall
+* [DeleteFirewall](#deletefirewall) - Delete Firewall
+* [GetFirewallAssignments](#getfirewallassignments) - Firewall Assignments
+* [DeleteFirewallAssignment](#deletefirewallassignment) - Delete Firewall Assignment
 
-## Create
+## CreateFirewall
 
 Create a firewall
 
@@ -37,7 +37,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Firewalls.Create(ctx, operations.CreateFirewallFirewallsRequestBody{
+    res, err := s.Firewalls.CreateFirewall(ctx, operations.CreateFirewallFirewallsRequestBody{
         Data: operations.CreateFirewallData{
             Type: operations.CreateFirewallTypeFirewalls,
             Attributes: &operations.CreateFirewallAttributes{
@@ -94,7 +94,7 @@ func main() {
 | components.ErrorObject   | 422                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## List
+## ListFirewalls
 
 List firewalls
 
@@ -117,7 +117,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Firewalls.List(ctx, latitudeshgosdk.String("lightweight-silk-table"), nil, nil)
+    res, err := s.Firewalls.ListFirewalls(ctx, latitudeshgosdk.String("lightweight-silk-table"), nil, nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -159,7 +159,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## Get
+## GetFirewall
 
 Retrieve a firewall
 
@@ -182,7 +182,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Firewalls.Get(ctx, "fw_xkjQwdENqYNVP")
+    res, err := s.Firewalls.GetFirewall(ctx, "fw_xkjQwdENqYNVP")
     if err != nil {
         log.Fatal(err)
     }
@@ -211,7 +211,7 @@ func main() {
 | components.ErrorObject   | 404                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## Update
+## UpdateFirewall
 
 Update a firewall
 
@@ -235,7 +235,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Firewalls.Update(ctx, "fw_VaNmodjeObE8W", operations.UpdateFirewallFirewallsRequestBody{
+    res, err := s.Firewalls.UpdateFirewall(ctx, "fw_VaNmodjeObE8W", operations.UpdateFirewallFirewallsRequestBody{
         Data: operations.UpdateFirewallFirewallsData{
             Type: operations.UpdateFirewallFirewallsTypeFirewalls,
             Attributes: &operations.UpdateFirewallFirewallsAttributes{
@@ -272,7 +272,7 @@ func main() {
 | components.ErrorObject   | 404, 422                 | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## Delete
+## DeleteFirewall
 
 Delete a firewall
 
@@ -295,7 +295,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Firewalls.Delete(ctx, "fw_123")
+    res, err := s.Firewalls.DeleteFirewall(ctx, "fw_123")
     if err != nil {
         log.Fatal(err)
     }
@@ -324,7 +324,7 @@ func main() {
 | components.ErrorObject   | 404, 422                 | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## ListAssignments
+## GetFirewallAssignments
 
 List servers assigned to a firewall
 
@@ -347,7 +347,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Firewalls.ListAssignments(ctx, "fw_93YjJOLydvZ87", nil, nil)
+    res, err := s.Firewalls.GetFirewallAssignments(ctx, "fw_93YjJOLydvZ87", nil, nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -390,7 +390,7 @@ func main() {
 | components.ErrorObject   | 404                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## DeleteAssignment
+## DeleteFirewallAssignment
 
 Remove a server from a firewall
 
@@ -413,7 +413,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Firewalls.DeleteAssignment(ctx, "fw_2695BdKrOevVo", "fwasg_6059EqYkOQj8p")
+    res, err := s.Firewalls.DeleteFirewallAssignment(ctx, "fw_2695BdKrOevVo", "fwasg_6059EqYkOQj8p")
     if err != nil {
         log.Fatal(err)
     }

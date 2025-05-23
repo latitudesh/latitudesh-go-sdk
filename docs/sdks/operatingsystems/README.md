@@ -5,9 +5,9 @@
 
 ### Available Operations
 
-* [List](#list) - List all operating systems available
+* [GetPlansOperatingSystem](#getplansoperatingsystem) - List all operating systems available
 
-## List
+## GetPlansOperatingSystem
 
 Lists all operating systems available to deploy and reinstall.
 
@@ -31,7 +31,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.OperatingSystems.List(ctx, nil, nil)
+    res, err := s.OperatingSystems.GetPlansOperatingSystem(ctx, nil, nil)
     if err != nil {
         log.Fatal(err)
     }

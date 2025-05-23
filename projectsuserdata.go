@@ -23,9 +23,11 @@ func newProjectsUserData(sdkConfig sdkConfiguration) *ProjectsUserData {
 	}
 }
 
-// Delete a Project User Data
+// DeleteProjectUserData - Delete a Project User Data
 // Allow you remove User Data in a project.
-func (s *ProjectsUserData) Delete(ctx context.Context, projectID string, userDataID string, opts ...operations.Option) (*operations.DeleteProjectUserDataResponse, error) {
+//
+// Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
+func (s *ProjectsUserData) DeleteProjectUserData(ctx context.Context, projectID string, userDataID string, opts ...operations.Option) (*operations.DeleteProjectUserDataResponse, error) {
 	request := operations.DeleteProjectUserDataRequest{
 		ProjectID:  projectID,
 		UserDataID: userDataID,

@@ -16,7 +16,7 @@ func main() {
 		latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
 	)
 
-	res, err := s.APIKeys.List(ctx)
+	res, err := s.APIKeys.GetAPIKeys(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}

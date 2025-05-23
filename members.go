@@ -26,8 +26,8 @@ func newMembers(sdkConfig sdkConfiguration) *Members {
 	}
 }
 
-// List all Team Members
-func (s *Members) List(ctx context.Context, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetTeamMembersResponse, error) {
+// GetTeamMembers - List all Team Members
+func (s *Members) GetTeamMembers(ctx context.Context, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetTeamMembersResponse, error) {
 	request := operations.GetTeamMembersRequest{
 		PageSize:   pageSize,
 		PageNumber: pageNumber,
@@ -227,7 +227,7 @@ func (s *Members) List(ctx context.Context, pageSize *int64, pageNumber *int64, 
 			return nil, nil
 		}
 
-		return s.List(
+		return s.GetTeamMembers(
 			ctx,
 			pageSize,
 			&nP,

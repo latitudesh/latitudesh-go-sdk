@@ -5,10 +5,10 @@
 
 ### Available Operations
 
-* [Get](#get) - Retrieve Traffic consumption
-* [GetQuota](#getquota) - Retrieve Traffic Quota
+* [GetTrafficConsumption](#gettrafficconsumption) - Retrieve Traffic consumption
+* [GetTrafficQuota](#gettrafficquota) - Retrieve Traffic Quota
 
-## Get
+## GetTrafficConsumption
 
 Retrieve Traffic consumption
 
@@ -31,7 +31,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Traffic.Get(ctx, "2025-03-28T18:40:31Z", "2025-04-28T18:40:31Z", latitudeshgosdk.Int64(196), latitudeshgosdk.Int64(306))
+    res, err := s.Traffic.GetTrafficConsumption(ctx, "2025-04-06T21:00:00Z", "2025-05-06T21:00:00Z", latitudeshgosdk.String("sv_mw49QDB5qagKb"), latitudeshgosdk.String("proj_AW6Q2D9lqKLpr"))
     if err != nil {
         log.Fatal(err)
     }
@@ -48,8 +48,8 @@ func main() {
 | `ctx`                                                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                                                            | :heavy_check_mark:                                                                                                               | The context to use for the request.                                                                                              |
 | `filterDateGte`                                                                                                                  | *string*                                                                                                                         | :heavy_check_mark:                                                                                                               | The start timestamp to retrieve the traffic. You must provide in ISO8601 format. Example: filter[date][gte]=2024-04-01T00:00:00Z |
 | `filterDateLte`                                                                                                                  | *string*                                                                                                                         | :heavy_check_mark:                                                                                                               | The end timestamp to retrieve the traffic. You must provide in ISO8601 format. Example: filter[date][gte]=2024-04-31T23:59:59Z   |
-| `filterServer`                                                                                                                   | **int64*                                                                                                                         | :heavy_minus_sign:                                                                                                               | N/A                                                                                                                              |
-| `filterProject`                                                                                                                  | **int64*                                                                                                                         | :heavy_minus_sign:                                                                                                               | N/A                                                                                                                              |
+| `filterServer`                                                                                                                   | **string*                                                                                                                        | :heavy_minus_sign:                                                                                                               | The server id to filter by                                                                                                       |
+| `filterProject`                                                                                                                  | **string*                                                                                                                        | :heavy_minus_sign:                                                                                                               | The project id to filter by                                                                                                      |
 | `opts`                                                                                                                           | [][operations.Option](../../models/operations/option.md)                                                                         | :heavy_minus_sign:                                                                                                               | The options for this request.                                                                                                    |
 
 ### Response
@@ -62,7 +62,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## GetQuota
+## GetTrafficQuota
 
 Retrieve Traffic Quota
 
@@ -85,7 +85,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Traffic.GetQuota(ctx, nil)
+    res, err := s.Traffic.GetTrafficQuota(ctx, nil)
     if err != nil {
         log.Fatal(err)
     }
