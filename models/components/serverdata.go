@@ -95,6 +95,8 @@ type ServerDataPlan struct {
 	Name *string `json:"name,omitempty"`
 	// hourly/monthly pricing. Defaults to `hourly`. Appliable for `on_demand` projects only.
 	Billing *string `json:"billing,omitempty"`
+	// The plan slug
+	Slug *string `json:"slug,omitempty"`
 }
 
 func (o *ServerDataPlan) GetID() *string {
@@ -116,6 +118,13 @@ func (o *ServerDataPlan) GetBilling() *string {
 		return nil
 	}
 	return o.Billing
+}
+
+func (o *ServerDataPlan) GetSlug() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Slug
 }
 
 type ServerDataFeatures struct {
