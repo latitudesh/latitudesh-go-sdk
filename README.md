@@ -481,8 +481,10 @@ func main() {
 
 	res, err := s.APIKeys.PostAPIKey(ctx, components.CreateAPIKey{
 		Data: &components.Data{
-			Type:       components.CreateAPIKeyTypeAPIKeys,
-			Attributes: &components.CreateAPIKeyAttributes{},
+			Type: components.CreateAPIKeyTypeAPIKeys,
+			Attributes: &components.CreateAPIKeyAttributes{
+				Name: latitudeshgosdk.String("App Token"),
+			},
 		},
 	})
 	if err != nil {

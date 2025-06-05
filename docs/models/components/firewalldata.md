@@ -1,0 +1,10 @@
+# FirewallData
+
+
+## Fields
+
+| Field                                                                                   | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `ID`                                                                                    | **string*                                                                               | :heavy_minus_sign:                                                                      | N/A                                                                                     |
+| `Type`                                                                                  | [*components.FirewallDataType](../../models/components/firewalldatatype.md)             | :heavy_minus_sign:                                                                      | N/A                                                                                     |
+| `Attributes`                                                                            | [*components.FirewallDataAttributes](../../models/components/firewalldataattributes.md) | :heavy_minus_sign:                                                                      | N/A                                                                                     |

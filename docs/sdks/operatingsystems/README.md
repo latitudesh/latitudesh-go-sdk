@@ -31,7 +31,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.OperatingSystems.GetPlansOperatingSystem(ctx, nil, nil)
+    res, err := s.OperatingSystems.GetPlansOperatingSystem(ctx, latitudeshgosdk.Int64(20), latitudeshgosdk.Int64(1))
     if err != nil {
         log.Fatal(err)
     }

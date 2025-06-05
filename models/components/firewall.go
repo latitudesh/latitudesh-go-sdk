@@ -119,10 +119,15 @@ func (o *FirewallAttributes) GetProject() *FirewallProject {
 	return o.Project
 }
 
+type Meta struct {
+}
+
 type Firewall struct {
 	ID         *string             `json:"id,omitempty"`
 	Type       *FirewallType       `json:"type,omitempty"`
 	Attributes *FirewallAttributes `json:"attributes,omitempty"`
+	Data       *FirewallData       `json:"data,omitempty"`
+	Meta       *Meta               `json:"meta,omitempty"`
 }
 
 func (o *Firewall) GetID() *string {
@@ -144,4 +149,18 @@ func (o *Firewall) GetAttributes() *FirewallAttributes {
 		return nil
 	}
 	return o.Attributes
+}
+
+func (o *Firewall) GetData() *FirewallData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *Firewall) GetMeta() *Meta {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
 }

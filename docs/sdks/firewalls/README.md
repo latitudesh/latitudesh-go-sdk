@@ -117,7 +117,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Firewalls.ListFirewalls(ctx, latitudeshgosdk.String("lightweight-silk-table"), nil, nil)
+    res, err := s.Firewalls.ListFirewalls(ctx, latitudeshgosdk.String("lightweight-silk-table"), latitudeshgosdk.Int64(20), latitudeshgosdk.Int64(1))
     if err != nil {
         log.Fatal(err)
     }
@@ -347,7 +347,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Firewalls.GetFirewallAssignments(ctx, "fw_93YjJOLydvZ87", nil, nil)
+    res, err := s.Firewalls.GetFirewallAssignments(ctx, "fw_93YjJOLydvZ87", latitudeshgosdk.Int64(20), latitudeshgosdk.Int64(1))
     if err != nil {
         log.Fatal(err)
     }

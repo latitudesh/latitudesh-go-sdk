@@ -154,6 +154,7 @@ func main() {
 
     res, err := s.SSHKeys.PutProjectSSHKey(ctx, "proj_5xyZOnMvDWM0l", "ssh_5AEmq71XOBkWX", operations.PutProjectSSHKeySSHKeysRequestBody{
         Data: operations.PutProjectSSHKeySSHKeysData{
+            ID: latitudeshgosdk.String("ssh_5AEmq71XOBkWX"),
             Type: operations.PutProjectSSHKeySSHKeysTypeSSHKeys,
             Attributes: &operations.PutProjectSSHKeySSHKeysAttributes{
                 Tags: []string{
@@ -439,6 +440,7 @@ func main() {
 
     res, err := s.SSHKeys.PutSSHKey(ctx, "ssh_ez2A3DVldnawP", operations.PutSSHKeySSHKeysRequestBody{
         Data: operations.PutSSHKeySSHKeysData{
+            ID: latitudeshgosdk.String("ssh_ez2A3DVldnawP"),
             Type: operations.PutSSHKeySSHKeysTypeSSHKeys,
             Attributes: &operations.PutSSHKeySSHKeysAttributes{
                 Tags: []string{

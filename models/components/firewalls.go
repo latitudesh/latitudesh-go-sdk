@@ -2,12 +2,12 @@
 
 package components
 
-type Meta struct {
+type FirewallsMeta struct {
 }
 
 type Firewalls struct {
-	Data []Firewall `json:"data,omitempty"`
-	Meta *Meta      `json:"meta,omitempty"`
+	Data []Firewall     `json:"data,omitempty"`
+	Meta *FirewallsMeta `json:"meta,omitempty"`
 }
 
 func (o *Firewalls) GetData() []Firewall {
@@ -17,7 +17,7 @@ func (o *Firewalls) GetData() []Firewall {
 	return o.Data
 }
 
-func (o *Firewalls) GetMeta() *Meta {
+func (o *Firewalls) GetMeta() *FirewallsMeta {
 	if o == nil {
 		return nil
 	}
