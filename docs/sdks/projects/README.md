@@ -166,6 +166,7 @@ func main() {
 
     res, err := s.Projects.UpdateProject(ctx, "proj_LGXPdWpgqnNWk", &operations.UpdateProjectProjectsRequestBody{
         Data: operations.UpdateProjectProjectsData{
+            ID: latitudeshgosdk.String("proj_LGXPdWpgqnNWk"),
             Type: operations.UpdateProjectProjectsTypeProjects,
             Attributes: &operations.UpdateProjectProjectsAttributes{
                 Tags: []string{

@@ -92,6 +92,7 @@ func main() {
             Attributes: &operations.CreateTagTagsAttributes{
                 Name: latitudeshgosdk.String("Tag Name"),
                 Description: latitudeshgosdk.String("Tag Description"),
+                Color: latitudeshgosdk.String("#bebebe"),
             },
         },
     })

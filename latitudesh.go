@@ -2,9 +2,12 @@
 
 package latitudeshgosdk
 
+// Generated from OpenAPI doc version 2023-06-01 and generator version 2.621.3
+
 import (
 	"context"
 	"fmt"
+	"github.com/latitudesh/latitudesh-go-sdk/internal/config"
 	"github.com/latitudesh/latitudesh-go-sdk/internal/hooks"
 	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
@@ -19,7 +22,7 @@ var ServerList = []string{
 	"http://api.latitude.sh",
 }
 
-// HTTPClient provides an interface for suplying the SDK with a custom HTTP client
+// HTTPClient provides an interface for supplying the SDK with a custom HTTP client
 type HTTPClient interface {
 	Do(req *http.Request) (*http.Response, error)
 }
@@ -45,32 +48,9 @@ func Float64(f float64) *float64 { return &f }
 // Pointer provides a helper function to return a pointer to a type
 func Pointer[T any](v T) *T { return &v }
 
-type sdkConfiguration struct {
-	Client            HTTPClient
-	Security          func(context.Context) (interface{}, error)
-	ServerURL         string
-	ServerIndex       int
-	ServerDefaults    []map[string]string
-	Language          string
-	OpenAPIDocVersion string
-	SDKVersion        string
-	GenVersion        string
-	UserAgent         string
-	RetryConfig       *retry.Config
-	Hooks             *hooks.Hooks
-	Timeout           *time.Duration
-}
-
-func (c *sdkConfiguration) GetServerDetails() (string, map[string]string) {
-	if c.ServerURL != "" {
-		return c.ServerURL, nil
-	}
-
-	return ServerList[c.ServerIndex], c.ServerDefaults[c.ServerIndex]
-}
-
 // Latitudesh - Latitude.sh API: The Latitude.sh API is a RESTful API to manage your Latitude.sh account. It allows you to perform the same actions as the Latitude.sh dashboard.
 type Latitudesh struct {
+	SDKVersion       string
 	APIKeys          *APIKeys
 	Billing          *Billing
 	Events           *Events
@@ -97,7 +77,8 @@ type Latitudesh struct {
 	VirtualNetworks  *VirtualNetworks
 	VPNSessions      *VPNSessions
 
-	sdkConfiguration sdkConfiguration
+	sdkConfiguration config.SDKConfiguration
+	hooks            *hooks.Hooks
 }
 
 type SDKOption func(*Latitudesh)
@@ -134,12 +115,12 @@ func WithServerIndex(serverIndex int) SDKOption {
 // WithLatitudeAPIKey allows setting the latitude_api_key variable for url substitution
 func WithLatitudeAPIKey(latitudeAPIKey string) SDKOption {
 	return func(sdk *Latitudesh) {
-		for idx := range sdk.sdkConfiguration.ServerDefaults {
-			if _, ok := sdk.sdkConfiguration.ServerDefaults[idx]["latitude_api_key"]; !ok {
+		for idx := range sdk.sdkConfiguration.ServerVariables {
+			if _, ok := sdk.sdkConfiguration.ServerVariables[idx]["latitude_api_key"]; !ok {
 				continue
 			}
 
-			sdk.sdkConfiguration.ServerDefaults[idx]["latitude_api_key"] = fmt.Sprintf("%v", latitudeAPIKey)
+			sdk.sdkConfiguration.ServerVariables[idx]["latitude_api_key"] = fmt.Sprintf("%v", latitudeAPIKey)
 		}
 	}
 }
@@ -184,13 +165,11 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Latitudesh {
 	sdk := &Latitudesh{
-		sdkConfiguration: sdkConfiguration{
-			Language:          "go",
-			OpenAPIDocVersion: "2023-06-01",
-			SDKVersion:        "1.2.0",
-			GenVersion:        "2.610.0",
-			UserAgent:         "speakeasy-sdk/go 1.2.0 2.610.0 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
-			ServerDefaults: []map[string]string{
+		SDKVersion: "1.3.0",
+		sdkConfiguration: config.SDKConfiguration{
+			UserAgent:  "speakeasy-sdk/go 1.3.0 2.621.3 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
+			ServerList: ServerList,
+			ServerVariables: []map[string]string{
 				{
 					"latitude_api_key": "<insert your api key here>",
 				},
@@ -198,8 +177,8 @@ func New(opts ...SDKOption) *Latitudesh {
 					"latitude_api_key": "<insert your api key here>",
 				},
 			},
-			Hooks: hooks.New(),
 		},
+		hooks: hooks.New(),
 	}
 	for _, opt := range opts {
 		opt(sdk)
@@ -219,60 +198,36 @@ func New(opts ...SDKOption) *Latitudesh {
 
 	currentServerURL, _ := sdk.sdkConfiguration.GetServerDetails()
 	serverURL := currentServerURL
-	serverURL, sdk.sdkConfiguration.Client = sdk.sdkConfiguration.Hooks.SDKInit(currentServerURL, sdk.sdkConfiguration.Client)
-	if serverURL != currentServerURL {
+	serverURL, sdk.sdkConfiguration.Client = sdk.hooks.SDKInit(currentServerURL, sdk.sdkConfiguration.Client)
+	if currentServerURL != serverURL {
 		sdk.sdkConfiguration.ServerURL = serverURL
 	}
 
-	sdk.APIKeys = newAPIKeys(sdk.sdkConfiguration)
-
-	sdk.Billing = newBilling(sdk.sdkConfiguration)
-
-	sdk.Events = newEvents(sdk.sdkConfiguration)
-
-	sdk.Firewalls = newFirewalls(sdk.sdkConfiguration)
-
-	sdk.IPAddresses = newIPAddresses(sdk.sdkConfiguration)
-
-	sdk.Teams = newTeams(sdk.sdkConfiguration)
-
-	sdk.TeamMembers = newTeamMembers(sdk.sdkConfiguration)
-
-	sdk.TeamsMembers = newTeamsMembers(sdk.sdkConfiguration)
-
-	sdk.OperatingSystems = newOperatingSystems(sdk.sdkConfiguration)
-
-	sdk.Plans = newPlans(sdk.sdkConfiguration)
-
-	sdk.Projects = newProjects(sdk.sdkConfiguration)
-
-	sdk.Regions = newRegions(sdk.sdkConfiguration)
-
-	sdk.Roles = newRoles(sdk.sdkConfiguration)
-
-	sdk.Servers = newServers(sdk.sdkConfiguration)
-
-	sdk.SSHKeys = newSSHKeys(sdk.sdkConfiguration)
-
-	sdk.Storage = newStorage(sdk.sdkConfiguration)
-
-	sdk.Tags = newTags(sdk.sdkConfiguration)
-
-	sdk.Traffic = newTraffic(sdk.sdkConfiguration)
-
-	sdk.UserData = newUserData(sdk.sdkConfiguration)
-
-	sdk.ProjectsUserData = newProjectsUserData(sdk.sdkConfiguration)
-
-	sdk.UserProfile = newUserProfile(sdk.sdkConfiguration)
-
-	sdk.VirtualMachines = newVirtualMachines(sdk.sdkConfiguration)
-
-	sdk.PrivateNetworks = newPrivateNetworks(sdk.sdkConfiguration)
-
-	sdk.VirtualNetworks = newVirtualNetworks(sdk.sdkConfiguration)
-
-	sdk.VPNSessions = newVPNSessions(sdk.sdkConfiguration)
+	sdk.APIKeys = newAPIKeys(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Billing = newBilling(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Events = newEvents(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Firewalls = newFirewalls(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.IPAddresses = newIPAddresses(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Teams = newTeams(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.TeamMembers = newTeamMembers(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.TeamsMembers = newTeamsMembers(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.OperatingSystems = newOperatingSystems(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Plans = newPlans(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Projects = newProjects(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Regions = newRegions(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Roles = newRoles(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Servers = newServers(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.SSHKeys = newSSHKeys(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Storage = newStorage(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Tags = newTags(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Traffic = newTraffic(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.UserData = newUserData(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.ProjectsUserData = newProjectsUserData(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.UserProfile = newUserProfile(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.VirtualMachines = newVirtualMachines(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.PrivateNetworks = newPrivateNetworks(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.VirtualNetworks = newVirtualNetworks(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.VPNSessions = newVPNSessions(sdk, sdk.sdkConfiguration, sdk.hooks)
 
 	return sdk
 }

@@ -30,7 +30,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Teams.Members.GetTeamMembers(ctx, nil, nil)
+    res, err := s.Teams.Members.GetTeamMembers(ctx, latitudeshgosdk.Int64(20), latitudeshgosdk.Int64(1))
     if err != nil {
         log.Fatal(err)
     }

@@ -200,7 +200,9 @@ func main() {
         Data: operations.PatchStorageFilesystemsStorageData{
             ID: "fs_7vYAZqGBdMQ94",
             Type: operations.PatchStorageFilesystemsStorageTypeFilesystems,
-            Attributes: operations.PatchStorageFilesystemsStorageAttributes{},
+            Attributes: operations.PatchStorageFilesystemsStorageAttributes{
+                SizeInGb: latitudeshgosdk.Int64(1501),
+            },
         },
     })
     if err != nil {

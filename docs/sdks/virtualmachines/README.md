@@ -38,7 +38,10 @@ func main() {
     res, err := s.VirtualMachines.CreateVirtualMachine(ctx, components.VirtualMachinePayload{
         Data: &components.VirtualMachinePayloadData{
             Type: components.VirtualMachinePayloadTypeVirtualMachines.ToPointer(),
-            Attributes: &components.VirtualMachinePayloadAttributes{},
+            Attributes: &components.VirtualMachinePayloadAttributes{
+                Name: latitudeshgosdk.String("my-new-vm"),
+                Project: latitudeshgosdk.String("aerodynamic-granite-keyboard"),
+            },
         },
     })
     if err != nil {

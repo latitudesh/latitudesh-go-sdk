@@ -33,7 +33,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Regions.GetRegions(ctx, nil, nil)
+    res, err := s.Regions.GetRegions(ctx, latitudeshgosdk.Int64(20), latitudeshgosdk.Int64(1))
     if err != nil {
         log.Fatal(err)
     }

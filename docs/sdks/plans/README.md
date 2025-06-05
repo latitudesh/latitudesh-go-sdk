@@ -139,7 +139,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Plans.GetBandwidthPlans(ctx, nil, nil, nil, nil)
+    res, err := s.Plans.GetBandwidthPlans(ctx, latitudeshgosdk.String("2023-06-01"), nil, latitudeshgosdk.Int64(20), latitudeshgosdk.Int64(1))
     if err != nil {
         log.Fatal(err)
     }

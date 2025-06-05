@@ -41,7 +41,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserData.List(ctx, "proj_z2A3DV4wdnawP", nil)
+    res, err := s.UserData.List(ctx, "proj_z2A3DV4wdnawP", latitudeshgosdk.String("decoded_content"))
     if err != nil {
         log.Fatal(err)
     }
@@ -160,7 +160,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserData.Get(ctx, "proj_vYAZqG44DMQ94", "ud_lQraYDPeOpjwW", nil)
+    res, err := s.UserData.Get(ctx, "proj_vYAZqG44DMQ94", "ud_lQraYDPeOpjwW", latitudeshgosdk.String("decoded_content"))
     if err != nil {
         log.Fatal(err)
     }
@@ -279,7 +279,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserData.GetUsersData(ctx, nil)
+    res, err := s.UserData.GetUsersData(ctx, latitudeshgosdk.String("decoded_content"))
     if err != nil {
         log.Fatal(err)
     }
@@ -392,7 +392,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserData.GetUserData(ctx, "ud_7vYAZqGBdMQ94", nil)
+    res, err := s.UserData.GetUserData(ctx, "ud_7vYAZqGBdMQ94", latitudeshgosdk.String("decoded_content"))
     if err != nil {
         log.Fatal(err)
     }
