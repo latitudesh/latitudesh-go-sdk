@@ -33,7 +33,7 @@ func (e *AssignServerVirtualNetworkPrivateNetworksType) UnmarshalJSON(data []byt
 
 type AssignServerVirtualNetworkPrivateNetworksAttributes struct {
 	ServerID         string `json:"server_id"`
-	VirtualNetworkID int64  `json:"virtual_network_id"`
+	VirtualNetworkID string `json:"virtual_network_id"`
 }
 
 func (o *AssignServerVirtualNetworkPrivateNetworksAttributes) GetServerID() string {
@@ -43,9 +43,9 @@ func (o *AssignServerVirtualNetworkPrivateNetworksAttributes) GetServerID() stri
 	return o.ServerID
 }
 
-func (o *AssignServerVirtualNetworkPrivateNetworksAttributes) GetVirtualNetworkID() int64 {
+func (o *AssignServerVirtualNetworkPrivateNetworksAttributes) GetVirtualNetworkID() string {
 	if o == nil {
-		return 0
+		return ""
 	}
 	return o.VirtualNetworkID
 }
