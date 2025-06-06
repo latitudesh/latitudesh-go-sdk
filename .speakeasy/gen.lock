@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 4fcaed8af834af1a70667a8dff26c298
+  docChecksum: 2816cbb2aed11d122a49cda55f353d0a
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.556.2
-  generationVersion: 2.621.3
-  releaseVersion: 1.3.1
-  configChecksum: 5ac8cb32035f3748db270acb1db546a6
+  speakeasyVersion: 1.557.0
+  generationVersion: 2.623.0
+  releaseVersion: 1.4.0
+  configChecksum: 4e7e77cfc6150ab1c9b14ab07931463a
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 features:
   go:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.7.5
+    core: 3.8.0
     defaultEnabledRetries: 0.2.0
     deprecations: 2.81.3
     devContainers: 2.90.0
@@ -3014,22 +3014,22 @@ examples:
   assign-server-virtual-network:
     Created:
       requestBody:
-        application/json: {"data": {"type": "virtual_network_assignment", "attributes": {"server_id": "sv_pbV0DgQGd4AWz", "virtual_network_id": null}}}
-        application/vnd.api+json: {"data": {"type": "virtual_network_assignment", "attributes": {"server_id": "sv_pbV0DgQGd4AWz", "virtual_network_id": null}}}
+        application/json: {"data": {"type": "virtual_network_assignment", "attributes": {"server_id": "sv_pbV0DgQGd4AWz", "virtual_network_id": "vlan_059EqYe2qQj8p"}}}
+        application/vnd.api+json: {"data": {"type": "virtual_network_assignment", "attributes": {"server_id": "sv_pbV0DgQGd4AWz", "virtual_network_id": "vlan_059EqYe2qQj8p"}}}
       responses:
         "201":
           application/vnd.api+json: {}
     Forbidden:
       requestBody:
-        application/json: {"data": {"type": "virtual_network_assignment", "attributes": {"server_id": "sv_LYV8DZ61D5QoE", "virtual_network_id": null}}}
-        application/vnd.api+json: {"data": {"type": "virtual_network_assignment", "attributes": {"server_id": "sv_LYV8DZ61D5QoE", "virtual_network_id": null}}}
+        application/json: {"data": {"type": "virtual_network_assignment", "attributes": {"server_id": "sv_LYV8DZ61D5QoE", "virtual_network_id": "vlan_3YjJOLBjqvZ87"}}}
+        application/vnd.api+json: {"data": {"type": "virtual_network_assignment", "attributes": {"server_id": "sv_LYV8DZ61D5QoE", "virtual_network_id": "vlan_3YjJOLBjqvZ87"}}}
       responses:
         "403":
           application/vnd.api+json: {"errors": [{"code": "USER_AUTHORIZATION_ERROR", "status": "forbidden", "title": "User Authorization Error", "detail": "You are not authorized to perform this action.", "meta": {}}]}
     validation error:
       requestBody:
-        application/json: {"data": {"type": "virtual_network_assignment", "attributes": {"server_id": "<id>", "virtual_network_id": 770853}}}
-        application/vnd.api+json: {"data": {"type": "virtual_network_assignment", "attributes": {"server_id": "<id>", "virtual_network_id": 770853}}}
+        application/json: {"data": {"type": "virtual_network_assignment", "attributes": {"server_id": "<id>", "virtual_network_id": "770853"}}}
+        application/vnd.api+json: {"data": {"type": "virtual_network_assignment", "attributes": {"server_id": "<id>", "virtual_network_id": "770853"}}}
       responses:
         "201":
           application/vnd.api+json: {}

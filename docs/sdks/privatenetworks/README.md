@@ -354,7 +354,7 @@ func main() {
             Type: operations.AssignServerVirtualNetworkPrivateNetworksTypeVirtualNetworkAssignment,
             Attributes: &operations.AssignServerVirtualNetworkPrivateNetworksAttributes{
                 ServerID: "sv_pbV0DgQGd4AWz",
-                VirtualNetworkID: 40591,
+                VirtualNetworkID: "vlan_059EqYe2qQj8p",
             },
         },
     })
