@@ -30,9 +30,9 @@ func newTags(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *hook
 	}
 }
 
-// GetTags - List all Tags
+// List all Tags
 // List all Tags in the team.
-func (s *Tags) GetTags(ctx context.Context, opts ...operations.Option) (*operations.GetTagsResponse, error) {
+func (s *Tags) List(ctx context.Context, opts ...operations.Option) (*operations.GetTagsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -199,12 +199,12 @@ func (s *Tags) GetTags(ctx context.Context, opts ...operations.Option) (*operati
 				return nil, err
 			}
 
-			var out components.CustomTag
+			var out components.CustomTags
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.CustomTag = &out
+			res.CustomTags = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -236,9 +236,9 @@ func (s *Tags) GetTags(ctx context.Context, opts ...operations.Option) (*operati
 
 }
 
-// CreateTag - Create a Tag
+// Create a Tag
 // Create a Tag in the team.
-func (s *Tags) CreateTag(ctx context.Context, request operations.CreateTagTagsRequestBody, opts ...operations.Option) (*operations.CreateTagResponse, error) {
+func (s *Tags) Create(ctx context.Context, request operations.CreateTagTagsRequestBody, opts ...operations.Option) (*operations.CreateTagResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -451,9 +451,9 @@ func (s *Tags) CreateTag(ctx context.Context, request operations.CreateTagTagsRe
 
 }
 
-// UpdateTag - Update Tag
+// Update Tag
 // Update a Tag in the team.
-func (s *Tags) UpdateTag(ctx context.Context, tagID string, requestBody operations.UpdateTagTagsRequestBody, opts ...operations.Option) (*operations.UpdateTagResponse, error) {
+func (s *Tags) Update(ctx context.Context, tagID string, requestBody operations.UpdateTagTagsRequestBody, opts ...operations.Option) (*operations.UpdateTagResponse, error) {
 	request := operations.UpdateTagRequest{
 		TagID:       tagID,
 		RequestBody: requestBody,
@@ -673,9 +673,9 @@ func (s *Tags) UpdateTag(ctx context.Context, tagID string, requestBody operatio
 
 }
 
-// DestroyTag - Delete Tag
+// Delete Tag
 // Update a Tag in the team.
-func (s *Tags) DestroyTag(ctx context.Context, tagID string, opts ...operations.Option) (*operations.DestroyTagResponse, error) {
+func (s *Tags) Delete(ctx context.Context, tagID string, opts ...operations.Option) (*operations.DestroyTagResponse, error) {
 	request := operations.DestroyTagRequest{
 		TagID: tagID,
 	}

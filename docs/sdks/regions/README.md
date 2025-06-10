@@ -5,10 +5,10 @@
 
 ### Available Operations
 
-* [GetRegions](#getregions) - List all Regions
-* [GetRegion](#getregion) - Retrieve a Region
+* [Get](#get) - List all Regions
+* [Fetch](#fetch) - Retrieve a Region
 
-## GetRegions
+## Get
 
 Lists all [available locations](https://latitude.sh/locations). For server availability by location, please see the [Plans API](/reference/get-plans).
 
@@ -33,7 +33,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Regions.GetRegions(ctx, latitudeshgosdk.Int64(20), latitudeshgosdk.Int64(1))
+    res, err := s.Regions.Get(ctx, latitudeshgosdk.Int64(20), latitudeshgosdk.Int64(1))
     if err != nil {
         log.Fatal(err)
     }
@@ -74,7 +74,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## GetRegion
+## Fetch
 
 Retrieve a Region
 
@@ -97,7 +97,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Regions.GetRegion(ctx, "reg_GnzRD5W1dM5yw")
+    res, err := s.Regions.Fetch(ctx, "reg_GnzRD5W1dM5yw")
     if err != nil {
         log.Fatal(err)
     }

@@ -31,9 +31,9 @@ func newEvents(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *ho
 	}
 }
 
-// GetEvents - List all Events
+// List all Events
 // Lists all events.
-func (s *Events) GetEvents(ctx context.Context, request operations.GetEventsRequest, opts ...operations.Option) (*operations.GetEventsResponse, error) {
+func (s *Events) List(ctx context.Context, request operations.GetEventsRequest, opts ...operations.Option) (*operations.GetEventsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -232,7 +232,7 @@ func (s *Events) GetEvents(ctx context.Context, request operations.GetEventsRequ
 			return nil, nil
 		}
 
-		return s.GetEvents(
+		return s.List(
 			ctx,
 			operations.GetEventsRequest{
 				FilterAuthor:       request.FilterAuthor,

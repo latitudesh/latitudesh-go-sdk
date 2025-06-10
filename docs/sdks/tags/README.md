@@ -5,12 +5,12 @@
 
 ### Available Operations
 
-* [GetTags](#gettags) - List all Tags
-* [CreateTag](#createtag) - Create a Tag
-* [UpdateTag](#updatetag) - Update Tag
-* [DestroyTag](#destroytag) - Delete Tag
+* [List](#list) - List all Tags
+* [Create](#create) - Create a Tag
+* [Update](#update) - Update Tag
+* [Delete](#delete) - Delete Tag
 
-## GetTags
+## List
 
 List all Tags in the team.
 
@@ -34,11 +34,11 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Tags.GetTags(ctx)
+    res, err := s.Tags.List(ctx)
     if err != nil {
         log.Fatal(err)
     }
-    if res.CustomTag != nil {
+    if res.CustomTags != nil {
         // handle response
     }
 }
@@ -61,7 +61,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## CreateTag
+## Create
 
 Create a Tag in the team.
 
@@ -86,7 +86,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Tags.CreateTag(ctx, operations.CreateTagTagsRequestBody{
+    res, err := s.Tags.Create(ctx, operations.CreateTagTagsRequestBody{
         Data: &operations.CreateTagTagsData{
             Type: operations.CreateTagTagsTypeTags.ToPointer(),
             Attributes: &operations.CreateTagTagsAttributes{
@@ -123,7 +123,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## UpdateTag
+## Update
 
 Update a Tag in the team.
 
@@ -148,7 +148,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Tags.UpdateTag(ctx, "tag_4v3NK44wkpF4Ewa73bRgS0BpVW4G", operations.UpdateTagTagsRequestBody{
+    res, err := s.Tags.Update(ctx, "tag_4v3NK44wkpF4Ewa73bRgS0BpVW4G", operations.UpdateTagTagsRequestBody{
         Data: &operations.UpdateTagTagsData{
             ID: latitudeshgosdk.String("tag_4v3NK44wkpF4Ewa73bRgS0BpVW4G"),
             Type: operations.UpdateTagTagsTypeTags.ToPointer(),
@@ -185,7 +185,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## DestroyTag
+## Delete
 
 Update a Tag in the team.
 
@@ -209,7 +209,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Tags.DestroyTag(ctx, "invalid-id")
+    res, err := s.Tags.Delete(ctx, "invalid-id")
     if err != nil {
         log.Fatal(err)
     }

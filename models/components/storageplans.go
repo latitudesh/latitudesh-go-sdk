@@ -2,13 +2,24 @@
 
 package components
 
-type StoragePlans struct {
-	Data []StoragePlan `json:"data,omitempty"`
+type StoragePlansMeta struct {
 }
 
-func (o *StoragePlans) GetData() []StoragePlan {
+type StoragePlans struct {
+	Data []StoragePlanData `json:"data,omitempty"`
+	Meta *StoragePlansMeta `json:"meta,omitempty"`
+}
+
+func (o *StoragePlans) GetData() []StoragePlanData {
 	if o == nil {
 		return nil
 	}
 	return o.Data
+}
+
+func (o *StoragePlans) GetMeta() *StoragePlansMeta {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
 }

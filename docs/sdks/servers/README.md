@@ -5,26 +5,26 @@
 
 ### Available Operations
 
-* [GetServers](#getservers) - List all Servers
-* [CreateServer](#createserver) - Deploy Server
-* [GetServer](#getserver) - Retrieve a Server
-* [UpdateServer](#updateserver) - Update Server
-* [DestroyServer](#destroyserver) - Remove Server
-* [GetServerDeployConfig](#getserverdeployconfig) - Retrieve Deploy Config
-* [UpdateServerDeployConfig](#updateserverdeployconfig) - Update Deploy Config
-* [ServerLock](#serverlock) - Lock the server
-* [ServerUnlock](#serverunlock) - Unlock the server
-* [CreateServerOutOfBand](#createserveroutofband) - Start Out of Band Connection
-* [GetServerOutOfBand](#getserveroutofband) - List Out of Band Connections
+* [List](#list) - List all Servers
+* [Create](#create) - Deploy Server
+* [Get](#get) - Retrieve a Server
+* [Update](#update) - Update Server
+* [Delete](#delete) - Remove Server
+* [GetDeployConfig](#getdeployconfig) - Retrieve Deploy Config
+* [UpdateDeployConfig](#updatedeployconfig) - Update Deploy Config
+* [Lock](#lock) - Lock the server
+* [Unlock](#unlock) - Unlock the server
+* [StartOutOfBandConnection](#startoutofbandconnection) - Start Out of Band Connection
+* [GetOutOfBand](#getoutofband) - List Out of Band Connections
 * [RunAction](#runaction) - Run Server Action
 * [CreateIpmiSession](#createipmisession) - Generate IPMI credentials
-* [ServerStartRescueMode](#serverstartrescuemode) - Puts a Server in rescue mode
-* [ServerExitRescueMode](#serverexitrescuemode) - Exits rescue mode for a Server
-* [ServerScheduleDeletion](#serverscheduledeletion) - Schedule the server deletion
-* [ServerUnscheduleDeletion](#serverunscheduledeletion) - Unschedule the server deletion
-* [CreateServerReinstall](#createserverreinstall) - Run Server Reinstall
+* [StartRescueMode](#startrescuemode) - Puts a Server in rescue mode
+* [ExitRescueMode](#exitrescuemode) - Exits rescue mode for a Server
+* [ScheduleDeletion](#scheduledeletion) - Schedule the server deletion
+* [UnscheduleDeletion](#unscheduledeletion) - Unschedule the server deletion
+* [Reinstall](#reinstall) - Run Server Reinstall
 
-## GetServers
+## List
 
 Returns a list of all servers belonging to the team.
 
@@ -49,7 +49,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.GetServers(ctx, operations.GetServersRequest{
+    res, err := s.Servers.List(ctx, operations.GetServersRequest{
         FilterProject: latitudeshgosdk.String("proj_g1mbDwrZqLv5B"),
         FilterRegion: latitudeshgosdk.String("SAO"),
         FilterRAMEql: latitudeshgosdk.Int64(32),
@@ -97,7 +97,7 @@ func main() {
 | components.ErrorObject   | 422                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## CreateServer
+## Create
 
 Deploy Server
 
@@ -121,7 +121,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.CreateServer(ctx, operations.CreateServerServersRequestBody{
+    res, err := s.Servers.Create(ctx, operations.CreateServerServersRequestBody{
         Data: &operations.CreateServerServersData{
             Type: operations.CreateServerServersTypeServers,
             Attributes: &operations.CreateServerServersAttributes{
@@ -161,7 +161,7 @@ func main() {
 | components.ErrorObject   | 400, 402, 422            | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## GetServer
+## Get
 
 Returns a server that belongs to the team.
 
@@ -185,7 +185,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.GetServer(ctx, "sv_aNmodjGeqbE8W", nil)
+    res, err := s.Servers.Get(ctx, "sv_aNmodjGeqbE8W", nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -214,7 +214,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## UpdateServer
+## Update
 
 Update Server
 
@@ -238,7 +238,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.UpdateServer(ctx, "sv_3YjJOLLNOvZ87", operations.UpdateServerServersRequestBody{})
+    res, err := s.Servers.Update(ctx, "sv_3YjJOLLNOvZ87", operations.UpdateServerServersRequestBody{})
     if err != nil {
         log.Fatal(err)
     }
@@ -269,7 +269,7 @@ func main() {
 | components.ErrorObject   | 402, 422, 423            | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## DestroyServer
+## Delete
 
 Remove Server
 
@@ -292,7 +292,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.DestroyServer(ctx, "sv_WeGoqAZNDP7nz", nil)
+    res, err := s.Servers.Delete(ctx, "sv_WeGoqAZNDP7nz", nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -322,7 +322,7 @@ func main() {
 | components.ErrorObject   | 403, 406, 422            | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## GetServerDeployConfig
+## GetDeployConfig
 
 Retrieve Deploy Config
 
@@ -345,7 +345,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.GetServerDeployConfig(ctx, "sv_pRMLydp0dQKr1")
+    res, err := s.Servers.GetDeployConfig(ctx, "sv_pRMLydp0dQKr1")
     if err != nil {
         log.Fatal(err)
     }
@@ -373,7 +373,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## UpdateServerDeployConfig
+## UpdateDeployConfig
 
 Update Deploy Config
 
@@ -397,7 +397,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.UpdateServerDeployConfig(ctx, "sv_g1mbDweZdLv5B", operations.UpdateServerDeployConfigServersRequestBody{
+    res, err := s.Servers.UpdateDeployConfig(ctx, "sv_g1mbDweZdLv5B", operations.UpdateServerDeployConfigServersRequestBody{
         Type: operations.UpdateServerDeployConfigServersTypeDeployConfig,
     })
     if err != nil {
@@ -430,7 +430,7 @@ func main() {
 | components.DeployConfigError | 422                          | application/vnd.api+json     |
 | components.APIError          | 4XX, 5XX                     | \*/\*                        |
 
-## ServerLock
+## Lock
 
 Locks the server. A locked server cannot be deleted or modified and no actions can be performed on it.
 
@@ -453,7 +453,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.ServerLock(ctx, "sv_059EqYX2dQj8p")
+    res, err := s.Servers.Lock(ctx, "sv_059EqYX2dQj8p")
     if err != nil {
         log.Fatal(err)
     }
@@ -481,7 +481,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## ServerUnlock
+## Unlock
 
 Unlocks the server. A locked server cannot be deleted or modified and no actions can be performed on it.
 
@@ -504,7 +504,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.ServerUnlock(ctx, "sv_aNmodjoyqbE8W")
+    res, err := s.Servers.Unlock(ctx, "sv_aNmodjoyqbE8W")
     if err != nil {
         log.Fatal(err)
     }
@@ -532,7 +532,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## CreateServerOutOfBand
+## StartOutOfBandConnection
 
 Start Out of Band Connection
 
@@ -556,7 +556,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.CreateServerOutOfBand(ctx, "sv_z2A3DVpQdnawP", operations.CreateServerOutOfBandServersRequestBody{
+    res, err := s.Servers.StartOutOfBandConnection(ctx, "sv_z2A3DVpQdnawP", operations.CreateServerOutOfBandServersRequestBody{
         Data: operations.CreateServerOutOfBandServersData{
             Type: operations.CreateServerOutOfBandServersTypeOutOfBand,
             Attributes: &operations.CreateServerOutOfBandServersAttributes{
@@ -593,7 +593,7 @@ func main() {
 | components.ErrorObject   | 403, 404                 | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## GetServerOutOfBand
+## GetOutOfBand
 
 List Out of Band Connections
 
@@ -616,7 +616,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.GetServerOutOfBand(ctx, "sv_1ZJrdx34Og4LV")
+    res, err := s.Servers.GetOutOfBand(ctx, "sv_1ZJrdx34Og4LV")
     if err != nil {
         log.Fatal(err)
     }
@@ -766,7 +766,7 @@ func main() {
 | components.ErrorObject   | 403, 404, 422            | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## ServerStartRescueMode
+## StartRescueMode
 
 Starts rescue mode on a given server.
 
@@ -789,7 +789,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.ServerStartRescueMode(ctx, "sv_k0Ryqv9adW36X")
+    res, err := s.Servers.StartRescueMode(ctx, "sv_k0Ryqv9adW36X")
     if err != nil {
         log.Fatal(err)
     }
@@ -818,7 +818,7 @@ func main() {
 | components.ErrorObject   | 403, 406                 | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## ServerExitRescueMode
+## ExitRescueMode
 
 Exits rescue mode on a given server.
 
@@ -841,7 +841,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.ServerExitRescueMode(ctx, "sv_KXgRdRRodv9k5")
+    res, err := s.Servers.ExitRescueMode(ctx, "sv_KXgRdRRodv9k5")
     if err != nil {
         log.Fatal(err)
     }
@@ -870,7 +870,7 @@ func main() {
 | components.ErrorObject   | 403, 406                 | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## ServerScheduleDeletion
+## ScheduleDeletion
 
 Schedules the server to be removed at the end of the billing cycle.
 
@@ -893,7 +893,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.ServerScheduleDeletion(ctx, "sv_enPbqoBJdA2MQ")
+    res, err := s.Servers.ScheduleDeletion(ctx, "sv_enPbqoBJdA2MQ")
     if err != nil {
         log.Fatal(err)
     }
@@ -922,7 +922,7 @@ func main() {
 | components.ErrorObject   | 403, 406, 423            | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## ServerUnscheduleDeletion
+## UnscheduleDeletion
 
 Unschedules the server removal at the end of the billing cycle.
 
@@ -945,7 +945,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.ServerUnscheduleDeletion(ctx, "sv_Z8rodmJGq1jLB")
+    res, err := s.Servers.UnscheduleDeletion(ctx, "sv_Z8rodmJGq1jLB")
     if err != nil {
         log.Fatal(err)
     }
@@ -974,7 +974,7 @@ func main() {
 | components.ErrorObject   | 403                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## CreateServerReinstall
+## Reinstall
 
 Run Server Reinstall
 
@@ -998,7 +998,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.CreateServerReinstall(ctx, "sv_WeGoqAWNOP7nz", operations.CreateServerReinstallServersRequestBody{
+    res, err := s.Servers.Reinstall(ctx, "sv_WeGoqAWNOP7nz", operations.CreateServerReinstallServersRequestBody{
         Data: operations.CreateServerReinstallServersData{
             Type: operations.CreateServerReinstallServersTypeReinstalls,
             Attributes: &operations.CreateServerReinstallServersAttributes{

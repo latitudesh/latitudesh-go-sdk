@@ -2,7 +2,7 @@
 
 package latitudeshgosdk
 
-// Generated from OpenAPI doc version 2023-06-01 and generator version 2.623.4
+// Generated from OpenAPI doc version 2023-06-01 and generator version 2.624.0
 
 import (
 	"context"
@@ -58,7 +58,6 @@ type Latitudesh struct {
 	IPAddresses      *IPAddresses
 	Teams            *Teams
 	TeamMembers      *TeamMembers
-	TeamsMembers     *TeamsMembers
 	OperatingSystems *OperatingSystems
 	Plans            *Plans
 	Projects         *Projects
@@ -75,7 +74,7 @@ type Latitudesh struct {
 	VirtualMachines  *VirtualMachines
 	PrivateNetworks  *PrivateNetworks
 	VirtualNetworks  *VirtualNetworks
-	VPNSessions      *VPNSessions
+	VpnSessions      *VpnSessions
 
 	sdkConfiguration config.SDKConfiguration
 	hooks            *hooks.Hooks
@@ -165,9 +164,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Latitudesh {
 	sdk := &Latitudesh{
-		SDKVersion: "1.4.1",
+		SDKVersion: "1.4.5",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 1.4.1 2.623.4 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
+			UserAgent:  "speakeasy-sdk/go 1.4.5 2.624.0 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
 			ServerList: ServerList,
 			ServerVariables: []map[string]string{
 				{
@@ -210,7 +209,6 @@ func New(opts ...SDKOption) *Latitudesh {
 	sdk.IPAddresses = newIPAddresses(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Teams = newTeams(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.TeamMembers = newTeamMembers(sdk, sdk.sdkConfiguration, sdk.hooks)
-	sdk.TeamsMembers = newTeamsMembers(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.OperatingSystems = newOperatingSystems(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Plans = newPlans(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Projects = newProjects(sdk, sdk.sdkConfiguration, sdk.hooks)
@@ -227,7 +225,7 @@ func New(opts ...SDKOption) *Latitudesh {
 	sdk.VirtualMachines = newVirtualMachines(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.PrivateNetworks = newPrivateNetworks(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.VirtualNetworks = newVirtualNetworks(sdk, sdk.sdkConfiguration, sdk.hooks)
-	sdk.VPNSessions = newVPNSessions(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.VpnSessions = newVpnSessions(sdk, sdk.sdkConfiguration, sdk.hooks)
 
 	return sdk
 }

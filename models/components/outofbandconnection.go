@@ -2,27 +2,27 @@
 
 package components
 
-type OutOfBandConnectionSSHKey struct {
+type SSHKey struct {
 	ID          *string `json:"id,omitempty"`
 	Description *string `json:"description,omitempty"`
 	Fingerprint *string `json:"fingerprint,omitempty"`
 }
 
-func (o *OutOfBandConnectionSSHKey) GetID() *string {
+func (o *SSHKey) GetID() *string {
 	if o == nil {
 		return nil
 	}
 	return o.ID
 }
 
-func (o *OutOfBandConnectionSSHKey) GetDescription() *string {
+func (o *SSHKey) GetDescription() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Description
 }
 
-func (o *OutOfBandConnectionSSHKey) GetFingerprint() *string {
+func (o *SSHKey) GetFingerprint() *string {
 	if o == nil {
 		return nil
 	}
@@ -50,9 +50,9 @@ func (o *Credentials) GetPassword() *string {
 }
 
 type OutOfBandConnectionAttributes struct {
-	SSHKey    *OutOfBandConnectionSSHKey `json:"ssh_key,omitempty"`
-	CreatedAt *string                    `json:"created_at,omitempty"`
-	Username  *string                    `json:"username,omitempty"`
+	SSHKey    *SSHKey `json:"ssh_key,omitempty"`
+	CreatedAt *string `json:"created_at,omitempty"`
+	Username  *string `json:"username,omitempty"`
 	// credentials are valid only when the server is deployed with ssh keys
 	Credentials *Credentials `json:"credentials,omitempty"`
 	Port        *string      `json:"port,omitempty"`
@@ -61,7 +61,7 @@ type OutOfBandConnectionAttributes struct {
 	Status      *string      `json:"status,omitempty"`
 }
 
-func (o *OutOfBandConnectionAttributes) GetSSHKey() *OutOfBandConnectionSSHKey {
+func (o *OutOfBandConnectionAttributes) GetSSHKey() *SSHKey {
 	if o == nil {
 		return nil
 	}

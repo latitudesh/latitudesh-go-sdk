@@ -249,11 +249,231 @@ func (s *UserData) List(ctx context.Context, projectID string, extraFieldsUserDa
 
 }
 
-// PostProjectUserData - Create a Project User Data
+// Get - Retrieve a Project User Data
+// Get User Data in the project. These scripts can be used to configure servers with user data.
+//
+// Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
+func (s *UserData) Get(ctx context.Context, projectID string, userDataID string, extraFieldsUserData *string, opts ...operations.Option) (*operations.GetProjectUserDataResponse, error) {
+	request := operations.GetProjectUserDataRequest{
+		ProjectID:           projectID,
+		UserDataID:          userDataID,
+		ExtraFieldsUserData: extraFieldsUserData,
+	}
+
+	o := operations.Options{}
+	supportedOptions := []string{
+		operations.SupportedOptionRetries,
+		operations.SupportedOptionTimeout,
+	}
+
+	for _, opt := range opts {
+		if err := opt(&o, supportedOptions...); err != nil {
+			return nil, fmt.Errorf("error applying option: %w", err)
+		}
+	}
+
+	var baseURL string
+	if o.ServerURL == nil {
+		baseURL = utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
+	} else {
+		baseURL = *o.ServerURL
+	}
+	opURL, err := utils.GenerateURL(ctx, baseURL, "/projects/{project_id}/user_data/{user_data_id}", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	hookCtx := hooks.HookContext{
+		SDK:              s.rootSDK,
+		SDKConfiguration: s.sdkConfiguration,
+		BaseURL:          baseURL,
+		Context:          ctx,
+		OperationID:      "get-project-user-data",
+		OAuth2Scopes:     []string{},
+		SecuritySource:   s.sdkConfiguration.Security,
+	}
+
+	timeout := o.Timeout
+	if timeout == nil {
+		timeout = s.sdkConfiguration.Timeout
+	}
+
+	if timeout != nil {
+		var cancel context.CancelFunc
+		ctx, cancel = context.WithTimeout(ctx, *timeout)
+		defer cancel()
+	}
+
+	req, err := http.NewRequestWithContext(ctx, "GET", opURL, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error creating request: %w", err)
+	}
+	req.Header.Set("Accept", "application/vnd.api+json")
+	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
+
+	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
+		return nil, fmt.Errorf("error populating query params: %w", err)
+	}
+
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
+		return nil, err
+	}
+
+	for k, v := range o.SetHeaders {
+		req.Header.Set(k, v)
+	}
+
+	globalRetryConfig := s.sdkConfiguration.RetryConfig
+	retryConfig := o.Retries
+	if retryConfig == nil {
+		if globalRetryConfig != nil {
+			retryConfig = globalRetryConfig
+		}
+	}
+
+	var httpRes *http.Response
+	if retryConfig != nil {
+		httpRes, err = utils.Retry(ctx, utils.Retries{
+			Config: retryConfig,
+			StatusCodes: []string{
+				"429",
+				"500",
+				"502",
+				"503",
+				"504",
+			},
+		}, func() (*http.Response, error) {
+			if req.Body != nil && req.Body != http.NoBody && req.GetBody != nil {
+				copyBody, err := req.GetBody()
+
+				if err != nil {
+					return nil, err
+				}
+
+				req.Body = copyBody
+			}
+
+			req, err = s.hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
+			if err != nil {
+				if retry.IsPermanentError(err) || retry.IsTemporaryError(err) {
+					return nil, err
+				}
+
+				return nil, retry.Permanent(err)
+			}
+
+			httpRes, err := s.sdkConfiguration.Client.Do(req)
+			if err != nil || httpRes == nil {
+				if err != nil {
+					err = fmt.Errorf("error sending request: %w", err)
+				} else {
+					err = fmt.Errorf("error sending request: no response")
+				}
+
+				_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
+			}
+			return httpRes, err
+		})
+
+		if err != nil {
+			return nil, err
+		} else {
+			httpRes, err = s.hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
+			if err != nil {
+				return nil, err
+			}
+		}
+	} else {
+		req, err = s.hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
+		if err != nil {
+			return nil, err
+		}
+
+		httpRes, err = s.sdkConfiguration.Client.Do(req)
+		if err != nil || httpRes == nil {
+			if err != nil {
+				err = fmt.Errorf("error sending request: %w", err)
+			} else {
+				err = fmt.Errorf("error sending request: no response")
+			}
+
+			_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
+			return nil, err
+		} else if utils.MatchStatusCodes([]string{"404", "4XX", "5XX"}, httpRes.StatusCode) {
+			_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
+			if err != nil {
+				return nil, err
+			} else if _httpRes != nil {
+				httpRes = _httpRes
+			}
+		} else {
+			httpRes, err = s.hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
+			if err != nil {
+				return nil, err
+			}
+		}
+	}
+
+	res := &operations.GetProjectUserDataResponse{
+		HTTPMeta: components.HTTPMetadata{
+			Request:  req,
+			Response: httpRes,
+		},
+	}
+
+	switch {
+	case httpRes.StatusCode == 200:
+		switch {
+		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/vnd.api+json`):
+			rawBody, err := utils.ConsumeRawBody(httpRes)
+			if err != nil {
+				return nil, err
+			}
+
+			var out components.UserData
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
+				return nil, err
+			}
+
+			res.UserData = &out
+		default:
+			rawBody, err := utils.ConsumeRawBody(httpRes)
+			if err != nil {
+				return nil, err
+			}
+			return nil, components.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
+		}
+	case httpRes.StatusCode == 404:
+		fallthrough
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		rawBody, err := utils.ConsumeRawBody(httpRes)
+		if err != nil {
+			return nil, err
+		}
+		return nil, components.NewAPIError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		rawBody, err := utils.ConsumeRawBody(httpRes)
+		if err != nil {
+			return nil, err
+		}
+		return nil, components.NewAPIError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
+	default:
+		rawBody, err := utils.ConsumeRawBody(httpRes)
+		if err != nil {
+			return nil, err
+		}
+		return nil, components.NewAPIError("unknown status code returned", httpRes.StatusCode, string(rawBody), httpRes)
+	}
+
+	return res, nil
+
+}
+
+// Create a Project User Data
 // Allows you to create User Data in a project, which can be used to perform custom setup on your servers after deploy and reinstall.
 //
 // Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
-func (s *UserData) PostProjectUserData(ctx context.Context, projectID string, requestBody operations.PostProjectUserDataUserDataRequestBody, opts ...operations.Option) (*operations.PostProjectUserDataResponse, error) {
+func (s *UserData) Create(ctx context.Context, projectID string, requestBody operations.PostProjectUserDataUserDataRequestBody, opts ...operations.Option) (*operations.PostProjectUserDataResponse, error) {
 	request := operations.PostProjectUserDataRequest{
 		ProjectID:   projectID,
 		RequestBody: requestBody,
@@ -475,231 +695,11 @@ func (s *UserData) PostProjectUserData(ctx context.Context, projectID string, re
 
 }
 
-// Get - Retrieve a Project User Data
-// Get User Data in the project. These scripts can be used to configure servers with user data.
-//
-// Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
-func (s *UserData) Get(ctx context.Context, projectID string, userDataID string, extraFieldsUserData *string, opts ...operations.Option) (*operations.GetProjectUserDataResponse, error) {
-	request := operations.GetProjectUserDataRequest{
-		ProjectID:           projectID,
-		UserDataID:          userDataID,
-		ExtraFieldsUserData: extraFieldsUserData,
-	}
-
-	o := operations.Options{}
-	supportedOptions := []string{
-		operations.SupportedOptionRetries,
-		operations.SupportedOptionTimeout,
-	}
-
-	for _, opt := range opts {
-		if err := opt(&o, supportedOptions...); err != nil {
-			return nil, fmt.Errorf("error applying option: %w", err)
-		}
-	}
-
-	var baseURL string
-	if o.ServerURL == nil {
-		baseURL = utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
-	} else {
-		baseURL = *o.ServerURL
-	}
-	opURL, err := utils.GenerateURL(ctx, baseURL, "/projects/{project_id}/user_data/{user_data_id}", request, nil)
-	if err != nil {
-		return nil, fmt.Errorf("error generating URL: %w", err)
-	}
-
-	hookCtx := hooks.HookContext{
-		SDK:              s.rootSDK,
-		SDKConfiguration: s.sdkConfiguration,
-		BaseURL:          baseURL,
-		Context:          ctx,
-		OperationID:      "get-project-user-data",
-		OAuth2Scopes:     []string{},
-		SecuritySource:   s.sdkConfiguration.Security,
-	}
-
-	timeout := o.Timeout
-	if timeout == nil {
-		timeout = s.sdkConfiguration.Timeout
-	}
-
-	if timeout != nil {
-		var cancel context.CancelFunc
-		ctx, cancel = context.WithTimeout(ctx, *timeout)
-		defer cancel()
-	}
-
-	req, err := http.NewRequestWithContext(ctx, "GET", opURL, nil)
-	if err != nil {
-		return nil, fmt.Errorf("error creating request: %w", err)
-	}
-	req.Header.Set("Accept", "application/vnd.api+json")
-	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
-
-	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
-		return nil, fmt.Errorf("error populating query params: %w", err)
-	}
-
-	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
-		return nil, err
-	}
-
-	for k, v := range o.SetHeaders {
-		req.Header.Set(k, v)
-	}
-
-	globalRetryConfig := s.sdkConfiguration.RetryConfig
-	retryConfig := o.Retries
-	if retryConfig == nil {
-		if globalRetryConfig != nil {
-			retryConfig = globalRetryConfig
-		}
-	}
-
-	var httpRes *http.Response
-	if retryConfig != nil {
-		httpRes, err = utils.Retry(ctx, utils.Retries{
-			Config: retryConfig,
-			StatusCodes: []string{
-				"429",
-				"500",
-				"502",
-				"503",
-				"504",
-			},
-		}, func() (*http.Response, error) {
-			if req.Body != nil && req.Body != http.NoBody && req.GetBody != nil {
-				copyBody, err := req.GetBody()
-
-				if err != nil {
-					return nil, err
-				}
-
-				req.Body = copyBody
-			}
-
-			req, err = s.hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
-			if err != nil {
-				if retry.IsPermanentError(err) || retry.IsTemporaryError(err) {
-					return nil, err
-				}
-
-				return nil, retry.Permanent(err)
-			}
-
-			httpRes, err := s.sdkConfiguration.Client.Do(req)
-			if err != nil || httpRes == nil {
-				if err != nil {
-					err = fmt.Errorf("error sending request: %w", err)
-				} else {
-					err = fmt.Errorf("error sending request: no response")
-				}
-
-				_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
-			}
-			return httpRes, err
-		})
-
-		if err != nil {
-			return nil, err
-		} else {
-			httpRes, err = s.hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
-			if err != nil {
-				return nil, err
-			}
-		}
-	} else {
-		req, err = s.hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
-		if err != nil {
-			return nil, err
-		}
-
-		httpRes, err = s.sdkConfiguration.Client.Do(req)
-		if err != nil || httpRes == nil {
-			if err != nil {
-				err = fmt.Errorf("error sending request: %w", err)
-			} else {
-				err = fmt.Errorf("error sending request: no response")
-			}
-
-			_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
-			return nil, err
-		} else if utils.MatchStatusCodes([]string{"404", "4XX", "5XX"}, httpRes.StatusCode) {
-			_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
-			if err != nil {
-				return nil, err
-			} else if _httpRes != nil {
-				httpRes = _httpRes
-			}
-		} else {
-			httpRes, err = s.hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
-			if err != nil {
-				return nil, err
-			}
-		}
-	}
-
-	res := &operations.GetProjectUserDataResponse{
-		HTTPMeta: components.HTTPMetadata{
-			Request:  req,
-			Response: httpRes,
-		},
-	}
-
-	switch {
-	case httpRes.StatusCode == 200:
-		switch {
-		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/vnd.api+json`):
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
-
-			var out components.UserData
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-
-			res.UserData = &out
-		default:
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
-			return nil, components.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 404:
-		fallthrough
-	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
-		rawBody, err := utils.ConsumeRawBody(httpRes)
-		if err != nil {
-			return nil, err
-		}
-		return nil, components.NewAPIError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
-	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
-		rawBody, err := utils.ConsumeRawBody(httpRes)
-		if err != nil {
-			return nil, err
-		}
-		return nil, components.NewAPIError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
-	default:
-		rawBody, err := utils.ConsumeRawBody(httpRes)
-		if err != nil {
-			return nil, err
-		}
-		return nil, components.NewAPIError("unknown status code returned", httpRes.StatusCode, string(rawBody), httpRes)
-	}
-
-	return res, nil
-
-}
-
-// PutProjectUserData - Update a Project User Data
+// UpdateForProject - Update a Project User Data
 // Allow you update User Data in a project.
 //
 // Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
-func (s *UserData) PutProjectUserData(ctx context.Context, projectID string, userDataID string, requestBody *operations.PutProjectUserDataUserDataRequestBody, opts ...operations.Option) (*operations.PutProjectUserDataResponse, error) {
+func (s *UserData) UpdateForProject(ctx context.Context, projectID string, userDataID string, requestBody *operations.PutProjectUserDataUserDataRequestBody, opts ...operations.Option) (*operations.PutProjectUserDataResponse, error) {
 	request := operations.PutProjectUserDataRequest{
 		ProjectID:   projectID,
 		UserDataID:  userDataID,
@@ -922,9 +922,9 @@ func (s *UserData) PutProjectUserData(ctx context.Context, projectID string, use
 
 }
 
-// GetUsersData - List all User Data
+// List all User Data
 // List all Users Data in the project. These scripts can be used to configure servers with user data.
-func (s *UserData) GetUsersData(ctx context.Context, extraFieldsUserData *string, opts ...operations.Option) (*operations.GetUsersDataResponse, error) {
+func (s *UserData) List(ctx context.Context, extraFieldsUserData *string, opts ...operations.Option) (*operations.GetUsersDataResponse, error) {
 	request := operations.GetUsersDataRequest{
 		ExtraFieldsUserData: extraFieldsUserData,
 	}
@@ -1136,9 +1136,9 @@ func (s *UserData) GetUsersData(ctx context.Context, extraFieldsUserData *string
 
 }
 
-// PostUserData - Create an User Data
+// CreateNew - Create an User Data
 // Allows you to create User Data in a team, which can be used to perform custom setup on your servers after deploy and reinstall.
-func (s *UserData) PostUserData(ctx context.Context, request operations.PostUserDataUserDataRequestBody, opts ...operations.Option) (*operations.PostUserDataResponse, error) {
+func (s *UserData) CreateNew(ctx context.Context, request operations.PostUserDataUserDataRequestBody, opts ...operations.Option) (*operations.PostUserDataResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -1349,9 +1349,9 @@ func (s *UserData) PostUserData(ctx context.Context, request operations.PostUser
 
 }
 
-// GetUserData - Retrieve an User Data
+// Retrieve an User Data
 // Get User Data in the project. These scripts can be used to configure servers with user data.
-func (s *UserData) GetUserData(ctx context.Context, userDataID string, extraFieldsUserData *string, opts ...operations.Option) (*operations.GetUserDataResponse, error) {
+func (s *UserData) Retrieve(ctx context.Context, userDataID string, extraFieldsUserData *string, opts ...operations.Option) (*operations.GetUserDataResponse, error) {
 	request := operations.GetUserDataRequest{
 		UserDataID:          userDataID,
 		ExtraFieldsUserData: extraFieldsUserData,
@@ -1566,9 +1566,9 @@ func (s *UserData) GetUserData(ctx context.Context, userDataID string, extraFiel
 
 }
 
-// PatchUserData - Update an User Data
+// Update an User Data
 // Allow you update User Data in a team.
-func (s *UserData) PatchUserData(ctx context.Context, userDataID string, requestBody *operations.PatchUserDataUserDataRequestBody, opts ...operations.Option) (*operations.PatchUserDataResponse, error) {
+func (s *UserData) Update(ctx context.Context, userDataID string, requestBody *operations.PatchUserDataUserDataRequestBody, opts ...operations.Option) (*operations.PatchUserDataResponse, error) {
 	request := operations.PatchUserDataRequest{
 		UserDataID:  userDataID,
 		RequestBody: requestBody,
@@ -1784,8 +1784,8 @@ func (s *UserData) PatchUserData(ctx context.Context, userDataID string, request
 
 }
 
-// DeleteUserData - Delete an User Data
-func (s *UserData) DeleteUserData(ctx context.Context, userDataID string, opts ...operations.Option) (*operations.DeleteUserDataResponse, error) {
+// Delete an User Data
+func (s *UserData) Delete(ctx context.Context, userDataID string, opts ...operations.Option) (*operations.DeleteUserDataResponse, error) {
 	request := operations.DeleteUserDataRequest{
 		UserDataID: userDataID,
 	}

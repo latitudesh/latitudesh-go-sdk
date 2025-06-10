@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: bf1e82af5fc6575b49ab5d394fb1451e
+  docChecksum: a0476e1bfebdad3c4567a3f8ff8db6bd
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.558.1
-  generationVersion: 2.623.4
-  releaseVersion: 1.4.1
-  configChecksum: 16d2a890646e80a92ded7f177ef0d745
+  speakeasyVersion: 1.559.0
+  generationVersion: 2.624.0
+  releaseVersion: 1.4.5
+  configChecksum: 58d2839a998ef1595b1c36c94d2b4c49
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 features:
@@ -37,13 +37,16 @@ generatedFiles:
   - .gitattributes
   - /models/components/apikey.go
   - /models/components/bandwidthpackages.go
-  - /models/components/bandwidthplan.go
+  - /models/components/bandwidthplandata.go
   - /models/components/bandwidthplans.go
   - /models/components/billingusage.go
   - /models/components/createapikey.go
   - /models/components/customtag.go
+  - /models/components/customtagdata.go
+  - /models/components/customtags.go
   - /models/components/deployconfig.go
   - /models/components/errorobject.go
+  - /models/components/eventdata.go
   - /models/components/events.go
   - /models/components/filesystemdata.go
   - /models/components/firewall.go
@@ -55,6 +58,7 @@ generatedFiles:
   - /models/components/ipaddresses.go
   - /models/components/ipmisession.go
   - /models/components/membership.go
+  - /models/components/operatingsystemdata.go
   - /models/components/operatingsystems.go
   - /models/components/outofbandconnection.go
   - /models/components/plan.go
@@ -74,9 +78,9 @@ generatedFiles:
   - /models/components/serverrescue.go
   - /models/components/servers.go
   - /models/components/serverscheduledeletion.go
-  - /models/components/sshkey.go
   - /models/components/sshkeydata.go
-  - /models/components/storageplan.go
+  - /models/components/sshkeys.go
+  - /models/components/storageplandata.go
   - /models/components/storageplans.go
   - /models/components/team.go
   - /models/components/teaminclude.go
@@ -98,7 +102,9 @@ generatedFiles:
   - /models/components/virtualnetwork.go
   - /models/components/virtualnetwork1.go
   - /models/components/virtualnetworkassignment.go
+  - /models/components/virtualnetworkassignmentdata.go
   - /models/components/virtualnetworkassignments.go
+  - /models/components/virtualnetworkdata.go
   - /models/components/virtualnetworks.go
   - /models/components/vpnsessiondatawithpassword.go
   - /models/components/vpnsessionwithpassword.go
@@ -219,10 +225,11 @@ generatedFiles:
   - docs/models/components/bandwidthpackagesattributes.md
   - docs/models/components/bandwidthpackagesproject.md
   - docs/models/components/bandwidthpackagestype.md
-  - docs/models/components/bandwidthplan.md
-  - docs/models/components/bandwidthplanattributes.md
+  - docs/models/components/bandwidthplandata.md
+  - docs/models/components/bandwidthplandataattributes.md
+  - docs/models/components/bandwidthplandatatype.md
   - docs/models/components/bandwidthplans.md
-  - docs/models/components/bandwidthplantype.md
+  - docs/models/components/bandwidthplansmeta.md
   - docs/models/components/billing.md
   - docs/models/components/billingmethod.md
   - docs/models/components/billingtype.md
@@ -241,6 +248,12 @@ generatedFiles:
   - docs/models/components/currency.md
   - docs/models/components/customtag.md
   - docs/models/components/customtagattributes.md
+  - docs/models/components/customtagdata.md
+  - docs/models/components/customtagdataattributes.md
+  - docs/models/components/customtagdatatype.md
+  - docs/models/components/customtagmeta.md
+  - docs/models/components/customtags.md
+  - docs/models/components/customtagsmeta.md
   - docs/models/components/customtagtype.md
   - docs/models/components/data.md
   - docs/models/components/deployconfig.md
@@ -255,6 +268,13 @@ generatedFiles:
   - docs/models/components/errorobject.md
   - docs/models/components/errorobjectmeta.md
   - docs/models/components/errors.md
+  - docs/models/components/eventdata.md
+  - docs/models/components/eventdataattributes.md
+  - docs/models/components/eventdataauthor.md
+  - docs/models/components/eventdataproject.md
+  - docs/models/components/eventdatatarget.md
+  - docs/models/components/eventdatateam.md
+  - docs/models/components/eventdatatype.md
   - docs/models/components/events.md
   - docs/models/components/eventsattributes.md
   - docs/models/components/eventsproject.md
@@ -272,6 +292,7 @@ generatedFiles:
   - docs/models/components/firewalldataproject.md
   - docs/models/components/firewalldatarules.md
   - docs/models/components/firewalldatatype.md
+  - docs/models/components/firewallmeta.md
   - docs/models/components/firewallproject.md
   - docs/models/components/firewalls.md
   - docs/models/components/firewallserver.md
@@ -304,12 +325,16 @@ generatedFiles:
   - docs/models/components/metadata.md
   - docs/models/components/nics.md
   - docs/models/components/operatingsystem.md
+  - docs/models/components/operatingsystemdata.md
+  - docs/models/components/operatingsystemdataattributes.md
+  - docs/models/components/operatingsystemdatafeatures.md
+  - docs/models/components/operatingsystemdatatype.md
   - docs/models/components/operatingsystems.md
   - docs/models/components/operatingsystemsattributes.md
+  - docs/models/components/operatingsystemsmeta.md
   - docs/models/components/outofbandconnection.md
   - docs/models/components/outofbandconnectionattributes.md
   - docs/models/components/outofbandconnectiondata.md
-  - docs/models/components/outofbandconnectionsshkey.md
   - docs/models/components/packages.md
   - docs/models/components/partitions.md
   - docs/models/components/period.md
@@ -346,6 +371,7 @@ generatedFiles:
   - docs/models/components/roledata.md
   - docs/models/components/roledataattributes.md
   - docs/models/components/roledatatype.md
+  - docs/models/components/rolemeta.md
   - docs/models/components/rules.md
   - docs/models/components/security.md
   - docs/models/components/server.md
@@ -377,13 +403,17 @@ generatedFiles:
   - docs/models/components/sshkeydata.md
   - docs/models/components/sshkeydataattributes.md
   - docs/models/components/sshkeydatatype.md
+  - docs/models/components/sshkeys.md
+  - docs/models/components/sshkeysmeta.md
   - docs/models/components/stats.md
   - docs/models/components/status.md
   - docs/models/components/stocklevel.md
-  - docs/models/components/storageplan.md
   - docs/models/components/storageplandata.md
-  - docs/models/components/storageplanpricing.md
+  - docs/models/components/storageplandataattributes.md
+  - docs/models/components/storageplandatapricing.md
+  - docs/models/components/storageplandatatype.md
   - docs/models/components/storageplans.md
+  - docs/models/components/storageplansmeta.md
   - docs/models/components/target.md
   - docs/models/components/team.md
   - docs/models/components/teamattributes.md
@@ -415,6 +445,7 @@ generatedFiles:
   - docs/models/components/user.md
   - docs/models/components/userattributes.md
   - docs/models/components/userdata.md
+  - docs/models/components/userdatameta.md
   - docs/models/components/userdataproperties.md
   - docs/models/components/userdatapropertiesattributes.md
   - docs/models/components/userdatapropertiestype.md
@@ -450,6 +481,10 @@ generatedFiles:
   - docs/models/components/virtualnetwork1.md
   - docs/models/components/virtualnetworkassignment.md
   - docs/models/components/virtualnetworkassignmentattributes.md
+  - docs/models/components/virtualnetworkassignmentdata.md
+  - docs/models/components/virtualnetworkassignmentdataattributes.md
+  - docs/models/components/virtualnetworkassignmentdatatype.md
+  - docs/models/components/virtualnetworkassignmentmeta.md
   - docs/models/components/virtualnetworkassignments.md
   - docs/models/components/virtualnetworkassignmentserver.md
   - docs/models/components/virtualnetworkassignmentsmeta.md
@@ -457,7 +492,14 @@ generatedFiles:
   - docs/models/components/virtualnetworkattributes1.md
   - docs/models/components/virtualnetworkattributesregion.md
   - docs/models/components/virtualnetworkattributessite.md
+  - docs/models/components/virtualnetworkdata.md
+  - docs/models/components/virtualnetworkdataattributes.md
+  - docs/models/components/virtualnetworkdataregion.md
+  - docs/models/components/virtualnetworkdatasite.md
+  - docs/models/components/virtualnetworkdatatype.md
   - docs/models/components/virtualnetworkerror.md
+  - docs/models/components/virtualnetworkmeta.md
+  - docs/models/components/virtualnetworkmeta1.md
   - docs/models/components/virtualnetworkregion.md
   - docs/models/components/virtualnetworks.md
   - docs/models/components/virtualnetworksite.md
@@ -844,7 +886,7 @@ generatedFiles:
   - docs/sdks/firewalls/README.md
   - docs/sdks/ipaddresses/README.md
   - docs/sdks/latitudesh/README.md
-  - docs/sdks/latitudeshsshkeys/README.md
+  - docs/sdks/latitudeshprojectssshkeys/README.md
   - docs/sdks/members/README.md
   - docs/sdks/operatingsystems/README.md
   - docs/sdks/plans/README.md
@@ -859,7 +901,6 @@ generatedFiles:
   - docs/sdks/tags/README.md
   - docs/sdks/teammembers/README.md
   - docs/sdks/teams/README.md
-  - docs/sdks/teamsmembers/README.md
   - docs/sdks/traffic/README.md
   - docs/sdks/userdata/README.md
   - docs/sdks/userprofile/README.md
@@ -885,7 +926,7 @@ generatedFiles:
   - internal/utils/utils.go
   - ipaddresses.go
   - latitudesh.go
-  - latitudeshsshkeys.go
+  - latitudeshprojectssshkeys.go
   - members.go
   - models/components/apierror.go
   - models/operations/options.go
@@ -903,7 +944,6 @@ generatedFiles:
   - tags.go
   - teammembers.go
   - teams.go
-  - teamsmembers.go
   - traffic.go
   - types/bigint.go
   - types/date.go
@@ -1422,7 +1462,7 @@ examples:
           API-Version: "2023-06-01"
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "argentina", "type": "bandwidth_plan", "attributes": {"region": "Argentina", "locations": ["ASH", "SAO"], "pricing": {"usd": {"monthly": 9000}, "brl": {"monthly": 2000}}}}]}
+          application/vnd.api+json: {"data": [{"id": "argentina", "type": "bandwidth_plan", "attributes": {"region": "Argentina", "locations": ["ASH", "SAO"], "pricing": {"usd": {"monthly": 9000}, "brl": {"monthly": 2000}}}}], "meta": {}}
   update-plans-bandwidth:
     Success:
       requestBody:
@@ -1442,7 +1482,7 @@ examples:
     Success:
       responses:
         "200":
-          application/vnd.api+json: {"data": [{}]}
+          application/vnd.api+json: {"data": [{"id": "plan_5AEmq71XOBkWX", "type": "storage_plans", "attributes": {"name": "Filesystem"}}]}
   get-vm-plans:
     Success:
       responses:
@@ -1656,7 +1696,7 @@ examples:
           role_id: "role_3YjJOLjbqvZ87"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "role_3YjJOLjbqvZ87", "type": "roles", "attributes": {"name": "owner"}}}
+          application/vnd.api+json: {"data": {"id": "role_3YjJOLjbqvZ87", "type": "roles", "attributes": {"name": "owner"}}, "meta": {}}
     Not found:
       parameters:
         path:
@@ -2277,7 +2317,7 @@ examples:
           project_id: "proj_lxWpD6a9qm6rk"
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "ssh_m5xyZOnNOWM0l", "type": "ssh_keys", "attributes": {"name": "mitchell-cassin.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqF26Ycm+oynty9gQdUOA0AtKlJEFi9CjMbch3O/53PIylZRtlCv4t6S/8uVRbTGzkFdepcvF9G4zZd7dvp05lHOUo6SqHZcpXCsXmHT0w4+93kDDck9aPDv1ZkRaoDmEnYkHvNzHSZAbOvppfBRKOT0djzFOb5jDRBpzBZNO/md/QuQ0af8E9WaL2+OyGPnN6F5fjpxegbYayHRCzilQXe+ibIcG+uFN4YiqWNjUASaYonRMIrV2W0Qd3tS2A5FT+mVokVAscNC+39P+WY9drZxIWROYghUtDUmOGhZXMjVJv1CZpKD2i+oKzHY4WXzFfMNtq3gQtVPRwqPWqoUNh", "fingerprint": "e5:73:d8:f7:45:73:a7:6f:3e:27:2b:13:2e:31:8b:bf", "user": {"id": "user_XPJGP714AgtrM4ayxzlphGmp08zz", "first_name": "Samuel", "last_name": "Nienow", "email": "ailene@renner.example", "created_at": "2025-01-21T00:00:00.000Z", "updated_at": "2024-08-18T00:00:00.000Z", "role": {"id": "role_WYbknJRZNPiQYLz19m3eHzQn9beR", "name": "collaborator", "created_at": "2024-07-10T00:00:00.000Z", "updated_at": "2026-02-02T00:00:00.000Z"}}, "created_at": "2025-04-28T18:40:24+00:00", "updated_at": "2025-04-28T18:40:24+00:00"}}]}
+          application/vnd.api+json: {"data": [{"id": "ssh_m5xyZOnNOWM0l", "type": "ssh_keys", "attributes": {"name": "mitchell-cassin.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqF26Ycm+oynty9gQdUOA0AtKlJEFi9CjMbch3O/53PIylZRtlCv4t6S/8uVRbTGzkFdepcvF9G4zZd7dvp05lHOUo6SqHZcpXCsXmHT0w4+93kDDck9aPDv1ZkRaoDmEnYkHvNzHSZAbOvppfBRKOT0djzFOb5jDRBpzBZNO/md/QuQ0af8E9WaL2+OyGPnN6F5fjpxegbYayHRCzilQXe+ibIcG+uFN4YiqWNjUASaYonRMIrV2W0Qd3tS2A5FT+mVokVAscNC+39P+WY9drZxIWROYghUtDUmOGhZXMjVJv1CZpKD2i+oKzHY4WXzFfMNtq3gQtVPRwqPWqoUNh", "fingerprint": "e5:73:d8:f7:45:73:a7:6f:3e:27:2b:13:2e:31:8b:bf", "user": {"id": "user_XPJGP714AgtrM4ayxzlphGmp08zz", "first_name": "Samuel", "last_name": "Nienow", "email": "ailene@renner.example", "created_at": "2025-01-21T00:00:00.000Z", "updated_at": "2024-08-18T00:00:00.000Z", "role": {"id": "role_WYbknJRZNPiQYLz19m3eHzQn9beR", "name": "collaborator", "created_at": "2024-07-10T00:00:00.000Z", "updated_at": "2026-02-02T00:00:00.000Z"}}, "created_at": "2025-04-28T18:40:24+00:00", "updated_at": "2025-04-28T18:40:24+00:00"}}], "meta": {}}
     when trying to filter by tag:
       parameters:
         path:
@@ -2286,7 +2326,7 @@ examples:
           filter[tags]: "tag_JzoXbwJ7KgFM2J4wALjXHbVrjX4"
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "ssh_GKN4ydzgqVob3", "type": "ssh_keys", "attributes": {"name": "considine.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAsimKKuq6UBNCVhsvrVAidWkCc6OvgKblPOzIgwU+WDN9mR4/uWzBB42sAvgFxgDne/dZQCcfwEgYDt+CweLYEnSzlEz6O+WxOruxfrTB9imz5eJW8yZj9/bFvrfIK8ECDQvoKBbTAGQfD/MgGZ+72TrDBHn7xEpCECFskWZ4MVhPMXn4jfZArcbJft4AH9nw7JNOSYkW9NnA3dT5+K9xXSN6HPEgHefWGtOVbZr1CMIEYvhzjRNhK6neax2AbPaXEgtH5hmTWBor3zYV8SBcXcwgbp11s0FVNmSo3VHRHfQXsc/qRJ5QUVvaQsYBPsiFu7U6FEUyOzkt7Gfs9wGx", "fingerprint": "fe:95:a5:99:92:38:62:79:3b:6b:b1:77:46:ac:98:51", "user": {"id": "user_1laarMWzMASKLZRnG69rsK5QR05", "first_name": "Heriberto", "last_name": "Torphy", "email": "ami_johns@jenkins-pagac.example", "created_at": "2025-01-22T00:00:00.000Z", "updated_at": "2025-03-30T00:00:00.000Z", "role": {"id": "role_ZzlaQz1mMQtmvGBg012ghB5GM7n", "name": "collaborator", "created_at": "2025-03-05T00:00:00.000Z", "updated_at": "2025-05-13T00:00:00.000Z"}}, "created_at": "2025-04-28T18:40:24+00:00", "updated_at": "2025-04-28T18:40:24+00:00"}}]}
+          application/vnd.api+json: {"data": [{"id": "ssh_GKN4ydzgqVob3", "type": "ssh_keys", "attributes": {"name": "considine.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAsimKKuq6UBNCVhsvrVAidWkCc6OvgKblPOzIgwU+WDN9mR4/uWzBB42sAvgFxgDne/dZQCcfwEgYDt+CweLYEnSzlEz6O+WxOruxfrTB9imz5eJW8yZj9/bFvrfIK8ECDQvoKBbTAGQfD/MgGZ+72TrDBHn7xEpCECFskWZ4MVhPMXn4jfZArcbJft4AH9nw7JNOSYkW9NnA3dT5+K9xXSN6HPEgHefWGtOVbZr1CMIEYvhzjRNhK6neax2AbPaXEgtH5hmTWBor3zYV8SBcXcwgbp11s0FVNmSo3VHRHfQXsc/qRJ5QUVvaQsYBPsiFu7U6FEUyOzkt7Gfs9wGx", "fingerprint": "fe:95:a5:99:92:38:62:79:3b:6b:b1:77:46:ac:98:51", "user": {"id": "user_1laarMWzMASKLZRnG69rsK5QR05", "first_name": "Heriberto", "last_name": "Torphy", "email": "ami_johns@jenkins-pagac.example", "created_at": "2025-01-22T00:00:00.000Z", "updated_at": "2025-03-30T00:00:00.000Z", "role": {"id": "role_ZzlaQz1mMQtmvGBg012ghB5GM7n", "name": "collaborator", "created_at": "2025-03-05T00:00:00.000Z", "updated_at": "2025-05-13T00:00:00.000Z"}}, "created_at": "2025-04-28T18:40:24+00:00", "updated_at": "2025-04-28T18:40:24+00:00"}}], "meta": {}}
     Filtered by multiple tags:
       parameters:
         path:
@@ -2295,7 +2335,7 @@ examples:
           filter[tags]: "tag_N88P7WK0w5u4PKevRB5ahVeLaPW,tag_Wal9mQPJzJI7jWRreANNcblXGRP"
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "ssh_6WeGoqAnDP7nz", "type": "ssh_keys", "attributes": {"name": "goodwin.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCx74S6Tg9GEsroiRy3Q4+KQT75C6Pk5H0qu3E1Z07e4kPcOLs8YARDfmiO6F4De5b4qERxhEuaqujTyJukX4SF/MAv8ZC76j9pe8fNWKx9EMv9KujkdP+oAS0yTZX5eJ2ZvM4kqQMIy0+SoUpXjdqyRrFXaVJq4PDga7i4l14WB4/oJbM5v1HgHfnr2WCL8PncM4rRoCVrQp0FLaNMypfPTqfy1amlhQ+dEM+QzPWUsuUUS+Ugw9YGV8lKyZ0uzWhFAz7C8wNPWGGjeCNiQV77IbbQlPUjYyA/xOmtgpUXmbDhsnHw/ptGsyhug9JfJLxpukFNFmKrXp4+WUWSwuNZ", "fingerprint": "52:f5:93:49:78:41:f0:b2:6b:47:df:bc:26:38:70:23", "user": {"id": "user_jRMy0olLYbi0Pxw47WzEu8m7RGR", "first_name": "Williams", "last_name": "Abernathy", "email": "ethelene.blanda@monahan-kuhlman.test", "created_at": "2024-10-18T00:00:00.000Z", "updated_at": "2024-10-10T00:00:00.000Z", "role": {"id": "role_8jjao2Z1JzTKQNAvaGzACXyYbx6M", "name": "collaborator", "created_at": "2025-01-26T00:00:00.000Z", "updated_at": "2026-01-04T00:00:00.000Z"}}, "created_at": "2025-04-28T18:40:24+00:00", "updated_at": "2025-04-28T18:40:24+00:00"}}]}
+          application/vnd.api+json: {"data": [{"id": "ssh_6WeGoqAnDP7nz", "type": "ssh_keys", "attributes": {"name": "goodwin.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCx74S6Tg9GEsroiRy3Q4+KQT75C6Pk5H0qu3E1Z07e4kPcOLs8YARDfmiO6F4De5b4qERxhEuaqujTyJukX4SF/MAv8ZC76j9pe8fNWKx9EMv9KujkdP+oAS0yTZX5eJ2ZvM4kqQMIy0+SoUpXjdqyRrFXaVJq4PDga7i4l14WB4/oJbM5v1HgHfnr2WCL8PncM4rRoCVrQp0FLaNMypfPTqfy1amlhQ+dEM+QzPWUsuUUS+Ugw9YGV8lKyZ0uzWhFAz7C8wNPWGGjeCNiQV77IbbQlPUjYyA/xOmtgpUXmbDhsnHw/ptGsyhug9JfJLxpukFNFmKrXp4+WUWSwuNZ", "fingerprint": "52:f5:93:49:78:41:f0:b2:6b:47:df:bc:26:38:70:23", "user": {"id": "user_jRMy0olLYbi0Pxw47WzEu8m7RGR", "first_name": "Williams", "last_name": "Abernathy", "email": "ethelene.blanda@monahan-kuhlman.test", "created_at": "2024-10-18T00:00:00.000Z", "updated_at": "2024-10-10T00:00:00.000Z", "role": {"id": "role_8jjao2Z1JzTKQNAvaGzACXyYbx6M", "name": "collaborator", "created_at": "2025-01-26T00:00:00.000Z", "updated_at": "2026-01-04T00:00:00.000Z"}}, "created_at": "2025-04-28T18:40:24+00:00", "updated_at": "2025-04-28T18:40:24+00:00"}}], "meta": {}}
   get-project-ssh-key:
     Success:
       parameters:
@@ -2439,7 +2479,7 @@ examples:
     Success:
       responses:
         "200":
-          application/vnd.api+json: {}
+          application/vnd.api+json: {"data": [{"id": "tag_l03KMwLl3MTbNbAkoX2yhGJANojG", "type": "tags", "attributes": {"name": "Fréaláf", "slug": "frealaf", "description": "Molestias explicabo ut similique.", "color": "#6d6d31", "team": {"id": "team_ZnaW9x7GjlhmAbzgml0oulGXZxn", "name": "502 Team", "slug": "502-team", "description": "502 Team", "address": "Apt. 900 62077 Youlanda Shore, Baileymouth, TX 21318-1771", "currency": {}, "status": "verified"}}}]}
   create-tag:
     Created:
       requestBody:
@@ -2447,7 +2487,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "tags", "attributes": {"name": "Tag Name", "description": "Tag Description", "color": "#bebebe"}}}
       responses:
         "201":
-          application/vnd.api+json: {}
+          application/vnd.api+json: {"data": {"id": "tag_kExr8ewmVEcNollmv1NzHNMyeNL2", "type": "tags", "attributes": {"name": "Tag Name", "slug": "tag-name", "description": "Tag Description", "color": "#bebebe", "team": {"id": "team_R265W71LAZIALQgW1BXxSRYGyvNR", "name": "503 Team", "slug": "503-team", "description": "503 Team", "address": "582 Chris Rue, North Will, NV 49794-7752", "currency": {}, "status": "verified"}}}}
     when any attribute is missing or not filled:
       requestBody:
         application/json: {"data": {"type": "tags", "attributes": {"name": "Tag Name", "description": "", "color": "#ffffff"}}}
@@ -2486,7 +2526,7 @@ examples:
         application/vnd.api+json: {"data": {"id": "tag_4v3NK44wkpF4Ewa73bRgS0BpVW4G", "type": "tags", "attributes": {"name": "Tag Name", "color": "#ffffff"}}}
       responses:
         "200":
-          application/vnd.api+json: {}
+          application/vnd.api+json: {"data": {"id": "tag_4v3NK44wkpF4Ewa73bRgS0BpVW4G", "type": "tags", "attributes": {"name": "Tag Name", "slug": "tag-name", "description": "Ducimus itaque nesciunt nisi.", "color": "#000000", "team": {"id": "team_EzopXlJka3SgVoNb4zMnheeka8VE", "name": "508 Team", "slug": "508-team", "description": "508 Team", "address": "170 Sawayn Mountain, Kuhnshire, ME 55983-5755", "currency": {}, "status": "verified"}}}}
     when name is already taken:
       parameters:
         path:
@@ -2629,7 +2669,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "ud_GlxWpD6KOm6rk", "type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "created_at": "2025-04-28T18:40:32+00:00", "updated_at": "2025-04-28T18:40:32+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ud_GlxWpD6KOm6rk", "type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "created_at": "2025-04-28T18:40:32+00:00", "updated_at": "2025-04-28T18:40:32+00:00"}}, "meta": {}}
     Bad Request:
       parameters:
         path:
@@ -2690,7 +2730,7 @@ examples:
           extra_fields[user_data]: "decoded_content"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "ud_lQraYDPeOpjwW", "type": "user_data", "attributes": {"description": "Two butter croissants of your choice (plain, almond or cheese). With a side of herb butter or house-made hazelnut spread.", "content": "MjgtZGF5IGFnZWQgMzAwZyBVU0RBIENlcnRpZmllZCBQcmltZSBSaWJleWUsIHJvc2VtYXJ5LXRoeW1lIGdhcmxpYyBidXR0ZXIsIHdpdGggY2hvaWNlIG9mIHR3byBzaWRlcy4=", "created_at": "2025-04-28T18:40:32+00:00", "updated_at": "2025-04-28T18:40:32+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ud_lQraYDPeOpjwW", "type": "user_data", "attributes": {"description": "Two butter croissants of your choice (plain, almond or cheese). With a side of herb butter or house-made hazelnut spread.", "content": "MjgtZGF5IGFnZWQgMzAwZyBVU0RBIENlcnRpZmllZCBQcmltZSBSaWJleWUsIHJvc2VtYXJ5LXRoeW1lIGdhcmxpYyBidXR0ZXIsIHdpdGggY2hvaWNlIG9mIHR3byBzaWRlcy4=", "created_at": "2025-04-28T18:40:32+00:00", "updated_at": "2025-04-28T18:40:32+00:00"}}, "meta": {}}
     Not Found:
       parameters:
         path:
@@ -2712,7 +2752,7 @@ examples:
         application/vnd.api+json: {"data": {"id": "ud_2695BdKrOevVo", "type": "user_data", "attributes": {"content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "ud_2695BdKrOevVo", "type": "user_data", "attributes": {"description": "Fresh Norwegian salmon, lightly brushed with our herbed Dijon mustard sauce, with choice of two sides.", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "created_at": "2025-04-28T18:40:33+00:00", "updated_at": "2025-04-28T18:40:33+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ud_2695BdKrOevVo", "type": "user_data", "attributes": {"description": "Fresh Norwegian salmon, lightly brushed with our herbed Dijon mustard sauce, with choice of two sides.", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "created_at": "2025-04-28T18:40:33+00:00", "updated_at": "2025-04-28T18:40:33+00:00"}}, "meta": {}}
     when only description is present:
       parameters:
         path:
@@ -2723,7 +2763,7 @@ examples:
         application/vnd.api+json: {"data": {"id": "ud_byQrJdNJd30gv", "type": "user_data", "attributes": {"description": "New Name"}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "ud_byQrJdNJd30gv", "type": "user_data", "attributes": {"description": "New Name", "content": "VGhyZWUgZWdncyB3aXRoIGNpbGFudHJvLCB0b21hdG9lcywgb25pb25zLCBhdm9jYWRvcyBhbmQgbWVsdGVkIEVtbWVudGFsIGNoZWVzZS4gV2l0aCBhIHNpZGUgb2Ygcm9hc3RlZCBwb3RhdG9lcywgYW5kIHlvdXIgY2hvaWNlIG9mIHRvYXN0IG9yIGNyb2lzc2FudC4=", "created_at": "2025-04-28T18:40:33+00:00", "updated_at": "2025-04-28T18:40:33+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ud_byQrJdNJd30gv", "type": "user_data", "attributes": {"description": "New Name", "content": "VGhyZWUgZWdncyB3aXRoIGNpbGFudHJvLCB0b21hdG9lcywgb25pb25zLCBhdm9jYWRvcyBhbmQgbWVsdGVkIEVtbWVudGFsIGNoZWVzZS4gV2l0aCBhIHNpZGUgb2Ygcm9hc3RlZCBwb3RhdG9lcywgYW5kIHlvdXIgY2hvaWNlIG9mIHRvYXN0IG9yIGNyb2lzc2FudC4=", "created_at": "2025-04-28T18:40:33+00:00", "updated_at": "2025-04-28T18:40:33+00:00"}}, "meta": {}}
     when both content and description are present:
       parameters:
         path:
@@ -2734,7 +2774,7 @@ examples:
         application/vnd.api+json: {"data": {"id": "ud_Qk0Ryqv1dW36X", "type": "user_data", "attributes": {"description": "New Name", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "ud_Qk0Ryqv1dW36X", "type": "user_data", "attributes": {"description": "New Name", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "created_at": "2025-04-28T18:40:33+00:00", "updated_at": "2025-04-28T18:40:33+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ud_Qk0Ryqv1dW36X", "type": "user_data", "attributes": {"description": "New Name", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "created_at": "2025-04-28T18:40:33+00:00", "updated_at": "2025-04-28T18:40:33+00:00"}}, "meta": {}}
     Bad Request:
       parameters:
         path:
@@ -2913,7 +2953,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "virtual_network", "attributes": {"description": "São Paulo VLAN", "site": "MIA", "project": "enormous-paper-clock"}}}
       responses:
         "201":
-          application/vnd.api+json: {}
+          application/vnd.api+json: {"data": {"id": "vlan_3YjJOLQjdvZ87", "type": "virtual_networks", "attributes": {"vid": 2000, "name": "MIA-2000", "description": "São Paulo VLAN"}}, "meta": {}}
     validation error:
       requestBody:
         application/json: {"data": {"type": "virtual_network", "attributes": {"description": "São Paulo VLAN", "project": "<value>"}}}
@@ -2938,9 +2978,9 @@ examples:
         application/vnd.api+json: {"id": "vlan_81EVOtR1N4J2Z", "data": {"type": "virtual_networks", "attributes": {"description": "Test virtual network update"}}}
       responses:
         "200":
-          application/vnd.api+json: {}
+          application/vnd.api+json: {"data": {"id": "vlan_zGr47qlMDAg0m", "type": "virtual_networks", "attributes": {"vid": 2040, "name": "aut", "description": "Test virtual network update"}}, "meta": {}}
         "403":
-          application/vnd.api+json: {}
+          application/vnd.api+json: {"data": {"id": "vlan_zGr47qlMDAg0m", "type": "virtual_networks", "attributes": {"vid": 2040, "name": "aut", "description": "Test virtual network update"}}, "meta": {}}
     Unpermited parameter:
       parameters:
         path:
@@ -2962,9 +3002,9 @@ examples:
         application/vnd.api+json: {"id": "vlan_81EVOtR1N4J2Z", "data": {"type": "virtual_networks", "attributes": {"tags": ["tag_YnXb3KJAkBsojzz2zRmlHGJ2Vb7r", "tag_VNPyb6VWjQCbNBv8gN9AS6yGBgvv"], "description": "Test virtual network update"}}}
       responses:
         "200":
-          application/vnd.api+json: {}
+          application/vnd.api+json: {"data": {"id": "vlan_VaNmodjeObE8W", "type": "virtual_networks", "attributes": {"vid": 2040, "name": "exercitationem", "description": "Neque vero ut eos."}}, "meta": {}}
         "403":
-          application/vnd.api+json: {}
+          application/vnd.api+json: {"data": {"id": "vlan_VaNmodjeObE8W", "type": "virtual_networks", "attributes": {"vid": 2040, "name": "exercitationem", "description": "Neque vero ut eos."}}, "meta": {}}
     Tag not updated:
       parameters:
         path:
@@ -2974,9 +3014,9 @@ examples:
         application/vnd.api+json: {"id": "vlan_81EVOtR1N4J2Z", "data": {"type": "virtual_networks", "attributes": {"tags": ["invalid-tag"], "description": "Test virtual network update"}}}
       responses:
         "200":
-          application/vnd.api+json: {}
+          application/vnd.api+json: {"data": {"id": "vlan_6059EqYkOQj8p", "type": "virtual_networks", "attributes": {"vid": 2040, "name": "odio", "description": "Doloribus consectetur corporis fugit."}}, "meta": {}}
         "403":
-          application/vnd.api+json: {}
+          application/vnd.api+json: {"data": {"id": "vlan_6059EqYkOQj8p", "type": "virtual_networks", "attributes": {"vid": 2040, "name": "odio", "description": "Doloribus consectetur corporis fugit."}}, "meta": {}}
   get-virtual-network:
     List private networks:
       parameters:
@@ -2994,7 +3034,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "vnasg_3YjJOLBNqvZ87", "attributes": {"virtual_network_id": "vlan_WeGoqAkNOP7nz", "vid": 1, "description": "Kohler LLC", "status": "connecting", "server": {"id": "sv_1ZJrdx9Wqg4LV", "hostname": "api", "label": "BRC02", "locked": false, "status": "unknown"}}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "vnasg_3YjJOLBNqvZ87", "type": "virtual_network_assignment", "attributes": {"virtual_network_id": "vlan_WeGoqAkNOP7nz", "vid": 1, "description": "Kohler LLC", "status": "connecting"}}], "meta": {}}
     when filtering by vid:
       parameters:
         query:
@@ -3003,7 +3043,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "vnasg_g1mbDwGZDLv5B", "attributes": {"virtual_network_id": "vlan_w49QDBgQOagKb", "vid": 8, "description": "Aufderhar-Senger", "status": "connecting", "server": {"id": "sv_LA73qkGWqaJ2o", "hostname": "api", "label": "BRC02", "locked": false, "status": "unknown"}}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "vnasg_g1mbDwGZDLv5B", "type": "virtual_network_assignment", "attributes": {"virtual_network_id": "vlan_w49QDBgQOagKb", "vid": 8, "description": "Aufderhar-Senger", "status": "connecting"}}], "meta": {}}
     when no filters are applied:
       parameters:
         query:
@@ -3011,7 +3051,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "vnasg_0MoLqJvgq57pY", "attributes": {"virtual_network_id": "vlan_GMy1DbPNdN50m", "vid": 0, "description": "Cartwright, Champlin and Fadel", "status": "connected", "server": {"id": "sv_lkg1DeZaOvZE5", "hostname": "db", "label": "BRC01", "locked": false, "status": "unknown"}}}, {"id": "vnasg_Z8rodmpGO1jLB", "attributes": {"virtual_network_id": "vlan_Qkm7dXVRD8nZV", "vid": 4, "description": "Willms-Stokes", "status": "connecting", "server": {"id": "sv_vYAZqGoEqMQ94", "hostname": "api", "label": "BRC02", "locked": false, "status": "unknown"}}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "vnasg_0MoLqJvgq57pY", "type": "virtual_network_assignment", "attributes": {"virtual_network_id": "vlan_GMy1DbPNdN50m", "vid": 0, "description": "Cartwright, Champlin and Fadel", "status": "connected"}}, {"id": "vnasg_Z8rodmpGO1jLB", "type": "virtual_network_assignment", "attributes": {"virtual_network_id": "vlan_Qkm7dXVRD8nZV", "vid": 4, "description": "Willms-Stokes", "status": "connecting"}}], "meta": {}}
   assign-server-virtual-network:
     Created:
       requestBody:
@@ -3019,7 +3059,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "virtual_network_assignment", "attributes": {"server_id": "sv_pbV0DgQGd4AWz", "virtual_network_id": "vlan_059EqYe2qQj8p"}}}
       responses:
         "201":
-          application/vnd.api+json: {}
+          application/vnd.api+json: {"data": {"id": "vnasg_aNmodj9yObE8W", "type": "virtual_network_assignment", "attributes": {"virtual_network_id": "vlan_059EqYe2qQj8p", "vid": 4, "server_id": "sv_pbV0DgQGd4AWz", "description": "my vlan", "status": "connecting"}}, "meta": {}}
     Forbidden:
       requestBody:
         application/json: {"data": {"type": "virtual_network_assignment", "attributes": {"server_id": "sv_LYV8DZ61D5QoE", "virtual_network_id": "vlan_3YjJOLBjqvZ87"}}}
@@ -3116,7 +3156,7 @@ examples:
     Success:
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "ssh_mw49QDB5qagKb", "type": "ssh_keys", "attributes": {"name": "zieme.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDiKy41GaMU2S4pSulwvgHkRQYisxcrGcRRWhK+2QBIo3Q4xRPfByWVakeaOFX0ixXtgHkcbE8VhcW3+Db6eb2qLSdxClBVpxgW8/0UUMznNd0CktpnI2MhPdnymDc35wosEQhmH5Fkshppw7TTBRfs51c1+c16WrmdSK0hi+Hr0+9MlkSwVyd/dhozMgLhh8ngI5CRCz8UN8HF8mIRsSCGuCe4nXdg6DOfUMbGauq/Q8n4F/7feERW0VTT2hulP3vCeQZv2WSK12zJgVKEWMJX6SZW1uIsCoulGrymwfLmlS0ZeWzWKaRfVjaPQciXL7qgDOal2+IEihEc3oq0n8s3", "fingerprint": "06:62:47:b4:ec:92:36:18:af:39:6c:60:65:17:96:08", "user": {"id": "user_Vn2YmWnaX7Srwy1pB6Jxh6k5V2xl", "first_name": "Dorthey", "last_name": "Mueller", "email": "rocco@nitzsche.example", "created_at": "2024-09-06T00:00:00.000Z", "updated_at": "2024-10-15T00:00:00.000Z", "role": {"id": "role_GJzQNXKAPjs2gB7BK8a8T8QlrPRx", "name": "owner", "created_at": "2025-05-10T00:00:00.000Z", "updated_at": "2025-09-04T00:00:00.000Z"}}, "created_at": "2025-05-13T19:59:44+00:00", "updated_at": "2025-05-13T19:59:44+00:00"}}]}
+          application/vnd.api+json: {"data": [{"id": "ssh_mw49QDB5qagKb", "type": "ssh_keys", "attributes": {"name": "zieme.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDiKy41GaMU2S4pSulwvgHkRQYisxcrGcRRWhK+2QBIo3Q4xRPfByWVakeaOFX0ixXtgHkcbE8VhcW3+Db6eb2qLSdxClBVpxgW8/0UUMznNd0CktpnI2MhPdnymDc35wosEQhmH5Fkshppw7TTBRfs51c1+c16WrmdSK0hi+Hr0+9MlkSwVyd/dhozMgLhh8ngI5CRCz8UN8HF8mIRsSCGuCe4nXdg6DOfUMbGauq/Q8n4F/7feERW0VTT2hulP3vCeQZv2WSK12zJgVKEWMJX6SZW1uIsCoulGrymwfLmlS0ZeWzWKaRfVjaPQciXL7qgDOal2+IEihEc3oq0n8s3", "fingerprint": "06:62:47:b4:ec:92:36:18:af:39:6c:60:65:17:96:08", "user": {"id": "user_Vn2YmWnaX7Srwy1pB6Jxh6k5V2xl", "first_name": "Dorthey", "last_name": "Mueller", "email": "rocco@nitzsche.example", "created_at": "2024-09-06T00:00:00.000Z", "updated_at": "2024-10-15T00:00:00.000Z", "role": {"id": "role_GJzQNXKAPjs2gB7BK8a8T8QlrPRx", "name": "owner", "created_at": "2025-05-10T00:00:00.000Z", "updated_at": "2025-09-04T00:00:00.000Z"}}, "created_at": "2025-05-13T19:59:44+00:00", "updated_at": "2025-05-13T19:59:44+00:00"}}], "meta": {}}
   post-ssh-key:
     Created:
       requestBody:
@@ -3212,7 +3252,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "ud_x1ZJrdx5qg4LV", "type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "created_at": "2025-05-16T22:47:25+00:00", "updated_at": "2025-05-16T22:47:25+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ud_x1ZJrdx5qg4LV", "type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "created_at": "2025-05-16T22:47:25+00:00", "updated_at": "2025-05-16T22:47:25+00:00"}}, "meta": {}}
   get-user-data:
     Success:
       parameters:
@@ -3222,7 +3262,7 @@ examples:
           extra_fields[user_data]: "decoded_content"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "ud_7vYAZqGBdMQ94", "type": "user_data", "attributes": {"description": "Three eggs with cilantro, tomatoes, onions, avocados and melted Emmental cheese. With a side of roasted potatoes, and your choice of toast or croissant.", "content": "RnJlc2ggcGFyc2xleSwgSXRhbGlhbiBzYXVzYWdlLCBzaGFsbG90cywgZ2FybGljLCBzdW4tZHJpZWQgdG9tYXRvZXMgYW5kIG1venphcmVsbGEgY2hlZXNlIGluIGFuIGFsbC1idXR0ZXIgY3J1c3QuIFdpdGggYSBzaWRlIG9mIG1peGVkIGZydWl0cy4=", "created_at": "2025-05-16T22:47:25+00:00", "updated_at": "2025-05-16T22:47:25+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ud_7vYAZqGBdMQ94", "type": "user_data", "attributes": {"description": "Three eggs with cilantro, tomatoes, onions, avocados and melted Emmental cheese. With a side of roasted potatoes, and your choice of toast or croissant.", "content": "RnJlc2ggcGFyc2xleSwgSXRhbGlhbiBzYXVzYWdlLCBzaGFsbG90cywgZ2FybGljLCBzdW4tZHJpZWQgdG9tYXRvZXMgYW5kIG1venphcmVsbGEgY2hlZXNlIGluIGFuIGFsbC1idXR0ZXIgY3J1c3QuIFdpdGggYSBzaWRlIG9mIG1peGVkIGZydWl0cy4=", "created_at": "2025-05-16T22:47:25+00:00", "updated_at": "2025-05-16T22:47:25+00:00"}}, "meta": {}}
     Not Found:
       parameters:
         path:
@@ -3242,7 +3282,7 @@ examples:
         application/vnd.api+json: {"data": {"id": "ud_Av9BVDavORm1W", "type": "user_data", "attributes": {"content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "ud_Av9BVDavORm1W", "type": "user_data", "attributes": {"description": "Two buttermilk waffles, topped with whipped cream and maple syrup, a side of two eggs served any style, and your choice of smoked bacon or smoked ham.", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "created_at": "2025-05-16T22:47:25+00:00", "updated_at": "2025-05-16T22:47:25+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ud_Av9BVDavORm1W", "type": "user_data", "attributes": {"description": "Two buttermilk waffles, topped with whipped cream and maple syrup, a side of two eggs served any style, and your choice of smoked bacon or smoked ham.", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "created_at": "2025-05-16T22:47:25+00:00", "updated_at": "2025-05-16T22:47:25+00:00"}}, "meta": {}}
     when only description is present:
       parameters:
         path:
@@ -3252,7 +3292,7 @@ examples:
         application/vnd.api+json: {"data": {"id": "ud_5LA73qkjdaJ2o", "type": "user_data", "attributes": {"description": "New Name"}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "ud_5LA73qkjdaJ2o", "type": "user_data", "attributes": {"description": "New Name", "content": "VGhyZWUgZWdncyB3aXRoIGNpbGFudHJvLCB0b21hdG9lcywgb25pb25zLCBhdm9jYWRvcyBhbmQgbWVsdGVkIEVtbWVudGFsIGNoZWVzZS4gV2l0aCBhIHNpZGUgb2Ygcm9hc3RlZCBwb3RhdG9lcywgYW5kIHlvdXIgY2hvaWNlIG9mIHRvYXN0IG9yIGNyb2lzc2FudC4=", "created_at": "2025-05-16T22:47:25+00:00", "updated_at": "2025-05-16T22:47:25+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ud_5LA73qkjdaJ2o", "type": "user_data", "attributes": {"description": "New Name", "content": "VGhyZWUgZWdncyB3aXRoIGNpbGFudHJvLCB0b21hdG9lcywgb25pb25zLCBhdm9jYWRvcyBhbmQgbWVsdGVkIEVtbWVudGFsIGNoZWVzZS4gV2l0aCBhIHNpZGUgb2Ygcm9hc3RlZCBwb3RhdG9lcywgYW5kIHlvdXIgY2hvaWNlIG9mIHRvYXN0IG9yIGNyb2lzc2FudC4=", "created_at": "2025-05-16T22:47:25+00:00", "updated_at": "2025-05-16T22:47:25+00:00"}}, "meta": {}}
     when both content and description are present:
       parameters:
         path:
@@ -3262,7 +3302,7 @@ examples:
         application/vnd.api+json: {"data": {"id": "ud_lpbV0DgRq4AWz", "type": "user_data", "attributes": {"description": "New Name", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "ud_lpbV0DgRq4AWz", "type": "user_data", "attributes": {"description": "New Name", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "created_at": "2025-05-16T22:47:25+00:00", "updated_at": "2025-05-16T22:47:25+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ud_lpbV0DgRq4AWz", "type": "user_data", "attributes": {"description": "New Name", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "created_at": "2025-05-16T22:47:25+00:00", "updated_at": "2025-05-16T22:47:25+00:00"}}, "meta": {}}
   delete-user-data:
     Not Found:
       parameters:

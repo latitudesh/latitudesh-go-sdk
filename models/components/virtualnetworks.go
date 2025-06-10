@@ -6,11 +6,11 @@ type VirtualNetworksMeta struct {
 }
 
 type VirtualNetworks struct {
-	Data []VirtualNetwork     `json:"data,omitempty"`
+	Data []VirtualNetworkData `json:"data,omitempty"`
 	Meta *VirtualNetworksMeta `json:"meta,omitempty"`
 }
 
-func (o *VirtualNetworks) GetData() []VirtualNetwork {
+func (o *VirtualNetworks) GetData() []VirtualNetworkData {
 	if o == nil {
 		return nil
 	}

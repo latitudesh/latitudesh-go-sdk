@@ -1,8 +1,8 @@
-# PostVPNSessionVPNSessionsRequestBody
+# PostVpnSessionVpnSessionsRequestBody
 
 
 ## Fields
 
 | Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `Data`                                                                                                | [*operations.PostVPNSessionVPNSessionsData](../../models/operations/postvpnsessionvpnsessionsdata.md) | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
+| `Data`                                                                                                | [*operations.PostVpnSessionVpnSessionsData](../../models/operations/postvpnsessionvpnsessionsdata.md) | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |

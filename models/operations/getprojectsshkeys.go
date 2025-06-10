@@ -30,7 +30,7 @@ func (o *GetProjectSSHKeysRequest) GetFilterTags() *string {
 type GetProjectSSHKeysResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Success
-	SSHKey *components.SSHKey
+	SSHKeys *components.SSHKeys
 }
 
 func (o *GetProjectSSHKeysResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -40,9 +40,9 @@ func (o *GetProjectSSHKeysResponse) GetHTTPMeta() components.HTTPMetadata {
 	return o.HTTPMeta
 }
 
-func (o *GetProjectSSHKeysResponse) GetSSHKey() *components.SSHKey {
+func (o *GetProjectSSHKeysResponse) GetSSHKeys() *components.SSHKeys {
 	if o == nil {
 		return nil
 	}
-	return o.SSHKey
+	return o.SSHKeys
 }

@@ -9,7 +9,7 @@ import (
 type GetTagsResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Success
-	CustomTag *components.CustomTag
+	CustomTags *components.CustomTags
 }
 
 func (o *GetTagsResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -19,9 +19,9 @@ func (o *GetTagsResponse) GetHTTPMeta() components.HTTPMetadata {
 	return o.HTTPMeta
 }
 
-func (o *GetTagsResponse) GetCustomTag() *components.CustomTag {
+func (o *GetTagsResponse) GetCustomTags() *components.CustomTags {
 	if o == nil {
 		return nil
 	}
-	return o.CustomTag
+	return o.CustomTags
 }

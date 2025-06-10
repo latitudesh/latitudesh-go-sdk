@@ -1,0 +1,13 @@
+# EventDataAttributes
+
+
+## Fields
+
+| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `Action`                                                                    | **string*                                                                   | :heavy_minus_sign:                                                          | N/A                                                                         |
+| `CreatedAt`                                                                 | **string*                                                                   | :heavy_minus_sign:                                                          | N/A                                                                         |
+| `Author`                                                                    | [*components.EventDataAuthor](../../models/components/eventdataauthor.md)   | :heavy_minus_sign:                                                          | N/A                                                                         |
+| `Project`                                                                   | [*components.EventDataProject](../../models/components/eventdataproject.md) | :heavy_minus_sign:                                                          | N/A                                                                         |
+| `Team`                                                                      | [*components.EventDataTeam](../../models/components/eventdatateam.md)       | :heavy_minus_sign:                                                          | N/A                                                                         |
+| `Target`                                                                    | [*components.EventDataTarget](../../models/components/eventdatatarget.md)   | :heavy_minus_sign:                                                          | N/A                                                                         |

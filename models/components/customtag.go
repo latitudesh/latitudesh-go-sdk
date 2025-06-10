@@ -77,10 +77,15 @@ func (o *CustomTagAttributes) GetTeam() *TeamInclude {
 	return o.Team
 }
 
+type CustomTagMeta struct {
+}
+
 type CustomTag struct {
 	ID         *string              `json:"id,omitempty"`
 	Type       *CustomTagType       `json:"type,omitempty"`
 	Attributes *CustomTagAttributes `json:"attributes,omitempty"`
+	Data       *CustomTagData       `json:"data,omitempty"`
+	Meta       *CustomTagMeta       `json:"meta,omitempty"`
 }
 
 func (o *CustomTag) GetID() *string {
@@ -102,4 +107,18 @@ func (o *CustomTag) GetAttributes() *CustomTagAttributes {
 		return nil
 	}
 	return o.Attributes
+}
+
+func (o *CustomTag) GetData() *CustomTagData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *CustomTag) GetMeta() *CustomTagMeta {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
 }

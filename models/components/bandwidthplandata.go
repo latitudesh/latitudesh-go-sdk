@@ -7,26 +7,26 @@ import (
 	"fmt"
 )
 
-type BandwidthPlanType string
+type BandwidthPlanDataType string
 
 const (
-	BandwidthPlanTypeBandwidthPlan BandwidthPlanType = "bandwidth_plan"
+	BandwidthPlanDataTypeBandwidthPlan BandwidthPlanDataType = "bandwidth_plan"
 )
 
-func (e BandwidthPlanType) ToPointer() *BandwidthPlanType {
+func (e BandwidthPlanDataType) ToPointer() *BandwidthPlanDataType {
 	return &e
 }
-func (e *BandwidthPlanType) UnmarshalJSON(data []byte) error {
+func (e *BandwidthPlanDataType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "bandwidth_plan":
-		*e = BandwidthPlanType(v)
+		*e = BandwidthPlanDataType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for BandwidthPlanType: %v", v)
+		return fmt.Errorf("invalid value for BandwidthPlanDataType: %v", v)
 	}
 }
 
@@ -87,54 +87,54 @@ func (o *Pricing) GetBrl() *Brl {
 	return o.Brl
 }
 
-type BandwidthPlanAttributes struct {
+type BandwidthPlanDataAttributes struct {
 	Region    *string  `json:"region,omitempty"`
 	Locations []string `json:"locations,omitempty"`
 	Pricing   *Pricing `json:"pricing,omitempty"`
 }
 
-func (o *BandwidthPlanAttributes) GetRegion() *string {
+func (o *BandwidthPlanDataAttributes) GetRegion() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Region
 }
 
-func (o *BandwidthPlanAttributes) GetLocations() []string {
+func (o *BandwidthPlanDataAttributes) GetLocations() []string {
 	if o == nil {
 		return nil
 	}
 	return o.Locations
 }
 
-func (o *BandwidthPlanAttributes) GetPricing() *Pricing {
+func (o *BandwidthPlanDataAttributes) GetPricing() *Pricing {
 	if o == nil {
 		return nil
 	}
 	return o.Pricing
 }
 
-type BandwidthPlan struct {
-	ID         *string                  `json:"id,omitempty"`
-	Type       *BandwidthPlanType       `json:"type,omitempty"`
-	Attributes *BandwidthPlanAttributes `json:"attributes,omitempty"`
+type BandwidthPlanData struct {
+	ID         *string                      `json:"id,omitempty"`
+	Type       *BandwidthPlanDataType       `json:"type,omitempty"`
+	Attributes *BandwidthPlanDataAttributes `json:"attributes,omitempty"`
 }
 
-func (o *BandwidthPlan) GetID() *string {
+func (o *BandwidthPlanData) GetID() *string {
 	if o == nil {
 		return nil
 	}
 	return o.ID
 }
 
-func (o *BandwidthPlan) GetType() *BandwidthPlanType {
+func (o *BandwidthPlanData) GetType() *BandwidthPlanDataType {
 	if o == nil {
 		return nil
 	}
 	return o.Type
 }
 
-func (o *BandwidthPlan) GetAttributes() *BandwidthPlanAttributes {
+func (o *BandwidthPlanData) GetAttributes() *BandwidthPlanDataAttributes {
 	if o == nil {
 		return nil
 	}

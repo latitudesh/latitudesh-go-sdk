@@ -18,7 +18,7 @@ import (
 )
 
 type Projects struct {
-	SSHKeys *LatitudeshSSHKeys
+	SSHKeys *LatitudeshProjectsSSHKeys
 
 	rootSDK          *Latitudesh
 	sdkConfiguration config.SDKConfiguration
@@ -30,13 +30,13 @@ func newProjects(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *
 		rootSDK:          rootSDK,
 		sdkConfiguration: sdkConfig,
 		hooks:            hooks,
-		SSHKeys:          newLatitudeshSSHKeys(rootSDK, sdkConfig, hooks),
+		SSHKeys:          newLatitudeshProjectsSSHKeys(rootSDK, sdkConfig, hooks),
 	}
 }
 
-// GetProjects - List all Projects
+// List all Projects
 // Returns a list of all projects for the current team
-func (s *Projects) GetProjects(ctx context.Context, request operations.GetProjectsRequest, opts ...operations.Option) (*operations.GetProjectsResponse, error) {
+func (s *Projects) List(ctx context.Context, request operations.GetProjectsRequest, opts ...operations.Option) (*operations.GetProjectsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -235,7 +235,7 @@ func (s *Projects) GetProjects(ctx context.Context, request operations.GetProjec
 			return nil, nil
 		}
 
-		return s.GetProjects(
+		return s.List(
 			ctx,
 			operations.GetProjectsRequest{
 				FilterName:          request.FilterName,
@@ -298,8 +298,8 @@ func (s *Projects) GetProjects(ctx context.Context, request operations.GetProjec
 
 }
 
-// CreateProject - Create a Project
-func (s *Projects) CreateProject(ctx context.Context, request operations.CreateProjectProjectsRequestBody, opts ...operations.Option) (*operations.CreateProjectResponse, error) {
+// Create a Project
+func (s *Projects) Create(ctx context.Context, request operations.CreateProjectProjectsRequestBody, opts ...operations.Option) (*operations.CreateProjectResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -535,8 +535,8 @@ func (s *Projects) CreateProject(ctx context.Context, request operations.CreateP
 
 }
 
-// UpdateProject - Update a Project
-func (s *Projects) UpdateProject(ctx context.Context, projectID string, requestBody *operations.UpdateProjectProjectsRequestBody, opts ...operations.Option) (*operations.UpdateProjectResponse, error) {
+// Update a Project
+func (s *Projects) Update(ctx context.Context, projectID string, requestBody *operations.UpdateProjectProjectsRequestBody, opts ...operations.Option) (*operations.UpdateProjectResponse, error) {
 	request := operations.UpdateProjectRequest{
 		ProjectID:   projectID,
 		RequestBody: requestBody,
@@ -777,8 +777,8 @@ func (s *Projects) UpdateProject(ctx context.Context, projectID string, requestB
 
 }
 
-// DeleteProject - Delete a Project
-func (s *Projects) DeleteProject(ctx context.Context, projectID string, opts ...operations.Option) (*operations.DeleteProjectResponse, error) {
+// Delete a Project
+func (s *Projects) Delete(ctx context.Context, projectID string, opts ...operations.Option) (*operations.DeleteProjectResponse, error) {
 	request := operations.DeleteProjectRequest{
 		ProjectID: projectID,
 	}

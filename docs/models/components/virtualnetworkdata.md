@@ -1,0 +1,10 @@
+# VirtualNetworkData
+
+
+## Fields
+
+| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `ID`                                                                                                | **string*                                                                                           | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
+| `Type`                                                                                              | [*components.VirtualNetworkDataType](../../models/components/virtualnetworkdatatype.md)             | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
+| `Attributes`                                                                                        | [*components.VirtualNetworkDataAttributes](../../models/components/virtualnetworkdataattributes.md) | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |

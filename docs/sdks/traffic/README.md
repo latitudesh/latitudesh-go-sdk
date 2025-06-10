@@ -5,10 +5,10 @@
 
 ### Available Operations
 
-* [GetTrafficConsumption](#gettrafficconsumption) - Retrieve Traffic consumption
-* [GetTrafficQuota](#gettrafficquota) - Retrieve Traffic Quota
+* [Get](#get) - Retrieve Traffic consumption
+* [GetQuota](#getquota) - Retrieve Traffic Quota
 
-## GetTrafficConsumption
+## Get
 
 Retrieve Traffic consumption
 
@@ -31,7 +31,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Traffic.GetTrafficConsumption(ctx, "2025-04-06T21:00:00Z", "2025-05-06T21:00:00Z", latitudeshgosdk.String("sv_mw49QDB5qagKb"), latitudeshgosdk.String("proj_AW6Q2D9lqKLpr"))
+    res, err := s.Traffic.Get(ctx, "2025-04-06T21:00:00Z", "2025-05-06T21:00:00Z", latitudeshgosdk.String("sv_mw49QDB5qagKb"), latitudeshgosdk.String("proj_AW6Q2D9lqKLpr"))
     if err != nil {
         log.Fatal(err)
     }
@@ -62,7 +62,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## GetTrafficQuota
+## GetQuota
 
 Retrieve Traffic Quota
 
@@ -85,7 +85,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Traffic.GetTrafficQuota(ctx, nil)
+    res, err := s.Traffic.GetQuota(ctx, nil)
     if err != nil {
         log.Fatal(err)
     }

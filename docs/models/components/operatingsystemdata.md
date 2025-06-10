@@ -1,0 +1,10 @@
+# OperatingSystemData
+
+
+## Fields
+
+| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `ID`                                                                                                  | **string*                                                                                             | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
+| `Type`                                                                                                | [*components.OperatingSystemDataType](../../models/components/operatingsystemdatatype.md)             | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
+| `Attributes`                                                                                          | [*components.OperatingSystemDataAttributes](../../models/components/operatingsystemdataattributes.md) | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |

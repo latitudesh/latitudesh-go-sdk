@@ -34,9 +34,9 @@ func newPlans(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *hoo
 	}
 }
 
-// GetPlans - List all Plans
+// List all Plans
 // Lists all plans. Availability by region is included in `attributes.regions.locations.available[*]` node for a given plan.
-func (s *Plans) GetPlans(ctx context.Context, request operations.GetPlansRequest, opts ...operations.Option) (*operations.GetPlansResponse, error) {
+func (s *Plans) List(ctx context.Context, request operations.GetPlansRequest, opts ...operations.Option) (*operations.GetPlansResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -244,8 +244,8 @@ func (s *Plans) GetPlans(ctx context.Context, request operations.GetPlansRequest
 
 }
 
-// GetPlan - Retrieve a Plan
-func (s *Plans) GetPlan(ctx context.Context, planID string, opts ...operations.Option) (*operations.GetPlanResponse, error) {
+// Get - Retrieve a Plan
+func (s *Plans) Get(ctx context.Context, planID string, opts ...operations.Option) (*operations.GetPlanResponse, error) {
 	request := operations.GetPlanRequest{
 		PlanID: planID,
 	}
@@ -474,9 +474,9 @@ func (s *Plans) GetPlan(ctx context.Context, planID string, opts ...operations.O
 
 }
 
-// GetBandwidthPlans - List all bandwidth plans
+// GetBandwidth - List all bandwidth plans
 // Lists all bandwidth plans.
-func (s *Plans) GetBandwidthPlans(ctx context.Context, apiVersion *string, filterID *string, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetBandwidthPlansResponse, error) {
+func (s *Plans) GetBandwidth(ctx context.Context, apiVersion *string, filterID *string, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetBandwidthPlansResponse, error) {
 	request := operations.GetBandwidthPlansRequest{
 		APIVersion: apiVersion,
 		FilterID:   filterID,
@@ -684,7 +684,7 @@ func (s *Plans) GetBandwidthPlans(ctx context.Context, apiVersion *string, filte
 			return nil, nil
 		}
 
-		return s.GetBandwidthPlans(
+		return s.GetBandwidth(
 			ctx,
 			apiVersion,
 			filterID,
@@ -740,9 +740,9 @@ func (s *Plans) GetBandwidthPlans(ctx context.Context, apiVersion *string, filte
 
 }
 
-// UpdatePlansBandwidth - Buy or remove bandwidth packages
+// UpdateBandwidth - Buy or remove bandwidth packages
 // Allow to increase or decrease bandwidth packages. Only admins and owners can request.
-func (s *Plans) UpdatePlansBandwidth(ctx context.Context, request operations.UpdatePlansBandwidthPlansRequestBody, opts ...operations.Option) (*operations.UpdatePlansBandwidthResponse, error) {
+func (s *Plans) UpdateBandwidth(ctx context.Context, request operations.UpdatePlansBandwidthPlansRequestBody, opts ...operations.Option) (*operations.UpdatePlansBandwidthResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -974,8 +974,8 @@ func (s *Plans) UpdatePlansBandwidth(ctx context.Context, request operations.Upd
 
 }
 
-// GetStoragePlans - List all Storage Plans
-func (s *Plans) GetStoragePlans(ctx context.Context, opts ...operations.Option) (*operations.GetStoragePlansResponse, error) {
+// ListStorage - List all Storage Plans
+func (s *Plans) ListStorage(ctx context.Context, opts ...operations.Option) (*operations.GetStoragePlansResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,

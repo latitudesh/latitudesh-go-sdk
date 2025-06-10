@@ -31,9 +31,9 @@ func newRegions(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *h
 	}
 }
 
-// GetRegions - List all Regions
+// Get - List all Regions
 // Lists all [available locations](https://latitude.sh/locations). For server availability by location, please see the [Plans API](/reference/get-plans).
-func (s *Regions) GetRegions(ctx context.Context, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetRegionsResponse, error) {
+func (s *Regions) Get(ctx context.Context, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetRegionsResponse, error) {
 	request := operations.GetRegionsRequest{
 		PageSize:   pageSize,
 		PageNumber: pageNumber,
@@ -237,7 +237,7 @@ func (s *Regions) GetRegions(ctx context.Context, pageSize *int64, pageNumber *i
 			return nil, nil
 		}
 
-		return s.GetRegions(
+		return s.Get(
 			ctx,
 			pageSize,
 			&nP,
@@ -291,8 +291,8 @@ func (s *Regions) GetRegions(ctx context.Context, pageSize *int64, pageNumber *i
 
 }
 
-// GetRegion - Retrieve a Region
-func (s *Regions) GetRegion(ctx context.Context, regionID string, opts ...operations.Option) (*operations.GetRegionResponse, error) {
+// Fetch - Retrieve a Region
+func (s *Regions) Fetch(ctx context.Context, regionID string, opts ...operations.Option) (*operations.GetRegionResponse, error) {
 	request := operations.GetRegionRequest{
 		RegionID: regionID,
 	}

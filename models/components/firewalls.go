@@ -6,11 +6,11 @@ type FirewallsMeta struct {
 }
 
 type Firewalls struct {
-	Data []Firewall     `json:"data,omitempty"`
+	Data []FirewallData `json:"data,omitempty"`
 	Meta *FirewallsMeta `json:"meta,omitempty"`
 }
 
-func (o *Firewalls) GetData() []Firewall {
+func (o *Firewalls) GetData() []FirewallData {
 	if o == nil {
 		return nil
 	}

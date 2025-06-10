@@ -2,7 +2,7 @@ overlay: 1.0.0
 x-speakeasy-jsonpath: rfc9535
 info:
   title: Speakeasy Modifications
-  version: 0.0.2
+  version: 0.0.3
   x-speakeasy-metadata:
     after: ""
     before: ""
@@ -109,4 +109,789 @@ actions:
       before: sdk.sshKeys.listForProject()
       created_at: 1744060642586
       reviewed_at: 1744062986578
+      type: method-name
+  - target: $["paths"]["/projects/{project_id}"]["patch"]
+    update:
+      x-speakeasy-name-override: update
+    x-speakeasy-metadata:
+      after: sdk.projects.update()
+      before: sdk.Projects.update-project()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/vpn_sessions"]["post"]
+    update:
+      x-speakeasy-group: vpnSessions
+      x-speakeasy-name-override: create
+    x-speakeasy-metadata:
+      after: sdk.vpnSessions.create()
+      before: sdk.VPN Sessions.post-vpn-session()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/servers/{server_id}/exit_rescue_mode"]["post"]
+    update:
+      x-speakeasy-name-override: exitRescueMode
+    x-speakeasy-metadata:
+      after: sdk.servers.exitRescueMode()
+      before: sdk.Servers.server-exit-rescue-mode()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/ips"]["get"]
+    update:
+      x-speakeasy-group: ipAddresses
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.ipAddresses.list()
+      before: sdk.IP Addresses.get-ips()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/servers/{server_id}/unlock"]["post"]
+    update:
+      x-speakeasy-name-override: unlock
+    x-speakeasy-metadata:
+      after: sdk.servers.unlock()
+      before: sdk.Servers.server-unlock()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/plans/operating_systems"]["get"]
+    update:
+      x-speakeasy-group: operatingSystems
+      x-speakeasy-name-override: listPlans
+    x-speakeasy-metadata:
+      after: sdk.operatingSystems.listPlans()
+      before: sdk.Operating Systems.get-plans-operating-system()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/storage/filesystems"]["get"]
+    update:
+      x-speakeasy-name-override: listFilesystems
+    x-speakeasy-metadata:
+      after: sdk.storage.listFilesystems()
+      before: sdk.Storage.get-storage-filesystems()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/virtual_networks"]["post"]
+    update:
+      x-speakeasy-group: privateNetworks
+      x-speakeasy-name-override: create
+    x-speakeasy-metadata:
+      after: sdk.privateNetworks.create()
+      before: sdk.Private Networks.create-virtual-network()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/roles/{role_id}"]["get"]
+    update:
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      after: sdk.roles.get()
+      before: sdk.Roles.get-role-id()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/ssh_keys/{ssh_key_id}"]["get"]
+    update:
+      x-speakeasy-group: sshKeys
+      x-speakeasy-name-override: retrieve
+    x-speakeasy-metadata:
+      after: sdk.sshKeys.retrieve()
+      before: sdk.SSH Keys.get-ssh-key()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/plans/{plan_id}"]["get"]
+    update:
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      after: sdk.plans.get()
+      before: sdk.Plans.get-plan()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/firewalls"]["get"]
+    update:
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.firewalls.list()
+      before: sdk.Firewalls.list-firewalls()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/firewalls/{firewall_id}"]["patch"]
+    update:
+      x-speakeasy-name-override: update
+    x-speakeasy-metadata:
+      after: sdk.firewalls.update()
+      before: sdk.Firewalls.update-firewall()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/storage/filesystems"]["post"]
+    update:
+      x-speakeasy-name-override: createFilesystem
+    x-speakeasy-metadata:
+      after: sdk.storage.createFilesystem()
+      before: sdk.Storage.post-storage-filesystems()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/firewalls/{firewall_id}"]["delete"]
+    update:
+      x-speakeasy-name-override: delete
+    x-speakeasy-metadata:
+      after: sdk.firewalls.delete()
+      before: sdk.Firewalls.delete-firewall()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/user_data/{user_data_id}"]["get"]
+    update:
+      x-speakeasy-group: userData
+      x-speakeasy-name-override: retrieve
+    x-speakeasy-metadata:
+      after: sdk.userData.retrieve()
+      before: sdk.User Data.get-user-data()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/servers"]["get"]
+    update:
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.servers.list()
+      before: sdk.Servers.get-servers()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/ssh_keys"]["post"]
+    update:
+      x-speakeasy-group: sshKeys
+      x-speakeasy-name-override: create
+    x-speakeasy-metadata:
+      after: sdk.sshKeys.create()
+      before: sdk.SSH Keys.post-ssh-key()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/virtual_networks/{vlan_id}"]["get"]
+    update:
+      x-speakeasy-group: privateNetworks
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      after: sdk.privateNetworks.get()
+      before: sdk.Private Networks.get-virtual-network()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/user/teams"]["get"]
+    update:
+      x-speakeasy-group: userProfile
+      x-speakeasy-name-override: listTeams
+    x-speakeasy-metadata:
+      after: sdk.userProfile.listTeams()
+      before: sdk.User Profile.get-user-teams()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/firewalls/{firewall_id}/assignments"]["get"]
+    update:
+      x-speakeasy-name-override: listAssignments
+    x-speakeasy-metadata:
+      after: sdk.firewalls.listAssignments()
+      before: sdk.Firewalls.get-firewall-assignments()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/servers"]["post"]
+    update:
+      x-speakeasy-name-override: create
+    x-speakeasy-metadata:
+      after: sdk.servers.create()
+      before: sdk.Servers.create-server()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/virtual_machines"]["post"]
+    update:
+      x-speakeasy-group: virtualMachines
+      x-speakeasy-name-override: create
+    x-speakeasy-metadata:
+      after: sdk.virtualMachines.create()
+      before: sdk.Virtual Machines.create-virtual-machine()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/servers/{server_id}"]["patch"]
+    update:
+      x-speakeasy-name-override: update
+    x-speakeasy-metadata:
+      after: sdk.servers.update()
+      before: sdk.Servers.update-server()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/servers/{server_id}/schedule_deletion"]["post"]
+    update:
+      x-speakeasy-name-override: scheduleDeletion
+    x-speakeasy-metadata:
+      after: sdk.servers.scheduleDeletion()
+      before: sdk.Servers.server-schedule-deletion()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/projects/{project_id}/ssh_keys/{ssh_key_id}"]["get"]
+    update:
+      x-speakeasy-group: sshKeys
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      after: sdk.sshKeys.get()
+      before: sdk.SSH Keys.get-project-ssh-key()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/vpn_sessions/{vpn_session_id}"]["delete"]
+    update:
+      x-speakeasy-group: vpnSessions
+      x-speakeasy-name-override: delete
+    x-speakeasy-metadata:
+      after: sdk.vpnSessions.delete()
+      before: sdk.VPN Sessions.delete-vpn-session()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/regions"]["get"]
+    update:
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      after: sdk.regions.get()
+      before: sdk.Regions.get-regions()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/servers/{server_id}/lock"]["post"]
+    update:
+      x-speakeasy-name-override: lock
+    x-speakeasy-metadata:
+      after: sdk.servers.lock()
+      before: sdk.Servers.server-lock()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/team"]["post"]
+    update:
+      x-speakeasy-name-override: create
+    x-speakeasy-metadata:
+      after: sdk.teams.create()
+      before: sdk.Teams.post-team()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/regions/{region_id}"]["get"]
+    update:
+      x-speakeasy-name-override: fetch
+    x-speakeasy-metadata:
+      after: sdk.regions.fetch()
+      before: sdk.Regions.get-region()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/projects"]["post"]
+    update:
+      x-speakeasy-name-override: create
+    x-speakeasy-metadata:
+      after: sdk.projects.create()
+      before: sdk.Projects.create-project()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/user_data"]["get"]
+    update:
+      x-speakeasy-group: userData
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.userData.list()
+      before: sdk.User Data.get-users-data()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/virtual_machines/{virtual_machine_id}"]["delete"]
+    update:
+      x-speakeasy-group: virtualMachines
+      x-speakeasy-name-override: delete
+    x-speakeasy-metadata:
+      after: sdk.virtualMachines.delete()
+      before: sdk.Virtual Machines.destroy-virtual-machine()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/billing/usage"]["get"]
+    update:
+      x-speakeasy-name-override: listUsage
+    x-speakeasy-metadata:
+      after: sdk.billing.listUsage()
+      before: sdk.Billing.get-billing-usage()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/vpn_sessions"]["get"]
+    update:
+      x-speakeasy-group: vpnSessions
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.vpnSessions.list()
+      before: sdk.VPN Sessions.get-vpn-sessions()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/ssh_keys/{ssh_key_id}"]["patch"]
+    update:
+      x-speakeasy-group: sshKeys
+      x-speakeasy-name-override: update
+    x-speakeasy-metadata:
+      after: sdk.sshKeys.update()
+      before: sdk.SSH Keys.put-ssh-key()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/projects/{project_id}/ssh_keys/{ssh_key_id}"]["patch"]
+    update:
+      x-speakeasy-group: sshKeys
+      x-speakeasy-name-override: modifyProjectKey
+    x-speakeasy-metadata:
+      after: sdk.sshKeys.modifyProjectKey()
+      before: sdk.SSH Keys.put-project-ssh-key()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/plans/bandwidth"]["get"]
+    update:
+      x-speakeasy-name-override: getBandwidth
+    x-speakeasy-metadata:
+      after: sdk.plans.getBandwidth()
+      before: sdk.Plans.get-bandwidth-plans()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/auth/api_keys"]["get"]
+    update:
+      x-speakeasy-group: apiKeys
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.apiKeys.list()
+      before: sdk.API Keys.get-api-keys()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/projects/{project_id}/user_data/{user_data_id}"]["patch"]
+    update:
+      x-speakeasy-group: userData
+      x-speakeasy-name-override: updateForProject
+    x-speakeasy-metadata:
+      after: sdk.userData.updateForProject()
+      before: sdk.User Data.put-project-user-data()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/firewalls"]["post"]
+    update:
+      x-speakeasy-name-override: create
+    x-speakeasy-metadata:
+      after: sdk.firewalls.create()
+      before: sdk.Firewalls.create-firewall()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/tags/{tag_id}"]["delete"]
+    update:
+      x-speakeasy-name-override: delete
+    x-speakeasy-metadata:
+      after: sdk.tags.delete()
+      before: sdk.Tags.destroy-tag()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/tags"]["post"]
+    update:
+      x-speakeasy-name-override: create
+    x-speakeasy-metadata:
+      after: sdk.tags.create()
+      before: sdk.Tags.create-tag()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/auth/api_keys/{api_key_id}"]["delete"]
+    update:
+      x-speakeasy-group: apiKeys
+      x-speakeasy-name-override: delete
+    x-speakeasy-metadata:
+      after: sdk.apiKeys.delete()
+      before: sdk.API Keys.delete-api-key()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/firewalls/{firewall_id}/assignments/{assignment_id}"]["delete"]
+    update:
+      x-speakeasy-name-override: deleteAssignment
+    x-speakeasy-metadata:
+      after: sdk.firewalls.deleteAssignment()
+      before: sdk.Firewalls.delete-firewall-assignment()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/servers/{server_id}/reinstall"]["post"]
+    update:
+      x-speakeasy-name-override: reinstall
+    x-speakeasy-metadata:
+      after: sdk.servers.reinstall()
+      before: sdk.Servers.create-server-reinstall()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/vpn_sessions/{vpn_session_id}/refresh_password"]["patch"]
+    update:
+      x-speakeasy-group: vpnSessions
+      x-speakeasy-name-override: refreshPassword
+    x-speakeasy-metadata:
+      after: sdk.vpnSessions.refreshPassword()
+      before: sdk.VPN Sessions.put-vpn-session()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/roles"]["get"]
+    update:
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.roles.list()
+      before: sdk.Roles.get-roles()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/auth/api_keys"]["post"]
+    update:
+      x-speakeasy-group: apiKeys
+      x-speakeasy-name-override: create
+    x-speakeasy-metadata:
+      after: sdk.apiKeys.create()
+      before: sdk.API Keys.post-api-key()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/virtual_networks/assignments"]["post"]
+    update:
+      x-speakeasy-group: privateNetworks
+      x-speakeasy-name-override: assign
+    x-speakeasy-metadata:
+      after: sdk.privateNetworks.assign()
+      before: sdk.Private Networks.assign-server-virtual-network()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/virtual_networks"]["get"]
+    update:
+      x-speakeasy-group: privateNetworks
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.privateNetworks.list()
+      before: sdk.Private Networks.get-virtual-networks()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/virtual_machines"]["get"]
+    update:
+      x-speakeasy-group: virtualMachines
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.virtualMachines.list()
+      before: sdk.Virtual Machines.index-virtual-machine()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/virtual_networks/{vlan_id}"]["patch"]
+    update:
+      x-speakeasy-group: privateNetworks
+      x-speakeasy-name-override: update
+    x-speakeasy-metadata:
+      after: sdk.privateNetworks.update()
+      before: sdk.Private Networks.update-virtual-network()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/user_data"]["post"]
+    update:
+      x-speakeasy-group: userData
+      x-speakeasy-name-override: createNew
+    x-speakeasy-metadata:
+      after: sdk.userData.createNew()
+      before: sdk.User Data.post-user-data()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/team"]["get"]
+    update:
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      after: sdk.teams.get()
+      before: sdk.Teams.get-team()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/servers/{server_id}/deploy_config"]["get"]
+    update:
+      x-speakeasy-name-override: getDeployConfig
+    x-speakeasy-metadata:
+      after: sdk.servers.getDeployConfig()
+      before: sdk.Servers.get-server-deploy-config()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/servers/{server_id}/remote_access"]["post"]
+    update:
+      x-speakeasy-name-override: createIpmiSession
+    x-speakeasy-metadata:
+      after: sdk.servers.createIpmiSession()
+      before: sdk.Servers.create-ipmi-session()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/servers/{server_id}"]["get"]
+    update:
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      after: sdk.servers.get()
+      before: sdk.Servers.get-server()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/ips/{ip_id}"]["get"]
+    update:
+      x-speakeasy-group: ipAddresses
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      after: sdk.ipAddresses.get()
+      before: sdk.IP Addresses.get-ip()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/projects/{project_id}/user_data"]["post"]
+    update:
+      x-speakeasy-group: userData
+      x-speakeasy-name-override: create
+    x-speakeasy-metadata:
+      after: sdk.userData.create()
+      before: sdk.User Data.post-project-user-data()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/traffic"]["get"]
+    update:
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      after: sdk.traffic.get()
+      before: sdk.Traffic.get-traffic-consumption()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/plans/storage"]["get"]
+    update:
+      x-speakeasy-name-override: listStorage
+    x-speakeasy-metadata:
+      after: sdk.plans.listStorage()
+      before: sdk.Plans.get-storage-plans()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/servers/{server_id}/out_of_band_connection"]["post"]
+    update:
+      x-speakeasy-name-override: startOutOfBandConnection
+    x-speakeasy-metadata:
+      after: sdk.servers.startOutOfBandConnection()
+      before: sdk.Servers.create-server-out-of-band()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/team/members/{user_id}"]["delete"]
+    update:
+      x-speakeasy-group: teamMembers
+      x-speakeasy-name-override: delete
+    x-speakeasy-metadata:
+      after: sdk.teamMembers.delete()
+      before: sdk.Teams Members.destroy-team-member()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/team/{team_id}"]["patch"]
+    update:
+      x-speakeasy-name-override: update
+    x-speakeasy-metadata:
+      after: sdk.teams.update()
+      before: sdk.Teams.patch-current-team()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/storage/filesystems/{filesystem_id}"]["delete"]
+    update:
+      x-speakeasy-name-override: deleteFilesystem
+    x-speakeasy-metadata:
+      after: sdk.storage.deleteFilesystem()
+      before: sdk.Storage.delete-storage-filesystems()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/plans/bandwidth"]["post"]
+    update:
+      x-speakeasy-name-override: updateBandwidth
+    x-speakeasy-metadata:
+      after: sdk.plans.updateBandwidth()
+      before: sdk.Plans.update-plans-bandwidth()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/projects"]["get"]
+    update:
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.projects.list()
+      before: sdk.Projects.get-projects()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/user_data/{user_data_id}"]["delete"]
+    update:
+      x-speakeasy-group: userData
+      x-speakeasy-name-override: delete
+    x-speakeasy-metadata:
+      after: sdk.userData.delete()
+      before: sdk.User Data.delete-user-data()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/servers/{server_id}/rescue_mode"]["post"]
+    update:
+      x-speakeasy-name-override: startRescueMode
+    x-speakeasy-metadata:
+      after: sdk.servers.startRescueMode()
+      before: sdk.Servers.server-start-rescue-mode()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/servers/{server_id}/schedule_deletion"]["delete"]
+    update:
+      x-speakeasy-name-override: unscheduleDeletion
+    x-speakeasy-metadata:
+      after: sdk.servers.unscheduleDeletion()
+      before: sdk.Servers.server-unschedule-deletion()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/user/profile/{id}"]["patch"]
+    update:
+      x-speakeasy-group: userProfile
+      x-speakeasy-name-override: update
+    x-speakeasy-metadata:
+      after: sdk.userProfile.update()
+      before: sdk.User Profile.patch-user-profile()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/ssh_keys/{ssh_key_id}"]["delete"]
+    update:
+      x-speakeasy-group: sshKeys
+      x-speakeasy-name-override: delete
+    x-speakeasy-metadata:
+      after: sdk.sshKeys.delete()
+      before: sdk.SSH Keys.delete-ssh-key()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/virtual_networks/assignments/{assignment_id}"]["delete"]
+    update:
+      x-speakeasy-group: privateNetworks
+      x-speakeasy-name-override: deleteAssignment
+    x-speakeasy-metadata:
+      after: sdk.privateNetworks.deleteAssignment()
+      before: sdk.Private Networks.delete-virtual-networks-assignments()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/projects/{project_id}/ssh_keys/{ssh_key_id}"]["delete"]
+    update:
+      x-speakeasy-group: sshKeys
+      x-speakeasy-name-override: removeFromProject
+    x-speakeasy-metadata:
+      after: sdk.sshKeys.removeFromProject()
+      before: sdk.SSH Keys.delete-project-ssh-key()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/user/profile"]["get"]
+    update:
+      x-speakeasy-group: userProfile
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      after: sdk.userProfile.get()
+      before: sdk.User Profile.get-user-profile()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/virtual_networks/assignments"]["get"]
+    update:
+      x-speakeasy-group: privateNetworks
+      x-speakeasy-name-override: listAssignments
+    x-speakeasy-metadata:
+      after: sdk.privateNetworks.listAssignments()
+      before: sdk.Private Networks.get-virtual-networks-assignments()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/tags/{tag_id}"]["patch"]
+    update:
+      x-speakeasy-name-override: update
+    x-speakeasy-metadata:
+      after: sdk.tags.update()
+      before: sdk.Tags.update-tag()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/projects/{project_id}"]["delete"]
+    update:
+      x-speakeasy-name-override: delete
+    x-speakeasy-metadata:
+      after: sdk.projects.delete()
+      before: sdk.Projects.delete-project()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/firewalls/{firewall_id}"]["get"]
+    update:
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      after: sdk.firewalls.get()
+      before: sdk.Firewalls.get-firewall()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/traffic/quota"]["get"]
+    update:
+      x-speakeasy-name-override: getQuota
+    x-speakeasy-metadata:
+      after: sdk.traffic.getQuota()
+      before: sdk.Traffic.get-traffic-quota()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/servers/{server_id}/out_of_band_connection"]["get"]
+    update:
+      x-speakeasy-name-override: getOutOfBand
+    x-speakeasy-metadata:
+      after: sdk.servers.getOutOfBand()
+      before: sdk.Servers.get-server-out-of-band()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/events"]["get"]
+    update:
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.events.list()
+      before: sdk.Events.get-events()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/tags"]["get"]
+    update:
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.tags.list()
+      before: sdk.Tags.get-tags()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/auth/api_keys/{api_key_id}"]["put"]
+    update:
+      x-speakeasy-group: apiKeys
+      x-speakeasy-name-override: update
+    x-speakeasy-metadata:
+      after: sdk.apiKeys.update()
+      before: sdk.API Keys.update-api-key()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/ssh_keys"]["get"]
+    update:
+      x-speakeasy-group: sshKeys
+      x-speakeasy-name-override: listAll
+    x-speakeasy-metadata:
+      after: sdk.sshKeys.listAll()
+      before: sdk.SSH Keys.get-ssh-keys()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/storage/filesystems/{filesystem_id}"]["patch"]
+    update:
+      x-speakeasy-name-override: updateFilesystem
+    x-speakeasy-metadata:
+      after: sdk.storage.updateFilesystem()
+      before: sdk.Storage.patch-storage-filesystems()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/servers/{server_id}/deploy_config"]["patch"]
+    update:
+      x-speakeasy-name-override: updateDeployConfig
+    x-speakeasy-metadata:
+      after: sdk.servers.updateDeployConfig()
+      before: sdk.Servers.update-server-deploy-config()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/plans"]["get"]
+    update:
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.plans.list()
+      before: sdk.Plans.get-plans()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/virtual_machines/{virtual_machine_id}"]["get"]
+    update:
+      x-speakeasy-group: virtualMachines
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      after: sdk.virtualMachines.get()
+      before: sdk.Virtual Machines.show-virtual-machine()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/servers/{server_id}"]["delete"]
+    update:
+      x-speakeasy-name-override: delete
+    x-speakeasy-metadata:
+      after: sdk.servers.delete()
+      before: sdk.Servers.destroy-server()
+      created_at: 1749582530845
+      type: method-name
+  - target: $["paths"]["/user_data/{user_data_id}"]["patch"]
+    update:
+      x-speakeasy-group: userData
+      x-speakeasy-name-override: update
+    x-speakeasy-metadata:
+      after: sdk.userData.update()
+      before: sdk.User Data.patch-user-data()
+      created_at: 1749582530845
       type: method-name

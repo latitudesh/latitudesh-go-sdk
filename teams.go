@@ -33,8 +33,8 @@ func newTeams(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *hoo
 	}
 }
 
-// GetTeam - Retrieve the team
-func (s *Teams) GetTeam(ctx context.Context, opts ...operations.Option) (*operations.GetTeamResponse, error) {
+// Get - Retrieve the team
+func (s *Teams) Get(ctx context.Context, opts ...operations.Option) (*operations.GetTeamResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -238,8 +238,8 @@ func (s *Teams) GetTeam(ctx context.Context, opts ...operations.Option) (*operat
 
 }
 
-// PostTeam - Create a team
-func (s *Teams) PostTeam(ctx context.Context, request operations.PostTeamTeamsRequestBody, opts ...operations.Option) (*operations.PostTeamResponse, error) {
+// Create a team
+func (s *Teams) Create(ctx context.Context, request operations.PostTeamTeamsRequestBody, opts ...operations.Option) (*operations.PostTeamResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -473,8 +473,8 @@ func (s *Teams) PostTeam(ctx context.Context, request operations.PostTeamTeamsRe
 
 }
 
-// PatchCurrentTeam - Update a team
-func (s *Teams) PatchCurrentTeam(ctx context.Context, teamID string, requestBody operations.PatchCurrentTeamTeamsRequestBody, opts ...operations.Option) (*operations.PatchCurrentTeamResponse, error) {
+// Update a team
+func (s *Teams) Update(ctx context.Context, teamID string, requestBody operations.PatchCurrentTeamTeamsRequestBody, opts ...operations.Option) (*operations.PatchCurrentTeamResponse, error) {
 	request := operations.PatchCurrentTeamRequest{
 		TeamID:      teamID,
 		RequestBody: requestBody,

@@ -8,57 +8,57 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
-type PostVPNSessionVPNSessionsType string
+type PostVpnSessionVpnSessionsType string
 
 const (
-	PostVPNSessionVPNSessionsTypeVpnSessions PostVPNSessionVPNSessionsType = "vpn_sessions"
+	PostVpnSessionVpnSessionsTypeVpnSessions PostVpnSessionVpnSessionsType = "vpn_sessions"
 )
 
-func (e PostVPNSessionVPNSessionsType) ToPointer() *PostVPNSessionVPNSessionsType {
+func (e PostVpnSessionVpnSessionsType) ToPointer() *PostVpnSessionVpnSessionsType {
 	return &e
 }
-func (e *PostVPNSessionVPNSessionsType) UnmarshalJSON(data []byte) error {
+func (e *PostVpnSessionVpnSessionsType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "vpn_sessions":
-		*e = PostVPNSessionVPNSessionsType(v)
+		*e = PostVpnSessionVpnSessionsType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PostVPNSessionVPNSessionsType: %v", v)
+		return fmt.Errorf("invalid value for PostVpnSessionVpnSessionsType: %v", v)
 	}
 }
 
-type PostVPNSessionVPNSessionsSite string
+type PostVpnSessionVpnSessionsSite string
 
 const (
-	PostVPNSessionVPNSessionsSiteAsh  PostVPNSessionVPNSessionsSite = "ASH"
-	PostVPNSessionVPNSessionsSiteBgt  PostVPNSessionVPNSessionsSite = "BGT"
-	PostVPNSessionVPNSessionsSiteBue  PostVPNSessionVPNSessionsSite = "BUE"
-	PostVPNSessionVPNSessionsSiteChi  PostVPNSessionVPNSessionsSite = "CHI"
-	PostVPNSessionVPNSessionsSiteDal  PostVPNSessionVPNSessionsSite = "DAL"
-	PostVPNSessionVPNSessionsSiteFra  PostVPNSessionVPNSessionsSite = "FRA"
-	PostVPNSessionVPNSessionsSiteLax  PostVPNSessionVPNSessionsSite = "LAX"
-	PostVPNSessionVPNSessionsSiteLon  PostVPNSessionVPNSessionsSite = "LON"
-	PostVPNSessionVPNSessionsSiteMex  PostVPNSessionVPNSessionsSite = "MEX"
-	PostVPNSessionVPNSessionsSiteMex2 PostVPNSessionVPNSessionsSite = "MEX2"
-	PostVPNSessionVPNSessionsSiteMia  PostVPNSessionVPNSessionsSite = "MIA"
-	PostVPNSessionVPNSessionsSiteMia2 PostVPNSessionVPNSessionsSite = "MIA2"
-	PostVPNSessionVPNSessionsSiteNyc  PostVPNSessionVPNSessionsSite = "NYC"
-	PostVPNSessionVPNSessionsSiteSan  PostVPNSessionVPNSessionsSite = "SAN"
-	PostVPNSessionVPNSessionsSiteSao  PostVPNSessionVPNSessionsSite = "SAO"
-	PostVPNSessionVPNSessionsSiteSao2 PostVPNSessionVPNSessionsSite = "SAO2"
-	PostVPNSessionVPNSessionsSiteSyd  PostVPNSessionVPNSessionsSite = "SYD"
-	PostVPNSessionVPNSessionsSiteTyo  PostVPNSessionVPNSessionsSite = "TYO"
-	PostVPNSessionVPNSessionsSiteTyo2 PostVPNSessionVPNSessionsSite = "TYO2"
+	PostVpnSessionVpnSessionsSiteAsh  PostVpnSessionVpnSessionsSite = "ASH"
+	PostVpnSessionVpnSessionsSiteBgt  PostVpnSessionVpnSessionsSite = "BGT"
+	PostVpnSessionVpnSessionsSiteBue  PostVpnSessionVpnSessionsSite = "BUE"
+	PostVpnSessionVpnSessionsSiteChi  PostVpnSessionVpnSessionsSite = "CHI"
+	PostVpnSessionVpnSessionsSiteDal  PostVpnSessionVpnSessionsSite = "DAL"
+	PostVpnSessionVpnSessionsSiteFra  PostVpnSessionVpnSessionsSite = "FRA"
+	PostVpnSessionVpnSessionsSiteLax  PostVpnSessionVpnSessionsSite = "LAX"
+	PostVpnSessionVpnSessionsSiteLon  PostVpnSessionVpnSessionsSite = "LON"
+	PostVpnSessionVpnSessionsSiteMex  PostVpnSessionVpnSessionsSite = "MEX"
+	PostVpnSessionVpnSessionsSiteMex2 PostVpnSessionVpnSessionsSite = "MEX2"
+	PostVpnSessionVpnSessionsSiteMia  PostVpnSessionVpnSessionsSite = "MIA"
+	PostVpnSessionVpnSessionsSiteMia2 PostVpnSessionVpnSessionsSite = "MIA2"
+	PostVpnSessionVpnSessionsSiteNyc  PostVpnSessionVpnSessionsSite = "NYC"
+	PostVpnSessionVpnSessionsSiteSan  PostVpnSessionVpnSessionsSite = "SAN"
+	PostVpnSessionVpnSessionsSiteSao  PostVpnSessionVpnSessionsSite = "SAO"
+	PostVpnSessionVpnSessionsSiteSao2 PostVpnSessionVpnSessionsSite = "SAO2"
+	PostVpnSessionVpnSessionsSiteSyd  PostVpnSessionVpnSessionsSite = "SYD"
+	PostVpnSessionVpnSessionsSiteTyo  PostVpnSessionVpnSessionsSite = "TYO"
+	PostVpnSessionVpnSessionsSiteTyo2 PostVpnSessionVpnSessionsSite = "TYO2"
 )
 
-func (e PostVPNSessionVPNSessionsSite) ToPointer() *PostVPNSessionVPNSessionsSite {
+func (e PostVpnSessionVpnSessionsSite) ToPointer() *PostVpnSessionVpnSessionsSite {
 	return &e
 }
-func (e *PostVPNSessionVPNSessionsSite) UnmarshalJSON(data []byte) error {
+func (e *PostVpnSessionVpnSessionsSite) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -101,56 +101,56 @@ func (e *PostVPNSessionVPNSessionsSite) UnmarshalJSON(data []byte) error {
 	case "TYO":
 		fallthrough
 	case "TYO2":
-		*e = PostVPNSessionVPNSessionsSite(v)
+		*e = PostVpnSessionVpnSessionsSite(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PostVPNSessionVPNSessionsSite: %v", v)
+		return fmt.Errorf("invalid value for PostVpnSessionVpnSessionsSite: %v", v)
 	}
 }
 
-type PostVPNSessionVPNSessionsAttributes struct {
-	Site     *PostVPNSessionVPNSessionsSite `json:"site,omitempty"`
+type PostVpnSessionVpnSessionsAttributes struct {
+	Site     *PostVpnSessionVpnSessionsSite `json:"site,omitempty"`
 	ServerID *string                        `json:"server_id,omitempty"`
 }
 
-func (o *PostVPNSessionVPNSessionsAttributes) GetSite() *PostVPNSessionVPNSessionsSite {
+func (o *PostVpnSessionVpnSessionsAttributes) GetSite() *PostVpnSessionVpnSessionsSite {
 	if o == nil {
 		return nil
 	}
 	return o.Site
 }
 
-func (o *PostVPNSessionVPNSessionsAttributes) GetServerID() *string {
+func (o *PostVpnSessionVpnSessionsAttributes) GetServerID() *string {
 	if o == nil {
 		return nil
 	}
 	return o.ServerID
 }
 
-type PostVPNSessionVPNSessionsData struct {
-	Type       *PostVPNSessionVPNSessionsType       `json:"type,omitempty"`
-	Attributes *PostVPNSessionVPNSessionsAttributes `json:"attributes,omitempty"`
+type PostVpnSessionVpnSessionsData struct {
+	Type       *PostVpnSessionVpnSessionsType       `json:"type,omitempty"`
+	Attributes *PostVpnSessionVpnSessionsAttributes `json:"attributes,omitempty"`
 }
 
-func (o *PostVPNSessionVPNSessionsData) GetType() *PostVPNSessionVPNSessionsType {
+func (o *PostVpnSessionVpnSessionsData) GetType() *PostVpnSessionVpnSessionsType {
 	if o == nil {
 		return nil
 	}
 	return o.Type
 }
 
-func (o *PostVPNSessionVPNSessionsData) GetAttributes() *PostVPNSessionVPNSessionsAttributes {
+func (o *PostVpnSessionVpnSessionsData) GetAttributes() *PostVpnSessionVpnSessionsAttributes {
 	if o == nil {
 		return nil
 	}
 	return o.Attributes
 }
 
-type PostVPNSessionVPNSessionsRequestBody struct {
-	Data *PostVPNSessionVPNSessionsData `json:"data,omitempty"`
+type PostVpnSessionVpnSessionsRequestBody struct {
+	Data *PostVpnSessionVpnSessionsData `json:"data,omitempty"`
 }
 
-func (o *PostVPNSessionVPNSessionsRequestBody) GetData() *PostVPNSessionVPNSessionsData {
+func (o *PostVpnSessionVpnSessionsRequestBody) GetData() *PostVpnSessionVpnSessionsData {
 	if o == nil {
 		return nil
 	}
