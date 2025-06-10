@@ -145,9 +145,14 @@ func (o *EventsAttributes) GetTarget() *Target {
 	return o.Target
 }
 
+type Meta struct {
+}
+
 type Events struct {
 	ID         *string           `json:"id,omitempty"`
 	Attributes *EventsAttributes `json:"attributes,omitempty"`
+	Data       []EventData       `json:"data,omitempty"`
+	Meta       *Meta             `json:"meta,omitempty"`
 }
 
 func (o *Events) GetID() *string {
@@ -162,4 +167,18 @@ func (o *Events) GetAttributes() *EventsAttributes {
 		return nil
 	}
 	return o.Attributes
+}
+
+func (o *Events) GetData() []EventData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *Events) GetMeta() *Meta {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
 }

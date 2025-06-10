@@ -6,14 +6,14 @@
 ### Available Operations
 
 * [~~List~~](#list) - List all Project SSH Keys :warning: **Deprecated**
-* [~~GetProjectSSHKey~~](#getprojectsshkey) - Retrieve a Project SSH Key :warning: **Deprecated**
-* [~~PutProjectSSHKey~~](#putprojectsshkey) - Update a Project SSH Key :warning: **Deprecated**
-* [~~DeleteProjectSSHKey~~](#deleteprojectsshkey) - Delete a Project SSH Key :warning: **Deprecated**
-* [GetSSHKeys](#getsshkeys) - List all SSH Keys
-* [PostSSHKey](#postsshkey) - Create a SSH Key
-* [GetSSHKey](#getsshkey) - Retrieve a SSH Key
-* [PutSSHKey](#putsshkey) - Update a SSH Key
-* [DeleteSSHKey](#deletesshkey) - Delete a SSH Key
+* [~~Get~~](#get) - Retrieve a Project SSH Key :warning: **Deprecated**
+* [~~ModifyProjectKey~~](#modifyprojectkey) - Update a Project SSH Key :warning: **Deprecated**
+* [~~RemoveFromProject~~](#removefromproject) - Delete a Project SSH Key :warning: **Deprecated**
+* [ListAll](#listall) - List all SSH Keys
+* [Create](#create) - Create a SSH Key
+* [Retrieve](#retrieve) - Retrieve a SSH Key
+* [Update](#update) - Update a SSH Key
+* [Delete](#delete) - Delete a SSH Key
 
 ## ~~List~~
 
@@ -45,7 +45,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.SSHKey != nil {
+    if res.SSHKeys != nil {
         // handle response
     }
 }
@@ -70,7 +70,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## ~~GetProjectSSHKey~~
+## ~~Get~~
 
 List all SSH Keys in the project. These keys can be used to access servers after deploy and reinstall actions.
 
@@ -96,7 +96,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.GetProjectSSHKey(ctx, "proj_k0RyqvrJqW36X", "ssh_j0L6WO1QOPlXy")
+    res, err := s.SSHKeys.Get(ctx, "proj_k0RyqvrJqW36X", "ssh_j0L6WO1QOPlXy")
     if err != nil {
         log.Fatal(err)
     }
@@ -125,7 +125,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## ~~PutProjectSSHKey~~
+## ~~ModifyProjectKey~~
 
 Allow you update SSH Key in a project. These keys can be used to access servers after deploy and reinstall actions.
 
@@ -152,7 +152,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.PutProjectSSHKey(ctx, "proj_5xyZOnMvDWM0l", "ssh_5AEmq71XOBkWX", operations.PutProjectSSHKeySSHKeysRequestBody{
+    res, err := s.SSHKeys.ModifyProjectKey(ctx, "proj_5xyZOnMvDWM0l", "ssh_5AEmq71XOBkWX", operations.PutProjectSSHKeySSHKeysRequestBody{
         Data: operations.PutProjectSSHKeySSHKeysData{
             ID: latitudeshgosdk.String("ssh_5AEmq71XOBkWX"),
             Type: operations.PutProjectSSHKeySSHKeysTypeSSHKeys,
@@ -193,7 +193,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## ~~DeleteProjectSSHKey~~
+## ~~RemoveFromProject~~
 
 Allow you remove SSH Keys in a project. Remove a SSH Key from the project won't revoke the SSH Keys access for previously deploy and reinstall actions.
 
@@ -219,7 +219,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.DeleteProjectSSHKey(ctx, "proj_KN4ydzeXOVob3", "ssh_kjQwdEGNDYNVP")
+    res, err := s.SSHKeys.RemoveFromProject(ctx, "proj_KN4ydzeXOVob3", "ssh_kjQwdEGNDYNVP")
     if err != nil {
         log.Fatal(err)
     }
@@ -248,7 +248,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## GetSSHKeys
+## ListAll
 
 List all SSH Keys in the project. These keys can be used to access servers after deploy and reinstall actions.
 
@@ -272,11 +272,11 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.GetSSHKeys(ctx, nil)
+    res, err := s.SSHKeys.ListAll(ctx, nil)
     if err != nil {
         log.Fatal(err)
     }
-    if res.SSHKey != nil {
+    if res.SSHKeys != nil {
         // handle response
     }
 }
@@ -300,7 +300,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## PostSSHKey
+## Create
 
 Allow you create SSH Keys in a project. These keys can be used to access servers after deploy and reinstall actions.
 
@@ -325,7 +325,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.PostSSHKey(ctx, operations.PostSSHKeySSHKeysRequestBody{
+    res, err := s.SSHKeys.Create(ctx, operations.PostSSHKeySSHKeysRequestBody{
         Data: operations.PostSSHKeySSHKeysData{
             Type: operations.PostSSHKeySSHKeysTypeSSHKeys,
             Attributes: &operations.PostSSHKeySSHKeysAttributes{
@@ -361,7 +361,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## GetSSHKey
+## Retrieve
 
 List all SSH Keys in the project. These keys can be used to access servers after deploy and reinstall actions.
 
@@ -385,7 +385,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.GetSSHKey(ctx, "ssh_zGr47qlMDAg0m")
+    res, err := s.SSHKeys.Retrieve(ctx, "ssh_zGr47qlMDAg0m")
     if err != nil {
         log.Fatal(err)
     }
@@ -413,7 +413,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## PutSSHKey
+## Update
 
 Allow you update SSH Key in a project. These keys can be used to access servers after deploy and reinstall actions.
 
@@ -438,7 +438,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.PutSSHKey(ctx, "ssh_ez2A3DVldnawP", operations.PutSSHKeySSHKeysRequestBody{
+    res, err := s.SSHKeys.Update(ctx, "ssh_ez2A3DVldnawP", operations.PutSSHKeySSHKeysRequestBody{
         Data: operations.PutSSHKeySSHKeysData{
             ID: latitudeshgosdk.String("ssh_ez2A3DVldnawP"),
             Type: operations.PutSSHKeySSHKeysTypeSSHKeys,
@@ -478,7 +478,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## DeleteSSHKey
+## Delete
 
 Allow you remove SSH Keys in a project. Remove a SSH Key from the project won't revoke the SSH Keys access for previously deploy and reinstall actions.
 
@@ -502,7 +502,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.DeleteSSHKey(ctx, "ssh_zlkg1DegdvZE5")
+    res, err := s.SSHKeys.Delete(ctx, "ssh_zlkg1DegdvZE5")
     if err != nil {
         log.Fatal(err)
     }

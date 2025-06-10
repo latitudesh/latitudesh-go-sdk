@@ -3,6 +3,8 @@
 
 ## Fields
 
-| Field                                                            | Type                                                             | Required                                                         | Description                                                      |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `Data`                                                           | [][components.SSHKeyData](../../models/components/sshkeydata.md) | :heavy_minus_sign:                                               | N/A                                                              |
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `ID`               | **string*          | :heavy_minus_sign: | N/A                |
+| `Description`      | **string*          | :heavy_minus_sign: | N/A                |
+| `Fingerprint`      | **string*          | :heavy_minus_sign: | N/A                |

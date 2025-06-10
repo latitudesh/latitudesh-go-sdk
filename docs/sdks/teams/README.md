@@ -5,11 +5,11 @@
 
 ### Available Operations
 
-* [GetTeam](#getteam) - Retrieve the team
-* [PostTeam](#postteam) - Create a team
-* [PatchCurrentTeam](#patchcurrentteam) - Update a team
+* [Get](#get) - Retrieve the team
+* [Create](#create) - Create a team
+* [Update](#update) - Update a team
 
-## GetTeam
+## Get
 
 Retrieve the team
 
@@ -32,7 +32,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Teams.GetTeam(ctx)
+    res, err := s.Teams.Get(ctx)
     if err != nil {
         log.Fatal(err)
     }
@@ -59,7 +59,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## PostTeam
+## Create
 
 Create a team
 
@@ -83,7 +83,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Teams.PostTeam(ctx, operations.PostTeamTeamsRequestBody{
+    res, err := s.Teams.Create(ctx, operations.PostTeamTeamsRequestBody{
         Data: operations.PostTeamTeamsData{
             Type: operations.PostTeamTeamsTypeTeams,
             Attributes: &operations.PostTeamTeamsAttributes{
@@ -121,7 +121,7 @@ func main() {
 | components.ErrorObject   | 406, 422                 | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## PatchCurrentTeam
+## Update
 
 Update a team
 
@@ -145,7 +145,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Teams.PatchCurrentTeam(ctx, "7ee1a0d0-899d-42eb-99c9-4fb69ffab8f8", operations.PatchCurrentTeamTeamsRequestBody{
+    res, err := s.Teams.Update(ctx, "7ee1a0d0-899d-42eb-99c9-4fb69ffab8f8", operations.PatchCurrentTeamTeamsRequestBody{
         Data: operations.PatchCurrentTeamTeamsData{
             ID: "team_ZGPB1lbQ01hmeJZX92RyFBgxPBl",
             Type: operations.PatchCurrentTeamTeamsTypeTeams,

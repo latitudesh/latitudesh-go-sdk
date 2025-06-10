@@ -210,12 +210,12 @@ func (s *SSHKeys) List(ctx context.Context, projectID string, filterTags *string
 				return nil, err
 			}
 
-			var out components.SSHKey
+			var out components.SSHKeys
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.SSHKey = &out
+			res.SSHKeys = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -247,11 +247,11 @@ func (s *SSHKeys) List(ctx context.Context, projectID string, filterTags *string
 
 }
 
-// GetProjectSSHKey - Retrieve a Project SSH Key
+// Get - Retrieve a Project SSH Key
 // List all SSH Keys in the project. These keys can be used to access servers after deploy and reinstall actions.
 //
 // Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
-func (s *SSHKeys) GetProjectSSHKey(ctx context.Context, projectID string, sshKeyID string, opts ...operations.Option) (*operations.GetProjectSSHKeyResponse, error) {
+func (s *SSHKeys) Get(ctx context.Context, projectID string, sshKeyID string, opts ...operations.Option) (*operations.GetProjectSSHKeyResponse, error) {
 	request := operations.GetProjectSSHKeyRequest{
 		ProjectID: projectID,
 		SSHKeyID:  sshKeyID,
@@ -460,11 +460,11 @@ func (s *SSHKeys) GetProjectSSHKey(ctx context.Context, projectID string, sshKey
 
 }
 
-// PutProjectSSHKey - Update a Project SSH Key
+// ModifyProjectKey - Update a Project SSH Key
 // Allow you update SSH Key in a project. These keys can be used to access servers after deploy and reinstall actions.
 //
 // Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
-func (s *SSHKeys) PutProjectSSHKey(ctx context.Context, projectID string, sshKeyID string, requestBody operations.PutProjectSSHKeySSHKeysRequestBody, opts ...operations.Option) (*operations.PutProjectSSHKeyResponse, error) {
+func (s *SSHKeys) ModifyProjectKey(ctx context.Context, projectID string, sshKeyID string, requestBody operations.PutProjectSSHKeySSHKeysRequestBody, opts ...operations.Option) (*operations.PutProjectSSHKeyResponse, error) {
 	request := operations.PutProjectSSHKeyRequest{
 		ProjectID:   projectID,
 		SSHKeyID:    sshKeyID,
@@ -685,11 +685,11 @@ func (s *SSHKeys) PutProjectSSHKey(ctx context.Context, projectID string, sshKey
 
 }
 
-// DeleteProjectSSHKey - Delete a Project SSH Key
+// RemoveFromProject - Delete a Project SSH Key
 // Allow you remove SSH Keys in a project. Remove a SSH Key from the project won't revoke the SSH Keys access for previously deploy and reinstall actions.
 //
 // Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
-func (s *SSHKeys) DeleteProjectSSHKey(ctx context.Context, projectID string, sshKeyID string, opts ...operations.Option) (*operations.DeleteProjectSSHKeyResponse, error) {
+func (s *SSHKeys) RemoveFromProject(ctx context.Context, projectID string, sshKeyID string, opts ...operations.Option) (*operations.DeleteProjectSSHKeyResponse, error) {
 	request := operations.DeleteProjectSSHKeyRequest{
 		ProjectID: projectID,
 		SSHKeyID:  sshKeyID,
@@ -880,9 +880,9 @@ func (s *SSHKeys) DeleteProjectSSHKey(ctx context.Context, projectID string, ssh
 
 }
 
-// GetSSHKeys - List all SSH Keys
+// ListAll - List all SSH Keys
 // List all SSH Keys in the project. These keys can be used to access servers after deploy and reinstall actions.
-func (s *SSHKeys) GetSSHKeys(ctx context.Context, filterTags *string, opts ...operations.Option) (*operations.GetSSHKeysResponse, error) {
+func (s *SSHKeys) ListAll(ctx context.Context, filterTags *string, opts ...operations.Option) (*operations.GetSSHKeysResponse, error) {
 	request := operations.GetSSHKeysRequest{
 		FilterTags: filterTags,
 	}
@@ -1057,12 +1057,12 @@ func (s *SSHKeys) GetSSHKeys(ctx context.Context, filterTags *string, opts ...op
 				return nil, err
 			}
 
-			var out components.SSHKey
+			var out components.SSHKeys
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.SSHKey = &out
+			res.SSHKeys = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -1094,9 +1094,9 @@ func (s *SSHKeys) GetSSHKeys(ctx context.Context, filterTags *string, opts ...op
 
 }
 
-// PostSSHKey - Create a SSH Key
+// Create a SSH Key
 // Allow you create SSH Keys in a project. These keys can be used to access servers after deploy and reinstall actions.
-func (s *SSHKeys) PostSSHKey(ctx context.Context, request operations.PostSSHKeySSHKeysRequestBody, opts ...operations.Option) (*operations.PostSSHKeyResponse, error) {
+func (s *SSHKeys) Create(ctx context.Context, request operations.PostSSHKeySSHKeysRequestBody, opts ...operations.Option) (*operations.PostSSHKeyResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -1311,9 +1311,9 @@ func (s *SSHKeys) PostSSHKey(ctx context.Context, request operations.PostSSHKeyS
 
 }
 
-// GetSSHKey - Retrieve a SSH Key
+// Retrieve a SSH Key
 // List all SSH Keys in the project. These keys can be used to access servers after deploy and reinstall actions.
-func (s *SSHKeys) GetSSHKey(ctx context.Context, sshKeyID string, opts ...operations.Option) (*operations.GetSSHKeyResponse, error) {
+func (s *SSHKeys) Retrieve(ctx context.Context, sshKeyID string, opts ...operations.Option) (*operations.GetSSHKeyResponse, error) {
 	request := operations.GetSSHKeyRequest{
 		SSHKeyID: sshKeyID,
 	}
@@ -1521,9 +1521,9 @@ func (s *SSHKeys) GetSSHKey(ctx context.Context, sshKeyID string, opts ...operat
 
 }
 
-// PutSSHKey - Update a SSH Key
+// Update a SSH Key
 // Allow you update SSH Key in a project. These keys can be used to access servers after deploy and reinstall actions.
-func (s *SSHKeys) PutSSHKey(ctx context.Context, sshKeyID string, requestBody operations.PutSSHKeySSHKeysRequestBody, opts ...operations.Option) (*operations.PutSSHKeyResponse, error) {
+func (s *SSHKeys) Update(ctx context.Context, sshKeyID string, requestBody operations.PutSSHKeySSHKeysRequestBody, opts ...operations.Option) (*operations.PutSSHKeyResponse, error) {
 	request := operations.PutSSHKeyRequest{
 		SSHKeyID:    sshKeyID,
 		RequestBody: requestBody,
@@ -1743,9 +1743,9 @@ func (s *SSHKeys) PutSSHKey(ctx context.Context, sshKeyID string, requestBody op
 
 }
 
-// DeleteSSHKey - Delete a SSH Key
+// Delete a SSH Key
 // Allow you remove SSH Keys in a project. Remove a SSH Key from the project won't revoke the SSH Keys access for previously deploy and reinstall actions.
-func (s *SSHKeys) DeleteSSHKey(ctx context.Context, sshKeyID string, opts ...operations.Option) (*operations.DeleteSSHKeyResponse, error) {
+func (s *SSHKeys) Delete(ctx context.Context, sshKeyID string, opts ...operations.Option) (*operations.DeleteSSHKeyResponse, error) {
 	request := operations.DeleteSSHKeyRequest{
 		SSHKeyID: sshKeyID,
 	}

@@ -1,4 +1,4 @@
-# StoragePlanPricing
+# StoragePlanDataPricing
 
 
 ## Fields

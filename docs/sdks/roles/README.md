@@ -5,10 +5,10 @@
 
 ### Available Operations
 
-* [GetRoles](#getroles) - List all Roles
-* [GetRoleID](#getroleid) - Retrieve Role
+* [List](#list) - List all Roles
+* [Get](#get) - Retrieve Role
 
-## GetRoles
+## List
 
 Returns a list of all roles that can be assigned to users
 
@@ -32,7 +32,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Roles.GetRoles(ctx, latitudeshgosdk.Int64(20), latitudeshgosdk.Int64(1))
+    res, err := s.Roles.List(ctx, latitudeshgosdk.Int64(20), latitudeshgosdk.Int64(1))
     if err != nil {
         log.Fatal(err)
     }
@@ -73,7 +73,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## GetRoleID
+## Get
 
 Retrieve Role
 
@@ -96,7 +96,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Roles.GetRoleID(ctx, "role_3YjJOLjbqvZ87")
+    res, err := s.Roles.Get(ctx, "role_3YjJOLjbqvZ87")
     if err != nil {
         log.Fatal(err)
     }

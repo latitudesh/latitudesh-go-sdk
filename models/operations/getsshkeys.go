@@ -21,7 +21,7 @@ func (o *GetSSHKeysRequest) GetFilterTags() *string {
 type GetSSHKeysResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Success
-	SSHKey *components.SSHKey
+	SSHKeys *components.SSHKeys
 }
 
 func (o *GetSSHKeysResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -31,9 +31,9 @@ func (o *GetSSHKeysResponse) GetHTTPMeta() components.HTTPMetadata {
 	return o.HTTPMeta
 }
 
-func (o *GetSSHKeysResponse) GetSSHKey() *components.SSHKey {
+func (o *GetSSHKeysResponse) GetSSHKeys() *components.SSHKeys {
 	if o == nil {
 		return nil
 	}
-	return o.SSHKey
+	return o.SSHKeys
 }

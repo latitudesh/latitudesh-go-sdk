@@ -2,8 +2,12 @@
 
 package components
 
+type UserDataMeta struct {
+}
+
 type UserData struct {
 	Data *UserDataProperties `json:"data,omitempty"`
+	Meta *UserDataMeta       `json:"meta,omitempty"`
 }
 
 func (o *UserData) GetData() *UserDataProperties {
@@ -11,4 +15,11 @@ func (o *UserData) GetData() *UserDataProperties {
 		return nil
 	}
 	return o.Data
+}
+
+func (o *UserData) GetMeta() *UserDataMeta {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
 }

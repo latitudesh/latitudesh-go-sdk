@@ -10,7 +10,7 @@ import (
 type FirewallServerType string
 
 const (
-	FirewallServerTypeFirewallAssignments FirewallServerType = "firewall_assignments"
+	FirewallServerTypeFirewallServers FirewallServerType = "firewall_servers"
 )
 
 func (e FirewallServerType) ToPointer() *FirewallServerType {
@@ -22,7 +22,7 @@ func (e *FirewallServerType) UnmarshalJSON(data []byte) error {
 		return err
 	}
 	switch v {
-	case "firewall_assignments":
+	case "firewall_servers":
 		*e = FirewallServerType(v)
 		return nil
 	default:
@@ -60,6 +60,7 @@ func (o *FirewallServerServer) GetHostname() *string {
 type FirewallServerAttributes struct {
 	Server     *FirewallServerServer `json:"server,omitempty"`
 	FirewallID *string               `json:"firewall_id,omitempty"`
+	ServerID   *string               `json:"server_id,omitempty"`
 }
 
 func (o *FirewallServerAttributes) GetServer() *FirewallServerServer {
@@ -74,6 +75,13 @@ func (o *FirewallServerAttributes) GetFirewallID() *string {
 		return nil
 	}
 	return o.FirewallID
+}
+
+func (o *FirewallServerAttributes) GetServerID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServerID
 }
 
 type FirewallServer struct {

@@ -1,4 +1,4 @@
-# LatitudeshSSHKeys
+# LatitudeshProjectsSSHKeys
 (*Projects.SSHKeys*)
 
 ## Overview

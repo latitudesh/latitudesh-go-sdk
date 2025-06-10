@@ -16,22 +16,22 @@ import (
 	"net/url"
 )
 
-type VPNSessions struct {
+type VpnSessions struct {
 	rootSDK          *Latitudesh
 	sdkConfiguration config.SDKConfiguration
 	hooks            *hooks.Hooks
 }
 
-func newVPNSessions(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *hooks.Hooks) *VPNSessions {
-	return &VPNSessions{
+func newVpnSessions(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *hooks.Hooks) *VpnSessions {
+	return &VpnSessions{
 		rootSDK:          rootSDK,
 		sdkConfiguration: sdkConfig,
 		hooks:            hooks,
 	}
 }
 
-// GetVpnSessions - List all Active VPN Sessions
-func (s *VPNSessions) GetVpnSessions(ctx context.Context, filterLocation *operations.FilterLocation, opts ...operations.Option) (*operations.GetVpnSessionsResponse, error) {
+// List all Active VPN Sessions
+func (s *VpnSessions) List(ctx context.Context, filterLocation *operations.FilterLocation, opts ...operations.Option) (*operations.GetVpnSessionsResponse, error) {
 	request := operations.GetVpnSessionsRequest{
 		FilterLocation: filterLocation,
 	}
@@ -264,10 +264,10 @@ func (s *VPNSessions) GetVpnSessions(ctx context.Context, filterLocation *operat
 
 }
 
-// PostVpnSession - Create a VPN Session
+// Create a VPN Session
 // Creates a new VPN Session.
 // `NOTE:` The VPN credentials are only listed ONCE upon creation. They can however be refreshed or deleted.
-func (s *VPNSessions) PostVpnSession(ctx context.Context, request operations.PostVPNSessionVPNSessionsRequestBody, opts ...operations.Option) (*operations.PostVpnSessionResponse, error) {
+func (s *VpnSessions) Create(ctx context.Context, request operations.PostVpnSessionVpnSessionsRequestBody, opts ...operations.Option) (*operations.PostVpnSessionResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -499,9 +499,9 @@ func (s *VPNSessions) PostVpnSession(ctx context.Context, request operations.Pos
 
 }
 
-// PutVpnSession - Refresh a VPN Session
+// RefreshPassword - Refresh a VPN Session
 // Refreshing an existing VPN Session will create new credentials for that session
-func (s *VPNSessions) PutVpnSession(ctx context.Context, vpnSessionID string, opts ...operations.Option) (*operations.PutVpnSessionResponse, error) {
+func (s *VpnSessions) RefreshPassword(ctx context.Context, vpnSessionID string, opts ...operations.Option) (*operations.PutVpnSessionResponse, error) {
 	request := operations.PutVpnSessionRequest{
 		VpnSessionID: vpnSessionID,
 	}
@@ -730,9 +730,9 @@ func (s *VPNSessions) PutVpnSession(ctx context.Context, vpnSessionID string, op
 
 }
 
-// DeleteVpnSession - Delete a VPN Session
+// Delete a VPN Session
 // Deletes an existing VPN Session.
-func (s *VPNSessions) DeleteVpnSession(ctx context.Context, vpnSessionID string, opts ...operations.Option) (*operations.DeleteVpnSessionResponse, error) {
+func (s *VpnSessions) Delete(ctx context.Context, vpnSessionID string, opts ...operations.Option) (*operations.DeleteVpnSessionResponse, error) {
 	request := operations.DeleteVpnSessionRequest{
 		VpnSessionID: vpnSessionID,
 	}

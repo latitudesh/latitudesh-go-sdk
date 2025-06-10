@@ -88,9 +88,14 @@ func (o *OperatingSystemsAttributes) GetProvisionableOn() []string {
 	return o.ProvisionableOn
 }
 
+type OperatingSystemsMeta struct {
+}
+
 type OperatingSystems struct {
 	ID         *string                     `json:"id,omitempty"`
 	Attributes *OperatingSystemsAttributes `json:"attributes,omitempty"`
+	Data       []OperatingSystemData       `json:"data,omitempty"`
+	Meta       *OperatingSystemsMeta       `json:"meta,omitempty"`
 }
 
 func (o *OperatingSystems) GetID() *string {
@@ -105,4 +110,18 @@ func (o *OperatingSystems) GetAttributes() *OperatingSystemsAttributes {
 		return nil
 	}
 	return o.Attributes
+}
+
+func (o *OperatingSystems) GetData() []OperatingSystemData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *OperatingSystems) GetMeta() *OperatingSystemsMeta {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
 }

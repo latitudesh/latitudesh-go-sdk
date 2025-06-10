@@ -31,9 +31,9 @@ func newServers(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *h
 	}
 }
 
-// GetServers - List all Servers
+// List all Servers
 // Returns a list of all servers belonging to the team.
-func (s *Servers) GetServers(ctx context.Context, request operations.GetServersRequest, opts ...operations.Option) (*operations.GetServersResponse, error) {
+func (s *Servers) List(ctx context.Context, request operations.GetServersRequest, opts ...operations.Option) (*operations.GetServersResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -232,7 +232,7 @@ func (s *Servers) GetServers(ctx context.Context, request operations.GetServersR
 			return nil, nil
 		}
 
-		return s.GetServers(
+		return s.List(
 			ctx,
 			operations.GetServersRequest{
 				FilterProject:      request.FilterProject,
@@ -324,8 +324,8 @@ func (s *Servers) GetServers(ctx context.Context, request operations.GetServersR
 
 }
 
-// CreateServer - Deploy Server
-func (s *Servers) CreateServer(ctx context.Context, request operations.CreateServerServersRequestBody, opts ...operations.Option) (*operations.CreateServerResponse, error) {
+// Create - Deploy Server
+func (s *Servers) Create(ctx context.Context, request operations.CreateServerServersRequestBody, opts ...operations.Option) (*operations.CreateServerResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -561,9 +561,9 @@ func (s *Servers) CreateServer(ctx context.Context, request operations.CreateSer
 
 }
 
-// GetServer - Retrieve a Server
+// Get - Retrieve a Server
 // Returns a server that belongs to the team.
-func (s *Servers) GetServer(ctx context.Context, serverID string, extraFieldsServers *string, opts ...operations.Option) (*operations.GetServerResponse, error) {
+func (s *Servers) Get(ctx context.Context, serverID string, extraFieldsServers *string, opts ...operations.Option) (*operations.GetServerResponse, error) {
 	request := operations.GetServerRequest{
 		ServerID:           serverID,
 		ExtraFieldsServers: extraFieldsServers,
@@ -776,8 +776,8 @@ func (s *Servers) GetServer(ctx context.Context, serverID string, extraFieldsSer
 
 }
 
-// UpdateServer - Update Server
-func (s *Servers) UpdateServer(ctx context.Context, serverID string, requestBody operations.UpdateServerServersRequestBody, opts ...operations.Option) (*operations.UpdateServerResponse, error) {
+// Update Server
+func (s *Servers) Update(ctx context.Context, serverID string, requestBody operations.UpdateServerServersRequestBody, opts ...operations.Option) (*operations.UpdateServerResponse, error) {
 	request := operations.UpdateServerRequest{
 		ServerID:    serverID,
 		RequestBody: requestBody,
@@ -1019,8 +1019,8 @@ func (s *Servers) UpdateServer(ctx context.Context, serverID string, requestBody
 
 }
 
-// DestroyServer - Remove Server
-func (s *Servers) DestroyServer(ctx context.Context, serverID string, reason *string, opts ...operations.Option) (*operations.DestroyServerResponse, error) {
+// Delete - Remove Server
+func (s *Servers) Delete(ctx context.Context, serverID string, reason *string, opts ...operations.Option) (*operations.DestroyServerResponse, error) {
 	request := operations.DestroyServerRequest{
 		ServerID: serverID,
 		Reason:   reason,
@@ -1240,8 +1240,8 @@ func (s *Servers) DestroyServer(ctx context.Context, serverID string, reason *st
 
 }
 
-// GetServerDeployConfig - Retrieve Deploy Config
-func (s *Servers) GetServerDeployConfig(ctx context.Context, serverID string, opts ...operations.Option) (*operations.GetServerDeployConfigResponse, error) {
+// GetDeployConfig - Retrieve Deploy Config
+func (s *Servers) GetDeployConfig(ctx context.Context, serverID string, opts ...operations.Option) (*operations.GetServerDeployConfigResponse, error) {
 	request := operations.GetServerDeployConfigRequest{
 		ServerID: serverID,
 	}
@@ -1449,8 +1449,8 @@ func (s *Servers) GetServerDeployConfig(ctx context.Context, serverID string, op
 
 }
 
-// UpdateServerDeployConfig - Update Deploy Config
-func (s *Servers) UpdateServerDeployConfig(ctx context.Context, serverID string, requestBody operations.UpdateServerDeployConfigServersRequestBody, opts ...operations.Option) (*operations.UpdateServerDeployConfigResponse, error) {
+// UpdateDeployConfig - Update Deploy Config
+func (s *Servers) UpdateDeployConfig(ctx context.Context, serverID string, requestBody operations.UpdateServerDeployConfigServersRequestBody, opts ...operations.Option) (*operations.UpdateServerDeployConfigResponse, error) {
 	request := operations.UpdateServerDeployConfigRequest{
 		ServerID:    serverID,
 		RequestBody: requestBody,
@@ -1710,9 +1710,9 @@ func (s *Servers) UpdateServerDeployConfig(ctx context.Context, serverID string,
 
 }
 
-// ServerLock - Lock the server
+// Lock the server
 // Locks the server. A locked server cannot be deleted or modified and no actions can be performed on it.
-func (s *Servers) ServerLock(ctx context.Context, serverID string, opts ...operations.Option) (*operations.ServerLockResponse, error) {
+func (s *Servers) Lock(ctx context.Context, serverID string, opts ...operations.Option) (*operations.ServerLockResponse, error) {
 	request := operations.ServerLockRequest{
 		ServerID: serverID,
 	}
@@ -1924,9 +1924,9 @@ func (s *Servers) ServerLock(ctx context.Context, serverID string, opts ...opera
 
 }
 
-// ServerUnlock - Unlock the server
+// Unlock the server
 // Unlocks the server. A locked server cannot be deleted or modified and no actions can be performed on it.
-func (s *Servers) ServerUnlock(ctx context.Context, serverID string, opts ...operations.Option) (*operations.ServerUnlockResponse, error) {
+func (s *Servers) Unlock(ctx context.Context, serverID string, opts ...operations.Option) (*operations.ServerUnlockResponse, error) {
 	request := operations.ServerUnlockRequest{
 		ServerID: serverID,
 	}
@@ -2138,8 +2138,8 @@ func (s *Servers) ServerUnlock(ctx context.Context, serverID string, opts ...ope
 
 }
 
-// CreateServerOutOfBand - Start Out of Band Connection
-func (s *Servers) CreateServerOutOfBand(ctx context.Context, serverID string, requestBody operations.CreateServerOutOfBandServersRequestBody, opts ...operations.Option) (*operations.CreateServerOutOfBandResponse, error) {
+// StartOutOfBandConnection - Start Out of Band Connection
+func (s *Servers) StartOutOfBandConnection(ctx context.Context, serverID string, requestBody operations.CreateServerOutOfBandServersRequestBody, opts ...operations.Option) (*operations.CreateServerOutOfBandResponse, error) {
 	request := operations.CreateServerOutOfBandRequest{
 		ServerID:    serverID,
 		RequestBody: requestBody,
@@ -2380,8 +2380,8 @@ func (s *Servers) CreateServerOutOfBand(ctx context.Context, serverID string, re
 
 }
 
-// GetServerOutOfBand - List Out of Band Connections
-func (s *Servers) GetServerOutOfBand(ctx context.Context, serverID string, opts ...operations.Option) (*operations.GetServerOutOfBandResponse, error) {
+// GetOutOfBand - List Out of Band Connections
+func (s *Servers) GetOutOfBand(ctx context.Context, serverID string, opts ...operations.Option) (*operations.GetServerOutOfBandResponse, error) {
 	request := operations.GetServerOutOfBandRequest{
 		ServerID: serverID,
 	}
@@ -3090,9 +3090,9 @@ func (s *Servers) CreateIpmiSession(ctx context.Context, serverID string, opts .
 
 }
 
-// ServerStartRescueMode - Puts a Server in rescue mode
+// StartRescueMode - Puts a Server in rescue mode
 // Starts rescue mode on a given server.
-func (s *Servers) ServerStartRescueMode(ctx context.Context, serverID string, opts ...operations.Option) (*operations.ServerStartRescueModeResponse, error) {
+func (s *Servers) StartRescueMode(ctx context.Context, serverID string, opts ...operations.Option) (*operations.ServerStartRescueModeResponse, error) {
 	request := operations.ServerStartRescueModeRequest{
 		ServerID: serverID,
 	}
@@ -3323,9 +3323,9 @@ func (s *Servers) ServerStartRescueMode(ctx context.Context, serverID string, op
 
 }
 
-// ServerExitRescueMode - Exits rescue mode for a Server
+// ExitRescueMode - Exits rescue mode for a Server
 // Exits rescue mode on a given server.
-func (s *Servers) ServerExitRescueMode(ctx context.Context, serverID string, opts ...operations.Option) (*operations.ServerExitRescueModeResponse, error) {
+func (s *Servers) ExitRescueMode(ctx context.Context, serverID string, opts ...operations.Option) (*operations.ServerExitRescueModeResponse, error) {
 	request := operations.ServerExitRescueModeRequest{
 		ServerID: serverID,
 	}
@@ -3556,9 +3556,9 @@ func (s *Servers) ServerExitRescueMode(ctx context.Context, serverID string, opt
 
 }
 
-// ServerScheduleDeletion - Schedule the server deletion
+// ScheduleDeletion - Schedule the server deletion
 // Schedules the server to be removed at the end of the billing cycle.
-func (s *Servers) ServerScheduleDeletion(ctx context.Context, serverID string, opts ...operations.Option) (*operations.ServerScheduleDeletionResponse, error) {
+func (s *Servers) ScheduleDeletion(ctx context.Context, serverID string, opts ...operations.Option) (*operations.ServerScheduleDeletionResponse, error) {
 	request := operations.ServerScheduleDeletionRequest{
 		ServerID: serverID,
 	}
@@ -3791,9 +3791,9 @@ func (s *Servers) ServerScheduleDeletion(ctx context.Context, serverID string, o
 
 }
 
-// ServerUnscheduleDeletion - Unschedule the server deletion
+// UnscheduleDeletion - Unschedule the server deletion
 // Unschedules the server removal at the end of the billing cycle.
-func (s *Servers) ServerUnscheduleDeletion(ctx context.Context, serverID string, opts ...operations.Option) (*operations.ServerUnscheduleDeletionResponse, error) {
+func (s *Servers) UnscheduleDeletion(ctx context.Context, serverID string, opts ...operations.Option) (*operations.ServerUnscheduleDeletionResponse, error) {
 	request := operations.ServerUnscheduleDeletionRequest{
 		ServerID: serverID,
 	}
@@ -4002,8 +4002,8 @@ func (s *Servers) ServerUnscheduleDeletion(ctx context.Context, serverID string,
 
 }
 
-// CreateServerReinstall - Run Server Reinstall
-func (s *Servers) CreateServerReinstall(ctx context.Context, serverID string, requestBody operations.CreateServerReinstallServersRequestBody, opts ...operations.Option) (*operations.CreateServerReinstallResponse, error) {
+// Reinstall - Run Server Reinstall
+func (s *Servers) Reinstall(ctx context.Context, serverID string, requestBody operations.CreateServerReinstallServersRequestBody, opts ...operations.Option) (*operations.CreateServerReinstallResponse, error) {
 	request := operations.CreateServerReinstallRequest{
 		ServerID:    serverID,
 		RequestBody: requestBody,

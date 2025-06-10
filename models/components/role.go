@@ -2,8 +2,12 @@
 
 package components
 
+type RoleMeta struct {
+}
+
 type Role struct {
 	Data *RoleData `json:"data,omitempty"`
+	Meta *RoleMeta `json:"meta,omitempty"`
 }
 
 func (o *Role) GetData() *RoleData {
@@ -11,4 +15,11 @@ func (o *Role) GetData() *RoleData {
 		return nil
 	}
 	return o.Data
+}
+
+func (o *Role) GetMeta() *RoleMeta {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
 }

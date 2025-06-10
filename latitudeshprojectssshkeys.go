@@ -15,14 +15,14 @@ import (
 	"net/http"
 )
 
-type LatitudeshSSHKeys struct {
+type LatitudeshProjectsSSHKeys struct {
 	rootSDK          *Latitudesh
 	sdkConfiguration config.SDKConfiguration
 	hooks            *hooks.Hooks
 }
 
-func newLatitudeshSSHKeys(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *hooks.Hooks) *LatitudeshSSHKeys {
-	return &LatitudeshSSHKeys{
+func newLatitudeshProjectsSSHKeys(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *hooks.Hooks) *LatitudeshProjectsSSHKeys {
+	return &LatitudeshProjectsSSHKeys{
 		rootSDK:          rootSDK,
 		sdkConfiguration: sdkConfig,
 		hooks:            hooks,
@@ -33,7 +33,7 @@ func newLatitudeshSSHKeys(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration
 // Allow you create SSH Keys in a project. These keys can be used to access servers after deploy and reinstall actions.
 //
 // Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
-func (s *LatitudeshSSHKeys) PostProjectSSHKey(ctx context.Context, projectID string, requestBody operations.PostProjectSSHKeyProjectsSSHKeysRequestBody, opts ...operations.Option) (*operations.PostProjectSSHKeyResponse, error) {
+func (s *LatitudeshProjectsSSHKeys) PostProjectSSHKey(ctx context.Context, projectID string, requestBody operations.PostProjectSSHKeyProjectsSSHKeysRequestBody, opts ...operations.Option) (*operations.PostProjectSSHKeyResponse, error) {
 	request := operations.PostProjectSSHKeyRequest{
 		ProjectID:   projectID,
 		RequestBody: requestBody,

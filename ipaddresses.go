@@ -31,12 +31,12 @@ func newIPAddresses(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hook
 	}
 }
 
-// GetIps - List IPs
+// List IPs
 // List all Management and Additional IP Addresses.
 //   - Management IPs are IPs that are used for the management IP of a device.
 //     This is a public IP address that a device is born and dies with. It never changes during the lifecycle of the device.
 //   - Additional IPs are individual IPs that can be added to a device as an additional IP that can be used.
-func (s *IPAddresses) GetIps(ctx context.Context, request operations.GetIpsRequest, opts ...operations.Option) (*operations.GetIpsResponse, error) {
+func (s *IPAddresses) List(ctx context.Context, request operations.GetIpsRequest, opts ...operations.Option) (*operations.GetIpsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -235,7 +235,7 @@ func (s *IPAddresses) GetIps(ctx context.Context, request operations.GetIpsReque
 			return nil, nil
 		}
 
-		return s.GetIps(
+		return s.List(
 			ctx,
 			operations.GetIpsRequest{
 				FilterServer:           request.FilterServer,
@@ -319,9 +319,9 @@ func (s *IPAddresses) GetIps(ctx context.Context, request operations.GetIpsReque
 
 }
 
-// GetIP - Retrieve an IP
+// Get - Retrieve an IP
 // Retrieve an IP Address
-func (s *IPAddresses) GetIP(ctx context.Context, ipID string, extraFieldsIPAddresses *string, opts ...operations.Option) (*operations.GetIPResponse, error) {
+func (s *IPAddresses) Get(ctx context.Context, ipID string, extraFieldsIPAddresses *string, opts ...operations.Option) (*operations.GetIPResponse, error) {
 	request := operations.GetIPRequest{
 		IPID:                   ipID,
 		ExtraFieldsIPAddresses: extraFieldsIPAddresses,

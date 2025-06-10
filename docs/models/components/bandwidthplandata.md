@@ -1,0 +1,10 @@
+# BandwidthPlanData
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `ID`                                                                                              | **string*                                                                                         | :heavy_minus_sign:                                                                                | N/A                                                                                               |
+| `Type`                                                                                            | [*components.BandwidthPlanDataType](../../models/components/bandwidthplandatatype.md)             | :heavy_minus_sign:                                                                                | N/A                                                                                               |
+| `Attributes`                                                                                      | [*components.BandwidthPlanDataAttributes](../../models/components/bandwidthplandataattributes.md) | :heavy_minus_sign:                                                                                | N/A                                                                                               |

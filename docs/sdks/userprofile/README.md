@@ -5,11 +5,11 @@
 
 ### Available Operations
 
-* [GetUserProfile](#getuserprofile) - Get user profile
-* [PatchUserProfile](#patchuserprofile) - Update User Profile
-* [GetUserTeams](#getuserteams) - List User Teams
+* [Get](#get) - Get user profile
+* [Update](#update) - Update User Profile
+* [ListTeams](#listteams) - List User Teams
 
-## GetUserProfile
+## Get
 
 Retrieve the current user profile
 
@@ -33,7 +33,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserProfile.GetUserProfile(ctx)
+    res, err := s.UserProfile.Get(ctx)
     if err != nil {
         log.Fatal(err)
     }
@@ -60,7 +60,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## PatchUserProfile
+## Update
 
 Update the current user profile
 
@@ -85,7 +85,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserProfile.PatchUserProfile(ctx, "user_3pwPRamaN8FKz8EELKNmH0XMvvyR", operations.PatchUserProfileUserProfileRequestBody{
+    res, err := s.UserProfile.Update(ctx, "user_3pwPRamaN8FKz8EELKNmH0XMvvyR", operations.PatchUserProfileUserProfileRequestBody{
         Data: operations.PatchUserProfileUserProfileData{
             ID: "user_3pwPRamaN8FKz8EELKNmH0XMvvyR",
             Type: operations.PatchUserProfileUserProfileTypeUsers,
@@ -123,7 +123,7 @@ func main() {
 | components.ErrorObject   | 403                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## GetUserTeams
+## ListTeams
 
 Returns a list of all teams the user belongs to
 
@@ -147,7 +147,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserProfile.GetUserTeams(ctx)
+    res, err := s.UserProfile.ListTeams(ctx)
     if err != nil {
         log.Fatal(err)
     }

@@ -5,15 +5,15 @@
 
 ### Available Operations
 
-* [GetVirtualNetworks](#getvirtualnetworks) - List all Virtual Networks
-* [CreateVirtualNetwork](#createvirtualnetwork) - Create a Virtual Network
-* [UpdateVirtualNetwork](#updatevirtualnetwork) - Update a Virtual Network
-* [GetVirtualNetwork](#getvirtualnetwork) - Retrieve a Virtual Network
-* [GetVirtualNetworksAssignments](#getvirtualnetworksassignments) - List all servers assigned to virtual networks
-* [AssignServerVirtualNetwork](#assignservervirtualnetwork) - Assign Virtual network
-* [DeleteVirtualNetworksAssignments](#deletevirtualnetworksassignments) - Delete Virtual Network Assignment
+* [List](#list) - List all Virtual Networks
+* [Create](#create) - Create a Virtual Network
+* [Update](#update) - Update a Virtual Network
+* [Get](#get) - Retrieve a Virtual Network
+* [ListAssignments](#listassignments) - List all servers assigned to virtual networks
+* [Assign](#assign) - Assign Virtual network
+* [DeleteAssignment](#deleteassignment) - Delete Virtual Network Assignment
 
-## GetVirtualNetworks
+## List
 
 Lists virtual networks assigned to a project
 
@@ -38,7 +38,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.PrivateNetworks.GetVirtualNetworks(ctx, operations.GetVirtualNetworksRequest{
+    res, err := s.PrivateNetworks.List(ctx, operations.GetVirtualNetworksRequest{
         FilterLocation: latitudeshgosdk.String("SAO"),
         FilterProject: latitudeshgosdk.String("awesome-copper-clock"),
         FilterTags: latitudeshgosdk.String("tag_KLmjvaEPE7uL9G9E42pxTrEK96Jn"),
@@ -82,7 +82,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## CreateVirtualNetwork
+## Create
 
 Creates a new Virtual Network.
 
@@ -107,7 +107,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.PrivateNetworks.CreateVirtualNetwork(ctx, operations.CreateVirtualNetworkPrivateNetworksRequestBody{
+    res, err := s.PrivateNetworks.Create(ctx, operations.CreateVirtualNetworkPrivateNetworksRequestBody{
         Data: operations.CreateVirtualNetworkPrivateNetworksData{
             Type: operations.CreateVirtualNetworkPrivateNetworksTypeVirtualNetwork,
             Attributes: operations.CreateVirtualNetworkPrivateNetworksAttributes{
@@ -145,7 +145,7 @@ func main() {
 | components.ErrorObject   | 422                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## UpdateVirtualNetwork
+## Update
 
 Update a Virtual Network.
 
@@ -170,7 +170,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.PrivateNetworks.UpdateVirtualNetwork(ctx, "vlan_zGr47qlMDAg0m", operations.UpdateVirtualNetworkPrivateNetworksRequestBody{
+    res, err := s.PrivateNetworks.Update(ctx, "vlan_zGr47qlMDAg0m", operations.UpdateVirtualNetworkPrivateNetworksRequestBody{
         Data: operations.UpdateVirtualNetworkPrivateNetworksData{
             Type: operations.UpdateVirtualNetworkPrivateNetworksTypeVirtualNetworks,
             Attributes: &operations.UpdateVirtualNetworkPrivateNetworksAttributes{},
@@ -205,7 +205,7 @@ func main() {
 | components.VirtualNetworkError | 403                            | application/vnd.api+json       |
 | components.APIError            | 4XX, 5XX                       | \*/\*                          |
 
-## GetVirtualNetwork
+## Get
 
 Retrieve a Virtual Network.
 
@@ -229,7 +229,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.PrivateNetworks.GetVirtualNetwork(ctx, "vlan_W6Q2D9ordKLpr")
+    res, err := s.PrivateNetworks.Get(ctx, "vlan_W6Q2D9ordKLpr")
     if err != nil {
         log.Fatal(err)
     }
@@ -257,7 +257,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## GetVirtualNetworksAssignments
+## ListAssignments
 
 Returns a list of all servers assigned to virtual networks.
 
@@ -282,7 +282,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.PrivateNetworks.GetVirtualNetworksAssignments(ctx, operations.GetVirtualNetworksAssignmentsRequest{
+    res, err := s.PrivateNetworks.ListAssignments(ctx, operations.GetVirtualNetworksAssignmentsRequest{
         FilterServer: latitudeshgosdk.String("217"),
         FilterVid: latitudeshgosdk.String("8"),
     })
@@ -325,7 +325,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## AssignServerVirtualNetwork
+## Assign
 
 Assign Virtual network
 
@@ -349,7 +349,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.PrivateNetworks.AssignServerVirtualNetwork(ctx, operations.AssignServerVirtualNetworkPrivateNetworksRequestBody{
+    res, err := s.PrivateNetworks.Assign(ctx, operations.AssignServerVirtualNetworkPrivateNetworksRequestBody{
         Data: &operations.AssignServerVirtualNetworkPrivateNetworksData{
             Type: operations.AssignServerVirtualNetworkPrivateNetworksTypeVirtualNetworkAssignment,
             Attributes: &operations.AssignServerVirtualNetworkPrivateNetworksAttributes{
@@ -386,7 +386,7 @@ func main() {
 | components.ErrorObject   | 403, 422                 | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## DeleteVirtualNetworksAssignments
+## DeleteAssignment
 
 Allow you to remove a Virtual Network assignment.
 
@@ -410,7 +410,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.PrivateNetworks.DeleteVirtualNetworksAssignments(ctx, "vnasg_LA73qk8WDaJ2o")
+    res, err := s.PrivateNetworks.DeleteAssignment(ctx, "vnasg_LA73qk8WDaJ2o")
     if err != nil {
         log.Fatal(err)
     }

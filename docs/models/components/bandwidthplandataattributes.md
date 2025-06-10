@@ -1,4 +1,4 @@
-# BandwidthPlanAttributes
+# BandwidthPlanDataAttributes
 
 
 ## Fields

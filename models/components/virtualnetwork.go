@@ -139,10 +139,15 @@ func (o *VirtualNetworkAttributes1) GetAssignmentsCount() *int64 {
 	return o.AssignmentsCount
 }
 
+type VirtualNetworkMeta1 struct {
+}
+
 type VirtualNetwork struct {
 	ID         *string                    `json:"id,omitempty"`
 	Type       *VirtualNetworkType1       `json:"type,omitempty"`
 	Attributes *VirtualNetworkAttributes1 `json:"attributes,omitempty"`
+	Data       *VirtualNetworkData        `json:"data,omitempty"`
+	Meta       *VirtualNetworkMeta1       `json:"meta,omitempty"`
 }
 
 func (o *VirtualNetwork) GetID() *string {
@@ -166,10 +171,26 @@ func (o *VirtualNetwork) GetAttributes() *VirtualNetworkAttributes1 {
 	return o.Attributes
 }
 
+func (o *VirtualNetwork) GetData() *VirtualNetworkData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *VirtualNetwork) GetMeta() *VirtualNetworkMeta1 {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
+}
+
 type VirtualNetworkError struct {
 	ID         *string                    `json:"id,omitempty"`
 	Type       *VirtualNetworkType1       `json:"type,omitempty"`
 	Attributes *VirtualNetworkAttributes1 `json:"attributes,omitempty"`
+	Data       *VirtualNetworkData        `json:"data,omitempty"`
+	Meta       *VirtualNetworkMeta1       `json:"meta,omitempty"`
 }
 
 var _ error = &VirtualNetworkError{}

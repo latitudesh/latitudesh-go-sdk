@@ -3,6 +3,6 @@
 
 ## Values
 
-| Name                                    | Value                                   |
-| --------------------------------------- | --------------------------------------- |
-| `FirewallServerTypeFirewallAssignments` | firewall_assignments                    |
+| Name                                | Value                               |
+| ----------------------------------- | ----------------------------------- |
+| `FirewallServerTypeFirewallServers` | firewall_servers                    |
