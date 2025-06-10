@@ -2,12 +2,56 @@
 
 package components
 
+type VirtualNetworkAssignmentServer struct {
+	ID       *string `json:"id,omitempty"`
+	Hostname *string `json:"hostname,omitempty"`
+	Label    *string `json:"label,omitempty"`
+	Locked   *bool   `json:"locked,omitempty"`
+	Status   *string `json:"status,omitempty"`
+}
+
+func (o *VirtualNetworkAssignmentServer) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *VirtualNetworkAssignmentServer) GetHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Hostname
+}
+
+func (o *VirtualNetworkAssignmentServer) GetLabel() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Label
+}
+
+func (o *VirtualNetworkAssignmentServer) GetLocked() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Locked
+}
+
+func (o *VirtualNetworkAssignmentServer) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
+}
+
 type VirtualNetworkAssignmentAttributes struct {
-	VirtualNetworkID *string `json:"virtual_network_id,omitempty"`
-	Vid              *int64  `json:"vid,omitempty"`
-	ServerID         *string `json:"server_id,omitempty"`
-	Description      *string `json:"description,omitempty"`
-	Status           *string `json:"status,omitempty"`
+	VirtualNetworkID *string                         `json:"virtual_network_id,omitempty"`
+	Vid              *int64                          `json:"vid,omitempty"`
+	ServerID         *string                         `json:"server_id,omitempty"`
+	Description      *string                         `json:"description,omitempty"`
+	Status           *string                         `json:"status,omitempty"`
+	Server           *VirtualNetworkAssignmentServer `json:"server,omitempty"`
 }
 
 func (o *VirtualNetworkAssignmentAttributes) GetVirtualNetworkID() *string {
@@ -43,6 +87,13 @@ func (o *VirtualNetworkAssignmentAttributes) GetStatus() *string {
 		return nil
 	}
 	return o.Status
+}
+
+func (o *VirtualNetworkAssignmentAttributes) GetServer() *VirtualNetworkAssignmentServer {
+	if o == nil {
+		return nil
+	}
+	return o.Server
 }
 
 type VirtualNetworkAssignment struct {
