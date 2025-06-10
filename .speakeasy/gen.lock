@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 2816cbb2aed11d122a49cda55f353d0a
+  docChecksum: bf1e82af5fc6575b49ab5d394fb1451e
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.557.0
-  generationVersion: 2.623.0
-  releaseVersion: 1.4.0
-  configChecksum: 4e7e77cfc6150ab1c9b14ab07931463a
+  speakeasyVersion: 1.558.1
+  generationVersion: 2.623.4
+  releaseVersion: 1.4.1
+  configChecksum: 16d2a890646e80a92ded7f177ef0d745
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 features:
@@ -451,6 +451,7 @@ generatedFiles:
   - docs/models/components/virtualnetworkassignment.md
   - docs/models/components/virtualnetworkassignmentattributes.md
   - docs/models/components/virtualnetworkassignments.md
+  - docs/models/components/virtualnetworkassignmentserver.md
   - docs/models/components/virtualnetworkassignmentsmeta.md
   - docs/models/components/virtualnetworkattributes.md
   - docs/models/components/virtualnetworkattributes1.md
@@ -2993,7 +2994,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "vnasg_3YjJOLBNqvZ87", "attributes": {"virtual_network_id": "vlan_WeGoqAkNOP7nz", "vid": 1, "description": "Kohler LLC", "status": "connecting"}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "vnasg_3YjJOLBNqvZ87", "attributes": {"virtual_network_id": "vlan_WeGoqAkNOP7nz", "vid": 1, "description": "Kohler LLC", "status": "connecting", "server": {"id": "sv_1ZJrdx9Wqg4LV", "hostname": "api", "label": "BRC02", "locked": false, "status": "unknown"}}}], "meta": {}}
     when filtering by vid:
       parameters:
         query:
@@ -3002,7 +3003,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "vnasg_g1mbDwGZDLv5B", "attributes": {"virtual_network_id": "vlan_w49QDBgQOagKb", "vid": 8, "description": "Aufderhar-Senger", "status": "connecting"}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "vnasg_g1mbDwGZDLv5B", "attributes": {"virtual_network_id": "vlan_w49QDBgQOagKb", "vid": 8, "description": "Aufderhar-Senger", "status": "connecting", "server": {"id": "sv_LA73qkGWqaJ2o", "hostname": "api", "label": "BRC02", "locked": false, "status": "unknown"}}}], "meta": {}}
     when no filters are applied:
       parameters:
         query:
@@ -3010,7 +3011,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "vnasg_0MoLqJvgq57pY", "attributes": {"virtual_network_id": "vlan_GMy1DbPNdN50m", "vid": 0, "description": "Cartwright, Champlin and Fadel", "status": "connected"}}, {"id": "vnasg_Z8rodmpGO1jLB", "attributes": {"virtual_network_id": "vlan_Qkm7dXVRD8nZV", "vid": 4, "description": "Willms-Stokes", "status": "connecting"}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "vnasg_0MoLqJvgq57pY", "attributes": {"virtual_network_id": "vlan_GMy1DbPNdN50m", "vid": 0, "description": "Cartwright, Champlin and Fadel", "status": "connected", "server": {"id": "sv_lkg1DeZaOvZE5", "hostname": "db", "label": "BRC01", "locked": false, "status": "unknown"}}}, {"id": "vnasg_Z8rodmpGO1jLB", "attributes": {"virtual_network_id": "vlan_Qkm7dXVRD8nZV", "vid": 4, "description": "Willms-Stokes", "status": "connecting", "server": {"id": "sv_vYAZqGoEqMQ94", "hostname": "api", "label": "BRC02", "locked": false, "status": "unknown"}}}], "meta": {}}
   assign-server-virtual-network:
     Created:
       requestBody:
