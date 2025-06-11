@@ -8,15 +8,6 @@ info:
     before: ""
     type: speakeasy-modifications
 actions:
-  - target: $["paths"]["/projects/{project_id}/user_data/{user_data_id}"]["get"]
-    update:
-      x-speakeasy-name-override: get
-    x-speakeasy-metadata:
-      after: sdk.userData.get()
-      before: sdk.userData.getProjectUserData()
-      created_at: 1744060642586
-      reviewed_at: 1744062986578
-      type: method-name
   - target: $["paths"]["/servers/{server_id}/actions"]["post"]
     update:
       x-speakeasy-name-override: runAction
@@ -43,24 +34,6 @@ actions:
     x-speakeasy-metadata:
       after: sdk.plans.vm.list()
       before: sdk.Plans.listVMPlans()
-      created_at: 1744060642586
-      reviewed_at: 1744062986578
-      type: method-name
-  - target: $["paths"]["/projects/{project_id}/user_data/{user_data_id}"]["delete"]
-    update:
-      x-speakeasy-group: projectsUserData
-    x-speakeasy-metadata:
-      after: sdk.projectsUserData.delete()
-      before: sdk.userData.delete()
-      created_at: 1744060642586
-      reviewed_at: 1744062986578
-      type: method-name
-  - target: $["paths"]["/projects/{project_id}/user_data"]["get"]
-    update:
-      x-speakeasy-name-override: list
-    x-speakeasy-metadata:
-      after: sdk.userData.list()
-      before: sdk.userData.listProjectUserData()
       created_at: 1744060642586
       reviewed_at: 1744062986578
       type: method-name
