@@ -20,7 +20,7 @@ generation:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: true
 go:
-  version: 1.4.5
+  version: 1.4.9
   additionalDependencies: {}
   allowUnknownFieldsInWeakUnions: false
   baseErrorName: LatitudeshError

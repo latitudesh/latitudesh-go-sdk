@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: a0476e1bfebdad3c4567a3f8ff8db6bd
+  docChecksum: 2520d4d36d97a47ab521912d064fa2a8
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.559.0
-  generationVersion: 2.624.0
-  releaseVersion: 1.4.5
-  configChecksum: 58d2839a998ef1595b1c36c94d2b4c49
+  speakeasyVersion: 1.561.0
+  generationVersion: 2.628.0
+  releaseVersion: 1.4.9
+  configChecksum: c3649c7d04d4c06ea1c5d79fe97d891f
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 features:
   go:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.8.0
+    core: 3.8.1
     defaultEnabledRetries: 0.2.0
     deprecations: 2.81.3
     devContainers: 2.90.0
@@ -892,7 +892,6 @@ generatedFiles:
   - docs/sdks/plans/README.md
   - docs/sdks/privatenetworks/README.md
   - docs/sdks/projects/README.md
-  - docs/sdks/projectsuserdata/README.md
   - docs/sdks/regions/README.md
   - docs/sdks/roles/README.md
   - docs/sdks/servers/README.md
@@ -934,7 +933,6 @@ generatedFiles:
   - plans.go
   - privatenetworks.go
   - projects.go
-  - projectsuserdata.go
   - regions.go
   - retry/config.go
   - roles.go

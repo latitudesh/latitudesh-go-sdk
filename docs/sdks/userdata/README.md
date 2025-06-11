@@ -5,8 +5,9 @@
 
 ### Available Operations
 
-* [~~List~~](#list) - List all Project User Data :warning: **Deprecated**
-* [~~Get~~](#get) - Retrieve a Project User Data :warning: **Deprecated**
+* [~~GetProjectUsersData~~](#getprojectusersdata) - List all Project User Data :warning: **Deprecated**
+* [~~GetProjectUserData~~](#getprojectuserdata) - Retrieve a Project User Data :warning: **Deprecated**
+* [~~DeleteProjectUserData~~](#deleteprojectuserdata) - Delete a Project User Data :warning: **Deprecated**
 * [~~Create~~](#create) - Create a Project User Data :warning: **Deprecated**
 * [~~UpdateForProject~~](#updateforproject) - Update a Project User Data :warning: **Deprecated**
 * [List](#list) - List all User Data
@@ -15,7 +16,7 @@
 * [Update](#update) - Update an User Data
 * [Delete](#delete) - Delete an User Data
 
-## ~~List~~
+## ~~GetProjectUsersData~~
 
 List all Users Data in the project. These scripts can be used to configure servers with user data.
 
@@ -41,7 +42,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserData.List(ctx, "proj_z2A3DV4wdnawP", latitudeshgosdk.String("decoded_content"))
+    res, err := s.UserData.GetProjectUsersData(ctx, "proj_z2A3DV4wdnawP", latitudeshgosdk.String("decoded_content"))
     if err != nil {
         log.Fatal(err)
     }
@@ -70,7 +71,7 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## ~~Get~~
+## ~~GetProjectUserData~~
 
 Get User Data in the project. These scripts can be used to configure servers with user data.
 
@@ -96,7 +97,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserData.Get(ctx, "proj_vYAZqG44DMQ94", "ud_lQraYDPeOpjwW", latitudeshgosdk.String("decoded_content"))
+    res, err := s.UserData.GetProjectUserData(ctx, "proj_vYAZqG44DMQ94", "ud_lQraYDPeOpjwW", latitudeshgosdk.String("decoded_content"))
     if err != nil {
         log.Fatal(err)
     }
@@ -119,6 +120,61 @@ func main() {
 ### Response
 
 **[*operations.GetProjectUserDataResponse](../../models/operations/getprojectuserdataresponse.md), error**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
+
+## ~~DeleteProjectUserData~~
+
+Allow you remove User Data in a project.
+
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+
+### Example Usage
+
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.UserData.DeleteProjectUserData(ctx, "proj_x1ZJrdx5qg4LV", "123")
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `projectID`                                              | *string*                                                 | :heavy_check_mark:                                       | Project ID or Slug                                       |
+| `userDataID`                                             | *string*                                                 | :heavy_check_mark:                                       | N/A                                                      |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+
+### Response
+
+**[*operations.DeleteProjectUserDataResponse](../../models/operations/deleteprojectuserdataresponse.md), error**
 
 ### Errors
 

@@ -183,10 +183,6 @@ func main() {
 
 * [~~PostProjectSSHKey~~](docs/sdks/latitudeshprojectssshkeys/README.md#postprojectsshkey) - Create a Project SSH Key :warning: **Deprecated**
 
-### [~~ProjectsUserData~~](docs/sdks/projectsuserdata/README.md)
-
-* [~~DeleteProjectUserData~~](docs/sdks/projectsuserdata/README.md#deleteprojectuserdata) - Delete a Project User Data :warning: **Deprecated**
-
 ### [Regions](docs/sdks/regions/README.md)
 
 * [Get](docs/sdks/regions/README.md#get) - List all Regions
@@ -266,8 +262,9 @@ func main() {
 
 ### [UserData](docs/sdks/userdata/README.md)
 
-* [~~List~~](docs/sdks/userdata/README.md#list) - List all Project User Data :warning: **Deprecated**
-* [~~Get~~](docs/sdks/userdata/README.md#get) - Retrieve a Project User Data :warning: **Deprecated**
+* [~~GetProjectUsersData~~](docs/sdks/userdata/README.md#getprojectusersdata) - List all Project User Data :warning: **Deprecated**
+* [~~GetProjectUserData~~](docs/sdks/userdata/README.md#getprojectuserdata) - Retrieve a Project User Data :warning: **Deprecated**
+* [~~DeleteProjectUserData~~](docs/sdks/userdata/README.md#deleteprojectuserdata) - Delete a Project User Data :warning: **Deprecated**
 * [~~Create~~](docs/sdks/userdata/README.md#create) - Create a Project User Data :warning: **Deprecated**
 * [~~UpdateForProject~~](docs/sdks/userdata/README.md#updateforproject) - Update a Project User Data :warning: **Deprecated**
 * [List](docs/sdks/userdata/README.md#list) - List all User Data
