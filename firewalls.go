@@ -1440,12 +1440,12 @@ func (s *Firewalls) ListAssignments(ctx context.Context, firewallID string, page
 				return nil, err
 			}
 
-			var out components.FirewallServer
+			var out components.FirewallAssignments
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.FirewallServer = &out
+			res.FirewallAssignments = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {

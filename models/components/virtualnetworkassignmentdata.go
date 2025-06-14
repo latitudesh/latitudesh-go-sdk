@@ -30,12 +30,56 @@ func (e *VirtualNetworkAssignmentDataType) UnmarshalJSON(data []byte) error {
 	}
 }
 
+type VirtualNetworkAssignmentDataServer struct {
+	ID       *string `json:"id,omitempty"`
+	Hostname *string `json:"hostname,omitempty"`
+	Label    *string `json:"label,omitempty"`
+	Locked   *bool   `json:"locked,omitempty"`
+	Status   *string `json:"status,omitempty"`
+}
+
+func (o *VirtualNetworkAssignmentDataServer) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *VirtualNetworkAssignmentDataServer) GetHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Hostname
+}
+
+func (o *VirtualNetworkAssignmentDataServer) GetLabel() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Label
+}
+
+func (o *VirtualNetworkAssignmentDataServer) GetLocked() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Locked
+}
+
+func (o *VirtualNetworkAssignmentDataServer) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
+}
+
 type VirtualNetworkAssignmentDataAttributes struct {
-	VirtualNetworkID *string `json:"virtual_network_id,omitempty"`
-	Vid              *int64  `json:"vid,omitempty"`
-	ServerID         *string `json:"server_id,omitempty"`
-	Description      *string `json:"description,omitempty"`
-	Status           *string `json:"status,omitempty"`
+	VirtualNetworkID *string                             `json:"virtual_network_id,omitempty"`
+	Vid              *int64                              `json:"vid,omitempty"`
+	ServerID         *string                             `json:"server_id,omitempty"`
+	Description      *string                             `json:"description,omitempty"`
+	Status           *string                             `json:"status,omitempty"`
+	Server           *VirtualNetworkAssignmentDataServer `json:"server,omitempty"`
 }
 
 func (o *VirtualNetworkAssignmentDataAttributes) GetVirtualNetworkID() *string {
@@ -71,6 +115,13 @@ func (o *VirtualNetworkAssignmentDataAttributes) GetStatus() *string {
 		return nil
 	}
 	return o.Status
+}
+
+func (o *VirtualNetworkAssignmentDataAttributes) GetServer() *VirtualNetworkAssignmentDataServer {
+	if o == nil {
+		return nil
+	}
+	return o.Server
 }
 
 type VirtualNetworkAssignmentData struct {

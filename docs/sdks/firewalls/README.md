@@ -351,7 +351,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.FirewallServer != nil {
+    if res.FirewallAssignments != nil {
         for {
             // handle items
 
