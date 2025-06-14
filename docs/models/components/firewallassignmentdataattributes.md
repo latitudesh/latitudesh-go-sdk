@@ -1,0 +1,9 @@
+# FirewallAssignmentDataAttributes
+
+
+## Fields
+
+| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `Server`                                                                                            | [*components.FirewallAssignmentDataServer](../../models/components/firewallassignmentdataserver.md) | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
+| `FirewallID`                                                                                        | **string*                                                                                           | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
