@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 2520d4d36d97a47ab521912d064fa2a8
+  docChecksum: 4dbecf2c7cc8e063ae04f7b5e5223b39
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.561.0
-  generationVersion: 2.628.0
-  releaseVersion: 1.4.9
-  configChecksum: c3649c7d04d4c06ea1c5d79fe97d891f
+  speakeasyVersion: 1.563.1
+  generationVersion: 2.629.1
+  releaseVersion: 1.4.10
+  configChecksum: 91ae96069b2541e2184a1cb1c2dfbdda
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 features:
@@ -50,6 +50,8 @@ generatedFiles:
   - /models/components/events.go
   - /models/components/filesystemdata.go
   - /models/components/firewall.go
+  - /models/components/firewallassignmentdata.go
+  - /models/components/firewallassignments.go
   - /models/components/firewalldata.go
   - /models/components/firewalls.go
   - /models/components/firewallserver.go
@@ -286,6 +288,12 @@ generatedFiles:
   - docs/models/components/filesystemdataproject.md
   - docs/models/components/filesystemdatatype.md
   - docs/models/components/firewall.md
+  - docs/models/components/firewallassignmentdata.md
+  - docs/models/components/firewallassignmentdataattributes.md
+  - docs/models/components/firewallassignmentdataserver.md
+  - docs/models/components/firewallassignmentdatatype.md
+  - docs/models/components/firewallassignments.md
+  - docs/models/components/firewallassignmentsmeta.md
   - docs/models/components/firewallattributes.md
   - docs/models/components/firewalldata.md
   - docs/models/components/firewalldataattributes.md
@@ -483,6 +491,7 @@ generatedFiles:
   - docs/models/components/virtualnetworkassignmentattributes.md
   - docs/models/components/virtualnetworkassignmentdata.md
   - docs/models/components/virtualnetworkassignmentdataattributes.md
+  - docs/models/components/virtualnetworkassignmentdataserver.md
   - docs/models/components/virtualnetworkassignmentdatatype.md
   - docs/models/components/virtualnetworkassignmentmeta.md
   - docs/models/components/virtualnetworkassignments.md
@@ -1159,7 +1168,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {}
+          application/vnd.api+json: {"data": [{"id": "fwasg_zGr47qlMDAg0m", "type": "firewall_assignments", "attributes": {"server": {"id": "sv_m1R3zq2bqWxyn", "primary_ipv4": "220.199.249.211", "hostname": "Enormous Leather Car"}, "firewall_id": "fw_z8Nkvdy1deLpx"}}, {"id": "fwasg_w5AEmq7XDBkWX", "type": "firewall_assignments", "attributes": {"server": {"id": "sv_vGMy1DbgON50m", "primary_ipv4": "57.230.94.141", "hostname": "Small Marble Gloves"}, "firewall_id": "fw_z8Nkvdy1deLpx"}}]}
   delete-firewall-assignment:
     Forbidden:
       parameters:
@@ -3032,7 +3041,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "vnasg_3YjJOLBNqvZ87", "type": "virtual_network_assignment", "attributes": {"virtual_network_id": "vlan_WeGoqAkNOP7nz", "vid": 1, "description": "Kohler LLC", "status": "connecting"}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "vnasg_3YjJOLBNqvZ87", "type": "virtual_network_assignment", "attributes": {"virtual_network_id": "vlan_WeGoqAkNOP7nz", "vid": 1, "description": "Kohler LLC", "status": "connecting", "server": {"id": "sv_1ZJrdx9Wqg4LV", "hostname": "api", "label": "BRC02", "locked": false, "status": "unknown"}}}], "meta": {}}
     when filtering by vid:
       parameters:
         query:
@@ -3041,7 +3050,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "vnasg_g1mbDwGZDLv5B", "type": "virtual_network_assignment", "attributes": {"virtual_network_id": "vlan_w49QDBgQOagKb", "vid": 8, "description": "Aufderhar-Senger", "status": "connecting"}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "vnasg_g1mbDwGZDLv5B", "type": "virtual_network_assignment", "attributes": {"virtual_network_id": "vlan_w49QDBgQOagKb", "vid": 8, "description": "Aufderhar-Senger", "status": "connecting", "server": {"id": "sv_LA73qkGWqaJ2o", "hostname": "api", "label": "BRC02", "locked": false, "status": "unknown"}}}], "meta": {}}
     when no filters are applied:
       parameters:
         query:
@@ -3049,7 +3058,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "vnasg_0MoLqJvgq57pY", "type": "virtual_network_assignment", "attributes": {"virtual_network_id": "vlan_GMy1DbPNdN50m", "vid": 0, "description": "Cartwright, Champlin and Fadel", "status": "connected"}}, {"id": "vnasg_Z8rodmpGO1jLB", "type": "virtual_network_assignment", "attributes": {"virtual_network_id": "vlan_Qkm7dXVRD8nZV", "vid": 4, "description": "Willms-Stokes", "status": "connecting"}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "vnasg_0MoLqJvgq57pY", "type": "virtual_network_assignment", "attributes": {"virtual_network_id": "vlan_GMy1DbPNdN50m", "vid": 0, "description": "Cartwright, Champlin and Fadel", "status": "connected", "server": {"id": "sv_lkg1DeZaOvZE5", "hostname": "db", "label": "BRC01", "locked": false, "status": "unknown"}}}, {"id": "vnasg_Z8rodmpGO1jLB", "type": "virtual_network_assignment", "attributes": {"virtual_network_id": "vlan_Qkm7dXVRD8nZV", "vid": 4, "description": "Willms-Stokes", "status": "connecting", "server": {"id": "sv_vYAZqGoEqMQ94", "hostname": "api", "label": "BRC02", "locked": false, "status": "unknown"}}}], "meta": {}}
   assign-server-virtual-network:
     Created:
       requestBody:

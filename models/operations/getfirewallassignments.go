@@ -51,7 +51,7 @@ func (o *GetFirewallAssignmentsRequest) GetPageNumber() *int64 {
 type GetFirewallAssignmentsResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Ok
-	FirewallServer *components.FirewallServer
+	FirewallAssignments *components.FirewallAssignments
 
 	Next func() (*GetFirewallAssignmentsResponse, error)
 }
@@ -63,9 +63,9 @@ func (o *GetFirewallAssignmentsResponse) GetHTTPMeta() components.HTTPMetadata {
 	return o.HTTPMeta
 }
 
-func (o *GetFirewallAssignmentsResponse) GetFirewallServer() *components.FirewallServer {
+func (o *GetFirewallAssignmentsResponse) GetFirewallAssignments() *components.FirewallAssignments {
 	if o == nil {
 		return nil
 	}
-	return o.FirewallServer
+	return o.FirewallAssignments
 }
