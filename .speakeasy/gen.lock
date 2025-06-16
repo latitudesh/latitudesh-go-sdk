@@ -3,10 +3,10 @@ id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
   docChecksum: 4dbecf2c7cc8e063ae04f7b5e5223b39
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.563.1
-  generationVersion: 2.629.1
-  releaseVersion: 1.4.10
-  configChecksum: 91ae96069b2541e2184a1cb1c2dfbdda
+  speakeasyVersion: 1.563.2
+  generationVersion: 2.629.2
+  releaseVersion: 1.4.11
+  configChecksum: b2110a851a0373c3a8e0d17c35ce3d19
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 features:
