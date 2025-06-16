@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 4dbecf2c7cc8e063ae04f7b5e5223b39
+  docChecksum: 14a515c0e140267448fce0aabfd47925
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.563.1
-  generationVersion: 2.629.1
-  releaseVersion: 1.4.10
-  configChecksum: 91ae96069b2541e2184a1cb1c2dfbdda
+  speakeasyVersion: 1.563.2
+  generationVersion: 2.629.2
+  releaseVersion: 1.4.11
+  configChecksum: b2110a851a0373c3a8e0d17c35ce3d19
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 features:
@@ -872,10 +872,14 @@ generatedFiles:
   - docs/models/operations/updateserverdeployconfigserverstype.md
   - docs/models/operations/updateserverrequest.md
   - docs/models/operations/updateserverresponse.md
-  - docs/models/operations/updateserverserversattributes.md
-  - docs/models/operations/updateserverserversbilling.md
+  - docs/models/operations/updateserverserversdata.md
+  - docs/models/operations/updateserverserversrequestapplicationjsonattributes.md
+  - docs/models/operations/updateserverserversrequestapplicationjsonbilling.md
+  - docs/models/operations/updateserverserversrequestapplicationjsontype.md
+  - docs/models/operations/updateserverserversrequestattributes.md
+  - docs/models/operations/updateserverserversrequestbilling.md
   - docs/models/operations/updateserverserversrequestbody.md
-  - docs/models/operations/updateserverserverstype.md
+  - docs/models/operations/updateserverserversrequesttype.md
   - docs/models/operations/updatetagrequest.md
   - docs/models/operations/updatetagresponse.md
   - docs/models/operations/updatetagtagsattributes.md
@@ -1830,8 +1834,8 @@ examples:
         path:
           server_id: "sv_3YjJOLLNOvZ87"
       requestBody:
-        application/json: {"id": "sv_81EVOtR1N4J2Z"}
-        application/vnd.api+json: {"id": "sv_81EVOtR1N4J2Z"}
+        application/json: {"id": "sv_81EVOtR1N4J2Z", "data": {"id": "sv_3YjJOLLNOvZ87", "type": "servers", "attributes": {"hostname": "new-hostname", "billing": "monthly"}}}
+        application/vnd.api+json: {"id": "sv_81EVOtR1N4J2Z", "data": {"id": "sv_3YjJOLLNOvZ87", "type": "servers", "attributes": {"hostname": "new-hostname", "billing": "monthly"}}}
       responses:
         "400":
           application/vnd.api+json: {}
@@ -1840,50 +1844,56 @@ examples:
         path:
           server_id: "sv_w49QDBaQqagKb"
       requestBody:
-        application/json: {"id": "sv_81EVOtR1N4J2Z"}
-        application/vnd.api+json: {"id": "sv_81EVOtR1N4J2Z"}
+        application/json: {"id": "sv_81EVOtR1N4J2Z", "data": {"id": "sv_w49QDBaQqagKb", "type": "servers", "attributes": {"hostname": "new-hostname", "billing": "hourly"}}}
+        application/vnd.api+json: {"id": "sv_81EVOtR1N4J2Z", "data": {"id": "sv_w49QDBaQqagKb", "type": "servers", "attributes": {"hostname": "new-hostname", "billing": "hourly"}}}
       responses:
         "402":
-          application/vnd.api+json: {"errors": [{"code": "VALIDATION_ERROR", "status": "422", "title": "Validation Error", "detail": "reserved servers can not change the billing period", "meta": {}}, {"code": "VALIDATION_ERROR", "status": "422", "title": "Validation Error", "detail": "type must be higher than the current billing type.", "meta": {}}]}
+          application/vnd.api+json: {}
+        "400":
+          application/vnd.api+json: {}
     when server has additional ips:
       parameters:
         path:
           server_id: "sv_W6Q2D9lGqKLpr"
       requestBody:
-        application/json: {"id": "sv_81EVOtR1N4J2Z"}
-        application/vnd.api+json: {"id": "sv_81EVOtR1N4J2Z"}
+        application/json: {"id": "sv_81EVOtR1N4J2Z", "data": {"id": "sv_W6Q2D9lGqKLpr", "type": "servers", "attributes": {"hostname": "new-hostname", "billing": "yearly"}}}
+        application/vnd.api+json: {"id": "sv_81EVOtR1N4J2Z", "data": {"id": "sv_W6Q2D9lGqKLpr", "type": "servers", "attributes": {"hostname": "new-hostname", "billing": "yearly"}}}
       responses:
         "402":
-          application/vnd.api+json: {"errors": [{"code": "VALIDATION_ERROR", "status": "422", "title": "Validation Error", "detail": "has dependencies that conflict with the requested billing changes. Consider removing them before proceeding.", "meta": {}}]}
+          application/vnd.api+json: {}
+        "400":
+          application/vnd.api+json: {}
     when server has vlan assignments:
       parameters:
         path:
           server_id: "sv_LMmAD8k4qwop2"
       requestBody:
-        application/json: {"id": "sv_81EVOtR1N4J2Z"}
-        application/vnd.api+json: {"id": "sv_81EVOtR1N4J2Z"}
+        application/json: {"id": "sv_81EVOtR1N4J2Z", "data": {"id": "sv_LMmAD8k4qwop2", "type": "servers", "attributes": {"hostname": "new-hostname", "billing": "yearly"}}}
+        application/vnd.api+json: {"id": "sv_81EVOtR1N4J2Z", "data": {"id": "sv_LMmAD8k4qwop2", "type": "servers", "attributes": {"hostname": "new-hostname", "billing": "yearly"}}}
       responses:
         "402":
-          application/vnd.api+json: {"errors": [{"code": "VALIDATION_ERROR", "status": "422", "title": "Validation Error", "detail": "has dependencies that conflict with the requested billing changes. Consider removing them before proceeding.", "meta": {}}]}
+          application/vnd.api+json: {}
+        "400":
+          application/vnd.api+json: {}
     Locked server:
       parameters:
         path:
           server_id: "sv_g1mbDwrZqLv5B"
       requestBody:
-        application/json: {"id": "sv_81EVOtR1N4J2Z"}
-        application/vnd.api+json: {"id": "sv_81EVOtR1N4J2Z"}
+        application/json: {"id": "sv_81EVOtR1N4J2Z", "data": {"id": "sv_g1mbDwrZqLv5B", "type": "servers", "attributes": {"hostname": "new-hostname", "billing": "hourly"}}}
+        application/vnd.api+json: {"id": "sv_81EVOtR1N4J2Z", "data": {"id": "sv_g1mbDwrZqLv5B", "type": "servers", "attributes": {"hostname": "new-hostname", "billing": "hourly"}}}
       responses:
         "400":
           application/vnd.api+json: {}
         "402":
-          application/vnd.api+json: {}
+          application/vnd.api+json: {"errors": [{"code": "SERVER_LOCKED_ERROR", "status": "locked", "title": "Locked Server", "detail": "Server is locked and cannot be updated or deleted", "meta": {}}]}
     Success:
       parameters:
         path:
           server_id: "sv_RMLydp7XOQKr1"
       requestBody:
-        application/json: {"id": "sv_81EVOtR1N4J2Z"}
-        application/vnd.api+json: {"id": "sv_81EVOtR1N4J2Z"}
+        application/json: {"id": "sv_81EVOtR1N4J2Z", "data": {"id": "sv_RMLydp7XOQKr1", "type": "servers", "attributes": {"hostname": "new-hostname", "billing": "monthly", "tags": ["tag_Lno7Rp7GX2sBvLa4BxL8h4LPezw"]}}}
+        application/vnd.api+json: {"id": "sv_81EVOtR1N4J2Z", "data": {"id": "sv_RMLydp7XOQKr1", "type": "servers", "attributes": {"hostname": "new-hostname", "billing": "monthly", "tags": ["tag_Lno7Rp7GX2sBvLa4BxL8h4LPezw"]}}}
       responses:
         "400":
           application/vnd.api+json: {}
@@ -1894,18 +1904,20 @@ examples:
         path:
           server_id: "sv_vYAZqGNJdMQ94"
       requestBody:
-        application/json: {"id": "sv_81EVOtR1N4J2Z"}
-        application/vnd.api+json: {"id": "sv_81EVOtR1N4J2Z"}
+        application/json: {"id": "sv_81EVOtR1N4J2Z", "data": {"id": "sv_vYAZqGNJdMQ94", "type": "servers", "attributes": {"hostname": "new-hostname", "billing": "monthly", "project": "new-project"}}}
+        application/vnd.api+json: {"id": "sv_81EVOtR1N4J2Z", "data": {"id": "sv_vYAZqGNJdMQ94", "type": "servers", "attributes": {"hostname": "new-hostname", "billing": "monthly", "project": "new-project"}}}
       responses:
         "402":
-          application/vnd.api+json: {"errors": [{"code": "VALIDATION_ERROR", "status": "422", "title": "Validation Error", "detail": "We could not find the project you are trying to move the server to.", "meta": {}}]}
+          application/vnd.api+json: {}
+        "400":
+          application/vnd.api+json: {}
     Payment Required:
       parameters:
         path:
           server_id: "sv_1ZJrdxe4qg4LV"
       requestBody:
-        application/json: {"id": "sv_81EVOtR1N4J2Z"}
-        application/vnd.api+json: {"id": "sv_81EVOtR1N4J2Z"}
+        application/json: {"id": "sv_81EVOtR1N4J2Z", "data": {"id": "sv_1ZJrdxe4qg4LV", "type": "servers", "attributes": {"hostname": "new-hostname", "billing": "monthly"}}}
+        application/vnd.api+json: {"id": "sv_81EVOtR1N4J2Z", "data": {"id": "sv_1ZJrdxe4qg4LV", "type": "servers", "attributes": {"hostname": "new-hostname", "billing": "monthly"}}}
       responses:
         "400":
           application/vnd.api+json: {}

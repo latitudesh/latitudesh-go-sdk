@@ -238,7 +238,13 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.Update(ctx, "sv_3YjJOLLNOvZ87", operations.UpdateServerServersRequestBody{})
+    res, err := s.Servers.Update(ctx, "sv_3YjJOLLNOvZ87", operations.UpdateServerServersRequestBody{
+        Data: &operations.UpdateServerServersData{
+            ID: latitudeshgosdk.String("sv_3YjJOLLNOvZ87"),
+            Type: operations.UpdateServerServersRequestApplicationJSONTypeServers.ToPointer(),
+            Attributes: &operations.UpdateServerServersRequestApplicationJSONAttributes{},
+        },
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -265,8 +271,8 @@ func main() {
 
 | Error Type               | Status Code              | Content Type             |
 | ------------------------ | ------------------------ | ------------------------ |
-| components.ServerError   | 400                      | application/vnd.api+json |
-| components.ErrorObject   | 402, 422, 423            | application/vnd.api+json |
+| components.ServerError   | 400, 422                 | application/vnd.api+json |
+| components.ErrorObject   | 402, 423                 | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
 ## Delete

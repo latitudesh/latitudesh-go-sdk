@@ -950,6 +950,8 @@ func (s *Servers) Update(ctx context.Context, serverID string, requestBody opera
 	switch {
 	case httpRes.StatusCode == 200:
 	case httpRes.StatusCode == 400:
+		fallthrough
+	case httpRes.StatusCode == 422:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/vnd.api+json`):
 			rawBody, err := utils.ConsumeRawBody(httpRes)
@@ -971,8 +973,6 @@ func (s *Servers) Update(ctx context.Context, serverID string, requestBody opera
 			return nil, components.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 402:
-		fallthrough
-	case httpRes.StatusCode == 422:
 		fallthrough
 	case httpRes.StatusCode == 423:
 		switch {
