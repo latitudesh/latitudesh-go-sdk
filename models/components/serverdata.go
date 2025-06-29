@@ -275,6 +275,7 @@ type ServerDataAttributes struct {
 	Locked              *bool               `json:"locked,omitempty"`
 	Rescue              *bool               `json:"rescue,omitempty"`
 	PrimaryIpv4         *string             `json:"primary_ipv4,omitempty"`
+	PrimaryIpv6         *string             `json:"primary_ipv6,omitempty"`
 	CreatedAt           *string             `json:"created_at,omitempty"`
 	ScheduledDeletionAt *string             `json:"scheduled_deletion_at,omitempty"`
 	Plan                *ServerDataPlan     `json:"plan,omitempty"`
@@ -339,6 +340,13 @@ func (o *ServerDataAttributes) GetPrimaryIpv4() *string {
 		return nil
 	}
 	return o.PrimaryIpv4
+}
+
+func (o *ServerDataAttributes) GetPrimaryIpv6() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PrimaryIpv6
 }
 
 func (o *ServerDataAttributes) GetCreatedAt() *string {
