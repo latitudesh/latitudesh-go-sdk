@@ -5,6 +5,8 @@ package components
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
+	"time"
 )
 
 type FilesystemDataType string
@@ -58,9 +60,21 @@ func (o *FilesystemDataProject) GetSlug() *string {
 }
 
 type FilesystemDataAttributes struct {
-	Name     *string                `json:"name,omitempty"`
-	SizeInGb *int64                 `json:"size_in_gb,omitempty"`
-	Project  *FilesystemDataProject `json:"project,omitempty"`
+	Name      *string                `json:"name,omitempty"`
+	SizeInGb  *int64                 `json:"size_in_gb,omitempty"`
+	Project   *FilesystemDataProject `json:"project,omitempty"`
+	CreatedAt *time.Time             `json:"created_at,omitempty"`
+}
+
+func (f FilesystemDataAttributes) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(f, "", false)
+}
+
+func (f *FilesystemDataAttributes) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &f, "", false, false); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (o *FilesystemDataAttributes) GetName() *string {
@@ -82,6 +96,13 @@ func (o *FilesystemDataAttributes) GetProject() *FilesystemDataProject {
 		return nil
 	}
 	return o.Project
+}
+
+func (o *FilesystemDataAttributes) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
 }
 
 type FilesystemData struct {

@@ -1022,6 +1022,7 @@ func main() {
                 },
                 UserData: latitudeshgosdk.Int64(10),
                 Raid: operations.CreateServerReinstallServersRaidRaid1.ToPointer(),
+                Ipxe: latitudeshgosdk.String("https://some-host.com/image.ipxe"),
             },
         },
     })

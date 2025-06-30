@@ -49,3 +49,13 @@ Based on:
 - [go v1.4.11] .
 ### Releases
 - [Go v1.4.11] https://github.com/latitudesh/latitudesh-go-sdk/releases/tag/v1.4.11 - .
+
+## 2025-06-30 00:20:13
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.571.2 (2.640.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [go v1.4.12] .
+### Releases
+- [Go v1.4.12] https://github.com/latitudesh/latitudesh-go-sdk/releases/tag/v1.4.12 - .

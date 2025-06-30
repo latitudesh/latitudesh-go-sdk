@@ -5,6 +5,8 @@ package components
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
+	"time"
 )
 
 type VirtualNetworkDataType string
@@ -101,7 +103,19 @@ type VirtualNetworkDataAttributes struct {
 	Description *string                   `json:"description,omitempty"`
 	Region      *VirtualNetworkDataRegion `json:"region,omitempty"`
 	// Amount of devices assigned to the virtual network
-	AssignmentsCount *int64 `json:"assignments_count,omitempty"`
+	AssignmentsCount *int64     `json:"assignments_count,omitempty"`
+	CreatedAt        *time.Time `json:"created_at,omitempty"`
+}
+
+func (v VirtualNetworkDataAttributes) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(v, "", false)
+}
+
+func (v *VirtualNetworkDataAttributes) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &v, "", false, false); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (o *VirtualNetworkDataAttributes) GetVid() *int64 {
@@ -137,6 +151,13 @@ func (o *VirtualNetworkDataAttributes) GetAssignmentsCount() *int64 {
 		return nil
 	}
 	return o.AssignmentsCount
+}
+
+func (o *VirtualNetworkDataAttributes) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
 }
 
 type VirtualNetworkData struct {
