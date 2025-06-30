@@ -283,6 +283,7 @@ type ServerDataAttributes struct {
 	Specs               *ServerDataSpecs    `json:"specs,omitempty"`
 	Project             *ProjectInclude     `json:"project,omitempty"`
 	Team                *TeamInclude        `json:"team,omitempty"`
+	PrimaryIpv6         *string             `json:"primary_ipv6,omitempty"`
 }
 
 func (o *ServerDataAttributes) GetHostname() *string {
@@ -395,6 +396,13 @@ func (o *ServerDataAttributes) GetTeam() *TeamInclude {
 		return nil
 	}
 	return o.Team
+}
+
+func (o *ServerDataAttributes) GetPrimaryIpv6() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PrimaryIpv6
 }
 
 type ServerData struct {
