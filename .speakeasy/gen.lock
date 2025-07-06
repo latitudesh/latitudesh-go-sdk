@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 4eb40a872c41395a5a220329d0f2cc7f
+  docChecksum: a9ecc7e5f4d9191f8ceaec3063bed08c
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.571.2
-  generationVersion: 2.640.2
-  releaseVersion: 1.4.12
-  configChecksum: e85567cdcb50dcf4cfa6d8dfba36b490
+  speakeasyVersion: 1.575.5
+  generationVersion: 2.648.7
+  releaseVersion: 1.4.13
+  configChecksum: 559659b6b61b814f0d4c78a01049b7f8
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 features:
