@@ -2,35 +2,35 @@
 
 package components
 
-type Site struct {
+type RegionResourceDataSite struct {
 	ID       *string `json:"id,omitempty"`
 	Name     *string `json:"name,omitempty"`
 	Slug     *string `json:"slug,omitempty"`
 	Facility *string `json:"facility,omitempty"`
 }
 
-func (o *Site) GetID() *string {
+func (o *RegionResourceDataSite) GetID() *string {
 	if o == nil {
 		return nil
 	}
 	return o.ID
 }
 
-func (o *Site) GetName() *string {
+func (o *RegionResourceDataSite) GetName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Name
 }
 
-func (o *Site) GetSlug() *string {
+func (o *RegionResourceDataSite) GetSlug() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Slug
 }
 
-func (o *Site) GetFacility() *string {
+func (o *RegionResourceDataSite) GetFacility() *string {
 	if o == nil {
 		return nil
 	}
@@ -38,9 +38,9 @@ func (o *Site) GetFacility() *string {
 }
 
 type RegionResourceData struct {
-	City    *string `json:"city,omitempty"`
-	Country *string `json:"country,omitempty"`
-	Site    *Site   `json:"site,omitempty"`
+	City    *string                 `json:"city,omitempty"`
+	Country *string                 `json:"country,omitempty"`
+	Site    *RegionResourceDataSite `json:"site,omitempty"`
 }
 
 func (o *RegionResourceData) GetCity() *string {
@@ -57,7 +57,7 @@ func (o *RegionResourceData) GetCountry() *string {
 	return o.Country
 }
 
-func (o *RegionResourceData) GetSite() *Site {
+func (o *RegionResourceData) GetSite() *RegionResourceDataSite {
 	if o == nil {
 		return nil
 	}

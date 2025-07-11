@@ -268,22 +268,22 @@ type ServerDataAttributes struct {
 	// `deploying` - The server is in the last reinstalling stage and is `deploying`
 	// `failed_deployment` The server has failed deployment in reinstall
 	//
-	Status              *Status             `json:"status,omitempty"`
-	IpmiStatus          *IpmiStatus         `json:"ipmi_status,omitempty"`
-	Role                *string             `json:"role,omitempty"`
-	Site                *string             `json:"site,omitempty"`
-	Locked              *bool               `json:"locked,omitempty"`
-	Rescue              *bool               `json:"rescue,omitempty"`
-	PrimaryIpv4         *string             `json:"primary_ipv4,omitempty"`
-	CreatedAt           *string             `json:"created_at,omitempty"`
-	ScheduledDeletionAt *string             `json:"scheduled_deletion_at,omitempty"`
-	Plan                *ServerDataPlan     `json:"plan,omitempty"`
-	OperatingSystem     *OperatingSystem    `json:"operating_system,omitempty"`
-	Region              *RegionResourceData `json:"region,omitempty"`
-	Specs               *ServerDataSpecs    `json:"specs,omitempty"`
-	Project             *ProjectInclude     `json:"project,omitempty"`
-	Team                *TeamInclude        `json:"team,omitempty"`
-	PrimaryIpv6         *string             `json:"primary_ipv6,omitempty"`
+	Status              *Status                   `json:"status,omitempty"`
+	IpmiStatus          *IpmiStatus               `json:"ipmi_status,omitempty"`
+	Role                *string                   `json:"role,omitempty"`
+	Site                *string                   `json:"site,omitempty"`
+	Locked              *bool                     `json:"locked,omitempty"`
+	Rescue              *bool                     `json:"rescue,omitempty"`
+	PrimaryIpv4         *string                   `json:"primary_ipv4,omitempty"`
+	CreatedAt           *string                   `json:"created_at,omitempty"`
+	ScheduledDeletionAt *string                   `json:"scheduled_deletion_at,omitempty"`
+	Plan                *ServerDataPlan           `json:"plan,omitempty"`
+	OperatingSystem     *OperatingSystem          `json:"operating_system,omitempty"`
+	Region              *ServerRegionResourceData `json:"region,omitempty"`
+	Specs               *ServerDataSpecs          `json:"specs,omitempty"`
+	Project             *ProjectInclude           `json:"project,omitempty"`
+	Team                *TeamInclude              `json:"team,omitempty"`
+	PrimaryIpv6         *string                   `json:"primary_ipv6,omitempty"`
 }
 
 func (o *ServerDataAttributes) GetHostname() *string {
@@ -370,7 +370,7 @@ func (o *ServerDataAttributes) GetOperatingSystem() *OperatingSystem {
 	return o.OperatingSystem
 }
 
-func (o *ServerDataAttributes) GetRegion() *RegionResourceData {
+func (o *ServerDataAttributes) GetRegion() *ServerRegionResourceData {
 	if o == nil {
 		return nil
 	}
