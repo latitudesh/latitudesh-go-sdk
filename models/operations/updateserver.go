@@ -63,7 +63,7 @@ func (e *UpdateServerServersRequestBilling) UnmarshalJSON(data []byte) error {
 
 type UpdateServerServersRequestAttributes struct {
 	Hostname *string                            `default:"new-hostname" json:"hostname"`
-	Billing  *UpdateServerServersRequestBilling `default:"monthly" json:"billing"`
+	Billing  *UpdateServerServersRequestBilling `json:"billing,omitempty"`
 	Tags     []string                           `json:"tags,omitempty"`
 	Project  *string                            `json:"project,omitempty"`
 }

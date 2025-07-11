@@ -1095,7 +1095,7 @@ func (s *SSHKeys) ListAll(ctx context.Context, filterTags *string, opts ...opera
 }
 
 // Create a SSH Key
-// Allow you create SSH Keys in a project. These keys can be used to access servers after deploy and reinstall actions.
+// Allow you create SSH Keys. These keys can be used to access servers after deploy and reinstall actions.
 func (s *SSHKeys) Create(ctx context.Context, request operations.PostSSHKeySSHKeysRequestBody, opts ...operations.Option) (*operations.PostSSHKeyResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
