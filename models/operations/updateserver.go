@@ -5,7 +5,6 @@ package operations
 import (
 	"encoding/json"
 	"fmt"
-
 	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
@@ -162,7 +161,7 @@ func (e *UpdateServerServersRequestApplicationJSONBilling) UnmarshalJSON(data []
 
 type UpdateServerServersRequestApplicationJSONAttributes struct {
 	Hostname *string                                           `default:"new-hostname" json:"hostname"`
-	Billing  *UpdateServerServersRequestApplicationJSONBilling `json:"billing,omitempty"`
+	Billing  *UpdateServerServersRequestApplicationJSONBilling `default:"monthly" json:"billing"`
 	Tags     []string                                          `json:"tags,omitempty"`
 	Project  *string                                           `json:"project,omitempty"`
 }

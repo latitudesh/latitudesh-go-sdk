@@ -257,6 +257,33 @@ func (o *ServerDataSpecs) GetRAM() *string {
 	return o.RAM
 }
 
+type Interfaces struct {
+	Name        *string `json:"name,omitempty"`
+	MacAddress  *string `json:"mac_address,omitempty"`
+	Description *string `json:"description,omitempty"`
+}
+
+func (o *Interfaces) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *Interfaces) GetMacAddress() *string {
+	if o == nil {
+		return nil
+	}
+	return o.MacAddress
+}
+
+func (o *Interfaces) GetDescription() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Description
+}
+
 type ServerDataAttributes struct {
 	Hostname *string `json:"hostname,omitempty"`
 	// `on` - The server is powered ON
@@ -284,6 +311,7 @@ type ServerDataAttributes struct {
 	Project             *ProjectInclude           `json:"project,omitempty"`
 	Team                *TeamInclude              `json:"team,omitempty"`
 	PrimaryIpv6         *string                   `json:"primary_ipv6,omitempty"`
+	Interfaces          []Interfaces              `json:"interfaces,omitempty"`
 }
 
 func (o *ServerDataAttributes) GetHostname() *string {
@@ -403,6 +431,13 @@ func (o *ServerDataAttributes) GetPrimaryIpv6() *string {
 		return nil
 	}
 	return o.PrimaryIpv6
+}
+
+func (o *ServerDataAttributes) GetInterfaces() []Interfaces {
+	if o == nil {
+		return nil
+	}
+	return o.Interfaces
 }
 
 type ServerData struct {
