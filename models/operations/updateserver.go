@@ -161,7 +161,7 @@ func (e *UpdateServerServersRequestApplicationJSONBilling) UnmarshalJSON(data []
 
 type UpdateServerServersRequestApplicationJSONAttributes struct {
 	Hostname *string                                           `default:"new-hostname" json:"hostname"`
-	Billing  *UpdateServerServersRequestApplicationJSONBilling `json:"billing",omitempty`
+	Billing  *UpdateServerServersRequestApplicationJSONBilling `json:"billing,omitempty"`
 	Tags     []string                                          `json:"tags,omitempty"`
 	Project  *string                                           `json:"project,omitempty"`
 }
