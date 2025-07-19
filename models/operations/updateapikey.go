@@ -25,7 +25,7 @@ func (o *UpdateAPIKeyRequest) GetUpdateAPIKey() components.UpdateAPIKey {
 	return o.UpdateAPIKey
 }
 
-// UpdateAPIKeyResponseBody - API Key Updated
+// UpdateAPIKeyResponseBody - Success
 type UpdateAPIKeyResponseBody struct {
 	Data *components.APIKey `json:"data,omitempty"`
 }
@@ -39,7 +39,7 @@ func (o *UpdateAPIKeyResponseBody) GetData() *components.APIKey {
 
 type UpdateAPIKeyResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
-	// API Key Updated
+	// Success
 	Object *UpdateAPIKeyResponseBody
 }
 

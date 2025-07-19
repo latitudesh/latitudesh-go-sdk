@@ -613,7 +613,7 @@ func (s *SSHKeys) ModifyProjectKey(ctx context.Context, projectID string, sshKey
 
 			_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 			return nil, err
-		} else if utils.MatchStatusCodes([]string{"400", "422", "4XX", "5XX"}, httpRes.StatusCode) {
+		} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
 			_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 			if err != nil {
 				return nil, err
@@ -657,10 +657,6 @@ func (s *SSHKeys) ModifyProjectKey(ctx context.Context, projectID string, sshKey
 			}
 			return nil, components.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
 		}
-	case httpRes.StatusCode == 400:
-		fallthrough
-	case httpRes.StatusCode == 422:
-		fallthrough
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)
 		if err != nil {
@@ -830,7 +826,7 @@ func (s *SSHKeys) RemoveFromProject(ctx context.Context, projectID string, sshKe
 
 			_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 			return nil, err
-		} else if utils.MatchStatusCodes([]string{"404", "4XX", "5XX"}, httpRes.StatusCode) {
+		} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
 			_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 			if err != nil {
 				return nil, err
@@ -854,8 +850,6 @@ func (s *SSHKeys) RemoveFromProject(ctx context.Context, projectID string, sshKe
 
 	switch {
 	case httpRes.StatusCode == 200:
-	case httpRes.StatusCode == 404:
-		fallthrough
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)
 		if err != nil {
@@ -1095,7 +1089,7 @@ func (s *SSHKeys) ListAll(ctx context.Context, filterTags *string, opts ...opera
 }
 
 // Create a SSH Key
-// Allow you create SSH Keys. These keys can be used to access servers after deploy and reinstall actions.
+// Allows you create SSH Keys. These keys can be used to access servers after deploy and reinstall actions.
 func (s *SSHKeys) Create(ctx context.Context, request operations.PostSSHKeySSHKeysRequestBody, opts ...operations.Option) (*operations.PostSSHKeyResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -1239,7 +1233,7 @@ func (s *SSHKeys) Create(ctx context.Context, request operations.PostSSHKeySSHKe
 
 			_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 			return nil, err
-		} else if utils.MatchStatusCodes([]string{"400", "422", "4XX", "5XX"}, httpRes.StatusCode) {
+		} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
 			_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 			if err != nil {
 				return nil, err
@@ -1283,10 +1277,6 @@ func (s *SSHKeys) Create(ctx context.Context, request operations.PostSSHKeySSHKe
 			}
 			return nil, components.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
 		}
-	case httpRes.StatusCode == 400:
-		fallthrough
-	case httpRes.StatusCode == 422:
-		fallthrough
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)
 		if err != nil {
@@ -1522,7 +1512,7 @@ func (s *SSHKeys) Retrieve(ctx context.Context, sshKeyID string, opts ...operati
 }
 
 // Update a SSH Key
-// Allow you update SSH Key in a project. These keys can be used to access servers after deploy and reinstall actions.
+// Allows you update SSH Key in a project. These keys can be used to access servers after deploy and reinstall actions.
 func (s *SSHKeys) Update(ctx context.Context, sshKeyID string, requestBody operations.PutSSHKeySSHKeysRequestBody, opts ...operations.Option) (*operations.PutSSHKeyResponse, error) {
 	request := operations.PutSSHKeyRequest{
 		SSHKeyID:    sshKeyID,
@@ -1671,7 +1661,7 @@ func (s *SSHKeys) Update(ctx context.Context, sshKeyID string, requestBody opera
 
 			_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 			return nil, err
-		} else if utils.MatchStatusCodes([]string{"400", "422", "4XX", "5XX"}, httpRes.StatusCode) {
+		} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
 			_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 			if err != nil {
 				return nil, err
@@ -1715,10 +1705,6 @@ func (s *SSHKeys) Update(ctx context.Context, sshKeyID string, requestBody opera
 			}
 			return nil, components.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
 		}
-	case httpRes.StatusCode == 400:
-		fallthrough
-	case httpRes.StatusCode == 422:
-		fallthrough
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)
 		if err != nil {
@@ -1744,7 +1730,7 @@ func (s *SSHKeys) Update(ctx context.Context, sshKeyID string, requestBody opera
 }
 
 // Delete a SSH Key
-// Allow you remove SSH Keys in a project. Remove a SSH Key from the project won't revoke the SSH Keys access for previously deploy and reinstall actions.
+// Allows you remove SSH Keys in a project. Remove a SSH Key from the project won't revoke the SSH Keys access for previously deploy and reinstall actions.
 func (s *SSHKeys) Delete(ctx context.Context, sshKeyID string, opts ...operations.Option) (*operations.DeleteSSHKeyResponse, error) {
 	request := operations.DeleteSSHKeyRequest{
 		SSHKeyID: sshKeyID,
@@ -1885,7 +1871,7 @@ func (s *SSHKeys) Delete(ctx context.Context, sshKeyID string, opts ...operation
 
 			_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 			return nil, err
-		} else if utils.MatchStatusCodes([]string{"404", "4XX", "5XX"}, httpRes.StatusCode) {
+		} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
 			_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 			if err != nil {
 				return nil, err
@@ -1909,8 +1895,6 @@ func (s *SSHKeys) Delete(ctx context.Context, sshKeyID string, opts ...operation
 
 	switch {
 	case httpRes.StatusCode == 200:
-	case httpRes.StatusCode == 404:
-		fallthrough
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)
 		if err != nil {

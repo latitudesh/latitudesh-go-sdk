@@ -38,7 +38,7 @@ func main() {
         Data: operations.PostStorageFilesystemsStorageData{
             Type: operations.PostStorageFilesystemsStorageTypeFilesystems,
             Attributes: operations.PostStorageFilesystemsStorageAttributes{
-                Project: "proj_WeGoqAvYDP7nz",
+                Project: "proj_kjQwdE2bqYNVP",
                 Name: "my-data",
             },
         },
@@ -93,7 +93,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Storage.ListFilesystems(ctx, latitudeshgosdk.String("small-bronze-gloves"))
+    res, err := s.Storage.ListFilesystems(ctx, latitudeshgosdk.String("sleek-silk-car"))
     if err != nil {
         log.Fatal(err)
     }

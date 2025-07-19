@@ -155,7 +155,7 @@ func (o *CreateProjectProjectsRequestBody) GetData() *CreateProjectProjectsData 
 	return o.Data
 }
 
-// CreateProjectResponseBody - Success
+// CreateProjectResponseBody - Created
 type CreateProjectResponseBody struct {
 	Data *components.Project `json:"data,omitempty"`
 }
@@ -169,7 +169,7 @@ func (o *CreateProjectResponseBody) GetData() *components.Project {
 
 type CreateProjectResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
-	// Success
+	// Created
 	Object *CreateProjectResponseBody
 }
 

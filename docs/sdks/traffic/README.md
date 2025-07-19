@@ -31,7 +31,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Traffic.Get(ctx, "2025-04-06T21:00:00Z", "2025-05-06T21:00:00Z", latitudeshgosdk.String("sv_mw49QDB5qagKb"), latitudeshgosdk.String("proj_AW6Q2D9lqKLpr"))
+    res, err := s.Traffic.Get(ctx, "2025-06-16T18:45:37Z", "2025-07-16T18:45:37Z", latitudeshgosdk.String("sv_kjQwdEMXdYNVP"), latitudeshgosdk.String("proj_AW6Q2D9lqKLpr"))
     if err != nil {
         log.Fatal(err)
     }
@@ -109,7 +109,6 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 503                      | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |

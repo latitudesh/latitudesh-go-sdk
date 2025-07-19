@@ -116,10 +116,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 406, 422                 | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## Update
 
@@ -145,9 +144,9 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Teams.Update(ctx, "7ee1a0d0-899d-42eb-99c9-4fb69ffab8f8", operations.PatchCurrentTeamTeamsRequestBody{
+    res, err := s.Teams.Update(ctx, "team_VNoL4jAy7YTbvVV0005jI6vQylGZ", operations.PatchCurrentTeamTeamsRequestBody{
         Data: operations.PatchCurrentTeamTeamsData{
-            ID: "team_ZGPB1lbQ01hmeJZX92RyFBgxPBl",
+            ID: "team_z3Qna7E2QRc3455EQ34JfAWNQ42",
             Type: operations.PatchCurrentTeamTeamsTypeTeams,
             Attributes: &operations.PatchCurrentTeamTeamsAttributes{
                 Address: latitudeshgosdk.String("Address"),
@@ -179,7 +178,6 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403, 404                 | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |

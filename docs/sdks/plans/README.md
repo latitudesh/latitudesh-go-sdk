@@ -9,6 +9,8 @@
 * [Get](#get) - Retrieve a Plan
 * [GetBandwidth](#getbandwidth) - List all bandwidth plans
 * [UpdateBandwidth](#updatebandwidth) - Buy or remove bandwidth packages
+* [GetContainersPlans](#getcontainersplans) - List containers plans
+* [GetContainersPlan](#getcontainersplan) - Retrieve container plan
 * [ListStorage](#liststorage) - List all Storage Plans
 
 ## List
@@ -87,7 +89,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Plans.Get(ctx, "plan_W6Q2D9plqKLpr")
+    res, err := s.Plans.Get(ctx, "plan_m5xyZOnNOWM0l")
     if err != nil {
         log.Fatal(err)
     }
@@ -111,10 +113,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 404                      | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## GetBandwidth
 
@@ -184,7 +185,7 @@ func main() {
 
 ## UpdateBandwidth
 
-Allow to increase or decrease bandwidth packages. Only admins and owners can request.
+Allows to increase or decrease bandwidth packages. Only admins and owners can request.
 
 
 ### Example Usage
@@ -211,7 +212,7 @@ func main() {
         Data: &operations.UpdatePlansBandwidthPlansData{
             Type: operations.UpdatePlansBandwidthPlansTypeBandwidthPackages.ToPointer(),
             Attributes: &operations.UpdatePlansBandwidthPlansAttributes{
-                Project: latitudeshgosdk.String("proj_VE1Wd3EKDXnZJ"),
+                Project: latitudeshgosdk.String("proj_z2A3DVZ3DnawP"),
                 Quantity: latitudeshgosdk.Int64(5),
                 RegionSlug: latitudeshgosdk.String("brazil"),
             },
@@ -240,10 +241,114 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403                      | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
+
+## GetContainersPlans
+
+Lists all containers plans.
+
+
+### Example Usage
+
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Plans.GetContainersPlans(ctx, operations.GetContainersPlansRequest{})
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.GetContainersPlansRequest](../../models/operations/getcontainersplansrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `opts`                                                                                       | [][operations.Option](../../models/operations/option.md)                                     | :heavy_minus_sign:                                                                           | The options for this request.                                                                |
+
+### Response
+
+**[*operations.GetContainersPlansResponse](../../models/operations/getcontainersplansresponse.md), error**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
+
+## GetContainersPlan
+
+Retrieve a container plan.
+
+
+### Example Usage
+
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Plans.GetContainersPlan(ctx, "<id>")
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.ContainerPlanData != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `planID`                                                 | *string*                                                 | :heavy_check_mark:                                       | The Plan ID                                              |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+
+### Response
+
+**[*operations.GetContainersPlanResponse](../../models/operations/getcontainersplanresponse.md), error**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## ListStorage
 

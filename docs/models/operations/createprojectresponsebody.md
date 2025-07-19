@@ -1,6 +1,6 @@
 # CreateProjectResponseBody
 
-Success
+Created
 
 
 ## Fields

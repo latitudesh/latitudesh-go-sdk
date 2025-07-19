@@ -32,8 +32,8 @@ func main() {
     )
 
     res, err := s.Billing.ListUsage(ctx, "proj_6059EqYkOQj8p", []string{
-        "si_pttmsx3d",
-        "si_nmru52ev",
+        "si_lvdub7r3",
+        "si_utp5nfrf",
     }, latitudeshgosdk.String("plan.name"))
     if err != nil {
         log.Fatal(err)

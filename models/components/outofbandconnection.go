@@ -29,20 +29,20 @@ func (o *SSHKey) GetFingerprint() *string {
 	return o.Fingerprint
 }
 
-// Credentials - credentials are valid only when the server is deployed with ssh keys
-type Credentials struct {
+// OutOfBandConnectionCredentials - credentials are valid only when the server is deployed with ssh keys
+type OutOfBandConnectionCredentials struct {
 	User     *string `json:"user,omitempty"`
 	Password *string `json:"password,omitempty"`
 }
 
-func (o *Credentials) GetUser() *string {
+func (o *OutOfBandConnectionCredentials) GetUser() *string {
 	if o == nil {
 		return nil
 	}
 	return o.User
 }
 
-func (o *Credentials) GetPassword() *string {
+func (o *OutOfBandConnectionCredentials) GetPassword() *string {
 	if o == nil {
 		return nil
 	}
@@ -54,11 +54,11 @@ type OutOfBandConnectionAttributes struct {
 	CreatedAt *string `json:"created_at,omitempty"`
 	Username  *string `json:"username,omitempty"`
 	// credentials are valid only when the server is deployed with ssh keys
-	Credentials *Credentials `json:"credentials,omitempty"`
-	Port        *string      `json:"port,omitempty"`
-	AccessIP    *string      `json:"access_ip,omitempty"`
-	ServerID    *string      `json:"server_id,omitempty"`
-	Status      *string      `json:"status,omitempty"`
+	Credentials *OutOfBandConnectionCredentials `json:"credentials,omitempty"`
+	Port        *string                         `json:"port,omitempty"`
+	AccessIP    *string                         `json:"access_ip,omitempty"`
+	ServerID    *string                         `json:"server_id,omitempty"`
+	Status      *string                         `json:"status,omitempty"`
 }
 
 func (o *OutOfBandConnectionAttributes) GetSSHKey() *SSHKey {
@@ -82,7 +82,7 @@ func (o *OutOfBandConnectionAttributes) GetUsername() *string {
 	return o.Username
 }
 
-func (o *OutOfBandConnectionAttributes) GetCredentials() *Credentials {
+func (o *OutOfBandConnectionAttributes) GetCredentials() *OutOfBandConnectionCredentials {
 	if o == nil {
 		return nil
 	}

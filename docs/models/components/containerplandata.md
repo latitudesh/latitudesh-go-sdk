@@ -1,0 +1,10 @@
+# ContainerPlanData
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `ID`                                                                                              | **string*                                                                                         | :heavy_minus_sign:                                                                                | N/A                                                                                               |
+| `Type`                                                                                            | [*components.ContainerPlanDataType](../../models/components/containerplandatatype.md)             | :heavy_minus_sign:                                                                                | N/A                                                                                               |
+| `Attributes`                                                                                      | [*components.ContainerPlanDataAttributes](../../models/components/containerplandataattributes.md) | :heavy_minus_sign:                                                                                | N/A                                                                                               |

@@ -55,7 +55,7 @@ func main() {
         FilterRAMEql: latitudeshgosdk.Int64(32),
         FilterRAMGte: latitudeshgosdk.Int64(40),
         FilterRAMLte: latitudeshgosdk.Int64(40),
-        FilterTags: latitudeshgosdk.String("tag_0yrQNVQRLwHy0XwEGM6ESwLrW2PA"),
+        FilterTags: latitudeshgosdk.String("tag_Az0EY3zglei3jVBY1LroSWNyanye,tag_GXK6NGol1jF2xre0JrB0fK6wg0p"),
     })
     if err != nil {
         log.Fatal(err)
@@ -92,10 +92,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 422                      | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## Create
 
@@ -125,9 +124,9 @@ func main() {
         Data: &operations.CreateServerServersData{
             Type: operations.CreateServerServersTypeServers,
             Attributes: &operations.CreateServerServersAttributes{
-                Project: latitudeshgosdk.String("proj_W6Q2D93GdKLpr"),
+                Project: latitudeshgosdk.String("proj_A05EdQ50dvKYQ"),
                 Plan: operations.CreateServerPlanC2SmallX86.ToPointer(),
-                Site: operations.CreateServerSiteSao.ToPointer(),
+                Site: operations.CreateServerSiteAsh.ToPointer(),
                 OperatingSystem: operations.CreateServerOperatingSystemUbuntu2204X64Lts.ToPointer(),
                 Hostname: latitudeshgosdk.String("BRC1"),
             },
@@ -156,10 +155,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 400, 402, 422            | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## Get
 
@@ -185,7 +183,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.Get(ctx, "sv_aNmodjGeqbE8W", nil)
+    res, err := s.Servers.Get(ctx, "sv_Gr47qleMDAg0m", nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -238,17 +236,19 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.Update(ctx, "sv_3YjJOLLNOvZ87", operations.UpdateServerServersRequestBody{
+    res, err := s.Servers.Update(ctx, "sv_aNmodjGyqbE8W", operations.UpdateServerServersRequestBody{
         Data: &operations.UpdateServerServersData{
-            ID: latitudeshgosdk.String("sv_3YjJOLLNOvZ87"),
-            Type: operations.UpdateServerServersRequestApplicationJSONTypeServers.ToPointer(),
-            Attributes: &operations.UpdateServerServersRequestApplicationJSONAttributes{},
+            ID: latitudeshgosdk.String("sv_aNmodjGyqbE8W"),
+            Type: operations.UpdateServerServersTypeServers.ToPointer(),
+            Attributes: &operations.UpdateServerServersAttributes{
+                Project: latitudeshgosdk.String("proj_aNmodjoyqbE8W"),
+            },
         },
     })
     if err != nil {
         log.Fatal(err)
     }
-    if res != nil {
+    if res.Server != nil {
         // handle response
     }
 }
@@ -269,11 +269,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ServerError   | 400, 422                 | application/vnd.api+json |
-| components.ErrorObject   | 402, 423                 | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## Delete
 
@@ -323,10 +321,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403, 406, 422            | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## GetDeployConfig
 
@@ -351,7 +348,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.GetDeployConfig(ctx, "sv_pRMLydp0dQKr1")
+    res, err := s.Servers.GetDeployConfig(ctx, "sv_VLMmAD8EOwop2")
     if err != nil {
         log.Fatal(err)
     }
@@ -403,7 +400,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.UpdateDeployConfig(ctx, "sv_g1mbDweZdLv5B", operations.UpdateServerDeployConfigServersRequestBody{
+    res, err := s.Servers.UpdateDeployConfig(ctx, "sv_0L6WO141DPlXy", operations.UpdateServerDeployConfigServersRequestBody{
         Type: operations.UpdateServerDeployConfigServersTypeDeployConfig,
     })
     if err != nil {
@@ -430,11 +427,9 @@ func main() {
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| components.ErrorObject       | 403, 406                     | application/vnd.api+json     |
-| components.DeployConfigError | 422                          | application/vnd.api+json     |
-| components.APIError          | 4XX, 5XX                     | \*/\*                        |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## Lock
 
@@ -459,7 +454,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.Lock(ctx, "sv_059EqYX2dQj8p")
+    res, err := s.Servers.Lock(ctx, "sv_RMLydpoXOQKr1")
     if err != nil {
         log.Fatal(err)
     }
@@ -510,7 +505,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.Unlock(ctx, "sv_aNmodjoyqbE8W")
+    res, err := s.Servers.Unlock(ctx, "sv_5AEmq7xMDBkWX")
     if err != nil {
         log.Fatal(err)
     }
@@ -562,11 +557,11 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.StartOutOfBandConnection(ctx, "sv_z2A3DVpQdnawP", operations.CreateServerOutOfBandServersRequestBody{
+    res, err := s.Servers.StartOutOfBandConnection(ctx, "sv_059EqYX2dQj8p", operations.CreateServerOutOfBandServersRequestBody{
         Data: operations.CreateServerOutOfBandServersData{
             Type: operations.CreateServerOutOfBandServersTypeOutOfBand,
             Attributes: &operations.CreateServerOutOfBandServersAttributes{
-                SSHKeyID: latitudeshgosdk.String("ssh_NGnzRD5ADM5yw"),
+                SSHKeyID: latitudeshgosdk.String("ssh_w49QDB55qagKb"),
             },
         },
     })
@@ -594,10 +589,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403, 404                 | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## GetOutOfBand
 
@@ -622,7 +616,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.GetOutOfBand(ctx, "sv_1ZJrdx34Og4LV")
+    res, err := s.Servers.GetOutOfBand(ctx, "sv_vYAZqGyJOMQ94")
     if err != nil {
         log.Fatal(err)
     }
@@ -646,10 +640,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 404                      | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## RunAction
 
@@ -679,7 +672,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.RunAction(ctx, "sv_LYV8DZAQq5QoE", operations.CreateServerActionServersRequestBody{
+    res, err := s.Servers.RunAction(ctx, "sv_LA73qkJwdaJ2o", operations.CreateServerActionServersRequestBody{
         Data: operations.CreateServerActionServersData{
             Type: operations.CreateServerActionServersTypeActions,
             Attributes: &operations.CreateServerActionServersAttributes{
@@ -711,10 +704,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403                      | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## CreateIpmiSession
 
@@ -743,7 +735,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.CreateIpmiSession(ctx, "sv_8NkvdyGKDeLpx")
+    res, err := s.Servers.CreateIpmiSession(ctx, "sv_e8pKq0xYqWAob")
     if err != nil {
         log.Fatal(err)
     }
@@ -767,10 +759,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403, 404, 422            | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## StartRescueMode
 
@@ -795,7 +786,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.StartRescueMode(ctx, "sv_k0Ryqv9adW36X")
+    res, err := s.Servers.StartRescueMode(ctx, "sv_695BdK25OevVo")
     if err != nil {
         log.Fatal(err)
     }
@@ -819,10 +810,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403, 406                 | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## ExitRescueMode
 
@@ -847,7 +837,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.ExitRescueMode(ctx, "sv_KXgRdRRodv9k5")
+    res, err := s.Servers.ExitRescueMode(ctx, "sv_wg3ZDr0Wd5QlP")
     if err != nil {
         log.Fatal(err)
     }
@@ -871,10 +861,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403, 406                 | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## ScheduleDeletion
 
@@ -899,7 +888,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.ScheduleDeletion(ctx, "sv_enPbqoBJdA2MQ")
+    res, err := s.Servers.ScheduleDeletion(ctx, "sv_GMy1Db2NDN50m")
     if err != nil {
         log.Fatal(err)
     }
@@ -923,10 +912,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403, 406, 423            | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## UnscheduleDeletion
 
@@ -975,10 +963,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403                      | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## Reinstall
 
@@ -1004,24 +991,12 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.Reinstall(ctx, "sv_WeGoqAWNOP7nz", operations.CreateServerReinstallServersRequestBody{
+    res, err := s.Servers.Reinstall(ctx, "sv_Z8rodmJGq1jLB", operations.CreateServerReinstallServersRequestBody{
         Data: operations.CreateServerReinstallServersData{
             Type: operations.CreateServerReinstallServersTypeReinstalls,
             Attributes: &operations.CreateServerReinstallServersAttributes{
-                OperatingSystem: operations.CreateServerReinstallServersOperatingSystemUbuntu2204X64Lts.ToPointer(),
+                OperatingSystem: operations.CreateServerReinstallServersOperatingSystemIpxe.ToPointer(),
                 Hostname: latitudeshgosdk.String("BRC1"),
-                Partitions: []operations.CreateServerReinstallServersPartitions{
-                    operations.CreateServerReinstallServersPartitions{
-                        SizeInGb: latitudeshgosdk.Int64(300),
-                        Path: latitudeshgosdk.String("/"),
-                        FilesystemType: latitudeshgosdk.String("ext4"),
-                    },
-                },
-                SSHKeys: []string{
-                    "35",
-                },
-                UserData: latitudeshgosdk.Int64(10),
-                Raid: operations.CreateServerReinstallServersRaidRaid1.ToPointer(),
                 Ipxe: latitudeshgosdk.String("https://some-host.com/image.ipxe"),
             },
         },
@@ -1050,8 +1025,6 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403, 404, 422            | application/vnd.api+json |
-| components.ServerError   | 423                      | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |

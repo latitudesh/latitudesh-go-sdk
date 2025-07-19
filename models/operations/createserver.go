@@ -31,7 +31,7 @@ func (e *CreateServerServersType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// CreateServerPlan - The plan to choose server from
+// CreateServerPlan - The plan slug to choose server from, defining the specs the server will have
 type CreateServerPlan string
 
 const (
@@ -94,7 +94,7 @@ func (e *CreateServerPlan) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// CreateServerSite - The site to deploy the server
+// CreateServerSite - The site slug to deploy the server
 type CreateServerSite string
 
 const (
@@ -172,7 +172,7 @@ func (e *CreateServerSite) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// CreateServerOperatingSystem - The operating system for the new server
+// CreateServerOperatingSystem - The operating system slug for the new server
 type CreateServerOperatingSystem string
 
 const (
@@ -328,17 +328,17 @@ func (e *CreateServerBilling) UnmarshalJSON(data []byte) error {
 type CreateServerServersAttributes struct {
 	// The project (ID or Slug) to deploy the server
 	Project *string `json:"project,omitempty"`
-	// The plan to choose server from
+	// The plan slug to choose server from, defining the specs the server will have
 	Plan *CreateServerPlan `json:"plan,omitempty"`
-	// The site to deploy the server
+	// The site slug to deploy the server
 	Site *CreateServerSite `json:"site,omitempty"`
-	// The operating system for the new server
+	// The operating system slug for the new server
 	OperatingSystem *CreateServerOperatingSystem `json:"operating_system,omitempty"`
 	// The server hostname
 	Hostname *string `json:"hostname,omitempty"`
 	// SSH Keys to set on the server
 	SSHKeys []string `json:"ssh_keys,omitempty"`
-	// User data to set on the server
+	// User data ID to set on the server. This is a custom script that will run after the deploy
 	UserData *string `json:"user_data,omitempty"`
 	// RAID mode for the server
 	Raid *CreateServerRaid `json:"raid,omitempty"`

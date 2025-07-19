@@ -30,27 +30,27 @@ func (e *OperatingSystemDataType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-type OperatingSystemDataFeatures struct {
+type Features struct {
 	Raid     *bool `json:"raid,omitempty"`
 	SSHKeys  *bool `json:"ssh_keys,omitempty"`
 	UserData *bool `json:"user_data,omitempty"`
 }
 
-func (o *OperatingSystemDataFeatures) GetRaid() *bool {
+func (o *Features) GetRaid() *bool {
 	if o == nil {
 		return nil
 	}
 	return o.Raid
 }
 
-func (o *OperatingSystemDataFeatures) GetSSHKeys() *bool {
+func (o *Features) GetSSHKeys() *bool {
 	if o == nil {
 		return nil
 	}
 	return o.SSHKeys
 }
 
-func (o *OperatingSystemDataFeatures) GetUserData() *bool {
+func (o *Features) GetUserData() *bool {
 	if o == nil {
 		return nil
 	}
@@ -58,16 +58,16 @@ func (o *OperatingSystemDataFeatures) GetUserData() *bool {
 }
 
 type OperatingSystemDataAttributes struct {
-	Features        *OperatingSystemDataFeatures `json:"features,omitempty"`
-	Name            *string                      `json:"name,omitempty"`
-	Slug            *string                      `json:"slug,omitempty"`
-	Distro          *string                      `json:"distro,omitempty"`
-	User            *string                      `json:"user,omitempty"`
-	Version         *string                      `json:"version,omitempty"`
-	ProvisionableOn []string                     `json:"provisionable_on,omitempty"`
+	Features        *Features `json:"features,omitempty"`
+	Name            *string   `json:"name,omitempty"`
+	Slug            *string   `json:"slug,omitempty"`
+	Distro          *string   `json:"distro,omitempty"`
+	User            *string   `json:"user,omitempty"`
+	Version         *string   `json:"version,omitempty"`
+	ProvisionableOn []string  `json:"provisionable_on,omitempty"`
 }
 
-func (o *OperatingSystemDataAttributes) GetFeatures() *OperatingSystemDataFeatures {
+func (o *OperatingSystemDataAttributes) GetFeatures() *Features {
 	if o == nil {
 		return nil
 	}

@@ -36,9 +36,9 @@ func main() {
         Data: operations.PostTeamMembersTeamMembersData{
             Type: operations.PostTeamMembersTeamMembersTypeMemberships,
             Attributes: &operations.PostTeamMembersTeamMembersAttributes{
-                FirstName: latitudeshgosdk.String("Napoleon"),
-                LastName: latitudeshgosdk.String("Rogahn"),
-                Email: "teddy_champlin@glover-boyer.test",
+                FirstName: latitudeshgosdk.String("Bernard"),
+                LastName: latitudeshgosdk.String("Cremin"),
+                Email: "ernest@carter-lehner.example",
                 Role: operations.PostTeamMembersRoleCollaborator,
             },
         },
@@ -66,10 +66,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403, 422                 | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## Delete
 
@@ -94,7 +93,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.TeamMembers.Delete(ctx, "user_GMy1DbMLqN50m")
+    res, err := s.TeamMembers.Delete(ctx, "user_0MoLqJEYd57pY")
     if err != nil {
         log.Fatal(err)
     }
@@ -118,7 +117,6 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 404                      | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |

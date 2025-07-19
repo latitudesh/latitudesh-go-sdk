@@ -36,7 +36,7 @@ func main() {
     )
 
     res, err := s.Projects.List(ctx, operations.GetProjectsRequest{
-        FilterTags: latitudeshgosdk.String("tag_R3YGrW8m0NSAm0l5Wp6XTnnww9r"),
+        FilterTags: latitudeshgosdk.String("tag_GGXAB6PNQbU285ZYLP3wt3ZQyXW,tag_xR2B8J4W81TBL6YRGPJaCQRkVyn"),
     })
     if err != nil {
         log.Fatal(err)
@@ -105,7 +105,7 @@ func main() {
         Data: &operations.CreateProjectProjectsData{
             Type: operations.CreateProjectProjectsTypeProjects,
             Attributes: &operations.CreateProjectProjectsAttributes{
-                Name: "Cormier-Corkery",
+                Name: "Kshlerin, Hand and Beer",
                 ProvisioningType: operations.CreateProjectProvisioningTypeOnDemand,
                 Description: latitudeshgosdk.String("Thick slices of French toast bread, brown sugar, half-and-half and vanilla, topped with powdered sugar. With two eggs served any style, and your choice of smoked bacon or smoked ham."),
                 Environment: operations.CreateProjectEnvironmentDevelopment.ToPointer(),
@@ -135,10 +135,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 400, 403, 422            | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## Update
 
@@ -164,14 +163,14 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Projects.Update(ctx, "proj_LGXPdWpgqnNWk", &operations.UpdateProjectProjectsRequestBody{
+    res, err := s.Projects.Update(ctx, "proj_WVQJDMMwDRbyE", &operations.UpdateProjectProjectsRequestBody{
         Data: operations.UpdateProjectProjectsData{
-            ID: latitudeshgosdk.String("proj_LGXPdWpgqnNWk"),
+            ID: latitudeshgosdk.String("proj_WVQJDMMwDRbyE"),
             Type: operations.UpdateProjectProjectsTypeProjects,
             Attributes: &operations.UpdateProjectProjectsAttributes{
                 Tags: []string{
-                    "tag_mELJ1g6Z31SG0xzYx9e5fV91K7W",
-                    "tag_wR5nAvxpnJiRn8AppN0JilvWY0y",
+                    "tag_xNrKWa1ZaMtBKwaZnYaMTBE2XQb",
+                    "tag_Ge9E4oboPgILP5e9aKNAUB4Gaw5",
                 },
             },
         },
@@ -200,10 +199,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403, 404, 422            | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## Delete
 
@@ -252,7 +250,6 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403, 404, 422            | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |

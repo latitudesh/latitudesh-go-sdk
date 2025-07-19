@@ -152,7 +152,7 @@ func (o *CreateFirewallFirewallsRequestBody) GetData() CreateFirewallData {
 
 type CreateFirewallResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
-	// Success
+	// Created
 	Firewall *components.Firewall
 }
 

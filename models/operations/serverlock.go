@@ -19,8 +19,8 @@ func (o *ServerLockRequest) GetServerID() string {
 
 type ServerLockResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
-	// Ok
-	Server *components.Server1
+	// Success
+	Server *components.Server
 }
 
 func (o *ServerLockResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -30,7 +30,7 @@ func (o *ServerLockResponse) GetHTTPMeta() components.HTTPMetadata {
 	return o.HTTPMeta
 }
 
-func (o *ServerLockResponse) GetServer() *components.Server1 {
+func (o *ServerLockResponse) GetServer() *components.Server {
 	if o == nil {
 		return nil
 	}
