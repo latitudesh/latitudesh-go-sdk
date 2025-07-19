@@ -35,7 +35,7 @@ func main() {
         Data: operations.CreateFirewallAssignmentFirewallsAssignmentsData{
             Type: operations.CreateFirewallAssignmentFirewallsAssignmentsTypeFirewallAssignments,
             Attributes: &operations.CreateFirewallAssignmentFirewallsAssignmentsAttributes{
-                ServerID: "sv_2695BdKrOevVo",
+                ServerID: "sv_lpbV0DgRq4AWz",
             },
         },
     })
@@ -63,7 +63,6 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403, 404, 409, 422       | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |

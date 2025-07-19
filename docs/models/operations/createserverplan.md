@@ -1,6 +1,6 @@
 # CreateServerPlan
 
-The plan to choose server from
+The plan slug to choose server from, defining the specs the server will have
 
 
 ## Values

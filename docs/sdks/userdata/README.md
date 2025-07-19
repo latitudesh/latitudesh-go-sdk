@@ -42,7 +42,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserData.GetProjectUsersData(ctx, "proj_z2A3DV4wdnawP", latitudeshgosdk.String("decoded_content"))
+    res, err := s.UserData.GetProjectUsersData(ctx, "proj_RMLydp7XOQKr1", latitudeshgosdk.String("decoded_content"))
     if err != nil {
         log.Fatal(err)
     }
@@ -97,7 +97,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserData.GetProjectUserData(ctx, "proj_vYAZqG44DMQ94", "ud_lQraYDPeOpjwW", latitudeshgosdk.String("decoded_content"))
+    res, err := s.UserData.GetProjectUserData(ctx, "proj_Gr47qlevDAg0m", "ud_VLMmAD8EOwop2", latitudeshgosdk.String("decoded_content"))
     if err != nil {
         log.Fatal(err)
     }
@@ -209,7 +209,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserData.Create(ctx, "proj_1ZJrdxvyDg4LV", operations.PostProjectUserDataUserDataRequestBody{
+    res, err := s.UserData.Create(ctx, "proj_kjQwdE0XOYNVP", operations.PostProjectUserDataUserDataRequestBody{
         Data: operations.PostProjectUserDataUserDataData{
             Type: operations.PostProjectUserDataUserDataTypeUserData,
             Attributes: &operations.PostProjectUserDataUserDataAttributes{
@@ -448,7 +448,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserData.Retrieve(ctx, "ud_7vYAZqGBdMQ94", latitudeshgosdk.String("decoded_content"))
+    res, err := s.UserData.Retrieve(ctx, "ud_1Qkm7dXzD8nZV", latitudeshgosdk.String("decoded_content"))
     if err != nil {
         log.Fatal(err)
     }

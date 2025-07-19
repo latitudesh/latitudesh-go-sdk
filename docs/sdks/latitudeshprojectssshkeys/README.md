@@ -34,7 +34,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Projects.SSHKeys.PostProjectSSHKey(ctx, "proj_wg3ZDrMyq5QlP", operations.PostProjectSSHKeyProjectsSSHKeysRequestBody{
+    res, err := s.Projects.SSHKeys.PostProjectSSHKey(ctx, "proj_RMLydp70OQKr1", operations.PostProjectSSHKeyProjectsSSHKeysRequestBody{
         Data: operations.PostProjectSSHKeyProjectsSSHKeysData{
             Type: operations.PostProjectSSHKeyProjectsSSHKeysTypeSSHKeys,
             Attributes: &operations.PostProjectSSHKeyProjectsSSHKeysAttributes{

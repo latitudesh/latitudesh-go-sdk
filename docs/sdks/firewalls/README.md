@@ -42,10 +42,10 @@ func main() {
             Type: operations.CreateFirewallTypeFirewalls,
             Attributes: &operations.CreateFirewallAttributes{
                 Name: "my-firewall",
-                Project: "sleek-steel-shirt",
+                Project: "awesome-granite-chair",
                 Rules: []operations.CreateFirewallRules{
                     operations.CreateFirewallRules{
-                        From: latitudeshgosdk.String("192.168.42.72"),
+                        From: latitudeshgosdk.String("192.168.42.73"),
                         To: latitudeshgosdk.String("192.168.43.51"),
                         Protocol: operations.CreateFirewallProtocolTCP.ToPointer(),
                         Port: latitudeshgosdk.String("80"),
@@ -89,10 +89,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 422                      | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## List
 
@@ -117,7 +116,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Firewalls.List(ctx, latitudeshgosdk.String("lightweight-silk-table"), latitudeshgosdk.Int64(20), latitudeshgosdk.Int64(1))
+    res, err := s.Firewalls.List(ctx, latitudeshgosdk.String("incredible-bronze-car"), latitudeshgosdk.Int64(20), latitudeshgosdk.Int64(1))
     if err != nil {
         log.Fatal(err)
     }
@@ -206,10 +205,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 404                      | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## Update
 
@@ -235,11 +233,19 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Firewalls.Update(ctx, "fw_VaNmodjeObE8W", operations.UpdateFirewallFirewallsRequestBody{
+    res, err := s.Firewalls.Update(ctx, "fw_6A05EdQ1dvKYQ", operations.UpdateFirewallFirewallsRequestBody{
         Data: operations.UpdateFirewallFirewallsData{
             Type: operations.UpdateFirewallFirewallsTypeFirewalls,
             Attributes: &operations.UpdateFirewallFirewallsAttributes{
-                Rules: []operations.UpdateFirewallFirewallsRules{},
+                Name: latitudeshgosdk.String("new-name"),
+                Rules: []operations.UpdateFirewallFirewallsRules{
+                    operations.UpdateFirewallFirewallsRules{
+                        From: latitudeshgosdk.String("192.168.42.72"),
+                        To: latitudeshgosdk.String("192.168.43.51"),
+                        Protocol: operations.UpdateFirewallFirewallsProtocolTCP.ToPointer(),
+                        Port: latitudeshgosdk.String("80"),
+                    },
+                },
             },
         },
     })
@@ -267,10 +273,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 404, 422                 | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## Delete
 
@@ -319,10 +324,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 404, 422                 | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## ListAssignments
 
@@ -347,7 +351,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Firewalls.ListAssignments(ctx, "fw_93YjJOLydvZ87", latitudeshgosdk.Int64(20), latitudeshgosdk.Int64(1))
+    res, err := s.Firewalls.ListAssignments(ctx, "fw_z8Nkvdy1deLpx", latitudeshgosdk.Int64(20), latitudeshgosdk.Int64(1))
     if err != nil {
         log.Fatal(err)
     }
@@ -385,10 +389,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 404                      | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## DeleteAssignment
 
@@ -438,7 +441,6 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403, 404                 | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |

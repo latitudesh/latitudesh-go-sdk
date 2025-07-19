@@ -19,7 +19,7 @@ func (o *PutVpnSessionRequest) GetVpnSessionID() string {
 
 type PutVpnSessionResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
-	// VPN Session Password Reset
+	// Success
 	VpnSessionWithPassword *components.VpnSessionWithPassword
 }
 

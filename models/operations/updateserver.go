@@ -9,41 +9,42 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
-type UpdateServerServersRequestType string
+type UpdateServerServersType string
 
 const (
-	UpdateServerServersRequestTypeServers UpdateServerServersRequestType = "servers"
+	UpdateServerServersTypeServers UpdateServerServersType = "servers"
 )
 
-func (e UpdateServerServersRequestType) ToPointer() *UpdateServerServersRequestType {
+func (e UpdateServerServersType) ToPointer() *UpdateServerServersType {
 	return &e
 }
-func (e *UpdateServerServersRequestType) UnmarshalJSON(data []byte) error {
+func (e *UpdateServerServersType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "servers":
-		*e = UpdateServerServersRequestType(v)
+		*e = UpdateServerServersType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for UpdateServerServersRequestType: %v", v)
+		return fmt.Errorf("invalid value for UpdateServerServersType: %v", v)
 	}
 }
 
-type UpdateServerServersRequestBilling string
+// UpdateServerServersBilling - The server billing type. Accepts `hourly` and `monthly` for on demand projects and `yearly` for reserved projects.
+type UpdateServerServersBilling string
 
 const (
-	UpdateServerServersRequestBillingHourly  UpdateServerServersRequestBilling = "hourly"
-	UpdateServerServersRequestBillingMonthly UpdateServerServersRequestBilling = "monthly"
-	UpdateServerServersRequestBillingYearly  UpdateServerServersRequestBilling = "yearly"
+	UpdateServerServersBillingHourly  UpdateServerServersBilling = "hourly"
+	UpdateServerServersBillingMonthly UpdateServerServersBilling = "monthly"
+	UpdateServerServersBillingYearly  UpdateServerServersBilling = "yearly"
 )
 
-func (e UpdateServerServersRequestBilling) ToPointer() *UpdateServerServersRequestBilling {
+func (e UpdateServerServersBilling) ToPointer() *UpdateServerServersBilling {
 	return &e
 }
-func (e *UpdateServerServersRequestBilling) UnmarshalJSON(data []byte) error {
+func (e *UpdateServerServersBilling) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -54,151 +55,56 @@ func (e *UpdateServerServersRequestBilling) UnmarshalJSON(data []byte) error {
 	case "monthly":
 		fallthrough
 	case "yearly":
-		*e = UpdateServerServersRequestBilling(v)
+		*e = UpdateServerServersBilling(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for UpdateServerServersRequestBilling: %v", v)
+		return fmt.Errorf("invalid value for UpdateServerServersBilling: %v", v)
 	}
 }
 
-type UpdateServerServersRequestAttributes struct {
-	Hostname *string                            `default:"new-hostname" json:"hostname"`
-	Billing  *UpdateServerServersRequestBilling `json:"billing,omitempty"`
-	Tags     []string                           `json:"tags,omitempty"`
-	Project  *string                            `json:"project,omitempty"`
+type UpdateServerServersAttributes struct {
+	Hostname *string `default:"new-hostname" json:"hostname"`
+	// The server billing type. Accepts `hourly` and `monthly` for on demand projects and `yearly` for reserved projects.
+	Billing *UpdateServerServersBilling `default:"monthly" json:"billing"`
+	// List of Tag IDs
+	Tags []string `json:"tags,omitempty"`
+	// Project ID or slug to move the server to
+	Project *string `json:"project,omitempty"`
 }
 
-func (u UpdateServerServersRequestAttributes) MarshalJSON() ([]byte, error) {
+func (u UpdateServerServersAttributes) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(u, "", false)
 }
 
-func (u *UpdateServerServersRequestAttributes) UnmarshalJSON(data []byte) error {
+func (u *UpdateServerServersAttributes) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &u, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *UpdateServerServersRequestAttributes) GetHostname() *string {
+func (o *UpdateServerServersAttributes) GetHostname() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Hostname
 }
 
-func (o *UpdateServerServersRequestAttributes) GetBilling() *UpdateServerServersRequestBilling {
+func (o *UpdateServerServersAttributes) GetBilling() *UpdateServerServersBilling {
 	if o == nil {
 		return nil
 	}
 	return o.Billing
 }
 
-func (o *UpdateServerServersRequestAttributes) GetTags() []string {
+func (o *UpdateServerServersAttributes) GetTags() []string {
 	if o == nil {
 		return nil
 	}
 	return o.Tags
 }
 
-func (o *UpdateServerServersRequestAttributes) GetProject() *string {
-	if o == nil {
-		return nil
-	}
-	return o.Project
-}
-
-type UpdateServerServersRequestApplicationJSONType string
-
-const (
-	UpdateServerServersRequestApplicationJSONTypeServers UpdateServerServersRequestApplicationJSONType = "servers"
-)
-
-func (e UpdateServerServersRequestApplicationJSONType) ToPointer() *UpdateServerServersRequestApplicationJSONType {
-	return &e
-}
-func (e *UpdateServerServersRequestApplicationJSONType) UnmarshalJSON(data []byte) error {
-	var v string
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-	switch v {
-	case "servers":
-		*e = UpdateServerServersRequestApplicationJSONType(v)
-		return nil
-	default:
-		return fmt.Errorf("invalid value for UpdateServerServersRequestApplicationJSONType: %v", v)
-	}
-}
-
-type UpdateServerServersRequestApplicationJSONBilling string
-
-const (
-	UpdateServerServersRequestApplicationJSONBillingHourly  UpdateServerServersRequestApplicationJSONBilling = "hourly"
-	UpdateServerServersRequestApplicationJSONBillingMonthly UpdateServerServersRequestApplicationJSONBilling = "monthly"
-	UpdateServerServersRequestApplicationJSONBillingYearly  UpdateServerServersRequestApplicationJSONBilling = "yearly"
-)
-
-func (e UpdateServerServersRequestApplicationJSONBilling) ToPointer() *UpdateServerServersRequestApplicationJSONBilling {
-	return &e
-}
-func (e *UpdateServerServersRequestApplicationJSONBilling) UnmarshalJSON(data []byte) error {
-	var v string
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-	switch v {
-	case "hourly":
-		fallthrough
-	case "monthly":
-		fallthrough
-	case "yearly":
-		*e = UpdateServerServersRequestApplicationJSONBilling(v)
-		return nil
-	default:
-		return fmt.Errorf("invalid value for UpdateServerServersRequestApplicationJSONBilling: %v", v)
-	}
-}
-
-type UpdateServerServersRequestApplicationJSONAttributes struct {
-	Hostname *string                                           `default:"new-hostname" json:"hostname"`
-	Billing  *UpdateServerServersRequestApplicationJSONBilling `json:"billing,omitempty"`
-	Tags     []string                                          `json:"tags,omitempty"`
-	Project  *string                                           `json:"project,omitempty"`
-}
-
-func (u UpdateServerServersRequestApplicationJSONAttributes) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(u, "", false)
-}
-
-func (u *UpdateServerServersRequestApplicationJSONAttributes) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &u, "", false, false); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (o *UpdateServerServersRequestApplicationJSONAttributes) GetHostname() *string {
-	if o == nil {
-		return nil
-	}
-	return o.Hostname
-}
-
-func (o *UpdateServerServersRequestApplicationJSONAttributes) GetBilling() *UpdateServerServersRequestApplicationJSONBilling {
-	if o == nil {
-		return nil
-	}
-	return o.Billing
-}
-
-func (o *UpdateServerServersRequestApplicationJSONAttributes) GetTags() []string {
-	if o == nil {
-		return nil
-	}
-	return o.Tags
-}
-
-func (o *UpdateServerServersRequestApplicationJSONAttributes) GetProject() *string {
+func (o *UpdateServerServersAttributes) GetProject() *string {
 	if o == nil {
 		return nil
 	}
@@ -206,9 +112,9 @@ func (o *UpdateServerServersRequestApplicationJSONAttributes) GetProject() *stri
 }
 
 type UpdateServerServersData struct {
-	ID         *string                                              `default:"sv_81EVOtR1N4J2Z" json:"id"`
-	Type       *UpdateServerServersRequestApplicationJSONType       `json:"type,omitempty"`
-	Attributes *UpdateServerServersRequestApplicationJSONAttributes `json:"attributes,omitempty"`
+	ID         *string                        `default:"sv_81EVOtR1N4J2Z" json:"id"`
+	Type       *UpdateServerServersType       `json:"type,omitempty"`
+	Attributes *UpdateServerServersAttributes `json:"attributes,omitempty"`
 }
 
 func (u UpdateServerServersData) MarshalJSON() ([]byte, error) {
@@ -229,14 +135,14 @@ func (o *UpdateServerServersData) GetID() *string {
 	return o.ID
 }
 
-func (o *UpdateServerServersData) GetType() *UpdateServerServersRequestApplicationJSONType {
+func (o *UpdateServerServersData) GetType() *UpdateServerServersType {
 	if o == nil {
 		return nil
 	}
 	return o.Type
 }
 
-func (o *UpdateServerServersData) GetAttributes() *UpdateServerServersRequestApplicationJSONAttributes {
+func (o *UpdateServerServersData) GetAttributes() *UpdateServerServersAttributes {
 	if o == nil {
 		return nil
 	}
@@ -244,42 +150,7 @@ func (o *UpdateServerServersData) GetAttributes() *UpdateServerServersRequestApp
 }
 
 type UpdateServerServersRequestBody struct {
-	ID         *string                               `default:"sv_81EVOtR1N4J2Z" json:"id"`
-	Type       *UpdateServerServersRequestType       `json:"type,omitempty"`
-	Attributes *UpdateServerServersRequestAttributes `json:"attributes,omitempty"`
-	Data       *UpdateServerServersData              `json:"data,omitempty"`
-}
-
-func (u UpdateServerServersRequestBody) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(u, "", false)
-}
-
-func (u *UpdateServerServersRequestBody) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &u, "", false, false); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (o *UpdateServerServersRequestBody) GetID() *string {
-	if o == nil {
-		return nil
-	}
-	return o.ID
-}
-
-func (o *UpdateServerServersRequestBody) GetType() *UpdateServerServersRequestType {
-	if o == nil {
-		return nil
-	}
-	return o.Type
-}
-
-func (o *UpdateServerServersRequestBody) GetAttributes() *UpdateServerServersRequestAttributes {
-	if o == nil {
-		return nil
-	}
-	return o.Attributes
+	Data *UpdateServerServersData `json:"data,omitempty"`
 }
 
 func (o *UpdateServerServersRequestBody) GetData() *UpdateServerServersData {
@@ -310,6 +181,8 @@ func (o *UpdateServerRequest) GetRequestBody() UpdateServerServersRequestBody {
 
 type UpdateServerResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
+	// Success
+	Server *components.Server
 }
 
 func (o *UpdateServerResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -317,4 +190,11 @@ func (o *UpdateServerResponse) GetHTTPMeta() components.HTTPMetadata {
 		return components.HTTPMetadata{}
 	}
 	return o.HTTPMeta
+}
+
+func (o *UpdateServerResponse) GetServer() *components.Server {
+	if o == nil {
+		return nil
+	}
+	return o.Server
 }

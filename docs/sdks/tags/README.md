@@ -148,9 +148,9 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Tags.Update(ctx, "tag_4v3NK44wkpF4Ewa73bRgS0BpVW4G", operations.UpdateTagTagsRequestBody{
+    res, err := s.Tags.Update(ctx, "tag_k88kazkbPktNYRWa2l9ZsN6gVrrL", operations.UpdateTagTagsRequestBody{
         Data: &operations.UpdateTagTagsData{
-            ID: latitudeshgosdk.String("tag_4v3NK44wkpF4Ewa73bRgS0BpVW4G"),
+            ID: latitudeshgosdk.String("tag_k88kazkbPktNYRWa2l9ZsN6gVrrL"),
             Type: operations.UpdateTagTagsTypeTags.ToPointer(),
             Attributes: &operations.UpdateTagTagsAttributes{
                 Name: latitudeshgosdk.String("Tag Name"),

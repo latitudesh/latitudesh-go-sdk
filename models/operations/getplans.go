@@ -12,11 +12,11 @@ import (
 type FilterStockLevel string
 
 const (
-	FilterStockLevelUnavailable FilterStockLevel = "Unavailable"
-	FilterStockLevelLow         FilterStockLevel = "Low"
-	FilterStockLevelMedium      FilterStockLevel = "Medium"
-	FilterStockLevelHigh        FilterStockLevel = "High"
-	FilterStockLevelUnique      FilterStockLevel = "Unique"
+	FilterStockLevelUnavailable FilterStockLevel = "unavailable"
+	FilterStockLevelLow         FilterStockLevel = "low"
+	FilterStockLevelMedium      FilterStockLevel = "medium"
+	FilterStockLevelHigh        FilterStockLevel = "high"
+	FilterStockLevelUnique      FilterStockLevel = "unique"
 )
 
 func (e FilterStockLevel) ToPointer() *FilterStockLevel {
@@ -28,15 +28,15 @@ func (e *FilterStockLevel) UnmarshalJSON(data []byte) error {
 		return err
 	}
 	switch v {
-	case "Unavailable":
+	case "unavailable":
 		fallthrough
-	case "Low":
+	case "low":
 		fallthrough
-	case "Medium":
+	case "medium":
 		fallthrough
-	case "High":
+	case "high":
 		fallthrough
-	case "Unique":
+	case "unique":
 		*e = FilterStockLevel(v)
 		return nil
 	default:
