@@ -16,6 +16,7 @@ Allows you to add persistent storage to a project. These filesystems can be used
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="post-storage-filesystems" method="post" path="/storage/filesystems" -->
 ```go
 package main
 
@@ -38,7 +39,7 @@ func main() {
         Data: operations.PostStorageFilesystemsStorageData{
             Type: operations.PostStorageFilesystemsStorageTypeFilesystems,
             Attributes: operations.PostStorageFilesystemsStorageAttributes{
-                Project: "proj_WeGoqAvYDP7nz",
+                Project: "proj_kjQwdE2bqYNVP",
                 Name: "my-data",
             },
         },
@@ -76,6 +77,7 @@ Lists all the filesystems from a team.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="get-storage-filesystems" method="get" path="/storage/filesystems" -->
 ```go
 package main
 
@@ -93,7 +95,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Storage.ListFilesystems(ctx, latitudeshgosdk.String("small-bronze-gloves"))
+    res, err := s.Storage.ListFilesystems(ctx, latitudeshgosdk.String("sleek-silk-car"))
     if err != nil {
         log.Fatal(err)
     }
@@ -127,6 +129,7 @@ Allows you to remove persistent storage from a project.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="delete-storage-filesystems" method="delete" path="/storage/filesystems/{filesystem_id}" -->
 ```go
 package main
 
@@ -178,6 +181,7 @@ Allow you to upgrade the size of a filesystem.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="patch-storage-filesystems" method="patch" path="/storage/filesystems/{filesystem_id}" -->
 ```go
 package main
 

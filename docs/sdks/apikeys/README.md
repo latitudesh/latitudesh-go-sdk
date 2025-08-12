@@ -17,6 +17,7 @@ Returns a list of all API keys from the team members
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="get-api-keys" method="get" path="/auth/api_keys" -->
 ```go
 package main
 
@@ -68,6 +69,7 @@ Create a new API Key that is tied to the current user account. The created API k
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="post-api-key" method="post" path="/auth/api_keys" -->
 ```go
 package main
 
@@ -117,10 +119,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 400, 422                 | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## Update
 
@@ -129,6 +130,7 @@ Regenerate an existing API Key that is tied to the current user. This overrides 
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="update-api-key" method="put" path="/auth/api_keys/{api_key_id}" -->
 ```go
 package main
 
@@ -147,9 +149,9 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.APIKeys.Update(ctx, "tok_pRMLydp0dQKr1", components.UpdateAPIKey{
+    res, err := s.APIKeys.Update(ctx, "tok_zlkg1DegdvZE5", components.UpdateAPIKey{
         Data: &components.UpdateAPIKeyData{
-            ID: latitudeshgosdk.String("tok_pRMLydp0dQKr1"),
+            ID: latitudeshgosdk.String("tok_zlkg1DegdvZE5"),
             Type: components.UpdateAPIKeyTypeAPIKeys,
             Attributes: &components.UpdateAPIKeyAttributes{
                 Name: latitudeshgosdk.String("App Token"),
@@ -180,10 +182,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 400, 404                 | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## Delete
 
@@ -192,6 +193,7 @@ Delete an existing API Key. Once deleted, the API Key can no longer be used to a
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="delete-api-key" method="delete" path="/auth/api_keys/{api_key_id}" -->
 ```go
 package main
 
@@ -209,7 +211,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.APIKeys.Delete(ctx, "tok_xkjQwdENqYNVP")
+    res, err := s.APIKeys.Delete(ctx, "tok_x1ZJrdx5qg4LV")
     if err != nil {
         log.Fatal(err)
     }
@@ -233,7 +235,6 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 404                      | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |

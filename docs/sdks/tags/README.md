@@ -17,6 +17,7 @@ List all Tags in the team.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="get-tags" method="get" path="/tags" -->
 ```go
 package main
 
@@ -68,6 +69,7 @@ Create a Tag in the team.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="create-tag" method="post" path="/tags" -->
 ```go
 package main
 
@@ -130,6 +132,7 @@ Update a Tag in the team.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="update-tag" method="patch" path="/tags/{tag_id}" -->
 ```go
 package main
 
@@ -148,9 +151,9 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Tags.Update(ctx, "tag_4v3NK44wkpF4Ewa73bRgS0BpVW4G", operations.UpdateTagTagsRequestBody{
+    res, err := s.Tags.Update(ctx, "tag_k88kazkbPktNYRWa2l9ZsN6gVrrL", operations.UpdateTagTagsRequestBody{
         Data: &operations.UpdateTagTagsData{
-            ID: latitudeshgosdk.String("tag_4v3NK44wkpF4Ewa73bRgS0BpVW4G"),
+            ID: latitudeshgosdk.String("tag_k88kazkbPktNYRWa2l9ZsN6gVrrL"),
             Type: operations.UpdateTagTagsTypeTags.ToPointer(),
             Attributes: &operations.UpdateTagTagsAttributes{
                 Name: latitudeshgosdk.String("Tag Name"),
@@ -192,6 +195,7 @@ Update a Tag in the team.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="destroy-tag" method="delete" path="/tags/{tag_id}" -->
 ```go
 package main
 

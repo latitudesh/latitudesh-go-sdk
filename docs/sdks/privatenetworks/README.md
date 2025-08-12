@@ -20,6 +20,7 @@ Lists virtual networks assigned to a project
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="get-virtual-networks" method="get" path="/virtual_networks" -->
 ```go
 package main
 
@@ -41,7 +42,7 @@ func main() {
     res, err := s.PrivateNetworks.List(ctx, operations.GetVirtualNetworksRequest{
         FilterLocation: latitudeshgosdk.String("SAO"),
         FilterProject: latitudeshgosdk.String("awesome-copper-clock"),
-        FilterTags: latitudeshgosdk.String("tag_KLmjvaEPE7uL9G9E42pxTrEK96Jn"),
+        FilterTags: latitudeshgosdk.String("tag_P284pBvBEoT492NeXgv7TPaR3k8,tag_nPpEv2AnR9u9RBrGLLJ3C89nZJN"),
     })
     if err != nil {
         log.Fatal(err)
@@ -89,6 +90,7 @@ Creates a new Virtual Network.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="create-virtual-network" method="post" path="/virtual_networks" -->
 ```go
 package main
 
@@ -113,7 +115,7 @@ func main() {
             Attributes: operations.CreateVirtualNetworkPrivateNetworksAttributes{
                 Description: "São Paulo VLAN",
                 Site: operations.CreateVirtualNetworkPrivateNetworksSiteMia.ToPointer(),
-                Project: "enormous-paper-clock",
+                Project: "incredible-granite-coat",
             },
         },
     })
@@ -140,10 +142,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 422                      | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## Update
 
@@ -152,6 +153,7 @@ Update a Virtual Network.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="update-virtual-network" method="patch" path="/virtual_networks/{vlan_id}" -->
 ```go
 package main
 
@@ -170,10 +172,16 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.PrivateNetworks.Update(ctx, "vlan_zGr47qlMDAg0m", operations.UpdateVirtualNetworkPrivateNetworksRequestBody{
+    res, err := s.PrivateNetworks.Update(ctx, "vlan_VaNmodjeObE8W", operations.UpdateVirtualNetworkPrivateNetworksRequestBody{
         Data: operations.UpdateVirtualNetworkPrivateNetworksData{
             Type: operations.UpdateVirtualNetworkPrivateNetworksTypeVirtualNetworks,
-            Attributes: &operations.UpdateVirtualNetworkPrivateNetworksAttributes{},
+            Attributes: &operations.UpdateVirtualNetworkPrivateNetworksAttributes{
+                Tags: []string{
+                    "tag_Mjb3aoBkXRi5nR0gBQ5EhV30voRx",
+                    "tag_QnkPzo8Wj1iWWzg24P5bhXAzrxmm",
+                },
+            },
+            ID: "vlan_VaNmodjeObE8W",
         },
     })
     if err != nil {
@@ -200,10 +208,9 @@ func main() {
 
 ### Errors
 
-| Error Type                     | Status Code                    | Content Type                   |
-| ------------------------------ | ------------------------------ | ------------------------------ |
-| components.VirtualNetworkError | 403                            | application/vnd.api+json       |
-| components.APIError            | 4XX, 5XX                       | \*/\*                          |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## Get
 
@@ -212,6 +219,7 @@ Retrieve a Virtual Network.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="get-virtual-network" method="get" path="/virtual_networks/{vlan_id}" -->
 ```go
 package main
 
@@ -264,6 +272,7 @@ Returns a list of all servers assigned to virtual networks.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="get-virtual-networks-assignments" method="get" path="/virtual_networks/assignments" -->
 ```go
 package main
 
@@ -331,6 +340,7 @@ Assign Virtual network
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="assign-server-virtual-network" method="post" path="/virtual_networks/assignments" -->
 ```go
 package main
 
@@ -354,7 +364,7 @@ func main() {
             Type: operations.AssignServerVirtualNetworkPrivateNetworksTypeVirtualNetworkAssignment,
             Attributes: &operations.AssignServerVirtualNetworkPrivateNetworksAttributes{
                 ServerID: "sv_pbV0DgQGd4AWz",
-                VirtualNetworkID: "vlan_059EqYe2qQj8p",
+                VirtualNetworkID: "vlan_3YjJOLBjqvZ87",
             },
         },
     })
@@ -381,10 +391,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403, 422                 | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## DeleteAssignment
 
@@ -393,6 +402,7 @@ Allow you to remove a Virtual Network assignment.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="delete-virtual-networks-assignments" method="delete" path="/virtual_networks/assignments/{assignment_id}" -->
 ```go
 package main
 
@@ -434,7 +444,6 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403, 423                 | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |

@@ -1,6 +1,6 @@
 # CreateServerOperatingSystem
 
-The operating system for the new server
+The operating system slug for the new server
 
 
 ## Values

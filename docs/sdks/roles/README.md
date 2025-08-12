@@ -15,6 +15,7 @@ Returns a list of all roles that can be assigned to users
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="get-roles" method="get" path="/roles" -->
 ```go
 package main
 
@@ -79,6 +80,7 @@ Retrieve Role
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="get-role-id" method="get" path="/roles/{role_id}" -->
 ```go
 package main
 
@@ -96,7 +98,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Roles.Get(ctx, "role_3YjJOLjbqvZ87")
+    res, err := s.Roles.Get(ctx, "role_LMmAD8vldwop2")
     if err != nil {
         log.Fatal(err)
     }
@@ -120,7 +122,6 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 404                      | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |

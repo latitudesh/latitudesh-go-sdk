@@ -30,51 +30,9 @@ func (e *FirewallServerType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-type FirewallServerServer struct {
-	ID          *string `json:"id,omitempty"`
-	PrimaryIpv4 *string `json:"primary_ipv4,omitempty"`
-	Hostname    *string `json:"hostname,omitempty"`
-}
-
-func (o *FirewallServerServer) GetID() *string {
-	if o == nil {
-		return nil
-	}
-	return o.ID
-}
-
-func (o *FirewallServerServer) GetPrimaryIpv4() *string {
-	if o == nil {
-		return nil
-	}
-	return o.PrimaryIpv4
-}
-
-func (o *FirewallServerServer) GetHostname() *string {
-	if o == nil {
-		return nil
-	}
-	return o.Hostname
-}
-
 type FirewallServerAttributes struct {
-	Server     *FirewallServerServer `json:"server,omitempty"`
-	FirewallID *string               `json:"firewall_id,omitempty"`
-	ServerID   *string               `json:"server_id,omitempty"`
-}
-
-func (o *FirewallServerAttributes) GetServer() *FirewallServerServer {
-	if o == nil {
-		return nil
-	}
-	return o.Server
-}
-
-func (o *FirewallServerAttributes) GetFirewallID() *string {
-	if o == nil {
-		return nil
-	}
-	return o.FirewallID
+	ServerID   *string `json:"server_id,omitempty"`
+	FirewallID *string `json:"firewall_id,omitempty"`
 }
 
 func (o *FirewallServerAttributes) GetServerID() *string {
@@ -82,6 +40,13 @@ func (o *FirewallServerAttributes) GetServerID() *string {
 		return nil
 	}
 	return o.ServerID
+}
+
+func (o *FirewallServerAttributes) GetFirewallID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FirewallID
 }
 
 type FirewallServer struct {

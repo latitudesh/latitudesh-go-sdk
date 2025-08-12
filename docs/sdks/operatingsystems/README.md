@@ -14,6 +14,7 @@ Lists all operating systems available to deploy and reinstall.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="get-plans-operating-system" method="get" path="/plans/operating_systems" -->
 ```go
 package main
 

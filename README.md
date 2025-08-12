@@ -156,6 +156,8 @@ func main() {
 * [Get](docs/sdks/plans/README.md#get) - Retrieve a Plan
 * [GetBandwidth](docs/sdks/plans/README.md#getbandwidth) - List all bandwidth plans
 * [UpdateBandwidth](docs/sdks/plans/README.md#updatebandwidth) - Buy or remove bandwidth packages
+* [GetContainersPlans](docs/sdks/plans/README.md#getcontainersplans) - List containers plans
+* [GetContainersPlan](docs/sdks/plans/README.md#getcontainersplan) - Retrieve container plan
 * [ListStorage](docs/sdks/plans/README.md#liststorage) - List all Storage Plans
 
 #### [Plans.VM](docs/sdks/vm/README.md)
@@ -445,12 +447,11 @@ Handling errors in this SDK should largely match your expectations. All operatio
 
 By Default, an API error will return `components.APIError`. When custom error responses are specified for an operation, the SDK may also return their associated error. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation.
 
-For example, the `Create` function may return the following errors:
+For example, the `List` function may return the following errors:
 
-| Error Type             | Status Code | Content Type             |
-| ---------------------- | ----------- | ------------------------ |
-| components.ErrorObject | 400, 422    | application/vnd.api+json |
-| components.APIError    | 4XX, 5XX    | \*/\*                    |
+| Error Type          | Status Code | Content Type |
+| ------------------- | ----------- | ------------ |
+| components.APIError | 4XX, 5XX    | \*/\*        |
 
 ### Example
 
@@ -473,21 +474,8 @@ func main() {
 		latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
 	)
 
-	res, err := s.APIKeys.Create(ctx, components.CreateAPIKey{
-		Data: &components.Data{
-			Type: components.CreateAPIKeyTypeAPIKeys,
-			Attributes: &components.CreateAPIKeyAttributes{
-				Name: latitudeshgosdk.String("App Token"),
-			},
-		},
-	})
+	res, err := s.APIKeys.List(ctx)
 	if err != nil {
-
-		var e *components.ErrorObject
-		if errors.As(err, &e) {
-			// handle error
-			log.Fatal(e.Error())
-		}
 
 		var e *components.APIError
 		if errors.As(err, &e) {
@@ -600,12 +588,13 @@ The built-in `net/http` client satisfies this interface and a default client bas
 import (
 	"net/http"
 	"time"
-	"github.com/myorg/your-go-sdk"
+
+	"github.com/latitudesh/latitudesh-go-sdk"
 )
 
 var (
 	httpClient = &http.Client{Timeout: 30 * time.Second}
-	sdkClient  = sdk.New(sdk.WithClient(httpClient))
+	sdkClient  = latitudeshgosdk.New(latitudeshgosdk.WithClient(httpClient))
 )
 ```
 

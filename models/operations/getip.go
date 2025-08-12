@@ -9,7 +9,7 @@ import (
 type GetIPRequest struct {
 	// The IP Address ID
 	IPID string `pathParam:"style=simple,explode=false,name=ip_id"`
-	// The `region` and `server` are provided as extra attributes that is lazy loaded. To request it, just set `extra_fields[ip_addresses]=region,server` in the query string.
+	// The `region` and `server` are provided as extra attributes that are lazy loaded. To request it, just set `extra_fields[ip_addresses]=region,server` in the query string.
 	ExtraFieldsIPAddresses *string `queryParam:"style=form,explode=true,name=extra_fields[ip_addresses]"`
 }
 

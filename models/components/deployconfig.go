@@ -2,10 +2,6 @@
 
 package components
 
-import (
-	"encoding/json"
-)
-
 type Partitions struct {
 	Path           *string `json:"path,omitempty"`
 	SizeInGb       *int64  `json:"size_in_gb,omitempty"`
@@ -104,15 +100,4 @@ func (o *DeployConfig) GetData() *DeployConfigData {
 		return nil
 	}
 	return o.Data
-}
-
-type DeployConfigError struct {
-	Data *DeployConfigData `json:"data,omitempty"`
-}
-
-var _ error = &DeployConfigError{}
-
-func (e *DeployConfigError) Error() string {
-	data, _ := json.Marshal(e)
-	return string(data)
 }

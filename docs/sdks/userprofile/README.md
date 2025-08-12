@@ -16,6 +16,7 @@ Retrieve the current user profile
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="get-user-profile" method="get" path="/user/profile" -->
 ```go
 package main
 
@@ -67,6 +68,7 @@ Update the current user profile
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="patch-user-profile" method="patch" path="/user/profile/{id}" -->
 ```go
 package main
 
@@ -85,9 +87,9 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserProfile.Update(ctx, "user_3pwPRamaN8FKz8EELKNmH0XMvvyR", operations.PatchUserProfileUserProfileRequestBody{
+    res, err := s.UserProfile.Update(ctx, "user_lGJBgAxbgeUJ4yZj56wmfrK4vag", operations.PatchUserProfileUserProfileRequestBody{
         Data: operations.PatchUserProfileUserProfileData{
-            ID: "user_3pwPRamaN8FKz8EELKNmH0XMvvyR",
+            ID: "user_lGJBgAxbgeUJ4yZj56wmfrK4vag",
             Type: operations.PatchUserProfileUserProfileTypeUsers,
             Attributes: &operations.PatchUserProfileUserProfileAttributes{
                 Role: operations.PatchUserProfileUserProfileRoleCollaborator.ToPointer(),
@@ -118,10 +120,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403                      | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## ListTeams
 
@@ -130,6 +131,7 @@ Returns a list of all teams the user belongs to
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="get-user-teams" method="get" path="/user/teams" -->
 ```go
 package main
 

@@ -16,6 +16,7 @@ List all Active VPN Sessions
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="get-vpn-sessions" method="get" path="/vpn_sessions" -->
 ```go
 package main
 
@@ -58,10 +59,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 422                      | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## Create
 
@@ -71,6 +71,7 @@ Creates a new VPN Session.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="post-vpn-session" method="post" path="/vpn_sessions" -->
 ```go
 package main
 
@@ -120,10 +121,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 422                      | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## RefreshPassword
 
@@ -132,6 +132,7 @@ Refreshing an existing VPN Session will create new credentials for that session
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="put-vpn-session" method="patch" path="/vpn_sessions/{vpn_session_id}/refresh_password" -->
 ```go
 package main
 
@@ -173,10 +174,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 404                      | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## Delete
 
@@ -185,6 +185,7 @@ Deletes an existing VPN Session.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="delete-vpn-session" method="delete" path="/vpn_sessions/{vpn_session_id}" -->
 ```go
 package main
 
@@ -226,7 +227,6 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 404                      | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
