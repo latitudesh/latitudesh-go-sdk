@@ -13,6 +13,7 @@ List all Virtual Machines Plans
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="get-vm-plans" method="get" path="/plans/virtual_machines" -->
 ```go
 package main
 

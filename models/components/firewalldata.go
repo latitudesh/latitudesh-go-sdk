@@ -30,35 +30,35 @@ func (e *FirewallDataType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-type FirewallDataRules struct {
+type Rules struct {
 	From     *string `json:"from,omitempty"`
 	To       *string `json:"to,omitempty"`
 	Port     *string `json:"port,omitempty"`
 	Protocol *string `json:"protocol,omitempty"`
 }
 
-func (o *FirewallDataRules) GetFrom() *string {
+func (o *Rules) GetFrom() *string {
 	if o == nil {
 		return nil
 	}
 	return o.From
 }
 
-func (o *FirewallDataRules) GetTo() *string {
+func (o *Rules) GetTo() *string {
 	if o == nil {
 		return nil
 	}
 	return o.To
 }
 
-func (o *FirewallDataRules) GetPort() *string {
+func (o *Rules) GetPort() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Port
 }
 
-func (o *FirewallDataRules) GetProtocol() *string {
+func (o *Rules) GetProtocol() *string {
 	if o == nil {
 		return nil
 	}
@@ -94,7 +94,7 @@ func (o *FirewallDataProject) GetName() *string {
 
 type FirewallDataAttributes struct {
 	Name    *string              `json:"name,omitempty"`
-	Rules   []FirewallDataRules  `json:"rules,omitempty"`
+	Rules   []Rules              `json:"rules,omitempty"`
 	Project *FirewallDataProject `json:"project,omitempty"`
 }
 
@@ -105,7 +105,7 @@ func (o *FirewallDataAttributes) GetName() *string {
 	return o.Name
 }
 
-func (o *FirewallDataAttributes) GetRules() []FirewallDataRules {
+func (o *FirewallDataAttributes) GetRules() []Rules {
 	if o == nil {
 		return nil
 	}

@@ -24,6 +24,7 @@ List all SSH Keys in the project. These keys can be used to access servers after
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="get-project-ssh-keys" method="get" path="/projects/{project_id}/ssh_keys" -->
 ```go
 package main
 
@@ -41,7 +42,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.List(ctx, "proj_lxWpD6a9qm6rk", latitudeshgosdk.String("tag_JzoXbwJ7KgFM2J4wALjXHbVrjX4"))
+    res, err := s.SSHKeys.List(ctx, "proj_LMmAD8kEqwop2", latitudeshgosdk.String("tag_K9kzXA45BEsjobKPNVEQCrrKbw4o,tag_my9K5XGPYBIr1ve257anIW4KRX2e"))
     if err != nil {
         log.Fatal(err)
     }
@@ -79,6 +80,7 @@ List all SSH Keys in the project. These keys can be used to access servers after
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="get-project-ssh-key" method="get" path="/projects/{project_id}/ssh_keys/{ssh_key_id}" -->
 ```go
 package main
 
@@ -96,7 +98,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.Get(ctx, "proj_k0RyqvrJqW36X", "ssh_j0L6WO1QOPlXy")
+    res, err := s.SSHKeys.Get(ctx, "proj_g1mbDwrBqLv5B", "ssh_zGr47qlMDAg0m")
     if err != nil {
         log.Fatal(err)
     }
@@ -134,6 +136,7 @@ Allow you update SSH Key in a project. These keys can be used to access servers 
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="put-project-ssh-key" method="patch" path="/projects/{project_id}/ssh_keys/{ssh_key_id}" -->
 ```go
 package main
 
@@ -152,14 +155,14 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.ModifyProjectKey(ctx, "proj_5xyZOnMvDWM0l", "ssh_5AEmq71XOBkWX", operations.PutProjectSSHKeySSHKeysRequestBody{
+    res, err := s.SSHKeys.ModifyProjectKey(ctx, "proj_W6Q2D9lGqKLpr", "ssh_zlkg1DegdvZE5", operations.PutProjectSSHKeySSHKeysRequestBody{
         Data: operations.PutProjectSSHKeySSHKeysData{
-            ID: latitudeshgosdk.String("ssh_5AEmq71XOBkWX"),
+            ID: latitudeshgosdk.String("ssh_zlkg1DegdvZE5"),
             Type: operations.PutProjectSSHKeySSHKeysTypeSSHKeys,
             Attributes: &operations.PutProjectSSHKeySSHKeysAttributes{
                 Tags: []string{
-                    "tag_yle6pegwz1hlpaP3EPMkt7zgpX3",
-                    "tag_z6Qarmr4r4c3lxAmbwkYSVpNv62",
+                    "tag_7YpWMjKZ8vujwmEV7blQhG87aaB",
+                    "tag_E8ZoPkZPXXsgN2L46WVvTeWog1rz",
                 },
             },
         },
@@ -202,6 +205,7 @@ Allow you remove SSH Keys in a project. Remove a SSH Key from the project won't 
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="delete-project-ssh-key" method="delete" path="/projects/{project_id}/ssh_keys/{ssh_key_id}" -->
 ```go
 package main
 
@@ -219,7 +223,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.RemoveFromProject(ctx, "proj_KN4ydzeXOVob3", "ssh_kjQwdEGNDYNVP")
+    res, err := s.SSHKeys.RemoveFromProject(ctx, "proj_LMmAD8k4qwop2", "ssh_7vYAZqGBdMQ94")
     if err != nil {
         log.Fatal(err)
     }
@@ -255,6 +259,7 @@ List all SSH Keys in the project. These keys can be used to access servers after
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="get-ssh-keys" method="get" path="/ssh_keys" -->
 ```go
 package main
 
@@ -272,7 +277,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.ListAll(ctx, nil)
+    res, err := s.SSHKeys.ListAll(ctx, latitudeshgosdk.String("tag_lYXenaknWwsJ4rryVbNoUbn6p4V,tag_ARJPX1YRrgTKQ4xpvX5YuWNG2nwW"))
     if err != nil {
         log.Fatal(err)
     }
@@ -302,11 +307,12 @@ func main() {
 
 ## Create
 
-Allow you create SSH Keys. These keys can be used to access servers after deploy and reinstall actions.
+Allows you create SSH Keys. These keys can be used to access servers after deploy and reinstall actions.
 
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="post-ssh-key" method="post" path="/ssh_keys" -->
 ```go
 package main
 
@@ -368,6 +374,7 @@ List all SSH Keys in the project. These keys can be used to access servers after
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="get-ssh-key" method="get" path="/ssh_keys/{ssh_key_id}" -->
 ```go
 package main
 
@@ -385,7 +392,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.Retrieve(ctx, "ssh_zGr47qlMDAg0m")
+    res, err := s.SSHKeys.Retrieve(ctx, "ssh_0MK4O4Zkqa95w")
     if err != nil {
         log.Fatal(err)
     }
@@ -415,11 +422,12 @@ func main() {
 
 ## Update
 
-Allow you update SSH Key in a project. These keys can be used to access servers after deploy and reinstall actions.
+Allows you update SSH Key in a project. These keys can be used to access servers after deploy and reinstall actions.
 
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="put-ssh-key" method="patch" path="/ssh_keys/{ssh_key_id}" -->
 ```go
 package main
 
@@ -438,14 +446,14 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.Update(ctx, "ssh_ez2A3DVldnawP", operations.PutSSHKeySSHKeysRequestBody{
+    res, err := s.SSHKeys.Update(ctx, "ssh_8Nkvdyn1qeLpx", operations.PutSSHKeySSHKeysRequestBody{
         Data: operations.PutSSHKeySSHKeysData{
-            ID: latitudeshgosdk.String("ssh_ez2A3DVldnawP"),
+            ID: latitudeshgosdk.String("ssh_8Nkvdyn1qeLpx"),
             Type: operations.PutSSHKeySSHKeysTypeSSHKeys,
             Attributes: &operations.PutSSHKeySSHKeysAttributes{
                 Tags: []string{
-                    "tag_jj4Xpjj143f0Z5JM8Zp1TKpM6a9",
-                    "tag_6P4w2joLYGSpxlGZ6zrkSe6WJoe",
+                    "tag_BR6a9QPmXWCPVzLrmEYAslyroMK",
+                    "tag_yxVkGz7rxMsl9M54lr71fp5XZg60",
                 },
             },
         },
@@ -480,11 +488,12 @@ func main() {
 
 ## Delete
 
-Allow you remove SSH Keys in a project. Remove a SSH Key from the project won't revoke the SSH Keys access for previously deploy and reinstall actions.
+Allows you remove SSH Keys in a project. Remove a SSH Key from the project won't revoke the SSH Keys access for previously deploy and reinstall actions.
 
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="delete-ssh-key" method="delete" path="/ssh_keys/{ssh_key_id}" -->
 ```go
 package main
 
@@ -502,7 +511,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.Delete(ctx, "ssh_zlkg1DegdvZE5")
+    res, err := s.SSHKeys.Delete(ctx, "ssh_lxWpD6xKdm6rk")
     if err != nil {
         log.Fatal(err)
     }

@@ -76,7 +76,7 @@ type GetIpsRequest struct {
 	FilterLocation *string `queryParam:"style=form,explode=true,name=filter[location]"`
 	// The address of IP to filter by starts_with
 	FilterAddress *string `queryParam:"style=form,explode=true,name=filter[address]"`
-	// The `region` and `server` are provided as extra attributes that is lazy loaded. To request it, just set `extra_fields[ip_addresses]=region,server` in the query string.
+	// The `region` and `server` are provided as extra attributes that are lazy loaded. To request it, just set `extra_fields[ip_addresses]=region,server` in the query string.
 	ExtraFieldsIPAddresses *string `queryParam:"style=form,explode=true,name=extra_fields[ip_addresses]"`
 	// Number of items to return per page
 	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`

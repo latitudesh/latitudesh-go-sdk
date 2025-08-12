@@ -68,7 +68,7 @@ func (o *GetVirtualNetworksRequest) GetPageNumber() *int64 {
 
 type GetVirtualNetworksResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
-	// List virtual networks filtered by tag
+	// Success
 	VirtualNetworks *components.VirtualNetworks
 
 	Next func() (*GetVirtualNetworksResponse, error)

@@ -13,6 +13,7 @@ List all Team Members
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="get-team-members" method="get" path="/team/members" -->
 ```go
 package main
 

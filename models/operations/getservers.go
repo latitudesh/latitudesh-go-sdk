@@ -34,12 +34,12 @@ type GetServersRequest struct {
 	FilterRAMLte *int64 `queryParam:"style=form,explode=true,name=filter[ram][lte]"`
 	// The disk size in Gigabytes to filter by, should be used with the following options:
 	//                               [eql] to filter for values equal to the provided value.
-	//                               [gte] to filter for values greater or equal to the provided value.
-	//                               [lte] to filter by values lower or equal to the provided value.
+	//                               [gte] to filter for values greater than or equal to the provided value.
+	//                               [lte] to filter by values lower than or equal to the provided value.
 	FilterDisk *int64 `queryParam:"style=form,explode=true,name=filter[disk]"`
-	// The tags ids to filter by, separated by comma, e.g. `filter[tags]=tag_1,tag_2`will return servers with `tag_1` AND `tag_2`
+	// The tags IDs to filter by, separated by comma, e.g. `filter[tags]=tag_1,tag_2`will return servers with `tag_1` AND `tag_2`
 	FilterTags *string `queryParam:"style=form,explode=true,name=filter[tags]"`
-	// The `credentials` are provided as extra attributes that is lazy loaded. To request it, just set `extra_fields[servers]=credentials` in the query string.
+	// The `credentials` are provided as extra attributes that are lazy loaded. To request it, just set `extra_fields[servers]=credentials` in the query string.
 	ExtraFieldsServers *string `queryParam:"style=form,explode=true,name=extra_fields[servers]"`
 	// Number of items to return per page
 	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`

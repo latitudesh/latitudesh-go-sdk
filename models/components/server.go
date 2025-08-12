@@ -2,10 +2,6 @@
 
 package components
 
-import (
-	"encoding/json"
-)
-
 type ServerMeta struct {
 }
 
@@ -22,37 +18,6 @@ func (o *Server) GetData() *ServerData {
 }
 
 func (o *Server) GetMeta() *ServerMeta {
-	if o == nil {
-		return nil
-	}
-	return o.Meta
-}
-
-type ServerError struct {
-	Data *ServerData `json:"data,omitempty"`
-	Meta *ServerMeta `json:"meta,omitempty"`
-}
-
-var _ error = &ServerError{}
-
-func (e *ServerError) Error() string {
-	data, _ := json.Marshal(e)
-	return string(data)
-}
-
-type Server1 struct {
-	Data *ServerData `json:"data,omitempty"`
-	Meta *ServerMeta `json:"meta,omitempty"`
-}
-
-func (o *Server1) GetData() *ServerData {
-	if o == nil {
-		return nil
-	}
-	return o.Data
-}
-
-func (o *Server1) GetMeta() *ServerMeta {
 	if o == nil {
 		return nil
 	}

@@ -25,6 +25,7 @@ List all Users Data in the project. These scripts can be used to configure serve
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="get-project-users-data" method="get" path="/projects/{project_id}/user_data" -->
 ```go
 package main
 
@@ -42,7 +43,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserData.GetProjectUsersData(ctx, "proj_z2A3DV4wdnawP", latitudeshgosdk.String("decoded_content"))
+    res, err := s.UserData.GetProjectUsersData(ctx, "proj_RMLydp7XOQKr1", latitudeshgosdk.String("decoded_content"))
     if err != nil {
         log.Fatal(err)
     }
@@ -80,6 +81,7 @@ Get User Data in the project. These scripts can be used to configure servers wit
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="get-project-user-data" method="get" path="/projects/{project_id}/user_data/{user_data_id}" -->
 ```go
 package main
 
@@ -97,7 +99,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserData.GetProjectUserData(ctx, "proj_vYAZqG44DMQ94", "ud_lQraYDPeOpjwW", latitudeshgosdk.String("decoded_content"))
+    res, err := s.UserData.GetProjectUserData(ctx, "proj_Gr47qlevDAg0m", "ud_VLMmAD8EOwop2", latitudeshgosdk.String("decoded_content"))
     if err != nil {
         log.Fatal(err)
     }
@@ -136,6 +138,7 @@ Allow you remove User Data in a project.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="delete-project-user-data" method="delete" path="/projects/{project_id}/user_data/{user_data_id}" -->
 ```go
 package main
 
@@ -191,6 +194,7 @@ Allows you to create User Data in a project, which can be used to perform custom
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="post-project-user-data" method="post" path="/projects/{project_id}/user_data" -->
 ```go
 package main
 
@@ -209,7 +213,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserData.Create(ctx, "proj_1ZJrdxvyDg4LV", operations.PostProjectUserDataUserDataRequestBody{
+    res, err := s.UserData.Create(ctx, "proj_kjQwdE0XOYNVP", operations.PostProjectUserDataUserDataRequestBody{
         Data: operations.PostProjectUserDataUserDataData{
             Type: operations.PostProjectUserDataUserDataTypeUserData,
             Attributes: &operations.PostProjectUserDataUserDataAttributes{
@@ -255,6 +259,7 @@ Allow you update User Data in a project.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="put-project-user-data" method="patch" path="/projects/{project_id}/user_data/{user_data_id}" -->
 ```go
 package main
 
@@ -318,6 +323,7 @@ List all Users Data in the project. These scripts can be used to configure serve
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="get-users-data" method="get" path="/user_data" -->
 ```go
 package main
 
@@ -370,6 +376,7 @@ Allows you to create User Data in a team, which can be used to perform custom se
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="post-user-data" method="post" path="/user_data" -->
 ```go
 package main
 
@@ -431,6 +438,7 @@ Get User Data in the project. These scripts can be used to configure servers wit
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="get-user-data" method="get" path="/user_data/{user_data_id}" -->
 ```go
 package main
 
@@ -448,7 +456,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserData.Retrieve(ctx, "ud_7vYAZqGBdMQ94", latitudeshgosdk.String("decoded_content"))
+    res, err := s.UserData.Retrieve(ctx, "ud_1Qkm7dXzD8nZV", latitudeshgosdk.String("decoded_content"))
     if err != nil {
         log.Fatal(err)
     }
@@ -484,6 +492,7 @@ Allow you update User Data in a team.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="patch-user-data" method="patch" path="/user_data/{user_data_id}" -->
 ```go
 package main
 
@@ -545,6 +554,7 @@ Delete an User Data
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="delete-user-data" method="delete" path="/user_data/{user_data_id}" -->
 ```go
 package main
 

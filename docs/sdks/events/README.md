@@ -14,6 +14,7 @@ Lists all events.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="get-events" method="get" path="/events" -->
 ```go
 package main
 

@@ -7,7 +7,7 @@
 `disk_erasing` - The server is in reinstalling state `disk_erasing`
 `failed_disk_erasing` - The server has failed disk erasing in reinstall
 `deploying` - The server is in the last reinstalling stage and is `deploying`
-`failed_deployment` The server has failed deployment in reinstall
+`failed_deployment` - The server has failed deployment in reinstall
 
 
 

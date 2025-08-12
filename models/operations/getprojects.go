@@ -104,7 +104,7 @@ func (o *GetProjectsRequest) GetPageNumber() *int64 {
 
 type GetProjectsResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
-	// Filtered by multiple tags
+	// Success
 	Projects *components.Projects
 
 	Next func() (*GetProjectsResponse, error)

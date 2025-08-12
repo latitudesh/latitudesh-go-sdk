@@ -7,8 +7,8 @@ The stock level at the site to filter by
 
 | Name                          | Value                         |
 | ----------------------------- | ----------------------------- |
-| `FilterStockLevelUnavailable` | Unavailable                   |
-| `FilterStockLevelLow`         | Low                           |
-| `FilterStockLevelMedium`      | Medium                        |
-| `FilterStockLevelHigh`        | High                          |
-| `FilterStockLevelUnique`      | Unique                        |
+| `FilterStockLevelUnavailable` | unavailable                   |
+| `FilterStockLevelLow`         | low                           |
+| `FilterStockLevelMedium`      | medium                        |
+| `FilterStockLevelHigh`        | high                          |
+| `FilterStockLevelUnique`      | unique                        |
