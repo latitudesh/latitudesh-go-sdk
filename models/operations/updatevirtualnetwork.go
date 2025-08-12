@@ -65,6 +65,7 @@ func (o *UpdateVirtualNetworkPrivateNetworksAttributes) GetDescription() *string
 type UpdateVirtualNetworkPrivateNetworksData struct {
 	Type       UpdateVirtualNetworkPrivateNetworksType        `json:"type"`
 	Attributes *UpdateVirtualNetworkPrivateNetworksAttributes `json:"attributes,omitempty"`
+	ID         string                                         `json:"id"`
 }
 
 func (o *UpdateVirtualNetworkPrivateNetworksData) GetType() UpdateVirtualNetworkPrivateNetworksType {
@@ -79,6 +80,13 @@ func (o *UpdateVirtualNetworkPrivateNetworksData) GetAttributes() *UpdateVirtual
 		return nil
 	}
 	return o.Attributes
+}
+
+func (o *UpdateVirtualNetworkPrivateNetworksData) GetID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ID
 }
 
 type UpdateVirtualNetworkPrivateNetworksRequestBody struct {

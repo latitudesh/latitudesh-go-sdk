@@ -14,7 +14,7 @@ import (
 // `disk_erasing` - The server is in reinstalling state `disk_erasing`
 // `failed_disk_erasing` - The server has failed disk erasing in reinstall
 // `deploying` - The server is in the last reinstalling stage and is `deploying`
-// `failed_deployment` The server has failed deployment in reinstall
+// `failed_deployment` - The server has failed deployment in reinstall
 type Status string
 
 const (
@@ -93,10 +93,10 @@ type ServerDataPlan struct {
 	ID *string `json:"id,omitempty"`
 	// The plan name
 	Name *string `json:"name,omitempty"`
-	// hourly/monthly pricing. Defaults to `hourly`. Appliable for `on_demand` projects only.
-	Billing *string `json:"billing,omitempty"`
 	// The plan slug
 	Slug *string `json:"slug,omitempty"`
+	// hourly/monthly pricing. Defaults to `hourly`. Appliable for `on_demand` projects only.
+	Billing *string `json:"billing,omitempty"`
 }
 
 func (o *ServerDataPlan) GetID() *string {
@@ -113,18 +113,18 @@ func (o *ServerDataPlan) GetName() *string {
 	return o.Name
 }
 
-func (o *ServerDataPlan) GetBilling() *string {
-	if o == nil {
-		return nil
-	}
-	return o.Billing
-}
-
 func (o *ServerDataPlan) GetSlug() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Slug
+}
+
+func (o *ServerDataPlan) GetBilling() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Billing
 }
 
 type ServerDataFeatures struct {
@@ -231,9 +231,16 @@ func (o *OperatingSystem) GetDistro() *Distro {
 }
 
 type ServerDataSpecs struct {
-	CPU  *string `json:"cpu,omitempty"`
+	// CPU model
+	CPU *string `json:"cpu,omitempty"`
+	// Disk quantity and size in GB (e.g. 2 x 500GB)
 	Disk *string `json:"disk,omitempty"`
-	RAM  *string `json:"ram,omitempty"`
+	// RAM size in GB
+	RAM *string `json:"ram,omitempty"`
+	// NIC quantity and speed
+	Nic *string `json:"nic,omitempty"`
+	// GPU model and quantity, if present
+	Gpu *string `json:"gpu,omitempty"`
 }
 
 func (o *ServerDataSpecs) GetCPU() *string {
@@ -257,10 +264,57 @@ func (o *ServerDataSpecs) GetRAM() *string {
 	return o.RAM
 }
 
+func (o *ServerDataSpecs) GetNic() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Nic
+}
+
+func (o *ServerDataSpecs) GetGpu() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Gpu
+}
+
+type ServerDataRole string
+
+const (
+	ServerDataRoleExternal ServerDataRole = "external"
+	ServerDataRoleInternal ServerDataRole = "internal"
+	ServerDataRoleIpmi     ServerDataRole = "ipmi"
+	ServerDataRoleUnknown  ServerDataRole = "unknown"
+)
+
+func (e ServerDataRole) ToPointer() *ServerDataRole {
+	return &e
+}
+func (e *ServerDataRole) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "external":
+		fallthrough
+	case "internal":
+		fallthrough
+	case "ipmi":
+		fallthrough
+	case "unknown":
+		*e = ServerDataRole(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for ServerDataRole: %v", v)
+	}
+}
+
 type Interfaces struct {
-	Name        *string `json:"name,omitempty"`
-	MacAddress  *string `json:"mac_address,omitempty"`
-	Description *string `json:"description,omitempty"`
+	Name        *string         `json:"name,omitempty"`
+	MacAddress  *string         `json:"mac_address,omitempty"`
+	Description *string         `json:"description,omitempty"`
+	Role        *ServerDataRole `json:"role,omitempty"`
 }
 
 func (o *Interfaces) GetName() *string {
@@ -284,6 +338,13 @@ func (o *Interfaces) GetDescription() *string {
 	return o.Description
 }
 
+func (o *Interfaces) GetRole() *ServerDataRole {
+	if o == nil {
+		return nil
+	}
+	return o.Role
+}
+
 type ServerDataAttributes struct {
 	Hostname *string `json:"hostname,omitempty"`
 	// `on` - The server is powered ON
@@ -293,25 +354,28 @@ type ServerDataAttributes struct {
 	// `disk_erasing` - The server is in reinstalling state `disk_erasing`
 	// `failed_disk_erasing` - The server has failed disk erasing in reinstall
 	// `deploying` - The server is in the last reinstalling stage and is `deploying`
-	// `failed_deployment` The server has failed deployment in reinstall
+	// `failed_deployment` - The server has failed deployment in reinstall
 	//
-	Status              *Status                   `json:"status,omitempty"`
-	IpmiStatus          *IpmiStatus               `json:"ipmi_status,omitempty"`
+	Status     *Status     `json:"status,omitempty"`
+	IpmiStatus *IpmiStatus `json:"ipmi_status,omitempty"`
+	// The server role (e.g. Bare Metal)
 	Role                *string                   `json:"role,omitempty"`
 	Site                *string                   `json:"site,omitempty"`
 	Locked              *bool                     `json:"locked,omitempty"`
 	Rescue              *bool                     `json:"rescue,omitempty"`
 	PrimaryIpv4         *string                   `json:"primary_ipv4,omitempty"`
+	PrimaryIpv6         *string                   `json:"primary_ipv6,omitempty"`
 	CreatedAt           *string                   `json:"created_at,omitempty"`
 	ScheduledDeletionAt *string                   `json:"scheduled_deletion_at,omitempty"`
 	Plan                *ServerDataPlan           `json:"plan,omitempty"`
 	OperatingSystem     *OperatingSystem          `json:"operating_system,omitempty"`
 	Region              *ServerRegionResourceData `json:"region,omitempty"`
 	Specs               *ServerDataSpecs          `json:"specs,omitempty"`
+	Interfaces          []Interfaces              `json:"interfaces,omitempty"`
 	Project             *ProjectInclude           `json:"project,omitempty"`
 	Team                *TeamInclude              `json:"team,omitempty"`
-	PrimaryIpv6         *string                   `json:"primary_ipv6,omitempty"`
-	Interfaces          []Interfaces              `json:"interfaces,omitempty"`
+	// The server label
+	Label *string `json:"label,omitempty"`
 }
 
 func (o *ServerDataAttributes) GetHostname() *string {
@@ -370,6 +434,13 @@ func (o *ServerDataAttributes) GetPrimaryIpv4() *string {
 	return o.PrimaryIpv4
 }
 
+func (o *ServerDataAttributes) GetPrimaryIpv6() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PrimaryIpv6
+}
+
 func (o *ServerDataAttributes) GetCreatedAt() *string {
 	if o == nil {
 		return nil
@@ -412,6 +483,13 @@ func (o *ServerDataAttributes) GetSpecs() *ServerDataSpecs {
 	return o.Specs
 }
 
+func (o *ServerDataAttributes) GetInterfaces() []Interfaces {
+	if o == nil {
+		return nil
+	}
+	return o.Interfaces
+}
+
 func (o *ServerDataAttributes) GetProject() *ProjectInclude {
 	if o == nil {
 		return nil
@@ -426,18 +504,11 @@ func (o *ServerDataAttributes) GetTeam() *TeamInclude {
 	return o.Team
 }
 
-func (o *ServerDataAttributes) GetPrimaryIpv6() *string {
+func (o *ServerDataAttributes) GetLabel() *string {
 	if o == nil {
 		return nil
 	}
-	return o.PrimaryIpv6
-}
-
-func (o *ServerDataAttributes) GetInterfaces() []Interfaces {
-	if o == nil {
-		return nil
-	}
-	return o.Interfaces
+	return o.Label
 }
 
 type ServerData struct {

@@ -1,6 +1,6 @@
 # UpdateAPIKeyResponseBody
 
-API Key Updated
+Success
 
 
 ## Fields

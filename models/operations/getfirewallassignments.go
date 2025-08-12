@@ -50,7 +50,7 @@ func (o *GetFirewallAssignmentsRequest) GetPageNumber() *int64 {
 
 type GetFirewallAssignmentsResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
-	// Ok
+	// Success
 	FirewallAssignments *components.FirewallAssignments
 
 	Next func() (*GetFirewallAssignmentsResponse, error)

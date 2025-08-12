@@ -17,6 +17,7 @@ Creates a new Virtual Machine.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="create-virtual-machine" method="post" path="/virtual_machines" -->
 ```go
 package main
 
@@ -40,7 +41,7 @@ func main() {
             Type: components.VirtualMachinePayloadTypeVirtualMachines.ToPointer(),
             Attributes: &components.VirtualMachinePayloadAttributes{
                 Name: latitudeshgosdk.String("my-new-vm"),
-                Project: latitudeshgosdk.String("aerodynamic-granite-keyboard"),
+                Project: latitudeshgosdk.String("enormous-wool-keyboard"),
             },
         },
     })
@@ -78,6 +79,7 @@ Show all Team's Virtual Machines.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="index-virtual-machine" method="get" path="/virtual_machines" -->
 ```go
 package main
 
@@ -130,6 +132,7 @@ Show a Virtual Machine.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="show-virtual-machine" method="get" path="/virtual_machines/{virtual_machine_id}" -->
 ```go
 package main
 
@@ -182,6 +185,7 @@ Destroys a Virtual Machine.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="destroy-virtual-machine" method="delete" path="/virtual_machines/{virtual_machine_id}" -->
 ```go
 package main
 

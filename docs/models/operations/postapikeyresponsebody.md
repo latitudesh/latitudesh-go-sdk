@@ -1,6 +1,6 @@
 # PostAPIKeyResponseBody
 
-API Key Created
+Created
 
 
 ## Fields

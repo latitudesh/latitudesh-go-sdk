@@ -6,7 +6,7 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
-// PostAPIKeyResponseBody - API Key Created
+// PostAPIKeyResponseBody - Created
 type PostAPIKeyResponseBody struct {
 	Data *components.APIKey `json:"data,omitempty"`
 }
@@ -20,7 +20,7 @@ func (o *PostAPIKeyResponseBody) GetData() *components.APIKey {
 
 type PostAPIKeyResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
-	// API Key Created
+	// Created
 	Object *PostAPIKeyResponseBody
 }
 

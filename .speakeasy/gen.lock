@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 677d6a8e2dbe4ef60886bf85fd27b8d7
+  docChecksum: 1255acb9e69cf6631264a9a5048cf7af
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.582.0
-  generationVersion: 2.657.1
-  releaseVersion: 1.4.14
-  configChecksum: 076bbc8e3bd62ccd084e753af44ba0fe
+  speakeasyVersion: 1.603.0
+  generationVersion: 2.681.1
+  releaseVersion: 1.5.0
+  configChecksum: 8905f3c739e9c84fed363e8ee92c56c0
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 features:
   go:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.8.1
+    core: 3.9.3
     defaultEnabledRetries: 0.2.0
     deprecations: 2.81.3
     devContainers: 2.90.0
@@ -28,7 +28,7 @@ features:
     nameOverrides: 2.81.2
     pagination: 2.82.4
     responseFormat: 0.1.2
-    retries: 2.83.3
+    retries: 2.84.2
     sdkHooks: 0.2.0
 generatedFiles:
   - .devcontainer/README.md
@@ -40,12 +40,12 @@ generatedFiles:
   - /models/components/bandwidthplandata.go
   - /models/components/bandwidthplans.go
   - /models/components/billingusage.go
+  - /models/components/containerplandata.go
   - /models/components/createapikey.go
   - /models/components/customtag.go
   - /models/components/customtagdata.go
   - /models/components/customtags.go
   - /models/components/deployconfig.go
-  - /models/components/errorobject.go
   - /models/components/eventdata.go
   - /models/components/events.go
   - /models/components/filesystemdata.go
@@ -100,10 +100,10 @@ generatedFiles:
   - /models/components/userteams.go
   - /models/components/userupdate.go
   - /models/components/virtualmachine.go
+  - /models/components/virtualmachineattributes.go
   - /models/components/virtualmachinepayload.go
   - /models/components/virtualmachineplans.go
   - /models/components/virtualnetwork.go
-  - /models/components/virtualnetwork1.go
   - /models/components/virtualnetworkassignment.go
   - /models/components/virtualnetworkassignmentdata.go
   - /models/components/virtualnetworkassignments.go
@@ -142,6 +142,8 @@ generatedFiles:
   - /models/operations/getapikeys.go
   - /models/operations/getbandwidthplans.go
   - /models/operations/getbillingusage.go
+  - /models/operations/getcontainersplan.go
+  - /models/operations/getcontainersplans.go
   - /models/operations/getevents.go
   - /models/operations/getfirewall.go
   - /models/operations/getfirewallassignments.go
@@ -242,6 +244,19 @@ generatedFiles:
   - docs/models/components/billingusageproject.md
   - docs/models/components/billingusagetype.md
   - docs/models/components/brl.md
+  - docs/models/components/containerplandata.md
+  - docs/models/components/containerplandataattributes.md
+  - docs/models/components/containerplandatabrl.md
+  - docs/models/components/containerplandatacpu.md
+  - docs/models/components/containerplandatagpu.md
+  - docs/models/components/containerplandatalocations.md
+  - docs/models/components/containerplandatamemory.md
+  - docs/models/components/containerplandatapricing.md
+  - docs/models/components/containerplandataregions.md
+  - docs/models/components/containerplandataspecs.md
+  - docs/models/components/containerplandatastocklevel.md
+  - docs/models/components/containerplandatatype.md
+  - docs/models/components/containerplandatausd.md
   - docs/models/components/country.md
   - docs/models/components/cpu.md
   - docs/models/components/createapikey.md
@@ -250,38 +265,28 @@ generatedFiles:
   - docs/models/components/credentials.md
   - docs/models/components/currency.md
   - docs/models/components/customtag.md
-  - docs/models/components/customtagattributes.md
   - docs/models/components/customtagdata.md
   - docs/models/components/customtagdataattributes.md
   - docs/models/components/customtagdatatype.md
   - docs/models/components/customtagmeta.md
   - docs/models/components/customtags.md
   - docs/models/components/customtagsmeta.md
-  - docs/models/components/customtagtype.md
   - docs/models/components/data.md
   - docs/models/components/deployconfig.md
   - docs/models/components/deployconfigattributes.md
   - docs/models/components/deployconfigdata.md
-  - docs/models/components/deployconfigerror.md
   - docs/models/components/discounts.md
   - docs/models/components/disk.md
   - docs/models/components/distro.md
   - docs/models/components/drives.md
   - docs/models/components/environment.md
-  - docs/models/components/errorobject.md
-  - docs/models/components/errorobjectmeta.md
-  - docs/models/components/errors.md
+  - docs/models/components/ephemeralstorage.md
   - docs/models/components/eventdata.md
   - docs/models/components/eventdataattributes.md
-  - docs/models/components/eventdataauthor.md
   - docs/models/components/eventdataproject.md
-  - docs/models/components/eventdatatarget.md
   - docs/models/components/eventdatateam.md
   - docs/models/components/eventdatatype.md
   - docs/models/components/events.md
-  - docs/models/components/eventsattributes.md
-  - docs/models/components/eventsproject.md
-  - docs/models/components/eventsteam.md
   - docs/models/components/family.md
   - docs/models/components/features.md
   - docs/models/components/filesystemdata.md
@@ -295,21 +300,16 @@ generatedFiles:
   - docs/models/components/firewallassignmentdatatype.md
   - docs/models/components/firewallassignments.md
   - docs/models/components/firewallassignmentsmeta.md
-  - docs/models/components/firewallattributes.md
   - docs/models/components/firewalldata.md
   - docs/models/components/firewalldataattributes.md
   - docs/models/components/firewalldataproject.md
-  - docs/models/components/firewalldatarules.md
   - docs/models/components/firewalldatatype.md
   - docs/models/components/firewallmeta.md
-  - docs/models/components/firewallproject.md
   - docs/models/components/firewalls.md
   - docs/models/components/firewallserver.md
   - docs/models/components/firewallserverattributes.md
-  - docs/models/components/firewallserverserver.md
   - docs/models/components/firewallservertype.md
   - docs/models/components/firewallsmeta.md
-  - docs/models/components/firewalltype.md
   - docs/models/components/gpu.md
   - docs/models/components/httpmetadata.md
   - docs/models/components/interfaces.md
@@ -337,13 +337,12 @@ generatedFiles:
   - docs/models/components/operatingsystem.md
   - docs/models/components/operatingsystemdata.md
   - docs/models/components/operatingsystemdataattributes.md
-  - docs/models/components/operatingsystemdatafeatures.md
   - docs/models/components/operatingsystemdatatype.md
   - docs/models/components/operatingsystems.md
-  - docs/models/components/operatingsystemsattributes.md
   - docs/models/components/operatingsystemsmeta.md
   - docs/models/components/outofbandconnection.md
   - docs/models/components/outofbandconnectionattributes.md
+  - docs/models/components/outofbandconnectioncredentials.md
   - docs/models/components/outofbandconnectiondata.md
   - docs/models/components/packages.md
   - docs/models/components/partitions.md
@@ -386,7 +385,6 @@ generatedFiles:
   - docs/models/components/rules.md
   - docs/models/components/security.md
   - docs/models/components/server.md
-  - docs/models/components/server1.md
   - docs/models/components/serveraction.md
   - docs/models/components/serveractionattributes.md
   - docs/models/components/serveractiondata.md
@@ -396,8 +394,8 @@ generatedFiles:
   - docs/models/components/serverdataattributes.md
   - docs/models/components/serverdatafeatures.md
   - docs/models/components/serverdataplan.md
+  - docs/models/components/serverdatarole.md
   - docs/models/components/serverdataspecs.md
-  - docs/models/components/servererror.md
   - docs/models/components/servermeta.md
   - docs/models/components/serverregionresourcedata.md
   - docs/models/components/serverrescue.md
@@ -472,6 +470,12 @@ generatedFiles:
   - docs/models/components/userupdate.md
   - docs/models/components/userupdateattributes.md
   - docs/models/components/virtualmachine.md
+  - docs/models/components/virtualmachineattributes.md
+  - docs/models/components/virtualmachineattributesattributes.md
+  - docs/models/components/virtualmachineattributesplan.md
+  - docs/models/components/virtualmachineattributesspecs.md
+  - docs/models/components/virtualmachineattributesstatus.md
+  - docs/models/components/virtualmachineattributestype.md
   - docs/models/components/virtualmachinemeta.md
   - docs/models/components/virtualmachinepayload.md
   - docs/models/components/virtualmachinepayloadattributes.md
@@ -490,35 +494,22 @@ generatedFiles:
   - docs/models/components/virtualmachineplansunit.md
   - docs/models/components/virtualmachineplansusd.md
   - docs/models/components/virtualnetwork.md
-  - docs/models/components/virtualnetwork1.md
   - docs/models/components/virtualnetworkassignment.md
-  - docs/models/components/virtualnetworkassignmentattributes.md
   - docs/models/components/virtualnetworkassignmentdata.md
   - docs/models/components/virtualnetworkassignmentdataattributes.md
   - docs/models/components/virtualnetworkassignmentdataserver.md
   - docs/models/components/virtualnetworkassignmentdatatype.md
   - docs/models/components/virtualnetworkassignmentmeta.md
   - docs/models/components/virtualnetworkassignments.md
-  - docs/models/components/virtualnetworkassignmentserver.md
   - docs/models/components/virtualnetworkassignmentsmeta.md
-  - docs/models/components/virtualnetworkattributes.md
-  - docs/models/components/virtualnetworkattributes1.md
-  - docs/models/components/virtualnetworkattributesregion.md
-  - docs/models/components/virtualnetworkattributessite.md
   - docs/models/components/virtualnetworkdata.md
   - docs/models/components/virtualnetworkdataattributes.md
   - docs/models/components/virtualnetworkdataregion.md
   - docs/models/components/virtualnetworkdatasite.md
   - docs/models/components/virtualnetworkdatatype.md
-  - docs/models/components/virtualnetworkerror.md
   - docs/models/components/virtualnetworkmeta.md
-  - docs/models/components/virtualnetworkmeta1.md
-  - docs/models/components/virtualnetworkregion.md
   - docs/models/components/virtualnetworks.md
-  - docs/models/components/virtualnetworksite.md
   - docs/models/components/virtualnetworksmeta.md
-  - docs/models/components/virtualnetworktype.md
-  - docs/models/components/virtualnetworktype1.md
   - docs/models/components/vpnsessiondatawithpassword.md
   - docs/models/components/vpnsessiondatawithpasswordattributes.md
   - docs/models/components/vpnsessiondatawithpasswordstatus.md
@@ -637,6 +628,11 @@ generatedFiles:
   - docs/models/operations/getbandwidthplansresponse.md
   - docs/models/operations/getbillingusagerequest.md
   - docs/models/operations/getbillingusageresponse.md
+  - docs/models/operations/getcontainersplanrequest.md
+  - docs/models/operations/getcontainersplanresponse.md
+  - docs/models/operations/getcontainersplansrequest.md
+  - docs/models/operations/getcontainersplansresponse.md
+  - docs/models/operations/getcontainersplansresponsebody.md
   - docs/models/operations/geteventsrequest.md
   - docs/models/operations/geteventsresponse.md
   - docs/models/operations/geteventsresponsebody.md
@@ -828,6 +824,7 @@ generatedFiles:
   - docs/models/operations/putsshkeysshkeystype.md
   - docs/models/operations/putvpnsessionrequest.md
   - docs/models/operations/putvpnsessionresponse.md
+  - docs/models/operations/queryparamfilterstocklevel.md
   - docs/models/operations/serverexitrescuemoderequest.md
   - docs/models/operations/serverexitrescuemoderesponse.md
   - docs/models/operations/serverlockrequest.md
@@ -876,14 +873,11 @@ generatedFiles:
   - docs/models/operations/updateserverdeployconfigserverstype.md
   - docs/models/operations/updateserverrequest.md
   - docs/models/operations/updateserverresponse.md
+  - docs/models/operations/updateserverserversattributes.md
+  - docs/models/operations/updateserverserversbilling.md
   - docs/models/operations/updateserverserversdata.md
-  - docs/models/operations/updateserverserversrequestapplicationjsonattributes.md
-  - docs/models/operations/updateserverserversrequestapplicationjsonbilling.md
-  - docs/models/operations/updateserverserversrequestapplicationjsontype.md
-  - docs/models/operations/updateserverserversrequestattributes.md
-  - docs/models/operations/updateserverserversrequestbilling.md
   - docs/models/operations/updateserverserversrequestbody.md
-  - docs/models/operations/updateserverserversrequesttype.md
+  - docs/models/operations/updateserverserverstype.md
   - docs/models/operations/updatetagrequest.md
   - docs/models/operations/updatetagresponse.md
   - docs/models/operations/updatetagtagsattributes.md
@@ -1001,6 +995,13 @@ examples:
           application/vnd.api+json: {}
         "400":
           application/vnd.api+json: {}
+    Created:
+      requestBody:
+        application/json: {"data": {"type": "api_keys", "attributes": {"name": "App Token"}}}
+        application/vnd.api+json: {"data": {"type": "api_keys", "attributes": {"name": "App Token"}}}
+      responses:
+        "201":
+          application/vnd.api+json: {"data": {"id": "tok_ez2A3DVldnawP", "type": "api_keys", "attributes": {"name": "App Token", "api_version": "2023-06-01", "token_last_slice": "2c5bc", "last_used_at": "2025-01-24T09:24:12.041Z", "user": {"id": "user_W3oeKxYvbWIQlBGElMVWsrK2Qyw", "email": "harold@abshire.example"}, "created_at": "2025-07-16T18:36:26+00:00", "updated_at": "2025-07-16T18:36:26+00:00"}}}
   update-api-key:
     API Key Updated:
       parameters:
@@ -1034,6 +1035,16 @@ examples:
           application/vnd.api+json: {}
         "400":
           application/vnd.api+json: {}
+    Success:
+      parameters:
+        path:
+          api_key_id: "tok_zlkg1DegdvZE5"
+      requestBody:
+        application/json: {"data": {"id": "tok_zlkg1DegdvZE5", "type": "api_keys", "attributes": {"name": "App Token", "api_version": "2023-06-01"}}}
+        application/vnd.api+json: {"data": {"id": "tok_zlkg1DegdvZE5", "type": "api_keys", "attributes": {"name": "App Token", "api_version": "2023-06-01"}}}
+      responses:
+        "200":
+          application/vnd.api+json: {"data": {"id": "tok_zlkg1DegdvZE5", "type": "api_keys", "attributes": {"name": "App Token", "api_version": "2023-06-01", "token_last_slice": "e0fd0", "last_used_at": "2025-10-18T03:22:51.570Z", "user": {"id": "user_Lp2QwzbxephLaWxAnwpouknrPzm", "email": "leland_kutch@hayes-beatty.test"}, "created_at": "2025-07-16T18:36:27+00:00", "updated_at": "2025-07-16T18:36:27+00:00"}}}
   delete-api-key:
     API Key Deleted:
       parameters:
@@ -1049,16 +1060,20 @@ examples:
       responses:
         "404":
           application/vnd.api+json: {"errors": [{"code": "not_found", "status": "404", "title": "Error", "detail": "Specified Record Not Found", "meta": {}}]}
+    Success:
+      parameters:
+        path:
+          api_key_id: "tok_x1ZJrdx5qg4LV"
   get-billing-usage:
     Success:
       parameters:
         query:
-          filter[products][]: ["si_pttmsx3d", "si_nmru52ev"]
+          filter[products][]: ["si_lvdub7r3", "si_utp5nfrf"]
           filter[plan]: "plan.name"
           filter[project]: "proj_6059EqYkOQj8p"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "", "attributes": {"project": {"id": "proj_6059EqYkOQj8p", "slug": "sleek-paper-clock", "name": "Sleek Paper Clock"}, "period": {"start": "2025-04-07T18:39:41+00:00", "end": "2025-05-08T18:39:41+00:00"}, "price": 0, "threshold": 10000, "products": []}}}
+          application/vnd.api+json: {"data": {"id": "", "attributes": {"project": {"id": "proj_6059EqYkOQj8p", "slug": "ergonomic-marble-shoes", "name": "Ergonomic Marble Shoes"}, "period": {"start": "2025-06-25T18:36:28+00:00", "end": "2025-07-26T18:36:28+00:00"}, "price": 0, "threshold": 10000, "products": []}}}
   get-events:
     Success:
       parameters:
@@ -1067,7 +1082,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "evt_zGr47qlMDAg0m", "attributes": {"action": "user_data.create", "created_at": "2025-04-28T18:39:43+00:00", "author": {"id": "user_a6N4X0105gSmXwwLRVYJH4X53lk", "name": "Curtis Upton", "email": "rey@howell.test"}, "project": {"id": "proj_Av9BVDavORm1W", "name": "Synergistic Cotton Knife", "slug": "synergistic-cotton-knife"}, "team": {"id": "team_Yenz1wb3pxsoBKnBWJMJixe9nyz", "name": "38 Team"}, "target": {"id": "ud_QraYDPm5OpjwW", "name": "user_data"}}}]}
+          application/vnd.api+json: {"data": [{}]}
   create-firewall:
     with valid parameters:
       requestBody:
@@ -1083,16 +1098,23 @@ examples:
       responses:
         "422":
           application/vnd.api+json: {"errors": [{"code": "VALIDATION_ERROR", "status": "422", "title": "Validation Error", "detail": "must be filled", "meta": {}}, {"code": "VALIDATION_ERROR", "status": "422", "title": "Validation Error", "detail": "must be a string", "meta": {}}, {"code": "VALIDATION_ERROR", "status": "422", "title": "Validation Error", "detail": "is missing", "meta": {}}]}
+    Created:
+      requestBody:
+        application/json: {"data": {"type": "firewalls", "attributes": {"name": "my-firewall", "project": "awesome-granite-chair", "rules": [{"from": "192.168.42.73", "to": "192.168.43.51", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.16", "to": "192.168.1.30", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.10", "to": "192.168.1.20", "protocol": "UDP", "port": "3000-4000"}]}}}
+        application/vnd.api+json: {"data": {"type": "firewalls", "attributes": {"name": "my-firewall", "project": "awesome-granite-chair", "rules": [{"from": "192.168.42.73", "to": "192.168.43.51", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.16", "to": "192.168.1.30", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.10", "to": "192.168.1.20", "protocol": "UDP", "port": "3000-4000"}]}}}
+      responses:
+        "201":
+          application/vnd.api+json: {"data": {"id": "fw_VLMmAD8EOwop2", "type": "firewalls", "attributes": {"name": "my-firewall", "rules": [{"from": "ANY", "to": "ANY", "port": "22", "protocol": "TCP"}, {"from": "192.168.42.73", "to": "192.168.43.51", "port": "80", "protocol": "TCP"}, {"from": "192.168.1.16", "to": "192.168.1.30", "port": "80", "protocol": "TCP"}, {"from": "192.168.1.10", "to": "192.168.1.20", "port": "3000-4000", "protocol": "UDP"}], "project": {"id": "proj_6A05EdQ1dvKYQ", "slug": "awesome-granite-chair", "name": "Awesome Granite Chair"}}}}
   list-firewalls:
     Success:
       parameters:
         query:
-          filter[project]: "lightweight-silk-table"
+          filter[project]: "incredible-bronze-car"
           page[size]: 20
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "fw_w5AEmq7XDBkWX", "type": "firewalls", "attributes": {"name": "Konopelski LLC", "rules": [{"from": "9.112.0.195", "to": "147.166.231.201", "port": "80", "protocol": "TCP"}], "project": {"id": "proj_z8Nkvdy1deLpx", "slug": "lightweight-silk-table", "name": "Lightweight Silk Table"}}}]}
+          application/vnd.api+json: {"data": [{"id": "fw_w5AEmq7XDBkWX", "type": "firewalls", "attributes": {"name": "Greenfelder-Brekke", "rules": [{"from": "92.95.228.250", "to": "43.35.45.108", "port": "80", "protocol": "TCP"}], "project": {"id": "proj_x1ZJrdx5qg4LV", "slug": "incredible-bronze-car", "name": "Incredible Bronze Car"}}}]}
   get-firewall:
     Success:
       parameters:
@@ -1100,7 +1122,7 @@ examples:
           firewall_id: "fw_xkjQwdENqYNVP"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "fw_xkjQwdENqYNVP", "type": "firewalls", "attributes": {"name": "Rowe-Schoen", "rules": [{"from": "34.164.87.188", "to": "164.218.21.241", "port": "80", "protocol": "TCP"}, {"from": "65.66.162.180", "to": "57.10.217.207", "port": "80", "protocol": "TCP"}], "project": {"id": "proj_GlxWpD6KOm6rk", "slug": "gorgeous-silk-car", "name": "Gorgeous Silk Car"}}}}
+          application/vnd.api+json: {"data": {"id": "fw_xkjQwdENqYNVP", "type": "firewalls", "attributes": {"name": "Batz Inc", "rules": [{"from": "217.160.173.14", "to": "99.87.69.88", "port": "80", "protocol": "TCP"}, {"from": "79.209.217.107", "to": "224.13.187.5", "port": "80", "protocol": "TCP"}], "project": {"id": "proj_Av9BVDavORm1W", "slug": "heavy-duty-paper-hat", "name": "Heavy Duty Paper Hat"}}}}
     Not Found:
       parameters:
         path:
@@ -1128,7 +1150,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "firewalls", "attributes": {"name": "new-name", "rules": [{"from": "192.168.42.72", "to": "192.168.43.51", "protocol": "TCP", "port": "80"}]}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "fw_6A05EdQ1dvKYQ", "type": "firewalls", "attributes": {"name": "new-name", "rules": [{"from": "192.168.42.72", "to": "192.168.43.51", "port": "80", "protocol": "TCP"}], "project": {"id": "proj_pwg3ZDr3O5QlP", "slug": "intelligent-bronze-keyboard", "name": "Intelligent Bronze Keyboard"}}}}
+          application/vnd.api+json: {"data": {"id": "fw_6A05EdQ1dvKYQ", "type": "firewalls", "attributes": {"name": "new-name", "rules": [{"from": "192.168.42.72", "to": "192.168.43.51", "port": "80", "protocol": "TCP"}], "project": {"id": "proj_Ee8pKq05DWAob", "slug": "small-wooden-chair", "name": "Small Wooden Chair"}}}}
     Not Found:
       parameters:
         path:
@@ -1156,6 +1178,10 @@ examples:
       responses:
         "404":
           application/vnd.api+json: {}
+    speakeasy-default-delete-firewall:
+      parameters:
+        path:
+          firewall_id: "<id>"
   get-firewall-assignments:
     Not Found:
       parameters:
@@ -1177,6 +1203,16 @@ examples:
       responses:
         "200":
           application/vnd.api+json: {"data": [{"id": "fwasg_zGr47qlMDAg0m", "type": "firewall_assignments", "attributes": {"server": {"id": "sv_m1R3zq2bqWxyn", "primary_ipv4": "220.199.249.211", "hostname": "Enormous Leather Car"}, "firewall_id": "fw_z8Nkvdy1deLpx"}}, {"id": "fwasg_w5AEmq7XDBkWX", "type": "firewall_assignments", "attributes": {"server": {"id": "sv_vGMy1DbgON50m", "primary_ipv4": "57.230.94.141", "hostname": "Small Marble Gloves"}, "firewall_id": "fw_z8Nkvdy1deLpx"}}]}
+    Success:
+      parameters:
+        path:
+          firewall_id: "fw_z8Nkvdy1deLpx"
+        query:
+          page[size]: 20
+          page[number]: 1
+      responses:
+        "200":
+          application/vnd.api+json: {"data": [{"id": "fwasg_zGr47qlMDAg0m", "type": "firewall_assignments", "attributes": {"server": {"id": "sv_2695BdKrOevVo", "primary_ipv4": "218.124.123.71", "hostname": "Incredible Silk Watch"}, "firewall_id": "fw_z8Nkvdy1deLpx"}}, {"id": "fwasg_w5AEmq7XDBkWX", "type": "firewall_assignments", "attributes": {"server": {"id": "sv_byQrJdNJd30gv", "primary_ipv4": "84.9.159.24", "hostname": "Durable Cotton Knife"}, "firewall_id": "fw_z8Nkvdy1deLpx"}}]}
   delete-firewall-assignment:
     Forbidden:
       parameters:
@@ -1194,14 +1230,19 @@ examples:
       responses:
         "403":
           application/vnd.api+json: {}
+    speakeasy-default-delete-firewall-assignment:
+      parameters:
+        path:
+          firewall_id: "<id>"
+          assignment_id: "<id>"
   create-firewall-assignment:
     Created:
       parameters:
         path:
           firewall_id: "fw_Av9BVDavORm1W"
       requestBody:
-        application/json: {"data": {"type": "firewall_assignments", "attributes": {"server_id": "sv_2695BdKrOevVo"}}}
-        application/vnd.api+json: {"data": {"type": "firewall_assignments", "attributes": {"server_id": "sv_2695BdKrOevVo"}}}
+        application/json: {"data": {"type": "firewall_assignments", "attributes": {"server_id": "sv_lpbV0DgRq4AWz"}}}
+        application/vnd.api+json: {"data": {"type": "firewall_assignments", "attributes": {"server_id": "sv_lpbV0DgRq4AWz"}}}
       responses:
         "201":
           application/vnd.api+json: {}
@@ -1306,6 +1347,14 @@ examples:
       responses:
         "200":
           application/vnd.api+json: {"data": [{"id": "ip_3YjJOLMydvZ87", "attributes": {"address": "75.22.178.132", "cidr": "<value>", "family": "IPv4", "gateway": "<value>", "netmask": "255.255.255.255", "type": "Public", "public": true, "management": true, "project": {"id": "proj_A05EdQL1OvKYQ", "name": "Small Steel Bag"}, "region": {}, "available": true, "assignment": {}}}, {"id": "ip_j0L6WO1QOPlXy", "attributes": {"address": "59.182.240.81", "cidr": "<value>", "family": "IPv4", "gateway": "<value>", "netmask": "255.255.255.255", "type": "Public", "public": true, "management": true, "project": {"id": "proj_A05EdQL1OvKYQ", "name": "Small Steel Bag"}, "region": {}, "available": true, "assignment": {}}}]}
+    Success:
+      parameters:
+        query:
+          page[size]: 20
+          page[number]: 1
+      responses:
+        "200":
+          application/vnd.api+json: {"data": [{"id": "ip_wg3ZDr23D5QlP", "attributes": {"address": "112.74.133.123", "cidr": "<value>", "family": "IPv4", "gateway": "<value>", "netmask": "255.255.255.255", "type": "Public", "public": true, "management": true, "project": {"id": "proj_RMLydp20DQKr1", "name": "Intelligent Silk Computer"}, "region": {}, "available": true, "assignment": {}}}, {"id": "ip_k0Ryqvz1qW36X", "attributes": {"address": "24.156.198.223", "cidr": "<value>", "family": "IPv4", "gateway": "<value>", "netmask": "255.255.255.255", "type": "Public", "public": true, "management": true, "project": {"id": "proj_RMLydp20DQKr1", "name": "Intelligent Silk Computer"}, "region": {}, "available": true, "assignment": {}}}]}
   get-ip:
     when basic GET:
       parameters:
@@ -1321,11 +1370,18 @@ examples:
       responses:
         "404":
           application/vnd.api+json: {"errors": [{"code": "not_found", "status": "404", "title": "Error", "detail": "Specified Record Not Found", "meta": {}}]}
+    speakeasy-default-get-ip:
+      parameters:
+        path:
+          ip_id: "<id>"
+      responses:
+        "200":
+          application/vnd.api+json: {}
   get-team:
     Success:
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "team_xBrak8MpYMt0VWKr12AkIRMWGe8", "attributes": {"name": "516 Team", "slug": "516-team", "address": "261 Alvera Parkways, North Trey, NH 22001-5055", "currency": "9ke", "created_at": "2024-08-08T00:00:00+00:00", "updated_at": "2024-07-15T00:00:00+00:00", "enforce_mfa": false, "users": [{"id": "user_xp37RKw3yNhB2QQjMwlZHPa7lRR", "first_name": "Lana", "last_name": "Sipes", "email": "charla.greenfelder@beahan.test", "created_at": "2024-12-16T00:00:00.000Z", "updated_at": "2024-07-15T00:00:00.000Z", "role": {"id": "role_0bBxJKBNBgTy1NZP0gWJHNnLZEY", "name": "Boyd", "created_at": "2024-08-10T00:00:00.000Z", "updated_at": "2025-05-11T00:00:00.000Z"}}], "projects": [], "owner": {"id": "user_xp37RKw3yNhB2QQjMwlZHPa7lRR", "first_name": "Lana", "last_name": "Sipes", "email": "charla.greenfelder@beahan.test", "created_at": "2024-12-16T00:00:00.000Z", "updated_at": "2024-07-15T00:00:00.000Z", "role": {"id": "role_0bBxJKBNBgTy1NZP0gWJHNnLZEY", "name": "Boyd", "created_at": "2024-08-10T00:00:00.000Z", "updated_at": "2025-05-11T00:00:00.000Z"}}, "billing": {}, "feature_flags": ["feature_flag_1", "feature_flag_2"]}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "team_8L90z0WyLyIK0KyEknmnijV38rk", "attributes": {"name": "583 Team", "slug": "583-team", "address": "654 Selene Pines, North Noble, HI 65384", "currency": "trb", "created_at": "2025-02-21T00:00:00+00:00", "updated_at": "2025-03-07T00:00:00+00:00", "enforce_mfa": false, "users": [{"id": "user_LwnmBv6vmeILPZEj4poJuEXnegj", "first_name": "Claretta", "last_name": "Kuhic", "email": "king.morissette@nitzsche.example", "created_at": "2025-05-04T00:00:00.000Z", "updated_at": "2024-09-09T00:00:00.000Z", "role": {"id": "role_735kl6xYEVcl5Nzn0weZuoxPrmL", "name": "Neville", "created_at": "2024-10-29T00:00:00.000Z", "updated_at": "2025-12-27T00:00:00.000Z"}}], "projects": [], "owner": {"id": "user_LwnmBv6vmeILPZEj4poJuEXnegj", "first_name": "Claretta", "last_name": "Kuhic", "email": "king.morissette@nitzsche.example", "created_at": "2025-05-04T00:00:00.000Z", "updated_at": "2024-09-09T00:00:00.000Z", "role": {"id": "role_735kl6xYEVcl5Nzn0weZuoxPrmL", "name": "Neville", "created_at": "2024-10-29T00:00:00.000Z", "updated_at": "2025-12-27T00:00:00.000Z"}}, "billing": {}, "feature_flags": ["feature_flag_1", "feature_flag_2"]}}], "meta": {}}
   post-team:
     Created:
       requestBody:
@@ -1333,7 +1389,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "teams", "attributes": {"name": "Name", "currency": "USD", "address": "Address"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "team_K8RmozMANEhjyawK128giavN7RA", "attributes": {"name": "Name", "slug": "name", "address": "Address", "currency": "USD", "enforce_mfa": false}}}
+          application/vnd.api+json: {"data": {"id": "team_zp6AZ91ZbLt8A7x47b6oI1510LV0", "attributes": {"name": "Name", "slug": "name", "address": "Address", "currency": "USD", "enforce_mfa": false}}}
     Unprocessable Entity:
       requestBody:
         application/json: {"data": {"type": "teams", "attributes": {"name": "", "currency": "BRL", "address": ""}}}
@@ -1354,13 +1410,13 @@ examples:
     Success:
       parameters:
         path:
-          team_id: "7ee1a0d0-899d-42eb-99c9-4fb69ffab8f8"
+          team_id: "team_VNoL4jAy7YTbvVV0005jI6vQylGZ"
       requestBody:
-        application/json: {"data": {"id": "team_ZGPB1lbQ01hmeJZX92RyFBgxPBl", "type": "teams", "attributes": {"address": "Address", "name": "Name", "currency": "USD"}}}
-        application/vnd.api+json: {"data": {"id": "team_ZGPB1lbQ01hmeJZX92RyFBgxPBl", "type": "teams", "attributes": {"address": "Address", "name": "Name", "currency": "USD"}}}
+        application/json: {"data": {"id": "team_z3Qna7E2QRc3455EQ34JfAWNQ42", "type": "teams", "attributes": {"address": "Address", "name": "Name", "currency": "USD"}}}
+        application/vnd.api+json: {"data": {"id": "team_z3Qna7E2QRc3455EQ34JfAWNQ42", "type": "teams", "attributes": {"address": "Address", "name": "Name", "currency": "USD"}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "team_ZGPB1lbQ01hmeJZX92RyFBgxPBl", "attributes": {"name": "McClure, Ledner and Lehner", "slug": "mcclure-ledner-and-lehner", "address": "987 Beatty Branch", "currency": "LRD", "enforce_mfa": false}}}
+          application/vnd.api+json: {"data": {"id": "team_z3Qna7E2QRc3455EQ34JfAWNQ42", "attributes": {"name": "Frami-Grady", "slug": "frami-grady", "address": "646 Vaughn Throughway", "currency": "TWD", "enforce_mfa": false}}}
     Forbidden:
       parameters:
         path:
@@ -1395,11 +1451,11 @@ examples:
   post-team-members:
     Created:
       requestBody:
-        application/json: {"data": {"type": "memberships", "attributes": {"first_name": "Napoleon", "last_name": "Rogahn", "email": "teddy_champlin@glover-boyer.test", "role": "collaborator"}}}
-        application/vnd.api+json: {"data": {"type": "memberships", "attributes": {"first_name": "Napoleon", "last_name": "Rogahn", "email": "teddy_champlin@glover-boyer.test", "role": "collaborator"}}}
+        application/json: {"data": {"type": "memberships", "attributes": {"first_name": "Bernard", "last_name": "Cremin", "email": "ernest@carter-lehner.example", "role": "collaborator"}}}
+        application/vnd.api+json: {"data": {"type": "memberships", "attributes": {"first_name": "Bernard", "last_name": "Cremin", "email": "ernest@carter-lehner.example", "role": "collaborator"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "user_pbV0Dgykd4AWz", "attributes": {"first_name": "Napoleon", "last_name": "Rogahn", "email": "teddy_champlin@glover-boyer.test", "role": "collaborator", "mfa_enabled": false, "created_at": "2025-04-28T18:39:49+00:00", "updated_at": "2025-04-28T18:39:49+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "user_pbV0Dgykd4AWz", "attributes": {"first_name": "Bernard", "last_name": "Cremin", "email": "ernest@carter-lehner.example", "role": "collaborator", "mfa_enabled": false, "created_at": "2025-07-16T18:36:32+00:00", "updated_at": "2025-07-16T18:36:32+00:00"}}}
     Unprocessable Entity:
       requestBody:
         application/json: {"data": {"type": "memberships", "attributes": {"first_name": "Gabriel", "last_name": "Roob", "email": "Jack.Schamberger-Kerluke@gmail.com", "role": "collaborator"}}}
@@ -1420,7 +1476,7 @@ examples:
     Success:
       parameters:
         path:
-          user_id: "user_GMy1DbMLqN50m"
+          user_id: "user_0MoLqJEYd57pY"
       responses:
         "404":
           application/vnd.api+json: {}
@@ -1446,20 +1502,20 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "os_mw49QDB5qagKb", "attributes": {"features": {}, "name": "centos_7_4_x64 20.19", "slug": "debian_12", "distro": "iPXE", "user": "Trinidad", "version": "20.19", "provisionable_on": ["g3.h100.medium-36", "c3.medium.x86-37"]}}]}
+          application/vnd.api+json: {"data": [{}]}
   get-plans:
     Success:
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "plan_w49QDB55qagKb", "type": "plans", "attributes": {"slug": "g3-h100-large-39", "features": [], "specs": {"cpu": {"type": "E-2276G", "clock": 3.8, "cores": 6, "count": 1}, "memory": {"total": "32"}, "drives": [{"count": 1, "size": "3.8TB", "type": "SSD"}], "nics": [{"count": 1, "type": "10 Gbps"}], "gpu": {"count": 4, "type": "NVIDIA H100"}}, "regions": [{"name": "Brazil", "deploys_instantly": [], "locations": {"available": ["SAO"], "in_stock": ["SAO"]}, "stock_level": "medium", "pricing": {"USD": {"hour": 10, "month": 50, "year": 100}, "BRL": {"hour": 53, "month": 108.5, "year": 205}}}]}}]}
+          application/vnd.api+json: {"data": [{"id": "plan_1Qkm7dXzD8nZV", "type": "plans", "attributes": {"slug": "g3-l40s-medium-31", "features": [], "specs": {"cpu": {"type": "E-2276G", "clock": 3.8, "cores": 6, "count": 1}, "memory": {"total": "32"}, "drives": [{"count": 1, "size": "3.8TB", "type": "SSD"}], "nics": [{"count": 1, "type": "10 Gbps"}], "gpu": {"count": 4, "type": "NVIDIA H100"}}, "regions": [{"name": "Brazil", "deploys_instantly": [], "locations": {"available": ["SAO"], "in_stock": ["SAO"]}, "stock_level": "medium", "pricing": {"USD": {"hour": 10, "month": 50, "year": 100}, "BRL": {"hour": 53, "month": 108.5, "year": 205}}}]}}]}
   get-plan:
     Success:
       parameters:
         path:
-          plan_id: "plan_W6Q2D9plqKLpr"
+          plan_id: "plan_m5xyZOnNOWM0l"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "plan_W6Q2D9plqKLpr", "type": "plans", "attributes": {"slug": "g3-a100-medium-40", "features": [], "specs": {"cpu": {"type": "E-2276G", "clock": 3.8, "cores": 6, "count": 1}, "memory": {"total": "32"}, "drives": [{"count": 1, "size": "3.8TB", "type": "SSD"}], "nics": [{"count": 1, "type": "10 Gbps"}], "gpu": {"count": 4, "type": "NVIDIA H100"}}, "regions": [{"name": "Brazil", "deploys_instantly": [], "locations": {"available": ["SAO"], "in_stock": ["SAO"]}, "stock_level": "medium", "pricing": {"USD": {"hour": 10, "month": 50, "year": 100}, "BRL": {"hour": 53, "month": 108.5, "year": 205}}}]}}}
+          application/vnd.api+json: {"data": {"id": "plan_m5xyZOnNOWM0l", "type": "plans", "attributes": {"slug": "g3-l40s-small-32", "features": [], "specs": {"cpu": {"type": "E-2276G", "clock": 3.8, "cores": 6, "count": 1}, "memory": {"total": "32"}, "drives": [{"count": 1, "size": "3.8TB", "type": "SSD"}], "nics": [{"count": 1, "type": "10 Gbps"}], "gpu": {"count": 4, "type": "NVIDIA H100"}}, "regions": [{"name": "Brazil", "deploys_instantly": [], "locations": {"available": ["SAO"], "in_stock": ["SAO"]}, "stock_level": "medium", "pricing": {"USD": {"hour": 10, "month": 50, "year": 100}, "BRL": {"hour": 53, "month": 108.5, "year": 205}}}]}}}
     Not found:
       parameters:
         path:
@@ -1477,12 +1533,12 @@ examples:
           API-Version: "2023-06-01"
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "argentina", "type": "bandwidth_plan", "attributes": {"region": "Argentina", "locations": ["ASH", "SAO"], "pricing": {"usd": {"monthly": 9000}, "brl": {"monthly": 2000}}}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "argentina", "type": "bandwidth_plan", "attributes": {"region": "Argentina", "locations": ["ASH", "SAO"], "pricing": {"usd": {"monthly": 8000}, "brl": {"monthly": 4000}}}}], "meta": {}}
   update-plans-bandwidth:
     Success:
       requestBody:
-        application/json: {"data": {"type": "bandwidth_packages", "attributes": {"project": "proj_VE1Wd3EKDXnZJ", "quantity": 5, "region_slug": "brazil"}}}
-        application/vnd.api+json: {"data": {"type": "bandwidth_packages", "attributes": {"project": "proj_VE1Wd3EKDXnZJ", "quantity": 5, "region_slug": "brazil"}}}
+        application/json: {"data": {"type": "bandwidth_packages", "attributes": {"project": "proj_z2A3DVZ3DnawP", "quantity": 5, "region_slug": "brazil"}}}
+        application/vnd.api+json: {"data": {"type": "bandwidth_packages", "attributes": {"project": "proj_z2A3DVZ3DnawP", "quantity": 5, "region_slug": "brazil"}}}
       responses:
         "200":
           application/vnd.api+json: {}
@@ -1497,12 +1553,12 @@ examples:
     Success:
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "plan_5AEmq71XOBkWX", "type": "storage_plans", "attributes": {"name": "Filesystem"}}]}
+          application/vnd.api+json: {"data": [{"id": "plan_MLGXPdWgdnNWk", "type": "storage_plans", "attributes": {"name": "Filesystem"}}]}
   get-vm-plans:
     Success:
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "plan_kjQwdEGNDYNVP", "type": "virtual_machine_plans", "attributes": {"name": "vm.l40s.tiny", "specs": {"memory": 16, "vcpus": 14, "disk": {"type": "local", "size": {"amount": 150, "unit": "gib"}}}, "regions": [{"name": "United States", "available": ["DAL"], "pricing": {"USD": {"hour": 1, "month": 720, "year": 8640}, "BRL": {"hour": 1, "month": 720, "year": 8640}}}], "stock_level": "low"}}]}
+          application/vnd.api+json: {"data": [{"id": "plan_j0L6WO1QOPlXy", "type": "virtual_machine_plans", "attributes": {"name": "vm.l40s.tiny", "specs": {"memory": 16, "vcpus": 14, "disk": {"type": "local", "size": {"amount": 150, "unit": "gib"}}}, "regions": [{"name": "United States", "available": ["DAL"], "pricing": {"USD": {"hour": 1, "month": 720, "year": 8640}, "BRL": {"hour": 1, "month": 720, "year": 8640}}}], "stock_level": "low"}}]}
   get-projects:
     Filtered by tag:
       parameters:
@@ -1527,9 +1583,10 @@ examples:
         query:
           page[size]: 20
           page[number]: 1
+          filter[tags]: "tag_GGXAB6PNQbU285ZYLP3wt3ZQyXW,tag_xR2B8J4W81TBL6YRGPJaCQRkVyn"
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "proj_GnzRD5xAqM5yw", "attributes": {"name": "Mediocre Bronze Keyboard", "slug": "mediocre-bronze-keyboard", "description": "Intelligent Rubber Bottle", "billing_type": "Hourly", "billing_method": "Normal", "cost": "450.49", "environment": "Production", "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}, "billing": {}, "team": {"id": "team_LVjJE3X5m8SL75yGmoy9sYzGYJK", "name": "145 Team", "slug": "145-team", "description": "145 Team", "address": "3483 Grant Drives, Schaeferborough, AL 35045", "currency": {}, "status": "verified", "feature_flags": []}, "created_at": "2025-04-28T18:39:52+00:00", "updated_at": "2025-04-28T18:39:52+00:00"}}]}
+          application/vnd.api+json: {"data": [{"id": "proj_lxWpD6xKdm6rk", "attributes": {"name": "Durable Steel Computer", "slug": "durable-steel-computer", "description": "Ergonomic Leather Table", "billing_type": "Hourly", "billing_method": "Normal", "cost": "450.49", "environment": "Production", "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}, "billing": {}, "team": {"id": "team_RrG7kyBxXrHAeYr47GJ4HpKLQQr", "name": "138 Team", "slug": "138-team", "description": "138 Team", "address": "3417 Thiel Well, Port Omar, OH 21371", "currency": {}, "status": "verified", "feature_flags": []}, "created_at": "2025-07-16T18:36:34+00:00", "updated_at": "2025-07-16T18:36:34+00:00"}}]}
   create-project:
     Success:
       requestBody:
@@ -1563,17 +1620,24 @@ examples:
           application/vnd.api+json: {}
         "400":
           application/vnd.api+json: {}
+    Created:
+      requestBody:
+        application/json: {"data": {"type": "projects", "attributes": {"name": "Kshlerin, Hand and Beer", "provisioning_type": "on_demand", "description": "Thick slices of French toast bread, brown sugar, half-and-half and vanilla, topped with powdered sugar. With two eggs served any style, and your choice of smoked bacon or smoked ham.", "environment": "Development"}}}
+        application/vnd.api+json: {"data": {"type": "projects", "attributes": {"name": "Kshlerin, Hand and Beer", "provisioning_type": "on_demand", "description": "Thick slices of French toast bread, brown sugar, half-and-half and vanilla, topped with powdered sugar. With two eggs served any style, and your choice of smoked bacon or smoked ham.", "environment": "Development"}}}
+      responses:
+        "201":
+          application/vnd.api+json: {"data": {"id": "proj_lkg1De8vqvZE5", "attributes": {"name": "Kshlerin, Hand and Beer", "slug": "kshlerin-hand-and-beer", "description": "Thick slices of French toast bread, brown sugar, half-and-half and vanilla, topped with powdered sugar. With two eggs served any style, and your choice of smoked bacon or smoked ham.", "billing_type": "Normal", "billing_method": "Normal", "environment": "Development", "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}, "billing": {"subscription_id": "sub_xb48v35nx0aybq", "type": "Normal", "method": "Normal"}, "team": {"id": "team_GJ5KavgA8es2BK0keG7xu4N9ZlY", "name": "141 Team", "slug": "141-team", "description": "141 Team", "address": "Apt. 307 36420 Randell Hollow, Dungborough, GA 20702", "currency": {}, "status": "verified", "feature_flags": []}, "created_at": "2025-07-16T18:36:34+00:00", "updated_at": "2025-07-16T18:36:34+00:00"}}}
   update-project:
     Success:
       parameters:
         path:
-          project_id: "proj_LGXPdWpgqnNWk"
+          project_id: "proj_WVQJDMMwDRbyE"
       requestBody:
-        application/json: {"data": {"id": "proj_LGXPdWpgqnNWk", "type": "projects", "attributes": {"name": "A brand new name for the virtual network", "description": "A brand new description for the virtual network", "bandwidth_alert": false, "tags": ["tag_mELJ1g6Z31SG0xzYx9e5fV91K7W", "tag_wR5nAvxpnJiRn8AppN0JilvWY0y"]}}}
-        application/vnd.api+json: {"data": {"id": "proj_LGXPdWpgqnNWk", "type": "projects", "attributes": {"name": "A brand new name for the virtual network", "description": "A brand new description for the virtual network", "bandwidth_alert": false, "tags": ["tag_mELJ1g6Z31SG0xzYx9e5fV91K7W", "tag_wR5nAvxpnJiRn8AppN0JilvWY0y"]}}}
+        application/json: {"data": {"id": "proj_WVQJDMMwDRbyE", "type": "projects", "attributes": {"name": "A brand new name for the virtual network", "description": "A brand new description for the virtual network", "bandwidth_alert": false, "tags": ["tag_xNrKWa1ZaMtBKwaZnYaMTBE2XQb", "tag_Ge9E4oboPgILP5e9aKNAUB4Gaw5"]}}}
+        application/vnd.api+json: {"data": {"id": "proj_WVQJDMMwDRbyE", "type": "projects", "attributes": {"name": "A brand new name for the virtual network", "description": "A brand new description for the virtual network", "bandwidth_alert": false, "tags": ["tag_xNrKWa1ZaMtBKwaZnYaMTBE2XQb", "tag_Ge9E4oboPgILP5e9aKNAUB4Gaw5"]}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "proj_LGXPdWpgqnNWk", "attributes": {"name": "Moore-Durgan", "slug": "moore-durgan", "description": "Sequi occaecati eaque exercitationem.", "billing_type": "Normal", "billing_method": "Normal", "environment": "Production", "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}, "billing": {"subscription_id": "sub_4693tlea5hqvvz", "type": "Normal", "method": "Normal"}, "team": {"id": "team_Jal5R6NoAQfL5olK7BxZH2mj3GXL", "name": "170 Team", "slug": "170-team", "description": "170 Team", "address": "Suite 619 98402 Dickinson Plains, Port Darinland, SC 69390-9931", "currency": {}, "status": "verified", "feature_flags": []}, "created_at": "2025-04-28T18:39:54+00:00", "updated_at": "2025-04-28T18:39:54+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "proj_WVQJDMMwDRbyE", "attributes": {"name": "Moore-Durgan", "slug": "moore-durgan", "description": "Sequi occaecati eaque exercitationem.", "billing_type": "Normal", "billing_method": "Normal", "environment": "Production", "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}, "billing": {"subscription_id": "sub_gn4j87r9d8dt8s", "type": "Normal", "method": "Normal"}, "team": {"id": "team_eP8xa4KJl8t3GmjwLw4JfEKMXyr5", "name": "160 Team", "slug": "160-team", "description": "160 Team", "address": "68937 Leopoldo Greens, New Columbusmouth, NC 91874", "currency": {}, "status": "verified", "feature_flags": []}, "created_at": "2025-07-16T18:36:35+00:00", "updated_at": "2025-07-16T18:36:35+00:00"}}}
     Forbidden:
       parameters:
         path:
@@ -1640,17 +1704,21 @@ examples:
       responses:
         "403":
           application/vnd.api+json: {}
+    speakeasy-default-delete-project:
+      parameters:
+        path:
+          project_id: "<id>"
   post-project-ssh-key:
     Created:
       parameters:
         path:
-          project_id: "proj_wg3ZDrMyq5QlP"
+          project_id: "proj_RMLydp70OQKr1"
       requestBody:
         application/json: {"data": {"type": "ssh_keys", "attributes": {"name": "SSH Key", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx"}}}
         application/vnd.api+json: {"data": {"type": "ssh_keys", "attributes": {"name": "SSH Key", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "ssh_3YjJOLMydvZ87", "type": "ssh_keys", "attributes": {"name": "SSH Key", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx", "fingerprint": "0a:00:34:53:51:0e:a5:4e:06:2c:d7:16:88:96:82:f3", "user": {"id": "user_v79Zry4vNnc5Na9jWkrGHo4XPep", "first_name": "Lori", "last_name": "Hayes", "email": "malena@terry.test", "created_at": "2024-05-04T00:00:00.000Z", "updated_at": "2024-08-15T00:00:00.000Z", "role": {"id": "role_GElok2EWWAi2mpbAge6jCl4yjyY", "name": "collaborator", "created_at": "2024-08-01T00:00:00.000Z", "updated_at": "2025-09-27T00:00:00.000Z"}}, "created_at": "2025-04-28T18:40:25+00:00", "updated_at": "2025-04-28T18:40:25+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ssh_w5AEmq7XDBkWX", "type": "ssh_keys", "attributes": {"name": "SSH Key", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx", "fingerprint": "0a:00:34:53:51:0e:a5:4e:06:2c:d7:16:88:96:82:f3", "user": {"id": "user_VQNWk4maWktbnyBZr13YF6v7YvPo", "first_name": "Dino", "last_name": "Huels", "email": "jaye@fahey.test", "created_at": "2024-08-23T00:00:00.000Z", "updated_at": "2024-07-24T00:00:00.000Z", "role": {"id": "role_J6VmkZN3A5sLkXJeNrvJfykwnmW", "name": "owner", "created_at": "2025-04-29T00:00:00.000Z", "updated_at": "2026-06-29T00:00:00.000Z"}}, "created_at": "2025-07-16T18:36:37+00:00", "updated_at": "2025-07-16T18:36:37+00:00"}}}
     Bad Request:
       parameters:
         path:
@@ -1679,15 +1747,15 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "loc_lxWpD6XLdm6rk", "attributes": {"slug": "rempel-and-sons", "name": "Rempel and Sons", "country": {"slug": "hudson,-haley-and-mueller", "name": "Hudson, Haley and Mueller"}}}]}
+          application/vnd.api+json: {"data": [{"id": "loc_k0RyqvNvqW36X", "attributes": {"slug": "mraz,-pagac-and-murazik", "name": "Mraz, Pagac and Murazik", "country": {"slug": "wintheiser,-kreiger-and-parisian", "name": "Wintheiser, Kreiger and Parisian"}}}]}
   get-region:
     Success:
       parameters:
         path:
-          region_id: "reg_GnzRD5W1dM5yw"
+          region_id: "reg_GMy1DbYLqN50m"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "loc_KXgRdRxZDv9k5", "attributes": {"slug": "bergstrom-lebsack", "name": "Bergstrom-Lebsack", "country": {"slug": "koss-welch", "name": "Koss-Welch"}}}}
+          application/vnd.api+json: {"data": {"id": "loc_WVQJDMQlDRbyE", "attributes": {"slug": "macgyver-tremblay", "name": "MacGyver-Tremblay", "country": {"slug": "breitenberg,-kirlin-and-doyle", "name": "Breitenberg, Kirlin and Doyle"}}}}
     Not found:
       parameters:
         path:
@@ -1703,15 +1771,15 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "role_Z8rodmgQD1jLB", "type": "roles", "attributes": {"name": "collaborator"}}]}
+          application/vnd.api+json: {"data": [{"id": "role_0L6WO1vEdPlXy", "type": "roles", "attributes": {"name": "collaborator"}}]}
   get-role-id:
     Success:
       parameters:
         path:
-          role_id: "role_3YjJOLjbqvZ87"
+          role_id: "role_LMmAD8vldwop2"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "role_3YjJOLjbqvZ87", "type": "roles", "attributes": {"name": "owner"}}, "meta": {}}
+          application/vnd.api+json: {"data": {"id": "role_LMmAD8vldwop2", "type": "roles", "attributes": {"name": "billing"}}, "meta": {}}
     Not found:
       parameters:
         path:
@@ -1791,14 +1859,23 @@ examples:
       responses:
         "200":
           application/vnd.api+json: {"data": [{"id": "sv_695BdKjrOevVo", "type": "servers", "attributes": {"hostname": "Hostname", "status": "on", "ipmi_status": "Normal", "role": "Bare Metal", "locked": false, "primary_ipv4": "165.250.129.92", "created_at": "1707689088997", "scheduled_deletion_at": "<value>", "plan": {"id": "plan_A05EdQL1OvKYQ", "name": "g3.a100.small-45", "billing": "hourly", "slug": "g3-a100-small-45"}, "operating_system": {"name": "Ubuntu (18.04 x64 LTS)", "slug": "ubuntu_18_04_x64_lts", "version": "18.04 x64 LTS", "features": {"raid": true, "ssh_keys": true}, "distro": {"name": "Ubuntu", "slug": "ubuntu", "series": "bionic"}}, "region": {"city": "São Paulo", "country": "Singapore", "site": {"id": "loc_A05EdQL1OvKYQ", "name": "São Paulo", "slug": "SAO", "facility": "São Paulo", "rack_id": "rack_mw49QDB5qagKb"}}, "specs": {"cpu": "Xeon E-2186G CPU @ 3.80GHz (6 cores)", "disk": "500 GB SSD", "ram": "32 GB"}, "project": {"id": "proj_w49QDBaQqagKb", "name": "Mediocre Granite Car", "slug": "mediocre-granite-car", "description": "Heavy Duty Paper Bag", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {}, "stats": {"ip_addresses": 3, "prefixes": 0, "servers": 2, "vlans": 0}, "provisioning_type": "on_demand"}, "team": {"id": "team_Jajz5rxAp9CMLJ6LE9L5f2YWeygw", "name": "200 Team", "slug": "200-team", "description": "200 Team", "address": "Apt. 364 28069 Iva Stream, Hansenstad, DE 25739-1815", "currency": {}, "status": "verified", "feature_flags": []}, "primary_ipv6": "ba40:1577:7e43:d326:fb79:a9f2:c9cf:fa52", "interfaces": [{"name": "IPMI", "mac_address": "00:11:22:33:44:55", "description": "IPMI Interface"}, {"name": "PXE", "mac_address": "66:77:88:99:aa:bb", "description": "PXE Interface"}]}}, {"id": "sv_yQrJdN9JO30gv", "type": "servers", "attributes": {"hostname": "container", "status": "unknown", "ipmi_status": "Normal", "role": "Bare Metal", "locked": false, "primary_ipv4": "137.111.5.205", "created_at": "1722755428954", "scheduled_deletion_at": "<value>", "plan": {"id": "plan_A05EdQL1OvKYQ", "name": "g3.a100.small-45", "billing": "hourly", "slug": "g3-a100-small-45"}, "operating_system": {}, "region": {"city": "São Paulo", "country": "Singapore", "site": {"id": "loc_A05EdQL1OvKYQ", "name": "São Paulo", "slug": "SAO", "facility": "São Paulo", "rack_id": "rack_mw49QDB5qagKb"}}, "specs": {"cpu": "", "disk": "", "ram": ""}, "project": {"id": "proj_w49QDBaQqagKb", "name": "Mediocre Granite Car", "slug": "mediocre-granite-car", "description": "Heavy Duty Paper Bag", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {}, "stats": {"ip_addresses": 3, "prefixes": 0, "servers": 2, "vlans": 0}, "provisioning_type": "on_demand"}, "team": {"id": "team_Jajz5rxAp9CMLJ6LE9L5f2YWeygw", "name": "200 Team", "slug": "200-team", "description": "200 Team", "address": "Apt. 364 28069 Iva Stream, Hansenstad, DE 25739-1815", "currency": {}, "status": "verified", "feature_flags": []}, "primary_ipv6": "e2f1:5cac:dc3e:78eb:f781:86d0:33f8:c0b5", "interfaces": []}}], "meta": {}}
+    Success:
+      parameters:
+        query:
+          filter[tags]: "tag_Az0EY3zglei3jVBY1LroSWNyanye,tag_GXK6NGol1jF2xre0JrB0fK6wg0p"
+          page[size]: 20
+          page[number]: 1
+      responses:
+        "200":
+          application/vnd.api+json: {"data": [{"id": "sv_lxWpD6xKdm6rk", "type": "servers", "attributes": {"hostname": "Hostname", "status": "on", "ipmi_status": "Normal", "role": "Bare Metal", "locked": false, "primary_ipv4": "204.198.2.102", "primary_ipv6": "941c:f42a:460b:db1e:bde3:f7d4:c0cd:fd66", "created_at": "1720608931604", "scheduled_deletion_at": "<value>", "plan": {"id": "plan_g1mbDw8BOLv5B", "name": "g3.h100.large-38", "slug": "plan-slug", "billing": "hourly"}, "operating_system": {"name": "Ubuntu (18.04 x64 LTS)", "slug": "ubuntu_18_04_x64_lts", "version": "18.04 x64 LTS", "features": {"raid": true, "ssh_keys": true}, "distro": {"name": "Ubuntu", "slug": "ubuntu", "series": "bionic"}}, "region": {"city": "São Paulo", "country": "United States", "site": {"id": "loc_RMLydp20DQKr1", "name": "São Paulo", "slug": "SAO", "facility": "São Paulo", "rack_id": "rack_VLMmAD8EOwop2"}}, "specs": {"cpu": "Xeon E-2186G CPU @ 3.80GHz (6 cores)", "disk": "500 GB SSD", "ram": "32 GB", "nic": "", "gpu": "<value>"}, "interfaces": [{"name": "IPMI", "mac_address": "00:11:22:33:44:55", "description": "IPMI Interface", "role": "ipmi"}, {"name": "PXE", "mac_address": "66:77:88:99:aa:bb", "description": "PXE Interface", "role": "internal"}], "project": {"id": "proj_8NkvdyMKdeLpx", "name": "Incredible Bronze Bench", "slug": "incredible-bronze-bench", "description": "Practical Silk Gloves", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {}, "stats": {"ip_addresses": 8, "prefixes": 0, "servers": 3, "vlans": 0}}, "team": {"id": "team_JrVbpk7aNltMLVVPwmWkfyZb5Q1", "name": "254 Team", "slug": "254-team", "description": "254 Team", "address": "95005 Krajcik Trace, Rennerview, DE 88944", "currency": {}, "status": "verified", "feature_flags": []}, "label": "474495NODEMC"}}], "meta": {}}
   create-server:
     Created:
       requestBody:
-        application/json: {"data": {"type": "servers", "attributes": {"project": "proj_W6Q2D93GdKLpr", "plan": "c2-small-x86", "site": "SAO", "operating_system": "ubuntu_22_04_x64_lts", "hostname": "BRC1"}}}
-        application/vnd.api+json: {"data": {"type": "servers", "attributes": {"project": "proj_W6Q2D93GdKLpr", "plan": "c2-small-x86", "site": "SAO", "operating_system": "ubuntu_22_04_x64_lts", "hostname": "BRC1"}}}
+        application/json: {"data": {"type": "servers", "attributes": {"project": "proj_A05EdQ50dvKYQ", "plan": "c2-small-x86", "site": "ASH", "operating_system": "ubuntu_22_04_x64_lts", "hostname": "BRC1"}}}
+        application/vnd.api+json: {"data": {"type": "servers", "attributes": {"project": "proj_A05EdQ50dvKYQ", "plan": "c2-small-x86", "site": "ASH", "operating_system": "ubuntu_22_04_x64_lts", "hostname": "BRC1"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "sv_0MoLqJNgq57pY", "type": "servers", "attributes": {"hostname": "BRC1", "status": "off", "role": "Bare Metal", "primary_ipv4": "31.206.45.74", "plan": {"id": "plan_LA73qk4wDaJ2o", "name": "c2.small.x86", "billing": "hourly", "slug": "c2-small-x86"}, "specs": {"cpu": "Xeon E-2186G CPU @ 3.80GHz (6 cores)", "disk": "500 GB SSD", "ram": "32 GB"}, "primary_ipv6": "60df:68e7:bb76:6750:10c6:79bd:caa9:dec1", "interfaces": [{"name": "IPMI", "mac_address": "00:11:22:33:44:55", "description": "IPMI Interface"}, {"name": "PXE", "mac_address": "66:77:88:99:aa:bb", "description": "PXE Interface"}]}}, "meta": {}}
+          application/vnd.api+json: {"data": {"id": "sv_KXgRdRyoOv9k5", "type": "servers", "attributes": {"hostname": "BRC1", "status": "off", "role": "Bare Metal", "primary_ipv4": "29.227.250.123", "primary_ipv6": "f5:1442:770b:d762:7b55:1583:8420:630b", "plan": {"id": "plan_VE1Wd3aXDXnZJ", "name": "c2.small.x86", "slug": "c2-small-x86", "billing": "hourly"}, "specs": {"cpu": "Xeon E-2186G CPU @ 3.80GHz (6 cores)", "disk": "500 GB SSD", "ram": "32 GB", "nic": ""}, "interfaces": [{"name": "IPMI", "mac_address": "00:11:22:33:44:55", "description": "IPMI Interface", "role": "ipmi"}, {"name": "PXE", "mac_address": "66:77:88:99:aa:bb", "description": "PXE Interface", "role": "internal"}], "label": "868155NODEVO"}}, "meta": {}}
     Unprocessable Entity:
       requestBody:
         application/json: {"data": {"type": "servers", "attributes": {"project": "proj_RMLydp9XqQKr1", "plan": "c2-small-x86", "site": "SAO", "operating_system": "ubuntu_22_04_x64_lts", "hostname": "BRC1", "ssh_keys": ["ssh_93YjJOLydvZ87"]}}}
@@ -1828,10 +1905,10 @@ examples:
     Success:
       parameters:
         path:
-          server_id: "sv_aNmodjGeqbE8W"
+          server_id: "sv_Gr47qleMDAg0m"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "sv_aNmodjGeqbE8W", "type": "servers", "attributes": {"hostname": "Hostname", "status": "on", "ipmi_status": "Normal", "role": "Bare Metal", "locked": false, "primary_ipv4": "105.69.139.19", "created_at": "1707555929429", "scheduled_deletion_at": "<value>", "plan": {"id": "plan_pbV0Dg1Rd4AWz", "name": "c2.large.arm", "billing": "hourly", "slug": "c2-large-arm"}, "operating_system": {"name": "Ubuntu (18.04 x64 LTS)", "slug": "ubuntu_18_04_x64_lts", "version": "18.04 x64 LTS", "features": {"raid": true, "ssh_keys": true}, "distro": {"name": "Ubuntu", "slug": "ubuntu", "series": "bionic"}}, "region": {"city": "São Paulo", "country": "Singapore", "site": {"id": "loc_pbV0Dg1Rd4AWz", "name": "São Paulo", "slug": "SAO", "facility": "São Paulo", "rack_id": "rack_6VE1Wd37dXnZJ"}}, "specs": {"cpu": "", "disk": "", "ram": ""}, "project": {"id": "proj_059EqYE2qQj8p", "name": "Mediocre Cotton Bottle", "slug": "mediocre-cotton-bottle", "description": "Durable Silk Knife", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {}, "stats": {"ip_addresses": 1, "prefixes": 0, "servers": 1, "vlans": 0}, "provisioning_type": "on_demand"}, "team": {"id": "team_RJYom7lGgrFAQvKmpN4EHRNLM6lA", "name": "219 Team", "slug": "219-team", "description": "219 Team", "address": "2252 Carisa Hollow, South Gregory, KS 84028-0702", "currency": {}, "status": "verified", "feature_flags": []}, "primary_ipv6": "5979:7dfb:4ac5:b988:2724:1e1:4272:cf46", "interfaces": [{"name": "IPMI", "mac_address": "00:11:22:33:44:55", "description": "IPMI Interface"}, {"name": "PXE", "mac_address": "66:77:88:99:aa:bb", "description": "PXE Interface"}]}}, "meta": {}}
+          application/vnd.api+json: {"data": {"id": "sv_Gr47qleMDAg0m", "type": "servers", "attributes": {"hostname": "Hostname", "status": "on", "ipmi_status": "Normal", "role": "Bare Metal", "locked": false, "primary_ipv4": "171.105.213.73", "primary_ipv6": "539e:7347:6e9a:c432:bb5a:87b4:2ce1:4566", "created_at": "1707555929429", "scheduled_deletion_at": "<value>", "plan": {"id": "plan_aNmodj4eDbE8W", "name": "c2.large.arm", "slug": "c2-large-arm", "billing": "hourly"}, "operating_system": {"name": "Ubuntu (18.04 x64 LTS)", "slug": "ubuntu_18_04_x64_lts", "version": "18.04 x64 LTS", "features": {"raid": true, "ssh_keys": true}, "distro": {"name": "Ubuntu", "slug": "ubuntu", "series": "bionic"}}, "region": {"city": "São Paulo", "country": "Mexico", "site": {"id": "loc_A05EdQL1OvKYQ", "name": "São Paulo", "slug": "SAO", "facility": "São Paulo", "rack_id": "rack_6VE1Wd37dXnZJ"}}, "specs": {"cpu": "", "disk": "", "ram": "", "nic": "", "gpu": "<value>"}, "interfaces": [{"name": "IPMI", "mac_address": "00:11:22:33:44:55", "description": "IPMI Interface", "role": "ipmi"}, {"name": "PXE", "mac_address": "66:77:88:99:aa:bb", "description": "PXE Interface", "role": "internal"}], "project": {"id": "proj_KXgRdRyoOv9k5", "name": "Rustic Silk Knife", "slug": "rustic-silk-knife", "description": "Heavy Duty Concrete Keyboard", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {}, "stats": {"ip_addresses": 2, "prefixes": 0, "servers": 1, "vlans": 0}}, "team": {"id": "team_8mKNxlmL2McYo7Jz87KlCXynmenj", "name": "270 Team", "slug": "270-team", "description": "270 Team", "address": "Apt. 279 839 Boehm Street, South Randall, OH 69160", "currency": {}, "status": "verified", "feature_flags": []}, "label": "203126NODEEM"}}, "meta": {}}
   update-server:
     Unpermitted parameter:
       parameters:
@@ -1894,15 +1971,17 @@ examples:
     Success:
       parameters:
         path:
-          server_id: "sv_RMLydp7XOQKr1"
+          server_id: "sv_aNmodjGyqbE8W"
       requestBody:
-        application/json: {"id": "sv_81EVOtR1N4J2Z", "data": {"id": "sv_RMLydp7XOQKr1", "type": "servers", "attributes": {"hostname": "new-hostname", "billing": "monthly", "tags": ["tag_Lno7Rp7GX2sBvLa4BxL8h4LPezw"]}}}
-        application/vnd.api+json: {"id": "sv_81EVOtR1N4J2Z", "data": {"id": "sv_RMLydp7XOQKr1", "type": "servers", "attributes": {"hostname": "new-hostname", "billing": "monthly", "tags": ["tag_Lno7Rp7GX2sBvLa4BxL8h4LPezw"]}}}
+        application/json: {"data": {"id": "sv_aNmodjGyqbE8W", "type": "servers", "attributes": {"hostname": "new-hostname", "billing": "monthly", "project": "proj_aNmodjoyqbE8W"}}}
+        application/vnd.api+json: {"data": {"id": "sv_aNmodjGyqbE8W", "type": "servers", "attributes": {"hostname": "new-hostname", "billing": "monthly", "project": "proj_aNmodjoyqbE8W"}}}
       responses:
         "400":
           application/vnd.api+json: {}
         "402":
           application/vnd.api+json: {}
+        "200":
+          application/vnd.api+json: {"data": {"id": "sv_aNmodjGyqbE8W", "type": "servers", "attributes": {"hostname": "Enormous Copper Hat", "status": "unknown", "ipmi_status": "Normal", "role": "Bare Metal", "locked": false, "primary_ipv4": "130.50.220.233", "primary_ipv6": "cb26:be3e:ec79:5115:c6d5:d41b:b4f4:9593", "created_at": "1729772597440", "scheduled_deletion_at": "<value>", "plan": {"id": "plan_k0Ryqvz1qW36X", "name": "c2.large.arm", "slug": "c2-large-arm", "billing": "hourly"}, "operating_system": {}, "region": {"city": "Frankfurt", "country": "Germany", "site": {"id": "loc_w49QDBa5qagKb", "name": "Frankfurt", "slug": "FRA", "facility": "Frankfurt", "rack_id": "rack_byQrJdNJd30gv"}}, "specs": {"cpu": "", "disk": "", "ram": "", "nic": "", "gpu": "<value>"}, "interfaces": [], "project": {"id": "proj_aNmodjoyqbE8W", "name": "Practical Plastic Lamp", "slug": "practical-plastic-lamp", "description": "Ergonomic Leather Hat", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 1, "vlans": 0}}, "team": {"id": "team_8yZmmmBZ5kuKeepJEE5JFaykBrr", "name": "310 Team", "slug": "310-team", "description": "310 Team", "address": "Apt. 492 6356 Hyatt Mountains, Skilesville, TN 12908-1951", "currency": {}, "status": "verified", "feature_flags": []}, "label": "318187NODEHH"}}, "meta": {}}
     Unprocessable Entity:
       parameters:
         path:
@@ -1963,25 +2042,29 @@ examples:
       responses:
         "403":
           application/vnd.api+json: {}
+    speakeasy-default-destroy-server:
+      parameters:
+        path:
+          server_id: "<id>"
   get-server-deploy-config:
     Success:
       parameters:
         path:
-          server_id: "sv_pRMLydp0dQKr1"
+          server_id: "sv_VLMmAD8EOwop2"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "sv_pRMLydp0dQKr1", "attributes": {"operating_system": "debian_11", "hostname": "Tempsoft", "raid": "raid-1", "ssh_keys": ["ssh_pRMLydp0dQKr1"], "partitions": [{"path": "/", "size_in_gb": 300, "filesystem_type": "ext4"}]}}}
+          application/vnd.api+json: {"data": {"id": "sv_VLMmAD8EOwop2", "attributes": {"operating_system": "rhel8", "hostname": "Solarbreeze", "raid": "raid-1", "ssh_keys": ["ssh_6059EqYkOQj8p"], "partitions": [{"path": "/", "size_in_gb": 300, "filesystem_type": "ext4"}]}}}
   update-server-deploy-config:
     Success:
       parameters:
         path:
-          server_id: "sv_g1mbDweZdLv5B"
+          server_id: "sv_0L6WO141DPlXy"
       requestBody:
         application/json: {"type": "deploy_config"}
         application/vnd.api+json: {"type": "deploy_config"}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "sv_g1mbDweZdLv5B", "attributes": {"operating_system": "ubuntu_20_04_x64_lts", "hostname": "my-hostname", "raid": "raid-1", "ssh_keys": ["ssh_GlxWpD6KOm6rk"], "partitions": [{"path": "/", "size_in_gb": 300, "filesystem_type": "ext4"}]}}}
+          application/vnd.api+json: {"data": {"id": "sv_0L6WO141DPlXy", "attributes": {"operating_system": "ubuntu_20_04_x64_lts", "hostname": "my-hostname", "raid": "raid-1", "ssh_keys": ["ssh_GKN4ydzgqVob3"], "partitions": [{"path": "/", "size_in_gb": 300, "filesystem_type": "ext4"}]}}}
         "422":
           application/vnd.api+json: {"data": {"id": "sv_g1mbDweZdLv5B", "attributes": {"operating_system": "ubuntu_20_04_x64_lts", "hostname": "my-hostname", "raid": "raid-1", "ssh_keys": ["ssh_GlxWpD6KOm6rk"], "partitions": [{"path": "/", "size_in_gb": 300, "filesystem_type": "ext4"}]}}}
     Unprocessable Entity:
@@ -2044,6 +2127,13 @@ examples:
       responses:
         "200":
           application/vnd.api+json: {}
+    Success:
+      parameters:
+        path:
+          server_id: "sv_RMLydpoXOQKr1"
+      responses:
+        "200":
+          application/vnd.api+json: {"data": {"id": "sv_RMLydpoXOQKr1", "type": "servers", "attributes": {"hostname": "Practical Linen Chair", "status": "unknown", "ipmi_status": "Normal", "role": "Bare Metal Unmanaged", "locked": true, "primary_ipv4": "12.233.187.10", "created_at": "1732829027514", "scheduled_deletion_at": "<value>", "region": {"city": "Sydney", "country": "Australia", "site": {"id": "loc_wg3ZDrwWO5QlP", "name": "Sydney", "slug": "SYD", "facility": "Sydney"}}, "project": {"id": "proj_Qkm7dXRAD8nZV", "name": "Sleek Iron Pants", "slug": "sleek-iron-pants", "description": "Fantastic Cotton Clock", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {"subscription_id": "sub_cc8763jmlb30v3", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 1, "vlans": 0}}, "team": {"id": "team_56p6jJ3bzRF587xo6rvwf6VwgLbv", "name": "433 Team", "slug": "433-team", "description": "433 Team", "address": "5236 Hien Center, South Kelleychester, FL 98441", "currency": {}, "status": "verified"}, "label": "834976NODEXR"}}}
   server-unlock:
     Ok:
       parameters:
@@ -2066,17 +2156,24 @@ examples:
       responses:
         "200":
           application/vnd.api+json: {}
+    Success:
+      parameters:
+        path:
+          server_id: "sv_5AEmq7xMDBkWX"
+      responses:
+        "200":
+          application/vnd.api+json: {"data": {"id": "sv_5AEmq7xMDBkWX", "type": "servers", "attributes": {"hostname": "Durable Rubber Shoes", "status": "unknown", "ipmi_status": "Normal", "role": "Storage", "locked": false, "primary_ipv4": "114.154.255.79", "created_at": "1709352489139", "scheduled_deletion_at": "<value>", "region": {"city": "Sydney", "country": "Australia", "site": {"id": "loc_KXgRdRyoOv9k5", "name": "Sydney", "slug": "SYD", "facility": "Sydney"}}, "project": {"id": "proj_LGXPdWX4qnNWk", "name": "Mediocre Concrete Shoes", "slug": "mediocre-concrete-shoes", "description": "Intelligent Wooden Knife", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {"subscription_id": "sub_lat09fkzpobtiz", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 1, "vlans": 0}}, "team": {"id": "team_87E9ev31amIKVpaG9G1YH6bJL04", "name": "438 Team", "slug": "438-team", "description": "438 Team", "address": "Apt. 872 986 Tora Mountains, North Wandaport, IA 08437", "currency": {}, "status": "verified"}, "label": "167521NODECL"}}}
   create-server-out-of-band:
     Created:
       parameters:
         path:
-          server_id: "sv_z2A3DVpQdnawP"
+          server_id: "sv_059EqYX2dQj8p"
       requestBody:
-        application/json: {"data": {"type": "out_of_band", "attributes": {"ssh_key_id": "ssh_NGnzRD5ADM5yw"}}}
-        application/vnd.api+json: {"data": {"type": "out_of_band", "attributes": {"ssh_key_id": "ssh_NGnzRD5ADM5yw"}}}
+        application/json: {"data": {"type": "out_of_band", "attributes": {"ssh_key_id": "ssh_w49QDB55qagKb"}}}
+        application/vnd.api+json: {"data": {"type": "out_of_band", "attributes": {"ssh_key_id": "ssh_w49QDB55qagKb"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "obc_mw49QDB5qagKb", "type": "out_of_band", "attributes": {"ssh_key": {"id": "ssh_NGnzRD5ADM5yw", "description": "quigley.example", "fingerprint": "ad:6c:c0:6d:d5:f2:23:58:f4:ca:5f:42:01:62:6d:c1"}, "created_at": "2025-04-28T18:40:15+00:00", "username": "server-1", "credentials": {"user": "florencio_huel", "password": "to3o7zejhf"}, "port": "2222", "access_ip": "189.1.2.0", "server_id": "sv_z2A3DVpQdnawP", "status": "connected"}}}
+          application/vnd.api+json: {"data": {"id": "obc_mw49QDB5qagKb", "type": "out_of_band", "attributes": {"ssh_key": {"id": "ssh_w49QDB55qagKb", "description": "oberbrunner.test", "fingerprint": "7d:46:c6:b5:ca:28:43:5e:b9:2c:61:9e:fc:a6:5d:59"}, "created_at": "2025-07-16T18:36:57+00:00", "username": "server-1", "credentials": {"user": "gregg", "password": "g5gyubdn5p"}, "port": "2222", "access_ip": "189.1.2.0", "server_id": "sv_059EqYX2dQj8p", "status": "connected"}}}
     Forbidden:
       parameters:
         path:
@@ -2115,10 +2212,10 @@ examples:
     Success:
       parameters:
         path:
-          server_id: "sv_1ZJrdx34Og4LV"
+          server_id: "sv_vYAZqGyJOMQ94"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "obc_AW6Q2D9lqKLpr", "type": "out_of_band", "attributes": {"ssh_key": {"id": "ssh_8WVQJDMwdRbyE", "description": "schumm.test", "fingerprint": "27:69:59:c3:78:39:57:3b:0e:b8:f6:11:6a:97:37:b2"}, "created_at": "2025-04-28T18:40:16+00:00", "username": "server-1", "credentials": {"user": "ken_anderson", "password": "pgupy1uj5l"}, "port": "2222", "access_ip": "189.1.2.0", "server_id": "sv_1ZJrdx34Og4LV", "status": "connected"}}}
+          application/vnd.api+json: {"data": {"id": "obc_AW6Q2D9lqKLpr", "type": "out_of_band", "attributes": {"ssh_key": {"id": "ssh_5AEmq71XOBkWX", "description": "oconnell.example", "fingerprint": "ae:17:77:b8:3c:3d:58:d9:5b:10:a1:71:56:b3:03:8b"}, "created_at": "2025-07-16T18:36:59+00:00", "username": "server-1", "credentials": {"user": "wilfred_dicki", "password": "8za8ppq9lz"}, "port": "2222", "access_ip": "189.1.2.0", "server_id": "sv_vYAZqGyJOMQ94", "status": "connected"}}}
     Not Found:
       parameters:
         path:
@@ -2130,13 +2227,13 @@ examples:
     Created:
       parameters:
         path:
-          server_id: "sv_LYV8DZAQq5QoE"
+          server_id: "sv_LA73qkJwdaJ2o"
       requestBody:
         application/json: {"data": {"type": "actions", "attributes": {"action": "reboot"}}}
         application/vnd.api+json: {"data": {"type": "actions", "attributes": {"action": "reboot"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "act_JrdxQZLQ9wqg4", "type": "actions", "attributes": {"status": "Rebooting device"}}, "meta": {}}
+          application/vnd.api+json: {"data": {"id": "act_V0DgYxxN9Ed4A", "type": "actions", "attributes": {"status": "Rebooting device"}}, "meta": {}}
     Forbidden:
       parameters:
         path:
@@ -2151,7 +2248,7 @@ examples:
     Created:
       parameters:
         path:
-          server_id: "sv_8NkvdyGKDeLpx"
+          server_id: "sv_e8pKq0xYqWAob"
       responses:
         "201":
           application/vnd.api+json: {"data": {"id": "ipmi_mw49QDB5qagKb", "type": "ipmi_sessions", "attributes": {"ipmi_address": "10.0.10.1", "ipmi_username": "customer_access", "ipmi_password": "ipmi_password"}}}
@@ -2184,7 +2281,7 @@ examples:
     Created:
       parameters:
         path:
-          server_id: "sv_k0Ryqv9adW36X"
+          server_id: "sv_695BdK25OevVo"
       responses:
         "201":
           application/vnd.api+json: {"meta": {}}
@@ -2208,7 +2305,7 @@ examples:
     Success:
       parameters:
         path:
-          server_id: "sv_KXgRdRRodv9k5"
+          server_id: "sv_wg3ZDr0Wd5QlP"
       responses:
         "200":
           application/vnd.api+json: {"meta": {}}
@@ -2239,10 +2336,10 @@ examples:
     Created:
       parameters:
         path:
-          server_id: "sv_enPbqoBJdA2MQ"
+          server_id: "sv_GMy1Db2NDN50m"
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "sv_enPbqoBJdA2MQ", "type": "schedule_deletion", "attributes": {"server_id": "sv_enPbqoBJdA2MQ", "scheduled_deletion_at": "2025-05-28T12:40:20Z"}}}
+          application/vnd.api+json: {"data": {"id": "sv_GMy1Db2NDN50m", "type": "schedule_deletion", "attributes": {"server_id": "sv_GMy1Db2NDN50m", "scheduled_deletion_at": "2025-08-16T12:37:02Z"}}}
     Forbidden:
       parameters:
         path:
@@ -2276,14 +2373,18 @@ examples:
       responses:
         "403":
           application/vnd.api+json: {"errors": [{"code": "USER_AUTHORIZATION_ERROR", "status": "forbidden", "title": "User Authorization Error", "detail": "You are not authorized to perform this action.", "meta": {}}]}
+    speakeasy-default-server-unschedule-deletion:
+      parameters:
+        path:
+          server_id: "<id>"
   create-server-reinstall:
     Created:
       parameters:
         path:
-          server_id: "sv_WeGoqAWNOP7nz"
+          server_id: "sv_Z8rodmJGq1jLB"
       requestBody:
-        application/json: {"data": {"type": "reinstalls", "attributes": {"operating_system": "ubuntu_22_04_x64_lts", "hostname": "BRC1", "partitions": [{"size_in_gb": 300, "path": "/", "filesystem_type": "ext4"}], "ssh_keys": ["35"], "user_data": 10, "raid": "raid-1", "ipxe": "https://some-host.com/image.ipxe"}}}
-        application/vnd.api+json: {"data": {"type": "reinstalls", "attributes": {"operating_system": "ubuntu_22_04_x64_lts", "hostname": "BRC1", "partitions": [{"size_in_gb": 300, "path": "/", "filesystem_type": "ext4"}], "ssh_keys": ["35"], "user_data": 10, "raid": "raid-1", "ipxe": "https://some-host.com/image.ipxe"}}}
+        application/json: {"data": {"type": "reinstalls", "attributes": {"operating_system": "ipxe", "hostname": "BRC1", "ipxe": "https://some-host.com/image.ipxe"}}}
+        application/vnd.api+json: {"data": {"type": "reinstalls", "attributes": {"operating_system": "ipxe", "hostname": "BRC1", "ipxe": "https://some-host.com/image.ipxe"}}}
       responses:
         "403":
           application/vnd.api+json: {}
@@ -2337,10 +2438,12 @@ examples:
     Success:
       parameters:
         path:
-          project_id: "proj_lxWpD6a9qm6rk"
+          project_id: "proj_LMmAD8kEqwop2"
+        query:
+          filter[tags]: "tag_K9kzXA45BEsjobKPNVEQCrrKbw4o,tag_my9K5XGPYBIr1ve257anIW4KRX2e"
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "ssh_m5xyZOnNOWM0l", "type": "ssh_keys", "attributes": {"name": "mitchell-cassin.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqF26Ycm+oynty9gQdUOA0AtKlJEFi9CjMbch3O/53PIylZRtlCv4t6S/8uVRbTGzkFdepcvF9G4zZd7dvp05lHOUo6SqHZcpXCsXmHT0w4+93kDDck9aPDv1ZkRaoDmEnYkHvNzHSZAbOvppfBRKOT0djzFOb5jDRBpzBZNO/md/QuQ0af8E9WaL2+OyGPnN6F5fjpxegbYayHRCzilQXe+ibIcG+uFN4YiqWNjUASaYonRMIrV2W0Qd3tS2A5FT+mVokVAscNC+39P+WY9drZxIWROYghUtDUmOGhZXMjVJv1CZpKD2i+oKzHY4WXzFfMNtq3gQtVPRwqPWqoUNh", "fingerprint": "e5:73:d8:f7:45:73:a7:6f:3e:27:2b:13:2e:31:8b:bf", "user": {"id": "user_XPJGP714AgtrM4ayxzlphGmp08zz", "first_name": "Samuel", "last_name": "Nienow", "email": "ailene@renner.example", "created_at": "2025-01-21T00:00:00.000Z", "updated_at": "2024-08-18T00:00:00.000Z", "role": {"id": "role_WYbknJRZNPiQYLz19m3eHzQn9beR", "name": "collaborator", "created_at": "2024-07-10T00:00:00.000Z", "updated_at": "2026-02-02T00:00:00.000Z"}}, "created_at": "2025-04-28T18:40:24+00:00", "updated_at": "2025-04-28T18:40:24+00:00"}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "ssh_mw49QDB5qagKb", "type": "ssh_keys", "attributes": {"name": "carroll-hane.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCjM7C3yylR7PMGQONLP64DvcopzCCgHT0jbfeX5cjja/SohEHEkFnS3MzRn9EBuZH1AKzVU25PlPuMmq3LZeyyOE9GQ087dF4SnRGgNWw8KL0W+HxdONq40MVjivT1luswFp61Vkty5zSpEvT9t7ZtZ9iV4QcCHCGZP2rf0YMEaT+FkPr5eIiwkfyONaMQn5Sr6+kCfwZbwTD7oM9MPWCu+Nazo62TA/Dyb6gj5+izINy4ynWO7YFnwcxGgT/sn+mznlopEEq4vay0air9wulcCM8eE/N3QyB86o/DebEYFUT85RXMtAocSNeehduyEVNNg9NbP1vXWX6/SWpOT71/", "fingerprint": "d1:77:d0:81:ab:b6:bb:7d:a1:2d:07:41:fb:f4:5d:c7", "user": {"id": "user_e2r1zkAyagSNz191p4NnI5MgreM", "first_name": "Isela", "last_name": "Altenwerth", "email": "dorathy@corkery-bode.test", "created_at": "2025-01-19T00:00:00.000Z", "updated_at": "2025-04-30T00:00:00.000Z", "role": {"id": "role_VjzZGYNr4AFb4zPwoXxVH6vk4xmZ", "name": "owner", "created_at": "2024-09-30T00:00:00.000Z", "updated_at": "2025-12-08T00:00:00.000Z"}}, "created_at": "2025-07-16T18:36:36+00:00", "updated_at": "2025-07-16T18:36:36+00:00"}}], "meta": {}}
     when trying to filter by tag:
       parameters:
         path:
@@ -2363,23 +2466,23 @@ examples:
     Success:
       parameters:
         path:
-          project_id: "proj_k0RyqvrJqW36X"
-          ssh_key_id: "ssh_j0L6WO1QOPlXy"
+          project_id: "proj_g1mbDwrBqLv5B"
+          ssh_key_id: "ssh_zGr47qlMDAg0m"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "ssh_j0L6WO1QOPlXy", "type": "ssh_keys", "attributes": {"name": "walsh.example", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCm9oF0Qmb5RUPXwT6vMaZwRmLSv5jVhPxA3AR28MgyBi5N/oT0k18NdhM50eXpcrzaoEW2BjEvRCHgoRtinudceUMXKmyfqA/cAgFFSpPeaV47PWhS5afDcUOssrHmxVl2wsV7kHyOEdylkYrecwjs2FEQGCYizagEj67D4r/NcZAOwZAAwf2rcJPEpstImfDVTmSRD3kN3CC/gvlSDsVBq4njjt/ELO/zVuub5AnMcVxx+GXNA84P3fP39giVMdQsc73pE9JGbC3ZQvWeLGV3wnsO8s2psxjdCvxuSHuAhfhNypnRHQWBy+Cg55fS8IyeXOGQufCdCzhsx0Tqc0GT", "fingerprint": "fb:23:36:c0:6f:2b:42:73:3d:0e:83:e7:76:6d:5c:4e", "user": {"id": "user_bGBr68r3VJtPaj9yjNo0ix6kQlw", "first_name": "Alden", "last_name": "Murazik", "email": "quentin.zboncak@ankunding-schmidt.test", "created_at": "2024-10-09T00:00:00.000Z", "updated_at": "2025-04-13T00:00:00.000Z", "role": {"id": "role_YjYAnx04xQToQQ5joGevCEox5xQ", "name": "collaborator", "created_at": "2024-06-21T00:00:00.000Z", "updated_at": "2026-03-15T00:00:00.000Z"}}, "created_at": "2025-04-28T18:40:25+00:00", "updated_at": "2025-04-28T18:40:25+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ssh_zGr47qlMDAg0m", "type": "ssh_keys", "attributes": {"name": "ryan.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDL1aEqz3fu3mSqIUFUmN2ZoNjlqcWOZpHqBA89atzwag1epA/VhcaeCCkMHOKc6lEyaM45dcBMpnRxp8MyyOWDdvHe2aZ2g3zh8CnPUZZlIdGOj/JbzfF6gfmVbVPUor/hJUvCgW8DqFYU++BwlowDSXv6g0IWraY+9NhH+7Fy+eWX/Axdryb7vr/pnwMwYC693nI8FfRjUTxJft7/HG4Hf0Frp4inI8571z5EhrdjhXFaAU9W76qw2YhHUx54cFZXcL1LzIIjhU6BjKVNOxl7xY2AUnC0bnU19N1gALo0IyVSjQz+o10qgsubDkA0CXnmczmU8FbJs3pajdly2smn", "fingerprint": "7f:f1:16:b1:af:23:3e:7d:91:29:3d:58:ab:ab:99:07", "user": {"id": "user_86BjYvaogPsKnQYbLPMmtXmvk70X", "first_name": "Levi", "last_name": "White", "email": "tamela.parker@christiansen-damore.test", "created_at": "2024-10-25T00:00:00.000Z", "updated_at": "2025-05-19T00:00:00.000Z", "role": {"id": "role_JaWoMlVWw5fMx0BVbX6YcAAQj9Y", "name": "owner", "created_at": "2025-06-12T00:00:00.000Z", "updated_at": "2026-02-14T00:00:00.000Z"}}, "created_at": "2025-07-16T18:36:37+00:00", "updated_at": "2025-07-16T18:36:37+00:00"}}}
   put-project-ssh-key:
     Success:
       parameters:
         path:
-          project_id: "proj_5xyZOnMvDWM0l"
-          ssh_key_id: "ssh_5AEmq71XOBkWX"
+          project_id: "proj_W6Q2D9lGqKLpr"
+          ssh_key_id: "ssh_zlkg1DegdvZE5"
       requestBody:
-        application/json: {"data": {"id": "ssh_5AEmq71XOBkWX", "type": "ssh_keys", "attributes": {"tags": ["tag_yle6pegwz1hlpaP3EPMkt7zgpX3", "tag_z6Qarmr4r4c3lxAmbwkYSVpNv62"], "name": "New SSH Key Name"}}}
-        application/vnd.api+json: {"data": {"id": "ssh_5AEmq71XOBkWX", "type": "ssh_keys", "attributes": {"tags": ["tag_yle6pegwz1hlpaP3EPMkt7zgpX3", "tag_z6Qarmr4r4c3lxAmbwkYSVpNv62"], "name": "New SSH Key Name"}}}
+        application/json: {"data": {"id": "ssh_zlkg1DegdvZE5", "type": "ssh_keys", "attributes": {"tags": ["tag_7YpWMjKZ8vujwmEV7blQhG87aaB", "tag_E8ZoPkZPXXsgN2L46WVvTeWog1rz"], "name": "New SSH Key Name"}}}
+        application/vnd.api+json: {"data": {"id": "ssh_zlkg1DegdvZE5", "type": "ssh_keys", "attributes": {"tags": ["tag_7YpWMjKZ8vujwmEV7blQhG87aaB", "tag_E8ZoPkZPXXsgN2L46WVvTeWog1rz"], "name": "New SSH Key Name"}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "ssh_5AEmq71XOBkWX", "type": "ssh_keys", "attributes": {"name": "osinski-reichel.example", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5XebfKfD3VtMMW8lga7KFZFjCmg/YTc7a7J3MfdtFfoi0fyiArHNkei/KOlJFI94ulwyxp5P7C83P6TofTZi1Aol+2mNHKhsUtQJBrjqFTyNtNqrk8VzxGWQPCr3GOQXE1ixG3XVcaMfAvRvDtJsOyeTllg1zw800qU2zPo8JfxE5XrJ/vVnBOCdI+bIOBPgStDbloSbU0SqXAhz9W/4sCGr/YE8vOsdBicP50HYN5fiiniAboe1qFn6l6uE7xxQeuaSBwhzXjdB0JOX0X9i/wgdUtUVv2230aCjHQXrdWpDn3SZKVm4pKHeQO+PRUJO/kdqyz7w2BgT1QwKD1qi1", "fingerprint": "52:36:6f:77:18:1d:aa:fc:8d:3c:5b:b6:4e:41:2a:14", "user": {"id": "user_BWvR10bMpMUxReKWvZMnIMXpE425", "first_name": "Benito", "last_name": "Schinner", "email": "brianna@gerhold.example", "created_at": "2024-06-16T00:00:00.000Z", "updated_at": "2024-12-26T00:00:00.000Z", "role": {"id": "role_YxaPYNg0Xouom7lLg399iGJj36Pe", "name": "collaborator", "created_at": "2024-08-07T00:00:00.000Z", "updated_at": "2025-12-20T00:00:00.000Z"}}, "created_at": "2025-04-28T18:40:26+00:00", "updated_at": "2025-04-28T18:40:26+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ssh_zlkg1DegdvZE5", "type": "ssh_keys", "attributes": {"name": "quitzon-hahn.example", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIPUwSU0uUOOHaiRgNvchWwbE1mMsLIXiMhsWu2HYCCskWhI87AIGGhesf8iqv/L61ZR4xSY2vpS+Ydj9m6DAIcbw4SrwCCbzYlSnJC8A3DNplfH8Yv3w1moJkryIu0Y1OPFstvr4UKLQKBzNPR5cjKKmJPX34BrmubNhRCOi9MR33UZAn+ek7Y6soHx+ftGNfLQTNCRa9l1pWk+zcaw3f1rIgrgCxRJZUxsfhAvhrH6gMQ52J4YPTwNYXiDz183lCXQ7ttCraTZOkt9Wrjes9GpAWdyAb54/YxB9C3a5Yuekd3affxWf5qS6iPH2cH4WqD85cCiAHWgP50QDy0Jzx", "fingerprint": "0a:d4:d1:f6:4a:b9:eb:d9:fc:b1:7f:3d:b1:7d:78:94", "user": {"id": "user_9LywwYp44LHZ8aarom8ziRm9MJw", "first_name": "Tennie", "last_name": "Cremin", "email": "antone.ward@streich.example", "created_at": "2024-09-10T00:00:00.000Z", "updated_at": "2024-12-12T00:00:00.000Z", "role": {"id": "role_wJZBnlQNwyhXGWEnZZGosBzP2VM", "name": "owner", "created_at": "2025-04-05T00:00:00.000Z", "updated_at": "2026-03-06T00:00:00.000Z"}}, "created_at": "2025-07-16T18:36:39+00:00", "updated_at": "2025-07-16T18:36:39+00:00"}}}
     Bad Request:
       parameters:
         path:
@@ -2417,8 +2520,8 @@ examples:
     Success:
       parameters:
         path:
-          project_id: "proj_KN4ydzeXOVob3"
-          ssh_key_id: "ssh_kjQwdEGNDYNVP"
+          project_id: "proj_LMmAD8k4qwop2"
+          ssh_key_id: "ssh_7vYAZqGBdMQ94"
     Not Found:
       parameters:
         path:
@@ -2427,11 +2530,11 @@ examples:
   post-storage-filesystems:
     Created:
       requestBody:
-        application/json: {"data": {"type": "filesystems", "attributes": {"project": "proj_WeGoqAvYDP7nz", "name": "my-data", "size_in_gb": 1500}}}
-        application/vnd.api+json: {"data": {"type": "filesystems", "attributes": {"project": "proj_WeGoqAvYDP7nz", "name": "my-data", "size_in_gb": 1500}}}
+        application/json: {"data": {"type": "filesystems", "attributes": {"project": "proj_kjQwdE2bqYNVP", "name": "my-data", "size_in_gb": 1500}}}
+        application/vnd.api+json: {"data": {"type": "filesystems", "attributes": {"project": "proj_kjQwdE2bqYNVP", "name": "my-data", "size_in_gb": 1500}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "fs_AW6Q2D9lqKLpr", "type": "filesystems", "attributes": {"name": "my-data", "size_in_gb": 1500, "project": {"id": "proj_WeGoqAvYDP7nz", "name": "Ergonomic Iron Pants", "slug": "ergonomic-iron-pants"}, "created_at": "2025-06-26T21:17:04.000Z"}}}
+          application/vnd.api+json: {"data": {"id": "fs_AW6Q2D9lqKLpr", "type": "filesystems", "attributes": {"name": "my-data", "size_in_gb": 1500, "created_at": "2025-07-16T18:37:09.000Z", "project": {"id": "proj_kjQwdE2bqYNVP", "name": "Heavy Duty Leather Clock", "slug": "heavy-duty-leather-clock"}}}}
     Conflict:
       requestBody:
         application/json: {"data": {"type": "filesystems", "attributes": {"project": "proj_0L6WO19lOPlXy", "name": "my-data", "size_in_gb": 1500}}}
@@ -2457,7 +2560,7 @@ examples:
     Success:
       parameters:
         query:
-          filter[project]: "small-bronze-gloves"
+          filter[project]: "sleek-silk-car"
   delete-storage-filesystems:
     Not Found:
       parameters:
@@ -2467,6 +2570,10 @@ examples:
       parameters:
         path:
           filesystem_id: "fs_zlkg1DegdvZE5"
+    speakeasy-default-delete-storage-filesystems:
+      parameters:
+        path:
+          filesystem_id: "<id>"
   patch-storage-filesystems:
     Success:
       parameters:
@@ -2477,7 +2584,7 @@ examples:
         application/vnd.api+json: {"data": {"id": "fs_7vYAZqGBdMQ94", "type": "filesystems", "attributes": {"size_in_gb": 1501}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "fs_7vYAZqGBdMQ94", "type": "filesystems", "attributes": {"name": "Enormous Wooden Bottle", "size_in_gb": 1501, "project": {"id": "proj_W6Q2D9rQOKLpr", "name": "Awesome Plastic Table", "slug": "awesome-plastic-table"}, "created_at": "2025-06-26T17:26:06.387Z"}}}
+          application/vnd.api+json: {"data": {"id": "fs_7vYAZqGBdMQ94", "type": "filesystems", "attributes": {"name": "Mediocre Cotton Shoes", "size_in_gb": 1501, "created_at": "2025-07-16T18:37:10.000Z", "project": {"id": "proj_lkg1De6ROvZE5", "name": "Mediocre Wool Car", "slug": "mediocre-wool-car"}}}}
     Validation Error:
       parameters:
         path:
@@ -2502,7 +2609,7 @@ examples:
     Success:
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "tag_l03KMwLl3MTbNbAkoX2yhGJANojG", "type": "tags", "attributes": {"name": "Fréaláf", "slug": "frealaf", "description": "Molestias explicabo ut similique.", "color": "#6d6d31", "team": {"id": "team_ZnaW9x7GjlhmAbzgml0oulGXZxn", "name": "502 Team", "slug": "502-team", "description": "502 Team", "address": "Apt. 900 62077 Youlanda Shore, Baileymouth, TX 21318-1771", "currency": {}, "status": "verified"}}}]}
+          application/vnd.api+json: {"data": [{"id": "tag_rrBpzxAAp3UJzrEb6z4xhW55Lx9p", "type": "tags", "attributes": {"name": "Saruman", "slug": "saruman", "description": "Odit suscipit quidem sed.", "color": "#c0c077", "team": {"id": "team_YGebYxWLAPtoWp5x4LoEHGaePgYe", "name": "569 Team", "slug": "569-team", "description": "569 Team", "address": "441 Donald Oval, New Hank, WA 86449-7808", "currency": {}, "status": "verified"}}}]}
   create-tag:
     Created:
       requestBody:
@@ -2510,7 +2617,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "tags", "attributes": {"name": "Tag Name", "description": "Tag Description", "color": "#bebebe"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "tag_kExr8ewmVEcNollmv1NzHNMyeNL2", "type": "tags", "attributes": {"name": "Tag Name", "slug": "tag-name", "description": "Tag Description", "color": "#bebebe", "team": {"id": "team_R265W71LAZIALQgW1BXxSRYGyvNR", "name": "503 Team", "slug": "503-team", "description": "503 Team", "address": "582 Chris Rue, North Will, NV 49794-7752", "currency": {}, "status": "verified"}}}}
+          application/vnd.api+json: {"data": {"id": "tag_7rE4rnrKowTjojXneKprFRjGg19", "type": "tags", "attributes": {"name": "Tag Name", "slug": "tag-name", "description": "Tag Description", "color": "#bebebe", "team": {"id": "team_MLv6NBEZrzI5a3XkP5k8cLjYG2o", "name": "570 Team", "slug": "570-team", "description": "570 Team", "address": "Apt. 638 652 Randall Neck, VonRuedenmouth, KS 94389", "currency": {}, "status": "verified"}}}}
     when any attribute is missing or not filled:
       requestBody:
         application/json: {"data": {"type": "tags", "attributes": {"name": "Tag Name", "description": "", "color": "#ffffff"}}}
@@ -2543,13 +2650,13 @@ examples:
     Success:
       parameters:
         path:
-          tag_id: "tag_4v3NK44wkpF4Ewa73bRgS0BpVW4G"
+          tag_id: "tag_k88kazkbPktNYRWa2l9ZsN6gVrrL"
       requestBody:
-        application/json: {"data": {"id": "tag_4v3NK44wkpF4Ewa73bRgS0BpVW4G", "type": "tags", "attributes": {"name": "Tag Name", "color": "#ffffff"}}}
-        application/vnd.api+json: {"data": {"id": "tag_4v3NK44wkpF4Ewa73bRgS0BpVW4G", "type": "tags", "attributes": {"name": "Tag Name", "color": "#ffffff"}}}
+        application/json: {"data": {"id": "tag_k88kazkbPktNYRWa2l9ZsN6gVrrL", "type": "tags", "attributes": {"name": "Tag Name", "color": "#ffffff"}}}
+        application/vnd.api+json: {"data": {"id": "tag_k88kazkbPktNYRWa2l9ZsN6gVrrL", "type": "tags", "attributes": {"name": "Tag Name", "color": "#ffffff"}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "tag_4v3NK44wkpF4Ewa73bRgS0BpVW4G", "type": "tags", "attributes": {"name": "Tag Name", "slug": "tag-name", "description": "Ducimus itaque nesciunt nisi.", "color": "#000000", "team": {"id": "team_EzopXlJka3SgVoNb4zMnheeka8VE", "name": "508 Team", "slug": "508-team", "description": "508 Team", "address": "170 Sawayn Mountain, Kuhnshire, ME 55983-5755", "currency": {}, "status": "verified"}}}}
+          application/vnd.api+json: {"data": {"id": "tag_k88kazkbPktNYRWa2l9ZsN6gVrrL", "type": "tags", "attributes": {"name": "Tag Name", "slug": "tag-name", "description": "Debitis dolorum qui alias.", "color": "#2ca5a5", "team": {"id": "team_v8ZZbARV28T0n8P05PbYFBRmMLP", "name": "575 Team", "slug": "575-team", "description": "575 Team", "address": "Suite 733 888 Wonda Mountains, Kuvalisburgh, SC 38682-0878", "currency": {}, "status": "verified"}}}}
     when name is already taken:
       parameters:
         path:
@@ -2605,6 +2712,10 @@ examples:
       parameters:
         path:
           tag_id: "invalid-id"
+    speakeasy-default-destroy-tag:
+      parameters:
+        path:
+          tag_id: "<id>"
   get-traffic-consumption:
     with server filter:
       parameters:
@@ -2650,6 +2761,15 @@ examples:
       responses:
         "200":
           application/vnd.api+json: {}
+    Success:
+      parameters:
+        query:
+          filter[server]: "sv_kjQwdEMXdYNVP"
+          filter[date][gte]: "2025-06-16T18:45:37Z"
+          filter[date][lte]: "2025-07-16T18:45:37Z"
+      responses:
+        "200":
+          application/vnd.api+json: {"data": {"id": "", "type": "traffic", "attributes": {"from_date": 1750099537, "to_date": 1752691537, "regions": [{"region_slug": "brazil", "total_inbound_gb": 102, "total_outbound_gb": 241, "total_inbound_95th_percentile_mbps": 1832.91, "total_outbound_95th_percentile_mbps": 1819.99, "data": [{"date": "2021-07-01T00:00:00.000+00:00", "inbound_gb": 10, "outbound_gb": 102, "avg_outbound_speed_mbps": 1.19, "avg_inbound_speed_mbps": 0.13}, {"date": "2021-07-02T00:00:00.000+00:00", "inbound_gb": 2, "outbound_gb": 6, "avg_outbound_speed_mbps": 0.08, "avg_inbound_speed_mbps": 0.02}, {"date": "2021-07-03T00:00:00.000+00:00", "inbound_gb": 5, "outbound_gb": 15, "avg_outbound_speed_mbps": 0.18, "avg_inbound_speed_mbps": 0.06}, {"date": "2021-07-04T00:00:00.000+00:00", "inbound_gb": 57, "outbound_gb": 32, "avg_outbound_speed_mbps": 0.38, "avg_inbound_speed_mbps": 0.66}, {"date": "2021-07-05T00:00:00.000+00:00", "inbound_gb": 11, "outbound_gb": 59, "avg_outbound_speed_mbps": 0.69, "avg_inbound_speed_mbps": 0.13}, {"date": "2021-07-06T00:00:00.000+00:00", "inbound_gb": 17, "outbound_gb": 27, "avg_outbound_speed_mbps": 0.32, "avg_inbound_speed_mbps": 0.2}]}], "total_inbound_gb": 102, "total_outbound_gb": 241, "total_inbound_95th_percentile_mbps": 1832.91, "total_outbound_95th_percentile_mbps": 1819.99}}}
   get-traffic-quota:
     when `billing_method` is `Normal`:
       responses:
@@ -2663,11 +2783,15 @@ examples:
       responses:
         "503":
           application/vnd.api+json: {"errors": [{"code": "QUOTA_ERROR", "status": "service_unavailable", "title": "Could not get your quota", "detail": "Please try again in a few moments", "meta": {}}]}
+    Success:
+      responses:
+        "200":
+          application/vnd.api+json: {"data": {"id": "traffic_quota", "type": "traffic_quota", "attributes": {"quota_per_project": [{"project_id": "proj_e8pKq0aKDWAob", "project_slug": "synergistic-linen-computer", "billing_method": "Normal", "quota_per_region": [{"region_id": "reg_9QDB5qag", "region_slug": "brazil", "quota_in_tb": {"granted": 20, "additional": 0, "total": 20}, "quota_in_mbps": {"granted": 0, "additional": 0, "total": 0}}]}]}}}
   get-project-users-data:
     Success:
       parameters:
         path:
-          project_id: "proj_z2A3DV4wdnawP"
+          project_id: "proj_RMLydp7XOQKr1"
         query:
           extra_fields[user_data]: "decoded_content"
       responses:
@@ -2686,13 +2810,13 @@ examples:
     Created:
       parameters:
         path:
-          project_id: "proj_1ZJrdxvyDg4LV"
+          project_id: "proj_kjQwdE0XOYNVP"
       requestBody:
         application/json: {"data": {"type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"}}}
         application/vnd.api+json: {"data": {"type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "ud_GlxWpD6KOm6rk", "type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "created_at": "2025-04-28T18:40:32+00:00", "updated_at": "2025-04-28T18:40:32+00:00"}}, "meta": {}}
+          application/vnd.api+json: {"data": {"id": "ud_pRMLydp0dQKr1", "type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "created_at": "2025-07-16T18:36:39+00:00", "updated_at": "2025-07-16T18:36:39+00:00"}}, "meta": {}}
     Bad Request:
       parameters:
         path:
@@ -2747,13 +2871,13 @@ examples:
     Success:
       parameters:
         path:
-          project_id: "proj_vYAZqG44DMQ94"
-          user_data_id: "ud_lQraYDPeOpjwW"
+          project_id: "proj_Gr47qlevDAg0m"
+          user_data_id: "ud_VLMmAD8EOwop2"
         query:
           extra_fields[user_data]: "decoded_content"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "ud_lQraYDPeOpjwW", "type": "user_data", "attributes": {"description": "Two butter croissants of your choice (plain, almond or cheese). With a side of herb butter or house-made hazelnut spread.", "content": "MjgtZGF5IGFnZWQgMzAwZyBVU0RBIENlcnRpZmllZCBQcmltZSBSaWJleWUsIHJvc2VtYXJ5LXRoeW1lIGdhcmxpYyBidXR0ZXIsIHdpdGggY2hvaWNlIG9mIHR3byBzaWRlcy4=", "created_at": "2025-04-28T18:40:32+00:00", "updated_at": "2025-04-28T18:40:32+00:00"}}, "meta": {}}
+          application/vnd.api+json: {"data": {"id": "ud_VLMmAD8EOwop2", "type": "user_data", "attributes": {"description": "Breaded fried chicken with waffles, and a side of maple syrup.", "content": "VHdvIGJ1dHRlciBjcm9pc3NhbnRzIG9mIHlvdXIgY2hvaWNlIChwbGFpbiwgYWxtb25kIG9yIGNoZWVzZSkuIFdpdGggYSBzaWRlIG9mIGhlcmIgYnV0dGVyIG9yIGhvdXNlLW1hZGUgaGF6ZWxudXQgc3ByZWFkLg==", "created_at": "2025-07-16T18:36:39+00:00", "updated_at": "2025-07-16T18:36:39+00:00"}}, "meta": {}}
     Not Found:
       parameters:
         path:
@@ -2842,28 +2966,41 @@ examples:
       responses:
         "200":
           application/vnd.api+json: {}
+    speakeasy-default-put-project-user-data:
+      parameters:
+        path:
+          project_id: "<id>"
+          user_data_id: "<id>"
+      responses:
+        "200":
+          application/vnd.api+json: {}
   delete-project-user-data:
     Not Found:
       parameters:
         path:
           project_id: "proj_x1ZJrdx5qg4LV"
           user_data_id: "123"
+    speakeasy-default-delete-project-user-data:
+      parameters:
+        path:
+          project_id: "<id>"
+          user_data_id: "<id>"
   get-user-profile:
     Success:
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "user_Ay2nzNor7wIKQNAQA3JzTW7wjZVe", "attributes": {"first_name": "Edmond", "last_name": "Hettinger", "email": "erwin@vandervort-hyatt.example", "role": {"id": "role_6XKybXlAkBtpMM56QJZKFVmrWnm", "name": "collaborator", "created_at": "2025-03-28T00:00:00.000Z", "updated_at": "2025-07-01T00:00:00.000Z"}}}}
+          application/vnd.api+json: {"data": {"id": "user_BgrNj7anj4IxA7KExoK7SzYAEmE", "attributes": {"first_name": "Ernest", "last_name": "Moen", "email": "gerard@bashirian.test", "role": {"id": "role_kpoKZwloZ9HN140lwRW3sVg20V9", "name": "owner", "created_at": "2025-06-18T00:00:00.000Z", "updated_at": "2026-05-24T00:00:00.000Z"}}}}
   patch-user-profile:
     Success:
       parameters:
         path:
-          id: "user_3pwPRamaN8FKz8EELKNmH0XMvvyR"
+          id: "user_lGJBgAxbgeUJ4yZj56wmfrK4vag"
       requestBody:
-        application/json: {"data": {"id": "user_3pwPRamaN8FKz8EELKNmH0XMvvyR", "type": "users", "attributes": {"role": "collaborator"}}}
-        application/vnd.api+json: {"data": {"id": "user_3pwPRamaN8FKz8EELKNmH0XMvvyR", "type": "users", "attributes": {"role": "collaborator"}}}
+        application/json: {"data": {"id": "user_lGJBgAxbgeUJ4yZj56wmfrK4vag", "type": "users", "attributes": {"role": "collaborator"}}}
+        application/vnd.api+json: {"data": {"id": "user_lGJBgAxbgeUJ4yZj56wmfrK4vag", "type": "users", "attributes": {"role": "collaborator"}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "user_3pwPRamaN8FKz8EELKNmH0XMvvyR", "attributes": {"first_name": "Connie", "last_name": "Hegmann", "email": "jospeh@damore.example", "role": "administrator"}}}
+          application/vnd.api+json: {"data": {"id": "user_lGJBgAxbgeUJ4yZj56wmfrK4vag", "attributes": {"first_name": "Tamesha", "last_name": "Barton", "email": "paola@halvorson.test", "role": "owner"}}}
     Forbidden:
       parameters:
         path:
@@ -2890,15 +3027,15 @@ examples:
     Success:
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "team_G63NwE12yEI24E2RZxYrc8eR6mQe", "attributes": {"name": "552 Team", "slug": "552-team", "address": "Apt. 790 1404 Kraig Groves, Jeremyfort, OK 97540-4736", "currency": "BRL", "created_at": "2024-09-25T00:00:00+00:00", "updated_at": "2024-12-05T00:00:00+00:00", "owner": {"id": "user_X61xXaLoMPsrvNY7RjR4FGGWkx2b", "first_name": "Elvis", "last_name": "Ebert", "email": "cory@vandervort.test", "created_at": "2025-02-09T00:00:00.000Z", "updated_at": "2025-02-09T00:00:00.000Z", "role": {"id": "role_3ERlmklXR2UKvpaLXNVaFgaZP8y", "name": "collaborator", "created_at": "2024-09-15T00:00:00.000Z", "updated_at": "2025-11-01T00:00:00.000Z"}}, "billing": {"id": "bill_mw49QDB5qagKb", "customer_billing_id": "cus_s9izb3ks55lu9x"}}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "team_yEMAp05jx2ule2aA1ZwVtp5GLZk4", "attributes": {"name": "625 Team", "slug": "625-team", "address": "75739 Parker Common, Murphyview, CT 54114", "currency": "BRL", "created_at": "2024-12-31T00:00:00+00:00", "updated_at": "2025-04-02T00:00:00+00:00", "owner": {"id": "user_X0j5j5Kbabhyex1g2N97HJ3p2wY", "first_name": "Cara", "last_name": "Gerlach", "email": "waylon@oberbrunner.example", "created_at": "2024-09-16T00:00:00.000Z", "updated_at": "2024-08-01T00:00:00.000Z", "role": {"id": "role_4ANgaERK0yS4wQ8lA4pLH0bAw4JW", "name": "owner", "created_at": "2025-05-23T00:00:00.000Z", "updated_at": "2026-04-24T00:00:00.000Z"}}, "billing": {"id": "bill_mw49QDB5qagKb", "customer_billing_id": "cus_oxro8kom3akzra"}}}], "meta": {}}
   create-virtual-machine:
     Created:
       requestBody:
-        application/json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "project": "aerodynamic-granite-keyboard"}}}
-        application/vnd.api+json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "project": "aerodynamic-granite-keyboard"}}}
+        application/json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "project": "enormous-wool-keyboard"}}}
+        application/vnd.api+json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "project": "enormous-wool-keyboard"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {}}
+          application/vnd.api+json: {"data": {"id": "vm_mw49QDB5qagKb", "type": "virtual_machines", "attributes": {"name": "my-new-vm", "created_at": "2025-07-16T18:37:13+00:00", "status": "Starting", "operating_system": "WebOS", "plan": {"id": "plan_KN4ydzxvDVob3", "name": "g3.l40s.medium-119"}, "specs": {"vcpu": 16, "ram": "128 GB", "storage": "100 GB", "nic": "1 x 1 Gbps", "gpu": "1 x NVIDIA H100 Tensor Core GPU"}, "team": {"id": "team_R38obnyYLkuAjexYE7ZEHMw2vB1", "name": "627 Team", "slug": "627-team", "description": "627 Team", "address": "64807 Hudson Curve, Port Anjanette, NH 53335", "currency": {}, "status": "verified"}, "project": {"id": "proj_Qkm7dXMVq8nZV", "name": "Enormous Wool Keyboard", "slug": "enormous-wool-keyboard", "description": "Durable Rubber Bench", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {"subscription_id": "<id>", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}}}}
     Unprocessable Entity:
       requestBody:
         application/json: {"data": {"type": "virtual_machines", "attributes": {"name": "My new-vm", "project": "mediocre-wool-knife"}}}
@@ -2916,6 +3053,10 @@ examples:
   index-virtual-machine: {}
   show-virtual-machine:
     Ok:
+      parameters:
+        path:
+          virtual_machine_id: "vm_w5AEmq7XDBkWX"
+    Success:
       parameters:
         path:
           virtual_machine_id: "vm_w5AEmq7XDBkWX"
@@ -2969,6 +3110,15 @@ examples:
       responses:
         "200":
           application/vnd.api+json: {"data": [{"id": "vlan_okJ61ln8", "type": "virtual_networks", "attributes": {"vid": 2040, "description": "Testing vlans", "region": {"city": "São Paulo", "country": "United Kingdom", "site": {"id": "loc_w49QDBVQDagKb", "facility": "São Paulo", "name": "São Paulo", "slug": "SAO"}}, "assignments_count": 1, "created_at": "2024-03-17T23:38:03.480Z"}}], "meta": {}}
+    Success:
+      parameters:
+        query:
+          filter[tags]: "tag_P284pBvBEoT492NeXgv7TPaR3k8,tag_nPpEv2AnR9u9RBrGLLJ3C89nZJN"
+          page[size]: 20
+          page[number]: 1
+      responses:
+        "200":
+          application/vnd.api+json: {"data": [{"id": "vlan_AW6Q2D9lqKLpr", "type": "virtual_networks", "attributes": {"vid": 2040, "description": "Odit quod ratione exercitationem.", "region": {"city": "Santiago 3", "country": "Chile", "site": {"id": "loc_aNmodj6ZdbE8W", "facility": "Santiago 3", "name": "Santiago 3", "slug": "SAN3"}}, "created_at": "2023-08-09T01:47:06.301Z", "assignments_count": 1}}], "meta": {}}
   create-virtual-network:
     when the user is allowed to create:
       requestBody:
@@ -2991,6 +3141,13 @@ examples:
       responses:
         "422":
           application/vnd.api+json: {"errors": [{"code": "VLAN_LIMIT_REACHED", "status": "unprocessable_entity", "title": "Vlan creation limit reached", "detail": "You can only create 5 virtual networks. Contact support if you want more.", "meta": {}}]}
+    Created:
+      requestBody:
+        application/json: {"data": {"type": "virtual_network", "attributes": {"description": "São Paulo VLAN", "site": "MIA", "project": "incredible-granite-coat"}}}
+        application/vnd.api+json: {"data": {"type": "virtual_network", "attributes": {"description": "São Paulo VLAN", "site": "MIA", "project": "incredible-granite-coat"}}}
+      responses:
+        "201":
+          application/vnd.api+json: {"data": {"id": "vlan_3YjJOLQjdvZ87", "type": "virtual_networks", "attributes": {"vid": 2000, "name": "MIA-2000", "description": "São Paulo VLAN", "created_at": "2025-07-16T18:37:16+00:00"}}, "meta": {}}
   update-virtual-network:
     when the user is allowed to update virtual networks:
       parameters:
@@ -3021,11 +3178,11 @@ examples:
         path:
           vlan_id: "vlan_VaNmodjeObE8W"
       requestBody:
-        application/json: {"id": "vlan_81EVOtR1N4J2Z", "data": {"type": "virtual_networks", "attributes": {"tags": ["tag_YnXb3KJAkBsojzz2zRmlHGJ2Vb7r", "tag_VNPyb6VWjQCbNBv8gN9AS6yGBgvv"], "description": "Test virtual network update"}}}
-        application/vnd.api+json: {"id": "vlan_81EVOtR1N4J2Z", "data": {"type": "virtual_networks", "attributes": {"tags": ["tag_YnXb3KJAkBsojzz2zRmlHGJ2Vb7r", "tag_VNPyb6VWjQCbNBv8gN9AS6yGBgvv"], "description": "Test virtual network update"}}}
+        application/json: {"id": "vlan_81EVOtR1N4J2Z", "data": {"type": "virtual_networks", "attributes": {"tags": ["tag_Mjb3aoBkXRi5nR0gBQ5EhV30voRx", "tag_QnkPzo8Wj1iWWzg24P5bhXAzrxmm"], "description": "Test virtual network update"}, "id": "vlan_VaNmodjeObE8W"}}
+        application/vnd.api+json: {"id": "vlan_81EVOtR1N4J2Z", "data": {"type": "virtual_networks", "attributes": {"tags": ["tag_Mjb3aoBkXRi5nR0gBQ5EhV30voRx", "tag_QnkPzo8Wj1iWWzg24P5bhXAzrxmm"], "description": "Test virtual network update"}, "id": "vlan_VaNmodjeObE8W"}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "vlan_VaNmodjeObE8W", "type": "virtual_networks", "attributes": {"vid": 2040, "name": "exercitationem", "description": "Neque vero ut eos.", "created_at": "2025-06-20T05:53:07.804Z"}}, "meta": {}}
+          application/vnd.api+json: {"data": {"id": "vlan_VaNmodjeObE8W", "type": "virtual_networks", "attributes": {"vid": 2040, "name": "illo", "description": "Eum voluptatem nisi et.", "created_at": "2025-06-20T05:53:07.804Z"}}, "meta": {}}
         "403":
           application/vnd.api+json: {"data": {"id": "vlan_VaNmodjeObE8W", "type": "virtual_networks", "attributes": {"vid": 2040, "name": "exercitationem", "description": "Neque vero ut eos.", "created_at": "2025-07-27T04:20:40.498Z"}}, "meta": {}}
     Tag not updated:
@@ -3048,6 +3205,13 @@ examples:
       responses:
         "200":
           application/vnd.api+json: {"data": {"id": "vlan_W6Q2D9ordKLpr", "type": "virtual_networks", "attributes": {"vid": 2040, "description": "Testing vlans", "region": {"city": "São Paulo", "country": "Argentina", "site": {"id": "loc_aNmodj6ZdbE8W", "facility": "São Paulo", "name": "São Paulo", "slug": "SAO"}}, "assignments_count": 1}}}
+    Success:
+      parameters:
+        path:
+          vlan_id: "vlan_W6Q2D9ordKLpr"
+      responses:
+        "200":
+          application/vnd.api+json: {"data": {}}
   get-virtual-networks-assignments:
     when filtering by server_id:
       parameters:
@@ -3075,14 +3239,22 @@ examples:
       responses:
         "200":
           application/vnd.api+json: {"data": [{"id": "vnasg_0MoLqJvgq57pY", "type": "virtual_network_assignment", "attributes": {"virtual_network_id": "vlan_GMy1DbPNdN50m", "vid": 0, "description": "Cartwright, Champlin and Fadel", "status": "connected", "server": {"id": "sv_lkg1DeZaOvZE5", "hostname": "db", "label": "BRC01", "locked": false, "status": "unknown"}}}, {"id": "vnasg_Z8rodmpGO1jLB", "type": "virtual_network_assignment", "attributes": {"virtual_network_id": "vlan_Qkm7dXVRD8nZV", "vid": 4, "description": "Willms-Stokes", "status": "connecting", "server": {"id": "sv_vYAZqGoEqMQ94", "hostname": "api", "label": "BRC02", "locked": false, "status": "unknown"}}}], "meta": {}}
+    Success:
+      parameters:
+        query:
+          page[size]: 20
+          page[number]: 1
+      responses:
+        "200":
+          application/vnd.api+json: {"data": [{"id": "vnasg_KN4ydzavOVob3", "type": "virtual_network_assignment", "attributes": {"virtual_network_id": "vlan_0MoLqJvgq57pY", "vid": 4, "description": "Satterfield-Hirthe", "status": "connected", "server": {"id": "sv_lkg1DeZaOvZE5", "hostname": "db", "label": "BRC01", "locked": false, "status": "unknown"}}}, {"id": "vnasg_0L6WO181DPlXy", "type": "virtual_network_assignment", "attributes": {"virtual_network_id": "vlan_Z8rodmpGO1jLB", "vid": 6, "description": "Lindgren Group", "status": "connecting", "server": {"id": "sv_vYAZqGoEqMQ94", "hostname": "api", "label": "BRC02", "locked": false, "status": "unknown"}}}], "meta": {}}
   assign-server-virtual-network:
     Created:
       requestBody:
-        application/json: {"data": {"type": "virtual_network_assignment", "attributes": {"server_id": "sv_pbV0DgQGd4AWz", "virtual_network_id": "vlan_059EqYe2qQj8p"}}}
-        application/vnd.api+json: {"data": {"type": "virtual_network_assignment", "attributes": {"server_id": "sv_pbV0DgQGd4AWz", "virtual_network_id": "vlan_059EqYe2qQj8p"}}}
+        application/json: {"data": {"type": "virtual_network_assignment", "attributes": {"server_id": "sv_pbV0DgQGd4AWz", "virtual_network_id": "vlan_3YjJOLBjqvZ87"}}}
+        application/vnd.api+json: {"data": {"type": "virtual_network_assignment", "attributes": {"server_id": "sv_pbV0DgQGd4AWz", "virtual_network_id": "vlan_3YjJOLBjqvZ87"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "vnasg_aNmodj9yObE8W", "type": "virtual_network_assignment", "attributes": {"virtual_network_id": "vlan_059EqYe2qQj8p", "vid": 4, "server_id": "sv_pbV0DgQGd4AWz", "description": "my vlan", "status": "connecting"}}, "meta": {}}
+          application/vnd.api+json: {"data": {"id": "vnasg_W6Q2D9jEOKLpr", "type": "virtual_network_assignment", "attributes": {"virtual_network_id": "vlan_3YjJOLBjqvZ87", "vid": 1, "description": "my vlan", "status": "connecting"}}, "meta": {}}
     Forbidden:
       requestBody:
         application/json: {"data": {"type": "virtual_network_assignment", "attributes": {"server_id": "sv_LYV8DZ61D5QoE", "virtual_network_id": "vlan_3YjJOLBjqvZ87"}}}
@@ -3114,6 +3286,10 @@ examples:
       responses:
         "403":
           application/vnd.api+json: {}
+    speakeasy-default-delete-virtual-networks-assignments:
+      parameters:
+        path:
+          assignment_id: "<id>"
   destroy-virtual-network:
     Not Acceptable:
       parameters:
@@ -3122,6 +3298,10 @@ examples:
       responses:
         "406":
           application/vnd.api+json: {"errors": [{"code": "VIRTUAL_NETWORK_DELETION_ERROR", "status": "not_acceptable", "title": "Virtual Network Deletion Restriction", "detail": "Please remove all assignments from this virtual network before deleting it", "meta": {}}]}
+    speakeasy-default-destroy-virtual-network:
+      parameters:
+        path:
+          vlan_id: 793185
   get-vpn-sessions:
     when there is a site filter:
       parameters:
@@ -3137,6 +3317,13 @@ examples:
       responses:
         "422":
           application/vnd.api+json: {"errors": [{"code": "VALIDATION_ERROR", "status": "422", "title": "Validation Error", "detail": "Invalid value provided: 'foobar'.", "meta": {}}]}
+    Success:
+      parameters:
+        query:
+          filter[location]: "SAO"
+      responses:
+        "200":
+          application/vnd.api+json: {"data": [{"id": "vpn_zGr47qlMDAg0m", "type": "vpn_sessions", "attributes": {"user_name": "Delana", "port": "8443", "host": "fw04-mh1.maxi.host", "region": {"city": "São Paulo", "country": "Australia", "site": {"id": "loc_W6Q2D9YEDKLpr", "name": "São Paulo", "slug": "SAO", "facility": "São Paulo"}}, "expires_at": "2025-07-16T18:46:43+00:00", "created_at": "2025-07-16T18:45:43+00:00", "updated_at": "2025-07-16T18:45:43+00:00"}}], "meta": {}}
   post-vpn-session:
     Created:
       requestBody:
@@ -3144,7 +3331,7 @@ examples:
         application/vnd.api+json: {"data": {"attributes": {"site": "SAO", "server_id": "sv_wg3ZDrKyO5QlP"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "vpn_xkjQwdENqYNVP", "type": "vpn_sessions", "attributes": {"user_name": "Dominic", "password": "A8D81zBp", "port": "8443", "host": "fw02.maxi.host", "region": {"city": "São Paulo", "country": "Brazil", "site": {"id": "loc_KXgRdRLKDv9k5", "name": "São Paulo", "slug": "SAO", "facility": "São Paulo"}}, "expires_at": "2025-04-28T18:41:43+00:00", "created_at": "2025-04-28T18:40:43+00:00", "updated_at": "2025-04-28T18:40:43+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "vpn_xkjQwdENqYNVP", "type": "vpn_sessions", "attributes": {"user_name": "Winifred", "password": "caL1dENKqEspX", "port": "8443", "host": "fw04-mh1.maxi.host", "region": {"city": "São Paulo", "country": "Colombia", "site": {"id": "loc_w49QDBwKOagKb", "name": "São Paulo", "slug": "SAO", "facility": "São Paulo"}}, "expires_at": "2025-07-16T18:38:18+00:00", "created_at": "2025-07-16T18:37:18+00:00", "updated_at": "2025-07-16T18:37:18+00:00"}}}
     Unprocessable Entity:
       requestBody:
         application/json: {"data": {"attributes": {"site": "SYD", "server_id": "sv_GnzRD5BYOM5yw"}}}
@@ -3167,6 +3354,13 @@ examples:
       responses:
         "404":
           application/vnd.api+json: {"errors": [{"code": "not_found", "status": "404", "title": "Error", "detail": "Specified Record Not Found", "meta": {}}]}
+    Success:
+      parameters:
+        path:
+          vpn_session_id: "vpn_6VE1Wd37dXnZJ"
+      responses:
+        "200":
+          application/vnd.api+json: {"data": {"id": "vpn_6VE1Wd37dXnZJ", "type": "vpn_sessions", "attributes": {"user_name": "Dina", "password": "5n6HCdn1wYYUC", "port": "8443", "host": "fw04-mh1.maxi.host", "region": {"city": "São Paulo", "country": "Germany", "site": {"id": "loc_LMmAD8wyqwop2", "name": "São Paulo", "slug": "SAO", "facility": "São Paulo"}}, "expires_at": "2025-07-16T18:38:19+00:00", "created_at": "2025-07-16T18:37:19+00:00", "updated_at": "2025-07-16T18:37:19+00:00"}}}
   delete-vpn-session:
     Not Found:
       parameters:
@@ -3175,11 +3369,18 @@ examples:
       responses:
         "404":
           application/vnd.api+json: {"errors": [{"code": "not_found", "status": "404", "title": "Error", "detail": "Specified Record Not Found", "meta": {}}]}
+    speakeasy-default-delete-vpn-session:
+      parameters:
+        path:
+          vpn_session_id: "<id>"
   get-ssh-keys:
     Success:
+      parameters:
+        query:
+          filter[tags]: "tag_lYXenaknWwsJ4rryVbNoUbn6p4V,tag_ARJPX1YRrgTKQ4xpvX5YuWNG2nwW"
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "ssh_mw49QDB5qagKb", "type": "ssh_keys", "attributes": {"name": "zieme.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDiKy41GaMU2S4pSulwvgHkRQYisxcrGcRRWhK+2QBIo3Q4xRPfByWVakeaOFX0ixXtgHkcbE8VhcW3+Db6eb2qLSdxClBVpxgW8/0UUMznNd0CktpnI2MhPdnymDc35wosEQhmH5Fkshppw7TTBRfs51c1+c16WrmdSK0hi+Hr0+9MlkSwVyd/dhozMgLhh8ngI5CRCz8UN8HF8mIRsSCGuCe4nXdg6DOfUMbGauq/Q8n4F/7feERW0VTT2hulP3vCeQZv2WSK12zJgVKEWMJX6SZW1uIsCoulGrymwfLmlS0ZeWzWKaRfVjaPQciXL7qgDOal2+IEihEc3oq0n8s3", "fingerprint": "06:62:47:b4:ec:92:36:18:af:39:6c:60:65:17:96:08", "user": {"id": "user_Vn2YmWnaX7Srwy1pB6Jxh6k5V2xl", "first_name": "Dorthey", "last_name": "Mueller", "email": "rocco@nitzsche.example", "created_at": "2024-09-06T00:00:00.000Z", "updated_at": "2024-10-15T00:00:00.000Z", "role": {"id": "role_GJzQNXKAPjs2gB7BK8a8T8QlrPRx", "name": "owner", "created_at": "2025-05-10T00:00:00.000Z", "updated_at": "2025-09-04T00:00:00.000Z"}}, "created_at": "2025-05-13T19:59:44+00:00", "updated_at": "2025-05-13T19:59:44+00:00"}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "ssh_aNmodj4eDbE8W", "type": "ssh_keys", "attributes": {"name": "shields-lind.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAifZt83PbEYnFX/pVfbUAw+hN60eTak5x3EqSUAG2vUrchJiU+V5fVj9H1IstDOB3clhEGiAqxby+Bur9lp3mWSXvRoPo85VU5OH7DS/+8GFUKGtLpHPI7It+ZEq/LaIq8p1VIwql77SBbaUYgKJxWobfJPpQgipr2kphrrfXkqeqP/W0tLKHq6XYzKFl0dZWdduDDZ9ltfZJcLRnYMOMqh6rVw79lOIi6HCxANNoxEKE0p4qUaOWbGRknOADD4qlES7vZWRindKSRgN0jf21STzzzXdB9o4PQmHM/q39UbjBvFppE0NVwD5oBC7Vkej7GnoUxwUgwjgC4fDrZM2X", "fingerprint": "62:cd:46:63:46:c4:2b:19:47:9f:9e:19:f9:d8:be:87", "user": {"id": "user_5m68r767gNC5G528wokRFW2lLPy", "first_name": "Harris", "last_name": "Mills", "email": "carlton_feeney@fisher.example", "created_at": "2024-12-09T00:00:00.000Z", "updated_at": "2024-07-20T00:00:00.000Z", "role": {"id": "role_P2QbX40bZnu4J37oVba2TaQYp5M", "name": "owner", "created_at": "2025-03-15T00:00:00.000Z", "updated_at": "2026-06-22T00:00:00.000Z"}}, "created_at": "2025-07-16T18:37:05+00:00", "updated_at": "2025-07-16T18:37:05+00:00"}}], "meta": {}}
   post-ssh-key:
     Created:
       requestBody:
@@ -3187,7 +3388,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "ssh_keys", "attributes": {"name": "SSH Key", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "ssh_w5AEmq7XDBkWX", "type": "ssh_keys", "attributes": {"name": "SSH Key", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx", "fingerprint": "0a:00:34:53:51:0e:a5:4e:06:2c:d7:16:88:96:82:f3", "user": {"id": "user_RnA8bnx5m1U7BJoNmYYeHRgzgejr", "first_name": "Wiley", "last_name": "Lehner", "email": "sharmaine.sawayn@spencer-rau.example", "created_at": "2025-04-30T00:00:00.000Z", "updated_at": "2024-05-28T00:00:00.000Z", "role": {"id": "role_7gW2zKnZ79IlWXRvmAxjTk8jbbN", "name": "owner", "created_at": "2024-10-13T00:00:00.000Z", "updated_at": "2025-08-03T00:00:00.000Z"}}, "created_at": "2025-05-13T19:59:45+00:00", "updated_at": "2025-05-13T19:59:45+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ssh_1ZJrdxw5Og4LV", "type": "ssh_keys", "attributes": {"name": "SSH Key", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx", "fingerprint": "0a:00:34:53:51:0e:a5:4e:06:2c:d7:16:88:96:82:f3", "user": {"id": "user_wwjA0m2L4BTXAXMw4X17hMlZl6z", "first_name": "Genevive", "last_name": "Shields", "email": "jamel_mcdermott@homenick.example", "created_at": "2025-04-28T00:00:00.000Z", "updated_at": "2024-11-18T00:00:00.000Z", "role": {"id": "role_bj5BPjB5o7iyw0QbxWZatE5K81YQ", "name": "owner", "created_at": "2024-12-04T00:00:00.000Z", "updated_at": "2026-01-16T00:00:00.000Z"}}, "created_at": "2025-07-16T18:37:07+00:00", "updated_at": "2025-07-16T18:37:07+00:00"}}}
     Bad Request:
       requestBody:
         application/json: {"data": {"type": "ssh_keys", "attributes": {"name": "SSH Key", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx"}}}
@@ -3206,21 +3407,21 @@ examples:
     Success:
       parameters:
         path:
-          ssh_key_id: "ssh_zGr47qlMDAg0m"
+          ssh_key_id: "ssh_0MK4O4Zkqa95w"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "ssh_zGr47qlMDAg0m", "type": "ssh_keys", "attributes": {"name": "leuschke.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxnVNgdQyAWjRoLfHJJvYTCEMcMO8+jafvVmLQrx/SC5G6col3m0FCVssS/d9IXszZooxzkQYUTNLl+XQtfOT4QafHPI61+uEGQ3VeS/XWl/9haOqTU7zqRReNWLFeJW+ADV1GQNgJkMaCAn0WaZX78zrbGGkxYGuKk91FOUENuBzfQhtPEikuhRhmbFAKgUz+5rNCmgrph65odCGmAqDOG0w6tpYbfoYyoUAbfckvy6e7AwDod+pBZneaeAXb53Dzzf2ocrbRfeGHkzGzW4qCP2C0b1WjcGIP3xk+wbYBgISMV4eDnwKT8heZNzzneiFYxJbRNL5DsLn6gXdwW4Ez", "fingerprint": "f6:cd:02:ee:7c:da:0c:62:15:e8:12:b5:3c:82:cd:a5", "user": {"id": "user_o1Y9RyABVmTzKYppkM4jTAkY8vg", "first_name": "Tonisha", "last_name": "Armstrong", "email": "patricia_konopelski@morar.example", "created_at": "2025-02-20T00:00:00.000Z", "updated_at": "2024-05-24T00:00:00.000Z", "role": {"id": "role_w9LAmnn5NBtRRp6e2ggrIbJxJZMp", "name": "owner", "created_at": "2025-05-10T00:00:00.000Z", "updated_at": "2026-02-01T00:00:00.000Z"}}, "created_at": "2025-05-13T19:59:45+00:00", "updated_at": "2025-05-13T19:59:45+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ssh_0MK4O4Zkqa95w", "type": "ssh_keys", "attributes": {"name": "skiles.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOrRGYU+6bjz8a7DgqNdn4tHIZOp66o6imzvDk1clS4RRGCUwQlk8e0uOf3vEv2EF6QYlPpu+AaSiLryV4cT+RdY4XFLksTVwJ6pH5PIDpfcb+hh5E/HpyDUea38FDyED6+tkz75v6rvcVS7GliLKaHyiawMNqNPBEgEJBNPxwjhgDouhg9qjFcqFbEsKcVF+vZFrCpvTXWjI2O7EqI0es5p6161e88BvnKcVMsKfdpD35n2LwwGm2rK6+mBy1znUS0xDS0XDU8O/hAWPFQHhWj5TpoIrOwpYdfBIP/+tdQwmswD2JedsdcJl0MQMGSs5xSPZqUTB8qIktZ260o11h", "fingerprint": "06:9f:69:74:ab:43:9b:a6:47:d9:37:15:e2:d5:0d:31", "user": {"id": "user_VGBlzEKMLYIbpXXxZV8mCaKwPYV", "first_name": "Chuck", "last_name": "Kemmer", "email": "florencio@nader.example", "created_at": "2024-11-17T00:00:00.000Z", "updated_at": "2025-04-30T00:00:00.000Z", "role": {"id": "role_ZR4vkpP58YSGRzy8Qk4XHQeKjQK", "name": "owner", "created_at": "2025-02-01T00:00:00.000Z", "updated_at": "2026-05-25T00:00:00.000Z"}}, "created_at": "2025-07-16T18:37:07+00:00", "updated_at": "2025-07-16T18:37:07+00:00"}}}
   put-ssh-key:
     Success:
       parameters:
         path:
-          ssh_key_id: "ssh_ez2A3DVldnawP"
+          ssh_key_id: "ssh_8Nkvdyn1qeLpx"
       requestBody:
-        application/json: {"data": {"id": "ssh_ez2A3DVldnawP", "type": "ssh_keys", "attributes": {"tags": ["tag_jj4Xpjj143f0Z5JM8Zp1TKpM6a9", "tag_6P4w2joLYGSpxlGZ6zrkSe6WJoe"], "name": "New SSH Key Name"}}}
-        application/vnd.api+json: {"data": {"id": "ssh_ez2A3DVldnawP", "type": "ssh_keys", "attributes": {"tags": ["tag_jj4Xpjj143f0Z5JM8Zp1TKpM6a9", "tag_6P4w2joLYGSpxlGZ6zrkSe6WJoe"], "name": "New SSH Key Name"}}}
+        application/json: {"data": {"id": "ssh_8Nkvdyn1qeLpx", "type": "ssh_keys", "attributes": {"tags": ["tag_BR6a9QPmXWCPVzLrmEYAslyroMK", "tag_yxVkGz7rxMsl9M54lr71fp5XZg60"], "name": "New SSH Key Name"}}}
+        application/vnd.api+json: {"data": {"id": "ssh_8Nkvdyn1qeLpx", "type": "ssh_keys", "attributes": {"tags": ["tag_BR6a9QPmXWCPVzLrmEYAslyroMK", "tag_yxVkGz7rxMsl9M54lr71fp5XZg60"], "name": "New SSH Key Name"}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "ssh_zlkg1DegdvZE5", "type": "ssh_keys", "attributes": {"name": "weimann-yundt.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDkCS4eCB38/IVUNGagklZY5nz/jedsj/26sw/sKBC7yjL8FsRThsmD+drJKFwsR+nAncJntjtrfBcdd8wVMzOkKWCU7JxIEehrQmb+DmD84HCJZGQ+QT8MARmrblUjVIwOf00J3UV48LHQ4EKNeJPbagUlxN/j4Mu+o91hDAlPywcuD/cHvYS0zsCChHlUDXPkA+caWCw9QhQtnbJYDFPKrokFi3OHQGi0a51E2O/86sbR/Fi/ctYWEyM9I8L3TRhlciU30nqf+3nsDXZVoNp7xN+FMko3ns3m5EK5e8wkUwJfcFxl1Pbne43Dm8xVwUg9SLwhd+dtTY1dVzpFTifx", "fingerprint": "64:2e:6f:57:f4:92:f2:b5:6c:9d:d1:21:9a:09:06:07", "user": {"id": "user_zBRGPMYVZgc8J4k8YlYQF15VkGZa", "first_name": "Linh", "last_name": "Hamill", "email": "harry@ziemann.test", "created_at": "2024-09-16T00:00:00.000Z", "updated_at": "2025-02-24T00:00:00.000Z", "role": {"id": "role_1xkVJWnzKkHKLEWrBo27tRxEa4G", "name": "owner", "created_at": "2024-09-15T00:00:00.000Z", "updated_at": "2025-12-02T00:00:00.000Z"}}, "created_at": "2025-05-13T19:59:46+00:00", "updated_at": "2025-05-13T19:59:46+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ssh_8Nkvdyn1qeLpx", "type": "ssh_keys", "attributes": {"name": "larson-grady.example", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCy3NKkUMbR6a+Z0i0UbVQfuTeSQ/9fspeNCCv/biB0QtJ5AgrtoxsBc2PVtUysBX0ZoBZrVX76ataGmivZdWzxRrli/ezpeLpQD4GWt2jhhdCfsHxrvorpfTNCzSSPl7DTmvOVHjHtOgytoPpB5V1C46tLomd78LqkQfM1pIaE1XFysnPNNSRIBgkY9IMfD1vp94ubx66FpgFO5e+kGEMueo8+zklf7Ec6bjzzsexdJ1MFHvkhzuieg5XApFczudD25wrKuZb4VIDfDCkaqKr3hMl1cLlFjEEng3bVNKtmkMtAalVIxK+h9Hg88uvvobPuO+fn9YEMzLRAlK+DW+3t", "fingerprint": "39:0b:6e:63:f8:a7:1a:55:85:1f:2f:32:22:b9:f7:60", "user": {"id": "user_Z40pnNJK5oImXEaPkBxbCpj3WZW", "first_name": "Clarence", "last_name": "Kilback", "email": "carey.ruecker@zboncak.example", "created_at": "2025-01-05T00:00:00.000Z", "updated_at": "2024-10-07T00:00:00.000Z", "role": {"id": "role_vePpArmPWlC0RAP78Gn5FvWgGY6o", "name": "owner", "created_at": "2024-11-25T00:00:00.000Z", "updated_at": "2026-01-28T00:00:00.000Z"}}, "created_at": "2025-07-16T18:37:09+00:00", "updated_at": "2025-07-16T18:37:09+00:00"}}}
     Bad Request:
       parameters:
         path:
@@ -3255,7 +3456,7 @@ examples:
     Success:
       parameters:
         path:
-          ssh_key_id: "ssh_zlkg1DegdvZE5"
+          ssh_key_id: "ssh_lxWpD6xKdm6rk"
     Not Found:
       parameters:
         path:
@@ -3275,17 +3476,17 @@ examples:
         application/vnd.api+json: {"data": {"type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "ud_x1ZJrdx5qg4LV", "type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "created_at": "2025-05-16T22:47:25+00:00", "updated_at": "2025-05-16T22:47:25+00:00"}}, "meta": {}}
+          application/vnd.api+json: {"data": {"id": "ud_GKN4ydzgqVob3", "type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "created_at": "2025-07-16T18:37:12+00:00", "updated_at": "2025-07-16T18:37:12+00:00"}}, "meta": {}}
   get-user-data:
     Success:
       parameters:
         path:
-          user_data_id: "ud_7vYAZqGBdMQ94"
+          user_data_id: "ud_1Qkm7dXzD8nZV"
         query:
           extra_fields[user_data]: "decoded_content"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "ud_7vYAZqGBdMQ94", "type": "user_data", "attributes": {"description": "Three eggs with cilantro, tomatoes, onions, avocados and melted Emmental cheese. With a side of roasted potatoes, and your choice of toast or croissant.", "content": "RnJlc2ggcGFyc2xleSwgSXRhbGlhbiBzYXVzYWdlLCBzaGFsbG90cywgZ2FybGljLCBzdW4tZHJpZWQgdG9tYXRvZXMgYW5kIG1venphcmVsbGEgY2hlZXNlIGluIGFuIGFsbC1idXR0ZXIgY3J1c3QuIFdpdGggYSBzaWRlIG9mIG1peGVkIGZydWl0cy4=", "created_at": "2025-05-16T22:47:25+00:00", "updated_at": "2025-05-16T22:47:25+00:00"}}, "meta": {}}
+          application/vnd.api+json: {"data": {"id": "ud_1Qkm7dXzD8nZV", "type": "user_data", "attributes": {"description": "Breaded fried chicken with waffles, and a side of maple syrup.", "content": "QnJlYWRlZCBmcmllZCBjaGlja2VuIHdpdGggd2FmZmxlcywgYW5kIGEgc2lkZSBvZiBtYXBsZSBzeXJ1cC4=", "created_at": "2025-07-16T18:37:12+00:00", "updated_at": "2025-07-16T18:37:12+00:00"}}, "meta": {}}
     Not Found:
       parameters:
         path:
@@ -3326,10 +3527,34 @@ examples:
       responses:
         "200":
           application/vnd.api+json: {"data": {"id": "ud_lpbV0DgRq4AWz", "type": "user_data", "attributes": {"description": "New Name", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "created_at": "2025-05-16T22:47:25+00:00", "updated_at": "2025-05-16T22:47:25+00:00"}}, "meta": {}}
+    speakeasy-default-patch-user-data:
+      parameters:
+        path:
+          user_data_id: "<id>"
+      responses:
+        "200":
+          application/vnd.api+json: {}
   delete-user-data:
     Not Found:
       parameters:
         path:
           user_data_id: "123"
+    speakeasy-default-delete-user-data:
+      parameters:
+        path:
+          user_data_id: "<id>"
+  get-containers-plans:
+    speakeasy-default-get-containers-plans:
+      responses:
+        "200":
+          application/vnd.api+json: {}
+  get-containers-plan:
+    speakeasy-default-get-containers-plan:
+      parameters:
+        path:
+          plan_id: "<id>"
+      responses:
+        "200":
+          application/vnd.api+json: {}
 examplesVersion: 1.0.2
 generatedTests: {}

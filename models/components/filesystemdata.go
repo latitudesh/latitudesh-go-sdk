@@ -62,8 +62,8 @@ func (o *FilesystemDataProject) GetSlug() *string {
 type FilesystemDataAttributes struct {
 	Name      *string                `json:"name,omitempty"`
 	SizeInGb  *int64                 `json:"size_in_gb,omitempty"`
-	Project   *FilesystemDataProject `json:"project,omitempty"`
 	CreatedAt *time.Time             `json:"created_at,omitempty"`
+	Project   *FilesystemDataProject `json:"project,omitempty"`
 }
 
 func (f FilesystemDataAttributes) MarshalJSON() ([]byte, error) {
@@ -91,18 +91,18 @@ func (o *FilesystemDataAttributes) GetSizeInGb() *int64 {
 	return o.SizeInGb
 }
 
-func (o *FilesystemDataAttributes) GetProject() *FilesystemDataProject {
-	if o == nil {
-		return nil
-	}
-	return o.Project
-}
-
 func (o *FilesystemDataAttributes) GetCreatedAt() *time.Time {
 	if o == nil {
 		return nil
 	}
 	return o.CreatedAt
+}
+
+func (o *FilesystemDataAttributes) GetProject() *FilesystemDataProject {
+	if o == nil {
+		return nil
+	}
+	return o.Project
 }
 
 type FilesystemData struct {

@@ -30,27 +30,27 @@ func (e *EventDataType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-type EventDataAuthor struct {
+type Author struct {
 	ID    *string `json:"id,omitempty"`
 	Name  *string `json:"name,omitempty"`
 	Email *string `json:"email,omitempty"`
 }
 
-func (o *EventDataAuthor) GetID() *string {
+func (o *Author) GetID() *string {
 	if o == nil {
 		return nil
 	}
 	return o.ID
 }
 
-func (o *EventDataAuthor) GetName() *string {
+func (o *Author) GetName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Name
 }
 
-func (o *EventDataAuthor) GetEmail() *string {
+func (o *Author) GetEmail() *string {
 	if o == nil {
 		return nil
 	}
@@ -103,19 +103,19 @@ func (o *EventDataTeam) GetName() *string {
 	return o.Name
 }
 
-type EventDataTarget struct {
+type Target struct {
 	ID   *string `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
 }
 
-func (o *EventDataTarget) GetID() *string {
+func (o *Target) GetID() *string {
 	if o == nil {
 		return nil
 	}
 	return o.ID
 }
 
-func (o *EventDataTarget) GetName() *string {
+func (o *Target) GetName() *string {
 	if o == nil {
 		return nil
 	}
@@ -125,10 +125,10 @@ func (o *EventDataTarget) GetName() *string {
 type EventDataAttributes struct {
 	Action    *string           `json:"action,omitempty"`
 	CreatedAt *string           `json:"created_at,omitempty"`
-	Author    *EventDataAuthor  `json:"author,omitempty"`
+	Author    *Author           `json:"author,omitempty"`
 	Project   *EventDataProject `json:"project,omitempty"`
 	Team      *EventDataTeam    `json:"team,omitempty"`
-	Target    *EventDataTarget  `json:"target,omitempty"`
+	Target    *Target           `json:"target,omitempty"`
 }
 
 func (o *EventDataAttributes) GetAction() *string {
@@ -145,7 +145,7 @@ func (o *EventDataAttributes) GetCreatedAt() *string {
 	return o.CreatedAt
 }
 
-func (o *EventDataAttributes) GetAuthor() *EventDataAuthor {
+func (o *EventDataAttributes) GetAuthor() *Author {
 	if o == nil {
 		return nil
 	}
@@ -166,7 +166,7 @@ func (o *EventDataAttributes) GetTeam() *EventDataTeam {
 	return o.Team
 }
 
-func (o *EventDataAttributes) GetTarget() *EventDataTarget {
+func (o *EventDataAttributes) GetTarget() *Target {
 	if o == nil {
 		return nil
 	}

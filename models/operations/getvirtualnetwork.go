@@ -18,12 +18,12 @@ func (o *GetVirtualNetworkRequest) GetVlanID() string {
 	return o.VlanID
 }
 
-// GetVirtualNetworkResponseBody - List private networks
+// GetVirtualNetworkResponseBody - Success
 type GetVirtualNetworkResponseBody struct {
-	Data *components.VirtualNetwork1 `json:"data,omitempty"`
+	Data *components.VirtualNetwork `json:"data,omitempty"`
 }
 
-func (o *GetVirtualNetworkResponseBody) GetData() *components.VirtualNetwork1 {
+func (o *GetVirtualNetworkResponseBody) GetData() *components.VirtualNetwork {
 	if o == nil {
 		return nil
 	}
@@ -32,7 +32,7 @@ func (o *GetVirtualNetworkResponseBody) GetData() *components.VirtualNetwork1 {
 
 type GetVirtualNetworkResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
-	// List private networks
+	// Success
 	Object *GetVirtualNetworkResponseBody
 }
 

@@ -18,6 +18,7 @@ List all Management and Additional IP Addresses.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="get-ips" method="get" path="/ips" -->
 ```go
 package main
 
@@ -38,7 +39,7 @@ func main() {
 
     res, err := s.IPAddresses.List(ctx, operations.GetIpsRequest{
         FilterServer: latitudeshgosdk.String("46"),
-        FilterProject: latitudeshgosdk.String("59"),
+        FilterProject: latitudeshgosdk.String("64"),
     })
     if err != nil {
         log.Fatal(err)
@@ -75,10 +76,9 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 422                      | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## Get
 
@@ -86,6 +86,7 @@ Retrieve an IP Address
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="get-ip" method="get" path="/ips/{ip_id}" -->
 ```go
 package main
 
@@ -115,12 +116,12 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                                                                               | Type                                                                                                                                                                    | Required                                                                                                                                                                | Description                                                                                                                                                             |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                                                                                   | [context.Context](https://pkg.go.dev/context#Context)                                                                                                                   | :heavy_check_mark:                                                                                                                                                      | The context to use for the request.                                                                                                                                     |
-| `ipID`                                                                                                                                                                  | *string*                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                      | The IP Address ID                                                                                                                                                       |
-| `extraFieldsIPAddresses`                                                                                                                                                | **string*                                                                                                                                                               | :heavy_minus_sign:                                                                                                                                                      | The `region` and `server` are provided as extra attributes that is lazy loaded. To request it, just set `extra_fields[ip_addresses]=region,server` in the query string. |
-| `opts`                                                                                                                                                                  | [][operations.Option](../../models/operations/option.md)                                                                                                                | :heavy_minus_sign:                                                                                                                                                      | The options for this request.                                                                                                                                           |
+| Parameter                                                                                                                                                                | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                                                                                    | :heavy_check_mark:                                                                                                                                                       | The context to use for the request.                                                                                                                                      |
+| `ipID`                                                                                                                                                                   | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | The IP Address ID                                                                                                                                                        |
+| `extraFieldsIPAddresses`                                                                                                                                                 | **string*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                       | The `region` and `server` are provided as extra attributes that are lazy loaded. To request it, just set `extra_fields[ip_addresses]=region,server` in the query string. |
+| `opts`                                                                                                                                                                   | [][operations.Option](../../models/operations/option.md)                                                                                                                 | :heavy_minus_sign:                                                                                                                                                       | The options for this request.                                                                                                                                            |
 
 ### Response
 
@@ -128,7 +129,6 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 404                      | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |

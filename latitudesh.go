@@ -2,7 +2,7 @@
 
 package latitudeshgosdk
 
-// Generated from OpenAPI doc version 2023-06-01 and generator version 2.657.1
+// Generated from OpenAPI doc version 2023-06-01 and generator version 2.681.1
 
 import (
 	"context"
@@ -61,14 +61,14 @@ type Latitudesh struct {
 	OperatingSystems *OperatingSystems
 	Plans            *Plans
 	Projects         *Projects
+	SSHKeys          *SSHKeys
+	UserData         *UserData
 	Regions          *Regions
 	Roles            *Roles
 	Servers          *Servers
-	SSHKeys          *SSHKeys
 	Storage          *Storage
 	Tags             *Tags
 	Traffic          *Traffic
-	UserData         *UserData
 	UserProfile      *UserProfile
 	VirtualMachines  *VirtualMachines
 	PrivateNetworks  *PrivateNetworks
@@ -163,9 +163,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Latitudesh {
 	sdk := &Latitudesh{
-		SDKVersion: "1.4.14",
+		SDKVersion: "1.5.0",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 1.4.14 2.657.1 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
+			UserAgent:  "speakeasy-sdk/go 1.5.0 2.681.1 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
 			ServerList: ServerList,
 			ServerVariables: []map[string]string{
 				{
@@ -211,14 +211,14 @@ func New(opts ...SDKOption) *Latitudesh {
 	sdk.OperatingSystems = newOperatingSystems(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Plans = newPlans(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Projects = newProjects(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.SSHKeys = newSSHKeys(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.UserData = newUserData(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Regions = newRegions(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Roles = newRoles(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Servers = newServers(sdk, sdk.sdkConfiguration, sdk.hooks)
-	sdk.SSHKeys = newSSHKeys(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Storage = newStorage(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Tags = newTags(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Traffic = newTraffic(sdk, sdk.sdkConfiguration, sdk.hooks)
-	sdk.UserData = newUserData(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.UserProfile = newUserProfile(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.VirtualMachines = newVirtualMachines(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.PrivateNetworks = newPrivateNetworks(sdk, sdk.sdkConfiguration, sdk.hooks)

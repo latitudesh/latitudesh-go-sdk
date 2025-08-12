@@ -76,7 +76,6 @@ func (o *VirtualNetworkAssignmentDataServer) GetStatus() *string {
 type VirtualNetworkAssignmentDataAttributes struct {
 	VirtualNetworkID *string                             `json:"virtual_network_id,omitempty"`
 	Vid              *int64                              `json:"vid,omitempty"`
-	ServerID         *string                             `json:"server_id,omitempty"`
 	Description      *string                             `json:"description,omitempty"`
 	Status           *string                             `json:"status,omitempty"`
 	Server           *VirtualNetworkAssignmentDataServer `json:"server,omitempty"`
@@ -94,13 +93,6 @@ func (o *VirtualNetworkAssignmentDataAttributes) GetVid() *int64 {
 		return nil
 	}
 	return o.Vid
-}
-
-func (o *VirtualNetworkAssignmentDataAttributes) GetServerID() *string {
-	if o == nil {
-		return nil
-	}
-	return o.ServerID
 }
 
 func (o *VirtualNetworkAssignmentDataAttributes) GetDescription() *string {
