@@ -65,7 +65,7 @@ func (e *UpdateServerServersBilling) UnmarshalJSON(data []byte) error {
 type UpdateServerServersAttributes struct {
 	Hostname *string `default:"new-hostname" json:"hostname"`
 	// The server billing type. Accepts `hourly` and `monthly` for on demand projects and `yearly` for reserved projects.
-	Billing *UpdateServerServersBilling `default:"monthly" json:"billing"`
+	Billing *UpdateServerServersBilling `json:"billing,omitempty"`
 	// List of Tag IDs
 	Tags []string `json:"tags,omitempty"`
 	// Project ID or slug to move the server to

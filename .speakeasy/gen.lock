@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 1255acb9e69cf6631264a9a5048cf7af
+  docChecksum: 3aaa4bc5d5d703c180567b7c33751695
   docVersion: "2023-06-01"
   speakeasyVersion: 1.603.0
   generationVersion: 2.681.1
-  releaseVersion: 1.5.0
-  configChecksum: 8905f3c739e9c84fed363e8ee92c56c0
+  releaseVersion: 1.5.1
+  configChecksum: 83ce94fb0d69cf049a19d07a8a99ee67
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 features:
@@ -1973,8 +1973,8 @@ examples:
         path:
           server_id: "sv_aNmodjGyqbE8W"
       requestBody:
-        application/json: {"data": {"id": "sv_aNmodjGyqbE8W", "type": "servers", "attributes": {"hostname": "new-hostname", "billing": "monthly", "project": "proj_aNmodjoyqbE8W"}}}
-        application/vnd.api+json: {"data": {"id": "sv_aNmodjGyqbE8W", "type": "servers", "attributes": {"hostname": "new-hostname", "billing": "monthly", "project": "proj_aNmodjoyqbE8W"}}}
+        application/json: {"data": {"id": "sv_aNmodjGyqbE8W", "type": "servers", "attributes": {"hostname": "new-hostname", "project": "proj_aNmodjoyqbE8W"}}}
+        application/vnd.api+json: {"data": {"id": "sv_aNmodjGyqbE8W", "type": "servers", "attributes": {"hostname": "new-hostname", "project": "proj_aNmodjoyqbE8W"}}}
       responses:
         "400":
           application/vnd.api+json: {}
