@@ -30,7 +30,7 @@ func newVirtualNetworks(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, 
 
 // Delete a Virtual Network
 // Delete virtual network
-func (s *VirtualNetworks) Delete(ctx context.Context, vlanID int64, opts ...operations.Option) (*operations.DestroyVirtualNetworkResponse, error) {
+func (s *VirtualNetworks) Delete(ctx context.Context, vlanID string, opts ...operations.Option) (*operations.DestroyVirtualNetworkResponse, error) {
 	request := operations.DestroyVirtualNetworkRequest{
 		VlanID: vlanID,
 	}

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 3aaa4bc5d5d703c180567b7c33751695
+  docChecksum: 04479a3736f1457d6f925480b15c1ce1
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.603.0
-  generationVersion: 2.681.1
-  releaseVersion: 1.5.1
-  configChecksum: 83ce94fb0d69cf049a19d07a8a99ee67
+  speakeasyVersion: 1.603.2
+  generationVersion: 2.681.8
+  releaseVersion: 1.5.2
+  configChecksum: c1bc9c95ae20fe82712243cdfac343ff
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 features:
@@ -3301,7 +3301,7 @@ examples:
     speakeasy-default-destroy-virtual-network:
       parameters:
         path:
-          vlan_id: 793185
+          vlan_id: "793185"
   get-vpn-sessions:
     when there is a site filter:
       parameters:

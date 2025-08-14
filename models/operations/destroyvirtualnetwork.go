@@ -8,12 +8,12 @@ import (
 
 type DestroyVirtualNetworkRequest struct {
 	// The virtual network ID
-	VlanID int64 `pathParam:"style=simple,explode=false,name=vlan_id"`
+	VlanID string `pathParam:"style=simple,explode=false,name=vlan_id"`
 }
 
-func (o *DestroyVirtualNetworkRequest) GetVlanID() int64 {
+func (o *DestroyVirtualNetworkRequest) GetVlanID() string {
 	if o == nil {
-		return 0
+		return ""
 	}
 	return o.VlanID
 }
