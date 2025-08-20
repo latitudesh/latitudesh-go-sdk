@@ -63,9 +63,16 @@ func (o *UpdateVirtualNetworkPrivateNetworksAttributes) GetDescription() *string
 }
 
 type UpdateVirtualNetworkPrivateNetworksData struct {
+	ID         string                                         `json:"id"`
 	Type       UpdateVirtualNetworkPrivateNetworksType        `json:"type"`
 	Attributes *UpdateVirtualNetworkPrivateNetworksAttributes `json:"attributes,omitempty"`
-	ID         string                                         `json:"id"`
+}
+
+func (o *UpdateVirtualNetworkPrivateNetworksData) GetID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ID
 }
 
 func (o *UpdateVirtualNetworkPrivateNetworksData) GetType() UpdateVirtualNetworkPrivateNetworksType {
@@ -82,34 +89,8 @@ func (o *UpdateVirtualNetworkPrivateNetworksData) GetAttributes() *UpdateVirtual
 	return o.Attributes
 }
 
-func (o *UpdateVirtualNetworkPrivateNetworksData) GetID() string {
-	if o == nil {
-		return ""
-	}
-	return o.ID
-}
-
 type UpdateVirtualNetworkPrivateNetworksRequestBody struct {
-	ID   *string                                 `default:"vlan_81EVOtR1N4J2Z" json:"id"`
 	Data UpdateVirtualNetworkPrivateNetworksData `json:"data"`
-}
-
-func (u UpdateVirtualNetworkPrivateNetworksRequestBody) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(u, "", false)
-}
-
-func (u *UpdateVirtualNetworkPrivateNetworksRequestBody) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &u, "", false, false); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (o *UpdateVirtualNetworkPrivateNetworksRequestBody) GetID() *string {
-	if o == nil {
-		return nil
-	}
-	return o.ID
 }
 
 func (o *UpdateVirtualNetworkPrivateNetworksRequestBody) GetData() UpdateVirtualNetworkPrivateNetworksData {
