@@ -174,6 +174,7 @@ func main() {
 
     res, err := s.PrivateNetworks.Update(ctx, "vlan_VaNmodjeObE8W", operations.UpdateVirtualNetworkPrivateNetworksRequestBody{
         Data: operations.UpdateVirtualNetworkPrivateNetworksData{
+            ID: "vlan_VaNmodjeObE8W",
             Type: operations.UpdateVirtualNetworkPrivateNetworksTypeVirtualNetworks,
             Attributes: &operations.UpdateVirtualNetworkPrivateNetworksAttributes{
                 Tags: []string{
@@ -181,7 +182,6 @@ func main() {
                     "tag_QnkPzo8Wj1iWWzg24P5bhXAzrxmm",
                 },
             },
-            ID: "vlan_VaNmodjeObE8W",
         },
     })
     if err != nil {

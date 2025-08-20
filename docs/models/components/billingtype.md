@@ -9,3 +9,4 @@
 | `BillingTypeMonthly` | Monthly              |
 | `BillingTypeHourly`  | Hourly               |
 | `BillingTypeNormal`  | Normal               |
+| `BillingTypeCustom`  | Custom               |

@@ -311,10 +311,17 @@ func (e *ServerDataRole) UnmarshalJSON(data []byte) error {
 }
 
 type Interfaces struct {
+	Role        *ServerDataRole `json:"role,omitempty"`
 	Name        *string         `json:"name,omitempty"`
 	MacAddress  *string         `json:"mac_address,omitempty"`
 	Description *string         `json:"description,omitempty"`
-	Role        *ServerDataRole `json:"role,omitempty"`
+}
+
+func (o *Interfaces) GetRole() *ServerDataRole {
+	if o == nil {
+		return nil
+	}
+	return o.Role
 }
 
 func (o *Interfaces) GetName() *string {
@@ -338,15 +345,10 @@ func (o *Interfaces) GetDescription() *string {
 	return o.Description
 }
 
-func (o *Interfaces) GetRole() *ServerDataRole {
-	if o == nil {
-		return nil
-	}
-	return o.Role
-}
-
 type ServerDataAttributes struct {
 	Hostname *string `json:"hostname,omitempty"`
+	// The server label
+	Label *string `json:"label,omitempty"`
 	// `on` - The server is powered ON
 	// `off` - The server is powered OFF
 	// `unknown` - The server power status is unknown
@@ -374,8 +376,6 @@ type ServerDataAttributes struct {
 	Interfaces          []Interfaces              `json:"interfaces,omitempty"`
 	Project             *ProjectInclude           `json:"project,omitempty"`
 	Team                *TeamInclude              `json:"team,omitempty"`
-	// The server label
-	Label *string `json:"label,omitempty"`
 }
 
 func (o *ServerDataAttributes) GetHostname() *string {
@@ -383,6 +383,13 @@ func (o *ServerDataAttributes) GetHostname() *string {
 		return nil
 	}
 	return o.Hostname
+}
+
+func (o *ServerDataAttributes) GetLabel() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Label
 }
 
 func (o *ServerDataAttributes) GetStatus() *Status {
@@ -502,13 +509,6 @@ func (o *ServerDataAttributes) GetTeam() *TeamInclude {
 		return nil
 	}
 	return o.Team
-}
-
-func (o *ServerDataAttributes) GetLabel() *string {
-	if o == nil {
-		return nil
-	}
-	return o.Label
 }
 
 type ServerData struct {

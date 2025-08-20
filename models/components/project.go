@@ -14,6 +14,7 @@ const (
 	BillingTypeMonthly BillingType = "Monthly"
 	BillingTypeHourly  BillingType = "Hourly"
 	BillingTypeNormal  BillingType = "Normal"
+	BillingTypeCustom  BillingType = "Custom"
 )
 
 func (e BillingType) ToPointer() *BillingType {
@@ -32,6 +33,8 @@ func (e *BillingType) UnmarshalJSON(data []byte) error {
 	case "Hourly":
 		fallthrough
 	case "Normal":
+		fallthrough
+	case "Custom":
 		*e = BillingType(v)
 		return nil
 	default:

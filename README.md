@@ -128,6 +128,7 @@ func main() {
 
 ### [Firewalls](docs/sdks/firewalls/README.md)
 
+* [GetAllFirewallAssignments](docs/sdks/firewalls/README.md#getallfirewallassignments) - List All Firewall Assignments
 * [Create](docs/sdks/firewalls/README.md#create) - Create a firewall
 * [List](docs/sdks/firewalls/README.md#list) - List firewalls
 * [Get](docs/sdks/firewalls/README.md#get) - Retrieve Firewall
