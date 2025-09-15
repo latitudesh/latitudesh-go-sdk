@@ -9,6 +9,7 @@
 * [List](#list) - Get Teams Virtual Machines
 * [Get](#get) - Get a Virtual Machine
 * [Delete](#delete) - Destroy a Virtual Machine
+* [CreateVirtualMachineAction](#createvirtualmachineaction) - Run Virtual Machine Action
 
 ## Create
 
@@ -224,6 +225,70 @@ func main() {
 ### Response
 
 **[*operations.DestroyVirtualMachineResponse](../../models/operations/destroyvirtualmachineresponse.md), error**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
+
+## CreateVirtualMachineAction
+
+Performs a power action on a given virtual machine:
+- `power_on` - Starts the virtual machine
+- `power_off` - Stops the virtual machine
+- `reboot` - Restarts the virtual machine
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="create-virtual-machine-action" method="post" path="/virtual_machines/{virtual_machine_id}/actions" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.VirtualMachines.CreateVirtualMachineAction(ctx, "vm_VLMmAD8EOwop2", operations.CreateVirtualMachineActionVirtualMachinesRequestBody{
+        ID: "vm_VLMmAD8EOwop2",
+        Type: operations.CreateVirtualMachineActionVirtualMachinesTypeVirtualMachines,
+        Attributes: operations.CreateVirtualMachineActionVirtualMachinesAttributes{
+            Action: operations.CreateVirtualMachineActionVirtualMachinesActionReboot,
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                                          | Type                                                                                                                                               | Required                                                                                                                                           | Description                                                                                                                                        |
+| -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                                                                              | :heavy_check_mark:                                                                                                                                 | The context to use for the request.                                                                                                                |
+| `virtualMachineID`                                                                                                                                 | *string*                                                                                                                                           | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
+| `requestBody`                                                                                                                                      | [operations.CreateVirtualMachineActionVirtualMachinesRequestBody](../../models/operations/createvirtualmachineactionvirtualmachinesrequestbody.md) | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
+| `opts`                                                                                                                                             | [][operations.Option](../../models/operations/option.md)                                                                                           | :heavy_minus_sign:                                                                                                                                 | The options for this request.                                                                                                                      |
+
+### Response
+
+**[*operations.CreateVirtualMachineActionResponse](../../models/operations/createvirtualmachineactionresponse.md), error**
 
 ### Errors
 

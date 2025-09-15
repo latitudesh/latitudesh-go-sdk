@@ -71,7 +71,7 @@ func (f FilesystemDataAttributes) MarshalJSON() ([]byte, error) {
 }
 
 func (f *FilesystemDataAttributes) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &f, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &f, "", false, nil); err != nil {
 		return err
 	}
 	return nil

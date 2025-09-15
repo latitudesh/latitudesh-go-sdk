@@ -77,7 +77,7 @@ func (u UpdateServerServersAttributes) MarshalJSON() ([]byte, error) {
 }
 
 func (u *UpdateServerServersAttributes) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &u, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &u, "", false, nil); err != nil {
 		return err
 	}
 	return nil
@@ -122,7 +122,7 @@ func (u UpdateServerServersData) MarshalJSON() ([]byte, error) {
 }
 
 func (u *UpdateServerServersData) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &u, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &u, "", false, nil); err != nil {
 		return err
 	}
 	return nil

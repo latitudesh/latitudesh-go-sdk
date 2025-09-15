@@ -1,25 +1,25 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 3426f7a5f5e3184db203fa92b8760523
+  docChecksum: 50357a97fe12ac133470b9495eda2a24
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.606.0
-  generationVersion: 2.686.7
-  releaseVersion: 1.5.3
-  configChecksum: 13e1355204cebc28010597f7dd3f3ed6
+  speakeasyVersion: 1.615.2
+  generationVersion: 2.698.4
+  releaseVersion: 1.5.4
+  configChecksum: fd8d819572319196de7746dd4049fad0
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 features:
   go:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.9.3
+    core: 3.9.6
     defaultEnabledRetries: 0.2.0
     deprecations: 2.81.3
     devContainers: 2.90.0
     envVarSecurityUsage: 0.3.2
     flattening: 2.81.1
-    globalSecurity: 2.82.11
+    globalSecurity: 2.82.12
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.3
@@ -122,6 +122,7 @@ generatedFiles:
   - /models/operations/createserverreinstall.go
   - /models/operations/createtag.go
   - /models/operations/createvirtualmachine.go
+  - /models/operations/createvirtualmachineaction.go
   - /models/operations/createvirtualnetwork.go
   - /models/operations/deleteapikey.go
   - /models/operations/deletefirewall.go
@@ -581,6 +582,12 @@ generatedFiles:
   - docs/models/operations/createtagtagsdata.md
   - docs/models/operations/createtagtagsrequestbody.md
   - docs/models/operations/createtagtagstype.md
+  - docs/models/operations/createvirtualmachineactionrequest.md
+  - docs/models/operations/createvirtualmachineactionresponse.md
+  - docs/models/operations/createvirtualmachineactionvirtualmachinesaction.md
+  - docs/models/operations/createvirtualmachineactionvirtualmachinesattributes.md
+  - docs/models/operations/createvirtualmachineactionvirtualmachinesrequestbody.md
+  - docs/models/operations/createvirtualmachineactionvirtualmachinestype.md
   - docs/models/operations/createvirtualmachineresponse.md
   - docs/models/operations/createvirtualnetworkprivatenetworksattributes.md
   - docs/models/operations/createvirtualnetworkprivatenetworksdata.md
@@ -2056,7 +2063,7 @@ examples:
           server_id: "sv_VLMmAD8EOwop2"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "sv_VLMmAD8EOwop2", "attributes": {"operating_system": "debian_10", "hostname": "Solarbreeze", "raid": "raid-1", "ssh_keys": ["ssh_6059EqYkOQj8p"], "partitions": [{"path": "/", "size_in_gb": 300, "filesystem_type": "ext4"}]}}}
+          application/vnd.api+json: {"data": {"id": "sv_VLMmAD8EOwop2", "attributes": {"operating_system": "debian_10", "hostname": "Solarbreeze", "raid": "raid-1", "ssh_keys": ["ssh_6059EqYkOQj8p"], "partitions": [{"path": "/", "size_in_gb": 300, "filesystem_type": "ext4"}], "user_data": "ud_zGr47qlMDAg0m"}}}
   update-server-deploy-config:
     Success:
       parameters:
@@ -2067,7 +2074,7 @@ examples:
         application/vnd.api+json: {"type": "deploy_config"}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "sv_0L6WO141DPlXy", "attributes": {"operating_system": "ubuntu_20_04_x64_lts", "hostname": "my-hostname", "raid": "raid-1", "ssh_keys": ["ssh_GKN4ydzgqVob3"], "partitions": [{"path": "/", "size_in_gb": 300, "filesystem_type": "ext4"}]}}}
+          application/vnd.api+json: {"data": {"id": "sv_0L6WO141DPlXy", "attributes": {"operating_system": "ubuntu_20_04_x64_lts", "hostname": "my-hostname", "raid": "raid-1", "ssh_keys": ["ssh_GKN4ydzgqVob3"], "partitions": [{"path": "/", "size_in_gb": 300, "filesystem_type": "ext4"}], "user_data": "ud_5LA73qkjdaJ2o"}}}
         "422":
           application/vnd.api+json: {"data": {"id": "sv_g1mbDweZdLv5B", "attributes": {"operating_system": "ubuntu_20_04_x64_lts", "hostname": "my-hostname", "raid": "raid-1", "ssh_keys": ["ssh_GlxWpD6KOm6rk"], "partitions": [{"path": "/", "size_in_gb": 300, "filesystem_type": "ext4"}]}}}
     Unprocessable Entity:
@@ -3569,6 +3576,14 @@ examples:
       responses:
         "200":
           application/vnd.api+json: {"data": [{"id": "fwasg_zGr47qlMDAg0m", "type": "firewall_assignments", "attributes": {"server": {"id": "sv_RLYV8DZ2D5QoE", "primary_ipv4": "102.29.146.162", "hostname": "Synergistic Steel Car"}}}, {"id": "fwasg_w5AEmq7XDBkWX", "type": "firewall_assignments", "attributes": {"server": {"id": "sv_RLYV8DZ2D5QoE", "primary_ipv4": "102.29.146.162", "hostname": "Synergistic Steel Car"}}}]}
+  create-virtual-machine-action:
+    Created:
+      parameters:
+        path:
+          virtual_machine_id: "vm_VLMmAD8EOwop2"
+      requestBody:
+        application/json: {"id": "vm_VLMmAD8EOwop2", "type": "virtual_machines", "attributes": {"action": "reboot"}}
+        application/vnd.api+json: {"id": "vm_VLMmAD8EOwop2", "type": "virtual_machines", "attributes": {"action": "reboot"}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## SDK Changes Detected:\n* `Latitudesh.PrivateNetworks.Update()`: \n  *  `request.RequestBody.Id` **Removed** **Breaking** :warning:\n* `Latitudesh.Firewalls.Get-All-Firewall-Assignments()`: **Added**\n"
+releaseNotes: "## Go SDK Changes Detected:\n* `Latitudesh.Servers.UpdateDeployConfig()`: \n  *  `request.RequestBody.Attributes` **Changed** **Breaking** :warning:\n  *  `response.Data.Attributes.UserData` **Added**\n* `Latitudesh.Servers.Reinstall()`: \n  *  `request.RequestBody.Data.Attributes.UserData` **Changed** **Breaking** :warning:\n* `Latitudesh.VirtualMachines.Create-Virtual-Machine-Action()`: **Added**\n* `Latitudesh.Servers.GetDeployConfig()`:  `response.Data.Attributes.UserData` **Added**\n"

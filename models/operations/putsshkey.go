@@ -43,7 +43,7 @@ func (p PutSSHKeySSHKeysAttributes) MarshalJSON() ([]byte, error) {
 }
 
 func (p *PutSSHKeySSHKeysAttributes) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &p, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
 		return err
 	}
 	return nil
@@ -74,7 +74,7 @@ func (p PutSSHKeySSHKeysData) MarshalJSON() ([]byte, error) {
 }
 
 func (p *PutSSHKeySSHKeysData) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &p, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &p, "", false, []string{"type"}); err != nil {
 		return err
 	}
 	return nil
