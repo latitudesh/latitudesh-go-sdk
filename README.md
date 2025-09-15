@@ -288,6 +288,7 @@ func main() {
 * [List](docs/sdks/virtualmachines/README.md#list) - Get Teams Virtual Machines
 * [Get](docs/sdks/virtualmachines/README.md#get) - Get a Virtual Machine
 * [Delete](docs/sdks/virtualmachines/README.md#delete) - Destroy a Virtual Machine
+* [CreateVirtualMachineAction](docs/sdks/virtualmachines/README.md#createvirtualmachineaction) - Run Virtual Machine Action
 
 ### [VirtualNetworks](docs/sdks/virtualnetworks/README.md)
 

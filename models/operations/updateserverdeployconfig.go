@@ -184,8 +184,8 @@ type UpdateServerDeployConfigServersAttributes struct {
 	OperatingSystem *UpdateServerDeployConfigServersOperatingSystem `json:"operating_system,omitempty"`
 	Raid            *UpdateServerDeployConfigServersRaid            `json:"raid,omitempty"`
 	// User data to configure the server
-	UserData   *int64                               `json:"user_data,omitempty"`
-	SSHKeys    []int64                              `json:"ssh_keys,omitempty"`
+	UserData   *string                              `json:"user_data,omitempty"`
+	SSHKeys    []string                             `json:"ssh_keys,omitempty"`
 	Partitions []UpdateServerDeployConfigPartitions `json:"partitions,omitempty"`
 	// URL where iPXE script is stored on, necessary for custom image deployments. This attribute is required when operating system iPXE is selected.
 	IpxeURL *string `json:"ipxe_url,omitempty"`
@@ -212,14 +212,14 @@ func (o *UpdateServerDeployConfigServersAttributes) GetRaid() *UpdateServerDeplo
 	return o.Raid
 }
 
-func (o *UpdateServerDeployConfigServersAttributes) GetUserData() *int64 {
+func (o *UpdateServerDeployConfigServersAttributes) GetUserData() *string {
 	if o == nil {
 		return nil
 	}
 	return o.UserData
 }
 
-func (o *UpdateServerDeployConfigServersAttributes) GetSSHKeys() []int64 {
+func (o *UpdateServerDeployConfigServersAttributes) GetSSHKeys() []string {
 	if o == nil {
 		return nil
 	}

@@ -19,7 +19,7 @@ func (g GetProjectUsersDataRequest) MarshalJSON() ([]byte, error) {
 }
 
 func (g *GetProjectUsersDataRequest) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &g, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &g, "", false, []string{"project_id"}); err != nil {
 		return err
 	}
 	return nil

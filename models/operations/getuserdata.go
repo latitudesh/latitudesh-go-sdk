@@ -18,7 +18,7 @@ func (g GetUserDataRequest) MarshalJSON() ([]byte, error) {
 }
 
 func (g *GetUserDataRequest) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &g, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &g, "", false, []string{"user_data_id"}); err != nil {
 		return err
 	}
 	return nil

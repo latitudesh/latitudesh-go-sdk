@@ -19,12 +19,13 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: true
+    hoistGlobalSecurity: true
   tests:
     generateTests: true
     generateNewTests: false
     skipResponseBodyAssertions: false
 go:
-  version: 1.5.3
+  version: 1.5.4
   additionalDependencies: {}
   allowUnknownFieldsInWeakUnions: false
   baseErrorName: LatitudeshError
@@ -46,5 +47,6 @@ go:
   modulePath: ""
   outputModelSuffix: output
   packageName: github.com/latitudesh/latitudesh-go-sdk
+  respectRequiredFields: false
   responseFormat: envelope-http
   sdkPackageName: ""

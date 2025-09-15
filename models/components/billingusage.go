@@ -48,7 +48,7 @@ func (p Period) MarshalJSON() ([]byte, error) {
 }
 
 func (p *Period) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &p, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
 		return err
 	}
 	return nil
@@ -241,7 +241,7 @@ func (p Products) MarshalJSON() ([]byte, error) {
 }
 
 func (p *Products) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &p, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
 		return err
 	}
 	return nil

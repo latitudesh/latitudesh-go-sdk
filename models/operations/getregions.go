@@ -19,7 +19,7 @@ func (g GetRegionsRequest) MarshalJSON() ([]byte, error) {
 }
 
 func (g *GetRegionsRequest) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &g, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &g, "", false, nil); err != nil {
 		return err
 	}
 	return nil

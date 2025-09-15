@@ -35,6 +35,7 @@ type DeployConfigAttributes struct {
 	Raid            *string      `json:"raid,omitempty"`
 	SSHKeys         []string     `json:"ssh_keys,omitempty"`
 	Partitions      []Partitions `json:"partitions,omitempty"`
+	UserData        *string      `json:"user_data,omitempty"`
 }
 
 func (o *DeployConfigAttributes) GetOperatingSystem() *string {
@@ -70,6 +71,13 @@ func (o *DeployConfigAttributes) GetPartitions() []Partitions {
 		return nil
 	}
 	return o.Partitions
+}
+
+func (o *DeployConfigAttributes) GetUserData() *string {
+	if o == nil {
+		return nil
+	}
+	return o.UserData
 }
 
 type DeployConfigData struct {

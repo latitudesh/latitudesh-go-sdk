@@ -187,10 +187,10 @@ type CreateServerReinstallServersAttributes struct {
 	// The server hostname to set upon reinstall
 	Hostname   *string                                  `json:"hostname,omitempty"`
 	Partitions []CreateServerReinstallServersPartitions `json:"partitions,omitempty"`
-	// SSH Keys to set upon reinstall
+	// SSH Key IDs to set upon reinstall
 	SSHKeys []string `json:"ssh_keys,omitempty"`
-	// User data to set upon reinstall
-	UserData *int64 `json:"user_data,omitempty"`
+	// User data ID to set upon reinstall
+	UserData *string `json:"user_data,omitempty"`
 	// RAID mode for the server
 	Raid *CreateServerReinstallServersRaid `json:"raid,omitempty"`
 	// URL where iPXE script is stored on, OR the iPXE script encoded in base64. This attribute is required when operating system iPXE is selected.
@@ -225,7 +225,7 @@ func (o *CreateServerReinstallServersAttributes) GetSSHKeys() []string {
 	return o.SSHKeys
 }
 
-func (o *CreateServerReinstallServersAttributes) GetUserData() *int64 {
+func (o *CreateServerReinstallServersAttributes) GetUserData() *string {
 	if o == nil {
 		return nil
 	}

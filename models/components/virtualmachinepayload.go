@@ -41,7 +41,7 @@ func (v VirtualMachinePayloadAttributes) MarshalJSON() ([]byte, error) {
 }
 
 func (v *VirtualMachinePayloadAttributes) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &v, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &v, "", false, nil); err != nil {
 		return err
 	}
 	return nil
