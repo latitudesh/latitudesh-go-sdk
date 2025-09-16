@@ -36,25 +36,25 @@ type Author struct {
 	Email *string `json:"email,omitempty"`
 }
 
-func (o *Author) GetID() *string {
-	if o == nil {
+func (a *Author) GetID() *string {
+	if a == nil {
 		return nil
 	}
-	return o.ID
+	return a.ID
 }
 
-func (o *Author) GetName() *string {
-	if o == nil {
+func (a *Author) GetName() *string {
+	if a == nil {
 		return nil
 	}
-	return o.Name
+	return a.Name
 }
 
-func (o *Author) GetEmail() *string {
-	if o == nil {
+func (a *Author) GetEmail() *string {
+	if a == nil {
 		return nil
 	}
-	return o.Email
+	return a.Email
 }
 
 type EventDataProject struct {
@@ -63,25 +63,25 @@ type EventDataProject struct {
 	Slug *string `json:"slug,omitempty"`
 }
 
-func (o *EventDataProject) GetID() *string {
-	if o == nil {
+func (e *EventDataProject) GetID() *string {
+	if e == nil {
 		return nil
 	}
-	return o.ID
+	return e.ID
 }
 
-func (o *EventDataProject) GetName() *string {
-	if o == nil {
+func (e *EventDataProject) GetName() *string {
+	if e == nil {
 		return nil
 	}
-	return o.Name
+	return e.Name
 }
 
-func (o *EventDataProject) GetSlug() *string {
-	if o == nil {
+func (e *EventDataProject) GetSlug() *string {
+	if e == nil {
 		return nil
 	}
-	return o.Slug
+	return e.Slug
 }
 
 type EventDataTeam struct {
@@ -89,18 +89,18 @@ type EventDataTeam struct {
 	Name *string `json:"name,omitempty"`
 }
 
-func (o *EventDataTeam) GetID() *string {
-	if o == nil {
+func (e *EventDataTeam) GetID() *string {
+	if e == nil {
 		return nil
 	}
-	return o.ID
+	return e.ID
 }
 
-func (o *EventDataTeam) GetName() *string {
-	if o == nil {
+func (e *EventDataTeam) GetName() *string {
+	if e == nil {
 		return nil
 	}
-	return o.Name
+	return e.Name
 }
 
 type Target struct {
@@ -108,18 +108,18 @@ type Target struct {
 	Name *string `json:"name,omitempty"`
 }
 
-func (o *Target) GetID() *string {
-	if o == nil {
+func (t *Target) GetID() *string {
+	if t == nil {
 		return nil
 	}
-	return o.ID
+	return t.ID
 }
 
-func (o *Target) GetName() *string {
-	if o == nil {
+func (t *Target) GetName() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Name
+	return t.Name
 }
 
 type EventDataAttributes struct {
@@ -131,46 +131,46 @@ type EventDataAttributes struct {
 	Target    *Target           `json:"target,omitempty"`
 }
 
-func (o *EventDataAttributes) GetAction() *string {
-	if o == nil {
+func (e *EventDataAttributes) GetAction() *string {
+	if e == nil {
 		return nil
 	}
-	return o.Action
+	return e.Action
 }
 
-func (o *EventDataAttributes) GetCreatedAt() *string {
-	if o == nil {
+func (e *EventDataAttributes) GetCreatedAt() *string {
+	if e == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return e.CreatedAt
 }
 
-func (o *EventDataAttributes) GetAuthor() *Author {
-	if o == nil {
+func (e *EventDataAttributes) GetAuthor() *Author {
+	if e == nil {
 		return nil
 	}
-	return o.Author
+	return e.Author
 }
 
-func (o *EventDataAttributes) GetProject() *EventDataProject {
-	if o == nil {
+func (e *EventDataAttributes) GetProject() *EventDataProject {
+	if e == nil {
 		return nil
 	}
-	return o.Project
+	return e.Project
 }
 
-func (o *EventDataAttributes) GetTeam() *EventDataTeam {
-	if o == nil {
+func (e *EventDataAttributes) GetTeam() *EventDataTeam {
+	if e == nil {
 		return nil
 	}
-	return o.Team
+	return e.Team
 }
 
-func (o *EventDataAttributes) GetTarget() *Target {
-	if o == nil {
+func (e *EventDataAttributes) GetTarget() *Target {
+	if e == nil {
 		return nil
 	}
-	return o.Target
+	return e.Target
 }
 
 type EventData struct {
@@ -179,23 +179,23 @@ type EventData struct {
 	Attributes *EventDataAttributes `json:"attributes,omitempty"`
 }
 
-func (o *EventData) GetID() *string {
-	if o == nil {
+func (e *EventData) GetID() *string {
+	if e == nil {
 		return nil
 	}
-	return o.ID
+	return e.ID
 }
 
-func (o *EventData) GetType() *EventDataType {
-	if o == nil {
+func (e *EventData) GetType() *EventDataType {
+	if e == nil {
 		return nil
 	}
-	return o.Type
+	return e.Type
 }
 
-func (o *EventData) GetAttributes() *EventDataAttributes {
-	if o == nil {
+func (e *EventData) GetAttributes() *EventDataAttributes {
+	if e == nil {
 		return nil
 	}
-	return o.Attributes
+	return e.Attributes
 }

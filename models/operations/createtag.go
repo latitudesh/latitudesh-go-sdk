@@ -52,25 +52,25 @@ func (c *CreateTagTagsAttributes) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *CreateTagTagsAttributes) GetName() *string {
-	if o == nil {
+func (c *CreateTagTagsAttributes) GetName() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Name
+	return c.Name
 }
 
-func (o *CreateTagTagsAttributes) GetDescription() *string {
-	if o == nil {
+func (c *CreateTagTagsAttributes) GetDescription() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Description
+	return c.Description
 }
 
-func (o *CreateTagTagsAttributes) GetColor() *string {
-	if o == nil {
+func (c *CreateTagTagsAttributes) GetColor() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Color
+	return c.Color
 }
 
 type CreateTagTagsData struct {
@@ -78,29 +78,29 @@ type CreateTagTagsData struct {
 	Attributes *CreateTagTagsAttributes `json:"attributes,omitempty"`
 }
 
-func (o *CreateTagTagsData) GetType() *CreateTagTagsType {
-	if o == nil {
+func (c *CreateTagTagsData) GetType() *CreateTagTagsType {
+	if c == nil {
 		return nil
 	}
-	return o.Type
+	return c.Type
 }
 
-func (o *CreateTagTagsData) GetAttributes() *CreateTagTagsAttributes {
-	if o == nil {
+func (c *CreateTagTagsData) GetAttributes() *CreateTagTagsAttributes {
+	if c == nil {
 		return nil
 	}
-	return o.Attributes
+	return c.Attributes
 }
 
 type CreateTagTagsRequestBody struct {
 	Data *CreateTagTagsData `json:"data,omitempty"`
 }
 
-func (o *CreateTagTagsRequestBody) GetData() *CreateTagTagsData {
-	if o == nil {
+func (c *CreateTagTagsRequestBody) GetData() *CreateTagTagsData {
+	if c == nil {
 		return nil
 	}
-	return o.Data
+	return c.Data
 }
 
 type CreateTagResponse struct {
@@ -109,16 +109,16 @@ type CreateTagResponse struct {
 	CustomTag *components.CustomTag
 }
 
-func (o *CreateTagResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (c *CreateTagResponse) GetHTTPMeta() components.HTTPMetadata {
+	if c == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return c.HTTPMeta
 }
 
-func (o *CreateTagResponse) GetCustomTag() *components.CustomTag {
-	if o == nil {
+func (c *CreateTagResponse) GetCustomTag() *components.CustomTag {
+	if c == nil {
 		return nil
 	}
-	return o.CustomTag
+	return c.CustomTag
 }

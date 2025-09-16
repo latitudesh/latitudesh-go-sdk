@@ -31,39 +31,39 @@ func (g *GetVirtualNetworksAssignmentsRequest) UnmarshalJSON(data []byte) error 
 	return nil
 }
 
-func (o *GetVirtualNetworksAssignmentsRequest) GetFilterServer() *string {
-	if o == nil {
+func (g *GetVirtualNetworksAssignmentsRequest) GetFilterServer() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterServer
+	return g.FilterServer
 }
 
-func (o *GetVirtualNetworksAssignmentsRequest) GetFilterVid() *string {
-	if o == nil {
+func (g *GetVirtualNetworksAssignmentsRequest) GetFilterVid() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterVid
+	return g.FilterVid
 }
 
-func (o *GetVirtualNetworksAssignmentsRequest) GetFilterVirtualNetworkID() *string {
-	if o == nil {
+func (g *GetVirtualNetworksAssignmentsRequest) GetFilterVirtualNetworkID() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterVirtualNetworkID
+	return g.FilterVirtualNetworkID
 }
 
-func (o *GetVirtualNetworksAssignmentsRequest) GetPageSize() *int64 {
-	if o == nil {
+func (g *GetVirtualNetworksAssignmentsRequest) GetPageSize() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.PageSize
+	return g.PageSize
 }
 
-func (o *GetVirtualNetworksAssignmentsRequest) GetPageNumber() *int64 {
-	if o == nil {
+func (g *GetVirtualNetworksAssignmentsRequest) GetPageNumber() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.PageNumber
+	return g.PageNumber
 }
 
 type GetVirtualNetworksAssignmentsResponse struct {
@@ -74,16 +74,16 @@ type GetVirtualNetworksAssignmentsResponse struct {
 	Next func() (*GetVirtualNetworksAssignmentsResponse, error)
 }
 
-func (o *GetVirtualNetworksAssignmentsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetVirtualNetworksAssignmentsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetVirtualNetworksAssignmentsResponse) GetVirtualNetworkAssignments() *components.VirtualNetworkAssignments {
-	if o == nil {
+func (g *GetVirtualNetworksAssignmentsResponse) GetVirtualNetworkAssignments() *components.VirtualNetworkAssignments {
+	if g == nil {
 		return nil
 	}
-	return o.VirtualNetworkAssignments
+	return g.VirtualNetworkAssignments
 }

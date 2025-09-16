@@ -10,16 +10,16 @@ type VirtualMachine struct {
 	Meta *VirtualMachineMeta       `json:"meta,omitempty"`
 }
 
-func (o *VirtualMachine) GetData() *VirtualMachineAttributes {
-	if o == nil {
+func (v *VirtualMachine) GetData() *VirtualMachineAttributes {
+	if v == nil {
 		return nil
 	}
-	return o.Data
+	return v.Data
 }
 
-func (o *VirtualMachine) GetMeta() *VirtualMachineMeta {
-	if o == nil {
+func (v *VirtualMachine) GetMeta() *VirtualMachineMeta {
+	if v == nil {
 		return nil
 	}
-	return o.Meta
+	return v.Meta
 }

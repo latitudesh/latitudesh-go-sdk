@@ -11,20 +11,20 @@ type DeleteProjectRequest struct {
 	ProjectID string `pathParam:"style=simple,explode=false,name=project_id"`
 }
 
-func (o *DeleteProjectRequest) GetProjectID() string {
-	if o == nil {
+func (d *DeleteProjectRequest) GetProjectID() string {
+	if d == nil {
 		return ""
 	}
-	return o.ProjectID
+	return d.ProjectID
 }
 
 type DeleteProjectResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *DeleteProjectResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (d *DeleteProjectResponse) GetHTTPMeta() components.HTTPMetadata {
+	if d == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return d.HTTPMeta
 }

@@ -66,60 +66,60 @@ type GetContainersPlansRequest struct {
 	FilterEphemeralStorage *int64 `queryParam:"style=form,explode=true,name=filter[ephemeral_storage]"`
 }
 
-func (o *GetContainersPlansRequest) GetFilterName() *string {
-	if o == nil {
+func (g *GetContainersPlansRequest) GetFilterName() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterName
+	return g.FilterName
 }
 
-func (o *GetContainersPlansRequest) GetFilterSlug() *string {
-	if o == nil {
+func (g *GetContainersPlansRequest) GetFilterSlug() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterSlug
+	return g.FilterSlug
 }
 
-func (o *GetContainersPlansRequest) GetFilterLocation() *string {
-	if o == nil {
+func (g *GetContainersPlansRequest) GetFilterLocation() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterLocation
+	return g.FilterLocation
 }
 
-func (o *GetContainersPlansRequest) GetFilterStockLevel() *QueryParamFilterStockLevel {
-	if o == nil {
+func (g *GetContainersPlansRequest) GetFilterStockLevel() *QueryParamFilterStockLevel {
+	if g == nil {
 		return nil
 	}
-	return o.FilterStockLevel
+	return g.FilterStockLevel
 }
 
-func (o *GetContainersPlansRequest) GetFilterInStock() *bool {
-	if o == nil {
+func (g *GetContainersPlansRequest) GetFilterInStock() *bool {
+	if g == nil {
 		return nil
 	}
-	return o.FilterInStock
+	return g.FilterInStock
 }
 
-func (o *GetContainersPlansRequest) GetFilterGpu() *bool {
-	if o == nil {
+func (g *GetContainersPlansRequest) GetFilterGpu() *bool {
+	if g == nil {
 		return nil
 	}
-	return o.FilterGpu
+	return g.FilterGpu
 }
 
-func (o *GetContainersPlansRequest) GetFilterRAM() *int64 {
-	if o == nil {
+func (g *GetContainersPlansRequest) GetFilterRAM() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.FilterRAM
+	return g.FilterRAM
 }
 
-func (o *GetContainersPlansRequest) GetFilterEphemeralStorage() *int64 {
-	if o == nil {
+func (g *GetContainersPlansRequest) GetFilterEphemeralStorage() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.FilterEphemeralStorage
+	return g.FilterEphemeralStorage
 }
 
 // GetContainersPlansResponseBody - Success
@@ -127,11 +127,11 @@ type GetContainersPlansResponseBody struct {
 	Data []components.ContainerPlanData `json:"data,omitempty"`
 }
 
-func (o *GetContainersPlansResponseBody) GetData() []components.ContainerPlanData {
-	if o == nil {
+func (g *GetContainersPlansResponseBody) GetData() []components.ContainerPlanData {
+	if g == nil {
 		return nil
 	}
-	return o.Data
+	return g.Data
 }
 
 type GetContainersPlansResponse struct {
@@ -140,16 +140,16 @@ type GetContainersPlansResponse struct {
 	Object *GetContainersPlansResponseBody
 }
 
-func (o *GetContainersPlansResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetContainersPlansResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetContainersPlansResponse) GetObject() *GetContainersPlansResponseBody {
-	if o == nil {
+func (g *GetContainersPlansResponse) GetObject() *GetContainersPlansResponseBody {
+	if g == nil {
 		return nil
 	}
-	return o.Object
+	return g.Object
 }

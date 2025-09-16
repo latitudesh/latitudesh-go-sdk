@@ -95,7 +95,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Storage.ListFilesystems(ctx, latitudeshgosdk.String("sleek-silk-car"))
+    res, err := s.Storage.ListFilesystems(ctx, latitudeshgosdk.Pointer("sleek-silk-car"))
     if err != nil {
         log.Fatal(err)
     }
@@ -205,7 +205,7 @@ func main() {
             ID: "fs_7vYAZqGBdMQ94",
             Type: operations.PatchStorageFilesystemsStorageTypeFilesystems,
             Attributes: operations.PatchStorageFilesystemsStorageAttributes{
-                SizeInGb: latitudeshgosdk.Int64(1501),
+                SizeInGb: latitudeshgosdk.Pointer[int64](1501),
             },
         },
     })

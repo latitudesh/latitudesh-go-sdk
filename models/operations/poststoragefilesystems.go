@@ -52,25 +52,25 @@ func (p *PostStorageFilesystemsStorageAttributes) UnmarshalJSON(data []byte) err
 	return nil
 }
 
-func (o *PostStorageFilesystemsStorageAttributes) GetProject() string {
-	if o == nil {
+func (p *PostStorageFilesystemsStorageAttributes) GetProject() string {
+	if p == nil {
 		return ""
 	}
-	return o.Project
+	return p.Project
 }
 
-func (o *PostStorageFilesystemsStorageAttributes) GetName() string {
-	if o == nil {
+func (p *PostStorageFilesystemsStorageAttributes) GetName() string {
+	if p == nil {
 		return ""
 	}
-	return o.Name
+	return p.Name
 }
 
-func (o *PostStorageFilesystemsStorageAttributes) GetSizeInGb() *int64 {
-	if o == nil {
+func (p *PostStorageFilesystemsStorageAttributes) GetSizeInGb() *int64 {
+	if p == nil {
 		return nil
 	}
-	return o.SizeInGb
+	return p.SizeInGb
 }
 
 type PostStorageFilesystemsStorageData struct {
@@ -78,29 +78,29 @@ type PostStorageFilesystemsStorageData struct {
 	Attributes PostStorageFilesystemsStorageAttributes `json:"attributes"`
 }
 
-func (o *PostStorageFilesystemsStorageData) GetType() PostStorageFilesystemsStorageType {
-	if o == nil {
+func (p *PostStorageFilesystemsStorageData) GetType() PostStorageFilesystemsStorageType {
+	if p == nil {
 		return PostStorageFilesystemsStorageType("")
 	}
-	return o.Type
+	return p.Type
 }
 
-func (o *PostStorageFilesystemsStorageData) GetAttributes() PostStorageFilesystemsStorageAttributes {
-	if o == nil {
+func (p *PostStorageFilesystemsStorageData) GetAttributes() PostStorageFilesystemsStorageAttributes {
+	if p == nil {
 		return PostStorageFilesystemsStorageAttributes{}
 	}
-	return o.Attributes
+	return p.Attributes
 }
 
 type PostStorageFilesystemsStorageRequestBody struct {
 	Data PostStorageFilesystemsStorageData `json:"data"`
 }
 
-func (o *PostStorageFilesystemsStorageRequestBody) GetData() PostStorageFilesystemsStorageData {
-	if o == nil {
+func (p *PostStorageFilesystemsStorageRequestBody) GetData() PostStorageFilesystemsStorageData {
+	if p == nil {
 		return PostStorageFilesystemsStorageData{}
 	}
-	return o.Data
+	return p.Data
 }
 
 // PostStorageFilesystemsResponseBody - Created
@@ -108,11 +108,11 @@ type PostStorageFilesystemsResponseBody struct {
 	Data *components.FilesystemData `json:"data,omitempty"`
 }
 
-func (o *PostStorageFilesystemsResponseBody) GetData() *components.FilesystemData {
-	if o == nil {
+func (p *PostStorageFilesystemsResponseBody) GetData() *components.FilesystemData {
+	if p == nil {
 		return nil
 	}
-	return o.Data
+	return p.Data
 }
 
 type PostStorageFilesystemsResponse struct {
@@ -121,16 +121,16 @@ type PostStorageFilesystemsResponse struct {
 	Object *PostStorageFilesystemsResponseBody
 }
 
-func (o *PostStorageFilesystemsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PostStorageFilesystemsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PostStorageFilesystemsResponse) GetObject() *PostStorageFilesystemsResponseBody {
-	if o == nil {
+func (p *PostStorageFilesystemsResponse) GetObject() *PostStorageFilesystemsResponseBody {
+	if p == nil {
 		return nil
 	}
-	return o.Object
+	return p.Object
 }

@@ -99,32 +99,32 @@ type ServerDataPlan struct {
 	Billing *string `json:"billing,omitempty"`
 }
 
-func (o *ServerDataPlan) GetID() *string {
-	if o == nil {
+func (s *ServerDataPlan) GetID() *string {
+	if s == nil {
 		return nil
 	}
-	return o.ID
+	return s.ID
 }
 
-func (o *ServerDataPlan) GetName() *string {
-	if o == nil {
+func (s *ServerDataPlan) GetName() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Name
+	return s.Name
 }
 
-func (o *ServerDataPlan) GetSlug() *string {
-	if o == nil {
+func (s *ServerDataPlan) GetSlug() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Slug
+	return s.Slug
 }
 
-func (o *ServerDataPlan) GetBilling() *string {
-	if o == nil {
+func (s *ServerDataPlan) GetBilling() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Billing
+	return s.Billing
 }
 
 type ServerDataFeatures struct {
@@ -133,25 +133,25 @@ type ServerDataFeatures struct {
 	UserData *bool `json:"user_data,omitempty"`
 }
 
-func (o *ServerDataFeatures) GetRaid() *bool {
-	if o == nil {
+func (s *ServerDataFeatures) GetRaid() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.Raid
+	return s.Raid
 }
 
-func (o *ServerDataFeatures) GetSSHKeys() *bool {
-	if o == nil {
+func (s *ServerDataFeatures) GetSSHKeys() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.SSHKeys
+	return s.SSHKeys
 }
 
-func (o *ServerDataFeatures) GetUserData() *bool {
-	if o == nil {
+func (s *ServerDataFeatures) GetUserData() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.UserData
+	return s.UserData
 }
 
 type Distro struct {
@@ -163,25 +163,25 @@ type Distro struct {
 	Series *string `json:"series,omitempty"`
 }
 
-func (o *Distro) GetName() *string {
-	if o == nil {
+func (d *Distro) GetName() *string {
+	if d == nil {
 		return nil
 	}
-	return o.Name
+	return d.Name
 }
 
-func (o *Distro) GetSlug() *string {
-	if o == nil {
+func (d *Distro) GetSlug() *string {
+	if d == nil {
 		return nil
 	}
-	return o.Slug
+	return d.Slug
 }
 
-func (o *Distro) GetSeries() *string {
-	if o == nil {
+func (d *Distro) GetSeries() *string {
+	if d == nil {
 		return nil
 	}
-	return o.Series
+	return d.Series
 }
 
 type OperatingSystem struct {
@@ -243,39 +243,39 @@ type ServerDataSpecs struct {
 	Gpu *string `json:"gpu,omitempty"`
 }
 
-func (o *ServerDataSpecs) GetCPU() *string {
-	if o == nil {
+func (s *ServerDataSpecs) GetCPU() *string {
+	if s == nil {
 		return nil
 	}
-	return o.CPU
+	return s.CPU
 }
 
-func (o *ServerDataSpecs) GetDisk() *string {
-	if o == nil {
+func (s *ServerDataSpecs) GetDisk() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Disk
+	return s.Disk
 }
 
-func (o *ServerDataSpecs) GetRAM() *string {
-	if o == nil {
+func (s *ServerDataSpecs) GetRAM() *string {
+	if s == nil {
 		return nil
 	}
-	return o.RAM
+	return s.RAM
 }
 
-func (o *ServerDataSpecs) GetNic() *string {
-	if o == nil {
+func (s *ServerDataSpecs) GetNic() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Nic
+	return s.Nic
 }
 
-func (o *ServerDataSpecs) GetGpu() *string {
-	if o == nil {
+func (s *ServerDataSpecs) GetGpu() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Gpu
+	return s.Gpu
 }
 
 type ServerDataRole string
@@ -317,32 +317,32 @@ type Interfaces struct {
 	Description *string         `json:"description,omitempty"`
 }
 
-func (o *Interfaces) GetRole() *ServerDataRole {
-	if o == nil {
+func (i *Interfaces) GetRole() *ServerDataRole {
+	if i == nil {
 		return nil
 	}
-	return o.Role
+	return i.Role
 }
 
-func (o *Interfaces) GetName() *string {
-	if o == nil {
+func (i *Interfaces) GetName() *string {
+	if i == nil {
 		return nil
 	}
-	return o.Name
+	return i.Name
 }
 
-func (o *Interfaces) GetMacAddress() *string {
-	if o == nil {
+func (i *Interfaces) GetMacAddress() *string {
+	if i == nil {
 		return nil
 	}
-	return o.MacAddress
+	return i.MacAddress
 }
 
-func (o *Interfaces) GetDescription() *string {
-	if o == nil {
+func (i *Interfaces) GetDescription() *string {
+	if i == nil {
 		return nil
 	}
-	return o.Description
+	return i.Description
 }
 
 type ServerDataAttributes struct {
@@ -378,137 +378,137 @@ type ServerDataAttributes struct {
 	Team                *TeamInclude              `json:"team,omitempty"`
 }
 
-func (o *ServerDataAttributes) GetHostname() *string {
-	if o == nil {
+func (s *ServerDataAttributes) GetHostname() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Hostname
+	return s.Hostname
 }
 
-func (o *ServerDataAttributes) GetLabel() *string {
-	if o == nil {
+func (s *ServerDataAttributes) GetLabel() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Label
+	return s.Label
 }
 
-func (o *ServerDataAttributes) GetStatus() *Status {
-	if o == nil {
+func (s *ServerDataAttributes) GetStatus() *Status {
+	if s == nil {
 		return nil
 	}
-	return o.Status
+	return s.Status
 }
 
-func (o *ServerDataAttributes) GetIpmiStatus() *IpmiStatus {
-	if o == nil {
+func (s *ServerDataAttributes) GetIpmiStatus() *IpmiStatus {
+	if s == nil {
 		return nil
 	}
-	return o.IpmiStatus
+	return s.IpmiStatus
 }
 
-func (o *ServerDataAttributes) GetRole() *string {
-	if o == nil {
+func (s *ServerDataAttributes) GetRole() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Role
+	return s.Role
 }
 
-func (o *ServerDataAttributes) GetSite() *string {
-	if o == nil {
+func (s *ServerDataAttributes) GetSite() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Site
+	return s.Site
 }
 
-func (o *ServerDataAttributes) GetLocked() *bool {
-	if o == nil {
+func (s *ServerDataAttributes) GetLocked() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.Locked
+	return s.Locked
 }
 
-func (o *ServerDataAttributes) GetRescue() *bool {
-	if o == nil {
+func (s *ServerDataAttributes) GetRescue() *bool {
+	if s == nil {
 		return nil
 	}
-	return o.Rescue
+	return s.Rescue
 }
 
-func (o *ServerDataAttributes) GetPrimaryIpv4() *string {
-	if o == nil {
+func (s *ServerDataAttributes) GetPrimaryIpv4() *string {
+	if s == nil {
 		return nil
 	}
-	return o.PrimaryIpv4
+	return s.PrimaryIpv4
 }
 
-func (o *ServerDataAttributes) GetPrimaryIpv6() *string {
-	if o == nil {
+func (s *ServerDataAttributes) GetPrimaryIpv6() *string {
+	if s == nil {
 		return nil
 	}
-	return o.PrimaryIpv6
+	return s.PrimaryIpv6
 }
 
-func (o *ServerDataAttributes) GetCreatedAt() *string {
-	if o == nil {
+func (s *ServerDataAttributes) GetCreatedAt() *string {
+	if s == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return s.CreatedAt
 }
 
-func (o *ServerDataAttributes) GetScheduledDeletionAt() *string {
-	if o == nil {
+func (s *ServerDataAttributes) GetScheduledDeletionAt() *string {
+	if s == nil {
 		return nil
 	}
-	return o.ScheduledDeletionAt
+	return s.ScheduledDeletionAt
 }
 
-func (o *ServerDataAttributes) GetPlan() *ServerDataPlan {
-	if o == nil {
+func (s *ServerDataAttributes) GetPlan() *ServerDataPlan {
+	if s == nil {
 		return nil
 	}
-	return o.Plan
+	return s.Plan
 }
 
-func (o *ServerDataAttributes) GetOperatingSystem() *OperatingSystem {
-	if o == nil {
+func (s *ServerDataAttributes) GetOperatingSystem() *OperatingSystem {
+	if s == nil {
 		return nil
 	}
-	return o.OperatingSystem
+	return s.OperatingSystem
 }
 
-func (o *ServerDataAttributes) GetRegion() *ServerRegionResourceData {
-	if o == nil {
+func (s *ServerDataAttributes) GetRegion() *ServerRegionResourceData {
+	if s == nil {
 		return nil
 	}
-	return o.Region
+	return s.Region
 }
 
-func (o *ServerDataAttributes) GetSpecs() *ServerDataSpecs {
-	if o == nil {
+func (s *ServerDataAttributes) GetSpecs() *ServerDataSpecs {
+	if s == nil {
 		return nil
 	}
-	return o.Specs
+	return s.Specs
 }
 
-func (o *ServerDataAttributes) GetInterfaces() []Interfaces {
-	if o == nil {
+func (s *ServerDataAttributes) GetInterfaces() []Interfaces {
+	if s == nil {
 		return nil
 	}
-	return o.Interfaces
+	return s.Interfaces
 }
 
-func (o *ServerDataAttributes) GetProject() *ProjectInclude {
-	if o == nil {
+func (s *ServerDataAttributes) GetProject() *ProjectInclude {
+	if s == nil {
 		return nil
 	}
-	return o.Project
+	return s.Project
 }
 
-func (o *ServerDataAttributes) GetTeam() *TeamInclude {
-	if o == nil {
+func (s *ServerDataAttributes) GetTeam() *TeamInclude {
+	if s == nil {
 		return nil
 	}
-	return o.Team
+	return s.Team
 }
 
 type ServerData struct {
@@ -517,23 +517,23 @@ type ServerData struct {
 	Attributes *ServerDataAttributes `json:"attributes,omitempty"`
 }
 
-func (o *ServerData) GetID() *string {
-	if o == nil {
+func (s *ServerData) GetID() *string {
+	if s == nil {
 		return nil
 	}
-	return o.ID
+	return s.ID
 }
 
-func (o *ServerData) GetType() *string {
-	if o == nil {
+func (s *ServerData) GetType() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Type
+	return s.Type
 }
 
-func (o *ServerData) GetAttributes() *ServerDataAttributes {
-	if o == nil {
+func (s *ServerData) GetAttributes() *ServerDataAttributes {
+	if s == nil {
 		return nil
 	}
-	return o.Attributes
+	return s.Attributes
 }

@@ -11,11 +11,11 @@ type GetServerOutOfBandRequest struct {
 	ServerID string `pathParam:"style=simple,explode=false,name=server_id"`
 }
 
-func (o *GetServerOutOfBandRequest) GetServerID() string {
-	if o == nil {
+func (g *GetServerOutOfBandRequest) GetServerID() string {
+	if g == nil {
 		return ""
 	}
-	return o.ServerID
+	return g.ServerID
 }
 
 type GetServerOutOfBandResponse struct {
@@ -24,16 +24,16 @@ type GetServerOutOfBandResponse struct {
 	OutOfBandConnection *components.OutOfBandConnection
 }
 
-func (o *GetServerOutOfBandResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetServerOutOfBandResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetServerOutOfBandResponse) GetOutOfBandConnection() *components.OutOfBandConnection {
-	if o == nil {
+func (g *GetServerOutOfBandResponse) GetOutOfBandConnection() *components.OutOfBandConnection {
+	if g == nil {
 		return nil
 	}
-	return o.OutOfBandConnection
+	return g.OutOfBandConnection
 }

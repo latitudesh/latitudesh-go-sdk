@@ -28,32 +28,32 @@ func (g *GetBandwidthPlansRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *GetBandwidthPlansRequest) GetAPIVersion() *string {
-	if o == nil {
+func (g *GetBandwidthPlansRequest) GetAPIVersion() *string {
+	if g == nil {
 		return nil
 	}
-	return o.APIVersion
+	return g.APIVersion
 }
 
-func (o *GetBandwidthPlansRequest) GetFilterID() *string {
-	if o == nil {
+func (g *GetBandwidthPlansRequest) GetFilterID() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterID
+	return g.FilterID
 }
 
-func (o *GetBandwidthPlansRequest) GetPageSize() *int64 {
-	if o == nil {
+func (g *GetBandwidthPlansRequest) GetPageSize() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.PageSize
+	return g.PageSize
 }
 
-func (o *GetBandwidthPlansRequest) GetPageNumber() *int64 {
-	if o == nil {
+func (g *GetBandwidthPlansRequest) GetPageNumber() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.PageNumber
+	return g.PageNumber
 }
 
 type GetBandwidthPlansResponse struct {
@@ -64,16 +64,16 @@ type GetBandwidthPlansResponse struct {
 	Next func() (*GetBandwidthPlansResponse, error)
 }
 
-func (o *GetBandwidthPlansResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetBandwidthPlansResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetBandwidthPlansResponse) GetBandwidthPlans() *components.BandwidthPlans {
-	if o == nil {
+func (g *GetBandwidthPlansResponse) GetBandwidthPlans() *components.BandwidthPlans {
+	if g == nil {
 		return nil
 	}
-	return o.BandwidthPlans
+	return g.BandwidthPlans
 }

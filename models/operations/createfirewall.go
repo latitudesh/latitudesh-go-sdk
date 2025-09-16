@@ -65,32 +65,32 @@ type CreateFirewallRules struct {
 	Port *string `json:"port,omitempty"`
 }
 
-func (o *CreateFirewallRules) GetFrom() *string {
-	if o == nil {
+func (c *CreateFirewallRules) GetFrom() *string {
+	if c == nil {
 		return nil
 	}
-	return o.From
+	return c.From
 }
 
-func (o *CreateFirewallRules) GetTo() *string {
-	if o == nil {
+func (c *CreateFirewallRules) GetTo() *string {
+	if c == nil {
 		return nil
 	}
-	return o.To
+	return c.To
 }
 
-func (o *CreateFirewallRules) GetProtocol() *CreateFirewallProtocol {
-	if o == nil {
+func (c *CreateFirewallRules) GetProtocol() *CreateFirewallProtocol {
+	if c == nil {
 		return nil
 	}
-	return o.Protocol
+	return c.Protocol
 }
 
-func (o *CreateFirewallRules) GetPort() *string {
-	if o == nil {
+func (c *CreateFirewallRules) GetPort() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Port
+	return c.Port
 }
 
 type CreateFirewallAttributes struct {
@@ -99,25 +99,25 @@ type CreateFirewallAttributes struct {
 	Rules   []CreateFirewallRules `json:"rules,omitempty"`
 }
 
-func (o *CreateFirewallAttributes) GetName() string {
-	if o == nil {
+func (c *CreateFirewallAttributes) GetName() string {
+	if c == nil {
 		return ""
 	}
-	return o.Name
+	return c.Name
 }
 
-func (o *CreateFirewallAttributes) GetProject() string {
-	if o == nil {
+func (c *CreateFirewallAttributes) GetProject() string {
+	if c == nil {
 		return ""
 	}
-	return o.Project
+	return c.Project
 }
 
-func (o *CreateFirewallAttributes) GetRules() []CreateFirewallRules {
-	if o == nil {
+func (c *CreateFirewallAttributes) GetRules() []CreateFirewallRules {
+	if c == nil {
 		return nil
 	}
-	return o.Rules
+	return c.Rules
 }
 
 type CreateFirewallData struct {
@@ -125,29 +125,29 @@ type CreateFirewallData struct {
 	Attributes *CreateFirewallAttributes `json:"attributes,omitempty"`
 }
 
-func (o *CreateFirewallData) GetType() CreateFirewallType {
-	if o == nil {
+func (c *CreateFirewallData) GetType() CreateFirewallType {
+	if c == nil {
 		return CreateFirewallType("")
 	}
-	return o.Type
+	return c.Type
 }
 
-func (o *CreateFirewallData) GetAttributes() *CreateFirewallAttributes {
-	if o == nil {
+func (c *CreateFirewallData) GetAttributes() *CreateFirewallAttributes {
+	if c == nil {
 		return nil
 	}
-	return o.Attributes
+	return c.Attributes
 }
 
 type CreateFirewallFirewallsRequestBody struct {
 	Data CreateFirewallData `json:"data"`
 }
 
-func (o *CreateFirewallFirewallsRequestBody) GetData() CreateFirewallData {
-	if o == nil {
+func (c *CreateFirewallFirewallsRequestBody) GetData() CreateFirewallData {
+	if c == nil {
 		return CreateFirewallData{}
 	}
-	return o.Data
+	return c.Data
 }
 
 type CreateFirewallResponse struct {
@@ -156,16 +156,16 @@ type CreateFirewallResponse struct {
 	Firewall *components.Firewall
 }
 
-func (o *CreateFirewallResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (c *CreateFirewallResponse) GetHTTPMeta() components.HTTPMetadata {
+	if c == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return c.HTTPMeta
 }
 
-func (o *CreateFirewallResponse) GetFirewall() *components.Firewall {
-	if o == nil {
+func (c *CreateFirewallResponse) GetFirewall() *components.Firewall {
+	if c == nil {
 		return nil
 	}
-	return o.Firewall
+	return c.Firewall
 }

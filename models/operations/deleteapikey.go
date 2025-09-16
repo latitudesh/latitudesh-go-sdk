@@ -10,20 +10,20 @@ type DeleteAPIKeyRequest struct {
 	APIKeyID string `pathParam:"style=simple,explode=false,name=api_key_id"`
 }
 
-func (o *DeleteAPIKeyRequest) GetAPIKeyID() string {
-	if o == nil {
+func (d *DeleteAPIKeyRequest) GetAPIKeyID() string {
+	if d == nil {
 		return ""
 	}
-	return o.APIKeyID
+	return d.APIKeyID
 }
 
 type DeleteAPIKeyResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *DeleteAPIKeyResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (d *DeleteAPIKeyResponse) GetHTTPMeta() components.HTTPMetadata {
+	if d == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return d.HTTPMeta
 }

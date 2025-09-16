@@ -35,18 +35,18 @@ type ServerScheduleDeletionAttributes struct {
 	ScheduledDeletionAt *string `json:"scheduled_deletion_at,omitempty"`
 }
 
-func (o *ServerScheduleDeletionAttributes) GetServerID() *string {
-	if o == nil {
+func (s *ServerScheduleDeletionAttributes) GetServerID() *string {
+	if s == nil {
 		return nil
 	}
-	return o.ServerID
+	return s.ServerID
 }
 
-func (o *ServerScheduleDeletionAttributes) GetScheduledDeletionAt() *string {
-	if o == nil {
+func (s *ServerScheduleDeletionAttributes) GetScheduledDeletionAt() *string {
+	if s == nil {
 		return nil
 	}
-	return o.ScheduledDeletionAt
+	return s.ScheduledDeletionAt
 }
 
 type ServerScheduleDeletionData struct {
@@ -55,34 +55,34 @@ type ServerScheduleDeletionData struct {
 	Attributes *ServerScheduleDeletionAttributes `json:"attributes,omitempty"`
 }
 
-func (o *ServerScheduleDeletionData) GetID() *string {
-	if o == nil {
+func (s *ServerScheduleDeletionData) GetID() *string {
+	if s == nil {
 		return nil
 	}
-	return o.ID
+	return s.ID
 }
 
-func (o *ServerScheduleDeletionData) GetType() *ServerScheduleDeletionType {
-	if o == nil {
+func (s *ServerScheduleDeletionData) GetType() *ServerScheduleDeletionType {
+	if s == nil {
 		return nil
 	}
-	return o.Type
+	return s.Type
 }
 
-func (o *ServerScheduleDeletionData) GetAttributes() *ServerScheduleDeletionAttributes {
-	if o == nil {
+func (s *ServerScheduleDeletionData) GetAttributes() *ServerScheduleDeletionAttributes {
+	if s == nil {
 		return nil
 	}
-	return o.Attributes
+	return s.Attributes
 }
 
 type ServerScheduleDeletion struct {
 	Data *ServerScheduleDeletionData `json:"data,omitempty"`
 }
 
-func (o *ServerScheduleDeletion) GetData() *ServerScheduleDeletionData {
-	if o == nil {
+func (s *ServerScheduleDeletion) GetData() *ServerScheduleDeletionData {
+	if s == nil {
 		return nil
 	}
-	return o.Data
+	return s.Data
 }

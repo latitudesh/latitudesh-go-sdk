@@ -35,11 +35,11 @@ type CreateFirewallAssignmentFirewallsAssignmentsAttributes struct {
 	ServerID string `json:"server_id"`
 }
 
-func (o *CreateFirewallAssignmentFirewallsAssignmentsAttributes) GetServerID() string {
-	if o == nil {
+func (c *CreateFirewallAssignmentFirewallsAssignmentsAttributes) GetServerID() string {
+	if c == nil {
 		return ""
 	}
-	return o.ServerID
+	return c.ServerID
 }
 
 type CreateFirewallAssignmentFirewallsAssignmentsData struct {
@@ -47,29 +47,29 @@ type CreateFirewallAssignmentFirewallsAssignmentsData struct {
 	Attributes *CreateFirewallAssignmentFirewallsAssignmentsAttributes `json:"attributes,omitempty"`
 }
 
-func (o *CreateFirewallAssignmentFirewallsAssignmentsData) GetType() CreateFirewallAssignmentFirewallsAssignmentsType {
-	if o == nil {
+func (c *CreateFirewallAssignmentFirewallsAssignmentsData) GetType() CreateFirewallAssignmentFirewallsAssignmentsType {
+	if c == nil {
 		return CreateFirewallAssignmentFirewallsAssignmentsType("")
 	}
-	return o.Type
+	return c.Type
 }
 
-func (o *CreateFirewallAssignmentFirewallsAssignmentsData) GetAttributes() *CreateFirewallAssignmentFirewallsAssignmentsAttributes {
-	if o == nil {
+func (c *CreateFirewallAssignmentFirewallsAssignmentsData) GetAttributes() *CreateFirewallAssignmentFirewallsAssignmentsAttributes {
+	if c == nil {
 		return nil
 	}
-	return o.Attributes
+	return c.Attributes
 }
 
 type CreateFirewallAssignmentFirewallsAssignmentsRequestBody struct {
 	Data CreateFirewallAssignmentFirewallsAssignmentsData `json:"data"`
 }
 
-func (o *CreateFirewallAssignmentFirewallsAssignmentsRequestBody) GetData() CreateFirewallAssignmentFirewallsAssignmentsData {
-	if o == nil {
+func (c *CreateFirewallAssignmentFirewallsAssignmentsRequestBody) GetData() CreateFirewallAssignmentFirewallsAssignmentsData {
+	if c == nil {
 		return CreateFirewallAssignmentFirewallsAssignmentsData{}
 	}
-	return o.Data
+	return c.Data
 }
 
 type CreateFirewallAssignmentRequest struct {
@@ -78,18 +78,18 @@ type CreateFirewallAssignmentRequest struct {
 	RequestBody CreateFirewallAssignmentFirewallsAssignmentsRequestBody `request:"mediaType=application/json"`
 }
 
-func (o *CreateFirewallAssignmentRequest) GetFirewallID() string {
-	if o == nil {
+func (c *CreateFirewallAssignmentRequest) GetFirewallID() string {
+	if c == nil {
 		return ""
 	}
-	return o.FirewallID
+	return c.FirewallID
 }
 
-func (o *CreateFirewallAssignmentRequest) GetRequestBody() CreateFirewallAssignmentFirewallsAssignmentsRequestBody {
-	if o == nil {
+func (c *CreateFirewallAssignmentRequest) GetRequestBody() CreateFirewallAssignmentFirewallsAssignmentsRequestBody {
+	if c == nil {
 		return CreateFirewallAssignmentFirewallsAssignmentsRequestBody{}
 	}
-	return o.RequestBody
+	return c.RequestBody
 }
 
 type CreateFirewallAssignmentResponse struct {
@@ -98,16 +98,16 @@ type CreateFirewallAssignmentResponse struct {
 	FirewallServer *components.FirewallServer
 }
 
-func (o *CreateFirewallAssignmentResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (c *CreateFirewallAssignmentResponse) GetHTTPMeta() components.HTTPMetadata {
+	if c == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return c.HTTPMeta
 }
 
-func (o *CreateFirewallAssignmentResponse) GetFirewallServer() *components.FirewallServer {
-	if o == nil {
+func (c *CreateFirewallAssignmentResponse) GetFirewallServer() *components.FirewallServer {
+	if c == nil {
 		return nil
 	}
-	return o.FirewallServer
+	return c.FirewallServer
 }

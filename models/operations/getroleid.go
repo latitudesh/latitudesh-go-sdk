@@ -10,11 +10,11 @@ type GetRoleIDRequest struct {
 	RoleID string `pathParam:"style=simple,explode=false,name=role_id"`
 }
 
-func (o *GetRoleIDRequest) GetRoleID() string {
-	if o == nil {
+func (g *GetRoleIDRequest) GetRoleID() string {
+	if g == nil {
 		return ""
 	}
-	return o.RoleID
+	return g.RoleID
 }
 
 type GetRoleIDResponse struct {
@@ -23,16 +23,16 @@ type GetRoleIDResponse struct {
 	Role *components.Role
 }
 
-func (o *GetRoleIDResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetRoleIDResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetRoleIDResponse) GetRole() *components.Role {
-	if o == nil {
+func (g *GetRoleIDResponse) GetRole() *components.Role {
+	if g == nil {
 		return nil
 	}
-	return o.Role
+	return g.Role
 }

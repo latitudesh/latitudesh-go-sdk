@@ -27,25 +27,25 @@ func (g *GetAllFirewallAssignmentsRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *GetAllFirewallAssignmentsRequest) GetFilterServer() *string {
-	if o == nil {
+func (g *GetAllFirewallAssignmentsRequest) GetFilterServer() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterServer
+	return g.FilterServer
 }
 
-func (o *GetAllFirewallAssignmentsRequest) GetPageSize() *int64 {
-	if o == nil {
+func (g *GetAllFirewallAssignmentsRequest) GetPageSize() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.PageSize
+	return g.PageSize
 }
 
-func (o *GetAllFirewallAssignmentsRequest) GetPageNumber() *int64 {
-	if o == nil {
+func (g *GetAllFirewallAssignmentsRequest) GetPageNumber() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.PageNumber
+	return g.PageNumber
 }
 
 type GetAllFirewallAssignmentsResponse struct {
@@ -56,16 +56,16 @@ type GetAllFirewallAssignmentsResponse struct {
 	Next func() (*GetAllFirewallAssignmentsResponse, error)
 }
 
-func (o *GetAllFirewallAssignmentsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetAllFirewallAssignmentsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetAllFirewallAssignmentsResponse) GetFirewallAssignments() *components.FirewallAssignments {
-	if o == nil {
+func (g *GetAllFirewallAssignmentsResponse) GetFirewallAssignments() *components.FirewallAssignments {
+	if g == nil {
 		return nil
 	}
-	return o.FirewallAssignments
+	return g.FirewallAssignments
 }

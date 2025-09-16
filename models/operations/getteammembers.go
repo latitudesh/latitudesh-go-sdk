@@ -25,18 +25,18 @@ func (g *GetTeamMembersRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *GetTeamMembersRequest) GetPageSize() *int64 {
-	if o == nil {
+func (g *GetTeamMembersRequest) GetPageSize() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.PageSize
+	return g.PageSize
 }
 
-func (o *GetTeamMembersRequest) GetPageNumber() *int64 {
-	if o == nil {
+func (g *GetTeamMembersRequest) GetPageNumber() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.PageNumber
+	return g.PageNumber
 }
 
 type GetTeamMembersResponse struct {
@@ -47,16 +47,16 @@ type GetTeamMembersResponse struct {
 	Next func() (*GetTeamMembersResponse, error)
 }
 
-func (o *GetTeamMembersResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetTeamMembersResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetTeamMembersResponse) GetTeamMembers() *components.TeamMembers {
-	if o == nil {
+func (g *GetTeamMembersResponse) GetTeamMembers() *components.TeamMembers {
+	if g == nil {
 		return nil
 	}
-	return o.TeamMembers
+	return g.TeamMembers
 }

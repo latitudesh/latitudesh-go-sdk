@@ -117,25 +117,25 @@ type CreateVirtualNetworkPrivateNetworksAttributes struct {
 	Project string `json:"project"`
 }
 
-func (o *CreateVirtualNetworkPrivateNetworksAttributes) GetDescription() string {
-	if o == nil {
+func (c *CreateVirtualNetworkPrivateNetworksAttributes) GetDescription() string {
+	if c == nil {
 		return ""
 	}
-	return o.Description
+	return c.Description
 }
 
-func (o *CreateVirtualNetworkPrivateNetworksAttributes) GetSite() *CreateVirtualNetworkPrivateNetworksSite {
-	if o == nil {
+func (c *CreateVirtualNetworkPrivateNetworksAttributes) GetSite() *CreateVirtualNetworkPrivateNetworksSite {
+	if c == nil {
 		return nil
 	}
-	return o.Site
+	return c.Site
 }
 
-func (o *CreateVirtualNetworkPrivateNetworksAttributes) GetProject() string {
-	if o == nil {
+func (c *CreateVirtualNetworkPrivateNetworksAttributes) GetProject() string {
+	if c == nil {
 		return ""
 	}
-	return o.Project
+	return c.Project
 }
 
 type CreateVirtualNetworkPrivateNetworksData struct {
@@ -143,29 +143,29 @@ type CreateVirtualNetworkPrivateNetworksData struct {
 	Attributes CreateVirtualNetworkPrivateNetworksAttributes `json:"attributes"`
 }
 
-func (o *CreateVirtualNetworkPrivateNetworksData) GetType() CreateVirtualNetworkPrivateNetworksType {
-	if o == nil {
+func (c *CreateVirtualNetworkPrivateNetworksData) GetType() CreateVirtualNetworkPrivateNetworksType {
+	if c == nil {
 		return CreateVirtualNetworkPrivateNetworksType("")
 	}
-	return o.Type
+	return c.Type
 }
 
-func (o *CreateVirtualNetworkPrivateNetworksData) GetAttributes() CreateVirtualNetworkPrivateNetworksAttributes {
-	if o == nil {
+func (c *CreateVirtualNetworkPrivateNetworksData) GetAttributes() CreateVirtualNetworkPrivateNetworksAttributes {
+	if c == nil {
 		return CreateVirtualNetworkPrivateNetworksAttributes{}
 	}
-	return o.Attributes
+	return c.Attributes
 }
 
 type CreateVirtualNetworkPrivateNetworksRequestBody struct {
 	Data CreateVirtualNetworkPrivateNetworksData `json:"data"`
 }
 
-func (o *CreateVirtualNetworkPrivateNetworksRequestBody) GetData() CreateVirtualNetworkPrivateNetworksData {
-	if o == nil {
+func (c *CreateVirtualNetworkPrivateNetworksRequestBody) GetData() CreateVirtualNetworkPrivateNetworksData {
+	if c == nil {
 		return CreateVirtualNetworkPrivateNetworksData{}
 	}
-	return o.Data
+	return c.Data
 }
 
 type CreateVirtualNetworkResponse struct {
@@ -174,16 +174,16 @@ type CreateVirtualNetworkResponse struct {
 	VirtualNetwork *components.VirtualNetwork
 }
 
-func (o *CreateVirtualNetworkResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (c *CreateVirtualNetworkResponse) GetHTTPMeta() components.HTTPMetadata {
+	if c == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return c.HTTPMeta
 }
 
-func (o *CreateVirtualNetworkResponse) GetVirtualNetwork() *components.VirtualNetwork {
-	if o == nil {
+func (c *CreateVirtualNetworkResponse) GetVirtualNetwork() *components.VirtualNetwork {
+	if c == nil {
 		return nil
 	}
-	return o.VirtualNetwork
+	return c.VirtualNetwork
 }

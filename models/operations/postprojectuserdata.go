@@ -38,18 +38,18 @@ type PostProjectUserDataUserDataAttributes struct {
 	Content string `json:"content"`
 }
 
-func (o *PostProjectUserDataUserDataAttributes) GetDescription() string {
-	if o == nil {
+func (p *PostProjectUserDataUserDataAttributes) GetDescription() string {
+	if p == nil {
 		return ""
 	}
-	return o.Description
+	return p.Description
 }
 
-func (o *PostProjectUserDataUserDataAttributes) GetContent() string {
-	if o == nil {
+func (p *PostProjectUserDataUserDataAttributes) GetContent() string {
+	if p == nil {
 		return ""
 	}
-	return o.Content
+	return p.Content
 }
 
 type PostProjectUserDataUserDataData struct {
@@ -57,29 +57,29 @@ type PostProjectUserDataUserDataData struct {
 	Attributes *PostProjectUserDataUserDataAttributes `json:"attributes,omitempty"`
 }
 
-func (o *PostProjectUserDataUserDataData) GetType() PostProjectUserDataUserDataType {
-	if o == nil {
+func (p *PostProjectUserDataUserDataData) GetType() PostProjectUserDataUserDataType {
+	if p == nil {
 		return PostProjectUserDataUserDataType("")
 	}
-	return o.Type
+	return p.Type
 }
 
-func (o *PostProjectUserDataUserDataData) GetAttributes() *PostProjectUserDataUserDataAttributes {
-	if o == nil {
+func (p *PostProjectUserDataUserDataData) GetAttributes() *PostProjectUserDataUserDataAttributes {
+	if p == nil {
 		return nil
 	}
-	return o.Attributes
+	return p.Attributes
 }
 
 type PostProjectUserDataUserDataRequestBody struct {
 	Data PostProjectUserDataUserDataData `json:"data"`
 }
 
-func (o *PostProjectUserDataUserDataRequestBody) GetData() PostProjectUserDataUserDataData {
-	if o == nil {
+func (p *PostProjectUserDataUserDataRequestBody) GetData() PostProjectUserDataUserDataData {
+	if p == nil {
 		return PostProjectUserDataUserDataData{}
 	}
-	return o.Data
+	return p.Data
 }
 
 type PostProjectUserDataRequest struct {
@@ -88,18 +88,18 @@ type PostProjectUserDataRequest struct {
 	RequestBody PostProjectUserDataUserDataRequestBody `request:"mediaType=application/json"`
 }
 
-func (o *PostProjectUserDataRequest) GetProjectID() string {
-	if o == nil {
+func (p *PostProjectUserDataRequest) GetProjectID() string {
+	if p == nil {
 		return ""
 	}
-	return o.ProjectID
+	return p.ProjectID
 }
 
-func (o *PostProjectUserDataRequest) GetRequestBody() PostProjectUserDataUserDataRequestBody {
-	if o == nil {
+func (p *PostProjectUserDataRequest) GetRequestBody() PostProjectUserDataUserDataRequestBody {
+	if p == nil {
 		return PostProjectUserDataUserDataRequestBody{}
 	}
-	return o.RequestBody
+	return p.RequestBody
 }
 
 type PostProjectUserDataResponse struct {
@@ -108,16 +108,16 @@ type PostProjectUserDataResponse struct {
 	UserData *components.UserData
 }
 
-func (o *PostProjectUserDataResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PostProjectUserDataResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PostProjectUserDataResponse) GetUserData() *components.UserData {
-	if o == nil {
+func (p *PostProjectUserDataResponse) GetUserData() *components.UserData {
+	if p == nil {
 		return nil
 	}
-	return o.UserData
+	return p.UserData
 }

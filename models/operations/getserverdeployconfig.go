@@ -11,11 +11,11 @@ type GetServerDeployConfigRequest struct {
 	ServerID string `pathParam:"style=simple,explode=false,name=server_id"`
 }
 
-func (o *GetServerDeployConfigRequest) GetServerID() string {
-	if o == nil {
+func (g *GetServerDeployConfigRequest) GetServerID() string {
+	if g == nil {
 		return ""
 	}
-	return o.ServerID
+	return g.ServerID
 }
 
 type GetServerDeployConfigResponse struct {
@@ -24,16 +24,16 @@ type GetServerDeployConfigResponse struct {
 	DeployConfig *components.DeployConfig
 }
 
-func (o *GetServerDeployConfigResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetServerDeployConfigResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetServerDeployConfigResponse) GetDeployConfig() *components.DeployConfig {
-	if o == nil {
+func (g *GetServerDeployConfigResponse) GetDeployConfig() *components.DeployConfig {
+	if g == nil {
 		return nil
 	}
-	return o.DeployConfig
+	return g.DeployConfig
 }

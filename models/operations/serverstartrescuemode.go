@@ -10,11 +10,11 @@ type ServerStartRescueModeRequest struct {
 	ServerID string `pathParam:"style=simple,explode=false,name=server_id"`
 }
 
-func (o *ServerStartRescueModeRequest) GetServerID() string {
-	if o == nil {
+func (s *ServerStartRescueModeRequest) GetServerID() string {
+	if s == nil {
 		return ""
 	}
-	return o.ServerID
+	return s.ServerID
 }
 
 type ServerStartRescueModeResponse struct {
@@ -23,16 +23,16 @@ type ServerStartRescueModeResponse struct {
 	ServerRescue *components.ServerRescue
 }
 
-func (o *ServerStartRescueModeResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (s *ServerStartRescueModeResponse) GetHTTPMeta() components.HTTPMetadata {
+	if s == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return s.HTTPMeta
 }
 
-func (o *ServerStartRescueModeResponse) GetServerRescue() *components.ServerRescue {
-	if o == nil {
+func (s *ServerStartRescueModeResponse) GetServerRescue() *components.ServerRescue {
+	if s == nil {
 		return nil
 	}
-	return o.ServerRescue
+	return s.ServerRescue
 }

@@ -10,16 +10,16 @@ type SSHKeys struct {
 	Meta *SSHKeysMeta `json:"meta,omitempty"`
 }
 
-func (o *SSHKeys) GetData() []SSHKeyData {
-	if o == nil {
+func (s *SSHKeys) GetData() []SSHKeyData {
+	if s == nil {
 		return nil
 	}
-	return o.Data
+	return s.Data
 }
 
-func (o *SSHKeys) GetMeta() *SSHKeysMeta {
-	if o == nil {
+func (s *SSHKeys) GetMeta() *SSHKeysMeta {
+	if s == nil {
 		return nil
 	}
-	return o.Meta
+	return s.Meta
 }

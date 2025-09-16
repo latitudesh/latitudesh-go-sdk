@@ -133,25 +133,25 @@ type CreateServerReinstallServersPartitions struct {
 	FilesystemType *string `json:"filesystem_type,omitempty"`
 }
 
-func (o *CreateServerReinstallServersPartitions) GetSizeInGb() *int64 {
-	if o == nil {
+func (c *CreateServerReinstallServersPartitions) GetSizeInGb() *int64 {
+	if c == nil {
 		return nil
 	}
-	return o.SizeInGb
+	return c.SizeInGb
 }
 
-func (o *CreateServerReinstallServersPartitions) GetPath() *string {
-	if o == nil {
+func (c *CreateServerReinstallServersPartitions) GetPath() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Path
+	return c.Path
 }
 
-func (o *CreateServerReinstallServersPartitions) GetFilesystemType() *string {
-	if o == nil {
+func (c *CreateServerReinstallServersPartitions) GetFilesystemType() *string {
+	if c == nil {
 		return nil
 	}
-	return o.FilesystemType
+	return c.FilesystemType
 }
 
 // CreateServerReinstallServersRaid - RAID mode for the server
@@ -197,53 +197,53 @@ type CreateServerReinstallServersAttributes struct {
 	Ipxe *string `json:"ipxe,omitempty"`
 }
 
-func (o *CreateServerReinstallServersAttributes) GetOperatingSystem() *CreateServerReinstallServersOperatingSystem {
-	if o == nil {
+func (c *CreateServerReinstallServersAttributes) GetOperatingSystem() *CreateServerReinstallServersOperatingSystem {
+	if c == nil {
 		return nil
 	}
-	return o.OperatingSystem
+	return c.OperatingSystem
 }
 
-func (o *CreateServerReinstallServersAttributes) GetHostname() *string {
-	if o == nil {
+func (c *CreateServerReinstallServersAttributes) GetHostname() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Hostname
+	return c.Hostname
 }
 
-func (o *CreateServerReinstallServersAttributes) GetPartitions() []CreateServerReinstallServersPartitions {
-	if o == nil {
+func (c *CreateServerReinstallServersAttributes) GetPartitions() []CreateServerReinstallServersPartitions {
+	if c == nil {
 		return nil
 	}
-	return o.Partitions
+	return c.Partitions
 }
 
-func (o *CreateServerReinstallServersAttributes) GetSSHKeys() []string {
-	if o == nil {
+func (c *CreateServerReinstallServersAttributes) GetSSHKeys() []string {
+	if c == nil {
 		return nil
 	}
-	return o.SSHKeys
+	return c.SSHKeys
 }
 
-func (o *CreateServerReinstallServersAttributes) GetUserData() *string {
-	if o == nil {
+func (c *CreateServerReinstallServersAttributes) GetUserData() *string {
+	if c == nil {
 		return nil
 	}
-	return o.UserData
+	return c.UserData
 }
 
-func (o *CreateServerReinstallServersAttributes) GetRaid() *CreateServerReinstallServersRaid {
-	if o == nil {
+func (c *CreateServerReinstallServersAttributes) GetRaid() *CreateServerReinstallServersRaid {
+	if c == nil {
 		return nil
 	}
-	return o.Raid
+	return c.Raid
 }
 
-func (o *CreateServerReinstallServersAttributes) GetIpxe() *string {
-	if o == nil {
+func (c *CreateServerReinstallServersAttributes) GetIpxe() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Ipxe
+	return c.Ipxe
 }
 
 type CreateServerReinstallServersData struct {
@@ -251,29 +251,29 @@ type CreateServerReinstallServersData struct {
 	Attributes *CreateServerReinstallServersAttributes `json:"attributes,omitempty"`
 }
 
-func (o *CreateServerReinstallServersData) GetType() CreateServerReinstallServersType {
-	if o == nil {
+func (c *CreateServerReinstallServersData) GetType() CreateServerReinstallServersType {
+	if c == nil {
 		return CreateServerReinstallServersType("")
 	}
-	return o.Type
+	return c.Type
 }
 
-func (o *CreateServerReinstallServersData) GetAttributes() *CreateServerReinstallServersAttributes {
-	if o == nil {
+func (c *CreateServerReinstallServersData) GetAttributes() *CreateServerReinstallServersAttributes {
+	if c == nil {
 		return nil
 	}
-	return o.Attributes
+	return c.Attributes
 }
 
 type CreateServerReinstallServersRequestBody struct {
 	Data CreateServerReinstallServersData `json:"data"`
 }
 
-func (o *CreateServerReinstallServersRequestBody) GetData() CreateServerReinstallServersData {
-	if o == nil {
+func (c *CreateServerReinstallServersRequestBody) GetData() CreateServerReinstallServersData {
+	if c == nil {
 		return CreateServerReinstallServersData{}
 	}
-	return o.Data
+	return c.Data
 }
 
 type CreateServerReinstallRequest struct {
@@ -281,27 +281,27 @@ type CreateServerReinstallRequest struct {
 	RequestBody CreateServerReinstallServersRequestBody `request:"mediaType=application/json"`
 }
 
-func (o *CreateServerReinstallRequest) GetServerID() string {
-	if o == nil {
+func (c *CreateServerReinstallRequest) GetServerID() string {
+	if c == nil {
 		return ""
 	}
-	return o.ServerID
+	return c.ServerID
 }
 
-func (o *CreateServerReinstallRequest) GetRequestBody() CreateServerReinstallServersRequestBody {
-	if o == nil {
+func (c *CreateServerReinstallRequest) GetRequestBody() CreateServerReinstallServersRequestBody {
+	if c == nil {
 		return CreateServerReinstallServersRequestBody{}
 	}
-	return o.RequestBody
+	return c.RequestBody
 }
 
 type CreateServerReinstallResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *CreateServerReinstallResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (c *CreateServerReinstallResponse) GetHTTPMeta() components.HTTPMetadata {
+	if c == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return c.HTTPMeta
 }

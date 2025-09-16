@@ -43,7 +43,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserData.GetProjectUsersData(ctx, "proj_RMLydp7XOQKr1", latitudeshgosdk.String("decoded_content"))
+    res, err := s.UserData.GetProjectUsersData(ctx, "proj_RMLydp7XOQKr1", latitudeshgosdk.Pointer("decoded_content"))
     if err != nil {
         log.Fatal(err)
     }
@@ -99,7 +99,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserData.GetProjectUserData(ctx, "proj_Gr47qlevDAg0m", "ud_VLMmAD8EOwop2", latitudeshgosdk.String("decoded_content"))
+    res, err := s.UserData.GetProjectUserData(ctx, "proj_Gr47qlevDAg0m", "ud_VLMmAD8EOwop2", latitudeshgosdk.Pointer("decoded_content"))
     if err != nil {
         log.Fatal(err)
     }
@@ -283,7 +283,7 @@ func main() {
             ID: "ud_2695BdKrOevVo",
             Type: operations.PutProjectUserDataUserDataTypeUserData,
             Attributes: &operations.PutProjectUserDataUserDataAttributes{
-                Content: latitudeshgosdk.String("I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"),
+                Content: latitudeshgosdk.Pointer("I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"),
             },
         },
     })
@@ -341,7 +341,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserData.List(ctx, latitudeshgosdk.String("decoded_content"))
+    res, err := s.UserData.List(ctx, latitudeshgosdk.Pointer("decoded_content"))
     if err != nil {
         log.Fatal(err)
     }
@@ -456,7 +456,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserData.Retrieve(ctx, "ud_1Qkm7dXzD8nZV", latitudeshgosdk.String("decoded_content"))
+    res, err := s.UserData.Retrieve(ctx, "ud_1Qkm7dXzD8nZV", latitudeshgosdk.Pointer("decoded_content"))
     if err != nil {
         log.Fatal(err)
     }
@@ -516,7 +516,7 @@ func main() {
             ID: "ud_Av9BVDavORm1W",
             Type: operations.PatchUserDataUserDataTypeUserData,
             Attributes: &operations.PatchUserDataUserDataAttributes{
-                Content: latitudeshgosdk.String("I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"),
+                Content: latitudeshgosdk.Pointer("I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"),
             },
         },
     })

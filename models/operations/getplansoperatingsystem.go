@@ -25,18 +25,18 @@ func (g *GetPlansOperatingSystemRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *GetPlansOperatingSystemRequest) GetPageSize() *int64 {
-	if o == nil {
+func (g *GetPlansOperatingSystemRequest) GetPageSize() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.PageSize
+	return g.PageSize
 }
 
-func (o *GetPlansOperatingSystemRequest) GetPageNumber() *int64 {
-	if o == nil {
+func (g *GetPlansOperatingSystemRequest) GetPageNumber() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.PageNumber
+	return g.PageNumber
 }
 
 // GetPlansOperatingSystemResponseBody - Success
@@ -44,11 +44,11 @@ type GetPlansOperatingSystemResponseBody struct {
 	Data []components.OperatingSystems `json:"data,omitempty"`
 }
 
-func (o *GetPlansOperatingSystemResponseBody) GetData() []components.OperatingSystems {
-	if o == nil {
+func (g *GetPlansOperatingSystemResponseBody) GetData() []components.OperatingSystems {
+	if g == nil {
 		return nil
 	}
-	return o.Data
+	return g.Data
 }
 
 type GetPlansOperatingSystemResponse struct {
@@ -59,16 +59,16 @@ type GetPlansOperatingSystemResponse struct {
 	Next func() (*GetPlansOperatingSystemResponse, error)
 }
 
-func (o *GetPlansOperatingSystemResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetPlansOperatingSystemResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetPlansOperatingSystemResponse) GetObject() *GetPlansOperatingSystemResponseBody {
-	if o == nil {
+func (g *GetPlansOperatingSystemResponse) GetObject() *GetPlansOperatingSystemResponseBody {
+	if g == nil {
 		return nil
 	}
-	return o.Object
+	return g.Object
 }

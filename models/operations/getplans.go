@@ -69,60 +69,60 @@ type GetPlansRequest struct {
 	FilterDisk *int64 `queryParam:"style=form,explode=true,name=filter[disk]"`
 }
 
-func (o *GetPlansRequest) GetFilterName() *string {
-	if o == nil {
+func (g *GetPlansRequest) GetFilterName() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterName
+	return g.FilterName
 }
 
-func (o *GetPlansRequest) GetFilterSlug() *string {
-	if o == nil {
+func (g *GetPlansRequest) GetFilterSlug() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterSlug
+	return g.FilterSlug
 }
 
-func (o *GetPlansRequest) GetFilterLocation() *string {
-	if o == nil {
+func (g *GetPlansRequest) GetFilterLocation() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterLocation
+	return g.FilterLocation
 }
 
-func (o *GetPlansRequest) GetFilterStockLevel() *FilterStockLevel {
-	if o == nil {
+func (g *GetPlansRequest) GetFilterStockLevel() *FilterStockLevel {
+	if g == nil {
 		return nil
 	}
-	return o.FilterStockLevel
+	return g.FilterStockLevel
 }
 
-func (o *GetPlansRequest) GetFilterInStock() *bool {
-	if o == nil {
+func (g *GetPlansRequest) GetFilterInStock() *bool {
+	if g == nil {
 		return nil
 	}
-	return o.FilterInStock
+	return g.FilterInStock
 }
 
-func (o *GetPlansRequest) GetFilterGpu() *bool {
-	if o == nil {
+func (g *GetPlansRequest) GetFilterGpu() *bool {
+	if g == nil {
 		return nil
 	}
-	return o.FilterGpu
+	return g.FilterGpu
 }
 
-func (o *GetPlansRequest) GetFilterRAM() *int64 {
-	if o == nil {
+func (g *GetPlansRequest) GetFilterRAM() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.FilterRAM
+	return g.FilterRAM
 }
 
-func (o *GetPlansRequest) GetFilterDisk() *int64 {
-	if o == nil {
+func (g *GetPlansRequest) GetFilterDisk() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.FilterDisk
+	return g.FilterDisk
 }
 
 // GetPlansResponseBody - Success
@@ -130,11 +130,11 @@ type GetPlansResponseBody struct {
 	Data []components.PlanData `json:"data,omitempty"`
 }
 
-func (o *GetPlansResponseBody) GetData() []components.PlanData {
-	if o == nil {
+func (g *GetPlansResponseBody) GetData() []components.PlanData {
+	if g == nil {
 		return nil
 	}
-	return o.Data
+	return g.Data
 }
 
 type GetPlansResponse struct {
@@ -143,16 +143,16 @@ type GetPlansResponse struct {
 	Object *GetPlansResponseBody
 }
 
-func (o *GetPlansResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetPlansResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetPlansResponse) GetObject() *GetPlansResponseBody {
-	if o == nil {
+func (g *GetPlansResponse) GetObject() *GetPlansResponseBody {
+	if g == nil {
 		return nil
 	}
-	return o.Object
+	return g.Object
 }

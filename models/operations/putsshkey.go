@@ -49,18 +49,18 @@ func (p *PutSSHKeySSHKeysAttributes) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *PutSSHKeySSHKeysAttributes) GetTags() []string {
-	if o == nil {
+func (p *PutSSHKeySSHKeysAttributes) GetTags() []string {
+	if p == nil {
 		return nil
 	}
-	return o.Tags
+	return p.Tags
 }
 
-func (o *PutSSHKeySSHKeysAttributes) GetName() *string {
-	if o == nil {
+func (p *PutSSHKeySSHKeysAttributes) GetName() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Name
+	return p.Name
 }
 
 type PutSSHKeySSHKeysData struct {
@@ -80,36 +80,36 @@ func (p *PutSSHKeySSHKeysData) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *PutSSHKeySSHKeysData) GetID() *string {
-	if o == nil {
+func (p *PutSSHKeySSHKeysData) GetID() *string {
+	if p == nil {
 		return nil
 	}
-	return o.ID
+	return p.ID
 }
 
-func (o *PutSSHKeySSHKeysData) GetType() PutSSHKeySSHKeysType {
-	if o == nil {
+func (p *PutSSHKeySSHKeysData) GetType() PutSSHKeySSHKeysType {
+	if p == nil {
 		return PutSSHKeySSHKeysType("")
 	}
-	return o.Type
+	return p.Type
 }
 
-func (o *PutSSHKeySSHKeysData) GetAttributes() *PutSSHKeySSHKeysAttributes {
-	if o == nil {
+func (p *PutSSHKeySSHKeysData) GetAttributes() *PutSSHKeySSHKeysAttributes {
+	if p == nil {
 		return nil
 	}
-	return o.Attributes
+	return p.Attributes
 }
 
 type PutSSHKeySSHKeysRequestBody struct {
 	Data PutSSHKeySSHKeysData `json:"data"`
 }
 
-func (o *PutSSHKeySSHKeysRequestBody) GetData() PutSSHKeySSHKeysData {
-	if o == nil {
+func (p *PutSSHKeySSHKeysRequestBody) GetData() PutSSHKeySSHKeysData {
+	if p == nil {
 		return PutSSHKeySSHKeysData{}
 	}
-	return o.Data
+	return p.Data
 }
 
 type PutSSHKeyRequest struct {
@@ -117,18 +117,18 @@ type PutSSHKeyRequest struct {
 	RequestBody PutSSHKeySSHKeysRequestBody `request:"mediaType=application/json"`
 }
 
-func (o *PutSSHKeyRequest) GetSSHKeyID() string {
-	if o == nil {
+func (p *PutSSHKeyRequest) GetSSHKeyID() string {
+	if p == nil {
 		return ""
 	}
-	return o.SSHKeyID
+	return p.SSHKeyID
 }
 
-func (o *PutSSHKeyRequest) GetRequestBody() PutSSHKeySSHKeysRequestBody {
-	if o == nil {
+func (p *PutSSHKeyRequest) GetRequestBody() PutSSHKeySSHKeysRequestBody {
+	if p == nil {
 		return PutSSHKeySSHKeysRequestBody{}
 	}
-	return o.RequestBody
+	return p.RequestBody
 }
 
 // PutSSHKeyResponseBody - Success
@@ -136,11 +136,11 @@ type PutSSHKeyResponseBody struct {
 	Data *components.SSHKeyData `json:"data,omitempty"`
 }
 
-func (o *PutSSHKeyResponseBody) GetData() *components.SSHKeyData {
-	if o == nil {
+func (p *PutSSHKeyResponseBody) GetData() *components.SSHKeyData {
+	if p == nil {
 		return nil
 	}
-	return o.Data
+	return p.Data
 }
 
 type PutSSHKeyResponse struct {
@@ -149,16 +149,16 @@ type PutSSHKeyResponse struct {
 	Object *PutSSHKeyResponseBody
 }
 
-func (o *PutSSHKeyResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PutSSHKeyResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PutSSHKeyResponse) GetObject() *PutSSHKeyResponseBody {
-	if o == nil {
+func (p *PutSSHKeyResponse) GetObject() *PutSSHKeyResponseBody {
+	if p == nil {
 		return nil
 	}
-	return o.Object
+	return p.Object
 }

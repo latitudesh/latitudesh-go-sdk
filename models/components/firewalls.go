@@ -10,16 +10,16 @@ type Firewalls struct {
 	Meta *FirewallsMeta `json:"meta,omitempty"`
 }
 
-func (o *Firewalls) GetData() []FirewallData {
-	if o == nil {
+func (f *Firewalls) GetData() []FirewallData {
+	if f == nil {
 		return nil
 	}
-	return o.Data
+	return f.Data
 }
 
-func (o *Firewalls) GetMeta() *FirewallsMeta {
-	if o == nil {
+func (f *Firewalls) GetMeta() *FirewallsMeta {
+	if f == nil {
 		return nil
 	}
-	return o.Meta
+	return f.Meta
 }

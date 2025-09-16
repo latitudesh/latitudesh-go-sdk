@@ -66,11 +66,11 @@ type CreateServerActionServersAttributes struct {
 	Action CreateServerActionAction `json:"action"`
 }
 
-func (o *CreateServerActionServersAttributes) GetAction() CreateServerActionAction {
-	if o == nil {
+func (c *CreateServerActionServersAttributes) GetAction() CreateServerActionAction {
+	if c == nil {
 		return CreateServerActionAction("")
 	}
-	return o.Action
+	return c.Action
 }
 
 type CreateServerActionServersData struct {
@@ -78,29 +78,29 @@ type CreateServerActionServersData struct {
 	Attributes *CreateServerActionServersAttributes `json:"attributes,omitempty"`
 }
 
-func (o *CreateServerActionServersData) GetType() CreateServerActionServersType {
-	if o == nil {
+func (c *CreateServerActionServersData) GetType() CreateServerActionServersType {
+	if c == nil {
 		return CreateServerActionServersType("")
 	}
-	return o.Type
+	return c.Type
 }
 
-func (o *CreateServerActionServersData) GetAttributes() *CreateServerActionServersAttributes {
-	if o == nil {
+func (c *CreateServerActionServersData) GetAttributes() *CreateServerActionServersAttributes {
+	if c == nil {
 		return nil
 	}
-	return o.Attributes
+	return c.Attributes
 }
 
 type CreateServerActionServersRequestBody struct {
 	Data CreateServerActionServersData `json:"data"`
 }
 
-func (o *CreateServerActionServersRequestBody) GetData() CreateServerActionServersData {
-	if o == nil {
+func (c *CreateServerActionServersRequestBody) GetData() CreateServerActionServersData {
+	if c == nil {
 		return CreateServerActionServersData{}
 	}
-	return o.Data
+	return c.Data
 }
 
 type CreateServerActionRequest struct {
@@ -108,18 +108,18 @@ type CreateServerActionRequest struct {
 	RequestBody CreateServerActionServersRequestBody `request:"mediaType=application/json"`
 }
 
-func (o *CreateServerActionRequest) GetServerID() string {
-	if o == nil {
+func (c *CreateServerActionRequest) GetServerID() string {
+	if c == nil {
 		return ""
 	}
-	return o.ServerID
+	return c.ServerID
 }
 
-func (o *CreateServerActionRequest) GetRequestBody() CreateServerActionServersRequestBody {
-	if o == nil {
+func (c *CreateServerActionRequest) GetRequestBody() CreateServerActionServersRequestBody {
+	if c == nil {
 		return CreateServerActionServersRequestBody{}
 	}
-	return o.RequestBody
+	return c.RequestBody
 }
 
 type CreateServerActionResponse struct {
@@ -128,16 +128,16 @@ type CreateServerActionResponse struct {
 	ServerAction *components.ServerAction
 }
 
-func (o *CreateServerActionResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (c *CreateServerActionResponse) GetHTTPMeta() components.HTTPMetadata {
+	if c == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return c.HTTPMeta
 }
 
-func (o *CreateServerActionResponse) GetServerAction() *components.ServerAction {
-	if o == nil {
+func (c *CreateServerActionResponse) GetServerAction() *components.ServerAction {
+	if c == nil {
 		return nil
 	}
-	return o.ServerAction
+	return c.ServerAction
 }

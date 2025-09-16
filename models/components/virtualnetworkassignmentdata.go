@@ -38,39 +38,39 @@ type VirtualNetworkAssignmentDataServer struct {
 	Status   *string `json:"status,omitempty"`
 }
 
-func (o *VirtualNetworkAssignmentDataServer) GetID() *string {
-	if o == nil {
+func (v *VirtualNetworkAssignmentDataServer) GetID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.ID
+	return v.ID
 }
 
-func (o *VirtualNetworkAssignmentDataServer) GetHostname() *string {
-	if o == nil {
+func (v *VirtualNetworkAssignmentDataServer) GetHostname() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Hostname
+	return v.Hostname
 }
 
-func (o *VirtualNetworkAssignmentDataServer) GetLabel() *string {
-	if o == nil {
+func (v *VirtualNetworkAssignmentDataServer) GetLabel() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Label
+	return v.Label
 }
 
-func (o *VirtualNetworkAssignmentDataServer) GetLocked() *bool {
-	if o == nil {
+func (v *VirtualNetworkAssignmentDataServer) GetLocked() *bool {
+	if v == nil {
 		return nil
 	}
-	return o.Locked
+	return v.Locked
 }
 
-func (o *VirtualNetworkAssignmentDataServer) GetStatus() *string {
-	if o == nil {
+func (v *VirtualNetworkAssignmentDataServer) GetStatus() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Status
+	return v.Status
 }
 
 type VirtualNetworkAssignmentDataAttributes struct {
@@ -81,39 +81,39 @@ type VirtualNetworkAssignmentDataAttributes struct {
 	Server           *VirtualNetworkAssignmentDataServer `json:"server,omitempty"`
 }
 
-func (o *VirtualNetworkAssignmentDataAttributes) GetVirtualNetworkID() *string {
-	if o == nil {
+func (v *VirtualNetworkAssignmentDataAttributes) GetVirtualNetworkID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.VirtualNetworkID
+	return v.VirtualNetworkID
 }
 
-func (o *VirtualNetworkAssignmentDataAttributes) GetVid() *int64 {
-	if o == nil {
+func (v *VirtualNetworkAssignmentDataAttributes) GetVid() *int64 {
+	if v == nil {
 		return nil
 	}
-	return o.Vid
+	return v.Vid
 }
 
-func (o *VirtualNetworkAssignmentDataAttributes) GetDescription() *string {
-	if o == nil {
+func (v *VirtualNetworkAssignmentDataAttributes) GetDescription() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Description
+	return v.Description
 }
 
-func (o *VirtualNetworkAssignmentDataAttributes) GetStatus() *string {
-	if o == nil {
+func (v *VirtualNetworkAssignmentDataAttributes) GetStatus() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Status
+	return v.Status
 }
 
-func (o *VirtualNetworkAssignmentDataAttributes) GetServer() *VirtualNetworkAssignmentDataServer {
-	if o == nil {
+func (v *VirtualNetworkAssignmentDataAttributes) GetServer() *VirtualNetworkAssignmentDataServer {
+	if v == nil {
 		return nil
 	}
-	return o.Server
+	return v.Server
 }
 
 type VirtualNetworkAssignmentData struct {
@@ -122,23 +122,23 @@ type VirtualNetworkAssignmentData struct {
 	Attributes *VirtualNetworkAssignmentDataAttributes `json:"attributes,omitempty"`
 }
 
-func (o *VirtualNetworkAssignmentData) GetID() *string {
-	if o == nil {
+func (v *VirtualNetworkAssignmentData) GetID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.ID
+	return v.ID
 }
 
-func (o *VirtualNetworkAssignmentData) GetType() *VirtualNetworkAssignmentDataType {
-	if o == nil {
+func (v *VirtualNetworkAssignmentData) GetType() *VirtualNetworkAssignmentDataType {
+	if v == nil {
 		return nil
 	}
-	return o.Type
+	return v.Type
 }
 
-func (o *VirtualNetworkAssignmentData) GetAttributes() *VirtualNetworkAssignmentDataAttributes {
-	if o == nil {
+func (v *VirtualNetworkAssignmentData) GetAttributes() *VirtualNetworkAssignmentDataAttributes {
+	if v == nil {
 		return nil
 	}
-	return o.Attributes
+	return v.Attributes
 }

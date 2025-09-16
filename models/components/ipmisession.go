@@ -39,25 +39,25 @@ type IpmiSessionAttributes struct {
 	IpmiPassword *string `json:"ipmi_password,omitempty"`
 }
 
-func (o *IpmiSessionAttributes) GetIpmiAddress() *string {
-	if o == nil {
+func (i *IpmiSessionAttributes) GetIpmiAddress() *string {
+	if i == nil {
 		return nil
 	}
-	return o.IpmiAddress
+	return i.IpmiAddress
 }
 
-func (o *IpmiSessionAttributes) GetIpmiUsername() *string {
-	if o == nil {
+func (i *IpmiSessionAttributes) GetIpmiUsername() *string {
+	if i == nil {
 		return nil
 	}
-	return o.IpmiUsername
+	return i.IpmiUsername
 }
 
-func (o *IpmiSessionAttributes) GetIpmiPassword() *string {
-	if o == nil {
+func (i *IpmiSessionAttributes) GetIpmiPassword() *string {
+	if i == nil {
 		return nil
 	}
-	return o.IpmiPassword
+	return i.IpmiPassword
 }
 
 type IpmiSessionData struct {
@@ -66,34 +66,34 @@ type IpmiSessionData struct {
 	Attributes *IpmiSessionAttributes `json:"attributes,omitempty"`
 }
 
-func (o *IpmiSessionData) GetID() *string {
-	if o == nil {
+func (i *IpmiSessionData) GetID() *string {
+	if i == nil {
 		return nil
 	}
-	return o.ID
+	return i.ID
 }
 
-func (o *IpmiSessionData) GetType() *IpmiSessionType {
-	if o == nil {
+func (i *IpmiSessionData) GetType() *IpmiSessionType {
+	if i == nil {
 		return nil
 	}
-	return o.Type
+	return i.Type
 }
 
-func (o *IpmiSessionData) GetAttributes() *IpmiSessionAttributes {
-	if o == nil {
+func (i *IpmiSessionData) GetAttributes() *IpmiSessionAttributes {
+	if i == nil {
 		return nil
 	}
-	return o.Attributes
+	return i.Attributes
 }
 
 type IpmiSession struct {
 	Data *IpmiSessionData `json:"data,omitempty"`
 }
 
-func (o *IpmiSession) GetData() *IpmiSessionData {
-	if o == nil {
+func (i *IpmiSession) GetData() *IpmiSessionData {
+	if i == nil {
 		return nil
 	}
-	return o.Data
+	return i.Data
 }

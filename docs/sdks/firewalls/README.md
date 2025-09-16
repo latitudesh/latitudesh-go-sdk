@@ -38,7 +38,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Firewalls.GetAllFirewallAssignments(ctx, latitudeshgosdk.String("sv_RLYV8DZ2D5QoE"), latitudeshgosdk.Int64(20), latitudeshgosdk.Int64(1))
+    res, err := s.Firewalls.GetAllFirewallAssignments(ctx, latitudeshgosdk.Pointer("sv_RLYV8DZ2D5QoE"), latitudeshgosdk.Pointer[int64](20), latitudeshgosdk.Pointer[int64](1))
     if err != nil {
         log.Fatal(err)
     }
@@ -113,22 +113,22 @@ func main() {
                 Project: "awesome-granite-chair",
                 Rules: []operations.CreateFirewallRules{
                     operations.CreateFirewallRules{
-                        From: latitudeshgosdk.String("192.168.42.73"),
-                        To: latitudeshgosdk.String("192.168.43.51"),
+                        From: latitudeshgosdk.Pointer("192.168.42.73"),
+                        To: latitudeshgosdk.Pointer("192.168.43.51"),
                         Protocol: operations.CreateFirewallProtocolTCP.ToPointer(),
-                        Port: latitudeshgosdk.String("80"),
+                        Port: latitudeshgosdk.Pointer("80"),
                     },
                     operations.CreateFirewallRules{
-                        From: latitudeshgosdk.String("192.168.1.16"),
-                        To: latitudeshgosdk.String("192.168.1.30"),
+                        From: latitudeshgosdk.Pointer("192.168.1.16"),
+                        To: latitudeshgosdk.Pointer("192.168.1.30"),
                         Protocol: operations.CreateFirewallProtocolTCP.ToPointer(),
-                        Port: latitudeshgosdk.String("80"),
+                        Port: latitudeshgosdk.Pointer("80"),
                     },
                     operations.CreateFirewallRules{
-                        From: latitudeshgosdk.String("192.168.1.10"),
-                        To: latitudeshgosdk.String("192.168.1.20"),
+                        From: latitudeshgosdk.Pointer("192.168.1.10"),
+                        To: latitudeshgosdk.Pointer("192.168.1.20"),
                         Protocol: operations.CreateFirewallProtocolUDP.ToPointer(),
-                        Port: latitudeshgosdk.String("3000-4000"),
+                        Port: latitudeshgosdk.Pointer("3000-4000"),
                     },
                 },
             },
@@ -185,7 +185,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Firewalls.List(ctx, latitudeshgosdk.String("incredible-bronze-car"), latitudeshgosdk.Int64(20), latitudeshgosdk.Int64(1))
+    res, err := s.Firewalls.List(ctx, latitudeshgosdk.Pointer("incredible-bronze-car"), latitudeshgosdk.Pointer[int64](20), latitudeshgosdk.Pointer[int64](1))
     if err != nil {
         log.Fatal(err)
     }
@@ -308,13 +308,13 @@ func main() {
         Data: operations.UpdateFirewallFirewallsData{
             Type: operations.UpdateFirewallFirewallsTypeFirewalls,
             Attributes: &operations.UpdateFirewallFirewallsAttributes{
-                Name: latitudeshgosdk.String("new-name"),
+                Name: latitudeshgosdk.Pointer("new-name"),
                 Rules: []operations.UpdateFirewallFirewallsRules{
                     operations.UpdateFirewallFirewallsRules{
-                        From: latitudeshgosdk.String("192.168.42.72"),
-                        To: latitudeshgosdk.String("192.168.43.51"),
+                        From: latitudeshgosdk.Pointer("192.168.42.72"),
+                        To: latitudeshgosdk.Pointer("192.168.43.51"),
                         Protocol: operations.UpdateFirewallFirewallsProtocolTCP.ToPointer(),
-                        Port: latitudeshgosdk.String("80"),
+                        Port: latitudeshgosdk.Pointer("80"),
                     },
                 },
             },
@@ -424,7 +424,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Firewalls.ListAssignments(ctx, "fw_z8Nkvdy1deLpx", latitudeshgosdk.Int64(20), latitudeshgosdk.Int64(1))
+    res, err := s.Firewalls.ListAssignments(ctx, "fw_z8Nkvdy1deLpx", latitudeshgosdk.Pointer[int64](20), latitudeshgosdk.Pointer[int64](1))
     if err != nil {
         log.Fatal(err)
     }

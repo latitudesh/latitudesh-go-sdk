@@ -6,9 +6,9 @@ type VpnSessionWithPassword struct {
 	Data *VpnSessionDataWithPassword `json:"data,omitempty"`
 }
 
-func (o *VpnSessionWithPassword) GetData() *VpnSessionDataWithPassword {
-	if o == nil {
+func (v *VpnSessionWithPassword) GetData() *VpnSessionDataWithPassword {
+	if v == nil {
 		return nil
 	}
-	return o.Data
+	return v.Data
 }

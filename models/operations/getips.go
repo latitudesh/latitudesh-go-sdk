@@ -95,67 +95,67 @@ func (g *GetIpsRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *GetIpsRequest) GetFilterServer() *string {
-	if o == nil {
+func (g *GetIpsRequest) GetFilterServer() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterServer
+	return g.FilterServer
 }
 
-func (o *GetIpsRequest) GetFilterProject() *string {
-	if o == nil {
+func (g *GetIpsRequest) GetFilterProject() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterProject
+	return g.FilterProject
 }
 
-func (o *GetIpsRequest) GetFilterFamily() *FilterFamily {
-	if o == nil {
+func (g *GetIpsRequest) GetFilterFamily() *FilterFamily {
+	if g == nil {
 		return nil
 	}
-	return o.FilterFamily
+	return g.FilterFamily
 }
 
-func (o *GetIpsRequest) GetFilterType() *FilterType {
-	if o == nil {
+func (g *GetIpsRequest) GetFilterType() *FilterType {
+	if g == nil {
 		return nil
 	}
-	return o.FilterType
+	return g.FilterType
 }
 
-func (o *GetIpsRequest) GetFilterLocation() *string {
-	if o == nil {
+func (g *GetIpsRequest) GetFilterLocation() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterLocation
+	return g.FilterLocation
 }
 
-func (o *GetIpsRequest) GetFilterAddress() *string {
-	if o == nil {
+func (g *GetIpsRequest) GetFilterAddress() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterAddress
+	return g.FilterAddress
 }
 
-func (o *GetIpsRequest) GetExtraFieldsIPAddresses() *string {
-	if o == nil {
+func (g *GetIpsRequest) GetExtraFieldsIPAddresses() *string {
+	if g == nil {
 		return nil
 	}
-	return o.ExtraFieldsIPAddresses
+	return g.ExtraFieldsIPAddresses
 }
 
-func (o *GetIpsRequest) GetPageSize() *int64 {
-	if o == nil {
+func (g *GetIpsRequest) GetPageSize() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.PageSize
+	return g.PageSize
 }
 
-func (o *GetIpsRequest) GetPageNumber() *int64 {
-	if o == nil {
+func (g *GetIpsRequest) GetPageNumber() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.PageNumber
+	return g.PageNumber
 }
 
 type GetIpsResponse struct {
@@ -166,16 +166,16 @@ type GetIpsResponse struct {
 	Next func() (*GetIpsResponse, error)
 }
 
-func (o *GetIpsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetIpsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetIpsResponse) GetIPAddresses() *components.IPAddresses {
-	if o == nil {
+func (g *GetIpsResponse) GetIPAddresses() *components.IPAddresses {
+	if g == nil {
 		return nil
 	}
-	return o.IPAddresses
+	return g.IPAddresses
 }

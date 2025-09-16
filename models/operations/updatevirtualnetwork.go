@@ -48,18 +48,18 @@ func (u *UpdateVirtualNetworkPrivateNetworksAttributes) UnmarshalJSON(data []byt
 	return nil
 }
 
-func (o *UpdateVirtualNetworkPrivateNetworksAttributes) GetTags() []string {
-	if o == nil {
+func (u *UpdateVirtualNetworkPrivateNetworksAttributes) GetTags() []string {
+	if u == nil {
 		return nil
 	}
-	return o.Tags
+	return u.Tags
 }
 
-func (o *UpdateVirtualNetworkPrivateNetworksAttributes) GetDescription() *string {
-	if o == nil {
+func (u *UpdateVirtualNetworkPrivateNetworksAttributes) GetDescription() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Description
+	return u.Description
 }
 
 type UpdateVirtualNetworkPrivateNetworksData struct {
@@ -68,36 +68,36 @@ type UpdateVirtualNetworkPrivateNetworksData struct {
 	Attributes *UpdateVirtualNetworkPrivateNetworksAttributes `json:"attributes,omitempty"`
 }
 
-func (o *UpdateVirtualNetworkPrivateNetworksData) GetID() string {
-	if o == nil {
+func (u *UpdateVirtualNetworkPrivateNetworksData) GetID() string {
+	if u == nil {
 		return ""
 	}
-	return o.ID
+	return u.ID
 }
 
-func (o *UpdateVirtualNetworkPrivateNetworksData) GetType() UpdateVirtualNetworkPrivateNetworksType {
-	if o == nil {
+func (u *UpdateVirtualNetworkPrivateNetworksData) GetType() UpdateVirtualNetworkPrivateNetworksType {
+	if u == nil {
 		return UpdateVirtualNetworkPrivateNetworksType("")
 	}
-	return o.Type
+	return u.Type
 }
 
-func (o *UpdateVirtualNetworkPrivateNetworksData) GetAttributes() *UpdateVirtualNetworkPrivateNetworksAttributes {
-	if o == nil {
+func (u *UpdateVirtualNetworkPrivateNetworksData) GetAttributes() *UpdateVirtualNetworkPrivateNetworksAttributes {
+	if u == nil {
 		return nil
 	}
-	return o.Attributes
+	return u.Attributes
 }
 
 type UpdateVirtualNetworkPrivateNetworksRequestBody struct {
 	Data UpdateVirtualNetworkPrivateNetworksData `json:"data"`
 }
 
-func (o *UpdateVirtualNetworkPrivateNetworksRequestBody) GetData() UpdateVirtualNetworkPrivateNetworksData {
-	if o == nil {
+func (u *UpdateVirtualNetworkPrivateNetworksRequestBody) GetData() UpdateVirtualNetworkPrivateNetworksData {
+	if u == nil {
 		return UpdateVirtualNetworkPrivateNetworksData{}
 	}
-	return o.Data
+	return u.Data
 }
 
 type UpdateVirtualNetworkRequest struct {
@@ -106,18 +106,18 @@ type UpdateVirtualNetworkRequest struct {
 	RequestBody UpdateVirtualNetworkPrivateNetworksRequestBody `request:"mediaType=application/json"`
 }
 
-func (o *UpdateVirtualNetworkRequest) GetVlanID() string {
-	if o == nil {
+func (u *UpdateVirtualNetworkRequest) GetVlanID() string {
+	if u == nil {
 		return ""
 	}
-	return o.VlanID
+	return u.VlanID
 }
 
-func (o *UpdateVirtualNetworkRequest) GetRequestBody() UpdateVirtualNetworkPrivateNetworksRequestBody {
-	if o == nil {
+func (u *UpdateVirtualNetworkRequest) GetRequestBody() UpdateVirtualNetworkPrivateNetworksRequestBody {
+	if u == nil {
 		return UpdateVirtualNetworkPrivateNetworksRequestBody{}
 	}
-	return o.RequestBody
+	return u.RequestBody
 }
 
 type UpdateVirtualNetworkResponse struct {
@@ -126,16 +126,16 @@ type UpdateVirtualNetworkResponse struct {
 	VirtualNetwork *components.VirtualNetwork
 }
 
-func (o *UpdateVirtualNetworkResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (u *UpdateVirtualNetworkResponse) GetHTTPMeta() components.HTTPMetadata {
+	if u == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return u.HTTPMeta
 }
 
-func (o *UpdateVirtualNetworkResponse) GetVirtualNetwork() *components.VirtualNetwork {
-	if o == nil {
+func (u *UpdateVirtualNetworkResponse) GetVirtualNetwork() *components.VirtualNetwork {
+	if u == nil {
 		return nil
 	}
-	return o.VirtualNetwork
+	return u.VirtualNetwork
 }

@@ -35,18 +35,18 @@ type Usd struct {
 	Hourly  *int64 `json:"hourly,omitempty"`
 }
 
-func (o *Usd) GetMonthly() *int64 {
-	if o == nil {
+func (u *Usd) GetMonthly() *int64 {
+	if u == nil {
 		return nil
 	}
-	return o.Monthly
+	return u.Monthly
 }
 
-func (o *Usd) GetHourly() *int64 {
-	if o == nil {
+func (u *Usd) GetHourly() *int64 {
+	if u == nil {
 		return nil
 	}
-	return o.Hourly
+	return u.Hourly
 }
 
 type Brl struct {
@@ -54,18 +54,18 @@ type Brl struct {
 	Hourly  *int64 `json:"hourly,omitempty"`
 }
 
-func (o *Brl) GetMonthly() *int64 {
-	if o == nil {
+func (b *Brl) GetMonthly() *int64 {
+	if b == nil {
 		return nil
 	}
-	return o.Monthly
+	return b.Monthly
 }
 
-func (o *Brl) GetHourly() *int64 {
-	if o == nil {
+func (b *Brl) GetHourly() *int64 {
+	if b == nil {
 		return nil
 	}
-	return o.Hourly
+	return b.Hourly
 }
 
 type Pricing struct {
@@ -73,18 +73,18 @@ type Pricing struct {
 	Brl *Brl `json:"brl,omitempty"`
 }
 
-func (o *Pricing) GetUsd() *Usd {
-	if o == nil {
+func (p *Pricing) GetUsd() *Usd {
+	if p == nil {
 		return nil
 	}
-	return o.Usd
+	return p.Usd
 }
 
-func (o *Pricing) GetBrl() *Brl {
-	if o == nil {
+func (p *Pricing) GetBrl() *Brl {
+	if p == nil {
 		return nil
 	}
-	return o.Brl
+	return p.Brl
 }
 
 type BandwidthPlanDataAttributes struct {
@@ -93,25 +93,25 @@ type BandwidthPlanDataAttributes struct {
 	Pricing   *Pricing `json:"pricing,omitempty"`
 }
 
-func (o *BandwidthPlanDataAttributes) GetRegion() *string {
-	if o == nil {
+func (b *BandwidthPlanDataAttributes) GetRegion() *string {
+	if b == nil {
 		return nil
 	}
-	return o.Region
+	return b.Region
 }
 
-func (o *BandwidthPlanDataAttributes) GetLocations() []string {
-	if o == nil {
+func (b *BandwidthPlanDataAttributes) GetLocations() []string {
+	if b == nil {
 		return nil
 	}
-	return o.Locations
+	return b.Locations
 }
 
-func (o *BandwidthPlanDataAttributes) GetPricing() *Pricing {
-	if o == nil {
+func (b *BandwidthPlanDataAttributes) GetPricing() *Pricing {
+	if b == nil {
 		return nil
 	}
-	return o.Pricing
+	return b.Pricing
 }
 
 type BandwidthPlanData struct {
@@ -120,23 +120,23 @@ type BandwidthPlanData struct {
 	Attributes *BandwidthPlanDataAttributes `json:"attributes,omitempty"`
 }
 
-func (o *BandwidthPlanData) GetID() *string {
-	if o == nil {
+func (b *BandwidthPlanData) GetID() *string {
+	if b == nil {
 		return nil
 	}
-	return o.ID
+	return b.ID
 }
 
-func (o *BandwidthPlanData) GetType() *BandwidthPlanDataType {
-	if o == nil {
+func (b *BandwidthPlanData) GetType() *BandwidthPlanDataType {
+	if b == nil {
 		return nil
 	}
-	return o.Type
+	return b.Type
 }
 
-func (o *BandwidthPlanData) GetAttributes() *BandwidthPlanDataAttributes {
-	if o == nil {
+func (b *BandwidthPlanData) GetAttributes() *BandwidthPlanDataAttributes {
+	if b == nil {
 		return nil
 	}
-	return o.Attributes
+	return b.Attributes
 }

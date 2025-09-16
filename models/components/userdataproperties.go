@@ -39,32 +39,32 @@ type UserDataPropertiesAttributes struct {
 	UpdatedAt *string `json:"updated_at,omitempty"`
 }
 
-func (o *UserDataPropertiesAttributes) GetDescription() *string {
-	if o == nil {
+func (u *UserDataPropertiesAttributes) GetDescription() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Description
+	return u.Description
 }
 
-func (o *UserDataPropertiesAttributes) GetContent() *string {
-	if o == nil {
+func (u *UserDataPropertiesAttributes) GetContent() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Content
+	return u.Content
 }
 
-func (o *UserDataPropertiesAttributes) GetCreatedAt() *string {
-	if o == nil {
+func (u *UserDataPropertiesAttributes) GetCreatedAt() *string {
+	if u == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return u.CreatedAt
 }
 
-func (o *UserDataPropertiesAttributes) GetUpdatedAt() *string {
-	if o == nil {
+func (u *UserDataPropertiesAttributes) GetUpdatedAt() *string {
+	if u == nil {
 		return nil
 	}
-	return o.UpdatedAt
+	return u.UpdatedAt
 }
 
 type UserDataProperties struct {
@@ -73,23 +73,23 @@ type UserDataProperties struct {
 	Attributes *UserDataPropertiesAttributes `json:"attributes,omitempty"`
 }
 
-func (o *UserDataProperties) GetID() *string {
-	if o == nil {
+func (u *UserDataProperties) GetID() *string {
+	if u == nil {
 		return nil
 	}
-	return o.ID
+	return u.ID
 }
 
-func (o *UserDataProperties) GetType() UserDataPropertiesType {
-	if o == nil {
+func (u *UserDataProperties) GetType() UserDataPropertiesType {
+	if u == nil {
 		return UserDataPropertiesType("")
 	}
-	return o.Type
+	return u.Type
 }
 
-func (o *UserDataProperties) GetAttributes() *UserDataPropertiesAttributes {
-	if o == nil {
+func (u *UserDataProperties) GetAttributes() *UserDataPropertiesAttributes {
+	if u == nil {
 		return nil
 	}
-	return o.Attributes
+	return u.Attributes
 }

@@ -40,9 +40,9 @@ func main() {
     )
 
     res, err := s.PrivateNetworks.List(ctx, operations.GetVirtualNetworksRequest{
-        FilterLocation: latitudeshgosdk.String("SAO"),
-        FilterProject: latitudeshgosdk.String("awesome-copper-clock"),
-        FilterTags: latitudeshgosdk.String("tag_P284pBvBEoT492NeXgv7TPaR3k8,tag_nPpEv2AnR9u9RBrGLLJ3C89nZJN"),
+        FilterLocation: latitudeshgosdk.Pointer("SAO"),
+        FilterProject: latitudeshgosdk.Pointer("awesome-copper-clock"),
+        FilterTags: latitudeshgosdk.Pointer("tag_P284pBvBEoT492NeXgv7TPaR3k8,tag_nPpEv2AnR9u9RBrGLLJ3C89nZJN"),
     })
     if err != nil {
         log.Fatal(err)
@@ -292,8 +292,8 @@ func main() {
     )
 
     res, err := s.PrivateNetworks.ListAssignments(ctx, operations.GetVirtualNetworksAssignmentsRequest{
-        FilterServer: latitudeshgosdk.String("217"),
-        FilterVid: latitudeshgosdk.String("8"),
+        FilterServer: latitudeshgosdk.Pointer("217"),
+        FilterVid: latitudeshgosdk.Pointer("8"),
     })
     if err != nil {
         log.Fatal(err)

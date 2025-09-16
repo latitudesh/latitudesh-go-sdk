@@ -38,18 +38,18 @@ type PostSSHKeySSHKeysAttributes struct {
 	PublicKey *string `json:"public_key,omitempty"`
 }
 
-func (o *PostSSHKeySSHKeysAttributes) GetName() *string {
-	if o == nil {
+func (p *PostSSHKeySSHKeysAttributes) GetName() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Name
+	return p.Name
 }
 
-func (o *PostSSHKeySSHKeysAttributes) GetPublicKey() *string {
-	if o == nil {
+func (p *PostSSHKeySSHKeysAttributes) GetPublicKey() *string {
+	if p == nil {
 		return nil
 	}
-	return o.PublicKey
+	return p.PublicKey
 }
 
 type PostSSHKeySSHKeysData struct {
@@ -57,29 +57,29 @@ type PostSSHKeySSHKeysData struct {
 	Attributes *PostSSHKeySSHKeysAttributes `json:"attributes,omitempty"`
 }
 
-func (o *PostSSHKeySSHKeysData) GetType() PostSSHKeySSHKeysType {
-	if o == nil {
+func (p *PostSSHKeySSHKeysData) GetType() PostSSHKeySSHKeysType {
+	if p == nil {
 		return PostSSHKeySSHKeysType("")
 	}
-	return o.Type
+	return p.Type
 }
 
-func (o *PostSSHKeySSHKeysData) GetAttributes() *PostSSHKeySSHKeysAttributes {
-	if o == nil {
+func (p *PostSSHKeySSHKeysData) GetAttributes() *PostSSHKeySSHKeysAttributes {
+	if p == nil {
 		return nil
 	}
-	return o.Attributes
+	return p.Attributes
 }
 
 type PostSSHKeySSHKeysRequestBody struct {
 	Data PostSSHKeySSHKeysData `json:"data"`
 }
 
-func (o *PostSSHKeySSHKeysRequestBody) GetData() PostSSHKeySSHKeysData {
-	if o == nil {
+func (p *PostSSHKeySSHKeysRequestBody) GetData() PostSSHKeySSHKeysData {
+	if p == nil {
 		return PostSSHKeySSHKeysData{}
 	}
-	return o.Data
+	return p.Data
 }
 
 // PostSSHKeyResponseBody - Created
@@ -87,11 +87,11 @@ type PostSSHKeyResponseBody struct {
 	Data *components.SSHKeyData `json:"data,omitempty"`
 }
 
-func (o *PostSSHKeyResponseBody) GetData() *components.SSHKeyData {
-	if o == nil {
+func (p *PostSSHKeyResponseBody) GetData() *components.SSHKeyData {
+	if p == nil {
 		return nil
 	}
-	return o.Data
+	return p.Data
 }
 
 type PostSSHKeyResponse struct {
@@ -100,16 +100,16 @@ type PostSSHKeyResponse struct {
 	Object *PostSSHKeyResponseBody
 }
 
-func (o *PostSSHKeyResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PostSSHKeyResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PostSSHKeyResponse) GetObject() *PostSSHKeyResponseBody {
-	if o == nil {
+func (p *PostSSHKeyResponse) GetObject() *PostSSHKeyResponseBody {
+	if p == nil {
 		return nil
 	}
-	return o.Object
+	return p.Object
 }

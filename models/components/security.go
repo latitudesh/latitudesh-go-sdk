@@ -6,9 +6,9 @@ type Security struct {
 	Bearer *string `security:"scheme,type=apiKey,subtype=header,name=Authorization,env=latitudesh_bearer"`
 }
 
-func (o *Security) GetBearer() *string {
-	if o == nil {
+func (s *Security) GetBearer() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Bearer
+	return s.Bearer
 }

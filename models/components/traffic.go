@@ -43,39 +43,39 @@ type TrafficDataData struct {
 	AvgInboundSpeedMbps *float64 `json:"avg_inbound_speed_mbps,omitempty"`
 }
 
-func (o *TrafficDataData) GetDate() *string {
-	if o == nil {
+func (t *TrafficDataData) GetDate() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Date
+	return t.Date
 }
 
-func (o *TrafficDataData) GetInboundGb() *int64 {
-	if o == nil {
+func (t *TrafficDataData) GetInboundGb() *int64 {
+	if t == nil {
 		return nil
 	}
-	return o.InboundGb
+	return t.InboundGb
 }
 
-func (o *TrafficDataData) GetOutboundGb() *int64 {
-	if o == nil {
+func (t *TrafficDataData) GetOutboundGb() *int64 {
+	if t == nil {
 		return nil
 	}
-	return o.OutboundGb
+	return t.OutboundGb
 }
 
-func (o *TrafficDataData) GetAvgOutboundSpeedMbps() *float64 {
-	if o == nil {
+func (t *TrafficDataData) GetAvgOutboundSpeedMbps() *float64 {
+	if t == nil {
 		return nil
 	}
-	return o.AvgOutboundSpeedMbps
+	return t.AvgOutboundSpeedMbps
 }
 
-func (o *TrafficDataData) GetAvgInboundSpeedMbps() *float64 {
-	if o == nil {
+func (t *TrafficDataData) GetAvgInboundSpeedMbps() *float64 {
+	if t == nil {
 		return nil
 	}
-	return o.AvgInboundSpeedMbps
+	return t.AvgInboundSpeedMbps
 }
 
 type TrafficRegions struct {
@@ -91,46 +91,46 @@ type TrafficRegions struct {
 	Data                            []TrafficDataData `json:"data,omitempty"`
 }
 
-func (o *TrafficRegions) GetRegionSlug() *string {
-	if o == nil {
+func (t *TrafficRegions) GetRegionSlug() *string {
+	if t == nil {
 		return nil
 	}
-	return o.RegionSlug
+	return t.RegionSlug
 }
 
-func (o *TrafficRegions) GetTotalInboundGb() *int64 {
-	if o == nil {
+func (t *TrafficRegions) GetTotalInboundGb() *int64 {
+	if t == nil {
 		return nil
 	}
-	return o.TotalInboundGb
+	return t.TotalInboundGb
 }
 
-func (o *TrafficRegions) GetTotalOutboundGb() *int64 {
-	if o == nil {
+func (t *TrafficRegions) GetTotalOutboundGb() *int64 {
+	if t == nil {
 		return nil
 	}
-	return o.TotalOutboundGb
+	return t.TotalOutboundGb
 }
 
-func (o *TrafficRegions) GetTotalInbound95thPercentileMbps() *float64 {
-	if o == nil {
+func (t *TrafficRegions) GetTotalInbound95thPercentileMbps() *float64 {
+	if t == nil {
 		return nil
 	}
-	return o.TotalInbound95thPercentileMbps
+	return t.TotalInbound95thPercentileMbps
 }
 
-func (o *TrafficRegions) GetTotalOutbound95thPercentileMbps() *float64 {
-	if o == nil {
+func (t *TrafficRegions) GetTotalOutbound95thPercentileMbps() *float64 {
+	if t == nil {
 		return nil
 	}
-	return o.TotalOutbound95thPercentileMbps
+	return t.TotalOutbound95thPercentileMbps
 }
 
-func (o *TrafficRegions) GetData() []TrafficDataData {
-	if o == nil {
+func (t *TrafficRegions) GetData() []TrafficDataData {
+	if t == nil {
 		return nil
 	}
-	return o.Data
+	return t.Data
 }
 
 type TrafficAttributes struct {
@@ -149,53 +149,53 @@ type TrafficAttributes struct {
 	TotalOutbound95thPercentileMbps *float64 `json:"total_outbound_95th_percentile_mbps,omitempty"`
 }
 
-func (o *TrafficAttributes) GetFromDate() *int64 {
-	if o == nil {
+func (t *TrafficAttributes) GetFromDate() *int64 {
+	if t == nil {
 		return nil
 	}
-	return o.FromDate
+	return t.FromDate
 }
 
-func (o *TrafficAttributes) GetToDate() *int64 {
-	if o == nil {
+func (t *TrafficAttributes) GetToDate() *int64 {
+	if t == nil {
 		return nil
 	}
-	return o.ToDate
+	return t.ToDate
 }
 
-func (o *TrafficAttributes) GetRegions() []TrafficRegions {
-	if o == nil {
+func (t *TrafficAttributes) GetRegions() []TrafficRegions {
+	if t == nil {
 		return nil
 	}
-	return o.Regions
+	return t.Regions
 }
 
-func (o *TrafficAttributes) GetTotalInboundGb() *int64 {
-	if o == nil {
+func (t *TrafficAttributes) GetTotalInboundGb() *int64 {
+	if t == nil {
 		return nil
 	}
-	return o.TotalInboundGb
+	return t.TotalInboundGb
 }
 
-func (o *TrafficAttributes) GetTotalOutboundGb() *int64 {
-	if o == nil {
+func (t *TrafficAttributes) GetTotalOutboundGb() *int64 {
+	if t == nil {
 		return nil
 	}
-	return o.TotalOutboundGb
+	return t.TotalOutboundGb
 }
 
-func (o *TrafficAttributes) GetTotalInbound95thPercentileMbps() *float64 {
-	if o == nil {
+func (t *TrafficAttributes) GetTotalInbound95thPercentileMbps() *float64 {
+	if t == nil {
 		return nil
 	}
-	return o.TotalInbound95thPercentileMbps
+	return t.TotalInbound95thPercentileMbps
 }
 
-func (o *TrafficAttributes) GetTotalOutbound95thPercentileMbps() *float64 {
-	if o == nil {
+func (t *TrafficAttributes) GetTotalOutbound95thPercentileMbps() *float64 {
+	if t == nil {
 		return nil
 	}
-	return o.TotalOutbound95thPercentileMbps
+	return t.TotalOutbound95thPercentileMbps
 }
 
 type TrafficData struct {
@@ -204,34 +204,34 @@ type TrafficData struct {
 	Attributes *TrafficAttributes `json:"attributes,omitempty"`
 }
 
-func (o *TrafficData) GetID() *string {
-	if o == nil {
+func (t *TrafficData) GetID() *string {
+	if t == nil {
 		return nil
 	}
-	return o.ID
+	return t.ID
 }
 
-func (o *TrafficData) GetType() *TrafficType {
-	if o == nil {
+func (t *TrafficData) GetType() *TrafficType {
+	if t == nil {
 		return nil
 	}
-	return o.Type
+	return t.Type
 }
 
-func (o *TrafficData) GetAttributes() *TrafficAttributes {
-	if o == nil {
+func (t *TrafficData) GetAttributes() *TrafficAttributes {
+	if t == nil {
 		return nil
 	}
-	return o.Attributes
+	return t.Attributes
 }
 
 type Traffic struct {
 	Data *TrafficData `json:"data,omitempty"`
 }
 
-func (o *Traffic) GetData() *TrafficData {
-	if o == nil {
+func (t *Traffic) GetData() *TrafficData {
+	if t == nil {
 		return nil
 	}
-	return o.Data
+	return t.Data
 }

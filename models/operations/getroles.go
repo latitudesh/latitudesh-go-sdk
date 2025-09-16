@@ -25,18 +25,18 @@ func (g *GetRolesRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *GetRolesRequest) GetPageSize() *int64 {
-	if o == nil {
+func (g *GetRolesRequest) GetPageSize() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.PageSize
+	return g.PageSize
 }
 
-func (o *GetRolesRequest) GetPageNumber() *int64 {
-	if o == nil {
+func (g *GetRolesRequest) GetPageNumber() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.PageNumber
+	return g.PageNumber
 }
 
 // GetRolesResponseBody - Success
@@ -44,11 +44,11 @@ type GetRolesResponseBody struct {
 	Data []components.RoleData `json:"data,omitempty"`
 }
 
-func (o *GetRolesResponseBody) GetData() []components.RoleData {
-	if o == nil {
+func (g *GetRolesResponseBody) GetData() []components.RoleData {
+	if g == nil {
 		return nil
 	}
-	return o.Data
+	return g.Data
 }
 
 type GetRolesResponse struct {
@@ -59,16 +59,16 @@ type GetRolesResponse struct {
 	Next func() (*GetRolesResponse, error)
 }
 
-func (o *GetRolesResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetRolesResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetRolesResponse) GetObject() *GetRolesResponseBody {
-	if o == nil {
+func (g *GetRolesResponse) GetObject() *GetRolesResponseBody {
+	if g == nil {
 		return nil
 	}
-	return o.Object
+	return g.Object
 }

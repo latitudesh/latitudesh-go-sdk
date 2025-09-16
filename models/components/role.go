@@ -10,16 +10,16 @@ type Role struct {
 	Meta *RoleMeta `json:"meta,omitempty"`
 }
 
-func (o *Role) GetData() *RoleData {
-	if o == nil {
+func (r *Role) GetData() *RoleData {
+	if r == nil {
 		return nil
 	}
-	return o.Data
+	return r.Data
 }
 
-func (o *Role) GetMeta() *RoleMeta {
-	if o == nil {
+func (r *Role) GetMeta() *RoleMeta {
+	if r == nil {
 		return nil
 	}
-	return o.Meta
+	return r.Meta
 }

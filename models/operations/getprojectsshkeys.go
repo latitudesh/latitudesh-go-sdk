@@ -13,18 +13,18 @@ type GetProjectSSHKeysRequest struct {
 	FilterTags *string `queryParam:"style=form,explode=true,name=filter[tags]"`
 }
 
-func (o *GetProjectSSHKeysRequest) GetProjectID() string {
-	if o == nil {
+func (g *GetProjectSSHKeysRequest) GetProjectID() string {
+	if g == nil {
 		return ""
 	}
-	return o.ProjectID
+	return g.ProjectID
 }
 
-func (o *GetProjectSSHKeysRequest) GetFilterTags() *string {
-	if o == nil {
+func (g *GetProjectSSHKeysRequest) GetFilterTags() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterTags
+	return g.FilterTags
 }
 
 type GetProjectSSHKeysResponse struct {
@@ -33,16 +33,16 @@ type GetProjectSSHKeysResponse struct {
 	SSHKeys *components.SSHKeys
 }
 
-func (o *GetProjectSSHKeysResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetProjectSSHKeysResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetProjectSSHKeysResponse) GetSSHKeys() *components.SSHKeys {
-	if o == nil {
+func (g *GetProjectSSHKeysResponse) GetSSHKeys() *components.SSHKeys {
+	if g == nil {
 		return nil
 	}
-	return o.SSHKeys
+	return g.SSHKeys
 }

@@ -41,8 +41,8 @@ func main() {
         Data: &components.VirtualMachinePayloadData{
             Type: components.VirtualMachinePayloadTypeVirtualMachines.ToPointer(),
             Attributes: &components.VirtualMachinePayloadAttributes{
-                Name: latitudeshgosdk.String("my-new-vm"),
-                Project: latitudeshgosdk.String("enormous-wool-keyboard"),
+                Name: latitudeshgosdk.Pointer("my-new-vm"),
+                Project: latitudeshgosdk.Pointer("enormous-wool-keyboard"),
             },
         },
     })

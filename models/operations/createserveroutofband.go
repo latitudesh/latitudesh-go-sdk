@@ -36,11 +36,11 @@ type CreateServerOutOfBandServersAttributes struct {
 	SSHKeyID *string `json:"ssh_key_id,omitempty"`
 }
 
-func (o *CreateServerOutOfBandServersAttributes) GetSSHKeyID() *string {
-	if o == nil {
+func (c *CreateServerOutOfBandServersAttributes) GetSSHKeyID() *string {
+	if c == nil {
 		return nil
 	}
-	return o.SSHKeyID
+	return c.SSHKeyID
 }
 
 type CreateServerOutOfBandServersData struct {
@@ -48,29 +48,29 @@ type CreateServerOutOfBandServersData struct {
 	Attributes *CreateServerOutOfBandServersAttributes `json:"attributes,omitempty"`
 }
 
-func (o *CreateServerOutOfBandServersData) GetType() CreateServerOutOfBandServersType {
-	if o == nil {
+func (c *CreateServerOutOfBandServersData) GetType() CreateServerOutOfBandServersType {
+	if c == nil {
 		return CreateServerOutOfBandServersType("")
 	}
-	return o.Type
+	return c.Type
 }
 
-func (o *CreateServerOutOfBandServersData) GetAttributes() *CreateServerOutOfBandServersAttributes {
-	if o == nil {
+func (c *CreateServerOutOfBandServersData) GetAttributes() *CreateServerOutOfBandServersAttributes {
+	if c == nil {
 		return nil
 	}
-	return o.Attributes
+	return c.Attributes
 }
 
 type CreateServerOutOfBandServersRequestBody struct {
 	Data CreateServerOutOfBandServersData `json:"data"`
 }
 
-func (o *CreateServerOutOfBandServersRequestBody) GetData() CreateServerOutOfBandServersData {
-	if o == nil {
+func (c *CreateServerOutOfBandServersRequestBody) GetData() CreateServerOutOfBandServersData {
+	if c == nil {
 		return CreateServerOutOfBandServersData{}
 	}
-	return o.Data
+	return c.Data
 }
 
 type CreateServerOutOfBandRequest struct {
@@ -78,18 +78,18 @@ type CreateServerOutOfBandRequest struct {
 	RequestBody CreateServerOutOfBandServersRequestBody `request:"mediaType=application/json"`
 }
 
-func (o *CreateServerOutOfBandRequest) GetServerID() string {
-	if o == nil {
+func (c *CreateServerOutOfBandRequest) GetServerID() string {
+	if c == nil {
 		return ""
 	}
-	return o.ServerID
+	return c.ServerID
 }
 
-func (o *CreateServerOutOfBandRequest) GetRequestBody() CreateServerOutOfBandServersRequestBody {
-	if o == nil {
+func (c *CreateServerOutOfBandRequest) GetRequestBody() CreateServerOutOfBandServersRequestBody {
+	if c == nil {
 		return CreateServerOutOfBandServersRequestBody{}
 	}
-	return o.RequestBody
+	return c.RequestBody
 }
 
 type CreateServerOutOfBandResponse struct {
@@ -98,16 +98,16 @@ type CreateServerOutOfBandResponse struct {
 	OutOfBandConnection *components.OutOfBandConnection
 }
 
-func (o *CreateServerOutOfBandResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (c *CreateServerOutOfBandResponse) GetHTTPMeta() components.HTTPMetadata {
+	if c == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return c.HTTPMeta
 }
 
-func (o *CreateServerOutOfBandResponse) GetOutOfBandConnection() *components.OutOfBandConnection {
-	if o == nil {
+func (c *CreateServerOutOfBandResponse) GetOutOfBandConnection() *components.OutOfBandConnection {
+	if c == nil {
 		return nil
 	}
-	return o.OutOfBandConnection
+	return c.OutOfBandConnection
 }

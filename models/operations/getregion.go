@@ -11,11 +11,11 @@ type GetRegionRequest struct {
 	RegionID string `pathParam:"style=simple,explode=false,name=region_id"`
 }
 
-func (o *GetRegionRequest) GetRegionID() string {
-	if o == nil {
+func (g *GetRegionRequest) GetRegionID() string {
+	if g == nil {
 		return ""
 	}
-	return o.RegionID
+	return g.RegionID
 }
 
 type GetRegionResponse struct {
@@ -24,16 +24,16 @@ type GetRegionResponse struct {
 	Region *components.Region
 }
 
-func (o *GetRegionResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetRegionResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetRegionResponse) GetRegion() *components.Region {
-	if o == nil {
+func (g *GetRegionResponse) GetRegion() *components.Region {
+	if g == nil {
 		return nil
 	}
-	return o.Region
+	return g.Region
 }

@@ -65,32 +65,32 @@ type UpdateFirewallFirewallsRules struct {
 	Port *string `json:"port,omitempty"`
 }
 
-func (o *UpdateFirewallFirewallsRules) GetFrom() *string {
-	if o == nil {
+func (u *UpdateFirewallFirewallsRules) GetFrom() *string {
+	if u == nil {
 		return nil
 	}
-	return o.From
+	return u.From
 }
 
-func (o *UpdateFirewallFirewallsRules) GetTo() *string {
-	if o == nil {
+func (u *UpdateFirewallFirewallsRules) GetTo() *string {
+	if u == nil {
 		return nil
 	}
-	return o.To
+	return u.To
 }
 
-func (o *UpdateFirewallFirewallsRules) GetProtocol() *UpdateFirewallFirewallsProtocol {
-	if o == nil {
+func (u *UpdateFirewallFirewallsRules) GetProtocol() *UpdateFirewallFirewallsProtocol {
+	if u == nil {
 		return nil
 	}
-	return o.Protocol
+	return u.Protocol
 }
 
-func (o *UpdateFirewallFirewallsRules) GetPort() *string {
-	if o == nil {
+func (u *UpdateFirewallFirewallsRules) GetPort() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Port
+	return u.Port
 }
 
 type UpdateFirewallFirewallsAttributes struct {
@@ -98,18 +98,18 @@ type UpdateFirewallFirewallsAttributes struct {
 	Rules []UpdateFirewallFirewallsRules `json:"rules,omitempty"`
 }
 
-func (o *UpdateFirewallFirewallsAttributes) GetName() *string {
-	if o == nil {
+func (u *UpdateFirewallFirewallsAttributes) GetName() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Name
+	return u.Name
 }
 
-func (o *UpdateFirewallFirewallsAttributes) GetRules() []UpdateFirewallFirewallsRules {
-	if o == nil {
+func (u *UpdateFirewallFirewallsAttributes) GetRules() []UpdateFirewallFirewallsRules {
+	if u == nil {
 		return nil
 	}
-	return o.Rules
+	return u.Rules
 }
 
 type UpdateFirewallFirewallsData struct {
@@ -117,29 +117,29 @@ type UpdateFirewallFirewallsData struct {
 	Attributes *UpdateFirewallFirewallsAttributes `json:"attributes,omitempty"`
 }
 
-func (o *UpdateFirewallFirewallsData) GetType() UpdateFirewallFirewallsType {
-	if o == nil {
+func (u *UpdateFirewallFirewallsData) GetType() UpdateFirewallFirewallsType {
+	if u == nil {
 		return UpdateFirewallFirewallsType("")
 	}
-	return o.Type
+	return u.Type
 }
 
-func (o *UpdateFirewallFirewallsData) GetAttributes() *UpdateFirewallFirewallsAttributes {
-	if o == nil {
+func (u *UpdateFirewallFirewallsData) GetAttributes() *UpdateFirewallFirewallsAttributes {
+	if u == nil {
 		return nil
 	}
-	return o.Attributes
+	return u.Attributes
 }
 
 type UpdateFirewallFirewallsRequestBody struct {
 	Data UpdateFirewallFirewallsData `json:"data"`
 }
 
-func (o *UpdateFirewallFirewallsRequestBody) GetData() UpdateFirewallFirewallsData {
-	if o == nil {
+func (u *UpdateFirewallFirewallsRequestBody) GetData() UpdateFirewallFirewallsData {
+	if u == nil {
 		return UpdateFirewallFirewallsData{}
 	}
-	return o.Data
+	return u.Data
 }
 
 type UpdateFirewallRequest struct {
@@ -148,18 +148,18 @@ type UpdateFirewallRequest struct {
 	RequestBody UpdateFirewallFirewallsRequestBody `request:"mediaType=application/json"`
 }
 
-func (o *UpdateFirewallRequest) GetFirewallID() string {
-	if o == nil {
+func (u *UpdateFirewallRequest) GetFirewallID() string {
+	if u == nil {
 		return ""
 	}
-	return o.FirewallID
+	return u.FirewallID
 }
 
-func (o *UpdateFirewallRequest) GetRequestBody() UpdateFirewallFirewallsRequestBody {
-	if o == nil {
+func (u *UpdateFirewallRequest) GetRequestBody() UpdateFirewallFirewallsRequestBody {
+	if u == nil {
 		return UpdateFirewallFirewallsRequestBody{}
 	}
-	return o.RequestBody
+	return u.RequestBody
 }
 
 type UpdateFirewallResponse struct {
@@ -168,16 +168,16 @@ type UpdateFirewallResponse struct {
 	Firewall *components.Firewall
 }
 
-func (o *UpdateFirewallResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (u *UpdateFirewallResponse) GetHTTPMeta() components.HTTPMetadata {
+	if u == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return u.HTTPMeta
 }
 
-func (o *UpdateFirewallResponse) GetFirewall() *components.Firewall {
-	if o == nil {
+func (u *UpdateFirewallResponse) GetFirewall() *components.Firewall {
+	if u == nil {
 		return nil
 	}
-	return o.Firewall
+	return u.Firewall
 }

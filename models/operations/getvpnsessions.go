@@ -89,11 +89,11 @@ type GetVpnSessionsRequest struct {
 	FilterLocation *FilterLocation `queryParam:"style=form,explode=true,name=filter[location]"`
 }
 
-func (o *GetVpnSessionsRequest) GetFilterLocation() *FilterLocation {
-	if o == nil {
+func (g *GetVpnSessionsRequest) GetFilterLocation() *FilterLocation {
+	if g == nil {
 		return nil
 	}
-	return o.FilterLocation
+	return g.FilterLocation
 }
 
 type Meta struct {
@@ -105,18 +105,18 @@ type GetVpnSessionsResponseBody struct {
 	Meta *Meta                                   `json:"meta,omitempty"`
 }
 
-func (o *GetVpnSessionsResponseBody) GetData() []components.VpnSessionDataWithPassword {
-	if o == nil {
+func (g *GetVpnSessionsResponseBody) GetData() []components.VpnSessionDataWithPassword {
+	if g == nil {
 		return nil
 	}
-	return o.Data
+	return g.Data
 }
 
-func (o *GetVpnSessionsResponseBody) GetMeta() *Meta {
-	if o == nil {
+func (g *GetVpnSessionsResponseBody) GetMeta() *Meta {
+	if g == nil {
 		return nil
 	}
-	return o.Meta
+	return g.Meta
 }
 
 type GetVpnSessionsResponse struct {
@@ -125,16 +125,16 @@ type GetVpnSessionsResponse struct {
 	Object *GetVpnSessionsResponseBody
 }
 
-func (o *GetVpnSessionsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetVpnSessionsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetVpnSessionsResponse) GetObject() *GetVpnSessionsResponseBody {
-	if o == nil {
+func (g *GetVpnSessionsResponse) GetObject() *GetVpnSessionsResponseBody {
+	if g == nil {
 		return nil
 	}
-	return o.Object
+	return g.Object
 }

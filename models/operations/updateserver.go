@@ -83,32 +83,32 @@ func (u *UpdateServerServersAttributes) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *UpdateServerServersAttributes) GetHostname() *string {
-	if o == nil {
+func (u *UpdateServerServersAttributes) GetHostname() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Hostname
+	return u.Hostname
 }
 
-func (o *UpdateServerServersAttributes) GetBilling() *UpdateServerServersBilling {
-	if o == nil {
+func (u *UpdateServerServersAttributes) GetBilling() *UpdateServerServersBilling {
+	if u == nil {
 		return nil
 	}
-	return o.Billing
+	return u.Billing
 }
 
-func (o *UpdateServerServersAttributes) GetTags() []string {
-	if o == nil {
+func (u *UpdateServerServersAttributes) GetTags() []string {
+	if u == nil {
 		return nil
 	}
-	return o.Tags
+	return u.Tags
 }
 
-func (o *UpdateServerServersAttributes) GetProject() *string {
-	if o == nil {
+func (u *UpdateServerServersAttributes) GetProject() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Project
+	return u.Project
 }
 
 type UpdateServerServersData struct {
@@ -128,36 +128,36 @@ func (u *UpdateServerServersData) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *UpdateServerServersData) GetID() *string {
-	if o == nil {
+func (u *UpdateServerServersData) GetID() *string {
+	if u == nil {
 		return nil
 	}
-	return o.ID
+	return u.ID
 }
 
-func (o *UpdateServerServersData) GetType() *UpdateServerServersType {
-	if o == nil {
+func (u *UpdateServerServersData) GetType() *UpdateServerServersType {
+	if u == nil {
 		return nil
 	}
-	return o.Type
+	return u.Type
 }
 
-func (o *UpdateServerServersData) GetAttributes() *UpdateServerServersAttributes {
-	if o == nil {
+func (u *UpdateServerServersData) GetAttributes() *UpdateServerServersAttributes {
+	if u == nil {
 		return nil
 	}
-	return o.Attributes
+	return u.Attributes
 }
 
 type UpdateServerServersRequestBody struct {
 	Data *UpdateServerServersData `json:"data,omitempty"`
 }
 
-func (o *UpdateServerServersRequestBody) GetData() *UpdateServerServersData {
-	if o == nil {
+func (u *UpdateServerServersRequestBody) GetData() *UpdateServerServersData {
+	if u == nil {
 		return nil
 	}
-	return o.Data
+	return u.Data
 }
 
 type UpdateServerRequest struct {
@@ -165,18 +165,18 @@ type UpdateServerRequest struct {
 	RequestBody UpdateServerServersRequestBody `request:"mediaType=application/json"`
 }
 
-func (o *UpdateServerRequest) GetServerID() string {
-	if o == nil {
+func (u *UpdateServerRequest) GetServerID() string {
+	if u == nil {
 		return ""
 	}
-	return o.ServerID
+	return u.ServerID
 }
 
-func (o *UpdateServerRequest) GetRequestBody() UpdateServerServersRequestBody {
-	if o == nil {
+func (u *UpdateServerRequest) GetRequestBody() UpdateServerServersRequestBody {
+	if u == nil {
 		return UpdateServerServersRequestBody{}
 	}
-	return o.RequestBody
+	return u.RequestBody
 }
 
 type UpdateServerResponse struct {
@@ -185,16 +185,16 @@ type UpdateServerResponse struct {
 	Server *components.Server
 }
 
-func (o *UpdateServerResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (u *UpdateServerResponse) GetHTTPMeta() components.HTTPMetadata {
+	if u == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return u.HTTPMeta
 }
 
-func (o *UpdateServerResponse) GetServer() *components.Server {
-	if o == nil {
+func (u *UpdateServerResponse) GetServer() *components.Server {
+	if u == nil {
 		return nil
 	}
-	return o.Server
+	return u.Server
 }

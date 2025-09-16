@@ -7,18 +7,18 @@ type TeamBilling struct {
 	CustomerBillingID *string `json:"customer_billing_id,omitempty"`
 }
 
-func (o *TeamBilling) GetID() *string {
-	if o == nil {
+func (t *TeamBilling) GetID() *string {
+	if t == nil {
 		return nil
 	}
-	return o.ID
+	return t.ID
 }
 
-func (o *TeamBilling) GetCustomerBillingID() *string {
-	if o == nil {
+func (t *TeamBilling) GetCustomerBillingID() *string {
+	if t == nil {
 		return nil
 	}
-	return o.CustomerBillingID
+	return t.CustomerBillingID
 }
 
 type TeamAttributes struct {
@@ -37,95 +37,95 @@ type TeamAttributes struct {
 	FeatureFlags []string         `json:"feature_flags,omitempty"`
 }
 
-func (o *TeamAttributes) GetName() *string {
-	if o == nil {
+func (t *TeamAttributes) GetName() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Name
+	return t.Name
 }
 
-func (o *TeamAttributes) GetSlug() *string {
-	if o == nil {
+func (t *TeamAttributes) GetSlug() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Slug
+	return t.Slug
 }
 
-func (o *TeamAttributes) GetDescription() *string {
-	if o == nil {
+func (t *TeamAttributes) GetDescription() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Description
+	return t.Description
 }
 
-func (o *TeamAttributes) GetAddress() *string {
-	if o == nil {
+func (t *TeamAttributes) GetAddress() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Address
+	return t.Address
 }
 
-func (o *TeamAttributes) GetCurrency() *string {
-	if o == nil {
+func (t *TeamAttributes) GetCurrency() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Currency
+	return t.Currency
 }
 
-func (o *TeamAttributes) GetCreatedAt() *string {
-	if o == nil {
+func (t *TeamAttributes) GetCreatedAt() *string {
+	if t == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return t.CreatedAt
 }
 
-func (o *TeamAttributes) GetUpdatedAt() *string {
-	if o == nil {
+func (t *TeamAttributes) GetUpdatedAt() *string {
+	if t == nil {
 		return nil
 	}
-	return o.UpdatedAt
+	return t.UpdatedAt
 }
 
-func (o *TeamAttributes) GetEnforceMfa() *bool {
-	if o == nil {
+func (t *TeamAttributes) GetEnforceMfa() *bool {
+	if t == nil {
 		return nil
 	}
-	return o.EnforceMfa
+	return t.EnforceMfa
 }
 
-func (o *TeamAttributes) GetUsers() []UserInclude {
-	if o == nil {
+func (t *TeamAttributes) GetUsers() []UserInclude {
+	if t == nil {
 		return nil
 	}
-	return o.Users
+	return t.Users
 }
 
-func (o *TeamAttributes) GetProjects() []ProjectInclude {
-	if o == nil {
+func (t *TeamAttributes) GetProjects() []ProjectInclude {
+	if t == nil {
 		return nil
 	}
-	return o.Projects
+	return t.Projects
 }
 
-func (o *TeamAttributes) GetOwner() *UserInclude {
-	if o == nil {
+func (t *TeamAttributes) GetOwner() *UserInclude {
+	if t == nil {
 		return nil
 	}
-	return o.Owner
+	return t.Owner
 }
 
-func (o *TeamAttributes) GetBilling() *TeamBilling {
-	if o == nil {
+func (t *TeamAttributes) GetBilling() *TeamBilling {
+	if t == nil {
 		return nil
 	}
-	return o.Billing
+	return t.Billing
 }
 
-func (o *TeamAttributes) GetFeatureFlags() []string {
-	if o == nil {
+func (t *TeamAttributes) GetFeatureFlags() []string {
+	if t == nil {
 		return nil
 	}
-	return o.FeatureFlags
+	return t.FeatureFlags
 }
 
 type Team struct {
@@ -133,16 +133,16 @@ type Team struct {
 	Attributes *TeamAttributes `json:"attributes,omitempty"`
 }
 
-func (o *Team) GetID() *string {
-	if o == nil {
+func (t *Team) GetID() *string {
+	if t == nil {
 		return nil
 	}
-	return o.ID
+	return t.ID
 }
 
-func (o *Team) GetAttributes() *TeamAttributes {
-	if o == nil {
+func (t *Team) GetAttributes() *TeamAttributes {
+	if t == nil {
 		return nil
 	}
-	return o.Attributes
+	return t.Attributes
 }

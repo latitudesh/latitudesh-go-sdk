@@ -92,9 +92,9 @@ func main() {
         Data: &operations.CreateTagTagsData{
             Type: operations.CreateTagTagsTypeTags.ToPointer(),
             Attributes: &operations.CreateTagTagsAttributes{
-                Name: latitudeshgosdk.String("Tag Name"),
-                Description: latitudeshgosdk.String("Tag Description"),
-                Color: latitudeshgosdk.String("#bebebe"),
+                Name: latitudeshgosdk.Pointer("Tag Name"),
+                Description: latitudeshgosdk.Pointer("Tag Description"),
+                Color: latitudeshgosdk.Pointer("#bebebe"),
             },
         },
     })
@@ -153,10 +153,10 @@ func main() {
 
     res, err := s.Tags.Update(ctx, "tag_k88kazkbPktNYRWa2l9ZsN6gVrrL", operations.UpdateTagTagsRequestBody{
         Data: &operations.UpdateTagTagsData{
-            ID: latitudeshgosdk.String("tag_k88kazkbPktNYRWa2l9ZsN6gVrrL"),
+            ID: latitudeshgosdk.Pointer("tag_k88kazkbPktNYRWa2l9ZsN6gVrrL"),
             Type: operations.UpdateTagTagsTypeTags.ToPointer(),
             Attributes: &operations.UpdateTagTagsAttributes{
-                Name: latitudeshgosdk.String("Tag Name"),
+                Name: latitudeshgosdk.Pointer("Tag Name"),
             },
         },
     })

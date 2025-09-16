@@ -70,32 +70,32 @@ type PostTeamMembersTeamMembersAttributes struct {
 	Role      PostTeamMembersRole `json:"role"`
 }
 
-func (o *PostTeamMembersTeamMembersAttributes) GetFirstName() *string {
-	if o == nil {
+func (p *PostTeamMembersTeamMembersAttributes) GetFirstName() *string {
+	if p == nil {
 		return nil
 	}
-	return o.FirstName
+	return p.FirstName
 }
 
-func (o *PostTeamMembersTeamMembersAttributes) GetLastName() *string {
-	if o == nil {
+func (p *PostTeamMembersTeamMembersAttributes) GetLastName() *string {
+	if p == nil {
 		return nil
 	}
-	return o.LastName
+	return p.LastName
 }
 
-func (o *PostTeamMembersTeamMembersAttributes) GetEmail() string {
-	if o == nil {
+func (p *PostTeamMembersTeamMembersAttributes) GetEmail() string {
+	if p == nil {
 		return ""
 	}
-	return o.Email
+	return p.Email
 }
 
-func (o *PostTeamMembersTeamMembersAttributes) GetRole() PostTeamMembersRole {
-	if o == nil {
+func (p *PostTeamMembersTeamMembersAttributes) GetRole() PostTeamMembersRole {
+	if p == nil {
 		return PostTeamMembersRole("")
 	}
-	return o.Role
+	return p.Role
 }
 
 type PostTeamMembersTeamMembersData struct {
@@ -103,29 +103,29 @@ type PostTeamMembersTeamMembersData struct {
 	Attributes *PostTeamMembersTeamMembersAttributes `json:"attributes,omitempty"`
 }
 
-func (o *PostTeamMembersTeamMembersData) GetType() PostTeamMembersTeamMembersType {
-	if o == nil {
+func (p *PostTeamMembersTeamMembersData) GetType() PostTeamMembersTeamMembersType {
+	if p == nil {
 		return PostTeamMembersTeamMembersType("")
 	}
-	return o.Type
+	return p.Type
 }
 
-func (o *PostTeamMembersTeamMembersData) GetAttributes() *PostTeamMembersTeamMembersAttributes {
-	if o == nil {
+func (p *PostTeamMembersTeamMembersData) GetAttributes() *PostTeamMembersTeamMembersAttributes {
+	if p == nil {
 		return nil
 	}
-	return o.Attributes
+	return p.Attributes
 }
 
 type PostTeamMembersTeamMembersRequestBody struct {
 	Data PostTeamMembersTeamMembersData `json:"data"`
 }
 
-func (o *PostTeamMembersTeamMembersRequestBody) GetData() PostTeamMembersTeamMembersData {
-	if o == nil {
+func (p *PostTeamMembersTeamMembersRequestBody) GetData() PostTeamMembersTeamMembersData {
+	if p == nil {
 		return PostTeamMembersTeamMembersData{}
 	}
-	return o.Data
+	return p.Data
 }
 
 type PostTeamMembersResponse struct {
@@ -134,16 +134,16 @@ type PostTeamMembersResponse struct {
 	Membership *components.Membership
 }
 
-func (o *PostTeamMembersResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PostTeamMembersResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PostTeamMembersResponse) GetMembership() *components.Membership {
-	if o == nil {
+func (p *PostTeamMembersResponse) GetMembership() *components.Membership {
+	if p == nil {
 		return nil
 	}
-	return o.Membership
+	return p.Membership
 }

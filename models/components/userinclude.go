@@ -9,32 +9,32 @@ type UserIncludeRole struct {
 	UpdatedAt *string `json:"updated_at,omitempty"`
 }
 
-func (o *UserIncludeRole) GetID() *string {
-	if o == nil {
+func (u *UserIncludeRole) GetID() *string {
+	if u == nil {
 		return nil
 	}
-	return o.ID
+	return u.ID
 }
 
-func (o *UserIncludeRole) GetName() *string {
-	if o == nil {
+func (u *UserIncludeRole) GetName() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Name
+	return u.Name
 }
 
-func (o *UserIncludeRole) GetCreatedAt() *string {
-	if o == nil {
+func (u *UserIncludeRole) GetCreatedAt() *string {
+	if u == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return u.CreatedAt
 }
 
-func (o *UserIncludeRole) GetUpdatedAt() *string {
-	if o == nil {
+func (u *UserIncludeRole) GetUpdatedAt() *string {
+	if u == nil {
 		return nil
 	}
-	return o.UpdatedAt
+	return u.UpdatedAt
 }
 
 type UserInclude struct {
@@ -48,58 +48,58 @@ type UserInclude struct {
 	Role                   *UserIncludeRole `json:"role,omitempty"`
 }
 
-func (o *UserInclude) GetID() *string {
-	if o == nil {
+func (u *UserInclude) GetID() *string {
+	if u == nil {
 		return nil
 	}
-	return o.ID
+	return u.ID
 }
 
-func (o *UserInclude) GetFirstName() *string {
-	if o == nil {
+func (u *UserInclude) GetFirstName() *string {
+	if u == nil {
 		return nil
 	}
-	return o.FirstName
+	return u.FirstName
 }
 
-func (o *UserInclude) GetLastName() *string {
-	if o == nil {
+func (u *UserInclude) GetLastName() *string {
+	if u == nil {
 		return nil
 	}
-	return o.LastName
+	return u.LastName
 }
 
-func (o *UserInclude) GetEmail() *string {
-	if o == nil {
+func (u *UserInclude) GetEmail() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Email
+	return u.Email
 }
 
-func (o *UserInclude) GetAuthenticationFactorID() *string {
-	if o == nil {
+func (u *UserInclude) GetAuthenticationFactorID() *string {
+	if u == nil {
 		return nil
 	}
-	return o.AuthenticationFactorID
+	return u.AuthenticationFactorID
 }
 
-func (o *UserInclude) GetCreatedAt() *string {
-	if o == nil {
+func (u *UserInclude) GetCreatedAt() *string {
+	if u == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return u.CreatedAt
 }
 
-func (o *UserInclude) GetUpdatedAt() *string {
-	if o == nil {
+func (u *UserInclude) GetUpdatedAt() *string {
+	if u == nil {
 		return nil
 	}
-	return o.UpdatedAt
+	return u.UpdatedAt
 }
 
-func (o *UserInclude) GetRole() *UserIncludeRole {
-	if o == nil {
+func (u *UserInclude) GetRole() *UserIncludeRole {
+	if u == nil {
 		return nil
 	}
-	return o.Role
+	return u.Role
 }

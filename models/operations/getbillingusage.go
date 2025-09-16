@@ -16,25 +16,25 @@ type GetBillingUsageRequest struct {
 	FilterProject string  `queryParam:"style=form,explode=true,name=filter[project]"`
 }
 
-func (o *GetBillingUsageRequest) GetFilterProducts() []string {
-	if o == nil {
+func (g *GetBillingUsageRequest) GetFilterProducts() []string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterProducts
+	return g.FilterProducts
 }
 
-func (o *GetBillingUsageRequest) GetFilterPlan() *string {
-	if o == nil {
+func (g *GetBillingUsageRequest) GetFilterPlan() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterPlan
+	return g.FilterPlan
 }
 
-func (o *GetBillingUsageRequest) GetFilterProject() string {
-	if o == nil {
+func (g *GetBillingUsageRequest) GetFilterProject() string {
+	if g == nil {
 		return ""
 	}
-	return o.FilterProject
+	return g.FilterProject
 }
 
 type GetBillingUsageResponse struct {
@@ -43,16 +43,16 @@ type GetBillingUsageResponse struct {
 	BillingUsage *components.BillingUsage
 }
 
-func (o *GetBillingUsageResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetBillingUsageResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetBillingUsageResponse) GetBillingUsage() *components.BillingUsage {
-	if o == nil {
+func (g *GetBillingUsageResponse) GetBillingUsage() *components.BillingUsage {
+	if g == nil {
 		return nil
 	}
-	return o.BillingUsage
+	return g.BillingUsage
 }

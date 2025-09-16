@@ -36,18 +36,18 @@ type AssignServerVirtualNetworkPrivateNetworksAttributes struct {
 	VirtualNetworkID string `json:"virtual_network_id"`
 }
 
-func (o *AssignServerVirtualNetworkPrivateNetworksAttributes) GetServerID() string {
-	if o == nil {
+func (a *AssignServerVirtualNetworkPrivateNetworksAttributes) GetServerID() string {
+	if a == nil {
 		return ""
 	}
-	return o.ServerID
+	return a.ServerID
 }
 
-func (o *AssignServerVirtualNetworkPrivateNetworksAttributes) GetVirtualNetworkID() string {
-	if o == nil {
+func (a *AssignServerVirtualNetworkPrivateNetworksAttributes) GetVirtualNetworkID() string {
+	if a == nil {
 		return ""
 	}
-	return o.VirtualNetworkID
+	return a.VirtualNetworkID
 }
 
 type AssignServerVirtualNetworkPrivateNetworksData struct {
@@ -55,29 +55,29 @@ type AssignServerVirtualNetworkPrivateNetworksData struct {
 	Attributes *AssignServerVirtualNetworkPrivateNetworksAttributes `json:"attributes,omitempty"`
 }
 
-func (o *AssignServerVirtualNetworkPrivateNetworksData) GetType() AssignServerVirtualNetworkPrivateNetworksType {
-	if o == nil {
+func (a *AssignServerVirtualNetworkPrivateNetworksData) GetType() AssignServerVirtualNetworkPrivateNetworksType {
+	if a == nil {
 		return AssignServerVirtualNetworkPrivateNetworksType("")
 	}
-	return o.Type
+	return a.Type
 }
 
-func (o *AssignServerVirtualNetworkPrivateNetworksData) GetAttributes() *AssignServerVirtualNetworkPrivateNetworksAttributes {
-	if o == nil {
+func (a *AssignServerVirtualNetworkPrivateNetworksData) GetAttributes() *AssignServerVirtualNetworkPrivateNetworksAttributes {
+	if a == nil {
 		return nil
 	}
-	return o.Attributes
+	return a.Attributes
 }
 
 type AssignServerVirtualNetworkPrivateNetworksRequestBody struct {
 	Data *AssignServerVirtualNetworkPrivateNetworksData `json:"data,omitempty"`
 }
 
-func (o *AssignServerVirtualNetworkPrivateNetworksRequestBody) GetData() *AssignServerVirtualNetworkPrivateNetworksData {
-	if o == nil {
+func (a *AssignServerVirtualNetworkPrivateNetworksRequestBody) GetData() *AssignServerVirtualNetworkPrivateNetworksData {
+	if a == nil {
 		return nil
 	}
-	return o.Data
+	return a.Data
 }
 
 type AssignServerVirtualNetworkResponse struct {
@@ -86,16 +86,16 @@ type AssignServerVirtualNetworkResponse struct {
 	VirtualNetworkAssignment *components.VirtualNetworkAssignment
 }
 
-func (o *AssignServerVirtualNetworkResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (a *AssignServerVirtualNetworkResponse) GetHTTPMeta() components.HTTPMetadata {
+	if a == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return a.HTTPMeta
 }
 
-func (o *AssignServerVirtualNetworkResponse) GetVirtualNetworkAssignment() *components.VirtualNetworkAssignment {
-	if o == nil {
+func (a *AssignServerVirtualNetworkResponse) GetVirtualNetworkAssignment() *components.VirtualNetworkAssignment {
+	if a == nil {
 		return nil
 	}
-	return o.VirtualNetworkAssignment
+	return a.VirtualNetworkAssignment
 }

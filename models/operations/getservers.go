@@ -58,123 +58,123 @@ func (g *GetServersRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *GetServersRequest) GetFilterProject() *string {
-	if o == nil {
+func (g *GetServersRequest) GetFilterProject() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterProject
+	return g.FilterProject
 }
 
-func (o *GetServersRequest) GetFilterRegion() *string {
-	if o == nil {
+func (g *GetServersRequest) GetFilterRegion() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterRegion
+	return g.FilterRegion
 }
 
-func (o *GetServersRequest) GetFilterHostname() *string {
-	if o == nil {
+func (g *GetServersRequest) GetFilterHostname() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterHostname
+	return g.FilterHostname
 }
 
-func (o *GetServersRequest) GetFilterCreatedAtGte() *string {
-	if o == nil {
+func (g *GetServersRequest) GetFilterCreatedAtGte() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterCreatedAtGte
+	return g.FilterCreatedAtGte
 }
 
-func (o *GetServersRequest) GetFilterCreatedAtLte() *string {
-	if o == nil {
+func (g *GetServersRequest) GetFilterCreatedAtLte() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterCreatedAtLte
+	return g.FilterCreatedAtLte
 }
 
-func (o *GetServersRequest) GetFilterLabel() *string {
-	if o == nil {
+func (g *GetServersRequest) GetFilterLabel() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterLabel
+	return g.FilterLabel
 }
 
-func (o *GetServersRequest) GetFilterStatus() *string {
-	if o == nil {
+func (g *GetServersRequest) GetFilterStatus() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterStatus
+	return g.FilterStatus
 }
 
-func (o *GetServersRequest) GetFilterPlan() *string {
-	if o == nil {
+func (g *GetServersRequest) GetFilterPlan() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterPlan
+	return g.FilterPlan
 }
 
-func (o *GetServersRequest) GetFilterGpu() *bool {
-	if o == nil {
+func (g *GetServersRequest) GetFilterGpu() *bool {
+	if g == nil {
 		return nil
 	}
-	return o.FilterGpu
+	return g.FilterGpu
 }
 
-func (o *GetServersRequest) GetFilterRAMEql() *int64 {
-	if o == nil {
+func (g *GetServersRequest) GetFilterRAMEql() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.FilterRAMEql
+	return g.FilterRAMEql
 }
 
-func (o *GetServersRequest) GetFilterRAMGte() *int64 {
-	if o == nil {
+func (g *GetServersRequest) GetFilterRAMGte() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.FilterRAMGte
+	return g.FilterRAMGte
 }
 
-func (o *GetServersRequest) GetFilterRAMLte() *int64 {
-	if o == nil {
+func (g *GetServersRequest) GetFilterRAMLte() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.FilterRAMLte
+	return g.FilterRAMLte
 }
 
-func (o *GetServersRequest) GetFilterDisk() *int64 {
-	if o == nil {
+func (g *GetServersRequest) GetFilterDisk() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.FilterDisk
+	return g.FilterDisk
 }
 
-func (o *GetServersRequest) GetFilterTags() *string {
-	if o == nil {
+func (g *GetServersRequest) GetFilterTags() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterTags
+	return g.FilterTags
 }
 
-func (o *GetServersRequest) GetExtraFieldsServers() *string {
-	if o == nil {
+func (g *GetServersRequest) GetExtraFieldsServers() *string {
+	if g == nil {
 		return nil
 	}
-	return o.ExtraFieldsServers
+	return g.ExtraFieldsServers
 }
 
-func (o *GetServersRequest) GetPageSize() *int64 {
-	if o == nil {
+func (g *GetServersRequest) GetPageSize() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.PageSize
+	return g.PageSize
 }
 
-func (o *GetServersRequest) GetPageNumber() *int64 {
-	if o == nil {
+func (g *GetServersRequest) GetPageNumber() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.PageNumber
+	return g.PageNumber
 }
 
 type GetServersResponse struct {
@@ -185,16 +185,16 @@ type GetServersResponse struct {
 	Next func() (*GetServersResponse, error)
 }
 
-func (o *GetServersResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetServersResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetServersResponse) GetServers() *components.Servers {
-	if o == nil {
+func (g *GetServersResponse) GetServers() *components.Servers {
+	if g == nil {
 		return nil
 	}
-	return o.Servers
+	return g.Servers
 }

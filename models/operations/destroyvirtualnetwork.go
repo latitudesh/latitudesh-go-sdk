@@ -11,20 +11,20 @@ type DestroyVirtualNetworkRequest struct {
 	VlanID string `pathParam:"style=simple,explode=false,name=vlan_id"`
 }
 
-func (o *DestroyVirtualNetworkRequest) GetVlanID() string {
-	if o == nil {
+func (d *DestroyVirtualNetworkRequest) GetVlanID() string {
+	if d == nil {
 		return ""
 	}
-	return o.VlanID
+	return d.VlanID
 }
 
 type DestroyVirtualNetworkResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *DestroyVirtualNetworkResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (d *DestroyVirtualNetworkResponse) GetHTTPMeta() components.HTTPMetadata {
+	if d == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return d.HTTPMeta
 }

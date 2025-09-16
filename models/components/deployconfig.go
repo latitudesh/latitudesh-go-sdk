@@ -8,25 +8,25 @@ type Partitions struct {
 	FilesystemType *string `json:"filesystem_type,omitempty"`
 }
 
-func (o *Partitions) GetPath() *string {
-	if o == nil {
+func (p *Partitions) GetPath() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Path
+	return p.Path
 }
 
-func (o *Partitions) GetSizeInGb() *int64 {
-	if o == nil {
+func (p *Partitions) GetSizeInGb() *int64 {
+	if p == nil {
 		return nil
 	}
-	return o.SizeInGb
+	return p.SizeInGb
 }
 
-func (o *Partitions) GetFilesystemType() *string {
-	if o == nil {
+func (p *Partitions) GetFilesystemType() *string {
+	if p == nil {
 		return nil
 	}
-	return o.FilesystemType
+	return p.FilesystemType
 }
 
 type DeployConfigAttributes struct {
@@ -38,46 +38,46 @@ type DeployConfigAttributes struct {
 	UserData        *string      `json:"user_data,omitempty"`
 }
 
-func (o *DeployConfigAttributes) GetOperatingSystem() *string {
-	if o == nil {
+func (d *DeployConfigAttributes) GetOperatingSystem() *string {
+	if d == nil {
 		return nil
 	}
-	return o.OperatingSystem
+	return d.OperatingSystem
 }
 
-func (o *DeployConfigAttributes) GetHostname() *string {
-	if o == nil {
+func (d *DeployConfigAttributes) GetHostname() *string {
+	if d == nil {
 		return nil
 	}
-	return o.Hostname
+	return d.Hostname
 }
 
-func (o *DeployConfigAttributes) GetRaid() *string {
-	if o == nil {
+func (d *DeployConfigAttributes) GetRaid() *string {
+	if d == nil {
 		return nil
 	}
-	return o.Raid
+	return d.Raid
 }
 
-func (o *DeployConfigAttributes) GetSSHKeys() []string {
-	if o == nil {
+func (d *DeployConfigAttributes) GetSSHKeys() []string {
+	if d == nil {
 		return nil
 	}
-	return o.SSHKeys
+	return d.SSHKeys
 }
 
-func (o *DeployConfigAttributes) GetPartitions() []Partitions {
-	if o == nil {
+func (d *DeployConfigAttributes) GetPartitions() []Partitions {
+	if d == nil {
 		return nil
 	}
-	return o.Partitions
+	return d.Partitions
 }
 
-func (o *DeployConfigAttributes) GetUserData() *string {
-	if o == nil {
+func (d *DeployConfigAttributes) GetUserData() *string {
+	if d == nil {
 		return nil
 	}
-	return o.UserData
+	return d.UserData
 }
 
 type DeployConfigData struct {
@@ -85,27 +85,27 @@ type DeployConfigData struct {
 	Attributes *DeployConfigAttributes `json:"attributes,omitempty"`
 }
 
-func (o *DeployConfigData) GetID() *string {
-	if o == nil {
+func (d *DeployConfigData) GetID() *string {
+	if d == nil {
 		return nil
 	}
-	return o.ID
+	return d.ID
 }
 
-func (o *DeployConfigData) GetAttributes() *DeployConfigAttributes {
-	if o == nil {
+func (d *DeployConfigData) GetAttributes() *DeployConfigAttributes {
+	if d == nil {
 		return nil
 	}
-	return o.Attributes
+	return d.Attributes
 }
 
 type DeployConfig struct {
 	Data *DeployConfigData `json:"data,omitempty"`
 }
 
-func (o *DeployConfig) GetData() *DeployConfigData {
-	if o == nil {
+func (d *DeployConfig) GetData() *DeployConfigData {
+	if d == nil {
 		return nil
 	}
-	return o.Data
+	return d.Data
 }

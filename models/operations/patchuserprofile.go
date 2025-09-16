@@ -69,25 +69,25 @@ type PatchUserProfileUserProfileAttributes struct {
 	Role      *PatchUserProfileUserProfileRole `json:"role,omitempty"`
 }
 
-func (o *PatchUserProfileUserProfileAttributes) GetFirstName() *string {
-	if o == nil {
+func (p *PatchUserProfileUserProfileAttributes) GetFirstName() *string {
+	if p == nil {
 		return nil
 	}
-	return o.FirstName
+	return p.FirstName
 }
 
-func (o *PatchUserProfileUserProfileAttributes) GetLastName() *string {
-	if o == nil {
+func (p *PatchUserProfileUserProfileAttributes) GetLastName() *string {
+	if p == nil {
 		return nil
 	}
-	return o.LastName
+	return p.LastName
 }
 
-func (o *PatchUserProfileUserProfileAttributes) GetRole() *PatchUserProfileUserProfileRole {
-	if o == nil {
+func (p *PatchUserProfileUserProfileAttributes) GetRole() *PatchUserProfileUserProfileRole {
+	if p == nil {
 		return nil
 	}
-	return o.Role
+	return p.Role
 }
 
 type PatchUserProfileUserProfileData struct {
@@ -96,36 +96,36 @@ type PatchUserProfileUserProfileData struct {
 	Attributes *PatchUserProfileUserProfileAttributes `json:"attributes,omitempty"`
 }
 
-func (o *PatchUserProfileUserProfileData) GetID() string {
-	if o == nil {
+func (p *PatchUserProfileUserProfileData) GetID() string {
+	if p == nil {
 		return ""
 	}
-	return o.ID
+	return p.ID
 }
 
-func (o *PatchUserProfileUserProfileData) GetType() PatchUserProfileUserProfileType {
-	if o == nil {
+func (p *PatchUserProfileUserProfileData) GetType() PatchUserProfileUserProfileType {
+	if p == nil {
 		return PatchUserProfileUserProfileType("")
 	}
-	return o.Type
+	return p.Type
 }
 
-func (o *PatchUserProfileUserProfileData) GetAttributes() *PatchUserProfileUserProfileAttributes {
-	if o == nil {
+func (p *PatchUserProfileUserProfileData) GetAttributes() *PatchUserProfileUserProfileAttributes {
+	if p == nil {
 		return nil
 	}
-	return o.Attributes
+	return p.Attributes
 }
 
 type PatchUserProfileUserProfileRequestBody struct {
 	Data PatchUserProfileUserProfileData `json:"data"`
 }
 
-func (o *PatchUserProfileUserProfileRequestBody) GetData() PatchUserProfileUserProfileData {
-	if o == nil {
+func (p *PatchUserProfileUserProfileRequestBody) GetData() PatchUserProfileUserProfileData {
+	if p == nil {
 		return PatchUserProfileUserProfileData{}
 	}
-	return o.Data
+	return p.Data
 }
 
 type PatchUserProfileRequest struct {
@@ -133,18 +133,18 @@ type PatchUserProfileRequest struct {
 	RequestBody PatchUserProfileUserProfileRequestBody `request:"mediaType=application/json"`
 }
 
-func (o *PatchUserProfileRequest) GetID() string {
-	if o == nil {
+func (p *PatchUserProfileRequest) GetID() string {
+	if p == nil {
 		return ""
 	}
-	return o.ID
+	return p.ID
 }
 
-func (o *PatchUserProfileRequest) GetRequestBody() PatchUserProfileUserProfileRequestBody {
-	if o == nil {
+func (p *PatchUserProfileRequest) GetRequestBody() PatchUserProfileUserProfileRequestBody {
+	if p == nil {
 		return PatchUserProfileUserProfileRequestBody{}
 	}
-	return o.RequestBody
+	return p.RequestBody
 }
 
 // PatchUserProfileResponseBody - Success
@@ -152,11 +152,11 @@ type PatchUserProfileResponseBody struct {
 	Data *components.UserUpdate `json:"data,omitempty"`
 }
 
-func (o *PatchUserProfileResponseBody) GetData() *components.UserUpdate {
-	if o == nil {
+func (p *PatchUserProfileResponseBody) GetData() *components.UserUpdate {
+	if p == nil {
 		return nil
 	}
-	return o.Data
+	return p.Data
 }
 
 type PatchUserProfileResponse struct {
@@ -165,16 +165,16 @@ type PatchUserProfileResponse struct {
 	Object *PatchUserProfileResponseBody
 }
 
-func (o *PatchUserProfileResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PatchUserProfileResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PatchUserProfileResponse) GetObject() *PatchUserProfileResponseBody {
-	if o == nil {
+func (p *PatchUserProfileResponse) GetObject() *PatchUserProfileResponseBody {
+	if p == nil {
 		return nil
 	}
-	return o.Object
+	return p.Object
 }

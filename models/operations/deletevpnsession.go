@@ -10,20 +10,20 @@ type DeleteVpnSessionRequest struct {
 	VpnSessionID string `pathParam:"style=simple,explode=false,name=vpn_session_id"`
 }
 
-func (o *DeleteVpnSessionRequest) GetVpnSessionID() string {
-	if o == nil {
+func (d *DeleteVpnSessionRequest) GetVpnSessionID() string {
+	if d == nil {
 		return ""
 	}
-	return o.VpnSessionID
+	return d.VpnSessionID
 }
 
 type DeleteVpnSessionResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *DeleteVpnSessionResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (d *DeleteVpnSessionResponse) GetHTTPMeta() components.HTTPMetadata {
+	if d == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return d.HTTPMeta
 }

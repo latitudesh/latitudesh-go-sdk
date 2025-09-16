@@ -49,18 +49,18 @@ func (p *PutProjectSSHKeySSHKeysAttributes) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *PutProjectSSHKeySSHKeysAttributes) GetTags() []string {
-	if o == nil {
+func (p *PutProjectSSHKeySSHKeysAttributes) GetTags() []string {
+	if p == nil {
 		return nil
 	}
-	return o.Tags
+	return p.Tags
 }
 
-func (o *PutProjectSSHKeySSHKeysAttributes) GetName() *string {
-	if o == nil {
+func (p *PutProjectSSHKeySSHKeysAttributes) GetName() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Name
+	return p.Name
 }
 
 type PutProjectSSHKeySSHKeysData struct {
@@ -80,36 +80,36 @@ func (p *PutProjectSSHKeySSHKeysData) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *PutProjectSSHKeySSHKeysData) GetID() *string {
-	if o == nil {
+func (p *PutProjectSSHKeySSHKeysData) GetID() *string {
+	if p == nil {
 		return nil
 	}
-	return o.ID
+	return p.ID
 }
 
-func (o *PutProjectSSHKeySSHKeysData) GetType() PutProjectSSHKeySSHKeysType {
-	if o == nil {
+func (p *PutProjectSSHKeySSHKeysData) GetType() PutProjectSSHKeySSHKeysType {
+	if p == nil {
 		return PutProjectSSHKeySSHKeysType("")
 	}
-	return o.Type
+	return p.Type
 }
 
-func (o *PutProjectSSHKeySSHKeysData) GetAttributes() *PutProjectSSHKeySSHKeysAttributes {
-	if o == nil {
+func (p *PutProjectSSHKeySSHKeysData) GetAttributes() *PutProjectSSHKeySSHKeysAttributes {
+	if p == nil {
 		return nil
 	}
-	return o.Attributes
+	return p.Attributes
 }
 
 type PutProjectSSHKeySSHKeysRequestBody struct {
 	Data PutProjectSSHKeySSHKeysData `json:"data"`
 }
 
-func (o *PutProjectSSHKeySSHKeysRequestBody) GetData() PutProjectSSHKeySSHKeysData {
-	if o == nil {
+func (p *PutProjectSSHKeySSHKeysRequestBody) GetData() PutProjectSSHKeySSHKeysData {
+	if p == nil {
 		return PutProjectSSHKeySSHKeysData{}
 	}
-	return o.Data
+	return p.Data
 }
 
 type PutProjectSSHKeyRequest struct {
@@ -119,25 +119,25 @@ type PutProjectSSHKeyRequest struct {
 	RequestBody PutProjectSSHKeySSHKeysRequestBody `request:"mediaType=application/json"`
 }
 
-func (o *PutProjectSSHKeyRequest) GetProjectID() string {
-	if o == nil {
+func (p *PutProjectSSHKeyRequest) GetProjectID() string {
+	if p == nil {
 		return ""
 	}
-	return o.ProjectID
+	return p.ProjectID
 }
 
-func (o *PutProjectSSHKeyRequest) GetSSHKeyID() string {
-	if o == nil {
+func (p *PutProjectSSHKeyRequest) GetSSHKeyID() string {
+	if p == nil {
 		return ""
 	}
-	return o.SSHKeyID
+	return p.SSHKeyID
 }
 
-func (o *PutProjectSSHKeyRequest) GetRequestBody() PutProjectSSHKeySSHKeysRequestBody {
-	if o == nil {
+func (p *PutProjectSSHKeyRequest) GetRequestBody() PutProjectSSHKeySSHKeysRequestBody {
+	if p == nil {
 		return PutProjectSSHKeySSHKeysRequestBody{}
 	}
-	return o.RequestBody
+	return p.RequestBody
 }
 
 // PutProjectSSHKeyResponseBody - Success
@@ -145,11 +145,11 @@ type PutProjectSSHKeyResponseBody struct {
 	Data *components.SSHKeyData `json:"data,omitempty"`
 }
 
-func (o *PutProjectSSHKeyResponseBody) GetData() *components.SSHKeyData {
-	if o == nil {
+func (p *PutProjectSSHKeyResponseBody) GetData() *components.SSHKeyData {
+	if p == nil {
 		return nil
 	}
-	return o.Data
+	return p.Data
 }
 
 type PutProjectSSHKeyResponse struct {
@@ -158,16 +158,16 @@ type PutProjectSSHKeyResponse struct {
 	Object *PutProjectSSHKeyResponseBody
 }
 
-func (o *PutProjectSSHKeyResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PutProjectSSHKeyResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PutProjectSSHKeyResponse) GetObject() *PutProjectSSHKeyResponseBody {
-	if o == nil {
+func (p *PutProjectSSHKeyResponse) GetObject() *PutProjectSSHKeyResponseBody {
+	if p == nil {
 		return nil
 	}
-	return o.Object
+	return p.Object
 }

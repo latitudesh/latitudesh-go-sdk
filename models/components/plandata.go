@@ -37,43 +37,43 @@ type CPU struct {
 	Count *float64 `json:"count,omitempty"`
 }
 
-func (o *CPU) GetType() *string {
-	if o == nil {
+func (c *CPU) GetType() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Type
+	return c.Type
 }
 
-func (o *CPU) GetClock() *float64 {
-	if o == nil {
+func (c *CPU) GetClock() *float64 {
+	if c == nil {
 		return nil
 	}
-	return o.Clock
+	return c.Clock
 }
 
-func (o *CPU) GetCores() *float64 {
-	if o == nil {
+func (c *CPU) GetCores() *float64 {
+	if c == nil {
 		return nil
 	}
-	return o.Cores
+	return c.Cores
 }
 
-func (o *CPU) GetCount() *float64 {
-	if o == nil {
+func (c *CPU) GetCount() *float64 {
+	if c == nil {
 		return nil
 	}
-	return o.Count
+	return c.Count
 }
 
 type Memory struct {
-	Total *string `json:"total,omitempty"`
+	Total *float64 `json:"total,omitempty"`
 }
 
-func (o *Memory) GetTotal() *string {
-	if o == nil {
+func (m *Memory) GetTotal() *float64 {
+	if m == nil {
 		return nil
 	}
-	return o.Total
+	return m.Total
 }
 
 type PlanDataAttributesType string
@@ -111,25 +111,25 @@ type Drives struct {
 	Type  *PlanDataAttributesType `json:"type,omitempty"`
 }
 
-func (o *Drives) GetCount() *float64 {
-	if o == nil {
+func (d *Drives) GetCount() *float64 {
+	if d == nil {
 		return nil
 	}
-	return o.Count
+	return d.Count
 }
 
-func (o *Drives) GetSize() *string {
-	if o == nil {
+func (d *Drives) GetSize() *string {
+	if d == nil {
 		return nil
 	}
-	return o.Size
+	return d.Size
 }
 
-func (o *Drives) GetType() *PlanDataAttributesType {
-	if o == nil {
+func (d *Drives) GetType() *PlanDataAttributesType {
+	if d == nil {
 		return nil
 	}
-	return o.Type
+	return d.Type
 }
 
 type Nics struct {
@@ -137,18 +137,18 @@ type Nics struct {
 	Type  *string  `json:"type,omitempty"`
 }
 
-func (o *Nics) GetCount() *float64 {
-	if o == nil {
+func (n *Nics) GetCount() *float64 {
+	if n == nil {
 		return nil
 	}
-	return o.Count
+	return n.Count
 }
 
-func (o *Nics) GetType() *string {
-	if o == nil {
+func (n *Nics) GetType() *string {
+	if n == nil {
 		return nil
 	}
-	return o.Type
+	return n.Type
 }
 
 type Gpu struct {
@@ -156,18 +156,18 @@ type Gpu struct {
 	Type  *string  `json:"type,omitempty"`
 }
 
-func (o *Gpu) GetCount() *float64 {
-	if o == nil {
+func (g *Gpu) GetCount() *float64 {
+	if g == nil {
 		return nil
 	}
-	return o.Count
+	return g.Count
 }
 
-func (o *Gpu) GetType() *string {
-	if o == nil {
+func (g *Gpu) GetType() *string {
+	if g == nil {
 		return nil
 	}
-	return o.Type
+	return g.Type
 }
 
 type Specs struct {
@@ -178,39 +178,39 @@ type Specs struct {
 	Gpu    *Gpu     `json:"gpu,omitempty"`
 }
 
-func (o *Specs) GetCPU() *CPU {
-	if o == nil {
+func (s *Specs) GetCPU() *CPU {
+	if s == nil {
 		return nil
 	}
-	return o.CPU
+	return s.CPU
 }
 
-func (o *Specs) GetMemory() *Memory {
-	if o == nil {
+func (s *Specs) GetMemory() *Memory {
+	if s == nil {
 		return nil
 	}
-	return o.Memory
+	return s.Memory
 }
 
-func (o *Specs) GetDrives() []Drives {
-	if o == nil {
+func (s *Specs) GetDrives() []Drives {
+	if s == nil {
 		return nil
 	}
-	return o.Drives
+	return s.Drives
 }
 
-func (o *Specs) GetNics() []Nics {
-	if o == nil {
+func (s *Specs) GetNics() []Nics {
+	if s == nil {
 		return nil
 	}
-	return o.Nics
+	return s.Nics
 }
 
-func (o *Specs) GetGpu() *Gpu {
-	if o == nil {
+func (s *Specs) GetGpu() *Gpu {
+	if s == nil {
 		return nil
 	}
-	return o.Gpu
+	return s.Gpu
 }
 
 type Locations struct {
@@ -218,18 +218,18 @@ type Locations struct {
 	InStock   []string `json:"in_stock,omitempty"`
 }
 
-func (o *Locations) GetAvailable() []string {
-	if o == nil {
+func (l *Locations) GetAvailable() []string {
+	if l == nil {
 		return nil
 	}
-	return o.Available
+	return l.Available
 }
 
-func (o *Locations) GetInStock() []string {
-	if o == nil {
+func (l *Locations) GetInStock() []string {
+	if l == nil {
 		return nil
 	}
-	return o.InStock
+	return l.InStock
 }
 
 type StockLevel string
@@ -270,25 +270,25 @@ type PlanDataUSD struct {
 	Year  *float64 `json:"year,omitempty"`
 }
 
-func (o *PlanDataUSD) GetHour() *float64 {
-	if o == nil {
+func (p *PlanDataUSD) GetHour() *float64 {
+	if p == nil {
 		return nil
 	}
-	return o.Hour
+	return p.Hour
 }
 
-func (o *PlanDataUSD) GetMonth() *float64 {
-	if o == nil {
+func (p *PlanDataUSD) GetMonth() *float64 {
+	if p == nil {
 		return nil
 	}
-	return o.Month
+	return p.Month
 }
 
-func (o *PlanDataUSD) GetYear() *float64 {
-	if o == nil {
+func (p *PlanDataUSD) GetYear() *float64 {
+	if p == nil {
 		return nil
 	}
-	return o.Year
+	return p.Year
 }
 
 type PlanDataBRL struct {
@@ -297,25 +297,25 @@ type PlanDataBRL struct {
 	Year  *float64 `json:"year,omitempty"`
 }
 
-func (o *PlanDataBRL) GetHour() *float64 {
-	if o == nil {
+func (p *PlanDataBRL) GetHour() *float64 {
+	if p == nil {
 		return nil
 	}
-	return o.Hour
+	return p.Hour
 }
 
-func (o *PlanDataBRL) GetMonth() *float64 {
-	if o == nil {
+func (p *PlanDataBRL) GetMonth() *float64 {
+	if p == nil {
 		return nil
 	}
-	return o.Month
+	return p.Month
 }
 
-func (o *PlanDataBRL) GetYear() *float64 {
-	if o == nil {
+func (p *PlanDataBRL) GetYear() *float64 {
+	if p == nil {
 		return nil
 	}
-	return o.Year
+	return p.Year
 }
 
 type PlanDataPricing struct {
@@ -323,18 +323,18 @@ type PlanDataPricing struct {
 	Brl *PlanDataBRL `json:"BRL,omitempty"`
 }
 
-func (o *PlanDataPricing) GetUsd() *PlanDataUSD {
-	if o == nil {
+func (p *PlanDataPricing) GetUsd() *PlanDataUSD {
+	if p == nil {
 		return nil
 	}
-	return o.Usd
+	return p.Usd
 }
 
-func (o *PlanDataPricing) GetBrl() *PlanDataBRL {
-	if o == nil {
+func (p *PlanDataPricing) GetBrl() *PlanDataBRL {
+	if p == nil {
 		return nil
 	}
-	return o.Brl
+	return p.Brl
 }
 
 type PlanDataRegions struct {
@@ -345,39 +345,39 @@ type PlanDataRegions struct {
 	Pricing          *PlanDataPricing `json:"pricing,omitempty"`
 }
 
-func (o *PlanDataRegions) GetName() *string {
-	if o == nil {
+func (p *PlanDataRegions) GetName() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Name
+	return p.Name
 }
 
-func (o *PlanDataRegions) GetDeploysInstantly() []string {
-	if o == nil {
+func (p *PlanDataRegions) GetDeploysInstantly() []string {
+	if p == nil {
 		return nil
 	}
-	return o.DeploysInstantly
+	return p.DeploysInstantly
 }
 
-func (o *PlanDataRegions) GetLocations() *Locations {
-	if o == nil {
+func (p *PlanDataRegions) GetLocations() *Locations {
+	if p == nil {
 		return nil
 	}
-	return o.Locations
+	return p.Locations
 }
 
-func (o *PlanDataRegions) GetStockLevel() *StockLevel {
-	if o == nil {
+func (p *PlanDataRegions) GetStockLevel() *StockLevel {
+	if p == nil {
 		return nil
 	}
-	return o.StockLevel
+	return p.StockLevel
 }
 
-func (o *PlanDataRegions) GetPricing() *PlanDataPricing {
-	if o == nil {
+func (p *PlanDataRegions) GetPricing() *PlanDataPricing {
+	if p == nil {
 		return nil
 	}
-	return o.Pricing
+	return p.Pricing
 }
 
 type PlanDataAttributes struct {
@@ -388,39 +388,39 @@ type PlanDataAttributes struct {
 	Name     *string           `json:"name,omitempty"`
 }
 
-func (o *PlanDataAttributes) GetSlug() *string {
-	if o == nil {
+func (p *PlanDataAttributes) GetSlug() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Slug
+	return p.Slug
 }
 
-func (o *PlanDataAttributes) GetFeatures() []string {
-	if o == nil {
+func (p *PlanDataAttributes) GetFeatures() []string {
+	if p == nil {
 		return nil
 	}
-	return o.Features
+	return p.Features
 }
 
-func (o *PlanDataAttributes) GetSpecs() *Specs {
-	if o == nil {
+func (p *PlanDataAttributes) GetSpecs() *Specs {
+	if p == nil {
 		return nil
 	}
-	return o.Specs
+	return p.Specs
 }
 
-func (o *PlanDataAttributes) GetRegions() []PlanDataRegions {
-	if o == nil {
+func (p *PlanDataAttributes) GetRegions() []PlanDataRegions {
+	if p == nil {
 		return nil
 	}
-	return o.Regions
+	return p.Regions
 }
 
-func (o *PlanDataAttributes) GetName() *string {
-	if o == nil {
+func (p *PlanDataAttributes) GetName() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Name
+	return p.Name
 }
 
 type PlanData struct {
@@ -429,23 +429,23 @@ type PlanData struct {
 	Attributes *PlanDataAttributes `json:"attributes,omitempty"`
 }
 
-func (o *PlanData) GetID() *string {
-	if o == nil {
+func (p *PlanData) GetID() *string {
+	if p == nil {
 		return nil
 	}
-	return o.ID
+	return p.ID
 }
 
-func (o *PlanData) GetType() *PlanDataType {
-	if o == nil {
+func (p *PlanData) GetType() *PlanDataType {
+	if p == nil {
 		return nil
 	}
-	return o.Type
+	return p.Type
 }
 
-func (o *PlanData) GetAttributes() *PlanDataAttributes {
-	if o == nil {
+func (p *PlanData) GetAttributes() *PlanDataAttributes {
+	if p == nil {
 		return nil
 	}
-	return o.Attributes
+	return p.Attributes
 }

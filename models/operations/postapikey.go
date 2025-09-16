@@ -11,11 +11,11 @@ type PostAPIKeyResponseBody struct {
 	Data *components.APIKey `json:"data,omitempty"`
 }
 
-func (o *PostAPIKeyResponseBody) GetData() *components.APIKey {
-	if o == nil {
+func (p *PostAPIKeyResponseBody) GetData() *components.APIKey {
+	if p == nil {
 		return nil
 	}
-	return o.Data
+	return p.Data
 }
 
 type PostAPIKeyResponse struct {
@@ -24,16 +24,16 @@ type PostAPIKeyResponse struct {
 	Object *PostAPIKeyResponseBody
 }
 
-func (o *PostAPIKeyResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PostAPIKeyResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PostAPIKeyResponse) GetObject() *PostAPIKeyResponseBody {
-	if o == nil {
+func (p *PostAPIKeyResponse) GetObject() *PostAPIKeyResponseBody {
+	if p == nil {
 		return nil
 	}
-	return o.Object
+	return p.Object
 }

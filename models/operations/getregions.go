@@ -25,18 +25,18 @@ func (g *GetRegionsRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *GetRegionsRequest) GetPageSize() *int64 {
-	if o == nil {
+func (g *GetRegionsRequest) GetPageSize() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.PageSize
+	return g.PageSize
 }
 
-func (o *GetRegionsRequest) GetPageNumber() *int64 {
-	if o == nil {
+func (g *GetRegionsRequest) GetPageNumber() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.PageNumber
+	return g.PageNumber
 }
 
 type GetRegionsResponse struct {
@@ -47,16 +47,16 @@ type GetRegionsResponse struct {
 	Next func() (*GetRegionsResponse, error)
 }
 
-func (o *GetRegionsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetRegionsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetRegionsResponse) GetRegions() *components.Regions {
-	if o == nil {
+func (g *GetRegionsResponse) GetRegions() *components.Regions {
+	if g == nil {
 		return nil
 	}
-	return o.Regions
+	return g.Regions
 }

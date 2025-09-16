@@ -6,9 +6,9 @@ type Plan struct {
 	Data *PlanData `json:"data,omitempty"`
 }
 
-func (o *Plan) GetData() *PlanData {
-	if o == nil {
+func (p *Plan) GetData() *PlanData {
+	if p == nil {
 		return nil
 	}
-	return o.Data
+	return p.Data
 }

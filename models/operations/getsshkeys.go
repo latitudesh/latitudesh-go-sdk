@@ -11,11 +11,11 @@ type GetSSHKeysRequest struct {
 	FilterTags *string `queryParam:"style=form,explode=true,name=filter[tags]"`
 }
 
-func (o *GetSSHKeysRequest) GetFilterTags() *string {
-	if o == nil {
+func (g *GetSSHKeysRequest) GetFilterTags() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterTags
+	return g.FilterTags
 }
 
 type GetSSHKeysResponse struct {
@@ -24,16 +24,16 @@ type GetSSHKeysResponse struct {
 	SSHKeys *components.SSHKeys
 }
 
-func (o *GetSSHKeysResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetSSHKeysResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetSSHKeysResponse) GetSSHKeys() *components.SSHKeys {
-	if o == nil {
+func (g *GetSSHKeysResponse) GetSSHKeys() *components.SSHKeys {
+	if g == nil {
 		return nil
 	}
-	return o.SSHKeys
+	return g.SSHKeys
 }

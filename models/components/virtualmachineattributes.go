@@ -71,25 +71,25 @@ type Credentials struct {
 	Password *string `json:"password,omitempty"`
 }
 
-func (o *Credentials) GetUsername() *string {
-	if o == nil {
+func (c *Credentials) GetUsername() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Username
+	return c.Username
 }
 
-func (o *Credentials) GetHost() *string {
-	if o == nil {
+func (c *Credentials) GetHost() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Host
+	return c.Host
 }
 
-func (o *Credentials) GetPassword() *string {
-	if o == nil {
+func (c *Credentials) GetPassword() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Password
+	return c.Password
 }
 
 type VirtualMachineAttributesPlan struct {
@@ -97,18 +97,18 @@ type VirtualMachineAttributesPlan struct {
 	Name *string `json:"name,omitempty"`
 }
 
-func (o *VirtualMachineAttributesPlan) GetID() *string {
-	if o == nil {
+func (v *VirtualMachineAttributesPlan) GetID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.ID
+	return v.ID
 }
 
-func (o *VirtualMachineAttributesPlan) GetName() *string {
-	if o == nil {
+func (v *VirtualMachineAttributesPlan) GetName() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Name
+	return v.Name
 }
 
 type VirtualMachineAttributesSpecs struct {
@@ -119,39 +119,39 @@ type VirtualMachineAttributesSpecs struct {
 	Gpu     *string `json:"gpu,omitempty"`
 }
 
-func (o *VirtualMachineAttributesSpecs) GetVcpu() *int64 {
-	if o == nil {
+func (v *VirtualMachineAttributesSpecs) GetVcpu() *int64 {
+	if v == nil {
 		return nil
 	}
-	return o.Vcpu
+	return v.Vcpu
 }
 
-func (o *VirtualMachineAttributesSpecs) GetRAM() *string {
-	if o == nil {
+func (v *VirtualMachineAttributesSpecs) GetRAM() *string {
+	if v == nil {
 		return nil
 	}
-	return o.RAM
+	return v.RAM
 }
 
-func (o *VirtualMachineAttributesSpecs) GetStorage() *string {
-	if o == nil {
+func (v *VirtualMachineAttributesSpecs) GetStorage() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Storage
+	return v.Storage
 }
 
-func (o *VirtualMachineAttributesSpecs) GetNic() *string {
-	if o == nil {
+func (v *VirtualMachineAttributesSpecs) GetNic() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Nic
+	return v.Nic
 }
 
-func (o *VirtualMachineAttributesSpecs) GetGpu() *string {
-	if o == nil {
+func (v *VirtualMachineAttributesSpecs) GetGpu() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Gpu
+	return v.Gpu
 }
 
 type VirtualMachineAttributesAttributes struct {
@@ -166,67 +166,67 @@ type VirtualMachineAttributesAttributes struct {
 	Project         *ProjectInclude                 `json:"project,omitempty"`
 }
 
-func (o *VirtualMachineAttributesAttributes) GetName() *string {
-	if o == nil {
+func (v *VirtualMachineAttributesAttributes) GetName() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Name
+	return v.Name
 }
 
-func (o *VirtualMachineAttributesAttributes) GetCreatedAt() *string {
-	if o == nil {
+func (v *VirtualMachineAttributesAttributes) GetCreatedAt() *string {
+	if v == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return v.CreatedAt
 }
 
-func (o *VirtualMachineAttributesAttributes) GetStatus() *VirtualMachineAttributesStatus {
-	if o == nil {
+func (v *VirtualMachineAttributesAttributes) GetStatus() *VirtualMachineAttributesStatus {
+	if v == nil {
 		return nil
 	}
-	return o.Status
+	return v.Status
 }
 
-func (o *VirtualMachineAttributesAttributes) GetOperatingSystem() *string {
-	if o == nil {
+func (v *VirtualMachineAttributesAttributes) GetOperatingSystem() *string {
+	if v == nil {
 		return nil
 	}
-	return o.OperatingSystem
+	return v.OperatingSystem
 }
 
-func (o *VirtualMachineAttributesAttributes) GetCredentials() *Credentials {
-	if o == nil {
+func (v *VirtualMachineAttributesAttributes) GetCredentials() *Credentials {
+	if v == nil {
 		return nil
 	}
-	return o.Credentials
+	return v.Credentials
 }
 
-func (o *VirtualMachineAttributesAttributes) GetPlan() *VirtualMachineAttributesPlan {
-	if o == nil {
+func (v *VirtualMachineAttributesAttributes) GetPlan() *VirtualMachineAttributesPlan {
+	if v == nil {
 		return nil
 	}
-	return o.Plan
+	return v.Plan
 }
 
-func (o *VirtualMachineAttributesAttributes) GetSpecs() *VirtualMachineAttributesSpecs {
-	if o == nil {
+func (v *VirtualMachineAttributesAttributes) GetSpecs() *VirtualMachineAttributesSpecs {
+	if v == nil {
 		return nil
 	}
-	return o.Specs
+	return v.Specs
 }
 
-func (o *VirtualMachineAttributesAttributes) GetTeam() *TeamInclude {
-	if o == nil {
+func (v *VirtualMachineAttributesAttributes) GetTeam() *TeamInclude {
+	if v == nil {
 		return nil
 	}
-	return o.Team
+	return v.Team
 }
 
-func (o *VirtualMachineAttributesAttributes) GetProject() *ProjectInclude {
-	if o == nil {
+func (v *VirtualMachineAttributesAttributes) GetProject() *ProjectInclude {
+	if v == nil {
 		return nil
 	}
-	return o.Project
+	return v.Project
 }
 
 type VirtualMachineAttributes struct {
@@ -235,23 +235,23 @@ type VirtualMachineAttributes struct {
 	Attributes *VirtualMachineAttributesAttributes `json:"attributes,omitempty"`
 }
 
-func (o *VirtualMachineAttributes) GetID() *string {
-	if o == nil {
+func (v *VirtualMachineAttributes) GetID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.ID
+	return v.ID
 }
 
-func (o *VirtualMachineAttributes) GetType() *VirtualMachineAttributesType {
-	if o == nil {
+func (v *VirtualMachineAttributes) GetType() *VirtualMachineAttributesType {
+	if v == nil {
 		return nil
 	}
-	return o.Type
+	return v.Type
 }
 
-func (o *VirtualMachineAttributes) GetAttributes() *VirtualMachineAttributesAttributes {
-	if o == nil {
+func (v *VirtualMachineAttributes) GetAttributes() *VirtualMachineAttributesAttributes {
+	if v == nil {
 		return nil
 	}
-	return o.Attributes
+	return v.Attributes
 }

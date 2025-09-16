@@ -11,18 +11,18 @@ type UpdateAPIKeyRequest struct {
 	UpdateAPIKey components.UpdateAPIKey `request:"mediaType=application/json"`
 }
 
-func (o *UpdateAPIKeyRequest) GetAPIKeyID() string {
-	if o == nil {
+func (u *UpdateAPIKeyRequest) GetAPIKeyID() string {
+	if u == nil {
 		return ""
 	}
-	return o.APIKeyID
+	return u.APIKeyID
 }
 
-func (o *UpdateAPIKeyRequest) GetUpdateAPIKey() components.UpdateAPIKey {
-	if o == nil {
+func (u *UpdateAPIKeyRequest) GetUpdateAPIKey() components.UpdateAPIKey {
+	if u == nil {
 		return components.UpdateAPIKey{}
 	}
-	return o.UpdateAPIKey
+	return u.UpdateAPIKey
 }
 
 // UpdateAPIKeyResponseBody - Success
@@ -30,11 +30,11 @@ type UpdateAPIKeyResponseBody struct {
 	Data *components.APIKey `json:"data,omitempty"`
 }
 
-func (o *UpdateAPIKeyResponseBody) GetData() *components.APIKey {
-	if o == nil {
+func (u *UpdateAPIKeyResponseBody) GetData() *components.APIKey {
+	if u == nil {
 		return nil
 	}
-	return o.Data
+	return u.Data
 }
 
 type UpdateAPIKeyResponse struct {
@@ -43,16 +43,16 @@ type UpdateAPIKeyResponse struct {
 	Object *UpdateAPIKeyResponseBody
 }
 
-func (o *UpdateAPIKeyResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (u *UpdateAPIKeyResponse) GetHTTPMeta() components.HTTPMetadata {
+	if u == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return u.HTTPMeta
 }
 
-func (o *UpdateAPIKeyResponse) GetObject() *UpdateAPIKeyResponseBody {
-	if o == nil {
+func (u *UpdateAPIKeyResponse) GetObject() *UpdateAPIKeyResponseBody {
+	if u == nil {
 		return nil
 	}
-	return o.Object
+	return u.Object
 }

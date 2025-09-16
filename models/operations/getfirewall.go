@@ -11,11 +11,11 @@ type GetFirewallRequest struct {
 	FirewallID string `pathParam:"style=simple,explode=false,name=firewall_id"`
 }
 
-func (o *GetFirewallRequest) GetFirewallID() string {
-	if o == nil {
+func (g *GetFirewallRequest) GetFirewallID() string {
+	if g == nil {
 		return ""
 	}
-	return o.FirewallID
+	return g.FirewallID
 }
 
 type GetFirewallResponse struct {
@@ -24,16 +24,16 @@ type GetFirewallResponse struct {
 	Firewall *components.Firewall
 }
 
-func (o *GetFirewallResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetFirewallResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetFirewallResponse) GetFirewall() *components.Firewall {
-	if o == nil {
+func (g *GetFirewallResponse) GetFirewall() *components.Firewall {
+	if g == nil {
 		return nil
 	}
-	return o.Firewall
+	return g.Firewall
 }

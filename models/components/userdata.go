@@ -10,16 +10,16 @@ type UserData struct {
 	Meta *UserDataMeta       `json:"meta,omitempty"`
 }
 
-func (o *UserData) GetData() *UserDataProperties {
-	if o == nil {
+func (u *UserData) GetData() *UserDataProperties {
+	if u == nil {
 		return nil
 	}
-	return o.Data
+	return u.Data
 }
 
-func (o *UserData) GetMeta() *UserDataMeta {
-	if o == nil {
+func (u *UserData) GetMeta() *UserDataMeta {
+	if u == nil {
 		return nil
 	}
-	return o.Meta
+	return u.Meta
 }

@@ -11,20 +11,20 @@ type GetStorageFilesystemsRequest struct {
 	FilterProject *string `queryParam:"style=form,explode=true,name=filter[project]"`
 }
 
-func (o *GetStorageFilesystemsRequest) GetFilterProject() *string {
-	if o == nil {
+func (g *GetStorageFilesystemsRequest) GetFilterProject() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterProject
+	return g.FilterProject
 }
 
 type GetStorageFilesystemsResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *GetStorageFilesystemsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetStorageFilesystemsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }

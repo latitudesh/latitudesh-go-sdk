@@ -40,25 +40,25 @@ type UpdatePlansBandwidthPlansAttributes struct {
 	RegionSlug *string `json:"region_slug,omitempty"`
 }
 
-func (o *UpdatePlansBandwidthPlansAttributes) GetProject() *string {
-	if o == nil {
+func (u *UpdatePlansBandwidthPlansAttributes) GetProject() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Project
+	return u.Project
 }
 
-func (o *UpdatePlansBandwidthPlansAttributes) GetQuantity() *int64 {
-	if o == nil {
+func (u *UpdatePlansBandwidthPlansAttributes) GetQuantity() *int64 {
+	if u == nil {
 		return nil
 	}
-	return o.Quantity
+	return u.Quantity
 }
 
-func (o *UpdatePlansBandwidthPlansAttributes) GetRegionSlug() *string {
-	if o == nil {
+func (u *UpdatePlansBandwidthPlansAttributes) GetRegionSlug() *string {
+	if u == nil {
 		return nil
 	}
-	return o.RegionSlug
+	return u.RegionSlug
 }
 
 type UpdatePlansBandwidthPlansData struct {
@@ -66,29 +66,29 @@ type UpdatePlansBandwidthPlansData struct {
 	Attributes *UpdatePlansBandwidthPlansAttributes `json:"attributes,omitempty"`
 }
 
-func (o *UpdatePlansBandwidthPlansData) GetType() *UpdatePlansBandwidthPlansType {
-	if o == nil {
+func (u *UpdatePlansBandwidthPlansData) GetType() *UpdatePlansBandwidthPlansType {
+	if u == nil {
 		return nil
 	}
-	return o.Type
+	return u.Type
 }
 
-func (o *UpdatePlansBandwidthPlansData) GetAttributes() *UpdatePlansBandwidthPlansAttributes {
-	if o == nil {
+func (u *UpdatePlansBandwidthPlansData) GetAttributes() *UpdatePlansBandwidthPlansAttributes {
+	if u == nil {
 		return nil
 	}
-	return o.Attributes
+	return u.Attributes
 }
 
 type UpdatePlansBandwidthPlansRequestBody struct {
 	Data *UpdatePlansBandwidthPlansData `json:"data,omitempty"`
 }
 
-func (o *UpdatePlansBandwidthPlansRequestBody) GetData() *UpdatePlansBandwidthPlansData {
-	if o == nil {
+func (u *UpdatePlansBandwidthPlansRequestBody) GetData() *UpdatePlansBandwidthPlansData {
+	if u == nil {
 		return nil
 	}
-	return o.Data
+	return u.Data
 }
 
 type UpdatePlansBandwidthResponse struct {
@@ -97,16 +97,16 @@ type UpdatePlansBandwidthResponse struct {
 	BandwidthPackages *components.BandwidthPackages
 }
 
-func (o *UpdatePlansBandwidthResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (u *UpdatePlansBandwidthResponse) GetHTTPMeta() components.HTTPMetadata {
+	if u == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return u.HTTPMeta
 }
 
-func (o *UpdatePlansBandwidthResponse) GetBandwidthPackages() *components.BandwidthPackages {
-	if o == nil {
+func (u *UpdatePlansBandwidthResponse) GetBandwidthPackages() *components.BandwidthPackages {
+	if u == nil {
 		return nil
 	}
-	return o.BandwidthPackages
+	return u.BandwidthPackages
 }

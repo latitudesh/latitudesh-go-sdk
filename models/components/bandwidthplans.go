@@ -10,16 +10,16 @@ type BandwidthPlans struct {
 	Meta *BandwidthPlansMeta `json:"meta,omitempty"`
 }
 
-func (o *BandwidthPlans) GetData() []BandwidthPlanData {
-	if o == nil {
+func (b *BandwidthPlans) GetData() []BandwidthPlanData {
+	if b == nil {
 		return nil
 	}
-	return o.Data
+	return b.Data
 }
 
-func (o *BandwidthPlans) GetMeta() *BandwidthPlansMeta {
-	if o == nil {
+func (b *BandwidthPlans) GetMeta() *BandwidthPlansMeta {
+	if b == nil {
 		return nil
 	}
-	return o.Meta
+	return b.Meta
 }

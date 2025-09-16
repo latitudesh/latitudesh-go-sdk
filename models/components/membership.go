@@ -63,60 +63,60 @@ func (m *MembershipAttributes) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *MembershipAttributes) GetFirstName() *string {
-	if o == nil {
+func (m *MembershipAttributes) GetFirstName() *string {
+	if m == nil {
 		return nil
 	}
-	return o.FirstName
+	return m.FirstName
 }
 
-func (o *MembershipAttributes) GetLastName() *string {
-	if o == nil {
+func (m *MembershipAttributes) GetLastName() *string {
+	if m == nil {
 		return nil
 	}
-	return o.LastName
+	return m.LastName
 }
 
-func (o *MembershipAttributes) GetEmail() *string {
-	if o == nil {
+func (m *MembershipAttributes) GetEmail() *string {
+	if m == nil {
 		return nil
 	}
-	return o.Email
+	return m.Email
 }
 
-func (o *MembershipAttributes) GetRole() *MembershipRole {
-	if o == nil {
+func (m *MembershipAttributes) GetRole() *MembershipRole {
+	if m == nil {
 		return nil
 	}
-	return o.Role
+	return m.Role
 }
 
-func (o *MembershipAttributes) GetMfaEnabled() *bool {
-	if o == nil {
+func (m *MembershipAttributes) GetMfaEnabled() *bool {
+	if m == nil {
 		return nil
 	}
-	return o.MfaEnabled
+	return m.MfaEnabled
 }
 
-func (o *MembershipAttributes) GetCreatedAt() *time.Time {
-	if o == nil {
+func (m *MembershipAttributes) GetCreatedAt() *time.Time {
+	if m == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return m.CreatedAt
 }
 
-func (o *MembershipAttributes) GetUpdatedAt() *time.Time {
-	if o == nil {
+func (m *MembershipAttributes) GetUpdatedAt() *time.Time {
+	if m == nil {
 		return nil
 	}
-	return o.UpdatedAt
+	return m.UpdatedAt
 }
 
-func (o *MembershipAttributes) GetLastLoginAt() *time.Time {
-	if o == nil {
+func (m *MembershipAttributes) GetLastLoginAt() *time.Time {
+	if m == nil {
 		return nil
 	}
-	return o.LastLoginAt
+	return m.LastLoginAt
 }
 
 type MembershipData struct {
@@ -124,27 +124,27 @@ type MembershipData struct {
 	Attributes *MembershipAttributes `json:"attributes,omitempty"`
 }
 
-func (o *MembershipData) GetID() *string {
-	if o == nil {
+func (m *MembershipData) GetID() *string {
+	if m == nil {
 		return nil
 	}
-	return o.ID
+	return m.ID
 }
 
-func (o *MembershipData) GetAttributes() *MembershipAttributes {
-	if o == nil {
+func (m *MembershipData) GetAttributes() *MembershipAttributes {
+	if m == nil {
 		return nil
 	}
-	return o.Attributes
+	return m.Attributes
 }
 
 type Membership struct {
 	Data *MembershipData `json:"data,omitempty"`
 }
 
-func (o *Membership) GetData() *MembershipData {
-	if o == nil {
+func (m *Membership) GetData() *MembershipData {
+	if m == nil {
 		return nil
 	}
-	return o.Data
+	return m.Data
 }

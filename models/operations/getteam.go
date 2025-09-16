@@ -12,16 +12,16 @@ type GetTeamResponse struct {
 	Teams *components.Teams
 }
 
-func (o *GetTeamResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetTeamResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetTeamResponse) GetTeams() *components.Teams {
-	if o == nil {
+func (g *GetTeamResponse) GetTeams() *components.Teams {
+	if g == nil {
 		return nil
 	}
-	return o.Teams
+	return g.Teams
 }

@@ -38,18 +38,18 @@ type PutProjectUserDataUserDataAttributes struct {
 	Content *string `json:"content,omitempty"`
 }
 
-func (o *PutProjectUserDataUserDataAttributes) GetDescription() *string {
-	if o == nil {
+func (p *PutProjectUserDataUserDataAttributes) GetDescription() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Description
+	return p.Description
 }
 
-func (o *PutProjectUserDataUserDataAttributes) GetContent() *string {
-	if o == nil {
+func (p *PutProjectUserDataUserDataAttributes) GetContent() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Content
+	return p.Content
 }
 
 type PutProjectUserDataUserDataData struct {
@@ -58,36 +58,36 @@ type PutProjectUserDataUserDataData struct {
 	Attributes *PutProjectUserDataUserDataAttributes `json:"attributes,omitempty"`
 }
 
-func (o *PutProjectUserDataUserDataData) GetID() string {
-	if o == nil {
+func (p *PutProjectUserDataUserDataData) GetID() string {
+	if p == nil {
 		return ""
 	}
-	return o.ID
+	return p.ID
 }
 
-func (o *PutProjectUserDataUserDataData) GetType() PutProjectUserDataUserDataType {
-	if o == nil {
+func (p *PutProjectUserDataUserDataData) GetType() PutProjectUserDataUserDataType {
+	if p == nil {
 		return PutProjectUserDataUserDataType("")
 	}
-	return o.Type
+	return p.Type
 }
 
-func (o *PutProjectUserDataUserDataData) GetAttributes() *PutProjectUserDataUserDataAttributes {
-	if o == nil {
+func (p *PutProjectUserDataUserDataData) GetAttributes() *PutProjectUserDataUserDataAttributes {
+	if p == nil {
 		return nil
 	}
-	return o.Attributes
+	return p.Attributes
 }
 
 type PutProjectUserDataUserDataRequestBody struct {
 	Data PutProjectUserDataUserDataData `json:"data"`
 }
 
-func (o *PutProjectUserDataUserDataRequestBody) GetData() PutProjectUserDataUserDataData {
-	if o == nil {
+func (p *PutProjectUserDataUserDataRequestBody) GetData() PutProjectUserDataUserDataData {
+	if p == nil {
 		return PutProjectUserDataUserDataData{}
 	}
-	return o.Data
+	return p.Data
 }
 
 type PutProjectUserDataRequest struct {
@@ -97,25 +97,25 @@ type PutProjectUserDataRequest struct {
 	RequestBody *PutProjectUserDataUserDataRequestBody `request:"mediaType=application/json"`
 }
 
-func (o *PutProjectUserDataRequest) GetProjectID() string {
-	if o == nil {
+func (p *PutProjectUserDataRequest) GetProjectID() string {
+	if p == nil {
 		return ""
 	}
-	return o.ProjectID
+	return p.ProjectID
 }
 
-func (o *PutProjectUserDataRequest) GetUserDataID() string {
-	if o == nil {
+func (p *PutProjectUserDataRequest) GetUserDataID() string {
+	if p == nil {
 		return ""
 	}
-	return o.UserDataID
+	return p.UserDataID
 }
 
-func (o *PutProjectUserDataRequest) GetRequestBody() *PutProjectUserDataUserDataRequestBody {
-	if o == nil {
+func (p *PutProjectUserDataRequest) GetRequestBody() *PutProjectUserDataUserDataRequestBody {
+	if p == nil {
 		return nil
 	}
-	return o.RequestBody
+	return p.RequestBody
 }
 
 type PutProjectUserDataResponse struct {
@@ -124,16 +124,16 @@ type PutProjectUserDataResponse struct {
 	UserData *components.UserData
 }
 
-func (o *PutProjectUserDataResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PutProjectUserDataResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PutProjectUserDataResponse) GetUserData() *components.UserData {
-	if o == nil {
+func (p *PutProjectUserDataResponse) GetUserData() *components.UserData {
+	if p == nil {
 		return nil
 	}
-	return o.UserData
+	return p.UserData
 }

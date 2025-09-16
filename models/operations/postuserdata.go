@@ -38,18 +38,18 @@ type PostUserDataUserDataAttributes struct {
 	Content string `json:"content"`
 }
 
-func (o *PostUserDataUserDataAttributes) GetDescription() string {
-	if o == nil {
+func (p *PostUserDataUserDataAttributes) GetDescription() string {
+	if p == nil {
 		return ""
 	}
-	return o.Description
+	return p.Description
 }
 
-func (o *PostUserDataUserDataAttributes) GetContent() string {
-	if o == nil {
+func (p *PostUserDataUserDataAttributes) GetContent() string {
+	if p == nil {
 		return ""
 	}
-	return o.Content
+	return p.Content
 }
 
 type PostUserDataUserDataData struct {
@@ -57,29 +57,29 @@ type PostUserDataUserDataData struct {
 	Attributes *PostUserDataUserDataAttributes `json:"attributes,omitempty"`
 }
 
-func (o *PostUserDataUserDataData) GetType() PostUserDataUserDataType {
-	if o == nil {
+func (p *PostUserDataUserDataData) GetType() PostUserDataUserDataType {
+	if p == nil {
 		return PostUserDataUserDataType("")
 	}
-	return o.Type
+	return p.Type
 }
 
-func (o *PostUserDataUserDataData) GetAttributes() *PostUserDataUserDataAttributes {
-	if o == nil {
+func (p *PostUserDataUserDataData) GetAttributes() *PostUserDataUserDataAttributes {
+	if p == nil {
 		return nil
 	}
-	return o.Attributes
+	return p.Attributes
 }
 
 type PostUserDataUserDataRequestBody struct {
 	Data PostUserDataUserDataData `json:"data"`
 }
 
-func (o *PostUserDataUserDataRequestBody) GetData() PostUserDataUserDataData {
-	if o == nil {
+func (p *PostUserDataUserDataRequestBody) GetData() PostUserDataUserDataData {
+	if p == nil {
 		return PostUserDataUserDataData{}
 	}
-	return o.Data
+	return p.Data
 }
 
 type PostUserDataResponse struct {
@@ -88,16 +88,16 @@ type PostUserDataResponse struct {
 	UserData *components.UserData
 }
 
-func (o *PostUserDataResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PostUserDataResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PostUserDataResponse) GetUserData() *components.UserData {
-	if o == nil {
+func (p *PostUserDataResponse) GetUserData() *components.UserData {
+	if p == nil {
 		return nil
 	}
-	return o.UserData
+	return p.UserData
 }

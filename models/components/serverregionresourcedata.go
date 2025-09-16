@@ -10,39 +10,39 @@ type Site struct {
 	RackID   *string `json:"rack_id,omitempty"`
 }
 
-func (o *Site) GetID() *string {
-	if o == nil {
+func (s *Site) GetID() *string {
+	if s == nil {
 		return nil
 	}
-	return o.ID
+	return s.ID
 }
 
-func (o *Site) GetName() *string {
-	if o == nil {
+func (s *Site) GetName() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Name
+	return s.Name
 }
 
-func (o *Site) GetSlug() *string {
-	if o == nil {
+func (s *Site) GetSlug() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Slug
+	return s.Slug
 }
 
-func (o *Site) GetFacility() *string {
-	if o == nil {
+func (s *Site) GetFacility() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Facility
+	return s.Facility
 }
 
-func (o *Site) GetRackID() *string {
-	if o == nil {
+func (s *Site) GetRackID() *string {
+	if s == nil {
 		return nil
 	}
-	return o.RackID
+	return s.RackID
 }
 
 type ServerRegionResourceData struct {
@@ -51,23 +51,23 @@ type ServerRegionResourceData struct {
 	Site    *Site   `json:"site,omitempty"`
 }
 
-func (o *ServerRegionResourceData) GetCity() *string {
-	if o == nil {
+func (s *ServerRegionResourceData) GetCity() *string {
+	if s == nil {
 		return nil
 	}
-	return o.City
+	return s.City
 }
 
-func (o *ServerRegionResourceData) GetCountry() *string {
-	if o == nil {
+func (s *ServerRegionResourceData) GetCountry() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Country
+	return s.Country
 }
 
-func (o *ServerRegionResourceData) GetSite() *Site {
-	if o == nil {
+func (s *ServerRegionResourceData) GetSite() *Site {
+	if s == nil {
 		return nil
 	}
-	return o.Site
+	return s.Site
 }

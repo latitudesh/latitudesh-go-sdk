@@ -17,32 +17,32 @@ type GetTrafficConsumptionRequest struct {
 	FilterDateLte string `queryParam:"style=form,explode=true,name=filter[date][lte]"`
 }
 
-func (o *GetTrafficConsumptionRequest) GetFilterServer() *string {
-	if o == nil {
+func (g *GetTrafficConsumptionRequest) GetFilterServer() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterServer
+	return g.FilterServer
 }
 
-func (o *GetTrafficConsumptionRequest) GetFilterProject() *string {
-	if o == nil {
+func (g *GetTrafficConsumptionRequest) GetFilterProject() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterProject
+	return g.FilterProject
 }
 
-func (o *GetTrafficConsumptionRequest) GetFilterDateGte() string {
-	if o == nil {
+func (g *GetTrafficConsumptionRequest) GetFilterDateGte() string {
+	if g == nil {
 		return ""
 	}
-	return o.FilterDateGte
+	return g.FilterDateGte
 }
 
-func (o *GetTrafficConsumptionRequest) GetFilterDateLte() string {
-	if o == nil {
+func (g *GetTrafficConsumptionRequest) GetFilterDateLte() string {
+	if g == nil {
 		return ""
 	}
-	return o.FilterDateLte
+	return g.FilterDateLte
 }
 
 type GetTrafficConsumptionResponse struct {
@@ -51,16 +51,16 @@ type GetTrafficConsumptionResponse struct {
 	Traffic *components.Traffic
 }
 
-func (o *GetTrafficConsumptionResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetTrafficConsumptionResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetTrafficConsumptionResponse) GetTraffic() *components.Traffic {
-	if o == nil {
+func (g *GetTrafficConsumptionResponse) GetTraffic() *components.Traffic {
+	if g == nil {
 		return nil
 	}
-	return o.Traffic
+	return g.Traffic
 }

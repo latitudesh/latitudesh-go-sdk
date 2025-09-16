@@ -34,11 +34,11 @@ type StoragePlanDataPricing struct {
 	Month *float64 `json:"month,omitempty"`
 }
 
-func (o *StoragePlanDataPricing) GetMonth() *float64 {
-	if o == nil {
+func (s *StoragePlanDataPricing) GetMonth() *float64 {
+	if s == nil {
 		return nil
 	}
-	return o.Month
+	return s.Month
 }
 
 type StoragePlanDataAttributes struct {
@@ -47,25 +47,25 @@ type StoragePlanDataAttributes struct {
 	Pricing   *StoragePlanDataPricing `json:"pricing,omitempty"`
 }
 
-func (o *StoragePlanDataAttributes) GetName() *string {
-	if o == nil {
+func (s *StoragePlanDataAttributes) GetName() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Name
+	return s.Name
 }
 
-func (o *StoragePlanDataAttributes) GetLocations() []string {
-	if o == nil {
+func (s *StoragePlanDataAttributes) GetLocations() []string {
+	if s == nil {
 		return nil
 	}
-	return o.Locations
+	return s.Locations
 }
 
-func (o *StoragePlanDataAttributes) GetPricing() *StoragePlanDataPricing {
-	if o == nil {
+func (s *StoragePlanDataAttributes) GetPricing() *StoragePlanDataPricing {
+	if s == nil {
 		return nil
 	}
-	return o.Pricing
+	return s.Pricing
 }
 
 type StoragePlanData struct {
@@ -74,23 +74,23 @@ type StoragePlanData struct {
 	Attributes *StoragePlanDataAttributes `json:"attributes,omitempty"`
 }
 
-func (o *StoragePlanData) GetID() *string {
-	if o == nil {
+func (s *StoragePlanData) GetID() *string {
+	if s == nil {
 		return nil
 	}
-	return o.ID
+	return s.ID
 }
 
-func (o *StoragePlanData) GetType() *StoragePlanDataType {
-	if o == nil {
+func (s *StoragePlanData) GetType() *StoragePlanDataType {
+	if s == nil {
 		return nil
 	}
-	return o.Type
+	return s.Type
 }
 
-func (o *StoragePlanData) GetAttributes() *StoragePlanDataAttributes {
-	if o == nil {
+func (s *StoragePlanData) GetAttributes() *StoragePlanDataAttributes {
+	if s == nil {
 		return nil
 	}
-	return o.Attributes
+	return s.Attributes
 }

@@ -158,25 +158,25 @@ type UpdateServerDeployConfigPartitions struct {
 	FilesystemType *string `json:"filesystem_type,omitempty"`
 }
 
-func (o *UpdateServerDeployConfigPartitions) GetSizeInGb() *int64 {
-	if o == nil {
+func (u *UpdateServerDeployConfigPartitions) GetSizeInGb() *int64 {
+	if u == nil {
 		return nil
 	}
-	return o.SizeInGb
+	return u.SizeInGb
 }
 
-func (o *UpdateServerDeployConfigPartitions) GetPath() *string {
-	if o == nil {
+func (u *UpdateServerDeployConfigPartitions) GetPath() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Path
+	return u.Path
 }
 
-func (o *UpdateServerDeployConfigPartitions) GetFilesystemType() *string {
-	if o == nil {
+func (u *UpdateServerDeployConfigPartitions) GetFilesystemType() *string {
+	if u == nil {
 		return nil
 	}
-	return o.FilesystemType
+	return u.FilesystemType
 }
 
 type UpdateServerDeployConfigServersAttributes struct {
@@ -191,53 +191,53 @@ type UpdateServerDeployConfigServersAttributes struct {
 	IpxeURL *string `json:"ipxe_url,omitempty"`
 }
 
-func (o *UpdateServerDeployConfigServersAttributes) GetHostname() *string {
-	if o == nil {
+func (u *UpdateServerDeployConfigServersAttributes) GetHostname() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Hostname
+	return u.Hostname
 }
 
-func (o *UpdateServerDeployConfigServersAttributes) GetOperatingSystem() *UpdateServerDeployConfigServersOperatingSystem {
-	if o == nil {
+func (u *UpdateServerDeployConfigServersAttributes) GetOperatingSystem() *UpdateServerDeployConfigServersOperatingSystem {
+	if u == nil {
 		return nil
 	}
-	return o.OperatingSystem
+	return u.OperatingSystem
 }
 
-func (o *UpdateServerDeployConfigServersAttributes) GetRaid() *UpdateServerDeployConfigServersRaid {
-	if o == nil {
+func (u *UpdateServerDeployConfigServersAttributes) GetRaid() *UpdateServerDeployConfigServersRaid {
+	if u == nil {
 		return nil
 	}
-	return o.Raid
+	return u.Raid
 }
 
-func (o *UpdateServerDeployConfigServersAttributes) GetUserData() *string {
-	if o == nil {
+func (u *UpdateServerDeployConfigServersAttributes) GetUserData() *string {
+	if u == nil {
 		return nil
 	}
-	return o.UserData
+	return u.UserData
 }
 
-func (o *UpdateServerDeployConfigServersAttributes) GetSSHKeys() []string {
-	if o == nil {
+func (u *UpdateServerDeployConfigServersAttributes) GetSSHKeys() []string {
+	if u == nil {
 		return nil
 	}
-	return o.SSHKeys
+	return u.SSHKeys
 }
 
-func (o *UpdateServerDeployConfigServersAttributes) GetPartitions() []UpdateServerDeployConfigPartitions {
-	if o == nil {
+func (u *UpdateServerDeployConfigServersAttributes) GetPartitions() []UpdateServerDeployConfigPartitions {
+	if u == nil {
 		return nil
 	}
-	return o.Partitions
+	return u.Partitions
 }
 
-func (o *UpdateServerDeployConfigServersAttributes) GetIpxeURL() *string {
-	if o == nil {
+func (u *UpdateServerDeployConfigServersAttributes) GetIpxeURL() *string {
+	if u == nil {
 		return nil
 	}
-	return o.IpxeURL
+	return u.IpxeURL
 }
 
 type UpdateServerDeployConfigServersRequestBody struct {
@@ -245,18 +245,18 @@ type UpdateServerDeployConfigServersRequestBody struct {
 	Attributes *UpdateServerDeployConfigServersAttributes `json:"attributes,omitempty"`
 }
 
-func (o *UpdateServerDeployConfigServersRequestBody) GetType() UpdateServerDeployConfigServersType {
-	if o == nil {
+func (u *UpdateServerDeployConfigServersRequestBody) GetType() UpdateServerDeployConfigServersType {
+	if u == nil {
 		return UpdateServerDeployConfigServersType("")
 	}
-	return o.Type
+	return u.Type
 }
 
-func (o *UpdateServerDeployConfigServersRequestBody) GetAttributes() *UpdateServerDeployConfigServersAttributes {
-	if o == nil {
+func (u *UpdateServerDeployConfigServersRequestBody) GetAttributes() *UpdateServerDeployConfigServersAttributes {
+	if u == nil {
 		return nil
 	}
-	return o.Attributes
+	return u.Attributes
 }
 
 type UpdateServerDeployConfigRequest struct {
@@ -265,18 +265,18 @@ type UpdateServerDeployConfigRequest struct {
 	RequestBody UpdateServerDeployConfigServersRequestBody `request:"mediaType=application/json"`
 }
 
-func (o *UpdateServerDeployConfigRequest) GetServerID() string {
-	if o == nil {
+func (u *UpdateServerDeployConfigRequest) GetServerID() string {
+	if u == nil {
 		return ""
 	}
-	return o.ServerID
+	return u.ServerID
 }
 
-func (o *UpdateServerDeployConfigRequest) GetRequestBody() UpdateServerDeployConfigServersRequestBody {
-	if o == nil {
+func (u *UpdateServerDeployConfigRequest) GetRequestBody() UpdateServerDeployConfigServersRequestBody {
+	if u == nil {
 		return UpdateServerDeployConfigServersRequestBody{}
 	}
-	return o.RequestBody
+	return u.RequestBody
 }
 
 type UpdateServerDeployConfigResponse struct {
@@ -285,16 +285,16 @@ type UpdateServerDeployConfigResponse struct {
 	DeployConfig *components.DeployConfig
 }
 
-func (o *UpdateServerDeployConfigResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (u *UpdateServerDeployConfigResponse) GetHTTPMeta() components.HTTPMetadata {
+	if u == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return u.HTTPMeta
 }
 
-func (o *UpdateServerDeployConfigResponse) GetDeployConfig() *components.DeployConfig {
-	if o == nil {
+func (u *UpdateServerDeployConfigResponse) GetDeployConfig() *components.DeployConfig {
+	if u == nil {
 		return nil
 	}
-	return o.DeployConfig
+	return u.DeployConfig
 }

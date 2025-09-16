@@ -42,7 +42,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.List(ctx, "proj_LMmAD8kEqwop2", latitudeshgosdk.String("tag_K9kzXA45BEsjobKPNVEQCrrKbw4o,tag_my9K5XGPYBIr1ve257anIW4KRX2e"))
+    res, err := s.SSHKeys.List(ctx, "proj_LMmAD8kEqwop2", latitudeshgosdk.Pointer("tag_K9kzXA45BEsjobKPNVEQCrrKbw4o,tag_my9K5XGPYBIr1ve257anIW4KRX2e"))
     if err != nil {
         log.Fatal(err)
     }
@@ -157,7 +157,7 @@ func main() {
 
     res, err := s.SSHKeys.ModifyProjectKey(ctx, "proj_W6Q2D9lGqKLpr", "ssh_zlkg1DegdvZE5", operations.PutProjectSSHKeySSHKeysRequestBody{
         Data: operations.PutProjectSSHKeySSHKeysData{
-            ID: latitudeshgosdk.String("ssh_zlkg1DegdvZE5"),
+            ID: latitudeshgosdk.Pointer("ssh_zlkg1DegdvZE5"),
             Type: operations.PutProjectSSHKeySSHKeysTypeSSHKeys,
             Attributes: &operations.PutProjectSSHKeySSHKeysAttributes{
                 Tags: []string{
@@ -277,7 +277,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.ListAll(ctx, latitudeshgosdk.String("tag_lYXenaknWwsJ4rryVbNoUbn6p4V,tag_ARJPX1YRrgTKQ4xpvX5YuWNG2nwW"))
+    res, err := s.SSHKeys.ListAll(ctx, latitudeshgosdk.Pointer("tag_lYXenaknWwsJ4rryVbNoUbn6p4V,tag_ARJPX1YRrgTKQ4xpvX5YuWNG2nwW"))
     if err != nil {
         log.Fatal(err)
     }
@@ -335,8 +335,8 @@ func main() {
         Data: operations.PostSSHKeySSHKeysData{
             Type: operations.PostSSHKeySSHKeysTypeSSHKeys,
             Attributes: &operations.PostSSHKeySSHKeysAttributes{
-                Name: latitudeshgosdk.String("SSH Key"),
-                PublicKey: latitudeshgosdk.String("ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx"),
+                Name: latitudeshgosdk.Pointer("SSH Key"),
+                PublicKey: latitudeshgosdk.Pointer("ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx"),
             },
         },
     })
@@ -448,7 +448,7 @@ func main() {
 
     res, err := s.SSHKeys.Update(ctx, "ssh_8Nkvdyn1qeLpx", operations.PutSSHKeySSHKeysRequestBody{
         Data: operations.PutSSHKeySSHKeysData{
-            ID: latitudeshgosdk.String("ssh_8Nkvdyn1qeLpx"),
+            ID: latitudeshgosdk.Pointer("ssh_8Nkvdyn1qeLpx"),
             Type: operations.PutSSHKeySSHKeysTypeSSHKeys,
             Attributes: &operations.PutSSHKeySSHKeysAttributes{
                 Tags: []string{

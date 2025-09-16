@@ -16,58 +16,58 @@ type TeamInclude struct {
 	FeatureFlags []string  `json:"feature_flags,omitempty"`
 }
 
-func (o *TeamInclude) GetID() *string {
-	if o == nil {
+func (t *TeamInclude) GetID() *string {
+	if t == nil {
 		return nil
 	}
-	return o.ID
+	return t.ID
 }
 
-func (o *TeamInclude) GetName() *string {
-	if o == nil {
+func (t *TeamInclude) GetName() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Name
+	return t.Name
 }
 
-func (o *TeamInclude) GetSlug() *string {
-	if o == nil {
+func (t *TeamInclude) GetSlug() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Slug
+	return t.Slug
 }
 
-func (o *TeamInclude) GetDescription() *string {
-	if o == nil {
+func (t *TeamInclude) GetDescription() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Description
+	return t.Description
 }
 
-func (o *TeamInclude) GetAddress() *string {
-	if o == nil {
+func (t *TeamInclude) GetAddress() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Address
+	return t.Address
 }
 
-func (o *TeamInclude) GetCurrency() *Currency {
-	if o == nil {
+func (t *TeamInclude) GetCurrency() *Currency {
+	if t == nil {
 		return nil
 	}
-	return o.Currency
+	return t.Currency
 }
 
-func (o *TeamInclude) GetStatus() *string {
-	if o == nil {
+func (t *TeamInclude) GetStatus() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Status
+	return t.Status
 }
 
-func (o *TeamInclude) GetFeatureFlags() []string {
-	if o == nil {
+func (t *TeamInclude) GetFeatureFlags() []string {
+	if t == nil {
 		return nil
 	}
-	return o.FeatureFlags
+	return t.FeatureFlags
 }

@@ -75,67 +75,67 @@ type VpnSessionDataWithPasswordAttributes struct {
 	UpdatedAt *string `json:"updated_at,omitempty"`
 }
 
-func (o *VpnSessionDataWithPasswordAttributes) GetUserName() *string {
-	if o == nil {
+func (v *VpnSessionDataWithPasswordAttributes) GetUserName() *string {
+	if v == nil {
 		return nil
 	}
-	return o.UserName
+	return v.UserName
 }
 
-func (o *VpnSessionDataWithPasswordAttributes) GetPassword() *string {
-	if o == nil {
+func (v *VpnSessionDataWithPasswordAttributes) GetPassword() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Password
+	return v.Password
 }
 
-func (o *VpnSessionDataWithPasswordAttributes) GetPort() *string {
-	if o == nil {
+func (v *VpnSessionDataWithPasswordAttributes) GetPort() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Port
+	return v.Port
 }
 
-func (o *VpnSessionDataWithPasswordAttributes) GetHost() *string {
-	if o == nil {
+func (v *VpnSessionDataWithPasswordAttributes) GetHost() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Host
+	return v.Host
 }
 
-func (o *VpnSessionDataWithPasswordAttributes) GetRegion() *RegionResourceData {
-	if o == nil {
+func (v *VpnSessionDataWithPasswordAttributes) GetRegion() *RegionResourceData {
+	if v == nil {
 		return nil
 	}
-	return o.Region
+	return v.Region
 }
 
-func (o *VpnSessionDataWithPasswordAttributes) GetStatus() *VpnSessionDataWithPasswordStatus {
-	if o == nil {
+func (v *VpnSessionDataWithPasswordAttributes) GetStatus() *VpnSessionDataWithPasswordStatus {
+	if v == nil {
 		return nil
 	}
-	return o.Status
+	return v.Status
 }
 
-func (o *VpnSessionDataWithPasswordAttributes) GetExpiresAt() *string {
-	if o == nil {
+func (v *VpnSessionDataWithPasswordAttributes) GetExpiresAt() *string {
+	if v == nil {
 		return nil
 	}
-	return o.ExpiresAt
+	return v.ExpiresAt
 }
 
-func (o *VpnSessionDataWithPasswordAttributes) GetCreatedAt() *string {
-	if o == nil {
+func (v *VpnSessionDataWithPasswordAttributes) GetCreatedAt() *string {
+	if v == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return v.CreatedAt
 }
 
-func (o *VpnSessionDataWithPasswordAttributes) GetUpdatedAt() *string {
-	if o == nil {
+func (v *VpnSessionDataWithPasswordAttributes) GetUpdatedAt() *string {
+	if v == nil {
 		return nil
 	}
-	return o.UpdatedAt
+	return v.UpdatedAt
 }
 
 type VpnSessionDataWithPassword struct {
@@ -144,23 +144,23 @@ type VpnSessionDataWithPassword struct {
 	Attributes *VpnSessionDataWithPasswordAttributes `json:"attributes,omitempty"`
 }
 
-func (o *VpnSessionDataWithPassword) GetID() *string {
-	if o == nil {
+func (v *VpnSessionDataWithPassword) GetID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.ID
+	return v.ID
 }
 
-func (o *VpnSessionDataWithPassword) GetType() *VpnSessionDataWithPasswordType {
-	if o == nil {
+func (v *VpnSessionDataWithPassword) GetType() *VpnSessionDataWithPasswordType {
+	if v == nil {
 		return nil
 	}
-	return o.Type
+	return v.Type
 }
 
-func (o *VpnSessionDataWithPassword) GetAttributes() *VpnSessionDataWithPasswordAttributes {
-	if o == nil {
+func (v *VpnSessionDataWithPassword) GetAttributes() *VpnSessionDataWithPasswordAttributes {
+	if v == nil {
 		return nil
 	}
-	return o.Attributes
+	return v.Attributes
 }

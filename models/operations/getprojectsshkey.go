@@ -12,18 +12,18 @@ type GetProjectSSHKeyRequest struct {
 	SSHKeyID  string `pathParam:"style=simple,explode=false,name=ssh_key_id"`
 }
 
-func (o *GetProjectSSHKeyRequest) GetProjectID() string {
-	if o == nil {
+func (g *GetProjectSSHKeyRequest) GetProjectID() string {
+	if g == nil {
 		return ""
 	}
-	return o.ProjectID
+	return g.ProjectID
 }
 
-func (o *GetProjectSSHKeyRequest) GetSSHKeyID() string {
-	if o == nil {
+func (g *GetProjectSSHKeyRequest) GetSSHKeyID() string {
+	if g == nil {
 		return ""
 	}
-	return o.SSHKeyID
+	return g.SSHKeyID
 }
 
 // GetProjectSSHKeyResponseBody - Success
@@ -31,11 +31,11 @@ type GetProjectSSHKeyResponseBody struct {
 	Data *components.SSHKeyData `json:"data,omitempty"`
 }
 
-func (o *GetProjectSSHKeyResponseBody) GetData() *components.SSHKeyData {
-	if o == nil {
+func (g *GetProjectSSHKeyResponseBody) GetData() *components.SSHKeyData {
+	if g == nil {
 		return nil
 	}
-	return o.Data
+	return g.Data
 }
 
 type GetProjectSSHKeyResponse struct {
@@ -44,16 +44,16 @@ type GetProjectSSHKeyResponse struct {
 	Object *GetProjectSSHKeyResponseBody
 }
 
-func (o *GetProjectSSHKeyResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetProjectSSHKeyResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetProjectSSHKeyResponse) GetObject() *GetProjectSSHKeyResponseBody {
-	if o == nil {
+func (g *GetProjectSSHKeyResponse) GetObject() *GetProjectSSHKeyResponseBody {
+	if g == nil {
 		return nil
 	}
-	return o.Object
+	return g.Object
 }

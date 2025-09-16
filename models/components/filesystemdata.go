@@ -38,25 +38,25 @@ type FilesystemDataProject struct {
 	Slug *string `json:"slug,omitempty"`
 }
 
-func (o *FilesystemDataProject) GetID() *string {
-	if o == nil {
+func (f *FilesystemDataProject) GetID() *string {
+	if f == nil {
 		return nil
 	}
-	return o.ID
+	return f.ID
 }
 
-func (o *FilesystemDataProject) GetName() *string {
-	if o == nil {
+func (f *FilesystemDataProject) GetName() *string {
+	if f == nil {
 		return nil
 	}
-	return o.Name
+	return f.Name
 }
 
-func (o *FilesystemDataProject) GetSlug() *string {
-	if o == nil {
+func (f *FilesystemDataProject) GetSlug() *string {
+	if f == nil {
 		return nil
 	}
-	return o.Slug
+	return f.Slug
 }
 
 type FilesystemDataAttributes struct {
@@ -77,32 +77,32 @@ func (f *FilesystemDataAttributes) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *FilesystemDataAttributes) GetName() *string {
-	if o == nil {
+func (f *FilesystemDataAttributes) GetName() *string {
+	if f == nil {
 		return nil
 	}
-	return o.Name
+	return f.Name
 }
 
-func (o *FilesystemDataAttributes) GetSizeInGb() *int64 {
-	if o == nil {
+func (f *FilesystemDataAttributes) GetSizeInGb() *int64 {
+	if f == nil {
 		return nil
 	}
-	return o.SizeInGb
+	return f.SizeInGb
 }
 
-func (o *FilesystemDataAttributes) GetCreatedAt() *time.Time {
-	if o == nil {
+func (f *FilesystemDataAttributes) GetCreatedAt() *time.Time {
+	if f == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return f.CreatedAt
 }
 
-func (o *FilesystemDataAttributes) GetProject() *FilesystemDataProject {
-	if o == nil {
+func (f *FilesystemDataAttributes) GetProject() *FilesystemDataProject {
+	if f == nil {
 		return nil
 	}
-	return o.Project
+	return f.Project
 }
 
 type FilesystemData struct {
@@ -111,23 +111,23 @@ type FilesystemData struct {
 	Attributes *FilesystemDataAttributes `json:"attributes,omitempty"`
 }
 
-func (o *FilesystemData) GetID() *string {
-	if o == nil {
+func (f *FilesystemData) GetID() *string {
+	if f == nil {
 		return nil
 	}
-	return o.ID
+	return f.ID
 }
 
-func (o *FilesystemData) GetType() *FilesystemDataType {
-	if o == nil {
+func (f *FilesystemData) GetType() *FilesystemDataType {
+	if f == nil {
 		return nil
 	}
-	return o.Type
+	return f.Type
 }
 
-func (o *FilesystemData) GetAttributes() *FilesystemDataAttributes {
-	if o == nil {
+func (f *FilesystemData) GetAttributes() *FilesystemDataAttributes {
+	if f == nil {
 		return nil
 	}
-	return o.Attributes
+	return f.Attributes
 }

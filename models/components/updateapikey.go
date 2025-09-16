@@ -49,18 +49,18 @@ func (u *UpdateAPIKeyAttributes) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *UpdateAPIKeyAttributes) GetName() *string {
-	if o == nil {
+func (u *UpdateAPIKeyAttributes) GetName() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Name
+	return u.Name
 }
 
-func (o *UpdateAPIKeyAttributes) GetAPIVersion() *string {
-	if o == nil {
+func (u *UpdateAPIKeyAttributes) GetAPIVersion() *string {
+	if u == nil {
 		return nil
 	}
-	return o.APIVersion
+	return u.APIVersion
 }
 
 type UpdateAPIKeyData struct {
@@ -69,34 +69,34 @@ type UpdateAPIKeyData struct {
 	Attributes *UpdateAPIKeyAttributes `json:"attributes,omitempty"`
 }
 
-func (o *UpdateAPIKeyData) GetID() *string {
-	if o == nil {
+func (u *UpdateAPIKeyData) GetID() *string {
+	if u == nil {
 		return nil
 	}
-	return o.ID
+	return u.ID
 }
 
-func (o *UpdateAPIKeyData) GetType() UpdateAPIKeyType {
-	if o == nil {
+func (u *UpdateAPIKeyData) GetType() UpdateAPIKeyType {
+	if u == nil {
 		return UpdateAPIKeyType("")
 	}
-	return o.Type
+	return u.Type
 }
 
-func (o *UpdateAPIKeyData) GetAttributes() *UpdateAPIKeyAttributes {
-	if o == nil {
+func (u *UpdateAPIKeyData) GetAttributes() *UpdateAPIKeyAttributes {
+	if u == nil {
 		return nil
 	}
-	return o.Attributes
+	return u.Attributes
 }
 
 type UpdateAPIKey struct {
 	Data *UpdateAPIKeyData `json:"data,omitempty"`
 }
 
-func (o *UpdateAPIKey) GetData() *UpdateAPIKeyData {
-	if o == nil {
+func (u *UpdateAPIKey) GetData() *UpdateAPIKeyData {
+	if u == nil {
 		return nil
 	}
-	return o.Data
+	return u.Data
 }

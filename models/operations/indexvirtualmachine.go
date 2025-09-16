@@ -11,20 +11,20 @@ type IndexVirtualMachineRequest struct {
 	FilterProject *string `queryParam:"style=form,explode=true,name=filter[project]"`
 }
 
-func (o *IndexVirtualMachineRequest) GetFilterProject() *string {
-	if o == nil {
+func (i *IndexVirtualMachineRequest) GetFilterProject() *string {
+	if i == nil {
 		return nil
 	}
-	return o.FilterProject
+	return i.FilterProject
 }
 
 type IndexVirtualMachineResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *IndexVirtualMachineResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (i *IndexVirtualMachineResponse) GetHTTPMeta() components.HTTPMetadata {
+	if i == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return i.HTTPMeta
 }

@@ -26,25 +26,25 @@ func (l *ListFirewallsRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *ListFirewallsRequest) GetFilterProject() *string {
-	if o == nil {
+func (l *ListFirewallsRequest) GetFilterProject() *string {
+	if l == nil {
 		return nil
 	}
-	return o.FilterProject
+	return l.FilterProject
 }
 
-func (o *ListFirewallsRequest) GetPageSize() *int64 {
-	if o == nil {
+func (l *ListFirewallsRequest) GetPageSize() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.PageSize
+	return l.PageSize
 }
 
-func (o *ListFirewallsRequest) GetPageNumber() *int64 {
-	if o == nil {
+func (l *ListFirewallsRequest) GetPageNumber() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.PageNumber
+	return l.PageNumber
 }
 
 type ListFirewallsResponse struct {
@@ -55,16 +55,16 @@ type ListFirewallsResponse struct {
 	Next func() (*ListFirewallsResponse, error)
 }
 
-func (o *ListFirewallsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (l *ListFirewallsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if l == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return l.HTTPMeta
 }
 
-func (o *ListFirewallsResponse) GetFirewalls() *components.Firewalls {
-	if o == nil {
+func (l *ListFirewallsResponse) GetFirewalls() *components.Firewalls {
+	if l == nil {
 		return nil
 	}
-	return o.Firewalls
+	return l.Firewalls
 }

@@ -86,18 +86,18 @@ type Size struct {
 	Unit *VirtualMachinePlansUnit `json:"unit,omitempty"`
 }
 
-func (o *Size) GetAmount() *int64 {
-	if o == nil {
+func (s *Size) GetAmount() *int64 {
+	if s == nil {
 		return nil
 	}
-	return o.Amount
+	return s.Amount
 }
 
-func (o *Size) GetUnit() *VirtualMachinePlansUnit {
-	if o == nil {
+func (s *Size) GetUnit() *VirtualMachinePlansUnit {
+	if s == nil {
 		return nil
 	}
-	return o.Unit
+	return s.Unit
 }
 
 type Disk struct {
@@ -106,18 +106,18 @@ type Disk struct {
 	Size *Size                        `json:"size,omitempty"`
 }
 
-func (o *Disk) GetType() *VirtualMachinePlansDataType {
-	if o == nil {
+func (d *Disk) GetType() *VirtualMachinePlansDataType {
+	if d == nil {
 		return nil
 	}
-	return o.Type
+	return d.Type
 }
 
-func (o *Disk) GetSize() *Size {
-	if o == nil {
+func (d *Disk) GetSize() *Size {
+	if d == nil {
 		return nil
 	}
-	return o.Size
+	return d.Size
 }
 
 type VirtualMachinePlansSpecs struct {
@@ -128,25 +128,25 @@ type VirtualMachinePlansSpecs struct {
 	Disk  *Disk  `json:"disk,omitempty"`
 }
 
-func (o *VirtualMachinePlansSpecs) GetMemory() *int64 {
-	if o == nil {
+func (v *VirtualMachinePlansSpecs) GetMemory() *int64 {
+	if v == nil {
 		return nil
 	}
-	return o.Memory
+	return v.Memory
 }
 
-func (o *VirtualMachinePlansSpecs) GetVcpus() *int64 {
-	if o == nil {
+func (v *VirtualMachinePlansSpecs) GetVcpus() *int64 {
+	if v == nil {
 		return nil
 	}
-	return o.Vcpus
+	return v.Vcpus
 }
 
-func (o *VirtualMachinePlansSpecs) GetDisk() *Disk {
-	if o == nil {
+func (v *VirtualMachinePlansSpecs) GetDisk() *Disk {
+	if v == nil {
 		return nil
 	}
-	return o.Disk
+	return v.Disk
 }
 
 type VirtualMachinePlansUSD struct {
@@ -155,25 +155,25 @@ type VirtualMachinePlansUSD struct {
 	Year  *float64 `json:"year,omitempty"`
 }
 
-func (o *VirtualMachinePlansUSD) GetHour() *float64 {
-	if o == nil {
+func (v *VirtualMachinePlansUSD) GetHour() *float64 {
+	if v == nil {
 		return nil
 	}
-	return o.Hour
+	return v.Hour
 }
 
-func (o *VirtualMachinePlansUSD) GetMonth() *float64 {
-	if o == nil {
+func (v *VirtualMachinePlansUSD) GetMonth() *float64 {
+	if v == nil {
 		return nil
 	}
-	return o.Month
+	return v.Month
 }
 
-func (o *VirtualMachinePlansUSD) GetYear() *float64 {
-	if o == nil {
+func (v *VirtualMachinePlansUSD) GetYear() *float64 {
+	if v == nil {
 		return nil
 	}
-	return o.Year
+	return v.Year
 }
 
 type VirtualMachinePlansBRL struct {
@@ -182,25 +182,25 @@ type VirtualMachinePlansBRL struct {
 	Year  *float64 `json:"year,omitempty"`
 }
 
-func (o *VirtualMachinePlansBRL) GetHour() *float64 {
-	if o == nil {
+func (v *VirtualMachinePlansBRL) GetHour() *float64 {
+	if v == nil {
 		return nil
 	}
-	return o.Hour
+	return v.Hour
 }
 
-func (o *VirtualMachinePlansBRL) GetMonth() *float64 {
-	if o == nil {
+func (v *VirtualMachinePlansBRL) GetMonth() *float64 {
+	if v == nil {
 		return nil
 	}
-	return o.Month
+	return v.Month
 }
 
-func (o *VirtualMachinePlansBRL) GetYear() *float64 {
-	if o == nil {
+func (v *VirtualMachinePlansBRL) GetYear() *float64 {
+	if v == nil {
 		return nil
 	}
-	return o.Year
+	return v.Year
 }
 
 type VirtualMachinePlansPricing struct {
@@ -208,18 +208,18 @@ type VirtualMachinePlansPricing struct {
 	Brl *VirtualMachinePlansBRL `json:"BRL,omitempty"`
 }
 
-func (o *VirtualMachinePlansPricing) GetUsd() *VirtualMachinePlansUSD {
-	if o == nil {
+func (v *VirtualMachinePlansPricing) GetUsd() *VirtualMachinePlansUSD {
+	if v == nil {
 		return nil
 	}
-	return o.Usd
+	return v.Usd
 }
 
-func (o *VirtualMachinePlansPricing) GetBrl() *VirtualMachinePlansBRL {
-	if o == nil {
+func (v *VirtualMachinePlansPricing) GetBrl() *VirtualMachinePlansBRL {
+	if v == nil {
 		return nil
 	}
-	return o.Brl
+	return v.Brl
 }
 
 type VirtualMachinePlansRegions struct {
@@ -228,25 +228,25 @@ type VirtualMachinePlansRegions struct {
 	Pricing   *VirtualMachinePlansPricing `json:"pricing,omitempty"`
 }
 
-func (o *VirtualMachinePlansRegions) GetName() *string {
-	if o == nil {
+func (v *VirtualMachinePlansRegions) GetName() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Name
+	return v.Name
 }
 
-func (o *VirtualMachinePlansRegions) GetAvailable() []string {
-	if o == nil {
+func (v *VirtualMachinePlansRegions) GetAvailable() []string {
+	if v == nil {
 		return nil
 	}
-	return o.Available
+	return v.Available
 }
 
-func (o *VirtualMachinePlansRegions) GetPricing() *VirtualMachinePlansPricing {
-	if o == nil {
+func (v *VirtualMachinePlansRegions) GetPricing() *VirtualMachinePlansPricing {
+	if v == nil {
 		return nil
 	}
-	return o.Pricing
+	return v.Pricing
 }
 
 // VirtualMachinePlansStockLevel - The stock level of the plan
@@ -282,32 +282,32 @@ type VirtualMachinePlansAttributes struct {
 	StockLevel *VirtualMachinePlansStockLevel `json:"stock_level,omitempty"`
 }
 
-func (o *VirtualMachinePlansAttributes) GetName() *string {
-	if o == nil {
+func (v *VirtualMachinePlansAttributes) GetName() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Name
+	return v.Name
 }
 
-func (o *VirtualMachinePlansAttributes) GetSpecs() *VirtualMachinePlansSpecs {
-	if o == nil {
+func (v *VirtualMachinePlansAttributes) GetSpecs() *VirtualMachinePlansSpecs {
+	if v == nil {
 		return nil
 	}
-	return o.Specs
+	return v.Specs
 }
 
-func (o *VirtualMachinePlansAttributes) GetRegions() []VirtualMachinePlansRegions {
-	if o == nil {
+func (v *VirtualMachinePlansAttributes) GetRegions() []VirtualMachinePlansRegions {
+	if v == nil {
 		return nil
 	}
-	return o.Regions
+	return v.Regions
 }
 
-func (o *VirtualMachinePlansAttributes) GetStockLevel() *VirtualMachinePlansStockLevel {
-	if o == nil {
+func (v *VirtualMachinePlansAttributes) GetStockLevel() *VirtualMachinePlansStockLevel {
+	if v == nil {
 		return nil
 	}
-	return o.StockLevel
+	return v.StockLevel
 }
 
 type VirtualMachinePlansData struct {
@@ -318,34 +318,34 @@ type VirtualMachinePlansData struct {
 	Attributes *VirtualMachinePlansAttributes `json:"attributes,omitempty"`
 }
 
-func (o *VirtualMachinePlansData) GetID() *string {
-	if o == nil {
+func (v *VirtualMachinePlansData) GetID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.ID
+	return v.ID
 }
 
-func (o *VirtualMachinePlansData) GetType() *VirtualMachinePlansType {
-	if o == nil {
+func (v *VirtualMachinePlansData) GetType() *VirtualMachinePlansType {
+	if v == nil {
 		return nil
 	}
-	return o.Type
+	return v.Type
 }
 
-func (o *VirtualMachinePlansData) GetAttributes() *VirtualMachinePlansAttributes {
-	if o == nil {
+func (v *VirtualMachinePlansData) GetAttributes() *VirtualMachinePlansAttributes {
+	if v == nil {
 		return nil
 	}
-	return o.Attributes
+	return v.Attributes
 }
 
 type VirtualMachinePlans struct {
 	Data []VirtualMachinePlansData `json:"data,omitempty"`
 }
 
-func (o *VirtualMachinePlans) GetData() []VirtualMachinePlansData {
-	if o == nil {
+func (v *VirtualMachinePlans) GetData() []VirtualMachinePlansData {
+	if v == nil {
 		return nil
 	}
-	return o.Data
+	return v.Data
 }

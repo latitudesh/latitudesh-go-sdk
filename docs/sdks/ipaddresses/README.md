@@ -38,8 +38,8 @@ func main() {
     )
 
     res, err := s.IPAddresses.List(ctx, operations.GetIpsRequest{
-        FilterServer: latitudeshgosdk.String("46"),
-        FilterProject: latitudeshgosdk.String("64"),
+        FilterServer: latitudeshgosdk.Pointer("46"),
+        FilterProject: latitudeshgosdk.Pointer("64"),
     })
     if err != nil {
         log.Fatal(err)
