@@ -79,8 +79,9 @@ func (o *Memory) GetTotal() *string {
 type PlanDataAttributesType string
 
 const (
-	PlanDataAttributesTypeSsd PlanDataAttributesType = "SSD"
-	PlanDataAttributesTypeHdd PlanDataAttributesType = "HDD"
+	PlanDataAttributesTypeSsd  PlanDataAttributesType = "SSD"
+	PlanDataAttributesTypeHdd  PlanDataAttributesType = "HDD"
+	PlanDataAttributesTypeNvme PlanDataAttributesType = "NVME"
 )
 
 func (e PlanDataAttributesType) ToPointer() *PlanDataAttributesType {
@@ -95,6 +96,8 @@ func (e *PlanDataAttributesType) UnmarshalJSON(data []byte) error {
 	case "SSD":
 		fallthrough
 	case "HDD":
+		fallthrough
+	case "NVME":
 		*e = PlanDataAttributesType(v)
 		return nil
 	default:
@@ -382,6 +385,7 @@ type PlanDataAttributes struct {
 	Features []string          `json:"features,omitempty"`
 	Specs    *Specs            `json:"specs,omitempty"`
 	Regions  []PlanDataRegions `json:"regions,omitempty"`
+	Name     *string           `json:"name,omitempty"`
 }
 
 func (o *PlanDataAttributes) GetSlug() *string {
@@ -410,6 +414,13 @@ func (o *PlanDataAttributes) GetRegions() []PlanDataRegions {
 		return nil
 	}
 	return o.Regions
+}
+
+func (o *PlanDataAttributes) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
 }
 
 type PlanData struct {

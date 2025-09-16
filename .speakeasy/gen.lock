@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 50357a97fe12ac133470b9495eda2a24
+  docChecksum: 580c98df107668b4518616b052463d9a
   docVersion: "2023-06-01"
   speakeasyVersion: 1.615.2
   generationVersion: 2.698.4
-  releaseVersion: 1.5.4
-  configChecksum: fd8d819572319196de7746dd4049fad0
+  releaseVersion: 1.5.5
+  configChecksum: e7780ccec9b8c7afd8fa935f063e0646
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 features:
@@ -1517,7 +1517,7 @@ examples:
     Success:
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "plan_1Qkm7dXzD8nZV", "type": "plans", "attributes": {"slug": "g3-l40s-medium-31", "features": [], "specs": {"cpu": {"type": "E-2276G", "clock": 3.8, "cores": 6, "count": 1}, "memory": {"total": "32"}, "drives": [{"count": 1, "size": "3.8TB", "type": "SSD"}], "nics": [{"count": 1, "type": "10 Gbps"}], "gpu": {"count": 4, "type": "NVIDIA H100"}}, "regions": [{"name": "Brazil", "deploys_instantly": [], "locations": {"available": ["SAO"], "in_stock": ["SAO"]}, "stock_level": "medium", "pricing": {"USD": {"hour": 10, "month": 50, "year": 100}, "BRL": {"hour": 53, "month": 108.5, "year": 205}}}]}}]}
+          application/vnd.api+json: {"data": [{"id": "plan_1Qkm7dXzD8nZV", "type": "plans", "attributes": {"slug": "g3-l40s-medium-31", "features": [], "specs": {"cpu": {"type": "E-2276G", "clock": 3.8, "cores": 6, "count": 1}, "memory": {"total": "32"}, "drives": [{"count": 1, "size": "3.8TB", "type": "SSD"}], "nics": [{"count": 1, "type": "10 Gbps"}], "gpu": {"count": 4, "type": "NVIDIA H100"}}, "regions": [{"name": "Brazil", "deploys_instantly": [], "locations": {"available": ["SAO"], "in_stock": ["SAO"]}, "stock_level": "medium", "pricing": {"USD": {"hour": 10, "month": 50, "year": 100}, "BRL": {"hour": 53, "month": 108.5, "year": 205}}}], "name": "g3.l40s.medium-31"}}]}
   get-plan:
     Success:
       parameters:
@@ -1525,7 +1525,7 @@ examples:
           plan_id: "plan_m5xyZOnNOWM0l"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "plan_m5xyZOnNOWM0l", "type": "plans", "attributes": {"slug": "g3-l40s-small-32", "features": [], "specs": {"cpu": {"type": "E-2276G", "clock": 3.8, "cores": 6, "count": 1}, "memory": {"total": "32"}, "drives": [{"count": 1, "size": "3.8TB", "type": "SSD"}], "nics": [{"count": 1, "type": "10 Gbps"}], "gpu": {"count": 4, "type": "NVIDIA H100"}}, "regions": [{"name": "Brazil", "deploys_instantly": [], "locations": {"available": ["SAO"], "in_stock": ["SAO"]}, "stock_level": "medium", "pricing": {"USD": {"hour": 10, "month": 50, "year": 100}, "BRL": {"hour": 53, "month": 108.5, "year": 205}}}]}}}
+          application/vnd.api+json: {"data": {"id": "plan_m5xyZOnNOWM0l", "type": "plans", "attributes": {"slug": "g3-l40s-small-32", "features": [], "specs": {"cpu": {"type": "E-2276G", "clock": 3.8, "cores": 6, "count": 1}, "memory": {"total": "32"}, "drives": [{"count": 1, "size": "3.8TB", "type": "SSD"}], "nics": [{"count": 1, "type": "10 Gbps"}], "gpu": {"count": 4, "type": "NVIDIA H100"}}, "regions": [{"name": "Brazil", "deploys_instantly": [], "locations": {"available": ["SAO"], "in_stock": ["SAO"]}, "stock_level": "medium", "pricing": {"USD": {"hour": 10, "month": 50, "year": 100}, "BRL": {"hour": 53, "month": 108.5, "year": 205}}}], "name": "g3.l40s.small-32"}}}
     Not found:
       parameters:
         path:
@@ -3586,4 +3586,7 @@ examples:
         application/vnd.api+json: {"id": "vm_VLMmAD8EOwop2", "type": "virtual_machines", "attributes": {"action": "reboot"}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes Detected:\n* `Latitudesh.Servers.UpdateDeployConfig()`: \n  *  `request.RequestBody.Attributes` **Changed** **Breaking** :warning:\n  *  `response.Data.Attributes.UserData` **Added**\n* `Latitudesh.Servers.Reinstall()`: \n  *  `request.RequestBody.Data.Attributes.UserData` **Changed** **Breaking** :warning:\n* `Latitudesh.VirtualMachines.Create-Virtual-Machine-Action()`: **Added**\n* `Latitudesh.Servers.GetDeployConfig()`:  `response.Data.Attributes.UserData` **Added**\n"
+releaseNotes: |
+  ## Go SDK Changes Detected:
+  * `Latitudesh.Plans.List()`:  `response.Data.[].Attributes.Name` **Added**
+  * `Latitudesh.Plans.Get()`:  `response.Data.Attributes.Name` **Added**

@@ -3,7 +3,8 @@
 
 ## Values
 
-| Name                        | Value                       |
-| --------------------------- | --------------------------- |
-| `PlanDataAttributesTypeSsd` | SSD                         |
-| `PlanDataAttributesTypeHdd` | HDD                         |
+| Name                         | Value                        |
+| ---------------------------- | ---------------------------- |
+| `PlanDataAttributesTypeSsd`  | SSD                          |
+| `PlanDataAttributesTypeHdd`  | HDD                          |
+| `PlanDataAttributesTypeNvme` | NVME                         |
