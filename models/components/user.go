@@ -25,32 +25,32 @@ func (u *UserRole) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *UserRole) GetID() *string {
-	if o == nil {
+func (u *UserRole) GetID() *string {
+	if u == nil {
 		return nil
 	}
-	return o.ID
+	return u.ID
 }
 
-func (o *UserRole) GetName() *string {
-	if o == nil {
+func (u *UserRole) GetName() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Name
+	return u.Name
 }
 
-func (o *UserRole) GetCreatedAt() *time.Time {
-	if o == nil {
+func (u *UserRole) GetCreatedAt() *time.Time {
+	if u == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return u.CreatedAt
 }
 
-func (o *UserRole) GetUpdatedAt() *time.Time {
-	if o == nil {
+func (u *UserRole) GetUpdatedAt() *time.Time {
+	if u == nil {
 		return nil
 	}
-	return o.UpdatedAt
+	return u.UpdatedAt
 }
 
 type UserAttributes struct {
@@ -62,46 +62,46 @@ type UserAttributes struct {
 	Teams                  []TeamInclude `json:"teams,omitempty"`
 }
 
-func (o *UserAttributes) GetFirstName() *string {
-	if o == nil {
+func (u *UserAttributes) GetFirstName() *string {
+	if u == nil {
 		return nil
 	}
-	return o.FirstName
+	return u.FirstName
 }
 
-func (o *UserAttributes) GetLastName() *string {
-	if o == nil {
+func (u *UserAttributes) GetLastName() *string {
+	if u == nil {
 		return nil
 	}
-	return o.LastName
+	return u.LastName
 }
 
-func (o *UserAttributes) GetEmail() *string {
-	if o == nil {
+func (u *UserAttributes) GetEmail() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Email
+	return u.Email
 }
 
-func (o *UserAttributes) GetAuthenticationFactorID() *string {
-	if o == nil {
+func (u *UserAttributes) GetAuthenticationFactorID() *string {
+	if u == nil {
 		return nil
 	}
-	return o.AuthenticationFactorID
+	return u.AuthenticationFactorID
 }
 
-func (o *UserAttributes) GetRole() *UserRole {
-	if o == nil {
+func (u *UserAttributes) GetRole() *UserRole {
+	if u == nil {
 		return nil
 	}
-	return o.Role
+	return u.Role
 }
 
-func (o *UserAttributes) GetTeams() []TeamInclude {
-	if o == nil {
+func (u *UserAttributes) GetTeams() []TeamInclude {
+	if u == nil {
 		return nil
 	}
-	return o.Teams
+	return u.Teams
 }
 
 type User struct {
@@ -109,16 +109,16 @@ type User struct {
 	Attributes *UserAttributes `json:"attributes,omitempty"`
 }
 
-func (o *User) GetID() *string {
-	if o == nil {
+func (u *User) GetID() *string {
+	if u == nil {
 		return nil
 	}
-	return o.ID
+	return u.ID
 }
 
-func (o *User) GetAttributes() *UserAttributes {
-	if o == nil {
+func (u *User) GetAttributes() *UserAttributes {
+	if u == nil {
 		return nil
 	}
-	return o.Attributes
+	return u.Attributes
 }

@@ -36,25 +36,25 @@ type BandwidthPackagesProject struct {
 	Slug *string `json:"slug,omitempty"`
 }
 
-func (o *BandwidthPackagesProject) GetID() *int64 {
-	if o == nil {
+func (b *BandwidthPackagesProject) GetID() *int64 {
+	if b == nil {
 		return nil
 	}
-	return o.ID
+	return b.ID
 }
 
-func (o *BandwidthPackagesProject) GetName() *string {
-	if o == nil {
+func (b *BandwidthPackagesProject) GetName() *string {
+	if b == nil {
 		return nil
 	}
-	return o.Name
+	return b.Name
 }
 
-func (o *BandwidthPackagesProject) GetSlug() *string {
-	if o == nil {
+func (b *BandwidthPackagesProject) GetSlug() *string {
+	if b == nil {
 		return nil
 	}
-	return o.Slug
+	return b.Slug
 }
 
 type Packages struct {
@@ -65,39 +65,39 @@ type Packages struct {
 	TotalPrice *float64 `json:"total_price,omitempty"`
 }
 
-func (o *Packages) GetRegionSlug() *string {
-	if o == nil {
+func (p *Packages) GetRegionSlug() *string {
+	if p == nil {
 		return nil
 	}
-	return o.RegionSlug
+	return p.RegionSlug
 }
 
-func (o *Packages) GetCurrency() *string {
-	if o == nil {
+func (p *Packages) GetCurrency() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Currency
+	return p.Currency
 }
 
-func (o *Packages) GetUnitPrice() *float64 {
-	if o == nil {
+func (p *Packages) GetUnitPrice() *float64 {
+	if p == nil {
 		return nil
 	}
-	return o.UnitPrice
+	return p.UnitPrice
 }
 
-func (o *Packages) GetContracted() *int64 {
-	if o == nil {
+func (p *Packages) GetContracted() *int64 {
+	if p == nil {
 		return nil
 	}
-	return o.Contracted
+	return p.Contracted
 }
 
-func (o *Packages) GetTotalPrice() *float64 {
-	if o == nil {
+func (p *Packages) GetTotalPrice() *float64 {
+	if p == nil {
 		return nil
 	}
-	return o.TotalPrice
+	return p.TotalPrice
 }
 
 type BandwidthPackagesAttributes struct {
@@ -105,18 +105,18 @@ type BandwidthPackagesAttributes struct {
 	Packages []Packages                `json:"packages,omitempty"`
 }
 
-func (o *BandwidthPackagesAttributes) GetProject() *BandwidthPackagesProject {
-	if o == nil {
+func (b *BandwidthPackagesAttributes) GetProject() *BandwidthPackagesProject {
+	if b == nil {
 		return nil
 	}
-	return o.Project
+	return b.Project
 }
 
-func (o *BandwidthPackagesAttributes) GetPackages() []Packages {
-	if o == nil {
+func (b *BandwidthPackagesAttributes) GetPackages() []Packages {
+	if b == nil {
 		return nil
 	}
-	return o.Packages
+	return b.Packages
 }
 
 type BandwidthPackages struct {
@@ -124,16 +124,16 @@ type BandwidthPackages struct {
 	Attributes *BandwidthPackagesAttributes `json:"attributes,omitempty"`
 }
 
-func (o *BandwidthPackages) GetType() *BandwidthPackagesType {
-	if o == nil {
+func (b *BandwidthPackages) GetType() *BandwidthPackagesType {
+	if b == nil {
 		return nil
 	}
-	return o.Type
+	return b.Type
 }
 
-func (o *BandwidthPackages) GetAttributes() *BandwidthPackagesAttributes {
-	if o == nil {
+func (b *BandwidthPackages) GetAttributes() *BandwidthPackagesAttributes {
+	if b == nil {
 		return nil
 	}
-	return o.Attributes
+	return b.Attributes
 }

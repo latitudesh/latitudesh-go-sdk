@@ -38,18 +38,18 @@ type APIKeyUser struct {
 	Email *string `json:"email,omitempty"`
 }
 
-func (o *APIKeyUser) GetID() *string {
-	if o == nil {
+func (a *APIKeyUser) GetID() *string {
+	if a == nil {
 		return nil
 	}
-	return o.ID
+	return a.ID
 }
 
-func (o *APIKeyUser) GetEmail() *string {
-	if o == nil {
+func (a *APIKeyUser) GetEmail() *string {
+	if a == nil {
 		return nil
 	}
-	return o.Email
+	return a.Email
 }
 
 type Attributes struct {
@@ -80,53 +80,53 @@ func (a *Attributes) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *Attributes) GetName() *string {
-	if o == nil {
+func (a *Attributes) GetName() *string {
+	if a == nil {
 		return nil
 	}
-	return o.Name
+	return a.Name
 }
 
-func (o *Attributes) GetAPIVersion() *string {
-	if o == nil {
+func (a *Attributes) GetAPIVersion() *string {
+	if a == nil {
 		return nil
 	}
-	return o.APIVersion
+	return a.APIVersion
 }
 
-func (o *Attributes) GetTokenLastSlice() *string {
-	if o == nil {
+func (a *Attributes) GetTokenLastSlice() *string {
+	if a == nil {
 		return nil
 	}
-	return o.TokenLastSlice
+	return a.TokenLastSlice
 }
 
-func (o *Attributes) GetLastUsedAt() *time.Time {
-	if o == nil {
+func (a *Attributes) GetLastUsedAt() *time.Time {
+	if a == nil {
 		return nil
 	}
-	return o.LastUsedAt
+	return a.LastUsedAt
 }
 
-func (o *Attributes) GetUser() *APIKeyUser {
-	if o == nil {
+func (a *Attributes) GetUser() *APIKeyUser {
+	if a == nil {
 		return nil
 	}
-	return o.User
+	return a.User
 }
 
-func (o *Attributes) GetCreatedAt() *time.Time {
-	if o == nil {
+func (a *Attributes) GetCreatedAt() *time.Time {
+	if a == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return a.CreatedAt
 }
 
-func (o *Attributes) GetUpdatedAt() *time.Time {
-	if o == nil {
+func (a *Attributes) GetUpdatedAt() *time.Time {
+	if a == nil {
 		return nil
 	}
-	return o.UpdatedAt
+	return a.UpdatedAt
 }
 
 type APIKey struct {
@@ -135,23 +135,23 @@ type APIKey struct {
 	Attributes *Attributes `json:"attributes,omitempty"`
 }
 
-func (o *APIKey) GetID() *string {
-	if o == nil {
+func (a *APIKey) GetID() *string {
+	if a == nil {
 		return nil
 	}
-	return o.ID
+	return a.ID
 }
 
-func (o *APIKey) GetType() *Type {
-	if o == nil {
+func (a *APIKey) GetType() *Type {
+	if a == nil {
 		return nil
 	}
-	return o.Type
+	return a.Type
 }
 
-func (o *APIKey) GetAttributes() *Attributes {
-	if o == nil {
+func (a *APIKey) GetAttributes() *Attributes {
+	if a == nil {
 		return nil
 	}
-	return o.Attributes
+	return a.Attributes
 }

@@ -9,32 +9,32 @@ type TeamMembersRole struct {
 	UpdatedAt *string `json:"updated_at,omitempty"`
 }
 
-func (o *TeamMembersRole) GetID() *string {
-	if o == nil {
+func (t *TeamMembersRole) GetID() *string {
+	if t == nil {
 		return nil
 	}
-	return o.ID
+	return t.ID
 }
 
-func (o *TeamMembersRole) GetName() *string {
-	if o == nil {
+func (t *TeamMembersRole) GetName() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Name
+	return t.Name
 }
 
-func (o *TeamMembersRole) GetCreatedAt() *string {
-	if o == nil {
+func (t *TeamMembersRole) GetCreatedAt() *string {
+	if t == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return t.CreatedAt
 }
 
-func (o *TeamMembersRole) GetUpdatedAt() *string {
-	if o == nil {
+func (t *TeamMembersRole) GetUpdatedAt() *string {
+	if t == nil {
 		return nil
 	}
-	return o.UpdatedAt
+	return t.UpdatedAt
 }
 
 type TeamMembersData struct {
@@ -45,48 +45,48 @@ type TeamMembersData struct {
 	Role       *TeamMembersRole `json:"role,omitempty"`
 }
 
-func (o *TeamMembersData) GetFirstName() *string {
-	if o == nil {
+func (t *TeamMembersData) GetFirstName() *string {
+	if t == nil {
 		return nil
 	}
-	return o.FirstName
+	return t.FirstName
 }
 
-func (o *TeamMembersData) GetLastName() *string {
-	if o == nil {
+func (t *TeamMembersData) GetLastName() *string {
+	if t == nil {
 		return nil
 	}
-	return o.LastName
+	return t.LastName
 }
 
-func (o *TeamMembersData) GetEmail() *string {
-	if o == nil {
+func (t *TeamMembersData) GetEmail() *string {
+	if t == nil {
 		return nil
 	}
-	return o.Email
+	return t.Email
 }
 
-func (o *TeamMembersData) GetMfaEnabled() *bool {
-	if o == nil {
+func (t *TeamMembersData) GetMfaEnabled() *bool {
+	if t == nil {
 		return nil
 	}
-	return o.MfaEnabled
+	return t.MfaEnabled
 }
 
-func (o *TeamMembersData) GetRole() *TeamMembersRole {
-	if o == nil {
+func (t *TeamMembersData) GetRole() *TeamMembersRole {
+	if t == nil {
 		return nil
 	}
-	return o.Role
+	return t.Role
 }
 
 type TeamMembers struct {
 	Data []TeamMembersData `json:"data,omitempty"`
 }
 
-func (o *TeamMembers) GetData() []TeamMembersData {
-	if o == nil {
+func (t *TeamMembers) GetData() []TeamMembersData {
+	if t == nil {
 		return nil
 	}
-	return o.Data
+	return t.Data
 }

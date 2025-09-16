@@ -10,11 +10,11 @@ type PutVpnSessionRequest struct {
 	VpnSessionID string `pathParam:"style=simple,explode=false,name=vpn_session_id"`
 }
 
-func (o *PutVpnSessionRequest) GetVpnSessionID() string {
-	if o == nil {
+func (p *PutVpnSessionRequest) GetVpnSessionID() string {
+	if p == nil {
 		return ""
 	}
-	return o.VpnSessionID
+	return p.VpnSessionID
 }
 
 type PutVpnSessionResponse struct {
@@ -23,16 +23,16 @@ type PutVpnSessionResponse struct {
 	VpnSessionWithPassword *components.VpnSessionWithPassword
 }
 
-func (o *PutVpnSessionResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PutVpnSessionResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PutVpnSessionResponse) GetVpnSessionWithPassword() *components.VpnSessionWithPassword {
-	if o == nil {
+func (p *PutVpnSessionResponse) GetVpnSessionWithPassword() *components.VpnSessionWithPassword {
+	if p == nil {
 		return nil
 	}
-	return o.VpnSessionWithPassword
+	return p.VpnSessionWithPassword
 }

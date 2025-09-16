@@ -33,7 +33,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Roles.List(ctx, latitudeshgosdk.Int64(20), latitudeshgosdk.Int64(1))
+    res, err := s.Roles.List(ctx, latitudeshgosdk.Pointer[int64](20), latitudeshgosdk.Pointer[int64](1))
     if err != nil {
         log.Fatal(err)
     }

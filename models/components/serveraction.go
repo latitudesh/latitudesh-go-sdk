@@ -34,11 +34,11 @@ type ServerActionAttributes struct {
 	Status *string `json:"status,omitempty"`
 }
 
-func (o *ServerActionAttributes) GetStatus() *string {
-	if o == nil {
+func (s *ServerActionAttributes) GetStatus() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Status
+	return s.Status
 }
 
 type ServerActionData struct {
@@ -47,25 +47,25 @@ type ServerActionData struct {
 	Attributes *ServerActionAttributes `json:"attributes,omitempty"`
 }
 
-func (o *ServerActionData) GetID() *string {
-	if o == nil {
+func (s *ServerActionData) GetID() *string {
+	if s == nil {
 		return nil
 	}
-	return o.ID
+	return s.ID
 }
 
-func (o *ServerActionData) GetType() *ServerActionType {
-	if o == nil {
+func (s *ServerActionData) GetType() *ServerActionType {
+	if s == nil {
 		return nil
 	}
-	return o.Type
+	return s.Type
 }
 
-func (o *ServerActionData) GetAttributes() *ServerActionAttributes {
-	if o == nil {
+func (s *ServerActionData) GetAttributes() *ServerActionAttributes {
+	if s == nil {
 		return nil
 	}
-	return o.Attributes
+	return s.Attributes
 }
 
 type ServerActionMeta struct {
@@ -76,16 +76,16 @@ type ServerAction struct {
 	Meta *ServerActionMeta `json:"meta,omitempty"`
 }
 
-func (o *ServerAction) GetData() *ServerActionData {
-	if o == nil {
+func (s *ServerAction) GetData() *ServerActionData {
+	if s == nil {
 		return nil
 	}
-	return o.Data
+	return s.Data
 }
 
-func (o *ServerAction) GetMeta() *ServerActionMeta {
-	if o == nil {
+func (s *ServerAction) GetMeta() *ServerActionMeta {
+	if s == nil {
 		return nil
 	}
-	return o.Meta
+	return s.Meta
 }

@@ -10,39 +10,39 @@ type UserUpdateAttributes struct {
 	Role                   *string `json:"role,omitempty"`
 }
 
-func (o *UserUpdateAttributes) GetFirstName() *string {
-	if o == nil {
+func (u *UserUpdateAttributes) GetFirstName() *string {
+	if u == nil {
 		return nil
 	}
-	return o.FirstName
+	return u.FirstName
 }
 
-func (o *UserUpdateAttributes) GetLastName() *string {
-	if o == nil {
+func (u *UserUpdateAttributes) GetLastName() *string {
+	if u == nil {
 		return nil
 	}
-	return o.LastName
+	return u.LastName
 }
 
-func (o *UserUpdateAttributes) GetEmail() *string {
-	if o == nil {
+func (u *UserUpdateAttributes) GetEmail() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Email
+	return u.Email
 }
 
-func (o *UserUpdateAttributes) GetAuthenticationFactorID() *string {
-	if o == nil {
+func (u *UserUpdateAttributes) GetAuthenticationFactorID() *string {
+	if u == nil {
 		return nil
 	}
-	return o.AuthenticationFactorID
+	return u.AuthenticationFactorID
 }
 
-func (o *UserUpdateAttributes) GetRole() *string {
-	if o == nil {
+func (u *UserUpdateAttributes) GetRole() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Role
+	return u.Role
 }
 
 type UserUpdate struct {
@@ -50,16 +50,16 @@ type UserUpdate struct {
 	Attributes *UserUpdateAttributes `json:"attributes,omitempty"`
 }
 
-func (o *UserUpdate) GetID() *string {
-	if o == nil {
+func (u *UserUpdate) GetID() *string {
+	if u == nil {
 		return nil
 	}
-	return o.ID
+	return u.ID
 }
 
-func (o *UserUpdate) GetAttributes() *UserUpdateAttributes {
-	if o == nil {
+func (u *UserUpdate) GetAttributes() *UserUpdateAttributes {
+	if u == nil {
 		return nil
 	}
-	return o.Attributes
+	return u.Attributes
 }

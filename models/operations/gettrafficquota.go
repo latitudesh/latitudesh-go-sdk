@@ -10,11 +10,11 @@ type GetTrafficQuotaRequest struct {
 	FilterProject *string `queryParam:"style=form,explode=true,name=filter[project]"`
 }
 
-func (o *GetTrafficQuotaRequest) GetFilterProject() *string {
-	if o == nil {
+func (g *GetTrafficQuotaRequest) GetFilterProject() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterProject
+	return g.FilterProject
 }
 
 type GetTrafficQuotaResponse struct {
@@ -23,16 +23,16 @@ type GetTrafficQuotaResponse struct {
 	TrafficQuota *components.TrafficQuota
 }
 
-func (o *GetTrafficQuotaResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetTrafficQuotaResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetTrafficQuotaResponse) GetTrafficQuota() *components.TrafficQuota {
-	if o == nil {
+func (g *GetTrafficQuotaResponse) GetTrafficQuota() *components.TrafficQuota {
+	if g == nil {
 		return nil
 	}
-	return o.TrafficQuota
+	return g.TrafficQuota
 }

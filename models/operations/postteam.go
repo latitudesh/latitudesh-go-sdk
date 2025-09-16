@@ -65,32 +65,32 @@ type PostTeamTeamsAttributes struct {
 	ReferredCode *string `json:"referred_code,omitempty"`
 }
 
-func (o *PostTeamTeamsAttributes) GetName() string {
-	if o == nil {
+func (p *PostTeamTeamsAttributes) GetName() string {
+	if p == nil {
 		return ""
 	}
-	return o.Name
+	return p.Name
 }
 
-func (o *PostTeamTeamsAttributes) GetCurrency() PostTeamCurrency {
-	if o == nil {
+func (p *PostTeamTeamsAttributes) GetCurrency() PostTeamCurrency {
+	if p == nil {
 		return PostTeamCurrency("")
 	}
-	return o.Currency
+	return p.Currency
 }
 
-func (o *PostTeamTeamsAttributes) GetAddress() *string {
-	if o == nil {
+func (p *PostTeamTeamsAttributes) GetAddress() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Address
+	return p.Address
 }
 
-func (o *PostTeamTeamsAttributes) GetReferredCode() *string {
-	if o == nil {
+func (p *PostTeamTeamsAttributes) GetReferredCode() *string {
+	if p == nil {
 		return nil
 	}
-	return o.ReferredCode
+	return p.ReferredCode
 }
 
 type PostTeamTeamsData struct {
@@ -98,29 +98,29 @@ type PostTeamTeamsData struct {
 	Attributes *PostTeamTeamsAttributes `json:"attributes,omitempty"`
 }
 
-func (o *PostTeamTeamsData) GetType() PostTeamTeamsType {
-	if o == nil {
+func (p *PostTeamTeamsData) GetType() PostTeamTeamsType {
+	if p == nil {
 		return PostTeamTeamsType("")
 	}
-	return o.Type
+	return p.Type
 }
 
-func (o *PostTeamTeamsData) GetAttributes() *PostTeamTeamsAttributes {
-	if o == nil {
+func (p *PostTeamTeamsData) GetAttributes() *PostTeamTeamsAttributes {
+	if p == nil {
 		return nil
 	}
-	return o.Attributes
+	return p.Attributes
 }
 
 type PostTeamTeamsRequestBody struct {
 	Data PostTeamTeamsData `json:"data"`
 }
 
-func (o *PostTeamTeamsRequestBody) GetData() PostTeamTeamsData {
-	if o == nil {
+func (p *PostTeamTeamsRequestBody) GetData() PostTeamTeamsData {
+	if p == nil {
 		return PostTeamTeamsData{}
 	}
-	return o.Data
+	return p.Data
 }
 
 // PostTeamResponseBody - Created
@@ -128,11 +128,11 @@ type PostTeamResponseBody struct {
 	Data *components.Team `json:"data,omitempty"`
 }
 
-func (o *PostTeamResponseBody) GetData() *components.Team {
-	if o == nil {
+func (p *PostTeamResponseBody) GetData() *components.Team {
+	if p == nil {
 		return nil
 	}
-	return o.Data
+	return p.Data
 }
 
 type PostTeamResponse struct {
@@ -141,16 +141,16 @@ type PostTeamResponse struct {
 	Object *PostTeamResponseBody
 }
 
-func (o *PostTeamResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PostTeamResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PostTeamResponse) GetObject() *PostTeamResponseBody {
-	if o == nil {
+func (p *PostTeamResponse) GetObject() *PostTeamResponseBody {
+	if p == nil {
 		return nil
 	}
-	return o.Object
+	return p.Object
 }

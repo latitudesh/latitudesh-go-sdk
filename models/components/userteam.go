@@ -7,18 +7,18 @@ type UserTeamBilling struct {
 	CustomerBillingID *string `json:"customer_billing_id,omitempty"`
 }
 
-func (o *UserTeamBilling) GetID() *string {
-	if o == nil {
+func (u *UserTeamBilling) GetID() *string {
+	if u == nil {
 		return nil
 	}
-	return o.ID
+	return u.ID
 }
 
-func (o *UserTeamBilling) GetCustomerBillingID() *string {
-	if o == nil {
+func (u *UserTeamBilling) GetCustomerBillingID() *string {
+	if u == nil {
 		return nil
 	}
-	return o.CustomerBillingID
+	return u.CustomerBillingID
 }
 
 type UserTeamAttributes struct {
@@ -33,67 +33,67 @@ type UserTeamAttributes struct {
 	Billing     *UserTeamBilling `json:"billing,omitempty"`
 }
 
-func (o *UserTeamAttributes) GetName() *string {
-	if o == nil {
+func (u *UserTeamAttributes) GetName() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Name
+	return u.Name
 }
 
-func (o *UserTeamAttributes) GetSlug() *string {
-	if o == nil {
+func (u *UserTeamAttributes) GetSlug() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Slug
+	return u.Slug
 }
 
-func (o *UserTeamAttributes) GetDescription() *string {
-	if o == nil {
+func (u *UserTeamAttributes) GetDescription() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Description
+	return u.Description
 }
 
-func (o *UserTeamAttributes) GetAddress() *string {
-	if o == nil {
+func (u *UserTeamAttributes) GetAddress() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Address
+	return u.Address
 }
 
-func (o *UserTeamAttributes) GetCurrency() *string {
-	if o == nil {
+func (u *UserTeamAttributes) GetCurrency() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Currency
+	return u.Currency
 }
 
-func (o *UserTeamAttributes) GetCreatedAt() *string {
-	if o == nil {
+func (u *UserTeamAttributes) GetCreatedAt() *string {
+	if u == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return u.CreatedAt
 }
 
-func (o *UserTeamAttributes) GetUpdatedAt() *string {
-	if o == nil {
+func (u *UserTeamAttributes) GetUpdatedAt() *string {
+	if u == nil {
 		return nil
 	}
-	return o.UpdatedAt
+	return u.UpdatedAt
 }
 
-func (o *UserTeamAttributes) GetOwner() *UserInclude {
-	if o == nil {
+func (u *UserTeamAttributes) GetOwner() *UserInclude {
+	if u == nil {
 		return nil
 	}
-	return o.Owner
+	return u.Owner
 }
 
-func (o *UserTeamAttributes) GetBilling() *UserTeamBilling {
-	if o == nil {
+func (u *UserTeamAttributes) GetBilling() *UserTeamBilling {
+	if u == nil {
 		return nil
 	}
-	return o.Billing
+	return u.Billing
 }
 
 type UserTeam struct {
@@ -101,16 +101,16 @@ type UserTeam struct {
 	Attributes *UserTeamAttributes `json:"attributes,omitempty"`
 }
 
-func (o *UserTeam) GetID() *string {
-	if o == nil {
+func (u *UserTeam) GetID() *string {
+	if u == nil {
 		return nil
 	}
-	return o.ID
+	return u.ID
 }
 
-func (o *UserTeam) GetAttributes() *UserTeamAttributes {
-	if o == nil {
+func (u *UserTeam) GetAttributes() *UserTeamAttributes {
+	if u == nil {
 		return nil
 	}
-	return o.Attributes
+	return u.Attributes
 }

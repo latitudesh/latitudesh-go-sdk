@@ -12,16 +12,16 @@ type GetVMPlansResponse struct {
 	VirtualMachinePlans *components.VirtualMachinePlans
 }
 
-func (o *GetVMPlansResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetVMPlansResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetVMPlansResponse) GetVirtualMachinePlans() *components.VirtualMachinePlans {
-	if o == nil {
+func (g *GetVMPlansResponse) GetVirtualMachinePlans() *components.VirtualMachinePlans {
+	if g == nil {
 		return nil
 	}
-	return o.VirtualMachinePlans
+	return g.VirtualMachinePlans
 }

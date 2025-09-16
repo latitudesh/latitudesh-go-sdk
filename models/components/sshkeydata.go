@@ -42,46 +42,46 @@ type SSHKeyDataAttributes struct {
 	UpdatedAt   *string      `json:"updated_at,omitempty"`
 }
 
-func (o *SSHKeyDataAttributes) GetName() *string {
-	if o == nil {
+func (s *SSHKeyDataAttributes) GetName() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Name
+	return s.Name
 }
 
-func (o *SSHKeyDataAttributes) GetPublicKey() *string {
-	if o == nil {
+func (s *SSHKeyDataAttributes) GetPublicKey() *string {
+	if s == nil {
 		return nil
 	}
-	return o.PublicKey
+	return s.PublicKey
 }
 
-func (o *SSHKeyDataAttributes) GetFingerprint() *string {
-	if o == nil {
+func (s *SSHKeyDataAttributes) GetFingerprint() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Fingerprint
+	return s.Fingerprint
 }
 
-func (o *SSHKeyDataAttributes) GetUser() *UserInclude {
-	if o == nil {
+func (s *SSHKeyDataAttributes) GetUser() *UserInclude {
+	if s == nil {
 		return nil
 	}
-	return o.User
+	return s.User
 }
 
-func (o *SSHKeyDataAttributes) GetCreatedAt() *string {
-	if o == nil {
+func (s *SSHKeyDataAttributes) GetCreatedAt() *string {
+	if s == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return s.CreatedAt
 }
 
-func (o *SSHKeyDataAttributes) GetUpdatedAt() *string {
-	if o == nil {
+func (s *SSHKeyDataAttributes) GetUpdatedAt() *string {
+	if s == nil {
 		return nil
 	}
-	return o.UpdatedAt
+	return s.UpdatedAt
 }
 
 type SSHKeyData struct {
@@ -90,23 +90,23 @@ type SSHKeyData struct {
 	Attributes *SSHKeyDataAttributes `json:"attributes,omitempty"`
 }
 
-func (o *SSHKeyData) GetID() *string {
-	if o == nil {
+func (s *SSHKeyData) GetID() *string {
+	if s == nil {
 		return nil
 	}
-	return o.ID
+	return s.ID
 }
 
-func (o *SSHKeyData) GetType() SSHKeyDataType {
-	if o == nil {
+func (s *SSHKeyData) GetType() SSHKeyDataType {
+	if s == nil {
 		return SSHKeyDataType("")
 	}
-	return o.Type
+	return s.Type
 }
 
-func (o *SSHKeyData) GetAttributes() *SSHKeyDataAttributes {
-	if o == nil {
+func (s *SSHKeyData) GetAttributes() *SSHKeyDataAttributes {
+	if s == nil {
 		return nil
 	}
-	return o.Attributes
+	return s.Attributes
 }

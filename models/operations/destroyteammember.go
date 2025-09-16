@@ -11,20 +11,20 @@ type DestroyTeamMemberRequest struct {
 	UserID string `pathParam:"style=simple,explode=false,name=user_id"`
 }
 
-func (o *DestroyTeamMemberRequest) GetUserID() string {
-	if o == nil {
+func (d *DestroyTeamMemberRequest) GetUserID() string {
+	if d == nil {
 		return ""
 	}
-	return o.UserID
+	return d.UserID
 }
 
 type DestroyTeamMemberResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *DestroyTeamMemberResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (d *DestroyTeamMemberResponse) GetHTTPMeta() components.HTTPMetadata {
+	if d == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return d.HTTPMeta
 }

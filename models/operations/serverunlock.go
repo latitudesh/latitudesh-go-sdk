@@ -10,11 +10,11 @@ type ServerUnlockRequest struct {
 	ServerID string `pathParam:"style=simple,explode=false,name=server_id"`
 }
 
-func (o *ServerUnlockRequest) GetServerID() string {
-	if o == nil {
+func (s *ServerUnlockRequest) GetServerID() string {
+	if s == nil {
 		return ""
 	}
-	return o.ServerID
+	return s.ServerID
 }
 
 type ServerUnlockResponse struct {
@@ -23,16 +23,16 @@ type ServerUnlockResponse struct {
 	Server *components.Server
 }
 
-func (o *ServerUnlockResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (s *ServerUnlockResponse) GetHTTPMeta() components.HTTPMetadata {
+	if s == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return s.HTTPMeta
 }
 
-func (o *ServerUnlockResponse) GetServer() *components.Server {
-	if o == nil {
+func (s *ServerUnlockResponse) GetServer() *components.Server {
+	if s == nil {
 		return nil
 	}
-	return o.Server
+	return s.Server
 }

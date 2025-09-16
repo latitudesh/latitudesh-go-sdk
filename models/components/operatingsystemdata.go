@@ -36,25 +36,25 @@ type Features struct {
 	UserData *bool `json:"user_data,omitempty"`
 }
 
-func (o *Features) GetRaid() *bool {
-	if o == nil {
+func (f *Features) GetRaid() *bool {
+	if f == nil {
 		return nil
 	}
-	return o.Raid
+	return f.Raid
 }
 
-func (o *Features) GetSSHKeys() *bool {
-	if o == nil {
+func (f *Features) GetSSHKeys() *bool {
+	if f == nil {
 		return nil
 	}
-	return o.SSHKeys
+	return f.SSHKeys
 }
 
-func (o *Features) GetUserData() *bool {
-	if o == nil {
+func (f *Features) GetUserData() *bool {
+	if f == nil {
 		return nil
 	}
-	return o.UserData
+	return f.UserData
 }
 
 type OperatingSystemDataAttributes struct {

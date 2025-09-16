@@ -10,20 +10,20 @@ type DestroyVirtualMachineRequest struct {
 	VirtualMachineID string `pathParam:"style=simple,explode=false,name=virtual_machine_id"`
 }
 
-func (o *DestroyVirtualMachineRequest) GetVirtualMachineID() string {
-	if o == nil {
+func (d *DestroyVirtualMachineRequest) GetVirtualMachineID() string {
+	if d == nil {
 		return ""
 	}
-	return o.VirtualMachineID
+	return d.VirtualMachineID
 }
 
 type DestroyVirtualMachineResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *DestroyVirtualMachineResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (d *DestroyVirtualMachineResponse) GetHTTPMeta() components.HTTPMetadata {
+	if d == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return d.HTTPMeta
 }

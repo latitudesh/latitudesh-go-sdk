@@ -36,25 +36,25 @@ type FirewallAssignmentDataServer struct {
 	Hostname    *string `json:"hostname,omitempty"`
 }
 
-func (o *FirewallAssignmentDataServer) GetID() *string {
-	if o == nil {
+func (f *FirewallAssignmentDataServer) GetID() *string {
+	if f == nil {
 		return nil
 	}
-	return o.ID
+	return f.ID
 }
 
-func (o *FirewallAssignmentDataServer) GetPrimaryIpv4() *string {
-	if o == nil {
+func (f *FirewallAssignmentDataServer) GetPrimaryIpv4() *string {
+	if f == nil {
 		return nil
 	}
-	return o.PrimaryIpv4
+	return f.PrimaryIpv4
 }
 
-func (o *FirewallAssignmentDataServer) GetHostname() *string {
-	if o == nil {
+func (f *FirewallAssignmentDataServer) GetHostname() *string {
+	if f == nil {
 		return nil
 	}
-	return o.Hostname
+	return f.Hostname
 }
 
 type FirewallAssignmentDataAttributes struct {
@@ -62,18 +62,18 @@ type FirewallAssignmentDataAttributes struct {
 	FirewallID *string                       `json:"firewall_id,omitempty"`
 }
 
-func (o *FirewallAssignmentDataAttributes) GetServer() *FirewallAssignmentDataServer {
-	if o == nil {
+func (f *FirewallAssignmentDataAttributes) GetServer() *FirewallAssignmentDataServer {
+	if f == nil {
 		return nil
 	}
-	return o.Server
+	return f.Server
 }
 
-func (o *FirewallAssignmentDataAttributes) GetFirewallID() *string {
-	if o == nil {
+func (f *FirewallAssignmentDataAttributes) GetFirewallID() *string {
+	if f == nil {
 		return nil
 	}
-	return o.FirewallID
+	return f.FirewallID
 }
 
 type FirewallAssignmentData struct {
@@ -82,23 +82,23 @@ type FirewallAssignmentData struct {
 	Attributes *FirewallAssignmentDataAttributes `json:"attributes,omitempty"`
 }
 
-func (o *FirewallAssignmentData) GetID() *string {
-	if o == nil {
+func (f *FirewallAssignmentData) GetID() *string {
+	if f == nil {
 		return nil
 	}
-	return o.ID
+	return f.ID
 }
 
-func (o *FirewallAssignmentData) GetType() *FirewallAssignmentDataType {
-	if o == nil {
+func (f *FirewallAssignmentData) GetType() *FirewallAssignmentDataType {
+	if f == nil {
 		return nil
 	}
-	return o.Type
+	return f.Type
 }
 
-func (o *FirewallAssignmentData) GetAttributes() *FirewallAssignmentDataAttributes {
-	if o == nil {
+func (f *FirewallAssignmentData) GetAttributes() *FirewallAssignmentDataAttributes {
+	if f == nil {
 		return nil
 	}
-	return o.Attributes
+	return f.Attributes
 }

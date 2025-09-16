@@ -39,32 +39,32 @@ type VirtualNetworkDataSite struct {
 	Slug     *string `json:"slug,omitempty"`
 }
 
-func (o *VirtualNetworkDataSite) GetID() *string {
-	if o == nil {
+func (v *VirtualNetworkDataSite) GetID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.ID
+	return v.ID
 }
 
-func (o *VirtualNetworkDataSite) GetFacility() *string {
-	if o == nil {
+func (v *VirtualNetworkDataSite) GetFacility() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Facility
+	return v.Facility
 }
 
-func (o *VirtualNetworkDataSite) GetName() *string {
-	if o == nil {
+func (v *VirtualNetworkDataSite) GetName() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Name
+	return v.Name
 }
 
-func (o *VirtualNetworkDataSite) GetSlug() *string {
-	if o == nil {
+func (v *VirtualNetworkDataSite) GetSlug() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Slug
+	return v.Slug
 }
 
 type VirtualNetworkDataRegion struct {
@@ -73,25 +73,25 @@ type VirtualNetworkDataRegion struct {
 	Site    *VirtualNetworkDataSite `json:"site,omitempty"`
 }
 
-func (o *VirtualNetworkDataRegion) GetCity() *string {
-	if o == nil {
+func (v *VirtualNetworkDataRegion) GetCity() *string {
+	if v == nil {
 		return nil
 	}
-	return o.City
+	return v.City
 }
 
-func (o *VirtualNetworkDataRegion) GetCountry() *string {
-	if o == nil {
+func (v *VirtualNetworkDataRegion) GetCountry() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Country
+	return v.Country
 }
 
-func (o *VirtualNetworkDataRegion) GetSite() *VirtualNetworkDataSite {
-	if o == nil {
+func (v *VirtualNetworkDataRegion) GetSite() *VirtualNetworkDataSite {
+	if v == nil {
 		return nil
 	}
-	return o.Site
+	return v.Site
 }
 
 type VirtualNetworkDataAttributes struct {
@@ -118,46 +118,46 @@ func (v *VirtualNetworkDataAttributes) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *VirtualNetworkDataAttributes) GetVid() *int64 {
-	if o == nil {
+func (v *VirtualNetworkDataAttributes) GetVid() *int64 {
+	if v == nil {
 		return nil
 	}
-	return o.Vid
+	return v.Vid
 }
 
-func (o *VirtualNetworkDataAttributes) GetName() *string {
-	if o == nil {
+func (v *VirtualNetworkDataAttributes) GetName() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Name
+	return v.Name
 }
 
-func (o *VirtualNetworkDataAttributes) GetDescription() *string {
-	if o == nil {
+func (v *VirtualNetworkDataAttributes) GetDescription() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Description
+	return v.Description
 }
 
-func (o *VirtualNetworkDataAttributes) GetRegion() *VirtualNetworkDataRegion {
-	if o == nil {
+func (v *VirtualNetworkDataAttributes) GetRegion() *VirtualNetworkDataRegion {
+	if v == nil {
 		return nil
 	}
-	return o.Region
+	return v.Region
 }
 
-func (o *VirtualNetworkDataAttributes) GetCreatedAt() *time.Time {
-	if o == nil {
+func (v *VirtualNetworkDataAttributes) GetCreatedAt() *time.Time {
+	if v == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return v.CreatedAt
 }
 
-func (o *VirtualNetworkDataAttributes) GetAssignmentsCount() *int64 {
-	if o == nil {
+func (v *VirtualNetworkDataAttributes) GetAssignmentsCount() *int64 {
+	if v == nil {
 		return nil
 	}
-	return o.AssignmentsCount
+	return v.AssignmentsCount
 }
 
 type VirtualNetworkData struct {
@@ -166,23 +166,23 @@ type VirtualNetworkData struct {
 	Attributes *VirtualNetworkDataAttributes `json:"attributes,omitempty"`
 }
 
-func (o *VirtualNetworkData) GetID() *string {
-	if o == nil {
+func (v *VirtualNetworkData) GetID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.ID
+	return v.ID
 }
 
-func (o *VirtualNetworkData) GetType() *VirtualNetworkDataType {
-	if o == nil {
+func (v *VirtualNetworkData) GetType() *VirtualNetworkDataType {
+	if v == nil {
 		return nil
 	}
-	return o.Type
+	return v.Type
 }
 
-func (o *VirtualNetworkData) GetAttributes() *VirtualNetworkDataAttributes {
-	if o == nil {
+func (v *VirtualNetworkData) GetAttributes() *VirtualNetworkDataAttributes {
+	if v == nil {
 		return nil
 	}
-	return o.Attributes
+	return v.Attributes
 }

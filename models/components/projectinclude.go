@@ -8,25 +8,25 @@ type Billing struct {
 	Method         *string `json:"method,omitempty"`
 }
 
-func (o *Billing) GetSubscriptionID() *string {
-	if o == nil {
+func (b *Billing) GetSubscriptionID() *string {
+	if b == nil {
 		return nil
 	}
-	return o.SubscriptionID
+	return b.SubscriptionID
 }
 
-func (o *Billing) GetType() *string {
-	if o == nil {
+func (b *Billing) GetType() *string {
+	if b == nil {
 		return nil
 	}
-	return o.Type
+	return b.Type
 }
 
-func (o *Billing) GetMethod() *string {
-	if o == nil {
+func (b *Billing) GetMethod() *string {
+	if b == nil {
 		return nil
 	}
-	return o.Method
+	return b.Method
 }
 
 type Stats struct {
@@ -36,32 +36,32 @@ type Stats struct {
 	Vlans       *int64 `json:"vlans,omitempty"`
 }
 
-func (o *Stats) GetIPAddresses() *int64 {
-	if o == nil {
+func (s *Stats) GetIPAddresses() *int64 {
+	if s == nil {
 		return nil
 	}
-	return o.IPAddresses
+	return s.IPAddresses
 }
 
-func (o *Stats) GetPrefixes() *int64 {
-	if o == nil {
+func (s *Stats) GetPrefixes() *int64 {
+	if s == nil {
 		return nil
 	}
-	return o.Prefixes
+	return s.Prefixes
 }
 
-func (o *Stats) GetServers() *int64 {
-	if o == nil {
+func (s *Stats) GetServers() *int64 {
+	if s == nil {
 		return nil
 	}
-	return o.Servers
+	return s.Servers
 }
 
-func (o *Stats) GetVlans() *int64 {
-	if o == nil {
+func (s *Stats) GetVlans() *int64 {
+	if s == nil {
 		return nil
 	}
-	return o.Vlans
+	return s.Vlans
 }
 
 type ProjectInclude struct {
@@ -78,79 +78,79 @@ type ProjectInclude struct {
 	Stats            *Stats   `json:"stats,omitempty"`
 }
 
-func (o *ProjectInclude) GetID() *string {
-	if o == nil {
+func (p *ProjectInclude) GetID() *string {
+	if p == nil {
 		return nil
 	}
-	return o.ID
+	return p.ID
 }
 
-func (o *ProjectInclude) GetName() *string {
-	if o == nil {
+func (p *ProjectInclude) GetName() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Name
+	return p.Name
 }
 
-func (o *ProjectInclude) GetSlug() *string {
-	if o == nil {
+func (p *ProjectInclude) GetSlug() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Slug
+	return p.Slug
 }
 
-func (o *ProjectInclude) GetDescription() *string {
-	if o == nil {
+func (p *ProjectInclude) GetDescription() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Description
+	return p.Description
 }
 
-func (o *ProjectInclude) GetBillingType() *string {
-	if o == nil {
+func (p *ProjectInclude) GetBillingType() *string {
+	if p == nil {
 		return nil
 	}
-	return o.BillingType
+	return p.BillingType
 }
 
-func (o *ProjectInclude) GetProvisioningType() *string {
-	if o == nil {
+func (p *ProjectInclude) GetProvisioningType() *string {
+	if p == nil {
 		return nil
 	}
-	return o.ProvisioningType
+	return p.ProvisioningType
 }
 
-func (o *ProjectInclude) GetBillingMethod() *string {
-	if o == nil {
+func (p *ProjectInclude) GetBillingMethod() *string {
+	if p == nil {
 		return nil
 	}
-	return o.BillingMethod
+	return p.BillingMethod
 }
 
-func (o *ProjectInclude) GetBandwidthAlert() *bool {
-	if o == nil {
+func (p *ProjectInclude) GetBandwidthAlert() *bool {
+	if p == nil {
 		return nil
 	}
-	return o.BandwidthAlert
+	return p.BandwidthAlert
 }
 
-func (o *ProjectInclude) GetEnvironment() *string {
-	if o == nil {
+func (p *ProjectInclude) GetEnvironment() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Environment
+	return p.Environment
 }
 
-func (o *ProjectInclude) GetBilling() *Billing {
-	if o == nil {
+func (p *ProjectInclude) GetBilling() *Billing {
+	if p == nil {
 		return nil
 	}
-	return o.Billing
+	return p.Billing
 }
 
-func (o *ProjectInclude) GetStats() *Stats {
-	if o == nil {
+func (p *ProjectInclude) GetStats() *Stats {
+	if p == nil {
 		return nil
 	}
-	return o.Stats
+	return p.Stats
 }

@@ -10,20 +10,20 @@ type ServerUnscheduleDeletionRequest struct {
 	ServerID string `pathParam:"style=simple,explode=false,name=server_id"`
 }
 
-func (o *ServerUnscheduleDeletionRequest) GetServerID() string {
-	if o == nil {
+func (s *ServerUnscheduleDeletionRequest) GetServerID() string {
+	if s == nil {
 		return ""
 	}
-	return o.ServerID
+	return s.ServerID
 }
 
 type ServerUnscheduleDeletionResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *ServerUnscheduleDeletionResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (s *ServerUnscheduleDeletionResponse) GetHTTPMeta() components.HTTPMetadata {
+	if s == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return s.HTTPMeta
 }

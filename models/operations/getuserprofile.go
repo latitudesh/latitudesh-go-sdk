@@ -11,11 +11,11 @@ type GetUserProfileResponseBody struct {
 	Data *components.User `json:"data,omitempty"`
 }
 
-func (o *GetUserProfileResponseBody) GetData() *components.User {
-	if o == nil {
+func (g *GetUserProfileResponseBody) GetData() *components.User {
+	if g == nil {
 		return nil
 	}
-	return o.Data
+	return g.Data
 }
 
 type GetUserProfileResponse struct {
@@ -24,16 +24,16 @@ type GetUserProfileResponse struct {
 	Object *GetUserProfileResponseBody
 }
 
-func (o *GetUserProfileResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetUserProfileResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetUserProfileResponse) GetObject() *GetUserProfileResponseBody {
-	if o == nil {
+func (g *GetUserProfileResponse) GetObject() *GetUserProfileResponseBody {
+	if g == nil {
 		return nil
 	}
-	return o.Object
+	return g.Object
 }

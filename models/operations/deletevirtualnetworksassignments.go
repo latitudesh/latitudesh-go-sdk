@@ -10,20 +10,20 @@ type DeleteVirtualNetworksAssignmentsRequest struct {
 	AssignmentID string `pathParam:"style=simple,explode=false,name=assignment_id"`
 }
 
-func (o *DeleteVirtualNetworksAssignmentsRequest) GetAssignmentID() string {
-	if o == nil {
+func (d *DeleteVirtualNetworksAssignmentsRequest) GetAssignmentID() string {
+	if d == nil {
 		return ""
 	}
-	return o.AssignmentID
+	return d.AssignmentID
 }
 
 type DeleteVirtualNetworksAssignmentsResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *DeleteVirtualNetworksAssignmentsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (d *DeleteVirtualNetworksAssignmentsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if d == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return d.HTTPMeta
 }

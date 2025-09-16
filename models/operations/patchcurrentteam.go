@@ -76,32 +76,32 @@ func (p *PatchCurrentTeamTeamsAttributes) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *PatchCurrentTeamTeamsAttributes) GetAddress() *string {
-	if o == nil {
+func (p *PatchCurrentTeamTeamsAttributes) GetAddress() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Address
+	return p.Address
 }
 
-func (o *PatchCurrentTeamTeamsAttributes) GetName() *string {
-	if o == nil {
+func (p *PatchCurrentTeamTeamsAttributes) GetName() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Name
+	return p.Name
 }
 
-func (o *PatchCurrentTeamTeamsAttributes) GetCurrency() *PatchCurrentTeamTeamsCurrency {
-	if o == nil {
+func (p *PatchCurrentTeamTeamsAttributes) GetCurrency() *PatchCurrentTeamTeamsCurrency {
+	if p == nil {
 		return nil
 	}
-	return o.Currency
+	return p.Currency
 }
 
-func (o *PatchCurrentTeamTeamsAttributes) GetReferredCode() *string {
-	if o == nil {
+func (p *PatchCurrentTeamTeamsAttributes) GetReferredCode() *string {
+	if p == nil {
 		return nil
 	}
-	return o.ReferredCode
+	return p.ReferredCode
 }
 
 type PatchCurrentTeamTeamsData struct {
@@ -110,36 +110,36 @@ type PatchCurrentTeamTeamsData struct {
 	Attributes *PatchCurrentTeamTeamsAttributes `json:"attributes,omitempty"`
 }
 
-func (o *PatchCurrentTeamTeamsData) GetID() string {
-	if o == nil {
+func (p *PatchCurrentTeamTeamsData) GetID() string {
+	if p == nil {
 		return ""
 	}
-	return o.ID
+	return p.ID
 }
 
-func (o *PatchCurrentTeamTeamsData) GetType() PatchCurrentTeamTeamsType {
-	if o == nil {
+func (p *PatchCurrentTeamTeamsData) GetType() PatchCurrentTeamTeamsType {
+	if p == nil {
 		return PatchCurrentTeamTeamsType("")
 	}
-	return o.Type
+	return p.Type
 }
 
-func (o *PatchCurrentTeamTeamsData) GetAttributes() *PatchCurrentTeamTeamsAttributes {
-	if o == nil {
+func (p *PatchCurrentTeamTeamsData) GetAttributes() *PatchCurrentTeamTeamsAttributes {
+	if p == nil {
 		return nil
 	}
-	return o.Attributes
+	return p.Attributes
 }
 
 type PatchCurrentTeamTeamsRequestBody struct {
 	Data PatchCurrentTeamTeamsData `json:"data"`
 }
 
-func (o *PatchCurrentTeamTeamsRequestBody) GetData() PatchCurrentTeamTeamsData {
-	if o == nil {
+func (p *PatchCurrentTeamTeamsRequestBody) GetData() PatchCurrentTeamTeamsData {
+	if p == nil {
 		return PatchCurrentTeamTeamsData{}
 	}
-	return o.Data
+	return p.Data
 }
 
 type PatchCurrentTeamRequest struct {
@@ -147,18 +147,18 @@ type PatchCurrentTeamRequest struct {
 	RequestBody PatchCurrentTeamTeamsRequestBody `request:"mediaType=application/json"`
 }
 
-func (o *PatchCurrentTeamRequest) GetTeamID() string {
-	if o == nil {
+func (p *PatchCurrentTeamRequest) GetTeamID() string {
+	if p == nil {
 		return ""
 	}
-	return o.TeamID
+	return p.TeamID
 }
 
-func (o *PatchCurrentTeamRequest) GetRequestBody() PatchCurrentTeamTeamsRequestBody {
-	if o == nil {
+func (p *PatchCurrentTeamRequest) GetRequestBody() PatchCurrentTeamTeamsRequestBody {
+	if p == nil {
 		return PatchCurrentTeamTeamsRequestBody{}
 	}
-	return o.RequestBody
+	return p.RequestBody
 }
 
 // PatchCurrentTeamResponseBody - Success
@@ -166,11 +166,11 @@ type PatchCurrentTeamResponseBody struct {
 	Data *components.Team `json:"data,omitempty"`
 }
 
-func (o *PatchCurrentTeamResponseBody) GetData() *components.Team {
-	if o == nil {
+func (p *PatchCurrentTeamResponseBody) GetData() *components.Team {
+	if p == nil {
 		return nil
 	}
-	return o.Data
+	return p.Data
 }
 
 type PatchCurrentTeamResponse struct {
@@ -179,16 +179,16 @@ type PatchCurrentTeamResponse struct {
 	Object *PatchCurrentTeamResponseBody
 }
 
-func (o *PatchCurrentTeamResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PatchCurrentTeamResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PatchCurrentTeamResponse) GetObject() *PatchCurrentTeamResponseBody {
-	if o == nil {
+func (p *PatchCurrentTeamResponse) GetObject() *PatchCurrentTeamResponseBody {
+	if p == nil {
 		return nil
 	}
-	return o.Object
+	return p.Object
 }

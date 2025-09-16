@@ -47,18 +47,18 @@ func (v *VirtualMachinePayloadAttributes) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *VirtualMachinePayloadAttributes) GetName() *string {
-	if o == nil {
+func (v *VirtualMachinePayloadAttributes) GetName() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Name
+	return v.Name
 }
 
-func (o *VirtualMachinePayloadAttributes) GetProject() *string {
-	if o == nil {
+func (v *VirtualMachinePayloadAttributes) GetProject() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Project
+	return v.Project
 }
 
 type VirtualMachinePayloadData struct {
@@ -66,27 +66,27 @@ type VirtualMachinePayloadData struct {
 	Attributes *VirtualMachinePayloadAttributes `json:"attributes,omitempty"`
 }
 
-func (o *VirtualMachinePayloadData) GetType() *VirtualMachinePayloadType {
-	if o == nil {
+func (v *VirtualMachinePayloadData) GetType() *VirtualMachinePayloadType {
+	if v == nil {
 		return nil
 	}
-	return o.Type
+	return v.Type
 }
 
-func (o *VirtualMachinePayloadData) GetAttributes() *VirtualMachinePayloadAttributes {
-	if o == nil {
+func (v *VirtualMachinePayloadData) GetAttributes() *VirtualMachinePayloadAttributes {
+	if v == nil {
 		return nil
 	}
-	return o.Attributes
+	return v.Attributes
 }
 
 type VirtualMachinePayload struct {
 	Data *VirtualMachinePayloadData `json:"data,omitempty"`
 }
 
-func (o *VirtualMachinePayload) GetData() *VirtualMachinePayloadData {
-	if o == nil {
+func (v *VirtualMachinePayload) GetData() *VirtualMachinePayloadData {
+	if v == nil {
 		return nil
 	}
-	return o.Data
+	return v.Data
 }

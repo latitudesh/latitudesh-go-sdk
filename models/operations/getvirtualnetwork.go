@@ -11,11 +11,11 @@ type GetVirtualNetworkRequest struct {
 	VlanID string `pathParam:"style=simple,explode=false,name=vlan_id"`
 }
 
-func (o *GetVirtualNetworkRequest) GetVlanID() string {
-	if o == nil {
+func (g *GetVirtualNetworkRequest) GetVlanID() string {
+	if g == nil {
 		return ""
 	}
-	return o.VlanID
+	return g.VlanID
 }
 
 // GetVirtualNetworkResponseBody - Success
@@ -23,11 +23,11 @@ type GetVirtualNetworkResponseBody struct {
 	Data *components.VirtualNetwork `json:"data,omitempty"`
 }
 
-func (o *GetVirtualNetworkResponseBody) GetData() *components.VirtualNetwork {
-	if o == nil {
+func (g *GetVirtualNetworkResponseBody) GetData() *components.VirtualNetwork {
+	if g == nil {
 		return nil
 	}
-	return o.Data
+	return g.Data
 }
 
 type GetVirtualNetworkResponse struct {
@@ -36,16 +36,16 @@ type GetVirtualNetworkResponse struct {
 	Object *GetVirtualNetworkResponseBody
 }
 
-func (o *GetVirtualNetworkResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetVirtualNetworkResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetVirtualNetworkResponse) GetObject() *GetVirtualNetworkResponseBody {
-	if o == nil {
+func (g *GetVirtualNetworkResponse) GetObject() *GetVirtualNetworkResponseBody {
+	if g == nil {
 		return nil
 	}
-	return o.Object
+	return g.Object
 }

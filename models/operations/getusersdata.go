@@ -23,11 +23,11 @@ func (g *GetUsersDataRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *GetUsersDataRequest) GetExtraFieldsUserData() *string {
-	if o == nil {
+func (g *GetUsersDataRequest) GetExtraFieldsUserData() *string {
+	if g == nil {
 		return nil
 	}
-	return o.ExtraFieldsUserData
+	return g.ExtraFieldsUserData
 }
 
 // GetUsersDataResponseBody - Success
@@ -35,11 +35,11 @@ type GetUsersDataResponseBody struct {
 	Data []components.UserData `json:"data,omitempty"`
 }
 
-func (o *GetUsersDataResponseBody) GetData() []components.UserData {
-	if o == nil {
+func (g *GetUsersDataResponseBody) GetData() []components.UserData {
+	if g == nil {
 		return nil
 	}
-	return o.Data
+	return g.Data
 }
 
 type GetUsersDataResponse struct {
@@ -48,16 +48,16 @@ type GetUsersDataResponse struct {
 	Object *GetUsersDataResponseBody
 }
 
-func (o *GetUsersDataResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetUsersDataResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetUsersDataResponse) GetObject() *GetUsersDataResponseBody {
-	if o == nil {
+func (g *GetUsersDataResponse) GetObject() *GetUsersDataResponseBody {
+	if g == nil {
 		return nil
 	}
-	return o.Object
+	return g.Object
 }

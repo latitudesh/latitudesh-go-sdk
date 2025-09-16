@@ -38,18 +38,18 @@ type PatchUserDataUserDataAttributes struct {
 	Content *string `json:"content,omitempty"`
 }
 
-func (o *PatchUserDataUserDataAttributes) GetDescription() *string {
-	if o == nil {
+func (p *PatchUserDataUserDataAttributes) GetDescription() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Description
+	return p.Description
 }
 
-func (o *PatchUserDataUserDataAttributes) GetContent() *string {
-	if o == nil {
+func (p *PatchUserDataUserDataAttributes) GetContent() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Content
+	return p.Content
 }
 
 type PatchUserDataUserDataData struct {
@@ -58,36 +58,36 @@ type PatchUserDataUserDataData struct {
 	Attributes *PatchUserDataUserDataAttributes `json:"attributes,omitempty"`
 }
 
-func (o *PatchUserDataUserDataData) GetID() string {
-	if o == nil {
+func (p *PatchUserDataUserDataData) GetID() string {
+	if p == nil {
 		return ""
 	}
-	return o.ID
+	return p.ID
 }
 
-func (o *PatchUserDataUserDataData) GetType() PatchUserDataUserDataType {
-	if o == nil {
+func (p *PatchUserDataUserDataData) GetType() PatchUserDataUserDataType {
+	if p == nil {
 		return PatchUserDataUserDataType("")
 	}
-	return o.Type
+	return p.Type
 }
 
-func (o *PatchUserDataUserDataData) GetAttributes() *PatchUserDataUserDataAttributes {
-	if o == nil {
+func (p *PatchUserDataUserDataData) GetAttributes() *PatchUserDataUserDataAttributes {
+	if p == nil {
 		return nil
 	}
-	return o.Attributes
+	return p.Attributes
 }
 
 type PatchUserDataUserDataRequestBody struct {
 	Data PatchUserDataUserDataData `json:"data"`
 }
 
-func (o *PatchUserDataUserDataRequestBody) GetData() PatchUserDataUserDataData {
-	if o == nil {
+func (p *PatchUserDataUserDataRequestBody) GetData() PatchUserDataUserDataData {
+	if p == nil {
 		return PatchUserDataUserDataData{}
 	}
-	return o.Data
+	return p.Data
 }
 
 type PatchUserDataRequest struct {
@@ -95,18 +95,18 @@ type PatchUserDataRequest struct {
 	RequestBody *PatchUserDataUserDataRequestBody `request:"mediaType=application/json"`
 }
 
-func (o *PatchUserDataRequest) GetUserDataID() string {
-	if o == nil {
+func (p *PatchUserDataRequest) GetUserDataID() string {
+	if p == nil {
 		return ""
 	}
-	return o.UserDataID
+	return p.UserDataID
 }
 
-func (o *PatchUserDataRequest) GetRequestBody() *PatchUserDataUserDataRequestBody {
-	if o == nil {
+func (p *PatchUserDataRequest) GetRequestBody() *PatchUserDataUserDataRequestBody {
+	if p == nil {
 		return nil
 	}
-	return o.RequestBody
+	return p.RequestBody
 }
 
 type PatchUserDataResponse struct {
@@ -115,16 +115,16 @@ type PatchUserDataResponse struct {
 	UserData *components.UserData
 }
 
-func (o *PatchUserDataResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PatchUserDataResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PatchUserDataResponse) GetUserData() *components.UserData {
-	if o == nil {
+func (p *PatchUserDataResponse) GetUserData() *components.UserData {
+	if p == nil {
 		return nil
 	}
-	return o.UserData
+	return p.UserData
 }

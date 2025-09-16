@@ -37,7 +37,7 @@ func main() {
     )
 
     res, err := s.Projects.List(ctx, operations.GetProjectsRequest{
-        FilterTags: latitudeshgosdk.String("tag_GGXAB6PNQbU285ZYLP3wt3ZQyXW,tag_xR2B8J4W81TBL6YRGPJaCQRkVyn"),
+        FilterTags: latitudeshgosdk.Pointer("tag_GGXAB6PNQbU285ZYLP3wt3ZQyXW,tag_xR2B8J4W81TBL6YRGPJaCQRkVyn"),
     })
     if err != nil {
         log.Fatal(err)
@@ -109,7 +109,7 @@ func main() {
             Attributes: &operations.CreateProjectProjectsAttributes{
                 Name: "Kshlerin, Hand and Beer",
                 ProvisioningType: operations.CreateProjectProvisioningTypeOnDemand,
-                Description: latitudeshgosdk.String("Thick slices of French toast bread, brown sugar, half-and-half and vanilla, topped with powdered sugar. With two eggs served any style, and your choice of smoked bacon or smoked ham."),
+                Description: latitudeshgosdk.Pointer("Thick slices of French toast bread, brown sugar, half-and-half and vanilla, topped with powdered sugar. With two eggs served any style, and your choice of smoked bacon or smoked ham."),
                 Environment: operations.CreateProjectEnvironmentDevelopment.ToPointer(),
             },
         },
@@ -168,7 +168,7 @@ func main() {
 
     res, err := s.Projects.Update(ctx, "proj_WVQJDMMwDRbyE", &operations.UpdateProjectProjectsRequestBody{
         Data: operations.UpdateProjectProjectsData{
-            ID: latitudeshgosdk.String("proj_WVQJDMMwDRbyE"),
+            ID: latitudeshgosdk.Pointer("proj_WVQJDMMwDRbyE"),
             Type: operations.UpdateProjectProjectsTypeProjects,
             Attributes: &operations.UpdateProjectProjectsAttributes{
                 Tags: []string{

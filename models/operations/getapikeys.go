@@ -12,16 +12,16 @@ type GetAPIKeysResponse struct {
 	APIKey *components.APIKey
 }
 
-func (o *GetAPIKeysResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetAPIKeysResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetAPIKeysResponse) GetAPIKey() *components.APIKey {
-	if o == nil {
+func (g *GetAPIKeysResponse) GetAPIKey() *components.APIKey {
+	if g == nil {
 		return nil
 	}
-	return o.APIKey
+	return g.APIKey
 }

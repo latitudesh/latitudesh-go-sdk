@@ -10,16 +10,16 @@ type Events struct {
 	Meta *Meta       `json:"meta,omitempty"`
 }
 
-func (o *Events) GetData() []EventData {
-	if o == nil {
+func (e *Events) GetData() []EventData {
+	if e == nil {
 		return nil
 	}
-	return o.Data
+	return e.Data
 }
 
-func (o *Events) GetMeta() *Meta {
-	if o == nil {
+func (e *Events) GetMeta() *Meta {
+	if e == nil {
 		return nil
 	}
-	return o.Meta
+	return e.Meta
 }

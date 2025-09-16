@@ -7,18 +7,18 @@ type Country struct {
 	Name *string `json:"name,omitempty"`
 }
 
-func (o *Country) GetSlug() *string {
-	if o == nil {
+func (c *Country) GetSlug() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Slug
+	return c.Slug
 }
 
-func (o *Country) GetName() *string {
-	if o == nil {
+func (c *Country) GetName() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Name
+	return c.Name
 }
 
 type RegionsAttributes struct {
@@ -27,25 +27,25 @@ type RegionsAttributes struct {
 	Country *Country `json:"country,omitempty"`
 }
 
-func (o *RegionsAttributes) GetSlug() *string {
-	if o == nil {
+func (r *RegionsAttributes) GetSlug() *string {
+	if r == nil {
 		return nil
 	}
-	return o.Slug
+	return r.Slug
 }
 
-func (o *RegionsAttributes) GetName() *string {
-	if o == nil {
+func (r *RegionsAttributes) GetName() *string {
+	if r == nil {
 		return nil
 	}
-	return o.Name
+	return r.Name
 }
 
-func (o *RegionsAttributes) GetCountry() *Country {
-	if o == nil {
+func (r *RegionsAttributes) GetCountry() *Country {
+	if r == nil {
 		return nil
 	}
-	return o.Country
+	return r.Country
 }
 
 type RegionsData struct {
@@ -53,27 +53,27 @@ type RegionsData struct {
 	Attributes *RegionsAttributes `json:"attributes,omitempty"`
 }
 
-func (o *RegionsData) GetID() *string {
-	if o == nil {
+func (r *RegionsData) GetID() *string {
+	if r == nil {
 		return nil
 	}
-	return o.ID
+	return r.ID
 }
 
-func (o *RegionsData) GetAttributes() *RegionsAttributes {
-	if o == nil {
+func (r *RegionsData) GetAttributes() *RegionsAttributes {
+	if r == nil {
 		return nil
 	}
-	return o.Attributes
+	return r.Attributes
 }
 
 type Regions struct {
 	Data []RegionsData `json:"data,omitempty"`
 }
 
-func (o *Regions) GetData() []RegionsData {
-	if o == nil {
+func (r *Regions) GetData() []RegionsData {
+	if r == nil {
 		return nil
 	}
-	return o.Data
+	return r.Data
 }

@@ -32,7 +32,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Traffic.Get(ctx, "2025-06-16T18:45:37Z", "2025-07-16T18:45:37Z", latitudeshgosdk.String("sv_kjQwdEMXdYNVP"), latitudeshgosdk.String("proj_AW6Q2D9lqKLpr"))
+    res, err := s.Traffic.Get(ctx, "2025-06-16T18:45:37Z", "2025-07-16T18:45:37Z", latitudeshgosdk.Pointer("sv_kjQwdEMXdYNVP"), latitudeshgosdk.Pointer("proj_AW6Q2D9lqKLpr"))
     if err != nil {
         log.Fatal(err)
     }

@@ -8,25 +8,25 @@ type SSHKey struct {
 	Fingerprint *string `json:"fingerprint,omitempty"`
 }
 
-func (o *SSHKey) GetID() *string {
-	if o == nil {
+func (s *SSHKey) GetID() *string {
+	if s == nil {
 		return nil
 	}
-	return o.ID
+	return s.ID
 }
 
-func (o *SSHKey) GetDescription() *string {
-	if o == nil {
+func (s *SSHKey) GetDescription() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Description
+	return s.Description
 }
 
-func (o *SSHKey) GetFingerprint() *string {
-	if o == nil {
+func (s *SSHKey) GetFingerprint() *string {
+	if s == nil {
 		return nil
 	}
-	return o.Fingerprint
+	return s.Fingerprint
 }
 
 // OutOfBandConnectionCredentials - credentials are valid only when the server is deployed with ssh keys

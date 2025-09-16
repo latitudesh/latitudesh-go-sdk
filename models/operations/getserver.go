@@ -13,18 +13,18 @@ type GetServerRequest struct {
 	ExtraFieldsServers *string `queryParam:"style=form,explode=true,name=extra_fields[servers]"`
 }
 
-func (o *GetServerRequest) GetServerID() string {
-	if o == nil {
+func (g *GetServerRequest) GetServerID() string {
+	if g == nil {
 		return ""
 	}
-	return o.ServerID
+	return g.ServerID
 }
 
-func (o *GetServerRequest) GetExtraFieldsServers() *string {
-	if o == nil {
+func (g *GetServerRequest) GetExtraFieldsServers() *string {
+	if g == nil {
 		return nil
 	}
-	return o.ExtraFieldsServers
+	return g.ExtraFieldsServers
 }
 
 type GetServerResponse struct {
@@ -33,16 +33,16 @@ type GetServerResponse struct {
 	Server *components.Server
 }
 
-func (o *GetServerResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetServerResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetServerResponse) GetServer() *components.Server {
-	if o == nil {
+func (g *GetServerResponse) GetServer() *components.Server {
+	if g == nil {
 		return nil
 	}
-	return o.Server
+	return g.Server
 }

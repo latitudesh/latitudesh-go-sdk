@@ -92,7 +92,7 @@ func main() {
         Data: &components.Data{
             Type: components.CreateAPIKeyTypeAPIKeys,
             Attributes: &components.CreateAPIKeyAttributes{
-                Name: latitudeshgosdk.String("App Token"),
+                Name: latitudeshgosdk.Pointer("App Token"),
             },
         },
     })
@@ -151,10 +151,10 @@ func main() {
 
     res, err := s.APIKeys.Update(ctx, "tok_zlkg1DegdvZE5", components.UpdateAPIKey{
         Data: &components.UpdateAPIKeyData{
-            ID: latitudeshgosdk.String("tok_zlkg1DegdvZE5"),
+            ID: latitudeshgosdk.Pointer("tok_zlkg1DegdvZE5"),
             Type: components.UpdateAPIKeyTypeAPIKeys,
             Attributes: &components.UpdateAPIKeyAttributes{
-                Name: latitudeshgosdk.String("App Token"),
+                Name: latitudeshgosdk.Pointer("App Token"),
             },
         },
     })

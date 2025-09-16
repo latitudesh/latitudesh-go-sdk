@@ -11,11 +11,11 @@ type GetContainersPlanRequest struct {
 	PlanID string `pathParam:"style=simple,explode=false,name=plan_id"`
 }
 
-func (o *GetContainersPlanRequest) GetPlanID() string {
-	if o == nil {
+func (g *GetContainersPlanRequest) GetPlanID() string {
+	if g == nil {
 		return ""
 	}
-	return o.PlanID
+	return g.PlanID
 }
 
 type GetContainersPlanResponse struct {
@@ -24,16 +24,16 @@ type GetContainersPlanResponse struct {
 	ContainerPlanData *components.ContainerPlanData
 }
 
-func (o *GetContainersPlanResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetContainersPlanResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetContainersPlanResponse) GetContainerPlanData() *components.ContainerPlanData {
-	if o == nil {
+func (g *GetContainersPlanResponse) GetContainerPlanData() *components.ContainerPlanData {
+	if g == nil {
 		return nil
 	}
-	return o.ContainerPlanData
+	return g.ContainerPlanData
 }

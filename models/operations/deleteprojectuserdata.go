@@ -12,27 +12,27 @@ type DeleteProjectUserDataRequest struct {
 	UserDataID string `pathParam:"style=simple,explode=false,name=user_data_id"`
 }
 
-func (o *DeleteProjectUserDataRequest) GetProjectID() string {
-	if o == nil {
+func (d *DeleteProjectUserDataRequest) GetProjectID() string {
+	if d == nil {
 		return ""
 	}
-	return o.ProjectID
+	return d.ProjectID
 }
 
-func (o *DeleteProjectUserDataRequest) GetUserDataID() string {
-	if o == nil {
+func (d *DeleteProjectUserDataRequest) GetUserDataID() string {
+	if d == nil {
 		return ""
 	}
-	return o.UserDataID
+	return d.UserDataID
 }
 
 type DeleteProjectUserDataResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *DeleteProjectUserDataResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (d *DeleteProjectUserDataResponse) GetHTTPMeta() components.HTTPMetadata {
+	if d == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return d.HTTPMeta
 }

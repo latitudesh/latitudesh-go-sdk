@@ -39,67 +39,67 @@ func (g *GetProjectsRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *GetProjectsRequest) GetFilterName() *string {
-	if o == nil {
+func (g *GetProjectsRequest) GetFilterName() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterName
+	return g.FilterName
 }
 
-func (o *GetProjectsRequest) GetFilterSlug() *string {
-	if o == nil {
+func (g *GetProjectsRequest) GetFilterSlug() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterSlug
+	return g.FilterSlug
 }
 
-func (o *GetProjectsRequest) GetFilterDescription() *string {
-	if o == nil {
+func (g *GetProjectsRequest) GetFilterDescription() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterDescription
+	return g.FilterDescription
 }
 
-func (o *GetProjectsRequest) GetFilterBillingType() *string {
-	if o == nil {
+func (g *GetProjectsRequest) GetFilterBillingType() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterBillingType
+	return g.FilterBillingType
 }
 
-func (o *GetProjectsRequest) GetFilterEnvironment() *string {
-	if o == nil {
+func (g *GetProjectsRequest) GetFilterEnvironment() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterEnvironment
+	return g.FilterEnvironment
 }
 
-func (o *GetProjectsRequest) GetFilterTags() *string {
-	if o == nil {
+func (g *GetProjectsRequest) GetFilterTags() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterTags
+	return g.FilterTags
 }
 
-func (o *GetProjectsRequest) GetExtraFieldsProjects() *string {
-	if o == nil {
+func (g *GetProjectsRequest) GetExtraFieldsProjects() *string {
+	if g == nil {
 		return nil
 	}
-	return o.ExtraFieldsProjects
+	return g.ExtraFieldsProjects
 }
 
-func (o *GetProjectsRequest) GetPageSize() *int64 {
-	if o == nil {
+func (g *GetProjectsRequest) GetPageSize() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.PageSize
+	return g.PageSize
 }
 
-func (o *GetProjectsRequest) GetPageNumber() *int64 {
-	if o == nil {
+func (g *GetProjectsRequest) GetPageNumber() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.PageNumber
+	return g.PageNumber
 }
 
 type GetProjectsResponse struct {
@@ -110,16 +110,16 @@ type GetProjectsResponse struct {
 	Next func() (*GetProjectsResponse, error)
 }
 
-func (o *GetProjectsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetProjectsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetProjectsResponse) GetProjects() *components.Projects {
-	if o == nil {
+func (g *GetProjectsResponse) GetProjects() *components.Projects {
+	if g == nil {
 		return nil
 	}
-	return o.Projects
+	return g.Projects
 }

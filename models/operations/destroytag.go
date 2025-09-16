@@ -10,20 +10,20 @@ type DestroyTagRequest struct {
 	TagID string `pathParam:"style=simple,explode=false,name=tag_id"`
 }
 
-func (o *DestroyTagRequest) GetTagID() string {
-	if o == nil {
+func (d *DestroyTagRequest) GetTagID() string {
+	if d == nil {
 		return ""
 	}
-	return o.TagID
+	return d.TagID
 }
 
 type DestroyTagResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *DestroyTagResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (d *DestroyTagResponse) GetHTTPMeta() components.HTTPMetadata {
+	if d == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return d.HTTPMeta
 }

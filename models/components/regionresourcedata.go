@@ -9,32 +9,32 @@ type RegionResourceDataSite struct {
 	Facility *string `json:"facility,omitempty"`
 }
 
-func (o *RegionResourceDataSite) GetID() *string {
-	if o == nil {
+func (r *RegionResourceDataSite) GetID() *string {
+	if r == nil {
 		return nil
 	}
-	return o.ID
+	return r.ID
 }
 
-func (o *RegionResourceDataSite) GetName() *string {
-	if o == nil {
+func (r *RegionResourceDataSite) GetName() *string {
+	if r == nil {
 		return nil
 	}
-	return o.Name
+	return r.Name
 }
 
-func (o *RegionResourceDataSite) GetSlug() *string {
-	if o == nil {
+func (r *RegionResourceDataSite) GetSlug() *string {
+	if r == nil {
 		return nil
 	}
-	return o.Slug
+	return r.Slug
 }
 
-func (o *RegionResourceDataSite) GetFacility() *string {
-	if o == nil {
+func (r *RegionResourceDataSite) GetFacility() *string {
+	if r == nil {
 		return nil
 	}
-	return o.Facility
+	return r.Facility
 }
 
 type RegionResourceData struct {
@@ -43,23 +43,23 @@ type RegionResourceData struct {
 	Site    *RegionResourceDataSite `json:"site,omitempty"`
 }
 
-func (o *RegionResourceData) GetCity() *string {
-	if o == nil {
+func (r *RegionResourceData) GetCity() *string {
+	if r == nil {
 		return nil
 	}
-	return o.City
+	return r.City
 }
 
-func (o *RegionResourceData) GetCountry() *string {
-	if o == nil {
+func (r *RegionResourceData) GetCountry() *string {
+	if r == nil {
 		return nil
 	}
-	return o.Country
+	return r.Country
 }
 
-func (o *RegionResourceData) GetSite() *RegionResourceDataSite {
-	if o == nil {
+func (r *RegionResourceData) GetSite() *RegionResourceDataSite {
+	if r == nil {
 		return nil
 	}
-	return o.Site
+	return r.Site
 }

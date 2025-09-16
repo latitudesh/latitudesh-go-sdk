@@ -51,12 +51,12 @@ func main() {
     )
 
     res, err := s.Servers.List(ctx, operations.GetServersRequest{
-        FilterProject: latitudeshgosdk.String("proj_g1mbDwrZqLv5B"),
-        FilterRegion: latitudeshgosdk.String("SAO"),
-        FilterRAMEql: latitudeshgosdk.Int64(32),
-        FilterRAMGte: latitudeshgosdk.Int64(40),
-        FilterRAMLte: latitudeshgosdk.Int64(40),
-        FilterTags: latitudeshgosdk.String("tag_Az0EY3zglei3jVBY1LroSWNyanye,tag_GXK6NGol1jF2xre0JrB0fK6wg0p"),
+        FilterProject: latitudeshgosdk.Pointer("proj_g1mbDwrZqLv5B"),
+        FilterRegion: latitudeshgosdk.Pointer("SAO"),
+        FilterRAMEql: latitudeshgosdk.Pointer[int64](32),
+        FilterRAMGte: latitudeshgosdk.Pointer[int64](40),
+        FilterRAMLte: latitudeshgosdk.Pointer[int64](40),
+        FilterTags: latitudeshgosdk.Pointer("tag_Az0EY3zglei3jVBY1LroSWNyanye,tag_GXK6NGol1jF2xre0JrB0fK6wg0p"),
     })
     if err != nil {
         log.Fatal(err)
@@ -126,11 +126,11 @@ func main() {
         Data: &operations.CreateServerServersData{
             Type: operations.CreateServerServersTypeServers,
             Attributes: &operations.CreateServerServersAttributes{
-                Project: latitudeshgosdk.String("proj_A05EdQ50dvKYQ"),
+                Project: latitudeshgosdk.Pointer("proj_A05EdQ50dvKYQ"),
                 Plan: operations.CreateServerPlanC2SmallX86.ToPointer(),
                 Site: operations.CreateServerSiteAsh.ToPointer(),
                 OperatingSystem: operations.CreateServerOperatingSystemUbuntu2204X64Lts.ToPointer(),
-                Hostname: latitudeshgosdk.String("BRC1"),
+                Hostname: latitudeshgosdk.Pointer("BRC1"),
             },
         },
     })
@@ -242,10 +242,10 @@ func main() {
 
     res, err := s.Servers.Update(ctx, "sv_aNmodjGyqbE8W", operations.UpdateServerServersRequestBody{
         Data: &operations.UpdateServerServersData{
-            ID: latitudeshgosdk.String("sv_aNmodjGyqbE8W"),
+            ID: latitudeshgosdk.Pointer("sv_aNmodjGyqbE8W"),
             Type: operations.UpdateServerServersTypeServers.ToPointer(),
             Attributes: &operations.UpdateServerServersAttributes{
-                Project: latitudeshgosdk.String("proj_aNmodjoyqbE8W"),
+                Project: latitudeshgosdk.Pointer("proj_aNmodjoyqbE8W"),
             },
         },
     })
@@ -571,7 +571,7 @@ func main() {
         Data: operations.CreateServerOutOfBandServersData{
             Type: operations.CreateServerOutOfBandServersTypeOutOfBand,
             Attributes: &operations.CreateServerOutOfBandServersAttributes{
-                SSHKeyID: latitudeshgosdk.String("ssh_w49QDB55qagKb"),
+                SSHKeyID: latitudeshgosdk.Pointer("ssh_w49QDB55qagKb"),
             },
         },
     })
@@ -1014,8 +1014,8 @@ func main() {
             Type: operations.CreateServerReinstallServersTypeReinstalls,
             Attributes: &operations.CreateServerReinstallServersAttributes{
                 OperatingSystem: operations.CreateServerReinstallServersOperatingSystemIpxe.ToPointer(),
-                Hostname: latitudeshgosdk.String("BRC1"),
-                Ipxe: latitudeshgosdk.String("https://some-host.com/image.ipxe"),
+                Hostname: latitudeshgosdk.Pointer("BRC1"),
+                Ipxe: latitudeshgosdk.Pointer("https://some-host.com/image.ipxe"),
             },
         },
     })

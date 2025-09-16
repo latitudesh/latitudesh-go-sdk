@@ -9,9 +9,9 @@ type ServerRescue struct {
 	Meta *ServerRescueMeta `json:"meta,omitempty"`
 }
 
-func (o *ServerRescue) GetMeta() *ServerRescueMeta {
-	if o == nil {
+func (s *ServerRescue) GetMeta() *ServerRescueMeta {
+	if s == nil {
 		return nil
 	}
-	return o.Meta
+	return s.Meta
 }

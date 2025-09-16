@@ -41,74 +41,74 @@ func (g *GetEventsRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *GetEventsRequest) GetFilterAuthor() *string {
-	if o == nil {
+func (g *GetEventsRequest) GetFilterAuthor() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterAuthor
+	return g.FilterAuthor
 }
 
-func (o *GetEventsRequest) GetFilterProject() *string {
-	if o == nil {
+func (g *GetEventsRequest) GetFilterProject() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterProject
+	return g.FilterProject
 }
 
-func (o *GetEventsRequest) GetFilterTargetName() []string {
-	if o == nil {
+func (g *GetEventsRequest) GetFilterTargetName() []string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterTargetName
+	return g.FilterTargetName
 }
 
-func (o *GetEventsRequest) GetFilterTargetID() *string {
-	if o == nil {
+func (g *GetEventsRequest) GetFilterTargetID() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterTargetID
+	return g.FilterTargetID
 }
 
-func (o *GetEventsRequest) GetFilterAction() *string {
-	if o == nil {
+func (g *GetEventsRequest) GetFilterAction() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterAction
+	return g.FilterAction
 }
 
-func (o *GetEventsRequest) GetFilterCreatedAtGte() *string {
-	if o == nil {
+func (g *GetEventsRequest) GetFilterCreatedAtGte() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterCreatedAtGte
+	return g.FilterCreatedAtGte
 }
 
-func (o *GetEventsRequest) GetFilterCreatedAtLte() *string {
-	if o == nil {
+func (g *GetEventsRequest) GetFilterCreatedAtLte() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterCreatedAtLte
+	return g.FilterCreatedAtLte
 }
 
-func (o *GetEventsRequest) GetFilterCreatedAt() []string {
-	if o == nil {
+func (g *GetEventsRequest) GetFilterCreatedAt() []string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterCreatedAt
+	return g.FilterCreatedAt
 }
 
-func (o *GetEventsRequest) GetPageSize() *int64 {
-	if o == nil {
+func (g *GetEventsRequest) GetPageSize() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.PageSize
+	return g.PageSize
 }
 
-func (o *GetEventsRequest) GetPageNumber() *int64 {
-	if o == nil {
+func (g *GetEventsRequest) GetPageNumber() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.PageNumber
+	return g.PageNumber
 }
 
 // GetEventsResponseBody - Success
@@ -116,11 +116,11 @@ type GetEventsResponseBody struct {
 	Data []components.Events `json:"data,omitempty"`
 }
 
-func (o *GetEventsResponseBody) GetData() []components.Events {
-	if o == nil {
+func (g *GetEventsResponseBody) GetData() []components.Events {
+	if g == nil {
 		return nil
 	}
-	return o.Data
+	return g.Data
 }
 
 type GetEventsResponse struct {
@@ -131,16 +131,16 @@ type GetEventsResponse struct {
 	Next func() (*GetEventsResponse, error)
 }
 
-func (o *GetEventsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetEventsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetEventsResponse) GetObject() *GetEventsResponseBody {
-	if o == nil {
+func (g *GetEventsResponse) GetObject() *GetEventsResponseBody {
+	if g == nil {
 		return nil
 	}
-	return o.Object
+	return g.Object
 }

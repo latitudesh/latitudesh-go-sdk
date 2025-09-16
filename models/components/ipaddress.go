@@ -64,18 +64,18 @@ type IPAddressProject struct {
 	Name *string `json:"name,omitempty"`
 }
 
-func (o *IPAddressProject) GetID() *string {
-	if o == nil {
+func (i *IPAddressProject) GetID() *string {
+	if i == nil {
 		return nil
 	}
-	return o.ID
+	return i.ID
 }
 
-func (o *IPAddressProject) GetName() *string {
-	if o == nil {
+func (i *IPAddressProject) GetName() *string {
+	if i == nil {
 		return nil
 	}
-	return o.Name
+	return i.Name
 }
 
 type Location struct {
@@ -84,25 +84,25 @@ type Location struct {
 	Slug *string `json:"slug,omitempty"`
 }
 
-func (o *Location) GetID() *string {
-	if o == nil {
+func (l *Location) GetID() *string {
+	if l == nil {
 		return nil
 	}
-	return o.ID
+	return l.ID
 }
 
-func (o *Location) GetName() *string {
-	if o == nil {
+func (l *Location) GetName() *string {
+	if l == nil {
 		return nil
 	}
-	return o.Name
+	return l.Name
 }
 
-func (o *Location) GetSlug() *string {
-	if o == nil {
+func (l *Location) GetSlug() *string {
+	if l == nil {
 		return nil
 	}
-	return o.Slug
+	return l.Slug
 }
 
 type IPAddressRegion struct {
@@ -111,25 +111,25 @@ type IPAddressRegion struct {
 	Location *Location `json:"location,omitempty"`
 }
 
-func (o *IPAddressRegion) GetID() *string {
-	if o == nil {
+func (i *IPAddressRegion) GetID() *string {
+	if i == nil {
 		return nil
 	}
-	return o.ID
+	return i.ID
 }
 
-func (o *IPAddressRegion) GetName() *string {
-	if o == nil {
+func (i *IPAddressRegion) GetName() *string {
+	if i == nil {
 		return nil
 	}
-	return o.Name
+	return i.Name
 }
 
-func (o *IPAddressRegion) GetLocation() *Location {
-	if o == nil {
+func (i *IPAddressRegion) GetLocation() *Location {
+	if i == nil {
 		return nil
 	}
-	return o.Location
+	return i.Location
 }
 
 type Assignment struct {
@@ -138,25 +138,25 @@ type Assignment struct {
 	AssignedAt *string `json:"assigned_at,omitempty"`
 }
 
-func (o *Assignment) GetServerID() *string {
-	if o == nil {
+func (a *Assignment) GetServerID() *string {
+	if a == nil {
 		return nil
 	}
-	return o.ServerID
+	return a.ServerID
 }
 
-func (o *Assignment) GetHostname() *string {
-	if o == nil {
+func (a *Assignment) GetHostname() *string {
+	if a == nil {
 		return nil
 	}
-	return o.Hostname
+	return a.Hostname
 }
 
-func (o *Assignment) GetAssignedAt() *string {
-	if o == nil {
+func (a *Assignment) GetAssignedAt() *string {
+	if a == nil {
 		return nil
 	}
-	return o.AssignedAt
+	return a.AssignedAt
 }
 
 type IPAddressAttributes struct {
@@ -174,88 +174,88 @@ type IPAddressAttributes struct {
 	Assignment *Assignment       `json:"assignment,omitempty"`
 }
 
-func (o *IPAddressAttributes) GetAddress() *string {
-	if o == nil {
+func (i *IPAddressAttributes) GetAddress() *string {
+	if i == nil {
 		return nil
 	}
-	return o.Address
+	return i.Address
 }
 
-func (o *IPAddressAttributes) GetCidr() *string {
-	if o == nil {
+func (i *IPAddressAttributes) GetCidr() *string {
+	if i == nil {
 		return nil
 	}
-	return o.Cidr
+	return i.Cidr
 }
 
-func (o *IPAddressAttributes) GetFamily() *Family {
-	if o == nil {
+func (i *IPAddressAttributes) GetFamily() *Family {
+	if i == nil {
 		return nil
 	}
-	return o.Family
+	return i.Family
 }
 
-func (o *IPAddressAttributes) GetGateway() *string {
-	if o == nil {
+func (i *IPAddressAttributes) GetGateway() *string {
+	if i == nil {
 		return nil
 	}
-	return o.Gateway
+	return i.Gateway
 }
 
-func (o *IPAddressAttributes) GetNetmask() *string {
-	if o == nil {
+func (i *IPAddressAttributes) GetNetmask() *string {
+	if i == nil {
 		return nil
 	}
-	return o.Netmask
+	return i.Netmask
 }
 
-func (o *IPAddressAttributes) GetType() *IPAddressType {
-	if o == nil {
+func (i *IPAddressAttributes) GetType() *IPAddressType {
+	if i == nil {
 		return nil
 	}
-	return o.Type
+	return i.Type
 }
 
-func (o *IPAddressAttributes) GetPublic() *bool {
-	if o == nil {
+func (i *IPAddressAttributes) GetPublic() *bool {
+	if i == nil {
 		return nil
 	}
-	return o.Public
+	return i.Public
 }
 
-func (o *IPAddressAttributes) GetManagement() *bool {
-	if o == nil {
+func (i *IPAddressAttributes) GetManagement() *bool {
+	if i == nil {
 		return nil
 	}
-	return o.Management
+	return i.Management
 }
 
-func (o *IPAddressAttributes) GetProject() *IPAddressProject {
-	if o == nil {
+func (i *IPAddressAttributes) GetProject() *IPAddressProject {
+	if i == nil {
 		return nil
 	}
-	return o.Project
+	return i.Project
 }
 
-func (o *IPAddressAttributes) GetRegion() *IPAddressRegion {
-	if o == nil {
+func (i *IPAddressAttributes) GetRegion() *IPAddressRegion {
+	if i == nil {
 		return nil
 	}
-	return o.Region
+	return i.Region
 }
 
-func (o *IPAddressAttributes) GetAvailable() *bool {
-	if o == nil {
+func (i *IPAddressAttributes) GetAvailable() *bool {
+	if i == nil {
 		return nil
 	}
-	return o.Available
+	return i.Available
 }
 
-func (o *IPAddressAttributes) GetAssignment() *Assignment {
-	if o == nil {
+func (i *IPAddressAttributes) GetAssignment() *Assignment {
+	if i == nil {
 		return nil
 	}
-	return o.Assignment
+	return i.Assignment
 }
 
 type IPAddress struct {
@@ -263,16 +263,16 @@ type IPAddress struct {
 	Attributes *IPAddressAttributes `json:"attributes,omitempty"`
 }
 
-func (o *IPAddress) GetID() *string {
-	if o == nil {
+func (i *IPAddress) GetID() *string {
+	if i == nil {
 		return nil
 	}
-	return o.ID
+	return i.ID
 }
 
-func (o *IPAddress) GetAttributes() *IPAddressAttributes {
-	if o == nil {
+func (i *IPAddress) GetAttributes() *IPAddressAttributes {
+	if i == nil {
 		return nil
 	}
-	return o.Attributes
+	return i.Attributes
 }

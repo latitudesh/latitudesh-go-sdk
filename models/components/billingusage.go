@@ -16,25 +16,25 @@ type BillingUsageProject struct {
 	Name *string `json:"name,omitempty"`
 }
 
-func (o *BillingUsageProject) GetID() *string {
-	if o == nil {
+func (b *BillingUsageProject) GetID() *string {
+	if b == nil {
 		return nil
 	}
-	return o.ID
+	return b.ID
 }
 
-func (o *BillingUsageProject) GetSlug() *string {
-	if o == nil {
+func (b *BillingUsageProject) GetSlug() *string {
+	if b == nil {
 		return nil
 	}
-	return o.Slug
+	return b.Slug
 }
 
-func (o *BillingUsageProject) GetName() *string {
-	if o == nil {
+func (b *BillingUsageProject) GetName() *string {
+	if b == nil {
 		return nil
 	}
-	return o.Name
+	return b.Name
 }
 
 // Period - The period from the returned billing cycle
@@ -54,18 +54,18 @@ func (p *Period) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *Period) GetStart() *time.Time {
-	if o == nil {
+func (p *Period) GetStart() *time.Time {
+	if p == nil {
 		return nil
 	}
-	return o.Start
+	return p.Start
 }
 
-func (o *Period) GetEnd() *time.Time {
-	if o == nil {
+func (p *Period) GetEnd() *time.Time {
+	if p == nil {
 		return nil
 	}
-	return o.End
+	return p.End
 }
 
 // BillingUsageType - Type of discount (percentage or fixed amount)
@@ -104,25 +104,25 @@ type Discounts struct {
 	Value float32 `json:"value"`
 }
 
-func (o *Discounts) GetDescription() string {
-	if o == nil {
+func (d *Discounts) GetDescription() string {
+	if d == nil {
 		return ""
 	}
-	return o.Description
+	return d.Description
 }
 
-func (o *Discounts) GetType() BillingUsageType {
-	if o == nil {
+func (d *Discounts) GetType() BillingUsageType {
+	if d == nil {
 		return BillingUsageType("")
 	}
-	return o.Type
+	return d.Type
 }
 
-func (o *Discounts) GetValue() float32 {
-	if o == nil {
+func (d *Discounts) GetValue() float32 {
+	if d == nil {
 		return 0.0
 	}
-	return o.Value
+	return d.Value
 }
 
 type Unit string
@@ -187,32 +187,32 @@ type Metadata struct {
 	Tags     []string `json:"tags,omitempty"`
 }
 
-func (o *Metadata) GetID() *string {
-	if o == nil {
+func (m *Metadata) GetID() *string {
+	if m == nil {
 		return nil
 	}
-	return o.ID
+	return m.ID
 }
 
-func (o *Metadata) GetHostname() *string {
-	if o == nil {
+func (m *Metadata) GetHostname() *string {
+	if m == nil {
 		return nil
 	}
-	return o.Hostname
+	return m.Hostname
 }
 
-func (o *Metadata) GetPlan() *string {
-	if o == nil {
+func (m *Metadata) GetPlan() *string {
+	if m == nil {
 		return nil
 	}
-	return o.Plan
+	return m.Plan
 }
 
-func (o *Metadata) GetTags() []string {
-	if o == nil {
+func (m *Metadata) GetTags() []string {
+	if m == nil {
 		return nil
 	}
-	return o.Tags
+	return m.Tags
 }
 
 type Products struct {
@@ -247,116 +247,116 @@ func (p *Products) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *Products) GetID() *string {
-	if o == nil {
+func (p *Products) GetID() *string {
+	if p == nil {
 		return nil
 	}
-	return o.ID
+	return p.ID
 }
 
-func (o *Products) GetResource() *string {
-	if o == nil {
+func (p *Products) GetResource() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Resource
+	return p.Resource
 }
 
-func (o *Products) GetName() *string {
-	if o == nil {
+func (p *Products) GetName() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Name
+	return p.Name
 }
 
-func (o *Products) GetProration() *bool {
-	if o == nil {
+func (p *Products) GetProration() *bool {
+	if p == nil {
 		return nil
 	}
-	return o.Proration
+	return p.Proration
 }
 
-func (o *Products) GetDiscounts() []Discounts {
-	if o == nil {
+func (p *Products) GetDiscounts() []Discounts {
+	if p == nil {
 		return nil
 	}
-	return o.Discounts
+	return p.Discounts
 }
 
-func (o *Products) GetDiscountable() *bool {
-	if o == nil {
+func (p *Products) GetDiscountable() *bool {
+	if p == nil {
 		return nil
 	}
-	return o.Discountable
+	return p.Discountable
 }
 
-func (o *Products) GetDescription() *string {
-	if o == nil {
+func (p *Products) GetDescription() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Description
+	return p.Description
 }
 
-func (o *Products) GetAmountWithoutDiscount() *int64 {
-	if o == nil {
+func (p *Products) GetAmountWithoutDiscount() *int64 {
+	if p == nil {
 		return nil
 	}
-	return o.AmountWithoutDiscount
+	return p.AmountWithoutDiscount
 }
 
-func (o *Products) GetStart() *time.Time {
-	if o == nil {
+func (p *Products) GetStart() *time.Time {
+	if p == nil {
 		return nil
 	}
-	return o.Start
+	return p.Start
 }
 
-func (o *Products) GetEnd() *time.Time {
-	if o == nil {
+func (p *Products) GetEnd() *time.Time {
+	if p == nil {
 		return nil
 	}
-	return o.End
+	return p.End
 }
 
-func (o *Products) GetUnit() *Unit {
-	if o == nil {
+func (p *Products) GetUnit() *Unit {
+	if p == nil {
 		return nil
 	}
-	return o.Unit
+	return p.Unit
 }
 
-func (o *Products) GetUnitPrice() *float64 {
-	if o == nil {
+func (p *Products) GetUnitPrice() *float64 {
+	if p == nil {
 		return nil
 	}
-	return o.UnitPrice
+	return p.UnitPrice
 }
 
-func (o *Products) GetUsageType() *UsageType {
-	if o == nil {
+func (p *Products) GetUsageType() *UsageType {
+	if p == nil {
 		return nil
 	}
-	return o.UsageType
+	return p.UsageType
 }
 
-func (o *Products) GetQuantity() *float64 {
-	if o == nil {
+func (p *Products) GetQuantity() *float64 {
+	if p == nil {
 		return nil
 	}
-	return o.Quantity
+	return p.Quantity
 }
 
-func (o *Products) GetPrice() *float64 {
-	if o == nil {
+func (p *Products) GetPrice() *float64 {
+	if p == nil {
 		return nil
 	}
-	return o.Price
+	return p.Price
 }
 
-func (o *Products) GetMetadata() *Metadata {
-	if o == nil {
+func (p *Products) GetMetadata() *Metadata {
+	if p == nil {
 		return nil
 	}
-	return o.Metadata
+	return p.Metadata
 }
 
 type BillingUsageAttributes struct {
@@ -371,39 +371,39 @@ type BillingUsageAttributes struct {
 	Products  []Products `json:"products,omitempty"`
 }
 
-func (o *BillingUsageAttributes) GetProject() *BillingUsageProject {
-	if o == nil {
+func (b *BillingUsageAttributes) GetProject() *BillingUsageProject {
+	if b == nil {
 		return nil
 	}
-	return o.Project
+	return b.Project
 }
 
-func (o *BillingUsageAttributes) GetPeriod() *Period {
-	if o == nil {
+func (b *BillingUsageAttributes) GetPeriod() *Period {
+	if b == nil {
 		return nil
 	}
-	return o.Period
+	return b.Period
 }
 
-func (o *BillingUsageAttributes) GetPrice() *float64 {
-	if o == nil {
+func (b *BillingUsageAttributes) GetPrice() *float64 {
+	if b == nil {
 		return nil
 	}
-	return o.Price
+	return b.Price
 }
 
-func (o *BillingUsageAttributes) GetThreshold() *float64 {
-	if o == nil {
+func (b *BillingUsageAttributes) GetThreshold() *float64 {
+	if b == nil {
 		return nil
 	}
-	return o.Threshold
+	return b.Threshold
 }
 
-func (o *BillingUsageAttributes) GetProducts() []Products {
-	if o == nil {
+func (b *BillingUsageAttributes) GetProducts() []Products {
+	if b == nil {
 		return nil
 	}
-	return o.Products
+	return b.Products
 }
 
 type BillingUsageData struct {
@@ -411,27 +411,27 @@ type BillingUsageData struct {
 	Attributes *BillingUsageAttributes `json:"attributes,omitempty"`
 }
 
-func (o *BillingUsageData) GetID() *string {
-	if o == nil {
+func (b *BillingUsageData) GetID() *string {
+	if b == nil {
 		return nil
 	}
-	return o.ID
+	return b.ID
 }
 
-func (o *BillingUsageData) GetAttributes() *BillingUsageAttributes {
-	if o == nil {
+func (b *BillingUsageData) GetAttributes() *BillingUsageAttributes {
+	if b == nil {
 		return nil
 	}
-	return o.Attributes
+	return b.Attributes
 }
 
 type BillingUsage struct {
 	Data *BillingUsageData `json:"data,omitempty"`
 }
 
-func (o *BillingUsage) GetData() *BillingUsageData {
-	if o == nil {
+func (b *BillingUsage) GetData() *BillingUsageData {
+	if b == nil {
 		return nil
 	}
-	return o.Data
+	return b.Data
 }

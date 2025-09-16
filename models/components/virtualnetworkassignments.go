@@ -10,16 +10,16 @@ type VirtualNetworkAssignments struct {
 	Meta *VirtualNetworkAssignmentsMeta `json:"meta,omitempty"`
 }
 
-func (o *VirtualNetworkAssignments) GetData() []VirtualNetworkAssignmentData {
-	if o == nil {
+func (v *VirtualNetworkAssignments) GetData() []VirtualNetworkAssignmentData {
+	if v == nil {
 		return nil
 	}
-	return o.Data
+	return v.Data
 }
 
-func (o *VirtualNetworkAssignments) GetMeta() *VirtualNetworkAssignmentsMeta {
-	if o == nil {
+func (v *VirtualNetworkAssignments) GetMeta() *VirtualNetworkAssignmentsMeta {
+	if v == nil {
 		return nil
 	}
-	return o.Meta
+	return v.Meta
 }

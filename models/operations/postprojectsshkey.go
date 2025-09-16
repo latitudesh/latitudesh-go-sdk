@@ -38,18 +38,18 @@ type PostProjectSSHKeyProjectsSSHKeysAttributes struct {
 	PublicKey *string `json:"public_key,omitempty"`
 }
 
-func (o *PostProjectSSHKeyProjectsSSHKeysAttributes) GetName() *string {
-	if o == nil {
+func (p *PostProjectSSHKeyProjectsSSHKeysAttributes) GetName() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Name
+	return p.Name
 }
 
-func (o *PostProjectSSHKeyProjectsSSHKeysAttributes) GetPublicKey() *string {
-	if o == nil {
+func (p *PostProjectSSHKeyProjectsSSHKeysAttributes) GetPublicKey() *string {
+	if p == nil {
 		return nil
 	}
-	return o.PublicKey
+	return p.PublicKey
 }
 
 type PostProjectSSHKeyProjectsSSHKeysData struct {
@@ -57,29 +57,29 @@ type PostProjectSSHKeyProjectsSSHKeysData struct {
 	Attributes *PostProjectSSHKeyProjectsSSHKeysAttributes `json:"attributes,omitempty"`
 }
 
-func (o *PostProjectSSHKeyProjectsSSHKeysData) GetType() PostProjectSSHKeyProjectsSSHKeysType {
-	if o == nil {
+func (p *PostProjectSSHKeyProjectsSSHKeysData) GetType() PostProjectSSHKeyProjectsSSHKeysType {
+	if p == nil {
 		return PostProjectSSHKeyProjectsSSHKeysType("")
 	}
-	return o.Type
+	return p.Type
 }
 
-func (o *PostProjectSSHKeyProjectsSSHKeysData) GetAttributes() *PostProjectSSHKeyProjectsSSHKeysAttributes {
-	if o == nil {
+func (p *PostProjectSSHKeyProjectsSSHKeysData) GetAttributes() *PostProjectSSHKeyProjectsSSHKeysAttributes {
+	if p == nil {
 		return nil
 	}
-	return o.Attributes
+	return p.Attributes
 }
 
 type PostProjectSSHKeyProjectsSSHKeysRequestBody struct {
 	Data PostProjectSSHKeyProjectsSSHKeysData `json:"data"`
 }
 
-func (o *PostProjectSSHKeyProjectsSSHKeysRequestBody) GetData() PostProjectSSHKeyProjectsSSHKeysData {
-	if o == nil {
+func (p *PostProjectSSHKeyProjectsSSHKeysRequestBody) GetData() PostProjectSSHKeyProjectsSSHKeysData {
+	if p == nil {
 		return PostProjectSSHKeyProjectsSSHKeysData{}
 	}
-	return o.Data
+	return p.Data
 }
 
 type PostProjectSSHKeyRequest struct {
@@ -88,18 +88,18 @@ type PostProjectSSHKeyRequest struct {
 	RequestBody PostProjectSSHKeyProjectsSSHKeysRequestBody `request:"mediaType=application/json"`
 }
 
-func (o *PostProjectSSHKeyRequest) GetProjectID() string {
-	if o == nil {
+func (p *PostProjectSSHKeyRequest) GetProjectID() string {
+	if p == nil {
 		return ""
 	}
-	return o.ProjectID
+	return p.ProjectID
 }
 
-func (o *PostProjectSSHKeyRequest) GetRequestBody() PostProjectSSHKeyProjectsSSHKeysRequestBody {
-	if o == nil {
+func (p *PostProjectSSHKeyRequest) GetRequestBody() PostProjectSSHKeyProjectsSSHKeysRequestBody {
+	if p == nil {
 		return PostProjectSSHKeyProjectsSSHKeysRequestBody{}
 	}
-	return o.RequestBody
+	return p.RequestBody
 }
 
 // PostProjectSSHKeyResponseBody - Created
@@ -107,11 +107,11 @@ type PostProjectSSHKeyResponseBody struct {
 	Data *components.SSHKeyData `json:"data,omitempty"`
 }
 
-func (o *PostProjectSSHKeyResponseBody) GetData() *components.SSHKeyData {
-	if o == nil {
+func (p *PostProjectSSHKeyResponseBody) GetData() *components.SSHKeyData {
+	if p == nil {
 		return nil
 	}
-	return o.Data
+	return p.Data
 }
 
 type PostProjectSSHKeyResponse struct {
@@ -120,16 +120,16 @@ type PostProjectSSHKeyResponse struct {
 	Object *PostProjectSSHKeyResponseBody
 }
 
-func (o *PostProjectSSHKeyResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PostProjectSSHKeyResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PostProjectSSHKeyResponse) GetObject() *PostProjectSSHKeyResponseBody {
-	if o == nil {
+func (p *PostProjectSSHKeyResponse) GetObject() *PostProjectSSHKeyResponseBody {
+	if p == nil {
 		return nil
 	}
-	return o.Object
+	return p.Object
 }

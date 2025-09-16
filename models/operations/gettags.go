@@ -12,16 +12,16 @@ type GetTagsResponse struct {
 	CustomTags *components.CustomTags
 }
 
-func (o *GetTagsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetTagsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetTagsResponse) GetCustomTags() *components.CustomTags {
-	if o == nil {
+func (g *GetTagsResponse) GetCustomTags() *components.CustomTags {
+	if g == nil {
 		return nil
 	}
-	return o.CustomTags
+	return g.CustomTags
 }

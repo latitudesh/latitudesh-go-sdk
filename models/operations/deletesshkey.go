@@ -10,20 +10,20 @@ type DeleteSSHKeyRequest struct {
 	SSHKeyID string `pathParam:"style=simple,explode=false,name=ssh_key_id"`
 }
 
-func (o *DeleteSSHKeyRequest) GetSSHKeyID() string {
-	if o == nil {
+func (d *DeleteSSHKeyRequest) GetSSHKeyID() string {
+	if d == nil {
 		return ""
 	}
-	return o.SSHKeyID
+	return d.SSHKeyID
 }
 
 type DeleteSSHKeyResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *DeleteSSHKeyResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (d *DeleteSSHKeyResponse) GetHTTPMeta() components.HTTPMetadata {
+	if d == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return d.HTTPMeta
 }

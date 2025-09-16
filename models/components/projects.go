@@ -6,9 +6,9 @@ type Projects struct {
 	Data []Project `json:"data,omitempty"`
 }
 
-func (o *Projects) GetData() []Project {
-	if o == nil {
+func (p *Projects) GetData() []Project {
+	if p == nil {
 		return nil
 	}
-	return o.Data
+	return p.Data
 }

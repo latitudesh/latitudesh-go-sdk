@@ -12,16 +12,16 @@ type GetStoragePlansResponse struct {
 	StoragePlans *components.StoragePlans
 }
 
-func (o *GetStoragePlansResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetStoragePlansResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetStoragePlansResponse) GetStoragePlans() *components.StoragePlans {
-	if o == nil {
+func (g *GetStoragePlansResponse) GetStoragePlans() *components.StoragePlans {
+	if g == nil {
 		return nil
 	}
-	return o.StoragePlans
+	return g.StoragePlans
 }

@@ -35,18 +35,18 @@ type FirewallServerAttributes struct {
 	FirewallID *string `json:"firewall_id,omitempty"`
 }
 
-func (o *FirewallServerAttributes) GetServerID() *string {
-	if o == nil {
+func (f *FirewallServerAttributes) GetServerID() *string {
+	if f == nil {
 		return nil
 	}
-	return o.ServerID
+	return f.ServerID
 }
 
-func (o *FirewallServerAttributes) GetFirewallID() *string {
-	if o == nil {
+func (f *FirewallServerAttributes) GetFirewallID() *string {
+	if f == nil {
 		return nil
 	}
-	return o.FirewallID
+	return f.FirewallID
 }
 
 type FirewallServer struct {
@@ -55,23 +55,23 @@ type FirewallServer struct {
 	Attributes *FirewallServerAttributes `json:"attributes,omitempty"`
 }
 
-func (o *FirewallServer) GetID() *string {
-	if o == nil {
+func (f *FirewallServer) GetID() *string {
+	if f == nil {
 		return nil
 	}
-	return o.ID
+	return f.ID
 }
 
-func (o *FirewallServer) GetType() *FirewallServerType {
-	if o == nil {
+func (f *FirewallServer) GetType() *FirewallServerType {
+	if f == nil {
 		return nil
 	}
-	return o.Type
+	return f.Type
 }
 
-func (o *FirewallServer) GetAttributes() *FirewallServerAttributes {
-	if o == nil {
+func (f *FirewallServer) GetAttributes() *FirewallServerAttributes {
+	if f == nil {
 		return nil
 	}
-	return o.Attributes
+	return f.Attributes
 }

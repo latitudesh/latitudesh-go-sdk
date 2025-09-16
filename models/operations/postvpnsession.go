@@ -113,18 +113,18 @@ type PostVpnSessionVpnSessionsAttributes struct {
 	ServerID *string                        `json:"server_id,omitempty"`
 }
 
-func (o *PostVpnSessionVpnSessionsAttributes) GetSite() *PostVpnSessionVpnSessionsSite {
-	if o == nil {
+func (p *PostVpnSessionVpnSessionsAttributes) GetSite() *PostVpnSessionVpnSessionsSite {
+	if p == nil {
 		return nil
 	}
-	return o.Site
+	return p.Site
 }
 
-func (o *PostVpnSessionVpnSessionsAttributes) GetServerID() *string {
-	if o == nil {
+func (p *PostVpnSessionVpnSessionsAttributes) GetServerID() *string {
+	if p == nil {
 		return nil
 	}
-	return o.ServerID
+	return p.ServerID
 }
 
 type PostVpnSessionVpnSessionsData struct {
@@ -132,29 +132,29 @@ type PostVpnSessionVpnSessionsData struct {
 	Attributes *PostVpnSessionVpnSessionsAttributes `json:"attributes,omitempty"`
 }
 
-func (o *PostVpnSessionVpnSessionsData) GetType() *PostVpnSessionVpnSessionsType {
-	if o == nil {
+func (p *PostVpnSessionVpnSessionsData) GetType() *PostVpnSessionVpnSessionsType {
+	if p == nil {
 		return nil
 	}
-	return o.Type
+	return p.Type
 }
 
-func (o *PostVpnSessionVpnSessionsData) GetAttributes() *PostVpnSessionVpnSessionsAttributes {
-	if o == nil {
+func (p *PostVpnSessionVpnSessionsData) GetAttributes() *PostVpnSessionVpnSessionsAttributes {
+	if p == nil {
 		return nil
 	}
-	return o.Attributes
+	return p.Attributes
 }
 
 type PostVpnSessionVpnSessionsRequestBody struct {
 	Data *PostVpnSessionVpnSessionsData `json:"data,omitempty"`
 }
 
-func (o *PostVpnSessionVpnSessionsRequestBody) GetData() *PostVpnSessionVpnSessionsData {
-	if o == nil {
+func (p *PostVpnSessionVpnSessionsRequestBody) GetData() *PostVpnSessionVpnSessionsData {
+	if p == nil {
 		return nil
 	}
-	return o.Data
+	return p.Data
 }
 
 type PostVpnSessionResponse struct {
@@ -163,16 +163,16 @@ type PostVpnSessionResponse struct {
 	VpnSessionWithPassword *components.VpnSessionWithPassword
 }
 
-func (o *PostVpnSessionResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PostVpnSessionResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PostVpnSessionResponse) GetVpnSessionWithPassword() *components.VpnSessionWithPassword {
-	if o == nil {
+func (p *PostVpnSessionResponse) GetVpnSessionWithPassword() *components.VpnSessionWithPassword {
+	if p == nil {
 		return nil
 	}
-	return o.VpnSessionWithPassword
+	return p.VpnSessionWithPassword
 }

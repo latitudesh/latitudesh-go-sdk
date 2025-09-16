@@ -66,11 +66,11 @@ type CreateVirtualMachineActionVirtualMachinesAttributes struct {
 	Action CreateVirtualMachineActionVirtualMachinesAction `json:"action"`
 }
 
-func (o *CreateVirtualMachineActionVirtualMachinesAttributes) GetAction() CreateVirtualMachineActionVirtualMachinesAction {
-	if o == nil {
+func (c *CreateVirtualMachineActionVirtualMachinesAttributes) GetAction() CreateVirtualMachineActionVirtualMachinesAction {
+	if c == nil {
 		return CreateVirtualMachineActionVirtualMachinesAction("")
 	}
-	return o.Action
+	return c.Action
 }
 
 type CreateVirtualMachineActionVirtualMachinesRequestBody struct {
@@ -79,25 +79,25 @@ type CreateVirtualMachineActionVirtualMachinesRequestBody struct {
 	Attributes CreateVirtualMachineActionVirtualMachinesAttributes `json:"attributes"`
 }
 
-func (o *CreateVirtualMachineActionVirtualMachinesRequestBody) GetID() string {
-	if o == nil {
+func (c *CreateVirtualMachineActionVirtualMachinesRequestBody) GetID() string {
+	if c == nil {
 		return ""
 	}
-	return o.ID
+	return c.ID
 }
 
-func (o *CreateVirtualMachineActionVirtualMachinesRequestBody) GetType() CreateVirtualMachineActionVirtualMachinesType {
-	if o == nil {
+func (c *CreateVirtualMachineActionVirtualMachinesRequestBody) GetType() CreateVirtualMachineActionVirtualMachinesType {
+	if c == nil {
 		return CreateVirtualMachineActionVirtualMachinesType("")
 	}
-	return o.Type
+	return c.Type
 }
 
-func (o *CreateVirtualMachineActionVirtualMachinesRequestBody) GetAttributes() CreateVirtualMachineActionVirtualMachinesAttributes {
-	if o == nil {
+func (c *CreateVirtualMachineActionVirtualMachinesRequestBody) GetAttributes() CreateVirtualMachineActionVirtualMachinesAttributes {
+	if c == nil {
 		return CreateVirtualMachineActionVirtualMachinesAttributes{}
 	}
-	return o.Attributes
+	return c.Attributes
 }
 
 type CreateVirtualMachineActionRequest struct {
@@ -105,27 +105,27 @@ type CreateVirtualMachineActionRequest struct {
 	RequestBody      CreateVirtualMachineActionVirtualMachinesRequestBody `request:"mediaType=application/json"`
 }
 
-func (o *CreateVirtualMachineActionRequest) GetVirtualMachineID() string {
-	if o == nil {
+func (c *CreateVirtualMachineActionRequest) GetVirtualMachineID() string {
+	if c == nil {
 		return ""
 	}
-	return o.VirtualMachineID
+	return c.VirtualMachineID
 }
 
-func (o *CreateVirtualMachineActionRequest) GetRequestBody() CreateVirtualMachineActionVirtualMachinesRequestBody {
-	if o == nil {
+func (c *CreateVirtualMachineActionRequest) GetRequestBody() CreateVirtualMachineActionVirtualMachinesRequestBody {
+	if c == nil {
 		return CreateVirtualMachineActionVirtualMachinesRequestBody{}
 	}
-	return o.RequestBody
+	return c.RequestBody
 }
 
 type CreateVirtualMachineActionResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *CreateVirtualMachineActionResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (c *CreateVirtualMachineActionResponse) GetHTTPMeta() components.HTTPMetadata {
+	if c == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return c.HTTPMeta
 }

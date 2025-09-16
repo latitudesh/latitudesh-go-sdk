@@ -13,27 +13,27 @@ type DestroyServerRequest struct {
 	Reason *string `queryParam:"style=form,explode=true,name=reason"`
 }
 
-func (o *DestroyServerRequest) GetServerID() string {
-	if o == nil {
+func (d *DestroyServerRequest) GetServerID() string {
+	if d == nil {
 		return ""
 	}
-	return o.ServerID
+	return d.ServerID
 }
 
-func (o *DestroyServerRequest) GetReason() *string {
-	if o == nil {
+func (d *DestroyServerRequest) GetReason() *string {
+	if d == nil {
 		return nil
 	}
-	return o.Reason
+	return d.Reason
 }
 
 type DestroyServerResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *DestroyServerResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (d *DestroyServerResponse) GetHTTPMeta() components.HTTPMetadata {
+	if d == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return d.HTTPMeta
 }

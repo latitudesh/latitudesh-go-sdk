@@ -47,11 +47,11 @@ func (c *CreateAPIKeyAttributes) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *CreateAPIKeyAttributes) GetName() *string {
-	if o == nil {
+func (c *CreateAPIKeyAttributes) GetName() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Name
+	return c.Name
 }
 
 type Data struct {
@@ -59,27 +59,27 @@ type Data struct {
 	Attributes *CreateAPIKeyAttributes `json:"attributes,omitempty"`
 }
 
-func (o *Data) GetType() CreateAPIKeyType {
-	if o == nil {
+func (d *Data) GetType() CreateAPIKeyType {
+	if d == nil {
 		return CreateAPIKeyType("")
 	}
-	return o.Type
+	return d.Type
 }
 
-func (o *Data) GetAttributes() *CreateAPIKeyAttributes {
-	if o == nil {
+func (d *Data) GetAttributes() *CreateAPIKeyAttributes {
+	if d == nil {
 		return nil
 	}
-	return o.Attributes
+	return d.Attributes
 }
 
 type CreateAPIKey struct {
 	Data *Data `json:"data,omitempty"`
 }
 
-func (o *CreateAPIKey) GetData() *Data {
-	if o == nil {
+func (c *CreateAPIKey) GetData() *Data {
+	if c == nil {
 		return nil
 	}
-	return o.Data
+	return c.Data
 }

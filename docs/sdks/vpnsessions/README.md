@@ -94,7 +94,7 @@ func main() {
         Data: &operations.PostVpnSessionVpnSessionsData{
             Attributes: &operations.PostVpnSessionVpnSessionsAttributes{
                 Site: operations.PostVpnSessionVpnSessionsSiteSao.ToPointer(),
-                ServerID: latitudeshgosdk.String("sv_wg3ZDrKyO5QlP"),
+                ServerID: latitudeshgosdk.Pointer("sv_wg3ZDrKyO5QlP"),
             },
         },
     })

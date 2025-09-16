@@ -10,11 +10,11 @@ type ServerLockRequest struct {
 	ServerID string `pathParam:"style=simple,explode=false,name=server_id"`
 }
 
-func (o *ServerLockRequest) GetServerID() string {
-	if o == nil {
+func (s *ServerLockRequest) GetServerID() string {
+	if s == nil {
 		return ""
 	}
-	return o.ServerID
+	return s.ServerID
 }
 
 type ServerLockResponse struct {
@@ -23,16 +23,16 @@ type ServerLockResponse struct {
 	Server *components.Server
 }
 
-func (o *ServerLockResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (s *ServerLockResponse) GetHTTPMeta() components.HTTPMetadata {
+	if s == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return s.HTTPMeta
 }
 
-func (o *ServerLockResponse) GetServer() *components.Server {
-	if o == nil {
+func (s *ServerLockResponse) GetServer() *components.Server {
+	if s == nil {
 		return nil
 	}
-	return o.Server
+	return s.Server
 }

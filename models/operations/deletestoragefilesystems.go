@@ -10,20 +10,20 @@ type DeleteStorageFilesystemsRequest struct {
 	FilesystemID string `pathParam:"style=simple,explode=false,name=filesystem_id"`
 }
 
-func (o *DeleteStorageFilesystemsRequest) GetFilesystemID() string {
-	if o == nil {
+func (d *DeleteStorageFilesystemsRequest) GetFilesystemID() string {
+	if d == nil {
 		return ""
 	}
-	return o.FilesystemID
+	return d.FilesystemID
 }
 
 type DeleteStorageFilesystemsResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *DeleteStorageFilesystemsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (d *DeleteStorageFilesystemsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if d == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return d.HTTPMeta
 }

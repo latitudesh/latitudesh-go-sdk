@@ -11,20 +11,20 @@ type DeleteFirewallRequest struct {
 	FirewallID string `pathParam:"style=simple,explode=false,name=firewall_id"`
 }
 
-func (o *DeleteFirewallRequest) GetFirewallID() string {
-	if o == nil {
+func (d *DeleteFirewallRequest) GetFirewallID() string {
+	if d == nil {
 		return ""
 	}
-	return o.FirewallID
+	return d.FirewallID
 }
 
 type DeleteFirewallResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *DeleteFirewallResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (d *DeleteFirewallResponse) GetHTTPMeta() components.HTTPMetadata {
+	if d == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return d.HTTPMeta
 }

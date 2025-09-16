@@ -13,27 +13,27 @@ type DeleteFirewallAssignmentRequest struct {
 	AssignmentID string `pathParam:"style=simple,explode=false,name=assignment_id"`
 }
 
-func (o *DeleteFirewallAssignmentRequest) GetFirewallID() string {
-	if o == nil {
+func (d *DeleteFirewallAssignmentRequest) GetFirewallID() string {
+	if d == nil {
 		return ""
 	}
-	return o.FirewallID
+	return d.FirewallID
 }
 
-func (o *DeleteFirewallAssignmentRequest) GetAssignmentID() string {
-	if o == nil {
+func (d *DeleteFirewallAssignmentRequest) GetAssignmentID() string {
+	if d == nil {
 		return ""
 	}
-	return o.AssignmentID
+	return d.AssignmentID
 }
 
 type DeleteFirewallAssignmentResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *DeleteFirewallAssignmentResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (d *DeleteFirewallAssignmentResponse) GetHTTPMeta() components.HTTPMetadata {
+	if d == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return d.HTTPMeta
 }

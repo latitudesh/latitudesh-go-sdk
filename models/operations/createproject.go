@@ -97,32 +97,32 @@ type CreateProjectProjectsAttributes struct {
 	Environment *CreateProjectEnvironment `json:"environment,omitempty"`
 }
 
-func (o *CreateProjectProjectsAttributes) GetName() string {
-	if o == nil {
+func (c *CreateProjectProjectsAttributes) GetName() string {
+	if c == nil {
 		return ""
 	}
-	return o.Name
+	return c.Name
 }
 
-func (o *CreateProjectProjectsAttributes) GetProvisioningType() CreateProjectProvisioningType {
-	if o == nil {
+func (c *CreateProjectProjectsAttributes) GetProvisioningType() CreateProjectProvisioningType {
+	if c == nil {
 		return CreateProjectProvisioningType("")
 	}
-	return o.ProvisioningType
+	return c.ProvisioningType
 }
 
-func (o *CreateProjectProjectsAttributes) GetDescription() *string {
-	if o == nil {
+func (c *CreateProjectProjectsAttributes) GetDescription() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Description
+	return c.Description
 }
 
-func (o *CreateProjectProjectsAttributes) GetEnvironment() *CreateProjectEnvironment {
-	if o == nil {
+func (c *CreateProjectProjectsAttributes) GetEnvironment() *CreateProjectEnvironment {
+	if c == nil {
 		return nil
 	}
-	return o.Environment
+	return c.Environment
 }
 
 type CreateProjectProjectsData struct {
@@ -130,29 +130,29 @@ type CreateProjectProjectsData struct {
 	Attributes *CreateProjectProjectsAttributes `json:"attributes,omitempty"`
 }
 
-func (o *CreateProjectProjectsData) GetType() CreateProjectProjectsType {
-	if o == nil {
+func (c *CreateProjectProjectsData) GetType() CreateProjectProjectsType {
+	if c == nil {
 		return CreateProjectProjectsType("")
 	}
-	return o.Type
+	return c.Type
 }
 
-func (o *CreateProjectProjectsData) GetAttributes() *CreateProjectProjectsAttributes {
-	if o == nil {
+func (c *CreateProjectProjectsData) GetAttributes() *CreateProjectProjectsAttributes {
+	if c == nil {
 		return nil
 	}
-	return o.Attributes
+	return c.Attributes
 }
 
 type CreateProjectProjectsRequestBody struct {
 	Data *CreateProjectProjectsData `json:"data,omitempty"`
 }
 
-func (o *CreateProjectProjectsRequestBody) GetData() *CreateProjectProjectsData {
-	if o == nil {
+func (c *CreateProjectProjectsRequestBody) GetData() *CreateProjectProjectsData {
+	if c == nil {
 		return nil
 	}
-	return o.Data
+	return c.Data
 }
 
 // CreateProjectResponseBody - Created
@@ -160,11 +160,11 @@ type CreateProjectResponseBody struct {
 	Data *components.Project `json:"data,omitempty"`
 }
 
-func (o *CreateProjectResponseBody) GetData() *components.Project {
-	if o == nil {
+func (c *CreateProjectResponseBody) GetData() *components.Project {
+	if c == nil {
 		return nil
 	}
-	return o.Data
+	return c.Data
 }
 
 type CreateProjectResponse struct {
@@ -173,16 +173,16 @@ type CreateProjectResponse struct {
 	Object *CreateProjectResponseBody
 }
 
-func (o *CreateProjectResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (c *CreateProjectResponse) GetHTTPMeta() components.HTTPMetadata {
+	if c == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return c.HTTPMeta
 }
 
-func (o *CreateProjectResponse) GetObject() *CreateProjectResponseBody {
-	if o == nil {
+func (c *CreateProjectResponse) GetObject() *CreateProjectResponseBody {
+	if c == nil {
 		return nil
 	}
-	return o.Object
+	return c.Object
 }

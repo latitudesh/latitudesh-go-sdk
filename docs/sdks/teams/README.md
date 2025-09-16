@@ -91,7 +91,7 @@ func main() {
             Attributes: &operations.PostTeamTeamsAttributes{
                 Name: "Name",
                 Currency: operations.PostTeamCurrencyUsd,
-                Address: latitudeshgosdk.String("Address"),
+                Address: latitudeshgosdk.Pointer("Address"),
             },
         },
     })
@@ -152,8 +152,8 @@ func main() {
             ID: "team_z3Qna7E2QRc3455EQ34JfAWNQ42",
             Type: operations.PatchCurrentTeamTeamsTypeTeams,
             Attributes: &operations.PatchCurrentTeamTeamsAttributes{
-                Address: latitudeshgosdk.String("Address"),
-                Name: latitudeshgosdk.String("Name"),
+                Address: latitudeshgosdk.Pointer("Address"),
+                Name: latitudeshgosdk.Pointer("Name"),
             },
         },
     })

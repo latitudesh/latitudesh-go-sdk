@@ -110,39 +110,39 @@ type ProjectStats struct {
 	Vlans *float64 `json:"vlans,omitempty"`
 }
 
-func (o *ProjectStats) GetIPAddresses() *float64 {
-	if o == nil {
+func (p *ProjectStats) GetIPAddresses() *float64 {
+	if p == nil {
 		return nil
 	}
-	return o.IPAddresses
+	return p.IPAddresses
 }
 
-func (o *ProjectStats) GetPrefixes() *float64 {
-	if o == nil {
+func (p *ProjectStats) GetPrefixes() *float64 {
+	if p == nil {
 		return nil
 	}
-	return o.Prefixes
+	return p.Prefixes
 }
 
-func (o *ProjectStats) GetServers() *float64 {
-	if o == nil {
+func (p *ProjectStats) GetServers() *float64 {
+	if p == nil {
 		return nil
 	}
-	return o.Servers
+	return p.Servers
 }
 
-func (o *ProjectStats) GetContainers() *float64 {
-	if o == nil {
+func (p *ProjectStats) GetContainers() *float64 {
+	if p == nil {
 		return nil
 	}
-	return o.Containers
+	return p.Containers
 }
 
-func (o *ProjectStats) GetVlans() *float64 {
-	if o == nil {
+func (p *ProjectStats) GetVlans() *float64 {
+	if p == nil {
 		return nil
 	}
-	return o.Vlans
+	return p.Vlans
 }
 
 type ProjectBilling struct {
@@ -151,25 +151,25 @@ type ProjectBilling struct {
 	Method         *string `json:"method,omitempty"`
 }
 
-func (o *ProjectBilling) GetSubscriptionID() *string {
-	if o == nil {
+func (p *ProjectBilling) GetSubscriptionID() *string {
+	if p == nil {
 		return nil
 	}
-	return o.SubscriptionID
+	return p.SubscriptionID
 }
 
-func (o *ProjectBilling) GetType() *string {
-	if o == nil {
+func (p *ProjectBilling) GetType() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Type
+	return p.Type
 }
 
-func (o *ProjectBilling) GetMethod() *string {
-	if o == nil {
+func (p *ProjectBilling) GetMethod() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Method
+	return p.Method
 }
 
 type ProjectAttributes struct {
@@ -190,88 +190,88 @@ type ProjectAttributes struct {
 	UpdatedAt     *string         `json:"updated_at,omitempty"`
 }
 
-func (o *ProjectAttributes) GetName() *string {
-	if o == nil {
+func (p *ProjectAttributes) GetName() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Name
+	return p.Name
 }
 
-func (o *ProjectAttributes) GetSlug() *string {
-	if o == nil {
+func (p *ProjectAttributes) GetSlug() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Slug
+	return p.Slug
 }
 
-func (o *ProjectAttributes) GetDescription() *string {
-	if o == nil {
+func (p *ProjectAttributes) GetDescription() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Description
+	return p.Description
 }
 
-func (o *ProjectAttributes) GetBillingType() *BillingType {
-	if o == nil {
+func (p *ProjectAttributes) GetBillingType() *BillingType {
+	if p == nil {
 		return nil
 	}
-	return o.BillingType
+	return p.BillingType
 }
 
-func (o *ProjectAttributes) GetBillingMethod() *BillingMethod {
-	if o == nil {
+func (p *ProjectAttributes) GetBillingMethod() *BillingMethod {
+	if p == nil {
 		return nil
 	}
-	return o.BillingMethod
+	return p.BillingMethod
 }
 
-func (o *ProjectAttributes) GetCost() *string {
-	if o == nil {
+func (p *ProjectAttributes) GetCost() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Cost
+	return p.Cost
 }
 
-func (o *ProjectAttributes) GetEnvironment() *Environment {
-	if o == nil {
+func (p *ProjectAttributes) GetEnvironment() *Environment {
+	if p == nil {
 		return nil
 	}
-	return o.Environment
+	return p.Environment
 }
 
-func (o *ProjectAttributes) GetStats() *ProjectStats {
-	if o == nil {
+func (p *ProjectAttributes) GetStats() *ProjectStats {
+	if p == nil {
 		return nil
 	}
-	return o.Stats
+	return p.Stats
 }
 
-func (o *ProjectAttributes) GetBilling() *ProjectBilling {
-	if o == nil {
+func (p *ProjectAttributes) GetBilling() *ProjectBilling {
+	if p == nil {
 		return nil
 	}
-	return o.Billing
+	return p.Billing
 }
 
-func (o *ProjectAttributes) GetTeam() *TeamInclude {
-	if o == nil {
+func (p *ProjectAttributes) GetTeam() *TeamInclude {
+	if p == nil {
 		return nil
 	}
-	return o.Team
+	return p.Team
 }
 
-func (o *ProjectAttributes) GetCreatedAt() *string {
-	if o == nil {
+func (p *ProjectAttributes) GetCreatedAt() *string {
+	if p == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return p.CreatedAt
 }
 
-func (o *ProjectAttributes) GetUpdatedAt() *string {
-	if o == nil {
+func (p *ProjectAttributes) GetUpdatedAt() *string {
+	if p == nil {
 		return nil
 	}
-	return o.UpdatedAt
+	return p.UpdatedAt
 }
 
 type Project struct {
@@ -280,16 +280,16 @@ type Project struct {
 	Attributes *ProjectAttributes `json:"attributes,omitempty"`
 }
 
-func (o *Project) GetID() *string {
-	if o == nil {
+func (p *Project) GetID() *string {
+	if p == nil {
 		return nil
 	}
-	return o.ID
+	return p.ID
 }
 
-func (o *Project) GetAttributes() *ProjectAttributes {
-	if o == nil {
+func (p *Project) GetAttributes() *ProjectAttributes {
+	if p == nil {
 		return nil
 	}
-	return o.Attributes
+	return p.Attributes
 }

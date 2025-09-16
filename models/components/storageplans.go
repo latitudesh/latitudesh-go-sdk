@@ -10,16 +10,16 @@ type StoragePlans struct {
 	Meta *StoragePlansMeta `json:"meta,omitempty"`
 }
 
-func (o *StoragePlans) GetData() []StoragePlanData {
-	if o == nil {
+func (s *StoragePlans) GetData() []StoragePlanData {
+	if s == nil {
 		return nil
 	}
-	return o.Data
+	return s.Data
 }
 
-func (o *StoragePlans) GetMeta() *StoragePlansMeta {
-	if o == nil {
+func (s *StoragePlans) GetMeta() *StoragePlansMeta {
+	if s == nil {
 		return nil
 	}
-	return o.Meta
+	return s.Meta
 }

@@ -48,11 +48,11 @@ func (p *PatchStorageFilesystemsStorageAttributes) UnmarshalJSON(data []byte) er
 	return nil
 }
 
-func (o *PatchStorageFilesystemsStorageAttributes) GetSizeInGb() *int64 {
-	if o == nil {
+func (p *PatchStorageFilesystemsStorageAttributes) GetSizeInGb() *int64 {
+	if p == nil {
 		return nil
 	}
-	return o.SizeInGb
+	return p.SizeInGb
 }
 
 type PatchStorageFilesystemsStorageData struct {
@@ -62,36 +62,36 @@ type PatchStorageFilesystemsStorageData struct {
 	Attributes PatchStorageFilesystemsStorageAttributes `json:"attributes"`
 }
 
-func (o *PatchStorageFilesystemsStorageData) GetID() string {
-	if o == nil {
+func (p *PatchStorageFilesystemsStorageData) GetID() string {
+	if p == nil {
 		return ""
 	}
-	return o.ID
+	return p.ID
 }
 
-func (o *PatchStorageFilesystemsStorageData) GetType() PatchStorageFilesystemsStorageType {
-	if o == nil {
+func (p *PatchStorageFilesystemsStorageData) GetType() PatchStorageFilesystemsStorageType {
+	if p == nil {
 		return PatchStorageFilesystemsStorageType("")
 	}
-	return o.Type
+	return p.Type
 }
 
-func (o *PatchStorageFilesystemsStorageData) GetAttributes() PatchStorageFilesystemsStorageAttributes {
-	if o == nil {
+func (p *PatchStorageFilesystemsStorageData) GetAttributes() PatchStorageFilesystemsStorageAttributes {
+	if p == nil {
 		return PatchStorageFilesystemsStorageAttributes{}
 	}
-	return o.Attributes
+	return p.Attributes
 }
 
 type PatchStorageFilesystemsStorageRequestBody struct {
 	Data PatchStorageFilesystemsStorageData `json:"data"`
 }
 
-func (o *PatchStorageFilesystemsStorageRequestBody) GetData() PatchStorageFilesystemsStorageData {
-	if o == nil {
+func (p *PatchStorageFilesystemsStorageRequestBody) GetData() PatchStorageFilesystemsStorageData {
+	if p == nil {
 		return PatchStorageFilesystemsStorageData{}
 	}
-	return o.Data
+	return p.Data
 }
 
 type PatchStorageFilesystemsRequest struct {
@@ -99,18 +99,18 @@ type PatchStorageFilesystemsRequest struct {
 	RequestBody  PatchStorageFilesystemsStorageRequestBody `request:"mediaType=application/json"`
 }
 
-func (o *PatchStorageFilesystemsRequest) GetFilesystemID() string {
-	if o == nil {
+func (p *PatchStorageFilesystemsRequest) GetFilesystemID() string {
+	if p == nil {
 		return ""
 	}
-	return o.FilesystemID
+	return p.FilesystemID
 }
 
-func (o *PatchStorageFilesystemsRequest) GetRequestBody() PatchStorageFilesystemsStorageRequestBody {
-	if o == nil {
+func (p *PatchStorageFilesystemsRequest) GetRequestBody() PatchStorageFilesystemsStorageRequestBody {
+	if p == nil {
 		return PatchStorageFilesystemsStorageRequestBody{}
 	}
-	return o.RequestBody
+	return p.RequestBody
 }
 
 // PatchStorageFilesystemsResponseBody - Success
@@ -118,11 +118,11 @@ type PatchStorageFilesystemsResponseBody struct {
 	Data *components.FilesystemData `json:"data,omitempty"`
 }
 
-func (o *PatchStorageFilesystemsResponseBody) GetData() *components.FilesystemData {
-	if o == nil {
+func (p *PatchStorageFilesystemsResponseBody) GetData() *components.FilesystemData {
+	if p == nil {
 		return nil
 	}
-	return o.Data
+	return p.Data
 }
 
 type PatchStorageFilesystemsResponse struct {
@@ -131,16 +131,16 @@ type PatchStorageFilesystemsResponse struct {
 	Object *PatchStorageFilesystemsResponseBody
 }
 
-func (o *PatchStorageFilesystemsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (p *PatchStorageFilesystemsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if p == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return p.HTTPMeta
 }
 
-func (o *PatchStorageFilesystemsResponse) GetObject() *PatchStorageFilesystemsResponseBody {
-	if o == nil {
+func (p *PatchStorageFilesystemsResponse) GetObject() *PatchStorageFilesystemsResponseBody {
+	if p == nil {
 		return nil
 	}
-	return o.Object
+	return p.Object
 }

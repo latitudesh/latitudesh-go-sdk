@@ -10,16 +10,16 @@ type VirtualNetwork struct {
 	Meta *VirtualNetworkMeta `json:"meta,omitempty"`
 }
 
-func (o *VirtualNetwork) GetData() *VirtualNetworkData {
-	if o == nil {
+func (v *VirtualNetwork) GetData() *VirtualNetworkData {
+	if v == nil {
 		return nil
 	}
-	return o.Data
+	return v.Data
 }
 
-func (o *VirtualNetwork) GetMeta() *VirtualNetworkMeta {
-	if o == nil {
+func (v *VirtualNetwork) GetMeta() *VirtualNetworkMeta {
+	if v == nil {
 		return nil
 	}
-	return o.Meta
+	return v.Meta
 }

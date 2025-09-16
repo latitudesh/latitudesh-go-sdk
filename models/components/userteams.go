@@ -10,16 +10,16 @@ type UserTeams struct {
 	Meta *UserTeamsMeta `json:"meta,omitempty"`
 }
 
-func (o *UserTeams) GetData() []UserTeam {
-	if o == nil {
+func (u *UserTeams) GetData() []UserTeam {
+	if u == nil {
 		return nil
 	}
-	return o.Data
+	return u.Data
 }
 
-func (o *UserTeams) GetMeta() *UserTeamsMeta {
-	if o == nil {
+func (u *UserTeams) GetMeta() *UserTeamsMeta {
+	if u == nil {
 		return nil
 	}
-	return o.Meta
+	return u.Meta
 }

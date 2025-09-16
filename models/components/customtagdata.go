@@ -42,39 +42,39 @@ type CustomTagDataAttributes struct {
 	Team  *TeamInclude `json:"team,omitempty"`
 }
 
-func (o *CustomTagDataAttributes) GetName() *string {
-	if o == nil {
+func (c *CustomTagDataAttributes) GetName() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Name
+	return c.Name
 }
 
-func (o *CustomTagDataAttributes) GetSlug() *string {
-	if o == nil {
+func (c *CustomTagDataAttributes) GetSlug() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Slug
+	return c.Slug
 }
 
-func (o *CustomTagDataAttributes) GetDescription() *string {
-	if o == nil {
+func (c *CustomTagDataAttributes) GetDescription() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Description
+	return c.Description
 }
 
-func (o *CustomTagDataAttributes) GetColor() *string {
-	if o == nil {
+func (c *CustomTagDataAttributes) GetColor() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Color
+	return c.Color
 }
 
-func (o *CustomTagDataAttributes) GetTeam() *TeamInclude {
-	if o == nil {
+func (c *CustomTagDataAttributes) GetTeam() *TeamInclude {
+	if c == nil {
 		return nil
 	}
-	return o.Team
+	return c.Team
 }
 
 type CustomTagData struct {
@@ -83,23 +83,23 @@ type CustomTagData struct {
 	Attributes *CustomTagDataAttributes `json:"attributes,omitempty"`
 }
 
-func (o *CustomTagData) GetID() *string {
-	if o == nil {
+func (c *CustomTagData) GetID() *string {
+	if c == nil {
 		return nil
 	}
-	return o.ID
+	return c.ID
 }
 
-func (o *CustomTagData) GetType() *CustomTagDataType {
-	if o == nil {
+func (c *CustomTagData) GetType() *CustomTagDataType {
+	if c == nil {
 		return nil
 	}
-	return o.Type
+	return c.Type
 }
 
-func (o *CustomTagData) GetAttributes() *CustomTagDataAttributes {
-	if o == nil {
+func (c *CustomTagData) GetAttributes() *CustomTagDataAttributes {
+	if c == nil {
 		return nil
 	}
-	return o.Attributes
+	return c.Attributes
 }

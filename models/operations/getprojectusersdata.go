@@ -25,18 +25,18 @@ func (g *GetProjectUsersDataRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *GetProjectUsersDataRequest) GetProjectID() string {
-	if o == nil {
+func (g *GetProjectUsersDataRequest) GetProjectID() string {
+	if g == nil {
 		return ""
 	}
-	return o.ProjectID
+	return g.ProjectID
 }
 
-func (o *GetProjectUsersDataRequest) GetExtraFieldsUserData() *string {
-	if o == nil {
+func (g *GetProjectUsersDataRequest) GetExtraFieldsUserData() *string {
+	if g == nil {
 		return nil
 	}
-	return o.ExtraFieldsUserData
+	return g.ExtraFieldsUserData
 }
 
 // GetProjectUsersDataResponseBody - Success
@@ -44,11 +44,11 @@ type GetProjectUsersDataResponseBody struct {
 	Data []components.UserData `json:"data,omitempty"`
 }
 
-func (o *GetProjectUsersDataResponseBody) GetData() []components.UserData {
-	if o == nil {
+func (g *GetProjectUsersDataResponseBody) GetData() []components.UserData {
+	if g == nil {
 		return nil
 	}
-	return o.Data
+	return g.Data
 }
 
 type GetProjectUsersDataResponse struct {
@@ -57,16 +57,16 @@ type GetProjectUsersDataResponse struct {
 	Object *GetProjectUsersDataResponseBody
 }
 
-func (o *GetProjectUsersDataResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetProjectUsersDataResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetProjectUsersDataResponse) GetObject() *GetProjectUsersDataResponseBody {
-	if o == nil {
+func (g *GetProjectUsersDataResponse) GetObject() *GetProjectUsersDataResponseBody {
+	if g == nil {
 		return nil
 	}
-	return o.Object
+	return g.Object
 }

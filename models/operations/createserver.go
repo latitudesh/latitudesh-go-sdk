@@ -348,74 +348,74 @@ type CreateServerServersAttributes struct {
 	Billing *CreateServerBilling `json:"billing,omitempty"`
 }
 
-func (o *CreateServerServersAttributes) GetProject() *string {
-	if o == nil {
+func (c *CreateServerServersAttributes) GetProject() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Project
+	return c.Project
 }
 
-func (o *CreateServerServersAttributes) GetPlan() *CreateServerPlan {
-	if o == nil {
+func (c *CreateServerServersAttributes) GetPlan() *CreateServerPlan {
+	if c == nil {
 		return nil
 	}
-	return o.Plan
+	return c.Plan
 }
 
-func (o *CreateServerServersAttributes) GetSite() *CreateServerSite {
-	if o == nil {
+func (c *CreateServerServersAttributes) GetSite() *CreateServerSite {
+	if c == nil {
 		return nil
 	}
-	return o.Site
+	return c.Site
 }
 
-func (o *CreateServerServersAttributes) GetOperatingSystem() *CreateServerOperatingSystem {
-	if o == nil {
+func (c *CreateServerServersAttributes) GetOperatingSystem() *CreateServerOperatingSystem {
+	if c == nil {
 		return nil
 	}
-	return o.OperatingSystem
+	return c.OperatingSystem
 }
 
-func (o *CreateServerServersAttributes) GetHostname() *string {
-	if o == nil {
+func (c *CreateServerServersAttributes) GetHostname() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Hostname
+	return c.Hostname
 }
 
-func (o *CreateServerServersAttributes) GetSSHKeys() []string {
-	if o == nil {
+func (c *CreateServerServersAttributes) GetSSHKeys() []string {
+	if c == nil {
 		return nil
 	}
-	return o.SSHKeys
+	return c.SSHKeys
 }
 
-func (o *CreateServerServersAttributes) GetUserData() *string {
-	if o == nil {
+func (c *CreateServerServersAttributes) GetUserData() *string {
+	if c == nil {
 		return nil
 	}
-	return o.UserData
+	return c.UserData
 }
 
-func (o *CreateServerServersAttributes) GetRaid() *CreateServerRaid {
-	if o == nil {
+func (c *CreateServerServersAttributes) GetRaid() *CreateServerRaid {
+	if c == nil {
 		return nil
 	}
-	return o.Raid
+	return c.Raid
 }
 
-func (o *CreateServerServersAttributes) GetIpxe() *string {
-	if o == nil {
+func (c *CreateServerServersAttributes) GetIpxe() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Ipxe
+	return c.Ipxe
 }
 
-func (o *CreateServerServersAttributes) GetBilling() *CreateServerBilling {
-	if o == nil {
+func (c *CreateServerServersAttributes) GetBilling() *CreateServerBilling {
+	if c == nil {
 		return nil
 	}
-	return o.Billing
+	return c.Billing
 }
 
 type CreateServerServersData struct {
@@ -423,29 +423,29 @@ type CreateServerServersData struct {
 	Attributes *CreateServerServersAttributes `json:"attributes,omitempty"`
 }
 
-func (o *CreateServerServersData) GetType() CreateServerServersType {
-	if o == nil {
+func (c *CreateServerServersData) GetType() CreateServerServersType {
+	if c == nil {
 		return CreateServerServersType("")
 	}
-	return o.Type
+	return c.Type
 }
 
-func (o *CreateServerServersData) GetAttributes() *CreateServerServersAttributes {
-	if o == nil {
+func (c *CreateServerServersData) GetAttributes() *CreateServerServersAttributes {
+	if c == nil {
 		return nil
 	}
-	return o.Attributes
+	return c.Attributes
 }
 
 type CreateServerServersRequestBody struct {
 	Data *CreateServerServersData `json:"data,omitempty"`
 }
 
-func (o *CreateServerServersRequestBody) GetData() *CreateServerServersData {
-	if o == nil {
+func (c *CreateServerServersRequestBody) GetData() *CreateServerServersData {
+	if c == nil {
 		return nil
 	}
-	return o.Data
+	return c.Data
 }
 
 type CreateServerResponse struct {
@@ -454,16 +454,16 @@ type CreateServerResponse struct {
 	Server *components.Server
 }
 
-func (o *CreateServerResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (c *CreateServerResponse) GetHTTPMeta() components.HTTPMetadata {
+	if c == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return c.HTTPMeta
 }
 
-func (o *CreateServerResponse) GetServer() *components.Server {
-	if o == nil {
+func (c *CreateServerResponse) GetServer() *components.Server {
+	if c == nil {
 		return nil
 	}
-	return o.Server
+	return c.Server
 }

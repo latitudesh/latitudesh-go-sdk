@@ -80,39 +80,39 @@ func (u *UpdateProjectProjectsAttributes) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *UpdateProjectProjectsAttributes) GetName() *string {
-	if o == nil {
+func (u *UpdateProjectProjectsAttributes) GetName() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Name
+	return u.Name
 }
 
-func (o *UpdateProjectProjectsAttributes) GetDescription() *string {
-	if o == nil {
+func (u *UpdateProjectProjectsAttributes) GetDescription() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Description
+	return u.Description
 }
 
-func (o *UpdateProjectProjectsAttributes) GetEnvironment() *UpdateProjectProjectsEnvironment {
-	if o == nil {
+func (u *UpdateProjectProjectsAttributes) GetEnvironment() *UpdateProjectProjectsEnvironment {
+	if u == nil {
 		return nil
 	}
-	return o.Environment
+	return u.Environment
 }
 
-func (o *UpdateProjectProjectsAttributes) GetBandwidthAlert() *bool {
-	if o == nil {
+func (u *UpdateProjectProjectsAttributes) GetBandwidthAlert() *bool {
+	if u == nil {
 		return nil
 	}
-	return o.BandwidthAlert
+	return u.BandwidthAlert
 }
 
-func (o *UpdateProjectProjectsAttributes) GetTags() []string {
-	if o == nil {
+func (u *UpdateProjectProjectsAttributes) GetTags() []string {
+	if u == nil {
 		return nil
 	}
-	return o.Tags
+	return u.Tags
 }
 
 type UpdateProjectProjectsData struct {
@@ -132,36 +132,36 @@ func (u *UpdateProjectProjectsData) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *UpdateProjectProjectsData) GetID() *string {
-	if o == nil {
+func (u *UpdateProjectProjectsData) GetID() *string {
+	if u == nil {
 		return nil
 	}
-	return o.ID
+	return u.ID
 }
 
-func (o *UpdateProjectProjectsData) GetType() UpdateProjectProjectsType {
-	if o == nil {
+func (u *UpdateProjectProjectsData) GetType() UpdateProjectProjectsType {
+	if u == nil {
 		return UpdateProjectProjectsType("")
 	}
-	return o.Type
+	return u.Type
 }
 
-func (o *UpdateProjectProjectsData) GetAttributes() *UpdateProjectProjectsAttributes {
-	if o == nil {
+func (u *UpdateProjectProjectsData) GetAttributes() *UpdateProjectProjectsAttributes {
+	if u == nil {
 		return nil
 	}
-	return o.Attributes
+	return u.Attributes
 }
 
 type UpdateProjectProjectsRequestBody struct {
 	Data UpdateProjectProjectsData `json:"data"`
 }
 
-func (o *UpdateProjectProjectsRequestBody) GetData() UpdateProjectProjectsData {
-	if o == nil {
+func (u *UpdateProjectProjectsRequestBody) GetData() UpdateProjectProjectsData {
+	if u == nil {
 		return UpdateProjectProjectsData{}
 	}
-	return o.Data
+	return u.Data
 }
 
 type UpdateProjectRequest struct {
@@ -170,18 +170,18 @@ type UpdateProjectRequest struct {
 	RequestBody *UpdateProjectProjectsRequestBody `request:"mediaType=application/json"`
 }
 
-func (o *UpdateProjectRequest) GetProjectID() string {
-	if o == nil {
+func (u *UpdateProjectRequest) GetProjectID() string {
+	if u == nil {
 		return ""
 	}
-	return o.ProjectID
+	return u.ProjectID
 }
 
-func (o *UpdateProjectRequest) GetRequestBody() *UpdateProjectProjectsRequestBody {
-	if o == nil {
+func (u *UpdateProjectRequest) GetRequestBody() *UpdateProjectProjectsRequestBody {
+	if u == nil {
 		return nil
 	}
-	return o.RequestBody
+	return u.RequestBody
 }
 
 // UpdateProjectResponseBody - Success
@@ -189,11 +189,11 @@ type UpdateProjectResponseBody struct {
 	Data *components.Project `json:"data,omitempty"`
 }
 
-func (o *UpdateProjectResponseBody) GetData() *components.Project {
-	if o == nil {
+func (u *UpdateProjectResponseBody) GetData() *components.Project {
+	if u == nil {
 		return nil
 	}
-	return o.Data
+	return u.Data
 }
 
 type UpdateProjectResponse struct {
@@ -202,16 +202,16 @@ type UpdateProjectResponse struct {
 	Object *UpdateProjectResponseBody
 }
 
-func (o *UpdateProjectResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (u *UpdateProjectResponse) GetHTTPMeta() components.HTTPMetadata {
+	if u == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return u.HTTPMeta
 }
 
-func (o *UpdateProjectResponse) GetObject() *UpdateProjectResponseBody {
-	if o == nil {
+func (u *UpdateProjectResponse) GetObject() *UpdateProjectResponseBody {
+	if u == nil {
 		return nil
 	}
-	return o.Object
+	return u.Object
 }

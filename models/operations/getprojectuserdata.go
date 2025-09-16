@@ -26,25 +26,25 @@ func (g *GetProjectUserDataRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *GetProjectUserDataRequest) GetProjectID() string {
-	if o == nil {
+func (g *GetProjectUserDataRequest) GetProjectID() string {
+	if g == nil {
 		return ""
 	}
-	return o.ProjectID
+	return g.ProjectID
 }
 
-func (o *GetProjectUserDataRequest) GetUserDataID() string {
-	if o == nil {
+func (g *GetProjectUserDataRequest) GetUserDataID() string {
+	if g == nil {
 		return ""
 	}
-	return o.UserDataID
+	return g.UserDataID
 }
 
-func (o *GetProjectUserDataRequest) GetExtraFieldsUserData() *string {
-	if o == nil {
+func (g *GetProjectUserDataRequest) GetExtraFieldsUserData() *string {
+	if g == nil {
 		return nil
 	}
-	return o.ExtraFieldsUserData
+	return g.ExtraFieldsUserData
 }
 
 type GetProjectUserDataResponse struct {
@@ -53,16 +53,16 @@ type GetProjectUserDataResponse struct {
 	UserData *components.UserData
 }
 
-func (o *GetProjectUserDataResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetProjectUserDataResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetProjectUserDataResponse) GetUserData() *components.UserData {
-	if o == nil {
+func (g *GetProjectUserDataResponse) GetUserData() *components.UserData {
+	if g == nil {
 		return nil
 	}
-	return o.UserData
+	return g.UserData
 }

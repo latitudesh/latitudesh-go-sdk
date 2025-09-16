@@ -13,18 +13,18 @@ type GetIPRequest struct {
 	ExtraFieldsIPAddresses *string `queryParam:"style=form,explode=true,name=extra_fields[ip_addresses]"`
 }
 
-func (o *GetIPRequest) GetIPID() string {
-	if o == nil {
+func (g *GetIPRequest) GetIPID() string {
+	if g == nil {
 		return ""
 	}
-	return o.IPID
+	return g.IPID
 }
 
-func (o *GetIPRequest) GetExtraFieldsIPAddresses() *string {
-	if o == nil {
+func (g *GetIPRequest) GetExtraFieldsIPAddresses() *string {
+	if g == nil {
 		return nil
 	}
-	return o.ExtraFieldsIPAddresses
+	return g.ExtraFieldsIPAddresses
 }
 
 type GetIPResponse struct {
@@ -33,16 +33,16 @@ type GetIPResponse struct {
 	IPAddress *components.IPAddress
 }
 
-func (o *GetIPResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetIPResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetIPResponse) GetIPAddress() *components.IPAddress {
-	if o == nil {
+func (g *GetIPResponse) GetIPAddress() *components.IPAddress {
+	if g == nil {
 		return nil
 	}
-	return o.IPAddress
+	return g.IPAddress
 }

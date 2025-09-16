@@ -143,7 +143,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Plans.GetBandwidth(ctx, latitudeshgosdk.String("2023-06-01"), nil, latitudeshgosdk.Int64(20), latitudeshgosdk.Int64(1))
+    res, err := s.Plans.GetBandwidth(ctx, latitudeshgosdk.Pointer("2023-06-01"), nil, latitudeshgosdk.Pointer[int64](20), latitudeshgosdk.Pointer[int64](1))
     if err != nil {
         log.Fatal(err)
     }
@@ -216,9 +216,9 @@ func main() {
         Data: &operations.UpdatePlansBandwidthPlansData{
             Type: operations.UpdatePlansBandwidthPlansTypeBandwidthPackages.ToPointer(),
             Attributes: &operations.UpdatePlansBandwidthPlansAttributes{
-                Project: latitudeshgosdk.String("proj_z2A3DVZ3DnawP"),
-                Quantity: latitudeshgosdk.Int64(5),
-                RegionSlug: latitudeshgosdk.String("brazil"),
+                Project: latitudeshgosdk.Pointer("proj_z2A3DVZ3DnawP"),
+                Quantity: latitudeshgosdk.Pointer[int64](5),
+                RegionSlug: latitudeshgosdk.Pointer("brazil"),
             },
         },
     })

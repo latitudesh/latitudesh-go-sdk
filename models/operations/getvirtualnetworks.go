@@ -31,39 +31,39 @@ func (g *GetVirtualNetworksRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *GetVirtualNetworksRequest) GetFilterLocation() *string {
-	if o == nil {
+func (g *GetVirtualNetworksRequest) GetFilterLocation() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterLocation
+	return g.FilterLocation
 }
 
-func (o *GetVirtualNetworksRequest) GetFilterProject() *string {
-	if o == nil {
+func (g *GetVirtualNetworksRequest) GetFilterProject() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterProject
+	return g.FilterProject
 }
 
-func (o *GetVirtualNetworksRequest) GetFilterTags() *string {
-	if o == nil {
+func (g *GetVirtualNetworksRequest) GetFilterTags() *string {
+	if g == nil {
 		return nil
 	}
-	return o.FilterTags
+	return g.FilterTags
 }
 
-func (o *GetVirtualNetworksRequest) GetPageSize() *int64 {
-	if o == nil {
+func (g *GetVirtualNetworksRequest) GetPageSize() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.PageSize
+	return g.PageSize
 }
 
-func (o *GetVirtualNetworksRequest) GetPageNumber() *int64 {
-	if o == nil {
+func (g *GetVirtualNetworksRequest) GetPageNumber() *int64 {
+	if g == nil {
 		return nil
 	}
-	return o.PageNumber
+	return g.PageNumber
 }
 
 type GetVirtualNetworksResponse struct {
@@ -74,16 +74,16 @@ type GetVirtualNetworksResponse struct {
 	Next func() (*GetVirtualNetworksResponse, error)
 }
 
-func (o *GetVirtualNetworksResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetVirtualNetworksResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetVirtualNetworksResponse) GetVirtualNetworks() *components.VirtualNetworks {
-	if o == nil {
+func (g *GetVirtualNetworksResponse) GetVirtualNetworks() *components.VirtualNetworks {
+	if g == nil {
 		return nil
 	}
-	return o.VirtualNetworks
+	return g.VirtualNetworks
 }

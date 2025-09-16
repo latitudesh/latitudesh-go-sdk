@@ -37,32 +37,32 @@ type Rules struct {
 	Protocol *string `json:"protocol,omitempty"`
 }
 
-func (o *Rules) GetFrom() *string {
-	if o == nil {
+func (r *Rules) GetFrom() *string {
+	if r == nil {
 		return nil
 	}
-	return o.From
+	return r.From
 }
 
-func (o *Rules) GetTo() *string {
-	if o == nil {
+func (r *Rules) GetTo() *string {
+	if r == nil {
 		return nil
 	}
-	return o.To
+	return r.To
 }
 
-func (o *Rules) GetPort() *string {
-	if o == nil {
+func (r *Rules) GetPort() *string {
+	if r == nil {
 		return nil
 	}
-	return o.Port
+	return r.Port
 }
 
-func (o *Rules) GetProtocol() *string {
-	if o == nil {
+func (r *Rules) GetProtocol() *string {
+	if r == nil {
 		return nil
 	}
-	return o.Protocol
+	return r.Protocol
 }
 
 type FirewallDataProject struct {
@@ -71,25 +71,25 @@ type FirewallDataProject struct {
 	Name *string `json:"name,omitempty"`
 }
 
-func (o *FirewallDataProject) GetID() *string {
-	if o == nil {
+func (f *FirewallDataProject) GetID() *string {
+	if f == nil {
 		return nil
 	}
-	return o.ID
+	return f.ID
 }
 
-func (o *FirewallDataProject) GetSlug() *string {
-	if o == nil {
+func (f *FirewallDataProject) GetSlug() *string {
+	if f == nil {
 		return nil
 	}
-	return o.Slug
+	return f.Slug
 }
 
-func (o *FirewallDataProject) GetName() *string {
-	if o == nil {
+func (f *FirewallDataProject) GetName() *string {
+	if f == nil {
 		return nil
 	}
-	return o.Name
+	return f.Name
 }
 
 type FirewallDataAttributes struct {
@@ -98,25 +98,25 @@ type FirewallDataAttributes struct {
 	Project *FirewallDataProject `json:"project,omitempty"`
 }
 
-func (o *FirewallDataAttributes) GetName() *string {
-	if o == nil {
+func (f *FirewallDataAttributes) GetName() *string {
+	if f == nil {
 		return nil
 	}
-	return o.Name
+	return f.Name
 }
 
-func (o *FirewallDataAttributes) GetRules() []Rules {
-	if o == nil {
+func (f *FirewallDataAttributes) GetRules() []Rules {
+	if f == nil {
 		return nil
 	}
-	return o.Rules
+	return f.Rules
 }
 
-func (o *FirewallDataAttributes) GetProject() *FirewallDataProject {
-	if o == nil {
+func (f *FirewallDataAttributes) GetProject() *FirewallDataProject {
+	if f == nil {
 		return nil
 	}
-	return o.Project
+	return f.Project
 }
 
 type FirewallData struct {
@@ -125,23 +125,23 @@ type FirewallData struct {
 	Attributes *FirewallDataAttributes `json:"attributes,omitempty"`
 }
 
-func (o *FirewallData) GetID() *string {
-	if o == nil {
+func (f *FirewallData) GetID() *string {
+	if f == nil {
 		return nil
 	}
-	return o.ID
+	return f.ID
 }
 
-func (o *FirewallData) GetType() *FirewallDataType {
-	if o == nil {
+func (f *FirewallData) GetType() *FirewallDataType {
+	if f == nil {
 		return nil
 	}
-	return o.Type
+	return f.Type
 }
 
-func (o *FirewallData) GetAttributes() *FirewallDataAttributes {
-	if o == nil {
+func (f *FirewallData) GetAttributes() *FirewallDataAttributes {
+	if f == nil {
 		return nil
 	}
-	return o.Attributes
+	return f.Attributes
 }

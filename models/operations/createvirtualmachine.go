@@ -12,16 +12,16 @@ type CreateVirtualMachineResponse struct {
 	VirtualMachine *components.VirtualMachine
 }
 
-func (o *CreateVirtualMachineResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (c *CreateVirtualMachineResponse) GetHTTPMeta() components.HTTPMetadata {
+	if c == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return c.HTTPMeta
 }
 
-func (o *CreateVirtualMachineResponse) GetVirtualMachine() *components.VirtualMachine {
-	if o == nil {
+func (c *CreateVirtualMachineResponse) GetVirtualMachine() *components.VirtualMachine {
+	if c == nil {
 		return nil
 	}
-	return o.VirtualMachine
+	return c.VirtualMachine
 }

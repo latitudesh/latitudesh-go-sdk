@@ -6,9 +6,9 @@ type IPAddresses struct {
 	Data []IPAddress `json:"data,omitempty"`
 }
 
-func (o *IPAddresses) GetData() []IPAddress {
-	if o == nil {
+func (i *IPAddresses) GetData() []IPAddress {
+	if i == nil {
 		return nil
 	}
-	return o.Data
+	return i.Data
 }

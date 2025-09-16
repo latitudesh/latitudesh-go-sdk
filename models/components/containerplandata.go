@@ -35,40 +35,40 @@ type ContainerPlanDataCPU struct {
 	Count *float64 `json:"count,omitempty"`
 }
 
-func (o *ContainerPlanDataCPU) GetCores() *float64 {
-	if o == nil {
+func (c *ContainerPlanDataCPU) GetCores() *float64 {
+	if c == nil {
 		return nil
 	}
-	return o.Cores
+	return c.Cores
 }
 
-func (o *ContainerPlanDataCPU) GetCount() *float64 {
-	if o == nil {
+func (c *ContainerPlanDataCPU) GetCount() *float64 {
+	if c == nil {
 		return nil
 	}
-	return o.Count
+	return c.Count
 }
 
 type ContainerPlanDataMemory struct {
 	Total *float64 `json:"total,omitempty"`
 }
 
-func (o *ContainerPlanDataMemory) GetTotal() *float64 {
-	if o == nil {
+func (c *ContainerPlanDataMemory) GetTotal() *float64 {
+	if c == nil {
 		return nil
 	}
-	return o.Total
+	return c.Total
 }
 
 type EphemeralStorage struct {
 	Size *float64 `json:"size,omitempty"`
 }
 
-func (o *EphemeralStorage) GetSize() *float64 {
-	if o == nil {
+func (e *EphemeralStorage) GetSize() *float64 {
+	if e == nil {
 		return nil
 	}
-	return o.Size
+	return e.Size
 }
 
 type ContainerPlanDataGpu struct {
@@ -76,18 +76,18 @@ type ContainerPlanDataGpu struct {
 	Type  *string  `json:"type,omitempty"`
 }
 
-func (o *ContainerPlanDataGpu) GetCount() *float64 {
-	if o == nil {
+func (c *ContainerPlanDataGpu) GetCount() *float64 {
+	if c == nil {
 		return nil
 	}
-	return o.Count
+	return c.Count
 }
 
-func (o *ContainerPlanDataGpu) GetType() *string {
-	if o == nil {
+func (c *ContainerPlanDataGpu) GetType() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Type
+	return c.Type
 }
 
 type ContainerPlanDataSpecs struct {
@@ -97,32 +97,32 @@ type ContainerPlanDataSpecs struct {
 	Gpu              *ContainerPlanDataGpu    `json:"gpu,omitempty"`
 }
 
-func (o *ContainerPlanDataSpecs) GetCPU() *ContainerPlanDataCPU {
-	if o == nil {
+func (c *ContainerPlanDataSpecs) GetCPU() *ContainerPlanDataCPU {
+	if c == nil {
 		return nil
 	}
-	return o.CPU
+	return c.CPU
 }
 
-func (o *ContainerPlanDataSpecs) GetMemory() *ContainerPlanDataMemory {
-	if o == nil {
+func (c *ContainerPlanDataSpecs) GetMemory() *ContainerPlanDataMemory {
+	if c == nil {
 		return nil
 	}
-	return o.Memory
+	return c.Memory
 }
 
-func (o *ContainerPlanDataSpecs) GetEphemeralStorage() *EphemeralStorage {
-	if o == nil {
+func (c *ContainerPlanDataSpecs) GetEphemeralStorage() *EphemeralStorage {
+	if c == nil {
 		return nil
 	}
-	return o.EphemeralStorage
+	return c.EphemeralStorage
 }
 
-func (o *ContainerPlanDataSpecs) GetGpu() *ContainerPlanDataGpu {
-	if o == nil {
+func (c *ContainerPlanDataSpecs) GetGpu() *ContainerPlanDataGpu {
+	if c == nil {
 		return nil
 	}
-	return o.Gpu
+	return c.Gpu
 }
 
 type ContainerPlanDataLocations struct {
@@ -130,18 +130,18 @@ type ContainerPlanDataLocations struct {
 	InStock   []string `json:"in_stock,omitempty"`
 }
 
-func (o *ContainerPlanDataLocations) GetAvailable() []string {
-	if o == nil {
+func (c *ContainerPlanDataLocations) GetAvailable() []string {
+	if c == nil {
 		return nil
 	}
-	return o.Available
+	return c.Available
 }
 
-func (o *ContainerPlanDataLocations) GetInStock() []string {
-	if o == nil {
+func (c *ContainerPlanDataLocations) GetInStock() []string {
+	if c == nil {
 		return nil
 	}
-	return o.InStock
+	return c.InStock
 }
 
 type ContainerPlanDataStockLevel string
@@ -181,18 +181,18 @@ type ContainerPlanDataUSD struct {
 	Hour   *float64 `json:"hour,omitempty"`
 }
 
-func (o *ContainerPlanDataUSD) GetMinute() *float64 {
-	if o == nil {
+func (c *ContainerPlanDataUSD) GetMinute() *float64 {
+	if c == nil {
 		return nil
 	}
-	return o.Minute
+	return c.Minute
 }
 
-func (o *ContainerPlanDataUSD) GetHour() *float64 {
-	if o == nil {
+func (c *ContainerPlanDataUSD) GetHour() *float64 {
+	if c == nil {
 		return nil
 	}
-	return o.Hour
+	return c.Hour
 }
 
 type ContainerPlanDataBRL struct {
@@ -200,18 +200,18 @@ type ContainerPlanDataBRL struct {
 	Hour   *float64 `json:"hour,omitempty"`
 }
 
-func (o *ContainerPlanDataBRL) GetMinute() *float64 {
-	if o == nil {
+func (c *ContainerPlanDataBRL) GetMinute() *float64 {
+	if c == nil {
 		return nil
 	}
-	return o.Minute
+	return c.Minute
 }
 
-func (o *ContainerPlanDataBRL) GetHour() *float64 {
-	if o == nil {
+func (c *ContainerPlanDataBRL) GetHour() *float64 {
+	if c == nil {
 		return nil
 	}
-	return o.Hour
+	return c.Hour
 }
 
 type ContainerPlanDataPricing struct {
@@ -219,18 +219,18 @@ type ContainerPlanDataPricing struct {
 	Brl *ContainerPlanDataBRL `json:"BRL,omitempty"`
 }
 
-func (o *ContainerPlanDataPricing) GetUsd() *ContainerPlanDataUSD {
-	if o == nil {
+func (c *ContainerPlanDataPricing) GetUsd() *ContainerPlanDataUSD {
+	if c == nil {
 		return nil
 	}
-	return o.Usd
+	return c.Usd
 }
 
-func (o *ContainerPlanDataPricing) GetBrl() *ContainerPlanDataBRL {
-	if o == nil {
+func (c *ContainerPlanDataPricing) GetBrl() *ContainerPlanDataBRL {
+	if c == nil {
 		return nil
 	}
-	return o.Brl
+	return c.Brl
 }
 
 type ContainerPlanDataRegions struct {
@@ -240,32 +240,32 @@ type ContainerPlanDataRegions struct {
 	Pricing    *ContainerPlanDataPricing    `json:"pricing,omitempty"`
 }
 
-func (o *ContainerPlanDataRegions) GetName() *string {
-	if o == nil {
+func (c *ContainerPlanDataRegions) GetName() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Name
+	return c.Name
 }
 
-func (o *ContainerPlanDataRegions) GetLocations() *ContainerPlanDataLocations {
-	if o == nil {
+func (c *ContainerPlanDataRegions) GetLocations() *ContainerPlanDataLocations {
+	if c == nil {
 		return nil
 	}
-	return o.Locations
+	return c.Locations
 }
 
-func (o *ContainerPlanDataRegions) GetStockLevel() *ContainerPlanDataStockLevel {
-	if o == nil {
+func (c *ContainerPlanDataRegions) GetStockLevel() *ContainerPlanDataStockLevel {
+	if c == nil {
 		return nil
 	}
-	return o.StockLevel
+	return c.StockLevel
 }
 
-func (o *ContainerPlanDataRegions) GetPricing() *ContainerPlanDataPricing {
-	if o == nil {
+func (c *ContainerPlanDataRegions) GetPricing() *ContainerPlanDataPricing {
+	if c == nil {
 		return nil
 	}
-	return o.Pricing
+	return c.Pricing
 }
 
 type ContainerPlanDataAttributes struct {
@@ -274,25 +274,25 @@ type ContainerPlanDataAttributes struct {
 	Regions []ContainerPlanDataRegions `json:"regions,omitempty"`
 }
 
-func (o *ContainerPlanDataAttributes) GetSlug() *string {
-	if o == nil {
+func (c *ContainerPlanDataAttributes) GetSlug() *string {
+	if c == nil {
 		return nil
 	}
-	return o.Slug
+	return c.Slug
 }
 
-func (o *ContainerPlanDataAttributes) GetSpecs() *ContainerPlanDataSpecs {
-	if o == nil {
+func (c *ContainerPlanDataAttributes) GetSpecs() *ContainerPlanDataSpecs {
+	if c == nil {
 		return nil
 	}
-	return o.Specs
+	return c.Specs
 }
 
-func (o *ContainerPlanDataAttributes) GetRegions() []ContainerPlanDataRegions {
-	if o == nil {
+func (c *ContainerPlanDataAttributes) GetRegions() []ContainerPlanDataRegions {
+	if c == nil {
 		return nil
 	}
-	return o.Regions
+	return c.Regions
 }
 
 type ContainerPlanData struct {
@@ -301,23 +301,23 @@ type ContainerPlanData struct {
 	Attributes *ContainerPlanDataAttributes `json:"attributes,omitempty"`
 }
 
-func (o *ContainerPlanData) GetID() *string {
-	if o == nil {
+func (c *ContainerPlanData) GetID() *string {
+	if c == nil {
 		return nil
 	}
-	return o.ID
+	return c.ID
 }
 
-func (o *ContainerPlanData) GetType() *ContainerPlanDataType {
-	if o == nil {
+func (c *ContainerPlanData) GetType() *ContainerPlanDataType {
+	if c == nil {
 		return nil
 	}
-	return o.Type
+	return c.Type
 }
 
-func (o *ContainerPlanData) GetAttributes() *ContainerPlanDataAttributes {
-	if o == nil {
+func (c *ContainerPlanData) GetAttributes() *ContainerPlanDataAttributes {
+	if c == nil {
 		return nil
 	}
-	return o.Attributes
+	return c.Attributes
 }

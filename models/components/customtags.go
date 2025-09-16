@@ -10,16 +10,16 @@ type CustomTags struct {
 	Meta *CustomTagsMeta `json:"meta,omitempty"`
 }
 
-func (o *CustomTags) GetData() []CustomTagData {
-	if o == nil {
+func (c *CustomTags) GetData() []CustomTagData {
+	if c == nil {
 		return nil
 	}
-	return o.Data
+	return c.Data
 }
 
-func (o *CustomTags) GetMeta() *CustomTagsMeta {
-	if o == nil {
+func (c *CustomTags) GetMeta() *CustomTagsMeta {
+	if c == nil {
 		return nil
 	}
-	return o.Meta
+	return c.Meta
 }

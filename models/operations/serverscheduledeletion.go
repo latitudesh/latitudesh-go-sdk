@@ -10,11 +10,11 @@ type ServerScheduleDeletionRequest struct {
 	ServerID string `pathParam:"style=simple,explode=false,name=server_id"`
 }
 
-func (o *ServerScheduleDeletionRequest) GetServerID() string {
-	if o == nil {
+func (s *ServerScheduleDeletionRequest) GetServerID() string {
+	if s == nil {
 		return ""
 	}
-	return o.ServerID
+	return s.ServerID
 }
 
 type ServerScheduleDeletionResponse struct {
@@ -23,16 +23,16 @@ type ServerScheduleDeletionResponse struct {
 	ServerScheduleDeletion *components.ServerScheduleDeletion
 }
 
-func (o *ServerScheduleDeletionResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (s *ServerScheduleDeletionResponse) GetHTTPMeta() components.HTTPMetadata {
+	if s == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return s.HTTPMeta
 }
 
-func (o *ServerScheduleDeletionResponse) GetServerScheduleDeletion() *components.ServerScheduleDeletion {
-	if o == nil {
+func (s *ServerScheduleDeletionResponse) GetServerScheduleDeletion() *components.ServerScheduleDeletion {
+	if s == nil {
 		return nil
 	}
-	return o.ServerScheduleDeletion
+	return s.ServerScheduleDeletion
 }

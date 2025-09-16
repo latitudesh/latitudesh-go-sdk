@@ -36,25 +36,25 @@ type QuotaInTb struct {
 	Total      *int64 `json:"total,omitempty"`
 }
 
-func (o *QuotaInTb) GetGranted() *int64 {
-	if o == nil {
+func (q *QuotaInTb) GetGranted() *int64 {
+	if q == nil {
 		return nil
 	}
-	return o.Granted
+	return q.Granted
 }
 
-func (o *QuotaInTb) GetAdditional() *int64 {
-	if o == nil {
+func (q *QuotaInTb) GetAdditional() *int64 {
+	if q == nil {
 		return nil
 	}
-	return o.Additional
+	return q.Additional
 }
 
-func (o *QuotaInTb) GetTotal() *int64 {
-	if o == nil {
+func (q *QuotaInTb) GetTotal() *int64 {
+	if q == nil {
 		return nil
 	}
-	return o.Total
+	return q.Total
 }
 
 type QuotaInMbps struct {
@@ -63,25 +63,25 @@ type QuotaInMbps struct {
 	Total      *int64 `json:"total,omitempty"`
 }
 
-func (o *QuotaInMbps) GetGranted() *int64 {
-	if o == nil {
+func (q *QuotaInMbps) GetGranted() *int64 {
+	if q == nil {
 		return nil
 	}
-	return o.Granted
+	return q.Granted
 }
 
-func (o *QuotaInMbps) GetAdditional() *int64 {
-	if o == nil {
+func (q *QuotaInMbps) GetAdditional() *int64 {
+	if q == nil {
 		return nil
 	}
-	return o.Additional
+	return q.Additional
 }
 
-func (o *QuotaInMbps) GetTotal() *int64 {
-	if o == nil {
+func (q *QuotaInMbps) GetTotal() *int64 {
+	if q == nil {
 		return nil
 	}
-	return o.Total
+	return q.Total
 }
 
 type QuotaPerRegion struct {
@@ -91,32 +91,32 @@ type QuotaPerRegion struct {
 	QuotaInMbps *QuotaInMbps `json:"quota_in_mbps,omitempty"`
 }
 
-func (o *QuotaPerRegion) GetRegionID() *string {
-	if o == nil {
+func (q *QuotaPerRegion) GetRegionID() *string {
+	if q == nil {
 		return nil
 	}
-	return o.RegionID
+	return q.RegionID
 }
 
-func (o *QuotaPerRegion) GetRegionSlug() *string {
-	if o == nil {
+func (q *QuotaPerRegion) GetRegionSlug() *string {
+	if q == nil {
 		return nil
 	}
-	return o.RegionSlug
+	return q.RegionSlug
 }
 
-func (o *QuotaPerRegion) GetQuotaInTb() *QuotaInTb {
-	if o == nil {
+func (q *QuotaPerRegion) GetQuotaInTb() *QuotaInTb {
+	if q == nil {
 		return nil
 	}
-	return o.QuotaInTb
+	return q.QuotaInTb
 }
 
-func (o *QuotaPerRegion) GetQuotaInMbps() *QuotaInMbps {
-	if o == nil {
+func (q *QuotaPerRegion) GetQuotaInMbps() *QuotaInMbps {
+	if q == nil {
 		return nil
 	}
-	return o.QuotaInMbps
+	return q.QuotaInMbps
 }
 
 type QuotaPerProject struct {
@@ -127,50 +127,50 @@ type QuotaPerProject struct {
 	QuotaPerRegion []QuotaPerRegion `json:"quota_per_region,omitempty"`
 }
 
-func (o *QuotaPerProject) GetProjectID() *string {
-	if o == nil {
+func (q *QuotaPerProject) GetProjectID() *string {
+	if q == nil {
 		return nil
 	}
-	return o.ProjectID
+	return q.ProjectID
 }
 
-func (o *QuotaPerProject) GetProjectSlug() *string {
-	if o == nil {
+func (q *QuotaPerProject) GetProjectSlug() *string {
+	if q == nil {
 		return nil
 	}
-	return o.ProjectSlug
+	return q.ProjectSlug
 }
 
-func (o *QuotaPerProject) GetPrice() *int64 {
-	if o == nil {
+func (q *QuotaPerProject) GetPrice() *int64 {
+	if q == nil {
 		return nil
 	}
-	return o.Price
+	return q.Price
 }
 
-func (o *QuotaPerProject) GetBillingMethod() *string {
-	if o == nil {
+func (q *QuotaPerProject) GetBillingMethod() *string {
+	if q == nil {
 		return nil
 	}
-	return o.BillingMethod
+	return q.BillingMethod
 }
 
-func (o *QuotaPerProject) GetQuotaPerRegion() []QuotaPerRegion {
-	if o == nil {
+func (q *QuotaPerProject) GetQuotaPerRegion() []QuotaPerRegion {
+	if q == nil {
 		return nil
 	}
-	return o.QuotaPerRegion
+	return q.QuotaPerRegion
 }
 
 type TrafficQuotaAttributes struct {
 	QuotaPerProject []QuotaPerProject `json:"quota_per_project,omitempty"`
 }
 
-func (o *TrafficQuotaAttributes) GetQuotaPerProject() []QuotaPerProject {
-	if o == nil {
+func (t *TrafficQuotaAttributes) GetQuotaPerProject() []QuotaPerProject {
+	if t == nil {
 		return nil
 	}
-	return o.QuotaPerProject
+	return t.QuotaPerProject
 }
 
 type TrafficQuotaData struct {
@@ -179,34 +179,34 @@ type TrafficQuotaData struct {
 	Attributes *TrafficQuotaAttributes `json:"attributes,omitempty"`
 }
 
-func (o *TrafficQuotaData) GetID() *string {
-	if o == nil {
+func (t *TrafficQuotaData) GetID() *string {
+	if t == nil {
 		return nil
 	}
-	return o.ID
+	return t.ID
 }
 
-func (o *TrafficQuotaData) GetType() *TrafficQuotaType {
-	if o == nil {
+func (t *TrafficQuotaData) GetType() *TrafficQuotaType {
+	if t == nil {
 		return nil
 	}
-	return o.Type
+	return t.Type
 }
 
-func (o *TrafficQuotaData) GetAttributes() *TrafficQuotaAttributes {
-	if o == nil {
+func (t *TrafficQuotaData) GetAttributes() *TrafficQuotaAttributes {
+	if t == nil {
 		return nil
 	}
-	return o.Attributes
+	return t.Attributes
 }
 
 type TrafficQuota struct {
 	Data *TrafficQuotaData `json:"data,omitempty"`
 }
 
-func (o *TrafficQuota) GetData() *TrafficQuotaData {
-	if o == nil {
+func (t *TrafficQuota) GetData() *TrafficQuotaData {
+	if t == nil {
 		return nil
 	}
-	return o.Data
+	return t.Data
 }

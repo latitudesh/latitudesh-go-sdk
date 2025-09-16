@@ -10,11 +10,11 @@ type CreateIpmiSessionRequest struct {
 	ServerID string `pathParam:"style=simple,explode=false,name=server_id"`
 }
 
-func (o *CreateIpmiSessionRequest) GetServerID() string {
-	if o == nil {
+func (c *CreateIpmiSessionRequest) GetServerID() string {
+	if c == nil {
 		return ""
 	}
-	return o.ServerID
+	return c.ServerID
 }
 
 type CreateIpmiSessionResponse struct {
@@ -23,16 +23,16 @@ type CreateIpmiSessionResponse struct {
 	IpmiSession *components.IpmiSession
 }
 
-func (o *CreateIpmiSessionResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (c *CreateIpmiSessionResponse) GetHTTPMeta() components.HTTPMetadata {
+	if c == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return c.HTTPMeta
 }
 
-func (o *CreateIpmiSessionResponse) GetIpmiSession() *components.IpmiSession {
-	if o == nil {
+func (c *CreateIpmiSessionResponse) GetIpmiSession() *components.IpmiSession {
+	if c == nil {
 		return nil
 	}
-	return o.IpmiSession
+	return c.IpmiSession
 }

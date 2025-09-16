@@ -52,25 +52,25 @@ func (u *UpdateTagTagsAttributes) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *UpdateTagTagsAttributes) GetName() *string {
-	if o == nil {
+func (u *UpdateTagTagsAttributes) GetName() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Name
+	return u.Name
 }
 
-func (o *UpdateTagTagsAttributes) GetDescription() *string {
-	if o == nil {
+func (u *UpdateTagTagsAttributes) GetDescription() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Description
+	return u.Description
 }
 
-func (o *UpdateTagTagsAttributes) GetColor() *string {
-	if o == nil {
+func (u *UpdateTagTagsAttributes) GetColor() *string {
+	if u == nil {
 		return nil
 	}
-	return o.Color
+	return u.Color
 }
 
 type UpdateTagTagsData struct {
@@ -79,36 +79,36 @@ type UpdateTagTagsData struct {
 	Attributes *UpdateTagTagsAttributes `json:"attributes,omitempty"`
 }
 
-func (o *UpdateTagTagsData) GetID() *string {
-	if o == nil {
+func (u *UpdateTagTagsData) GetID() *string {
+	if u == nil {
 		return nil
 	}
-	return o.ID
+	return u.ID
 }
 
-func (o *UpdateTagTagsData) GetType() *UpdateTagTagsType {
-	if o == nil {
+func (u *UpdateTagTagsData) GetType() *UpdateTagTagsType {
+	if u == nil {
 		return nil
 	}
-	return o.Type
+	return u.Type
 }
 
-func (o *UpdateTagTagsData) GetAttributes() *UpdateTagTagsAttributes {
-	if o == nil {
+func (u *UpdateTagTagsData) GetAttributes() *UpdateTagTagsAttributes {
+	if u == nil {
 		return nil
 	}
-	return o.Attributes
+	return u.Attributes
 }
 
 type UpdateTagTagsRequestBody struct {
 	Data *UpdateTagTagsData `json:"data,omitempty"`
 }
 
-func (o *UpdateTagTagsRequestBody) GetData() *UpdateTagTagsData {
-	if o == nil {
+func (u *UpdateTagTagsRequestBody) GetData() *UpdateTagTagsData {
+	if u == nil {
 		return nil
 	}
-	return o.Data
+	return u.Data
 }
 
 type UpdateTagRequest struct {
@@ -116,18 +116,18 @@ type UpdateTagRequest struct {
 	RequestBody UpdateTagTagsRequestBody `request:"mediaType=application/json"`
 }
 
-func (o *UpdateTagRequest) GetTagID() string {
-	if o == nil {
+func (u *UpdateTagRequest) GetTagID() string {
+	if u == nil {
 		return ""
 	}
-	return o.TagID
+	return u.TagID
 }
 
-func (o *UpdateTagRequest) GetRequestBody() UpdateTagTagsRequestBody {
-	if o == nil {
+func (u *UpdateTagRequest) GetRequestBody() UpdateTagTagsRequestBody {
+	if u == nil {
 		return UpdateTagTagsRequestBody{}
 	}
-	return o.RequestBody
+	return u.RequestBody
 }
 
 type UpdateTagResponse struct {
@@ -136,16 +136,16 @@ type UpdateTagResponse struct {
 	CustomTag *components.CustomTag
 }
 
-func (o *UpdateTagResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (u *UpdateTagResponse) GetHTTPMeta() components.HTTPMetadata {
+	if u == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return u.HTTPMeta
 }
 
-func (o *UpdateTagResponse) GetCustomTag() *components.CustomTag {
-	if o == nil {
+func (u *UpdateTagResponse) GetCustomTag() *components.CustomTag {
+	if u == nil {
 		return nil
 	}
-	return o.CustomTag
+	return u.CustomTag
 }

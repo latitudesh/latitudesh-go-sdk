@@ -24,18 +24,18 @@ func (g *GetUserDataRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *GetUserDataRequest) GetUserDataID() string {
-	if o == nil {
+func (g *GetUserDataRequest) GetUserDataID() string {
+	if g == nil {
 		return ""
 	}
-	return o.UserDataID
+	return g.UserDataID
 }
 
-func (o *GetUserDataRequest) GetExtraFieldsUserData() *string {
-	if o == nil {
+func (g *GetUserDataRequest) GetExtraFieldsUserData() *string {
+	if g == nil {
 		return nil
 	}
-	return o.ExtraFieldsUserData
+	return g.ExtraFieldsUserData
 }
 
 type GetUserDataResponse struct {
@@ -44,16 +44,16 @@ type GetUserDataResponse struct {
 	UserData *components.UserData
 }
 
-func (o *GetUserDataResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetUserDataResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetUserDataResponse) GetUserData() *components.UserData {
-	if o == nil {
+func (g *GetUserDataResponse) GetUserData() *components.UserData {
+	if g == nil {
 		return nil
 	}
-	return o.UserData
+	return g.UserData
 }

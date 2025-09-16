@@ -35,11 +35,11 @@ type RoleDataAttributes struct {
 	Name *string `json:"name,omitempty"`
 }
 
-func (o *RoleDataAttributes) GetName() *string {
-	if o == nil {
+func (r *RoleDataAttributes) GetName() *string {
+	if r == nil {
 		return nil
 	}
-	return o.Name
+	return r.Name
 }
 
 type RoleData struct {
@@ -48,23 +48,23 @@ type RoleData struct {
 	Attributes *RoleDataAttributes `json:"attributes,omitempty"`
 }
 
-func (o *RoleData) GetID() *string {
-	if o == nil {
+func (r *RoleData) GetID() *string {
+	if r == nil {
 		return nil
 	}
-	return o.ID
+	return r.ID
 }
 
-func (o *RoleData) GetType() *RoleDataType {
-	if o == nil {
+func (r *RoleData) GetType() *RoleDataType {
+	if r == nil {
 		return nil
 	}
-	return o.Type
+	return r.Type
 }
 
-func (o *RoleData) GetAttributes() *RoleDataAttributes {
-	if o == nil {
+func (r *RoleData) GetAttributes() *RoleDataAttributes {
+	if r == nil {
 		return nil
 	}
-	return o.Attributes
+	return r.Attributes
 }

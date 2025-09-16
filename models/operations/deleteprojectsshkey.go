@@ -12,27 +12,27 @@ type DeleteProjectSSHKeyRequest struct {
 	SSHKeyID  string `pathParam:"style=simple,explode=false,name=ssh_key_id"`
 }
 
-func (o *DeleteProjectSSHKeyRequest) GetProjectID() string {
-	if o == nil {
+func (d *DeleteProjectSSHKeyRequest) GetProjectID() string {
+	if d == nil {
 		return ""
 	}
-	return o.ProjectID
+	return d.ProjectID
 }
 
-func (o *DeleteProjectSSHKeyRequest) GetSSHKeyID() string {
-	if o == nil {
+func (d *DeleteProjectSSHKeyRequest) GetSSHKeyID() string {
+	if d == nil {
 		return ""
 	}
-	return o.SSHKeyID
+	return d.SSHKeyID
 }
 
 type DeleteProjectSSHKeyResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *DeleteProjectSSHKeyResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (d *DeleteProjectSSHKeyResponse) GetHTTPMeta() components.HTTPMetadata {
+	if d == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return d.HTTPMeta
 }

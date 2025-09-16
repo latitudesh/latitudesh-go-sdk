@@ -10,16 +10,16 @@ type Servers struct {
 	Meta *ServersMeta `json:"meta,omitempty"`
 }
 
-func (o *Servers) GetData() []ServerData {
-	if o == nil {
+func (s *Servers) GetData() []ServerData {
+	if s == nil {
 		return nil
 	}
-	return o.Data
+	return s.Data
 }
 
-func (o *Servers) GetMeta() *ServersMeta {
-	if o == nil {
+func (s *Servers) GetMeta() *ServersMeta {
+	if s == nil {
 		return nil
 	}
-	return o.Meta
+	return s.Meta
 }
