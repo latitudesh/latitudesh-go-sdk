@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 6d31cd1eb4e23a81e6f32eae7411aed7
+  docChecksum: b27de45fd2ebd6cf222e1d8c0c34a985
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.617.1
-  generationVersion: 2.701.8
-  releaseVersion: 1.6.0
-  configChecksum: d8de27b60628ad41bc42a8695ce5b01f
+  speakeasyVersion: 1.621.1
+  generationVersion: 2.708.2
+  releaseVersion: 1.7.0
+  configChecksum: 5ef8c19f03555b9d13cab66fcdf097e3
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 features:
   go:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.10.0
+    core: 3.11.0
     defaultEnabledRetries: 0.2.0
     deprecations: 2.81.3
     devContainers: 2.90.0
@@ -3588,7 +3588,4 @@ examples:
         application/vnd.api+json: {"id": "vm_VLMmAD8EOwop2", "type": "virtual_machines", "attributes": {"action": "reboot"}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Go SDK Changes Detected:
-  * `Latitudesh.Plans.List()`:  `response.Data.[].Attributes.Specs.Memory.Total` **Changed** **Breaking** :warning:
-  * `Latitudesh.Plans.Get()`:  `response.Data.Attributes.Specs.Memory.Total` **Changed** **Breaking** :warning:
+releaseNotes: "## Go SDK Changes Detected:\n* `Latitudesh.VirtualMachines.List()`:  `request.ExtraFields[virtualMachines]` **Added**\n* `Latitudesh.VirtualMachines.Create()`: \n  *  `request.Request.Data.Attributes` **Changed**\n  *  `response.Data.Attributes.Credentials.SshKeys` **Added**\n* `Latitudesh.VirtualMachines.Get()`:  `request.ExtraFields[virtualMachines]` **Added**\n"
