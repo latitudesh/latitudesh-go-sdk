@@ -32,8 +32,10 @@ func (e *VirtualMachinePayloadType) UnmarshalJSON(data []byte) error {
 }
 
 type VirtualMachinePayloadAttributes struct {
-	Name    *string `default:"my-vm" json:"name"`
-	Project *string `default:"my-project" json:"project"`
+	Name    *string  `default:"my-vm" json:"name"`
+	Project *string  `default:"my-project" json:"project"`
+	Plan    *string  `json:"plan,omitempty"`
+	SSHKeys []string `json:"ssh_keys,omitempty"`
 }
 
 func (v VirtualMachinePayloadAttributes) MarshalJSON() ([]byte, error) {
@@ -59,6 +61,20 @@ func (v *VirtualMachinePayloadAttributes) GetProject() *string {
 		return nil
 	}
 	return v.Project
+}
+
+func (v *VirtualMachinePayloadAttributes) GetPlan() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Plan
+}
+
+func (v *VirtualMachinePayloadAttributes) GetSSHKeys() []string {
+	if v == nil {
+		return nil
+	}
+	return v.SSHKeys
 }
 
 type VirtualMachinePayloadData struct {
