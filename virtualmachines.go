@@ -245,9 +245,10 @@ func (s *VirtualMachines) Create(ctx context.Context, request components.Virtual
 
 // List - Get Teams Virtual Machines
 // Show all Team's Virtual Machines.
-func (s *VirtualMachines) List(ctx context.Context, filterProject *string, opts ...operations.Option) (*operations.IndexVirtualMachineResponse, error) {
+func (s *VirtualMachines) List(ctx context.Context, filterProject *string, extraFieldsVirtualMachines *string, opts ...operations.Option) (*operations.IndexVirtualMachineResponse, error) {
 	request := operations.IndexVirtualMachineRequest{
-		FilterProject: filterProject,
+		FilterProject:              filterProject,
+		ExtraFieldsVirtualMachines: extraFieldsVirtualMachines,
 	}
 
 	o := operations.Options{}
@@ -439,9 +440,10 @@ func (s *VirtualMachines) List(ctx context.Context, filterProject *string, opts 
 
 // Get a Virtual Machine
 // Show a Virtual Machine.
-func (s *VirtualMachines) Get(ctx context.Context, virtualMachineID string, opts ...operations.Option) (*operations.ShowVirtualMachineResponse, error) {
+func (s *VirtualMachines) Get(ctx context.Context, virtualMachineID string, extraFieldsVirtualMachines *string, opts ...operations.Option) (*operations.ShowVirtualMachineResponse, error) {
 	request := operations.ShowVirtualMachineRequest{
-		VirtualMachineID: virtualMachineID,
+		VirtualMachineID:           virtualMachineID,
+		ExtraFieldsVirtualMachines: extraFieldsVirtualMachines,
 	}
 
 	o := operations.Options{}
@@ -494,6 +496,10 @@ func (s *VirtualMachines) Get(ctx context.Context, virtualMachineID string, opts
 	}
 	req.Header.Set("Accept", "*/*")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
+
+	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
+		return nil, fmt.Errorf("error populating query params: %w", err)
+	}
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err

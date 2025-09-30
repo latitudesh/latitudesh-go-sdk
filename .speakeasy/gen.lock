@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 6d31cd1eb4e23a81e6f32eae7411aed7
+  docChecksum: d8684937e75323577cdda8e0ad07da16
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.617.1
-  generationVersion: 2.701.8
-  releaseVersion: 1.6.0
-  configChecksum: d8de27b60628ad41bc42a8695ce5b01f
+  speakeasyVersion: 1.631.5
+  generationVersion: 2.716.16
+  releaseVersion: 1.7.0
+  configChecksum: 5ef8c19f03555b9d13cab66fcdf097e3
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 features:
   go:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.10.0
+    core: 3.11.1
     defaultEnabledRetries: 0.2.0
     deprecations: 2.81.3
     devContainers: 2.90.0
@@ -969,7 +969,6 @@ generatedFiles:
   - types/bigint.go
   - types/date.go
   - types/datetime.go
-  - types/decimal.go
   - types/pointers.go
   - userdata.go
   - userprofile.go
@@ -1112,11 +1111,11 @@ examples:
           application/vnd.api+json: {"errors": [{"code": "VALIDATION_ERROR", "status": "422", "title": "Validation Error", "detail": "must be filled", "meta": {}}, {"code": "VALIDATION_ERROR", "status": "422", "title": "Validation Error", "detail": "must be a string", "meta": {}}, {"code": "VALIDATION_ERROR", "status": "422", "title": "Validation Error", "detail": "is missing", "meta": {}}]}
     Created:
       requestBody:
-        application/json: {"data": {"type": "firewalls", "attributes": {"name": "my-firewall", "project": "awesome-granite-chair", "rules": [{"from": "192.168.42.73", "to": "192.168.43.51", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.16", "to": "192.168.1.30", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.10", "to": "192.168.1.20", "protocol": "UDP", "port": "3000-4000"}]}}}
-        application/vnd.api+json: {"data": {"type": "firewalls", "attributes": {"name": "my-firewall", "project": "awesome-granite-chair", "rules": [{"from": "192.168.42.73", "to": "192.168.43.51", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.16", "to": "192.168.1.30", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.10", "to": "192.168.1.20", "protocol": "UDP", "port": "3000-4000"}]}}}
+        application/json: {"data": {"type": "firewalls", "attributes": {"name": "my-firewall", "project": "awesome-granite-chair", "rules": [{"from": "192.168.42.73", "to": "192.168.43.51", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.0/24", "to": "ANY", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.10", "to": "192.168.1.20", "protocol": "UDP", "port": "3000-4000"}]}}}
+        application/vnd.api+json: {"data": {"type": "firewalls", "attributes": {"name": "my-firewall", "project": "awesome-granite-chair", "rules": [{"from": "192.168.42.73", "to": "192.168.43.51", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.0/24", "to": "ANY", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.10", "to": "192.168.1.20", "protocol": "UDP", "port": "3000-4000"}]}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "fw_VLMmAD8EOwop2", "type": "firewalls", "attributes": {"name": "my-firewall", "rules": [{"from": "ANY", "to": "ANY", "port": "22", "protocol": "TCP"}, {"from": "192.168.42.73", "to": "192.168.43.51", "port": "80", "protocol": "TCP"}, {"from": "192.168.1.16", "to": "192.168.1.30", "port": "80", "protocol": "TCP"}, {"from": "192.168.1.10", "to": "192.168.1.20", "port": "3000-4000", "protocol": "UDP"}], "project": {"id": "proj_6A05EdQ1dvKYQ", "slug": "awesome-granite-chair", "name": "Awesome Granite Chair"}}}}
+          application/vnd.api+json: {"data": {"id": "fw_VLMmAD8EOwop2", "type": "firewalls", "attributes": {"name": "my-firewall", "rules": [{"from": "ANY", "to": "ANY", "port": "22", "protocol": "TCP"}, {"from": "192.168.42.73", "to": "192.168.43.51", "port": "80", "protocol": "TCP"}, {"from": "192.168.1.0/24", "to": "ANY", "port": "80", "protocol": "TCP"}, {"from": "192.168.1.10", "to": "192.168.1.20", "port": "3000-4000", "protocol": "UDP"}], "project": {"id": "proj_6A05EdQ1dvKYQ", "slug": "awesome-granite-chair", "name": "Awesome Granite Chair"}}}}
   list-firewalls:
     Success:
       parameters:
@@ -1158,11 +1157,11 @@ examples:
         path:
           firewall_id: "fw_6A05EdQ1dvKYQ"
       requestBody:
-        application/json: {"data": {"type": "firewalls", "attributes": {"name": "new-name", "rules": [{"from": "192.168.42.72", "to": "192.168.43.51", "protocol": "TCP", "port": "80"}]}}}
-        application/vnd.api+json: {"data": {"type": "firewalls", "attributes": {"name": "new-name", "rules": [{"from": "192.168.42.72", "to": "192.168.43.51", "protocol": "TCP", "port": "80"}]}}}
+        application/json: {"data": {"type": "firewalls", "attributes": {"name": "new-name", "rules": [{"from": "192.168.1.0/24", "to": "ANY", "protocol": "TCP", "port": "80"}]}}}
+        application/vnd.api+json: {"data": {"type": "firewalls", "attributes": {"name": "new-name", "rules": [{"from": "192.168.1.0/24", "to": "ANY", "protocol": "TCP", "port": "80"}]}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "fw_6A05EdQ1dvKYQ", "type": "firewalls", "attributes": {"name": "new-name", "rules": [{"from": "192.168.42.72", "to": "192.168.43.51", "port": "80", "protocol": "TCP"}], "project": {"id": "proj_Ee8pKq05DWAob", "slug": "small-wooden-chair", "name": "Small Wooden Chair"}}}}
+          application/vnd.api+json: {"data": {"id": "fw_6A05EdQ1dvKYQ", "type": "firewalls", "attributes": {"name": "new-name", "rules": [{"from": "192.168.1.0/24", "to": "ANY", "port": "80", "protocol": "TCP"}], "project": {"id": "proj_Ee8pKq05DWAob", "slug": "small-wooden-chair", "name": "Small Wooden Chair"}}}}
     Not Found:
       parameters:
         path:
@@ -3588,7 +3587,4 @@ examples:
         application/vnd.api+json: {"id": "vm_VLMmAD8EOwop2", "type": "virtual_machines", "attributes": {"action": "reboot"}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Go SDK Changes Detected:
-  * `Latitudesh.Plans.List()`:  `response.Data.[].Attributes.Specs.Memory.Total` **Changed** **Breaking** :warning:
-  * `Latitudesh.Plans.Get()`:  `response.Data.Attributes.Specs.Memory.Total` **Changed** **Breaking** :warning:
+releaseNotes: "## Go SDK Changes Detected:\n* `Latitudesh.VirtualMachines.List()`:  `request.ExtraFields[virtualMachines]` **Added**\n* `Latitudesh.VirtualMachines.Create()`: \n  *  `request.Request.Data.Attributes` **Changed**\n  *  `response.Data.Attributes.Credentials.SshKeys` **Added**\n* `Latitudesh.VirtualMachines.Get()`:  `request.ExtraFields[virtualMachines]` **Added**\n"

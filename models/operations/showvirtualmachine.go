@@ -8,6 +8,8 @@ import (
 
 type ShowVirtualMachineRequest struct {
 	VirtualMachineID string `pathParam:"style=simple,explode=false,name=virtual_machine_id"`
+	// The `credentials` are provided as extra attributes that are lazy loaded. To request it, just set `extra_fields[virtual_machines]=credentials` in the query string.
+	ExtraFieldsVirtualMachines *string `queryParam:"style=form,explode=true,name=extra_fields[virtual_machines]"`
 }
 
 func (s *ShowVirtualMachineRequest) GetVirtualMachineID() string {
@@ -15,6 +17,13 @@ func (s *ShowVirtualMachineRequest) GetVirtualMachineID() string {
 		return ""
 	}
 	return s.VirtualMachineID
+}
+
+func (s *ShowVirtualMachineRequest) GetExtraFieldsVirtualMachines() *string {
+	if s == nil {
+		return nil
+	}
+	return s.ExtraFieldsVirtualMachines
 }
 
 type ShowVirtualMachineResponse struct {
