@@ -119,8 +119,8 @@ func main() {
                         Port: latitudeshgosdk.Pointer("80"),
                     },
                     operations.CreateFirewallRules{
-                        From: latitudeshgosdk.Pointer("192.168.1.16"),
-                        To: latitudeshgosdk.Pointer("192.168.1.30"),
+                        From: latitudeshgosdk.Pointer("192.168.1.0/24"),
+                        To: latitudeshgosdk.Pointer("ANY"),
                         Protocol: operations.CreateFirewallProtocolTCP.ToPointer(),
                         Port: latitudeshgosdk.Pointer("80"),
                     },
@@ -311,8 +311,8 @@ func main() {
                 Name: latitudeshgosdk.Pointer("new-name"),
                 Rules: []operations.UpdateFirewallFirewallsRules{
                     operations.UpdateFirewallFirewallsRules{
-                        From: latitudeshgosdk.Pointer("192.168.42.72"),
-                        To: latitudeshgosdk.Pointer("192.168.43.51"),
+                        From: latitudeshgosdk.Pointer("192.168.1.0/24"),
+                        To: latitudeshgosdk.Pointer("ANY"),
                         Protocol: operations.UpdateFirewallFirewallsProtocolTCP.ToPointer(),
                         Port: latitudeshgosdk.Pointer("80"),
                     },

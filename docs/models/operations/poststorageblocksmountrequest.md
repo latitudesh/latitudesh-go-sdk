@@ -1,0 +1,9 @@
+# PostStorageBlocksMountRequest
+
+
+## Fields
+
+| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `ID`                                                                                                         | *string*                                                                                                     | :heavy_check_mark:                                                                                           | Block storage ID                                                                                             |
+| `RequestBody`                                                                                                | [operations.PostStorageBlocksMountRequestBody](../../models/operations/poststorageblocksmountrequestbody.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |

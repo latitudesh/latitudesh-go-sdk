@@ -382,10 +382,10 @@ func (p *PlanDataRegions) GetPricing() *PlanDataPricing {
 
 type PlanDataAttributes struct {
 	Slug     *string           `json:"slug,omitempty"`
+	Name     *string           `json:"name,omitempty"`
 	Features []string          `json:"features,omitempty"`
 	Specs    *Specs            `json:"specs,omitempty"`
 	Regions  []PlanDataRegions `json:"regions,omitempty"`
-	Name     *string           `json:"name,omitempty"`
 }
 
 func (p *PlanDataAttributes) GetSlug() *string {
@@ -393,6 +393,13 @@ func (p *PlanDataAttributes) GetSlug() *string {
 		return nil
 	}
 	return p.Slug
+}
+
+func (p *PlanDataAttributes) GetName() *string {
+	if p == nil {
+		return nil
+	}
+	return p.Name
 }
 
 func (p *PlanDataAttributes) GetFeatures() []string {
@@ -414,13 +421,6 @@ func (p *PlanDataAttributes) GetRegions() []PlanDataRegions {
 		return nil
 	}
 	return p.Regions
-}
-
-func (p *PlanDataAttributes) GetName() *string {
-	if p == nil {
-		return nil
-	}
-	return p.Name
 }
 
 type PlanData struct {

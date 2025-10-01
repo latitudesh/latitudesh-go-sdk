@@ -31,7 +31,9 @@ func (e *FirewallDataType) UnmarshalJSON(data []byte) error {
 }
 
 type Rules struct {
-	From     *string `json:"from,omitempty"`
+	// Source IP address, IP range in CIDR notation, or 'ANY' (e.g., "192.168.1.1", "192.168.1.0/24", "ANY")
+	From *string `json:"from,omitempty"`
+	// Destination IP address, IP range in CIDR notation, or 'ANY' (e.g., "192.168.1.1", "192.168.1.0/24", "ANY")
 	To       *string `json:"to,omitempty"`
 	Port     *string `json:"port,omitempty"`
 	Protocol *string `json:"protocol,omitempty"`
