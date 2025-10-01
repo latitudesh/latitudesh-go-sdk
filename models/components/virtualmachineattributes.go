@@ -66,9 +66,10 @@ func (e *VirtualMachineAttributesStatus) UnmarshalJSON(data []byte) error {
 }
 
 type Credentials struct {
-	Username *string `json:"username,omitempty"`
-	Host     *string `json:"host,omitempty"`
-	Password *string `json:"password,omitempty"`
+	Username *string  `json:"username,omitempty"`
+	Host     *string  `json:"host,omitempty"`
+	Password *string  `json:"password,omitempty"`
+	SSHKeys  []string `json:"ssh_keys,omitempty"`
 }
 
 func (c *Credentials) GetUsername() *string {
@@ -90,6 +91,13 @@ func (c *Credentials) GetPassword() *string {
 		return nil
 	}
 	return c.Password
+}
+
+func (c *Credentials) GetSSHKeys() []string {
+	if c == nil {
+		return nil
+	}
+	return c.SSHKeys
 }
 
 type VirtualMachineAttributesPlan struct {

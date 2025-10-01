@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 6d31cd1eb4e23a81e6f32eae7411aed7
+  docChecksum: ff181a79838a35d2a82d69dc38e1d9e8
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.617.1
-  generationVersion: 2.701.8
-  releaseVersion: 1.6.0
-  configChecksum: d8de27b60628ad41bc42a8695ce5b01f
+  speakeasyVersion: 1.631.5
+  generationVersion: 2.716.16
+  releaseVersion: 1.7.0
+  configChecksum: 5ef8c19f03555b9d13cab66fcdf097e3
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 features:
   go:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.10.0
+    core: 3.11.1
     defaultEnabledRetries: 0.2.0
     deprecations: 2.81.3
     devContainers: 2.90.0
@@ -131,6 +131,7 @@ generatedFiles:
   - /models/operations/deleteprojectsshkey.go
   - /models/operations/deleteprojectuserdata.go
   - /models/operations/deletesshkey.go
+  - /models/operations/deletestorageblocks.go
   - /models/operations/deletestoragefilesystems.go
   - /models/operations/deleteuserdata.go
   - /models/operations/deletevirtualnetworksassignments.go
@@ -145,7 +146,6 @@ generatedFiles:
   - /models/operations/getbandwidthplans.go
   - /models/operations/getbillingusage.go
   - /models/operations/getcontainersplan.go
-  - /models/operations/getcontainersplans.go
   - /models/operations/getevents.go
   - /models/operations/getfirewall.go
   - /models/operations/getfirewallassignments.go
@@ -169,6 +169,7 @@ generatedFiles:
   - /models/operations/getservers.go
   - /models/operations/getsshkey.go
   - /models/operations/getsshkeys.go
+  - /models/operations/getstorageblocks.go
   - /models/operations/getstoragefilesystems.go
   - /models/operations/getstorageplans.go
   - /models/operations/gettags.go
@@ -188,6 +189,7 @@ generatedFiles:
   - /models/operations/indexvirtualmachine.go
   - /models/operations/listfirewalls.go
   - /models/operations/patchcurrentteam.go
+  - /models/operations/patchstorageblocks.go
   - /models/operations/patchstoragefilesystems.go
   - /models/operations/patchuserdata.go
   - /models/operations/patchuserprofile.go
@@ -195,6 +197,8 @@ generatedFiles:
   - /models/operations/postprojectsshkey.go
   - /models/operations/postprojectuserdata.go
   - /models/operations/postsshkey.go
+  - /models/operations/poststorageblocks.go
+  - /models/operations/poststorageblocksmount.go
   - /models/operations/poststoragefilesystems.go
   - /models/operations/postteam.go
   - /models/operations/postteammembers.go
@@ -609,6 +613,8 @@ generatedFiles:
   - docs/models/operations/deleteprojectuserdataresponse.md
   - docs/models/operations/deletesshkeyrequest.md
   - docs/models/operations/deletesshkeyresponse.md
+  - docs/models/operations/deletestorageblocksrequest.md
+  - docs/models/operations/deletestorageblocksresponse.md
   - docs/models/operations/deletestoragefilesystemsrequest.md
   - docs/models/operations/deletestoragefilesystemsresponse.md
   - docs/models/operations/deleteuserdatarequest.md
@@ -640,9 +646,6 @@ generatedFiles:
   - docs/models/operations/getbillingusageresponse.md
   - docs/models/operations/getcontainersplanrequest.md
   - docs/models/operations/getcontainersplanresponse.md
-  - docs/models/operations/getcontainersplansrequest.md
-  - docs/models/operations/getcontainersplansresponse.md
-  - docs/models/operations/getcontainersplansresponsebody.md
   - docs/models/operations/geteventsrequest.md
   - docs/models/operations/geteventsresponse.md
   - docs/models/operations/geteventsresponsebody.md
@@ -696,6 +699,8 @@ generatedFiles:
   - docs/models/operations/getsshkeyresponsebody.md
   - docs/models/operations/getsshkeysrequest.md
   - docs/models/operations/getsshkeysresponse.md
+  - docs/models/operations/getstorageblocksrequest.md
+  - docs/models/operations/getstorageblocksresponse.md
   - docs/models/operations/getstoragefilesystemsrequest.md
   - docs/models/operations/getstoragefilesystemsresponse.md
   - docs/models/operations/getstorageplansresponse.md
@@ -740,6 +745,12 @@ generatedFiles:
   - docs/models/operations/patchcurrentteamteamsdata.md
   - docs/models/operations/patchcurrentteamteamsrequestbody.md
   - docs/models/operations/patchcurrentteamteamstype.md
+  - docs/models/operations/patchstorageblocksrequest.md
+  - docs/models/operations/patchstorageblocksresponse.md
+  - docs/models/operations/patchstorageblocksstorageattributes.md
+  - docs/models/operations/patchstorageblocksstoragedata.md
+  - docs/models/operations/patchstorageblocksstoragerequestbody.md
+  - docs/models/operations/patchstorageblocksstoragetype.md
   - docs/models/operations/patchstoragefilesystemsrequest.md
   - docs/models/operations/patchstoragefilesystemsresponse.md
   - docs/models/operations/patchstoragefilesystemsresponsebody.md
@@ -782,6 +793,17 @@ generatedFiles:
   - docs/models/operations/postsshkeysshkeysdata.md
   - docs/models/operations/postsshkeysshkeysrequestbody.md
   - docs/models/operations/postsshkeysshkeystype.md
+  - docs/models/operations/poststorageblocksmountattributes.md
+  - docs/models/operations/poststorageblocksmountdata.md
+  - docs/models/operations/poststorageblocksmountrequest.md
+  - docs/models/operations/poststorageblocksmountrequestbody.md
+  - docs/models/operations/poststorageblocksmountresponse.md
+  - docs/models/operations/poststorageblocksmounttype.md
+  - docs/models/operations/poststorageblocksresponse.md
+  - docs/models/operations/poststorageblocksstorageattributes.md
+  - docs/models/operations/poststorageblocksstoragedata.md
+  - docs/models/operations/poststorageblocksstoragerequestbody.md
+  - docs/models/operations/poststorageblocksstoragetype.md
   - docs/models/operations/poststoragefilesystemsresponse.md
   - docs/models/operations/poststoragefilesystemsresponsebody.md
   - docs/models/operations/poststoragefilesystemsstorageattributes.md
@@ -834,7 +856,6 @@ generatedFiles:
   - docs/models/operations/putsshkeysshkeystype.md
   - docs/models/operations/putvpnsessionrequest.md
   - docs/models/operations/putvpnsessionresponse.md
-  - docs/models/operations/queryparamfilterstocklevel.md
   - docs/models/operations/serverexitrescuemoderequest.md
   - docs/models/operations/serverexitrescuemoderesponse.md
   - docs/models/operations/serverlockrequest.md
@@ -969,7 +990,6 @@ generatedFiles:
   - types/bigint.go
   - types/date.go
   - types/datetime.go
-  - types/decimal.go
   - types/pointers.go
   - userdata.go
   - userprofile.go
@@ -1112,11 +1132,11 @@ examples:
           application/vnd.api+json: {"errors": [{"code": "VALIDATION_ERROR", "status": "422", "title": "Validation Error", "detail": "must be filled", "meta": {}}, {"code": "VALIDATION_ERROR", "status": "422", "title": "Validation Error", "detail": "must be a string", "meta": {}}, {"code": "VALIDATION_ERROR", "status": "422", "title": "Validation Error", "detail": "is missing", "meta": {}}]}
     Created:
       requestBody:
-        application/json: {"data": {"type": "firewalls", "attributes": {"name": "my-firewall", "project": "awesome-granite-chair", "rules": [{"from": "192.168.42.73", "to": "192.168.43.51", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.16", "to": "192.168.1.30", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.10", "to": "192.168.1.20", "protocol": "UDP", "port": "3000-4000"}]}}}
-        application/vnd.api+json: {"data": {"type": "firewalls", "attributes": {"name": "my-firewall", "project": "awesome-granite-chair", "rules": [{"from": "192.168.42.73", "to": "192.168.43.51", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.16", "to": "192.168.1.30", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.10", "to": "192.168.1.20", "protocol": "UDP", "port": "3000-4000"}]}}}
+        application/json: {"data": {"type": "firewalls", "attributes": {"name": "my-firewall", "project": "awesome-granite-chair", "rules": [{"from": "192.168.42.73", "to": "192.168.43.51", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.0/24", "to": "ANY", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.10", "to": "192.168.1.20", "protocol": "UDP", "port": "3000-4000"}]}}}
+        application/vnd.api+json: {"data": {"type": "firewalls", "attributes": {"name": "my-firewall", "project": "awesome-granite-chair", "rules": [{"from": "192.168.42.73", "to": "192.168.43.51", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.0/24", "to": "ANY", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.10", "to": "192.168.1.20", "protocol": "UDP", "port": "3000-4000"}]}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "fw_VLMmAD8EOwop2", "type": "firewalls", "attributes": {"name": "my-firewall", "rules": [{"from": "ANY", "to": "ANY", "port": "22", "protocol": "TCP"}, {"from": "192.168.42.73", "to": "192.168.43.51", "port": "80", "protocol": "TCP"}, {"from": "192.168.1.16", "to": "192.168.1.30", "port": "80", "protocol": "TCP"}, {"from": "192.168.1.10", "to": "192.168.1.20", "port": "3000-4000", "protocol": "UDP"}], "project": {"id": "proj_6A05EdQ1dvKYQ", "slug": "awesome-granite-chair", "name": "Awesome Granite Chair"}}}}
+          application/vnd.api+json: {"data": {"id": "fw_VLMmAD8EOwop2", "type": "firewalls", "attributes": {"name": "my-firewall", "rules": [{"from": "ANY", "to": "ANY", "port": "22", "protocol": "TCP"}, {"from": "192.168.42.73", "to": "192.168.43.51", "port": "80", "protocol": "TCP"}, {"from": "192.168.1.0/24", "to": "ANY", "port": "80", "protocol": "TCP"}, {"from": "192.168.1.10", "to": "192.168.1.20", "port": "3000-4000", "protocol": "UDP"}], "project": {"id": "proj_6A05EdQ1dvKYQ", "slug": "awesome-granite-chair", "name": "Awesome Granite Chair"}}}}
   list-firewalls:
     Success:
       parameters:
@@ -1158,11 +1178,11 @@ examples:
         path:
           firewall_id: "fw_6A05EdQ1dvKYQ"
       requestBody:
-        application/json: {"data": {"type": "firewalls", "attributes": {"name": "new-name", "rules": [{"from": "192.168.42.72", "to": "192.168.43.51", "protocol": "TCP", "port": "80"}]}}}
-        application/vnd.api+json: {"data": {"type": "firewalls", "attributes": {"name": "new-name", "rules": [{"from": "192.168.42.72", "to": "192.168.43.51", "protocol": "TCP", "port": "80"}]}}}
+        application/json: {"data": {"type": "firewalls", "attributes": {"name": "new-name", "rules": [{"from": "192.168.1.0/24", "to": "ANY", "protocol": "TCP", "port": "80"}]}}}
+        application/vnd.api+json: {"data": {"type": "firewalls", "attributes": {"name": "new-name", "rules": [{"from": "192.168.1.0/24", "to": "ANY", "protocol": "TCP", "port": "80"}]}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "fw_6A05EdQ1dvKYQ", "type": "firewalls", "attributes": {"name": "new-name", "rules": [{"from": "192.168.42.72", "to": "192.168.43.51", "port": "80", "protocol": "TCP"}], "project": {"id": "proj_Ee8pKq05DWAob", "slug": "small-wooden-chair", "name": "Small Wooden Chair"}}}}
+          application/vnd.api+json: {"data": {"id": "fw_6A05EdQ1dvKYQ", "type": "firewalls", "attributes": {"name": "new-name", "rules": [{"from": "192.168.1.0/24", "to": "ANY", "port": "80", "protocol": "TCP"}], "project": {"id": "proj_Ee8pKq05DWAob", "slug": "small-wooden-chair", "name": "Small Wooden Chair"}}}}
     Not Found:
       parameters:
         path:
@@ -1393,7 +1413,7 @@ examples:
     Success:
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "team_8L90z0WyLyIK0KyEknmnijV38rk", "attributes": {"name": "583 Team", "slug": "583-team", "address": "654 Selene Pines, North Noble, HI 65384", "currency": "trb", "created_at": "2025-02-21T00:00:00+00:00", "updated_at": "2025-03-07T00:00:00+00:00", "enforce_mfa": false, "users": [{"id": "user_LwnmBv6vmeILPZEj4poJuEXnegj", "first_name": "Claretta", "last_name": "Kuhic", "email": "king.morissette@nitzsche.example", "created_at": "2025-05-04T00:00:00.000Z", "updated_at": "2024-09-09T00:00:00.000Z", "role": {"id": "role_735kl6xYEVcl5Nzn0weZuoxPrmL", "name": "Neville", "created_at": "2024-10-29T00:00:00.000Z", "updated_at": "2025-12-27T00:00:00.000Z"}}], "projects": [], "owner": {"id": "user_LwnmBv6vmeILPZEj4poJuEXnegj", "first_name": "Claretta", "last_name": "Kuhic", "email": "king.morissette@nitzsche.example", "created_at": "2025-05-04T00:00:00.000Z", "updated_at": "2024-09-09T00:00:00.000Z", "role": {"id": "role_735kl6xYEVcl5Nzn0weZuoxPrmL", "name": "Neville", "created_at": "2024-10-29T00:00:00.000Z", "updated_at": "2025-12-27T00:00:00.000Z"}}, "billing": {}, "feature_flags": ["feature_flag_1", "feature_flag_2"]}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "team_8L90z0WyLyIK0KyEknmnijV38rk", "attributes": {"name": "583 Team", "slug": "583-team", "address": "654 Selene Pines, North Noble, HI 65384", "currency": "trb", "created_at": "2025-02-21T00:00:00+00:00", "updated_at": "2025-03-07T00:00:00+00:00", "enforce_mfa": false, "users": [{"id": "user_LwnmBv6vmeILPZEj4poJuEXnegj", "first_name": "Claretta", "last_name": "Kuhic", "email": "king.morissette@nitzsche.example", "created_at": "2025-05-04T00:00:00.000Z", "updated_at": "2024-09-09T00:00:00.000Z", "role": {"id": "role_735kl6xYEVcl5Nzn0weZuoxPrmL", "name": "Neville", "created_at": "2024-10-29T00:00:00.000Z", "updated_at": "2025-12-27T00:00:00.000Z"}}], "projects": [], "owner": {}, "billing": {}, "feature_flags": ["feature_flag_1", "feature_flag_2"]}}], "meta": {}}
   post-team:
     Created:
       requestBody:
@@ -1519,7 +1539,7 @@ examples:
     Success:
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "plan_1Qkm7dXzD8nZV", "type": "plans", "attributes": {"slug": "g3-l40s-medium-31", "features": [], "specs": {"cpu": {"type": "E-2276G", "clock": 3.8, "cores": 6, "count": 1}, "memory": {"total": 32}, "drives": [{"count": 1, "size": "3.8TB", "type": "SSD"}], "nics": [{"count": 1, "type": "10 Gbps"}], "gpu": {"count": 4, "type": "NVIDIA H100"}}, "regions": [{"name": "Brazil", "deploys_instantly": [], "locations": {"available": ["SAO"], "in_stock": ["SAO"]}, "stock_level": "medium", "pricing": {"USD": {"hour": 10, "month": 50, "year": 100}, "BRL": {"hour": 53, "month": 108.5, "year": 205}}}], "name": "g3.l40s.medium-31"}}]}
+          application/vnd.api+json: {"data": [{"id": "plan_1Qkm7dXzD8nZV", "type": "plans", "attributes": {"slug": "g3-l40s-medium-31", "name": "g3.l40s.medium-31", "features": [], "specs": {"cpu": {"type": "E-2276G", "clock": 3.8, "cores": 6, "count": 1}, "memory": {"total": 32}, "drives": [{"count": 1, "size": "3.8TB", "type": "SSD"}], "nics": [{"count": 1, "type": "10 Gbps"}], "gpu": {"count": 4, "type": "NVIDIA H100"}}, "regions": [{"name": "Brazil", "deploys_instantly": [], "locations": {"available": ["SAO"], "in_stock": ["SAO"]}, "stock_level": "medium", "pricing": {"USD": {"hour": 10, "month": 50, "year": 100}, "BRL": {"hour": 53, "month": 108.5, "year": 205}}}]}}]}
   get-plan:
     Success:
       parameters:
@@ -1527,7 +1547,7 @@ examples:
           plan_id: "plan_m5xyZOnNOWM0l"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "plan_m5xyZOnNOWM0l", "type": "plans", "attributes": {"slug": "g3-l40s-small-32", "features": [], "specs": {"cpu": {"type": "E-2276G", "clock": 3.8, "cores": 6, "count": 1}, "memory": {"total": 32}, "drives": [{"count": 1, "size": "3.8TB", "type": "SSD"}], "nics": [{"count": 1, "type": "10 Gbps"}], "gpu": {"count": 4, "type": "NVIDIA H100"}}, "regions": [{"name": "Brazil", "deploys_instantly": [], "locations": {"available": ["SAO"], "in_stock": ["SAO"]}, "stock_level": "medium", "pricing": {"USD": {"hour": 10, "month": 50, "year": 100}, "BRL": {"hour": 53, "month": 108.5, "year": 205}}}], "name": "g3.l40s.small-32"}}}
+          application/vnd.api+json: {"data": {"id": "plan_m5xyZOnNOWM0l", "type": "plans", "attributes": {"slug": "g3-l40s-small-32", "name": "g3.l40s.small-32", "features": [], "specs": {"cpu": {"type": "E-2276G", "clock": 3.8, "cores": 6, "count": 1}, "memory": {"total": 32}, "drives": [{"count": 1, "size": "3.8TB", "type": "SSD"}], "nics": [{"count": 1, "type": "10 Gbps"}], "gpu": {"count": 4, "type": "NVIDIA H100"}}, "regions": [{"name": "Brazil", "deploys_instantly": [], "locations": {"available": ["SAO"], "in_stock": ["SAO"]}, "stock_level": "medium", "pricing": {"USD": {"hour": 10, "month": 50, "year": 100}, "BRL": {"hour": 53, "month": 108.5, "year": 205}}}]}}}
     Not found:
       parameters:
         path:
@@ -2065,7 +2085,7 @@ examples:
           server_id: "sv_VLMmAD8EOwop2"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "sv_VLMmAD8EOwop2", "attributes": {"operating_system": "debian_10", "hostname": "Solarbreeze", "raid": "raid-1", "ssh_keys": ["ssh_6059EqYkOQj8p"], "partitions": [{"path": "/", "size_in_gb": 300, "filesystem_type": "ext4"}], "user_data": "ud_zGr47qlMDAg0m"}}}
+          application/vnd.api+json: {"data": {"id": "sv_VLMmAD8EOwop2", "attributes": {"operating_system": "debian_10", "hostname": "Solarbreeze", "raid": "raid-1", "user_data": "ud_zGr47qlMDAg0m", "ssh_keys": ["ssh_6059EqYkOQj8p"], "partitions": [{"path": "/", "size_in_gb": 300, "filesystem_type": "ext4"}]}}}
   update-server-deploy-config:
     Success:
       parameters:
@@ -2076,7 +2096,7 @@ examples:
         application/vnd.api+json: {"type": "deploy_config"}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "sv_0L6WO141DPlXy", "attributes": {"operating_system": "ubuntu_20_04_x64_lts", "hostname": "my-hostname", "raid": "raid-1", "ssh_keys": ["ssh_GKN4ydzgqVob3"], "partitions": [{"path": "/", "size_in_gb": 300, "filesystem_type": "ext4"}], "user_data": "ud_5LA73qkjdaJ2o"}}}
+          application/vnd.api+json: {"data": {"id": "sv_0L6WO141DPlXy", "attributes": {"operating_system": "ubuntu_20_04_x64_lts", "hostname": "my-hostname", "raid": "raid-1", "user_data": "ud_5LA73qkjdaJ2o", "ssh_keys": ["ssh_GKN4ydzgqVob3"], "partitions": [{"path": "/", "size_in_gb": 300, "filesystem_type": "ext4"}]}}}
         "422":
           application/vnd.api+json: {"data": {"id": "sv_g1mbDweZdLv5B", "attributes": {"operating_system": "ubuntu_20_04_x64_lts", "hostname": "my-hostname", "raid": "raid-1", "ssh_keys": ["ssh_GlxWpD6KOm6rk"], "partitions": [{"path": "/", "size_in_gb": 300, "filesystem_type": "ext4"}]}}}
     Unprocessable Entity:
@@ -3062,7 +3082,11 @@ examples:
       responses:
         "201":
           application/vnd.api+json: {}
-  index-virtual-machine: {}
+  index-virtual-machine:
+    Success:
+      parameters:
+        query:
+          extra_fields[virtual_machines]: "credentials"
   show-virtual-machine:
     Ok:
       parameters:
@@ -3586,9 +3610,36 @@ examples:
       requestBody:
         application/json: {"id": "vm_VLMmAD8EOwop2", "type": "virtual_machines", "attributes": {"action": "reboot"}}
         application/vnd.api+json: {"id": "vm_VLMmAD8EOwop2", "type": "virtual_machines", "attributes": {"action": "reboot"}}
+  post-storage-blocks:
+    Created:
+      requestBody:
+        application/json: {"data": {"type": "blocks", "attributes": {"project": "proj_LMmAD8z2dwop2", "name": "my-data", "size_in_gb": 1500}}}
+        application/vnd.api+json: {"data": {"type": "blocks", "attributes": {"project": "proj_LMmAD8z2dwop2", "name": "my-data", "size_in_gb": 1500}}}
+  get-storage-blocks:
+    Success:
+      parameters:
+        query:
+          filter[project]: "proj_kjQwdEa7dYNVP"
+  delete-storage-blocks:
+    speakeasy-default-delete-storage-blocks:
+      parameters:
+        path:
+          block_id: "<id>"
+  patch-storage-blocks:
+    speakeasy-default-patch-storage-blocks:
+      parameters:
+        path:
+          block_id: "<id>"
+      requestBody:
+        application/json: {"data": {"id": "<id>", "type": "storage_blocks", "attributes": {"size_in_gb": 1500}}}
+        application/vnd.api+json: {"data": {"id": "<id>", "type": "storage_blocks", "attributes": {"size_in_gb": 1500}}}
+  post-storage-blocks-mount:
+    speakeasy-default-post-storage-blocks-mount:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {"data": {"type": "blocks", "attributes": {"nqn": "nqn.2024-01.com.example:server01"}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Go SDK Changes Detected:
-  * `Latitudesh.Plans.List()`:  `response.Data.[].Attributes.Specs.Memory.Total` **Changed** **Breaking** :warning:
-  * `Latitudesh.Plans.Get()`:  `response.Data.Attributes.Specs.Memory.Total` **Changed** **Breaking** :warning:
+releaseNotes: "## Go SDK Changes Detected:\n* `Latitudesh.Storage.Post-Storage-Blocks()`: **Added**\n* `Latitudesh.Storage.Get-Storage-Blocks()`: **Added**\n* `Latitudesh.Storage.Delete-Storage-Blocks()`: **Added**\n* `Latitudesh.Storage.Patch-Storage-Blocks()`: **Added**\n* `Latitudesh.Storage.Post-Storage-Blocks-Mount()`: **Added**\n* `Latitudesh.Plans.Get-Containers-Plans()`: **Deleted** **Breaking** :warning:\n* `Latitudesh.VirtualMachines.List()`:  `request.ExtraFields[virtualMachines]` **Added**\n* `Latitudesh.VirtualMachines.Create()`: \n  *  `request.Request.Data.Attributes` **Changed**\n  *  `response.Data.Attributes.Credentials.SshKeys` **Added**\n"

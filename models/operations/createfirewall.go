@@ -58,7 +58,9 @@ func (e *CreateFirewallProtocol) UnmarshalJSON(data []byte) error {
 }
 
 type CreateFirewallRules struct {
-	From     *string                 `json:"from,omitempty"`
+	// Source IP address, IP range in CIDR notation, or 'ANY' (e.g., "192.168.1.1", "192.168.1.0/24", "ANY")
+	From *string `json:"from,omitempty"`
+	// Destination IP address, IP range in CIDR notation, or 'ANY' (e.g., "192.168.1.1", "192.168.1.0/24", "ANY")
 	To       *string                 `json:"to,omitempty"`
 	Protocol *CreateFirewallProtocol `json:"protocol,omitempty"`
 	// Port number or range (e.g., "80", "80-443")

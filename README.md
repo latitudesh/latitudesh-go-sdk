@@ -157,7 +157,6 @@ func main() {
 * [Get](docs/sdks/plans/README.md#get) - Retrieve a Plan
 * [GetBandwidth](docs/sdks/plans/README.md#getbandwidth) - List all bandwidth plans
 * [UpdateBandwidth](docs/sdks/plans/README.md#updatebandwidth) - Buy or remove bandwidth packages
-* [GetContainersPlans](docs/sdks/plans/README.md#getcontainersplans) - List containers plans
 * [GetContainersPlan](docs/sdks/plans/README.md#getcontainersplan) - Retrieve container plan
 * [ListStorage](docs/sdks/plans/README.md#liststorage) - List all Storage Plans
 
@@ -231,6 +230,11 @@ func main() {
 
 ### [Storage](docs/sdks/storage/README.md)
 
+* [PostStorageBlocks](docs/sdks/storage/README.md#poststorageblocks) - Create a block for a project
+* [GetStorageBlocks](docs/sdks/storage/README.md#getstorageblocks) - List block storages
+* [DeleteStorageBlocks](docs/sdks/storage/README.md#deletestorageblocks) - Delete a block for a project
+* [PatchStorageBlocks](docs/sdks/storage/README.md#patchstorageblocks) - Update a Block Storage
+* [PostStorageBlocksMount](docs/sdks/storage/README.md#poststorageblocksmount) - Mount a block storage to a server
 * [CreateFilesystem](docs/sdks/storage/README.md#createfilesystem) - Create a filesystem for a project
 * [ListFilesystems](docs/sdks/storage/README.md#listfilesystems) - List filesystems
 * [DeleteFilesystem](docs/sdks/storage/README.md#deletefilesystem) - Delete a filesystem for a project

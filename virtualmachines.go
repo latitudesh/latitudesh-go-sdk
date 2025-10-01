@@ -245,9 +245,10 @@ func (s *VirtualMachines) Create(ctx context.Context, request components.Virtual
 
 // List - Get Teams Virtual Machines
 // Show all Team's Virtual Machines.
-func (s *VirtualMachines) List(ctx context.Context, filterProject *string, opts ...operations.Option) (*operations.IndexVirtualMachineResponse, error) {
+func (s *VirtualMachines) List(ctx context.Context, filterProject *string, extraFieldsVirtualMachines *string, opts ...operations.Option) (*operations.IndexVirtualMachineResponse, error) {
 	request := operations.IndexVirtualMachineRequest{
-		FilterProject: filterProject,
+		FilterProject:              filterProject,
+		ExtraFieldsVirtualMachines: extraFieldsVirtualMachines,
 	}
 
 	o := operations.Options{}
