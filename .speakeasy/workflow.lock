@@ -6,7 +6,7 @@ sources:
         sourceBlobDigest: sha256:ace45b841161523378400ede4457b8b01bb7ccba76a7d74c752a35e2c67871c6
         tags:
             - latest
-            - speakeasy-sdk-regen-1759278034
+            - speakeasy-sdk-regen-1759343037
             - "2023-06-01"
 targets:
     latitudesh:
@@ -15,7 +15,7 @@ targets:
         sourceRevisionDigest: sha256:b63e59383ea70557ce6560c763b0ff8fa754a21f51b1a8e50c7b8c669ac022b0
         sourceBlobDigest: sha256:ace45b841161523378400ede4457b8b01bb7ccba76a7d74c752a35e2c67871c6
         codeSamplesNamespace: latitudesh-oas-go-code-samples
-        codeSamplesRevisionDigest: sha256:ef3dd7a5244889cb3c800c0039261093beb8255c497b4c2b35796921b345ee96
+        codeSamplesRevisionDigest: sha256:35aa465522dee3de2bb161fc8fc16ad92f0b710841e9bff93189625d7a89d582
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

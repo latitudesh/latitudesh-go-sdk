@@ -5,8 +5,8 @@ management:
   docVersion: "2023-06-01"
   speakeasyVersion: 1.631.5
   generationVersion: 2.716.16
-  releaseVersion: 1.7.0
-  configChecksum: 5ef8c19f03555b9d13cab66fcdf097e3
+  releaseVersion: 1.7.1
+  configChecksum: 17838dfb34b6aa451edb38a24008e149
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 features:
@@ -3642,4 +3642,3 @@ examples:
         application/json: {"data": {"type": "blocks", "attributes": {"nqn": "nqn.2024-01.com.example:server01"}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes Detected:\n* `Latitudesh.Storage.Post-Storage-Blocks()`: **Added**\n* `Latitudesh.Storage.Get-Storage-Blocks()`: **Added**\n* `Latitudesh.Storage.Delete-Storage-Blocks()`: **Added**\n* `Latitudesh.Storage.Patch-Storage-Blocks()`: **Added**\n* `Latitudesh.Storage.Post-Storage-Blocks-Mount()`: **Added**\n* `Latitudesh.Plans.Get-Containers-Plans()`: **Deleted** **Breaking** :warning:\n* `Latitudesh.VirtualMachines.List()`:  `request.ExtraFields[virtualMachines]` **Added**\n* `Latitudesh.VirtualMachines.Create()`: \n  *  `request.Request.Data.Attributes` **Changed**\n  *  `response.Data.Attributes.Credentials.SshKeys` **Added**\n"
