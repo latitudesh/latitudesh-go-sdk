@@ -1,4 +1,4 @@
-# PostStorageBlocksMountResponse
+# DeleteStorageVolumesResponse
 
 
 ## Fields

@@ -230,15 +230,15 @@ func main() {
 
 ### [Storage](docs/sdks/storage/README.md)
 
-* [PostStorageBlocks](docs/sdks/storage/README.md#poststorageblocks) - Create a block for a project
-* [GetStorageBlocks](docs/sdks/storage/README.md#getstorageblocks) - List block storages
-* [DeleteStorageBlocks](docs/sdks/storage/README.md#deletestorageblocks) - Delete a block for a project
-* [PatchStorageBlocks](docs/sdks/storage/README.md#patchstorageblocks) - Update a Block Storage
-* [PostStorageBlocksMount](docs/sdks/storage/README.md#poststorageblocksmount) - Mount a block storage to a server
 * [CreateFilesystem](docs/sdks/storage/README.md#createfilesystem) - Create a filesystem for a project
 * [ListFilesystems](docs/sdks/storage/README.md#listfilesystems) - List filesystems
 * [DeleteFilesystem](docs/sdks/storage/README.md#deletefilesystem) - Delete a filesystem for a project
 * [UpdateFilesystem](docs/sdks/storage/README.md#updatefilesystem) - Update a filesystem for a project
+* [PostStorageVolumes](docs/sdks/storage/README.md#poststoragevolumes) - Create volume
+* [GetStorageVolumes](docs/sdks/storage/README.md#getstoragevolumes) - List volumes
+* [PostStorageVolumesMount](docs/sdks/storage/README.md#poststoragevolumesmount) - Mount volume
+* [GetStorageVolume](docs/sdks/storage/README.md#getstoragevolume) - Get volume
+* [DeleteStorageVolumes](docs/sdks/storage/README.md#deletestoragevolumes) - Delete volume
 
 ### [Tags](docs/sdks/tags/README.md)
 

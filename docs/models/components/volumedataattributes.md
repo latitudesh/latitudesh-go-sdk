@@ -1,0 +1,15 @@
+# VolumeDataAttributes
+
+
+## Fields
+
+| Field                                                                   | Type                                                                    | Required                                                                | Description                                                             |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `Name`                                                                  | **string*                                                               | :heavy_minus_sign:                                                      | N/A                                                                     |
+| `SizeInGb`                                                              | **int64*                                                                | :heavy_minus_sign:                                                      | N/A                                                                     |
+| `CreatedAt`                                                             | [*time.Time](https://pkg.go.dev/time#Time)                              | :heavy_minus_sign:                                                      | N/A                                                                     |
+| `NamespaceID`                                                           | **int64*                                                                | :heavy_minus_sign:                                                      | N/A                                                                     |
+| `ConnectorID`                                                           | **string*                                                               | :heavy_minus_sign:                                                      | N/A                                                                     |
+| `Initiators`                                                            | [][components.Initiators](../../models/components/initiators.md)        | :heavy_minus_sign:                                                      | N/A                                                                     |
+| `Project`                                                               | [*components.ProjectInclude](../../models/components/projectinclude.md) | :heavy_minus_sign:                                                      | N/A                                                                     |
+| `Team`                                                                  | [*components.TeamInclude](../../models/components/teaminclude.md)       | :heavy_minus_sign:                                                      | N/A                                                                     |

@@ -1,8 +1,8 @@
-# PatchStorageBlocksStorageRequestBody
+# PostStorageVolumesStorageRequestBody
 
 
 ## Fields
 
 | Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
 | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `Data`                                                                                               | [operations.PatchStorageBlocksStorageData](../../models/operations/patchstorageblocksstoragedata.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `Data`                                                                                               | [operations.PostStorageVolumesStorageData](../../models/operations/poststoragevolumesstoragedata.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |

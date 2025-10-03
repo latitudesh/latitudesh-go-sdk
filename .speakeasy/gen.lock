@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: ff181a79838a35d2a82d69dc38e1d9e8
+  docChecksum: d78a2ef07b832dbb94d8c95f9e1f5104
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.631.5
-  generationVersion: 2.716.16
-  releaseVersion: 1.7.1
-  configChecksum: 17838dfb34b6aa451edb38a24008e149
+  speakeasyVersion: 1.634.2
+  generationVersion: 2.721.3
+  releaseVersion: 1.7.2
+  configChecksum: 61f440b04d74aaadbde2384f63b5796f
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 features:
@@ -109,6 +109,7 @@ generatedFiles:
   - /models/components/virtualnetworkassignments.go
   - /models/components/virtualnetworkdata.go
   - /models/components/virtualnetworks.go
+  - /models/components/volumedata.go
   - /models/components/vpnsessiondatawithpassword.go
   - /models/components/vpnsessionwithpassword.go
   - /models/operations/assignservervirtualnetwork.go
@@ -131,8 +132,8 @@ generatedFiles:
   - /models/operations/deleteprojectsshkey.go
   - /models/operations/deleteprojectuserdata.go
   - /models/operations/deletesshkey.go
-  - /models/operations/deletestorageblocks.go
   - /models/operations/deletestoragefilesystems.go
+  - /models/operations/deletestoragevolumes.go
   - /models/operations/deleteuserdata.go
   - /models/operations/deletevirtualnetworksassignments.go
   - /models/operations/deletevpnsession.go
@@ -169,9 +170,10 @@ generatedFiles:
   - /models/operations/getservers.go
   - /models/operations/getsshkey.go
   - /models/operations/getsshkeys.go
-  - /models/operations/getstorageblocks.go
   - /models/operations/getstoragefilesystems.go
   - /models/operations/getstorageplans.go
+  - /models/operations/getstoragevolume.go
+  - /models/operations/getstoragevolumes.go
   - /models/operations/gettags.go
   - /models/operations/getteam.go
   - /models/operations/getteammembers.go
@@ -189,7 +191,6 @@ generatedFiles:
   - /models/operations/indexvirtualmachine.go
   - /models/operations/listfirewalls.go
   - /models/operations/patchcurrentteam.go
-  - /models/operations/patchstorageblocks.go
   - /models/operations/patchstoragefilesystems.go
   - /models/operations/patchuserdata.go
   - /models/operations/patchuserprofile.go
@@ -197,9 +198,9 @@ generatedFiles:
   - /models/operations/postprojectsshkey.go
   - /models/operations/postprojectuserdata.go
   - /models/operations/postsshkey.go
-  - /models/operations/poststorageblocks.go
-  - /models/operations/poststorageblocksmount.go
   - /models/operations/poststoragefilesystems.go
+  - /models/operations/poststoragevolumes.go
+  - /models/operations/poststoragevolumesmount.go
   - /models/operations/postteam.go
   - /models/operations/postteammembers.go
   - /models/operations/postuserdata.go
@@ -318,6 +319,7 @@ generatedFiles:
   - docs/models/components/firewallsmeta.md
   - docs/models/components/gpu.md
   - docs/models/components/httpmetadata.md
+  - docs/models/components/initiators.md
   - docs/models/components/interfaces.md
   - docs/models/components/ipaddress.md
   - docs/models/components/ipaddressattributes.md
@@ -516,6 +518,9 @@ generatedFiles:
   - docs/models/components/virtualnetworkmeta.md
   - docs/models/components/virtualnetworks.md
   - docs/models/components/virtualnetworksmeta.md
+  - docs/models/components/volumedata.md
+  - docs/models/components/volumedataattributes.md
+  - docs/models/components/volumedatatype.md
   - docs/models/components/vpnsessiondatawithpassword.md
   - docs/models/components/vpnsessiondatawithpasswordattributes.md
   - docs/models/components/vpnsessiondatawithpasswordstatus.md
@@ -613,10 +618,10 @@ generatedFiles:
   - docs/models/operations/deleteprojectuserdataresponse.md
   - docs/models/operations/deletesshkeyrequest.md
   - docs/models/operations/deletesshkeyresponse.md
-  - docs/models/operations/deletestorageblocksrequest.md
-  - docs/models/operations/deletestorageblocksresponse.md
   - docs/models/operations/deletestoragefilesystemsrequest.md
   - docs/models/operations/deletestoragefilesystemsresponse.md
+  - docs/models/operations/deletestoragevolumesrequest.md
+  - docs/models/operations/deletestoragevolumesresponse.md
   - docs/models/operations/deleteuserdatarequest.md
   - docs/models/operations/deleteuserdataresponse.md
   - docs/models/operations/deletevirtualnetworksassignmentsrequest.md
@@ -699,11 +704,15 @@ generatedFiles:
   - docs/models/operations/getsshkeyresponsebody.md
   - docs/models/operations/getsshkeysrequest.md
   - docs/models/operations/getsshkeysresponse.md
-  - docs/models/operations/getstorageblocksrequest.md
-  - docs/models/operations/getstorageblocksresponse.md
   - docs/models/operations/getstoragefilesystemsrequest.md
   - docs/models/operations/getstoragefilesystemsresponse.md
   - docs/models/operations/getstorageplansresponse.md
+  - docs/models/operations/getstoragevolumerequest.md
+  - docs/models/operations/getstoragevolumeresponse.md
+  - docs/models/operations/getstoragevolumeresponsebody.md
+  - docs/models/operations/getstoragevolumesrequest.md
+  - docs/models/operations/getstoragevolumesresponse.md
+  - docs/models/operations/getstoragevolumesresponsebody.md
   - docs/models/operations/gettagsresponse.md
   - docs/models/operations/getteammembersrequest.md
   - docs/models/operations/getteammembersresponse.md
@@ -745,12 +754,6 @@ generatedFiles:
   - docs/models/operations/patchcurrentteamteamsdata.md
   - docs/models/operations/patchcurrentteamteamsrequestbody.md
   - docs/models/operations/patchcurrentteamteamstype.md
-  - docs/models/operations/patchstorageblocksrequest.md
-  - docs/models/operations/patchstorageblocksresponse.md
-  - docs/models/operations/patchstorageblocksstorageattributes.md
-  - docs/models/operations/patchstorageblocksstoragedata.md
-  - docs/models/operations/patchstorageblocksstoragerequestbody.md
-  - docs/models/operations/patchstorageblocksstoragetype.md
   - docs/models/operations/patchstoragefilesystemsrequest.md
   - docs/models/operations/patchstoragefilesystemsresponse.md
   - docs/models/operations/patchstoragefilesystemsresponsebody.md
@@ -793,23 +796,24 @@ generatedFiles:
   - docs/models/operations/postsshkeysshkeysdata.md
   - docs/models/operations/postsshkeysshkeysrequestbody.md
   - docs/models/operations/postsshkeysshkeystype.md
-  - docs/models/operations/poststorageblocksmountattributes.md
-  - docs/models/operations/poststorageblocksmountdata.md
-  - docs/models/operations/poststorageblocksmountrequest.md
-  - docs/models/operations/poststorageblocksmountrequestbody.md
-  - docs/models/operations/poststorageblocksmountresponse.md
-  - docs/models/operations/poststorageblocksmounttype.md
-  - docs/models/operations/poststorageblocksresponse.md
-  - docs/models/operations/poststorageblocksstorageattributes.md
-  - docs/models/operations/poststorageblocksstoragedata.md
-  - docs/models/operations/poststorageblocksstoragerequestbody.md
-  - docs/models/operations/poststorageblocksstoragetype.md
   - docs/models/operations/poststoragefilesystemsresponse.md
   - docs/models/operations/poststoragefilesystemsresponsebody.md
   - docs/models/operations/poststoragefilesystemsstorageattributes.md
   - docs/models/operations/poststoragefilesystemsstoragedata.md
   - docs/models/operations/poststoragefilesystemsstoragerequestbody.md
   - docs/models/operations/poststoragefilesystemsstoragetype.md
+  - docs/models/operations/poststoragevolumesmountattributes.md
+  - docs/models/operations/poststoragevolumesmountdata.md
+  - docs/models/operations/poststoragevolumesmountrequest.md
+  - docs/models/operations/poststoragevolumesmountrequestbody.md
+  - docs/models/operations/poststoragevolumesmountresponse.md
+  - docs/models/operations/poststoragevolumesmounttype.md
+  - docs/models/operations/poststoragevolumesresponse.md
+  - docs/models/operations/poststoragevolumesresponsebody.md
+  - docs/models/operations/poststoragevolumesstorageattributes.md
+  - docs/models/operations/poststoragevolumesstoragedata.md
+  - docs/models/operations/poststoragevolumesstoragerequestbody.md
+  - docs/models/operations/poststoragevolumesstoragetype.md
   - docs/models/operations/postteamcurrency.md
   - docs/models/operations/postteammembersresponse.md
   - docs/models/operations/postteammembersrole.md
@@ -3640,5 +3644,53 @@ examples:
           id: "<id>"
       requestBody:
         application/json: {"data": {"type": "blocks", "attributes": {"nqn": "nqn.2024-01.com.example:server01"}}}
+  post-storage-volumes:
+    Created:
+      requestBody:
+        application/json: {"data": {"type": "volumes", "attributes": {"project": "proj_8NkvdyPXOeLpx", "name": "my-data", "size_in_gb": 1500}}}
+        application/vnd.api+json: {"data": {"type": "volumes", "attributes": {"project": "proj_8NkvdyPXOeLpx", "name": "my-data", "size_in_gb": 1500}}}
+      responses:
+        "201":
+          application/vnd.api+json: {"data": {"id": "vol_Av9BVDavORm1W", "type": "volumes", "attributes": {"name": "Incredible Linen Chair", "size_in_gb": 1500, "created_at": "2025-10-03T18:09:37.000Z", "namespace_id": 767995, "connector_id": "<id>", "initiators": [{}], "project": {"id": "proj_8NkvdyPXOeLpx", "name": "Small Concrete Bag", "slug": "small-concrete-bag", "description": "Enormous Iron Shoes", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {"subscription_id": "<id>", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_mPzlevJWQotr05vlaQ6mu9XaWvK", "name": "578 Team", "slug": "578-team", "description": "578 Team", "address": "Suite 629 420 Lindgren Square, Mahaven, KY 74726", "currency": {}, "status": "verified"}}}}
+  get-storage-volumes:
+    Success:
+      parameters:
+        query:
+          filter[project]: "proj_GnzRD5X6qM5yw"
+      responses:
+        "200":
+          application/vnd.api+json: {"data": [{"id": "vol_RLYV8DZ2D5QoE", "type": "volumes", "attributes": {"name": "Enormous Wool Watch", "size_in_gb": 1500, "created_at": "2025-10-03T17:09:37.415Z", "namespace_id": 722662, "connector_id": "nqn.2001-07.com.ceph:1757602476548", "initiators": [{"nqn": "nqn.2014-08.org.nvmexpress:uuid:ae717767-c0fa-56f7-ab4b-5c426b0c553f"}], "project": {"id": "proj_GnzRD5X6qM5yw", "name": "Heavy Duty Iron Shoes", "slug": "heavy-duty-iron-shoes", "description": "Sleek Wool Clock", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {"subscription_id": "<id>", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_QnjVypy08mCW7amJPYj0hXGZgjjg", "name": "583 Team", "slug": "583-team", "description": "583 Team", "address": "69731 Lueilwitz Spurs, Aufderharmouth, MI 93262-2199", "currency": {}, "status": "verified"}}}]}
+  post-storage-volumes-mount:
+    speakeasy-default-post-storage-volumes-mount:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {"data": {"type": "volumes", "attributes": {"nqn": "nqn.2024-01.com.example:server01"}}}
+  get-storage-volume:
+    Success:
+      parameters:
+        path:
+          id: "vol_aKXgRdR3qv9k5"
+      responses:
+        "200":
+          application/vnd.api+json: {"data": {"id": "vol_aKXgRdR3qv9k5", "type": "volumes", "attributes": {"name": "Ergonomic Concrete Shoes", "size_in_gb": 1500, "created_at": "2025-10-03T17:09:38.006Z", "namespace_id": 580856, "connector_id": "nqn.2001-07.com.ceph:1757602476548", "initiators": [{"nqn": "nqn.2014-08.org.nvmexpress:uuid:ae717767-c0fa-56f7-ab4b-5c426b0c553f"}], "project": {"id": "proj_Z8rodmkAD1jLB", "name": "Practical Copper Bag", "slug": "practical-copper-bag", "description": "Aerodynamic Rubber Car", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {"subscription_id": "<id>", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_4zo3v0EbRvUKMXX1gKR2TkmXVPA", "name": "592 Team", "slug": "592-team", "description": "592 Team", "address": "58253 Schuppe Ports, Heathcoteborough, ND 34198-0887", "currency": {}, "status": "verified"}}}}
+  delete-storage-volumes:
+    speakeasy-default-delete-storage-volumes:
+      parameters:
+        path:
+          id: "<id>"
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## Go SDK Changes Detected:
+  * `Latitudesh.Storage.Post-Storage-Volumes()`: **Added**
+  * `Latitudesh.Storage.Get-Storage-Volumes()`: **Added**
+  * `Latitudesh.Storage.Post-Storage-Volumes-Mount()`: **Added**
+  * `Latitudesh.Storage.Get-Storage-Volume()`: **Added**
+  * `Latitudesh.Storage.Delete-Storage-Volumes()`: **Added**
+  * `Latitudesh.Storage.Get-Storage-Blocks()`: **Deleted** **Breaking** :warning:
+  * `Latitudesh.Storage.Post-Storage-Blocks()`: **Deleted** **Breaking** :warning:
+  * `Latitudesh.Storage.Delete-Storage-Blocks()`: **Deleted** **Breaking** :warning:
+  * `Latitudesh.Storage.Patch-Storage-Blocks()`: **Deleted** **Breaking** :warning:
+  * `Latitudesh.Storage.Post-Storage-Blocks-Mount()`: **Deleted** **Breaking** :warning:

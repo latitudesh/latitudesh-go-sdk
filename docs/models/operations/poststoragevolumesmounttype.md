@@ -1,8 +1,8 @@
-# PostStorageBlocksStorageType
+# PostStorageVolumesMountType
 
 
 ## Values
 
 | Name                                 | Value                                |
 | ------------------------------------ | ------------------------------------ |
-| `PostStorageBlocksStorageTypeBlocks` | blocks                               |
+| `PostStorageVolumesMountTypeVolumes` | volumes                              |

@@ -1,9 +1,0 @@
-# PostStorageBlocksStorageData
-
-
-## Fields
-
-| Field                                                                                                          | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
-| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `Type`                                                                                                         | [operations.PostStorageBlocksStorageType](../../models/operations/poststorageblocksstoragetype.md)             | :heavy_check_mark:                                                                                             | N/A                                                                                                            |
-| `Attributes`                                                                                                   | [operations.PostStorageBlocksStorageAttributes](../../models/operations/poststorageblocksstorageattributes.md) | :heavy_check_mark:                                                                                             | N/A                                                                                                            |
