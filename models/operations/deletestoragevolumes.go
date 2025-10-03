@@ -6,22 +6,22 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
-type DeleteStorageBlocksRequest struct {
-	BlockID string `pathParam:"style=simple,explode=false,name=block_id"`
+type DeleteStorageVolumesRequest struct {
+	ID string `pathParam:"style=simple,explode=false,name=id"`
 }
 
-func (d *DeleteStorageBlocksRequest) GetBlockID() string {
+func (d *DeleteStorageVolumesRequest) GetID() string {
 	if d == nil {
 		return ""
 	}
-	return d.BlockID
+	return d.ID
 }
 
-type DeleteStorageBlocksResponse struct {
+type DeleteStorageVolumesResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (d *DeleteStorageBlocksResponse) GetHTTPMeta() components.HTTPMetadata {
+func (d *DeleteStorageVolumesResponse) GetHTTPMeta() components.HTTPMetadata {
 	if d == nil {
 		return components.HTTPMetadata{}
 	}

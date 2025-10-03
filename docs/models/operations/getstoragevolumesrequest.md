@@ -1,4 +1,4 @@
-# GetStorageBlocksRequest
+# GetStorageVolumesRequest
 
 
 ## Fields

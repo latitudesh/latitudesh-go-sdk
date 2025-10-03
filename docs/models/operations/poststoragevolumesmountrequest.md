@@ -1,0 +1,9 @@
+# PostStorageVolumesMountRequest
+
+
+## Fields
+
+| Field                                                                                                          | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `ID`                                                                                                           | *string*                                                                                                       | :heavy_check_mark:                                                                                             | Volume storage ID                                                                                              |
+| `RequestBody`                                                                                                  | [operations.PostStorageVolumesMountRequestBody](../../models/operations/poststoragevolumesmountrequestbody.md) | :heavy_check_mark:                                                                                             | N/A                                                                                                            |
