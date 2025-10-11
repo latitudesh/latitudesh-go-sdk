@@ -64,7 +64,7 @@ func (s *Teams) Get(ctx context.Context, opts ...operations.Option) (*operations
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-team",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -269,7 +269,7 @@ func (s *Teams) Create(ctx context.Context, request operations.PostTeamTeamsRequ
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "post-team",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
@@ -486,7 +486,7 @@ func (s *Teams) Update(ctx context.Context, teamID string, requestBody operation
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "patch-current-team",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "RequestBody", "json", `request:"mediaType=application/json"`)

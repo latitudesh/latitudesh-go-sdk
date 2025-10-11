@@ -68,7 +68,7 @@ func (s *Regions) Get(ctx context.Context, pageSize *int64, pageNumber *int64, o
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-regions",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -326,7 +326,7 @@ func (s *Regions) Fetch(ctx context.Context, regionID string, opts ...operations
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-region",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 

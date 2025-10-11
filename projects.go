@@ -66,7 +66,7 @@ func (s *Projects) List(ctx context.Context, request operations.GetProjectsReque
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-projects",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -329,7 +329,7 @@ func (s *Projects) Create(ctx context.Context, request operations.CreateProjectP
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "create-project",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
@@ -546,7 +546,7 @@ func (s *Projects) Update(ctx context.Context, projectID string, requestBody *op
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "update-project",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
@@ -762,7 +762,7 @@ func (s *Projects) Delete(ctx context.Context, projectID string, opts ...operati
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "delete-project",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 

@@ -64,7 +64,7 @@ func (s *VirtualNetworks) Delete(ctx context.Context, vlanID string, opts ...ope
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "destroy-virtual-network",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: d78a2ef07b832dbb94d8c95f9e1f5104
+  docChecksum: 2cdb7d1445376e82500765e5758b5c18
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.634.2
-  generationVersion: 2.721.3
-  releaseVersion: 1.7.2
-  configChecksum: 61f440b04d74aaadbde2384f63b5796f
+  speakeasyVersion: 1.636.3
+  generationVersion: 2.723.11
+  releaseVersion: 1.7.3
+  configChecksum: 988273aca63f50df9c32d33312de89f5
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 features:
@@ -23,7 +23,7 @@ features:
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.3
-    groups: 2.81.2
+    groups: 2.81.3
     intellisenseMarkdownSupport: 0.1.0
     nameOverrides: 2.81.2
     pagination: 2.82.4
@@ -931,7 +931,6 @@ generatedFiles:
   - docs/sdks/events/README.md
   - docs/sdks/firewalls/README.md
   - docs/sdks/ipaddresses/README.md
-  - docs/sdks/latitudesh/README.md
   - docs/sdks/latitudeshprojectssshkeys/README.md
   - docs/sdks/members/README.md
   - docs/sdks/operatingsystems/README.md
@@ -3659,7 +3658,7 @@ examples:
           filter[project]: "proj_GnzRD5X6qM5yw"
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "vol_RLYV8DZ2D5QoE", "type": "volumes", "attributes": {"name": "Enormous Wool Watch", "size_in_gb": 1500, "created_at": "2025-10-03T17:09:37.415Z", "namespace_id": 722662, "connector_id": "nqn.2001-07.com.ceph:1757602476548", "initiators": [{"nqn": "nqn.2014-08.org.nvmexpress:uuid:ae717767-c0fa-56f7-ab4b-5c426b0c553f"}], "project": {"id": "proj_GnzRD5X6qM5yw", "name": "Heavy Duty Iron Shoes", "slug": "heavy-duty-iron-shoes", "description": "Sleek Wool Clock", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {"subscription_id": "<id>", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_QnjVypy08mCW7amJPYj0hXGZgjjg", "name": "583 Team", "slug": "583-team", "description": "583 Team", "address": "69731 Lueilwitz Spurs, Aufderharmouth, MI 93262-2199", "currency": {}, "status": "verified"}}}]}
+          application/vnd.api+json: {"data": [{"id": "vol_RLYV8DZ2D5QoE", "type": "volumes", "attributes": {"name": "Enormous Wool Watch", "size_in_gb": 1500, "created_at": "2025-10-03T17:09:37.415Z", "namespace_id": 1, "connector_id": "nqn.2001-07.com.ceph:1757602476548", "initiators": [{"nqn": "nqn.2014-08.org.nvmexpress:uuid:ae717767-c0fa-56f7-ab4b-5c426b0c553f"}], "project": {"id": "proj_GnzRD5X6qM5yw", "name": "Heavy Duty Iron Shoes", "slug": "heavy-duty-iron-shoes", "description": "Sleek Wool Clock", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {"subscription_id": "<id>", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_QnjVypy08mCW7amJPYj0hXGZgjjg", "name": "583 Team", "slug": "583-team", "description": "583 Team", "address": "69731 Lueilwitz Spurs, Aufderharmouth, MI 93262-2199", "currency": {}, "status": "verified"}}}]}
   post-storage-volumes-mount:
     speakeasy-default-post-storage-volumes-mount:
       parameters:
@@ -3674,7 +3673,7 @@ examples:
           id: "vol_aKXgRdR3qv9k5"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "vol_aKXgRdR3qv9k5", "type": "volumes", "attributes": {"name": "Ergonomic Concrete Shoes", "size_in_gb": 1500, "created_at": "2025-10-03T17:09:38.006Z", "namespace_id": 580856, "connector_id": "nqn.2001-07.com.ceph:1757602476548", "initiators": [{"nqn": "nqn.2014-08.org.nvmexpress:uuid:ae717767-c0fa-56f7-ab4b-5c426b0c553f"}], "project": {"id": "proj_Z8rodmkAD1jLB", "name": "Practical Copper Bag", "slug": "practical-copper-bag", "description": "Aerodynamic Rubber Car", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {"subscription_id": "<id>", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_4zo3v0EbRvUKMXX1gKR2TkmXVPA", "name": "592 Team", "slug": "592-team", "description": "592 Team", "address": "58253 Schuppe Ports, Heathcoteborough, ND 34198-0887", "currency": {}, "status": "verified"}}}}
+          application/vnd.api+json: {"data": {"id": "vol_aKXgRdR3qv9k5", "type": "volumes", "attributes": {"name": "Ergonomic Concrete Shoes", "size_in_gb": 1500, "created_at": "2025-10-03T17:09:38.006Z", "namespace_id": 1, "connector_id": "nqn.2001-07.com.ceph:1757602476548", "initiators": [{"nqn": "nqn.2014-08.org.nvmexpress:uuid:ae717767-c0fa-56f7-ab4b-5c426b0c553f"}], "project": {"id": "proj_Z8rodmkAD1jLB", "name": "Practical Copper Bag", "slug": "practical-copper-bag", "description": "Aerodynamic Rubber Car", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {"subscription_id": "<id>", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_4zo3v0EbRvUKMXX1gKR2TkmXVPA", "name": "592 Team", "slug": "592-team", "description": "592 Team", "address": "58253 Schuppe Ports, Heathcoteborough, ND 34198-0887", "currency": {}, "status": "verified"}}}}
   delete-storage-volumes:
     speakeasy-default-delete-storage-volumes:
       parameters:
@@ -3682,15 +3681,3 @@ examples:
           id: "<id>"
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Go SDK Changes Detected:
-  * `Latitudesh.Storage.Post-Storage-Volumes()`: **Added**
-  * `Latitudesh.Storage.Get-Storage-Volumes()`: **Added**
-  * `Latitudesh.Storage.Post-Storage-Volumes-Mount()`: **Added**
-  * `Latitudesh.Storage.Get-Storage-Volume()`: **Added**
-  * `Latitudesh.Storage.Delete-Storage-Volumes()`: **Added**
-  * `Latitudesh.Storage.Get-Storage-Blocks()`: **Deleted** **Breaking** :warning:
-  * `Latitudesh.Storage.Post-Storage-Blocks()`: **Deleted** **Breaking** :warning:
-  * `Latitudesh.Storage.Delete-Storage-Blocks()`: **Deleted** **Breaking** :warning:
-  * `Latitudesh.Storage.Patch-Storage-Blocks()`: **Deleted** **Breaking** :warning:
-  * `Latitudesh.Storage.Post-Storage-Blocks-Mount()`: **Deleted** **Breaking** :warning:
