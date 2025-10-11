@@ -66,7 +66,7 @@ func (s *Plans) List(ctx context.Context, request operations.GetPlansRequest, op
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-plans",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -279,7 +279,7 @@ func (s *Plans) Get(ctx context.Context, planID string, opts ...operations.Optio
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-plan",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -492,7 +492,7 @@ func (s *Plans) GetBandwidth(ctx context.Context, apiVersion *string, filterID *
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-bandwidth-plans",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -751,7 +751,7 @@ func (s *Plans) UpdateBandwidth(ctx context.Context, request operations.UpdatePl
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "update-plans-bandwidth",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
@@ -968,7 +968,7 @@ func (s *Plans) GetContainersPlan(ctx context.Context, planID string, opts ...op
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-containers-plan",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -1173,7 +1173,7 @@ func (s *Plans) ListStorage(ctx context.Context, opts ...operations.Option) (*op
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-storage-plans",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 

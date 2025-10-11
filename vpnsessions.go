@@ -65,7 +65,7 @@ func (s *VpnSessions) List(ctx context.Context, filterLocation *operations.Filte
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-vpn-sessions",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -276,7 +276,7 @@ func (s *VpnSessions) Create(ctx context.Context, request operations.PostVpnSess
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "post-vpn-session",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
@@ -493,7 +493,7 @@ func (s *VpnSessions) RefreshPassword(ctx context.Context, vpnSessionID string, 
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "put-vpn-session",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -703,7 +703,7 @@ func (s *VpnSessions) Delete(ctx context.Context, vpnSessionID string, opts ...o
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "delete-vpn-session",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 

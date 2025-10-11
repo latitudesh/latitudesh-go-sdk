@@ -62,7 +62,7 @@ func (s *UserProfile) Get(ctx context.Context, opts ...operations.Option) (*oper
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-user-profile",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -273,7 +273,7 @@ func (s *UserProfile) Update(ctx context.Context, id string, requestBody operati
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "patch-user-profile",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "RequestBody", "json", `request:"mediaType=application/json"`)
@@ -486,7 +486,7 @@ func (s *UserProfile) ListTeams(ctx context.Context, opts ...operations.Option) 
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-user-teams",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 

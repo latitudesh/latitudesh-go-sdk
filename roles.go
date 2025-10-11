@@ -68,7 +68,7 @@ func (s *Roles) List(ctx context.Context, pageSize *int64, pageNumber *int64, op
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-roles",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -326,7 +326,7 @@ func (s *Roles) Get(ctx context.Context, roleID string, opts ...operations.Optio
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-role-id",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 

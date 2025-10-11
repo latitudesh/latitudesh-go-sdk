@@ -69,7 +69,7 @@ func (s *SSHKeys) List(ctx context.Context, projectID string, filterTags *string
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-project-ssh-keys",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -286,7 +286,7 @@ func (s *SSHKeys) Get(ctx context.Context, projectID string, sshKeyID string, op
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-project-ssh-key",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -500,7 +500,7 @@ func (s *SSHKeys) ModifyProjectKey(ctx context.Context, projectID string, sshKey
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "put-project-ssh-key",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "RequestBody", "json", `request:"mediaType=application/json"`)
@@ -720,7 +720,7 @@ func (s *SSHKeys) RemoveFromProject(ctx context.Context, projectID string, sshKe
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "delete-project-ssh-key",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -910,7 +910,7 @@ func (s *SSHKeys) ListAll(ctx context.Context, filterTags *string, opts ...opera
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-ssh-keys",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -1120,7 +1120,7 @@ func (s *SSHKeys) Create(ctx context.Context, request operations.PostSSHKeySSHKe
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "post-ssh-key",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
@@ -1337,7 +1337,7 @@ func (s *SSHKeys) Retrieve(ctx context.Context, sshKeyID string, opts ...operati
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-ssh-key",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -1548,7 +1548,7 @@ func (s *SSHKeys) Update(ctx context.Context, sshKeyID string, requestBody opera
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "put-ssh-key",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "RequestBody", "json", `request:"mediaType=application/json"`)
@@ -1765,7 +1765,7 @@ func (s *SSHKeys) Delete(ctx context.Context, sshKeyID string, opts ...operation
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "delete-ssh-key",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 

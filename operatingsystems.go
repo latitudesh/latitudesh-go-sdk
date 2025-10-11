@@ -68,7 +68,7 @@ func (s *OperatingSystems) ListPlans(ctx context.Context, pageSize *int64, pageN
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-plans-operating-system",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 

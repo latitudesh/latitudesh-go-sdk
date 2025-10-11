@@ -66,7 +66,7 @@ func (s *IPAddresses) List(ctx context.Context, request operations.GetIpsRequest
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-ips",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -335,7 +335,7 @@ func (s *IPAddresses) Get(ctx context.Context, ipID string, extraFieldsIPAddress
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-ip",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 

@@ -146,7 +146,6 @@ func main() {
 * [List](docs/sdks/ipaddresses/README.md#list) - List IPs
 * [Get](docs/sdks/ipaddresses/README.md#get) - Retrieve an IP
 
-
 ### [OperatingSystems](docs/sdks/operatingsystems/README.md)
 
 * [ListPlans](docs/sdks/operatingsystems/README.md#listplans) - List all operating systems available
