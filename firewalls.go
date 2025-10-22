@@ -72,7 +72,7 @@ func (s *Firewalls) GetAllFirewallAssignments(ctx context.Context, filterServer 
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-all-firewall-assignments",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -328,7 +328,7 @@ func (s *Firewalls) Create(ctx context.Context, request operations.CreateFirewal
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "create-firewall",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
@@ -547,7 +547,7 @@ func (s *Firewalls) List(ctx context.Context, filterProject *string, pageSize *i
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "list-firewalls",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -807,7 +807,7 @@ func (s *Firewalls) Get(ctx context.Context, firewallID string, opts ...operatio
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-firewall",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -1018,7 +1018,7 @@ func (s *Firewalls) Update(ctx context.Context, firewallID string, requestBody o
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "update-firewall",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "RequestBody", "json", `request:"mediaType=application/json"`)
@@ -1235,7 +1235,7 @@ func (s *Firewalls) Delete(ctx context.Context, firewallID string, opts ...opera
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "delete-firewall",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -1427,7 +1427,7 @@ func (s *Firewalls) ListAssignments(ctx context.Context, firewallID string, page
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-firewall-assignments",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -1688,7 +1688,7 @@ func (s *Firewalls) DeleteAssignment(ctx context.Context, firewallID string, ass
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "delete-firewall-assignment",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 

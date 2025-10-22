@@ -69,7 +69,7 @@ func (s *UserData) GetProjectUsersData(ctx context.Context, projectID string, ex
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-project-users-data",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -287,7 +287,7 @@ func (s *UserData) GetProjectUserData(ctx context.Context, projectID string, use
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-project-user-data",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -504,7 +504,7 @@ func (s *UserData) DeleteProjectUserData(ctx context.Context, projectID string, 
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "delete-project-user-data",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -697,7 +697,7 @@ func (s *UserData) Create(ctx context.Context, projectID string, requestBody ope
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "post-project-user-data",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "RequestBody", "json", `request:"mediaType=application/json"`)
@@ -918,7 +918,7 @@ func (s *UserData) UpdateForProject(ctx context.Context, projectID string, userD
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "put-project-user-data",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
@@ -1135,7 +1135,7 @@ func (s *UserData) List(ctx context.Context, extraFieldsUserData *string, opts .
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-users-data",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -1345,7 +1345,7 @@ func (s *UserData) CreateNew(ctx context.Context, request operations.PostUserDat
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "post-user-data",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
@@ -1563,7 +1563,7 @@ func (s *UserData) Retrieve(ctx context.Context, userDataID string, extraFieldsU
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-user-data",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -1778,7 +1778,7 @@ func (s *UserData) Update(ctx context.Context, userDataID string, requestBody *o
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "patch-user-data",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
@@ -1994,7 +1994,7 @@ func (s *UserData) Delete(ctx context.Context, userDataID string, opts ...operat
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "delete-user-data",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 

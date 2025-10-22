@@ -68,7 +68,7 @@ func (s *Billing) ListUsage(ctx context.Context, filterProject string, filterPro
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-billing-usage",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 

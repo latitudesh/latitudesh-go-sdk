@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
+)
+
 type TeamBilling struct {
 	ID                *string `json:"id,omitempty"`
 	CustomerBillingID *string `json:"customer_billing_id,omitempty"`
@@ -21,6 +25,84 @@ func (t *TeamBilling) GetCustomerBillingID() *string {
 	return t.CustomerBillingID
 }
 
+// TeamLimits - Resource limits for the team. Null values indicate limits are not yet implemented/enforced.
+type TeamLimits struct {
+	// Maximum number of bare metal servers allowed
+	BareMetal *int64 `json:"bare_metal,omitempty"`
+	// Maximum number of bare metal GPU servers allowed
+	BareMetalGpu *int64 `default:"1" json:"bare_metal_gpu"`
+	// Maximum number of virtual machines allowed (not yet implemented)
+	VirtualMachine *int64 `json:"virtual_machine,omitempty"`
+	// Maximum number of virtual machine GPUs allowed
+	VirtualMachineGpu *int64 `default:"0" json:"virtual_machine_gpu"`
+	// Maximum number of databases allowed (not yet implemented)
+	Database *int64 `json:"database,omitempty"`
+	// Maximum number of filesystems allowed (not yet implemented)
+	Filesystem *int64 `json:"filesystem,omitempty"`
+	// Maximum number of block storage volumes allowed (not yet implemented)
+	BlockStorage *int64 `json:"block_storage,omitempty"`
+}
+
+func (t TeamLimits) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(t, "", false)
+}
+
+func (t *TeamLimits) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &t, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (t *TeamLimits) GetBareMetal() *int64 {
+	if t == nil {
+		return nil
+	}
+	return t.BareMetal
+}
+
+func (t *TeamLimits) GetBareMetalGpu() *int64 {
+	if t == nil {
+		return nil
+	}
+	return t.BareMetalGpu
+}
+
+func (t *TeamLimits) GetVirtualMachine() *int64 {
+	if t == nil {
+		return nil
+	}
+	return t.VirtualMachine
+}
+
+func (t *TeamLimits) GetVirtualMachineGpu() *int64 {
+	if t == nil {
+		return nil
+	}
+	return t.VirtualMachineGpu
+}
+
+func (t *TeamLimits) GetDatabase() *int64 {
+	if t == nil {
+		return nil
+	}
+	return t.Database
+}
+
+func (t *TeamLimits) GetFilesystem() *int64 {
+	if t == nil {
+		return nil
+	}
+	return t.Filesystem
+}
+
+func (t *TeamLimits) GetBlockStorage() *int64 {
+	if t == nil {
+		return nil
+	}
+	return t.BlockStorage
+}
+
 type TeamAttributes struct {
 	Name         *string          `json:"name,omitempty"`
 	Slug         *string          `json:"slug,omitempty"`
@@ -35,6 +117,8 @@ type TeamAttributes struct {
 	Owner        *UserInclude     `json:"owner,omitempty"`
 	Billing      *TeamBilling     `json:"billing,omitempty"`
 	FeatureFlags []string         `json:"feature_flags,omitempty"`
+	// Resource limits for the team. Null values indicate limits are not yet implemented/enforced.
+	Limits *TeamLimits `json:"limits,omitempty"`
 }
 
 func (t *TeamAttributes) GetName() *string {
@@ -126,6 +210,13 @@ func (t *TeamAttributes) GetFeatureFlags() []string {
 		return nil
 	}
 	return t.FeatureFlags
+}
+
+func (t *TeamAttributes) GetLimits() *TeamLimits {
+	if t == nil {
+		return nil
+	}
+	return t.Limits
 }
 
 type Team struct {

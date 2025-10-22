@@ -61,7 +61,7 @@ func (s *TeamMembers) PostTeamMembers(ctx context.Context, request operations.Po
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "post-team-members",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
@@ -277,7 +277,7 @@ func (s *TeamMembers) Delete(ctx context.Context, userID string, opts ...operati
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "destroy-team-member",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 

@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: d78a2ef07b832dbb94d8c95f9e1f5104
+  docChecksum: 28ce1aac6b815917615e49f420a449c0
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.634.2
-  generationVersion: 2.721.3
-  releaseVersion: 1.7.2
-  configChecksum: 61f440b04d74aaadbde2384f63b5796f
+  speakeasyVersion: 1.638.1
+  generationVersion: 2.729.2
+  releaseVersion: 1.8.0
+  configChecksum: e35c7a72046e86f3be0a6f01c4dfec25
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 features:
   go:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.11.1
+    core: 3.12.0
     defaultEnabledRetries: 0.2.0
     deprecations: 2.81.3
     devContainers: 2.90.0
@@ -23,10 +23,11 @@ features:
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.3
-    groups: 2.81.2
+    groups: 2.81.3
     intellisenseMarkdownSupport: 0.1.0
     nameOverrides: 2.81.2
-    pagination: 2.82.4
+    nullables: 0.2.1
+    pagination: 2.82.5
     responseFormat: 0.1.2
     retries: 2.84.2
     sdkHooks: 0.2.0
@@ -332,6 +333,7 @@ generatedFiles:
   - docs/models/components/ipmisessiondata.md
   - docs/models/components/ipmisessiontype.md
   - docs/models/components/ipmistatus.md
+  - docs/models/components/limits.md
   - docs/models/components/location.md
   - docs/models/components/locations.md
   - docs/models/components/membership.md
@@ -437,6 +439,7 @@ generatedFiles:
   - docs/models/components/teamattributes.md
   - docs/models/components/teambilling.md
   - docs/models/components/teaminclude.md
+  - docs/models/components/teamlimits.md
   - docs/models/components/teammembers.md
   - docs/models/components/teammembersdata.md
   - docs/models/components/teammembersrole.md
@@ -931,7 +934,6 @@ generatedFiles:
   - docs/sdks/events/README.md
   - docs/sdks/firewalls/README.md
   - docs/sdks/ipaddresses/README.md
-  - docs/sdks/latitudesh/README.md
   - docs/sdks/latitudeshprojectssshkeys/README.md
   - docs/sdks/members/README.md
   - docs/sdks/operatingsystems/README.md
@@ -1417,7 +1419,7 @@ examples:
     Success:
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "team_8L90z0WyLyIK0KyEknmnijV38rk", "attributes": {"name": "583 Team", "slug": "583-team", "address": "654 Selene Pines, North Noble, HI 65384", "currency": "trb", "created_at": "2025-02-21T00:00:00+00:00", "updated_at": "2025-03-07T00:00:00+00:00", "enforce_mfa": false, "users": [{"id": "user_LwnmBv6vmeILPZEj4poJuEXnegj", "first_name": "Claretta", "last_name": "Kuhic", "email": "king.morissette@nitzsche.example", "created_at": "2025-05-04T00:00:00.000Z", "updated_at": "2024-09-09T00:00:00.000Z", "role": {"id": "role_735kl6xYEVcl5Nzn0weZuoxPrmL", "name": "Neville", "created_at": "2024-10-29T00:00:00.000Z", "updated_at": "2025-12-27T00:00:00.000Z"}}], "projects": [], "owner": {}, "billing": {}, "feature_flags": ["feature_flag_1", "feature_flag_2"]}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "team_8L90z0WyLyIK0KyEknmnijV38rk", "attributes": {"name": "583 Team", "slug": "583-team", "address": "654 Selene Pines, North Noble, HI 65384", "currency": "trb", "created_at": "2025-02-21T00:00:00+00:00", "updated_at": "2025-03-07T00:00:00+00:00", "enforce_mfa": false, "users": [{"id": "user_LwnmBv6vmeILPZEj4poJuEXnegj", "first_name": "Claretta", "last_name": "Kuhic", "email": "king.morissette@nitzsche.example", "created_at": "2025-05-04T00:00:00.000Z", "updated_at": "2024-09-09T00:00:00.000Z", "role": {"id": "role_735kl6xYEVcl5Nzn0weZuoxPrmL", "name": "Neville", "created_at": "2024-10-29T00:00:00.000Z", "updated_at": "2025-12-27T00:00:00.000Z"}}], "projects": [], "owner": {}, "billing": {}, "feature_flags": ["feature_flag_1", "feature_flag_2"], "limits": {"bare_metal": 5, "bare_metal_gpu": 1, "virtual_machine": null, "virtual_machine_gpu": 0, "database": null, "filesystem": null, "block_storage": null}}}], "meta": {}}
   post-team:
     Created:
       requestBody:
@@ -3158,7 +3160,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "vlan_AW6Q2D9lqKLpr", "type": "virtual_networks", "attributes": {"vid": 2040, "description": "Odit quod ratione exercitationem.", "region": {"city": "Santiago 3", "country": "Chile", "site": {"id": "loc_aNmodj6ZdbE8W", "facility": "Santiago 3", "name": "Santiago 3", "slug": "SAN3"}}, "created_at": "2023-08-09T01:47:06.301Z", "assignments_count": 1}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "vlan_AW6Q2D9lqKLpr", "type": "virtual_networks", "attributes": {"vid": 2040, "description": "Odit quod ratione exercitationem.", "region": {"city": "Santiago 3", "country": "Chile", "site": {"id": "loc_aNmodj6ZdbE8W", "facility": "Santiago 3", "name": "Santiago 3", "slug": "SAN3"}}, "created_at": "2023-08-09T01:47:06.301Z", "assignments_count": 1, "project": {"id": "proj_RMLydp5WqQKr1", "name": "Lightweight Rubber Knife", "slug": "lightweight-rubber-knife", "description": "Fantastic Copper Watch", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {"subscription_id": "<id>", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 2, "prefixes": 0, "servers": 1, "vlans": 2}}}}], "meta": {}}
   create-virtual-network:
     when the user is allowed to create:
       requestBody:
@@ -3684,13 +3686,27 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Go SDK Changes Detected:
-  * `Latitudesh.Storage.Post-Storage-Volumes()`: **Added**
-  * `Latitudesh.Storage.Get-Storage-Volumes()`: **Added**
-  * `Latitudesh.Storage.Post-Storage-Volumes-Mount()`: **Added**
-  * `Latitudesh.Storage.Get-Storage-Volume()`: **Added**
-  * `Latitudesh.Storage.Delete-Storage-Volumes()`: **Added**
-  * `Latitudesh.Storage.Get-Storage-Blocks()`: **Deleted** **Breaking** :warning:
-  * `Latitudesh.Storage.Post-Storage-Blocks()`: **Deleted** **Breaking** :warning:
-  * `Latitudesh.Storage.Delete-Storage-Blocks()`: **Deleted** **Breaking** :warning:
-  * `Latitudesh.Storage.Patch-Storage-Blocks()`: **Deleted** **Breaking** :warning:
-  * `Latitudesh.Storage.Post-Storage-Blocks-Mount()`: **Deleted** **Breaking** :warning:
+  * `Latitudesh.Teams.Get()`:  `response.Data.[].Attributes.Limits` **Added**
+  * `Latitudesh.Teams.Create()`:  `response.Data.Attributes.Limits` **Added**
+  * `Latitudesh.Teams.Update()`:  `response.Data.Attributes.Limits` **Added**
+  * `Latitudesh.Projects.List()`:  `response.Data.[].Attributes.Team.Limits` **Added**
+  * `Latitudesh.Projects.Create()`:  `response.Data.Attributes.Team.Limits` **Added**
+  * `Latitudesh.Projects.Update()`:  `response.Data.Attributes.Team.Limits` **Added**
+  * `Latitudesh.Servers.List()`:  `response.Data.[].Attributes.Team.Limits` **Added**
+  * `Latitudesh.Servers.Create()`:  `response.Data.Attributes.Team.Limits` **Added**
+  * `Latitudesh.Servers.Get()`:  `response.Data.Attributes.Team.Limits` **Added**
+  * `Latitudesh.Servers.Update()`:  `response.Data.Attributes.Team.Limits` **Added**
+  * `Latitudesh.Servers.Lock()`:  `response.Data.Attributes.Team.Limits` **Added**
+  * `Latitudesh.Servers.Unlock()`:  `response.Data.Attributes.Team.Limits` **Added**
+  * `Latitudesh.Storage.Get-Storage-Volumes()`:  `response.Data.[].Attributes.Team.Limits` **Added**
+  * `Latitudesh.Storage.Post-Storage-Volumes()`:  `response.Data.Attributes.Team.Limits` **Added**
+  * `Latitudesh.Storage.Get-Storage-Volume()`:  `response.Data.Attributes.Team.Limits` **Added**
+  * `Latitudesh.Tags.List()`:  `response.Data.[].Attributes.Team.Limits` **Added**
+  * `Latitudesh.Tags.Create()`:  `response.Data.Attributes.Team.Limits` **Added**
+  * `Latitudesh.Tags.Update()`:  `response.Data.Attributes.Team.Limits` **Added**
+  * `Latitudesh.UserProfile.Get()`:  `response.Data.Attributes.Teams.[].Limits` **Added**
+  * `Latitudesh.VirtualMachines.Create()`:  `response.Data.Attributes.Team.Limits` **Added**
+  * `Latitudesh.PrivateNetworks.List()`:  `response.Data.[].Attributes.Project` **Added**
+  * `Latitudesh.PrivateNetworks.Create()`:  `response.Data.Attributes.Project` **Added**
+  * `Latitudesh.PrivateNetworks.Get()`:  `response.Data.Data.Attributes.Project` **Added**
+  * `Latitudesh.PrivateNetworks.Update()`:  `response.Data.Attributes.Project` **Added**

@@ -20,12 +20,14 @@ generation:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: true
     hoistGlobalSecurity: true
+  schemas:
+    allOfMergeStrategy: shallowMerge
   tests:
     generateTests: true
     generateNewTests: false
     skipResponseBodyAssertions: false
 go:
-  version: 1.7.2
+  version: 1.8.0
   additionalDependencies: {}
   allowUnknownFieldsInWeakUnions: false
   baseErrorName: LatitudeshError

@@ -61,7 +61,7 @@ func (s *VM) List(ctx context.Context, opts ...operations.Option) (*operations.G
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-vm-plans",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 

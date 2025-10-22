@@ -62,7 +62,7 @@ func (s *VirtualMachines) Create(ctx context.Context, request components.Virtual
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "create-virtual-machine",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
@@ -280,7 +280,7 @@ func (s *VirtualMachines) List(ctx context.Context, filterProject *string, extra
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "index-virtual-machine",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -474,7 +474,7 @@ func (s *VirtualMachines) Get(ctx context.Context, virtualMachineID string, opts
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "show-virtual-machine",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -664,7 +664,7 @@ func (s *VirtualMachines) Delete(ctx context.Context, virtualMachineID string, o
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "destroy-virtual-machine",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -858,7 +858,7 @@ func (s *VirtualMachines) CreateVirtualMachineAction(ctx context.Context, virtua
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "create-virtual-machine-action",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "RequestBody", "json", `request:"mediaType=application/json"`)

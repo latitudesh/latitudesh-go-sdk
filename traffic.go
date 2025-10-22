@@ -68,7 +68,7 @@ func (s *Traffic) Get(ctx context.Context, filterDateGte string, filterDateLte s
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-traffic-consumption",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -281,7 +281,7 @@ func (s *Traffic) GetQuota(ctx context.Context, filterProject *string, opts ...o
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-traffic-quota",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
