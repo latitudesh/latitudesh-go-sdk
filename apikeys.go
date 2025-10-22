@@ -62,7 +62,7 @@ func (s *APIKeys) List(ctx context.Context, opts ...operations.Option) (*operati
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-api-keys",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -268,7 +268,7 @@ func (s *APIKeys) Create(ctx context.Context, request components.CreateAPIKey, o
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "post-api-key",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
@@ -486,7 +486,7 @@ func (s *APIKeys) Update(ctx context.Context, apiKeyID string, updateAPIKey comp
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "update-api-key",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "UpdateAPIKey", "json", `request:"mediaType=application/json"`)
@@ -703,7 +703,7 @@ func (s *APIKeys) Delete(ctx context.Context, apiKeyID string, opts ...operation
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "delete-api-key",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 

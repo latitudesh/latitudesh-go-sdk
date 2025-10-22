@@ -68,7 +68,7 @@ func (s *LatitudeshProjectsSSHKeys) PostProjectSSHKey(ctx context.Context, proje
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "post-project-ssh-key",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "RequestBody", "json", `request:"mediaType=application/json"`)

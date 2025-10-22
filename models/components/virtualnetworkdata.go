@@ -104,7 +104,8 @@ type VirtualNetworkDataAttributes struct {
 	Region      *VirtualNetworkDataRegion `json:"region,omitempty"`
 	CreatedAt   *time.Time                `json:"created_at,omitempty"`
 	// Amount of devices assigned to the virtual network
-	AssignmentsCount *int64 `json:"assignments_count,omitempty"`
+	AssignmentsCount *int64          `json:"assignments_count,omitempty"`
+	Project          *ProjectInclude `json:"project,omitempty"`
 }
 
 func (v VirtualNetworkDataAttributes) MarshalJSON() ([]byte, error) {
@@ -158,6 +159,13 @@ func (v *VirtualNetworkDataAttributes) GetAssignmentsCount() *int64 {
 		return nil
 	}
 	return v.AssignmentsCount
+}
+
+func (v *VirtualNetworkDataAttributes) GetProject() *ProjectInclude {
+	if v == nil {
+		return nil
+	}
+	return v.Project
 }
 
 type VirtualNetworkData struct {

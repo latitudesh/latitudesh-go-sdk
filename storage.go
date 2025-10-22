@@ -62,7 +62,7 @@ func (s *Storage) CreateFilesystem(ctx context.Context, request operations.PostS
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "post-storage-filesystems",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
@@ -279,7 +279,7 @@ func (s *Storage) ListFilesystems(ctx context.Context, filterProject *string, op
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-storage-filesystems",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -473,7 +473,7 @@ func (s *Storage) DeleteFilesystem(ctx context.Context, filesystemID string, opt
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "delete-storage-filesystems",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -664,7 +664,7 @@ func (s *Storage) UpdateFilesystem(ctx context.Context, filesystemID string, req
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "patch-storage-filesystems",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "RequestBody", "json", `request:"mediaType=application/json"`)
@@ -877,7 +877,7 @@ func (s *Storage) PostStorageVolumes(ctx context.Context, request operations.Pos
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "post-storage-volumes",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
@@ -1094,7 +1094,7 @@ func (s *Storage) GetStorageVolumes(ctx context.Context, filterProject *string, 
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-storage-volumes",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -1309,7 +1309,7 @@ func (s *Storage) PostStorageVolumesMount(ctx context.Context, id string, reques
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "post-storage-volumes-mount",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "RequestBody", "json", `request:"mediaType=application/json"`)
@@ -1506,7 +1506,7 @@ func (s *Storage) GetStorageVolume(ctx context.Context, id string, opts ...opera
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-storage-volume",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -1716,7 +1716,7 @@ func (s *Storage) DeleteStorageVolumes(ctx context.Context, id string, opts ...o
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "delete-storage-volumes",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 

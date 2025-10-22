@@ -67,7 +67,7 @@ func (s *Members) GetTeamMembers(ctx context.Context, pageSize *int64, pageNumbe
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-team-members",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 

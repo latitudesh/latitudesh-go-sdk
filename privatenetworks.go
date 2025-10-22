@@ -63,7 +63,7 @@ func (s *PrivateNetworks) List(ctx context.Context, request operations.GetVirtua
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-virtual-networks",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -323,7 +323,7 @@ func (s *PrivateNetworks) Create(ctx context.Context, request operations.CreateV
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "create-virtual-network",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
@@ -541,7 +541,7 @@ func (s *PrivateNetworks) Update(ctx context.Context, vlanID string, requestBody
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "update-virtual-network",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "RequestBody", "json", `request:"mediaType=application/json"`)
@@ -758,7 +758,7 @@ func (s *PrivateNetworks) Get(ctx context.Context, vlanID string, opts ...operat
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-virtual-network",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -964,7 +964,7 @@ func (s *PrivateNetworks) ListAssignments(ctx context.Context, request operation
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-virtual-networks-assignments",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -1223,7 +1223,7 @@ func (s *PrivateNetworks) Assign(ctx context.Context, request operations.AssignS
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "assign-server-virtual-network",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
@@ -1440,7 +1440,7 @@ func (s *PrivateNetworks) DeleteAssignment(ctx context.Context, assignmentID str
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "delete-virtual-networks-assignments",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 

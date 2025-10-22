@@ -63,7 +63,7 @@ func (s *Servers) List(ctx context.Context, request operations.GetServersRequest
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-servers",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -334,7 +334,7 @@ func (s *Servers) Create(ctx context.Context, request operations.CreateServerSer
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "create-server",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "Request", "json", `request:"mediaType=application/json"`)
@@ -552,7 +552,7 @@ func (s *Servers) Get(ctx context.Context, serverID string, extraFieldsServers *
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-server",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -766,7 +766,7 @@ func (s *Servers) Update(ctx context.Context, serverID string, requestBody opera
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "update-server",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "RequestBody", "json", `request:"mediaType=application/json"`)
@@ -983,7 +983,7 @@ func (s *Servers) Delete(ctx context.Context, serverID string, reason *string, o
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "destroy-server",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -1176,7 +1176,7 @@ func (s *Servers) GetDeployConfig(ctx context.Context, serverID string, opts ...
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-server-deploy-config",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -1386,7 +1386,7 @@ func (s *Servers) UpdateDeployConfig(ctx context.Context, serverID string, reque
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "update-server-deploy-config",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "RequestBody", "json", `request:"mediaType=application/json"`)
@@ -1603,7 +1603,7 @@ func (s *Servers) Lock(ctx context.Context, serverID string, opts ...operations.
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "server-lock",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -1813,7 +1813,7 @@ func (s *Servers) Unlock(ctx context.Context, serverID string, opts ...operation
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "server-unlock",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -2023,7 +2023,7 @@ func (s *Servers) StartOutOfBandConnection(ctx context.Context, serverID string,
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "create-server-out-of-band",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "RequestBody", "json", `request:"mediaType=application/json"`)
@@ -2239,7 +2239,7 @@ func (s *Servers) GetOutOfBand(ctx context.Context, serverID string, opts ...ope
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "get-server-out-of-band",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -2453,7 +2453,7 @@ func (s *Servers) RunAction(ctx context.Context, serverID string, requestBody op
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "create-server-action",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "RequestBody", "json", `request:"mediaType=application/json"`)
@@ -2673,7 +2673,7 @@ func (s *Servers) CreateIpmiSession(ctx context.Context, serverID string, opts .
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "create-ipmi-session",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -2883,7 +2883,7 @@ func (s *Servers) StartRescueMode(ctx context.Context, serverID string, opts ...
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "server-start-rescue-mode",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -3093,7 +3093,7 @@ func (s *Servers) ExitRescueMode(ctx context.Context, serverID string, opts ...o
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "server-exit-rescue-mode",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -3303,7 +3303,7 @@ func (s *Servers) ScheduleDeletion(ctx context.Context, serverID string, opts ..
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "server-schedule-deletion",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -3513,7 +3513,7 @@ func (s *Servers) UnscheduleDeletion(ctx context.Context, serverID string, opts 
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "server-unschedule-deletion",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -3703,7 +3703,7 @@ func (s *Servers) Reinstall(ctx context.Context, serverID string, requestBody op
 		BaseURL:          baseURL,
 		Context:          ctx,
 		OperationID:      "create-server-reinstall",
-		OAuth2Scopes:     []string{},
+		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "RequestBody", "json", `request:"mediaType=application/json"`)
