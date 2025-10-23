@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 28ce1aac6b815917615e49f420a449c0
+  docChecksum: b7c1b548f13a1b89972ff06c0fcb2634
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.638.1
-  generationVersion: 2.729.2
-  releaseVersion: 1.8.0
-  configChecksum: e35c7a72046e86f3be0a6f01c4dfec25
+  speakeasyVersion: 1.639.0
+  generationVersion: 2.730.0
+  releaseVersion: 1.8.1
+  configChecksum: 1ab7f264dec95bda1628a24336df8ae0
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 features:
@@ -434,6 +434,7 @@ generatedFiles:
   - docs/models/components/storageplandatatype.md
   - docs/models/components/storageplans.md
   - docs/models/components/storageplansmeta.md
+  - docs/models/components/tags.md
   - docs/models/components/target.md
   - docs/models/components/team.md
   - docs/models/components/teamattributes.md
@@ -3160,7 +3161,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "vlan_AW6Q2D9lqKLpr", "type": "virtual_networks", "attributes": {"vid": 2040, "description": "Odit quod ratione exercitationem.", "region": {"city": "Santiago 3", "country": "Chile", "site": {"id": "loc_aNmodj6ZdbE8W", "facility": "Santiago 3", "name": "Santiago 3", "slug": "SAN3"}}, "created_at": "2023-08-09T01:47:06.301Z", "assignments_count": 1, "project": {"id": "proj_RMLydp5WqQKr1", "name": "Lightweight Rubber Knife", "slug": "lightweight-rubber-knife", "description": "Fantastic Copper Watch", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {"subscription_id": "<id>", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 2, "prefixes": 0, "servers": 1, "vlans": 2}}}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "vlan_AW6Q2D9lqKLpr", "type": "virtual_networks", "attributes": {"vid": 2040, "description": "Odit quod ratione exercitationem.", "region": {"city": "Santiago 3", "country": "Chile", "site": {"id": "loc_aNmodj6ZdbE8W", "facility": "Santiago 3", "name": "Santiago 3", "slug": "SAN3"}}, "created_at": "2023-08-09T01:47:06.301Z", "assignments_count": 1, "project": {"id": "proj_RMLydp5WqQKr1", "name": "Lightweight Rubber Knife", "slug": "lightweight-rubber-knife", "description": "Fantastic Copper Watch", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {"subscription_id": "<id>", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 2, "prefixes": 0, "servers": 1, "vlans": 2}}, "tags": [{"id": "tag_Q2Ppk7YymBIWNy74NpgpTQZMRwl", "name": "tag1", "description": "Cupiditate doloremque reiciendis ut.", "color": "#030307"}]}}], "meta": {}}
   create-virtual-network:
     when the user is allowed to create:
       requestBody:
@@ -3189,7 +3190,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "virtual_network", "attributes": {"description": "São Paulo VLAN", "site": "MIA", "project": "incredible-granite-coat"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "vlan_3YjJOLQjdvZ87", "type": "virtual_networks", "attributes": {"vid": 2000, "name": "MIA-2000", "description": "São Paulo VLAN", "created_at": "2025-07-16T18:37:16+00:00"}}, "meta": {}}
+          application/vnd.api+json: {"data": {"id": "vlan_3YjJOLQjdvZ87", "type": "virtual_networks", "attributes": {"vid": 2000, "name": "MIA-2000", "description": "São Paulo VLAN", "created_at": "2025-07-16T18:37:16+00:00", "tags": []}}, "meta": {}}
   update-virtual-network:
     when the user is allowed to update virtual networks:
       parameters:
@@ -3224,7 +3225,7 @@ examples:
         application/vnd.api+json: {"data": {"id": "vlan_VaNmodjeObE8W", "type": "virtual_networks", "attributes": {"tags": ["tag_Mjb3aoBkXRi5nR0gBQ5EhV30voRx", "tag_QnkPzo8Wj1iWWzg24P5bhXAzrxmm"], "description": "Test virtual network update"}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "vlan_VaNmodjeObE8W", "type": "virtual_networks", "attributes": {"vid": 2040, "name": "illo", "description": "Eum voluptatem nisi et.", "created_at": "2025-06-20T05:53:07.804Z"}}, "meta": {}}
+          application/vnd.api+json: {"data": {"id": "vlan_VaNmodjeObE8W", "type": "virtual_networks", "attributes": {"vid": 2040, "name": "illo", "description": "Eum voluptatem nisi et.", "created_at": "2025-06-20T05:53:07.804Z", "tags": [{"id": "tag_Mjb3aoBkXRi5nR0gBQ5EhV30voRx", "name": "Arantar", "description": "Qui rerum nihil eum.", "color": "#a7f6f6"}, {"id": "tag_QnkPzo8Wj1iWWzg24P5bhXAzrxmm", "name": "Meneldor", "description": "Et voluptate quibusdam non.", "color": "#9ecccc"}]}}, "meta": {}}
         "403":
           application/vnd.api+json: {"data": {"id": "vlan_VaNmodjeObE8W", "type": "virtual_networks", "attributes": {"vid": 2040, "name": "exercitationem", "description": "Neque vero ut eos.", "created_at": "2025-07-27T04:20:40.498Z"}}, "meta": {}}
     Tag not updated:
@@ -3686,27 +3687,7 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Go SDK Changes Detected:
-  * `Latitudesh.Teams.Get()`:  `response.Data.[].Attributes.Limits` **Added**
-  * `Latitudesh.Teams.Create()`:  `response.Data.Attributes.Limits` **Added**
-  * `Latitudesh.Teams.Update()`:  `response.Data.Attributes.Limits` **Added**
-  * `Latitudesh.Projects.List()`:  `response.Data.[].Attributes.Team.Limits` **Added**
-  * `Latitudesh.Projects.Create()`:  `response.Data.Attributes.Team.Limits` **Added**
-  * `Latitudesh.Projects.Update()`:  `response.Data.Attributes.Team.Limits` **Added**
-  * `Latitudesh.Servers.List()`:  `response.Data.[].Attributes.Team.Limits` **Added**
-  * `Latitudesh.Servers.Create()`:  `response.Data.Attributes.Team.Limits` **Added**
-  * `Latitudesh.Servers.Get()`:  `response.Data.Attributes.Team.Limits` **Added**
-  * `Latitudesh.Servers.Update()`:  `response.Data.Attributes.Team.Limits` **Added**
-  * `Latitudesh.Servers.Lock()`:  `response.Data.Attributes.Team.Limits` **Added**
-  * `Latitudesh.Servers.Unlock()`:  `response.Data.Attributes.Team.Limits` **Added**
-  * `Latitudesh.Storage.Get-Storage-Volumes()`:  `response.Data.[].Attributes.Team.Limits` **Added**
-  * `Latitudesh.Storage.Post-Storage-Volumes()`:  `response.Data.Attributes.Team.Limits` **Added**
-  * `Latitudesh.Storage.Get-Storage-Volume()`:  `response.Data.Attributes.Team.Limits` **Added**
-  * `Latitudesh.Tags.List()`:  `response.Data.[].Attributes.Team.Limits` **Added**
-  * `Latitudesh.Tags.Create()`:  `response.Data.Attributes.Team.Limits` **Added**
-  * `Latitudesh.Tags.Update()`:  `response.Data.Attributes.Team.Limits` **Added**
-  * `Latitudesh.UserProfile.Get()`:  `response.Data.Attributes.Teams.[].Limits` **Added**
-  * `Latitudesh.VirtualMachines.Create()`:  `response.Data.Attributes.Team.Limits` **Added**
-  * `Latitudesh.PrivateNetworks.List()`:  `response.Data.[].Attributes.Project` **Added**
-  * `Latitudesh.PrivateNetworks.Create()`:  `response.Data.Attributes.Project` **Added**
-  * `Latitudesh.PrivateNetworks.Get()`:  `response.Data.Data.Attributes.Project` **Added**
-  * `Latitudesh.PrivateNetworks.Update()`:  `response.Data.Attributes.Project` **Added**
+  * `Latitudesh.PrivateNetworks.List()`:  `response.Data.[].Attributes.Tags` **Added**
+  * `Latitudesh.PrivateNetworks.Create()`:  `response.Data.Attributes.Tags` **Added**
+  * `Latitudesh.PrivateNetworks.Get()`:  `response.Data.Data.Attributes.Tags` **Added**
+  * `Latitudesh.PrivateNetworks.Update()`:  `response.Data.Attributes.Tags` **Added**

@@ -27,7 +27,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 go:
-  version: 1.8.0
+  version: 1.8.1
   additionalDependencies: {}
   allowUnknownFieldsInWeakUnions: false
   baseErrorName: LatitudeshError
@@ -53,3 +53,4 @@ go:
   respectRequiredFields: false
   responseFormat: envelope-http
   sdkPackageName: ""
+  unionDeserializationStrategy: left-to-right
