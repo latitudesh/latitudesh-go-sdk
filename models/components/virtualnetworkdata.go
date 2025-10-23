@@ -94,6 +94,41 @@ func (v *VirtualNetworkDataRegion) GetSite() *VirtualNetworkDataSite {
 	return v.Site
 }
 
+type Tags struct {
+	ID          *string `json:"id,omitempty"`
+	Name        *string `json:"name,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Color       *string `json:"color,omitempty"`
+}
+
+func (t *Tags) GetID() *string {
+	if t == nil {
+		return nil
+	}
+	return t.ID
+}
+
+func (t *Tags) GetName() *string {
+	if t == nil {
+		return nil
+	}
+	return t.Name
+}
+
+func (t *Tags) GetDescription() *string {
+	if t == nil {
+		return nil
+	}
+	return t.Description
+}
+
+func (t *Tags) GetColor() *string {
+	if t == nil {
+		return nil
+	}
+	return t.Color
+}
+
 type VirtualNetworkDataAttributes struct {
 	// vlan ID of the virtual network
 	Vid *int64 `json:"vid,omitempty"`
@@ -106,6 +141,8 @@ type VirtualNetworkDataAttributes struct {
 	// Amount of devices assigned to the virtual network
 	AssignmentsCount *int64          `json:"assignments_count,omitempty"`
 	Project          *ProjectInclude `json:"project,omitempty"`
+	// Tags associated with the virtual network
+	Tags []Tags `json:"tags,omitempty"`
 }
 
 func (v VirtualNetworkDataAttributes) MarshalJSON() ([]byte, error) {
@@ -166,6 +203,13 @@ func (v *VirtualNetworkDataAttributes) GetProject() *ProjectInclude {
 		return nil
 	}
 	return v.Project
+}
+
+func (v *VirtualNetworkDataAttributes) GetTags() []Tags {
+	if v == nil {
+		return nil
+	}
+	return v.Tags
 }
 
 type VirtualNetworkData struct {
