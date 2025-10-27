@@ -1272,12 +1272,11 @@ func (s *Storage) GetStorageVolumes(ctx context.Context, filterProject *string, 
 
 }
 
-// PostStorageVolumesMount - Mount volume
-// Mounts volume storage by adding the client to an allowed list
-func (s *Storage) PostStorageVolumesMount(ctx context.Context, id string, requestBody operations.PostStorageVolumesMountRequestBody, opts ...operations.Option) (*operations.PostStorageVolumesMountResponse, error) {
-	request := operations.PostStorageVolumesMountRequest{
-		ID:          id,
-		RequestBody: requestBody,
+// DeleteStorageVolumes - Delete volume
+// Allows you to remove persistent storage from a project.
+func (s *Storage) DeleteStorageVolumes(ctx context.Context, id string, opts ...operations.Option) (*operations.DeleteStorageVolumesResponse, error) {
+	request := operations.DeleteStorageVolumesRequest{
+		ID: id,
 	}
 
 	o := operations.Options{}
@@ -1298,7 +1297,7 @@ func (s *Storage) PostStorageVolumesMount(ctx context.Context, id string, reques
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := utils.GenerateURL(ctx, baseURL, "/storage/volumes/{id}/mount", request, nil)
+	opURL, err := utils.GenerateURL(ctx, baseURL, "/storage/volumes/{id}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
@@ -1308,13 +1307,9 @@ func (s *Storage) PostStorageVolumesMount(ctx context.Context, id string, reques
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "post-storage-volumes-mount",
+		OperationID:      "delete-storage-volumes",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
-	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "RequestBody", "json", `request:"mediaType=application/json"`)
-	if err != nil {
-		return nil, err
 	}
 
 	timeout := o.Timeout
@@ -1328,15 +1323,12 @@ func (s *Storage) PostStorageVolumesMount(ctx context.Context, id string, reques
 		defer cancel()
 	}
 
-	req, err := http.NewRequestWithContext(ctx, "POST", opURL, bodyReader)
+	req, err := http.NewRequestWithContext(ctx, "DELETE", opURL, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
 	req.Header.Set("Accept", "*/*")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
-	if reqContentType != "" {
-		req.Header.Set("Content-Type", reqContentType)
-	}
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -1437,7 +1429,7 @@ func (s *Storage) PostStorageVolumesMount(ctx context.Context, id string, reques
 		}
 	}
 
-	res := &operations.PostStorageVolumesMountResponse{
+	res := &operations.DeleteStorageVolumesResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -1680,11 +1672,12 @@ func (s *Storage) GetStorageVolume(ctx context.Context, id string, opts ...opera
 
 }
 
-// DeleteStorageVolumes - Delete volume
-// Allows you to remove persistent storage from a project.
-func (s *Storage) DeleteStorageVolumes(ctx context.Context, id string, opts ...operations.Option) (*operations.DeleteStorageVolumesResponse, error) {
-	request := operations.DeleteStorageVolumesRequest{
-		ID: id,
+// PostStorageVolumesMount - Mount volume
+// Mounts volume storage by adding the client to an allowed list
+func (s *Storage) PostStorageVolumesMount(ctx context.Context, id string, requestBody operations.PostStorageVolumesMountRequestBody, opts ...operations.Option) (*operations.PostStorageVolumesMountResponse, error) {
+	request := operations.PostStorageVolumesMountRequest{
+		ID:          id,
+		RequestBody: requestBody,
 	}
 
 	o := operations.Options{}
@@ -1705,7 +1698,7 @@ func (s *Storage) DeleteStorageVolumes(ctx context.Context, id string, opts ...o
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := utils.GenerateURL(ctx, baseURL, "/storage/volumes/{id}", request, nil)
+	opURL, err := utils.GenerateURL(ctx, baseURL, "/storage/volumes/{id}/mount", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
@@ -1715,9 +1708,13 @@ func (s *Storage) DeleteStorageVolumes(ctx context.Context, id string, opts ...o
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "delete-storage-volumes",
+		OperationID:      "post-storage-volumes-mount",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
+	}
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "RequestBody", "json", `request:"mediaType=application/json"`)
+	if err != nil {
+		return nil, err
 	}
 
 	timeout := o.Timeout
@@ -1731,12 +1728,15 @@ func (s *Storage) DeleteStorageVolumes(ctx context.Context, id string, opts ...o
 		defer cancel()
 	}
 
-	req, err := http.NewRequestWithContext(ctx, "DELETE", opURL, nil)
+	req, err := http.NewRequestWithContext(ctx, "POST", opURL, bodyReader)
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
 	req.Header.Set("Accept", "*/*")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
+	if reqContentType != "" {
+		req.Header.Set("Content-Type", reqContentType)
+	}
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -1837,7 +1837,7 @@ func (s *Storage) DeleteStorageVolumes(ctx context.Context, id string, opts ...o
 		}
 	}
 
-	res := &operations.DeleteStorageVolumesResponse{
+	res := &operations.PostStorageVolumesMountResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: b7c1b548f13a1b89972ff06c0fcb2634
+  docChecksum: 18db0f5fbefb4c8c7c5192144b54e474
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.639.0
-  generationVersion: 2.730.0
-  releaseVersion: 1.8.1
-  configChecksum: 1ab7f264dec95bda1628a24336df8ae0
+  speakeasyVersion: 1.639.3
+  generationVersion: 2.730.5
+  releaseVersion: 1.9.0
+  configChecksum: 303e3ecdb3804fc7e9e2f492a51c8a58
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 features:
@@ -26,7 +26,6 @@ features:
     groups: 2.81.3
     intellisenseMarkdownSupport: 0.1.0
     nameOverrides: 2.81.2
-    nullables: 0.2.1
     pagination: 2.82.5
     responseFormat: 0.1.2
     retries: 2.84.2
@@ -333,7 +332,6 @@ generatedFiles:
   - docs/models/components/ipmisessiondata.md
   - docs/models/components/ipmisessiontype.md
   - docs/models/components/ipmistatus.md
-  - docs/models/components/limits.md
   - docs/models/components/location.md
   - docs/models/components/locations.md
   - docs/models/components/membership.md
@@ -440,7 +438,6 @@ generatedFiles:
   - docs/models/components/teamattributes.md
   - docs/models/components/teambilling.md
   - docs/models/components/teaminclude.md
-  - docs/models/components/teamlimits.md
   - docs/models/components/teammembers.md
   - docs/models/components/teammembersdata.md
   - docs/models/components/teammembersrole.md
@@ -1421,6 +1418,14 @@ examples:
       responses:
         "200":
           application/vnd.api+json: {"data": [{"id": "team_8L90z0WyLyIK0KyEknmnijV38rk", "attributes": {"name": "583 Team", "slug": "583-team", "address": "654 Selene Pines, North Noble, HI 65384", "currency": "trb", "created_at": "2025-02-21T00:00:00+00:00", "updated_at": "2025-03-07T00:00:00+00:00", "enforce_mfa": false, "users": [{"id": "user_LwnmBv6vmeILPZEj4poJuEXnegj", "first_name": "Claretta", "last_name": "Kuhic", "email": "king.morissette@nitzsche.example", "created_at": "2025-05-04T00:00:00.000Z", "updated_at": "2024-09-09T00:00:00.000Z", "role": {"id": "role_735kl6xYEVcl5Nzn0weZuoxPrmL", "name": "Neville", "created_at": "2024-10-29T00:00:00.000Z", "updated_at": "2025-12-27T00:00:00.000Z"}}], "projects": [], "owner": {}, "billing": {}, "feature_flags": ["feature_flag_1", "feature_flag_2"], "limits": {"bare_metal": 5, "bare_metal_gpu": 1, "virtual_machine": null, "virtual_machine_gpu": 0, "database": null, "filesystem": null, "block_storage": null}}}], "meta": {}}
+    when team is recent (created within last month):
+      responses:
+        "200":
+          application/vnd.api+json: {"data": [{"id": "team_eP5489MvGWHNVrBngj35FEKVBgjp", "attributes": {"name": "610 Team", "slug": "610-team", "address": "11130 Scotty Ford, Dickiland, MT 09910", "currency": "4m9", "created_at": "2025-10-22T01:03:25+00:00", "updated_at": "2024-11-10T00:00:00+00:00", "enforce_mfa": false, "users": [{"id": "user_4X8pzYpLPQuK83LeM4k1iaxRYmZ", "first_name": "Zona", "last_name": "Emmerich", "email": "argelia_bauch@batz-will.example", "created_at": "2025-01-25T00:00:00.000Z", "updated_at": "2024-12-30T00:00:00.000Z", "role": {"id": "role_NGeVRj32WGT8oMw3L042h19705A", "name": "Julia", "created_at": "2025-03-20T00:00:00.000Z", "updated_at": "2026-06-24T00:00:00.000Z"}}], "projects": [], "owner": {}, "billing": {}, "feature_flags": ["feature_flag_1", "feature_flag_2"]}}], "meta": {}}
+    when team is older than one month:
+      responses:
+        "200":
+          application/vnd.api+json: {"data": [{"id": "team_NkrloMz69yu4Qb9wba72I33E7AmN", "attributes": {"name": "611 Team", "slug": "611-team", "address": "Suite 955 82027 Lavonda Drives, South Benny, NY 71785-6754", "currency": "cln", "created_at": "2025-08-27T01:03:25+00:00", "updated_at": "2024-10-27T00:00:00+00:00", "enforce_mfa": false, "users": [{"id": "user_Ewr0PxeMPWSg7RA4vKENSygV0wz", "first_name": "Cyril", "last_name": "Brakus", "email": "armando@zemlak.example", "created_at": "2025-02-01T00:00:00.000Z", "updated_at": "2025-04-27T00:00:00.000Z", "role": {"id": "role_2znQVMPbbAi4wy5LLp6AcLj87Mk", "name": "Agnes", "created_at": "2025-08-14T00:00:00.000Z", "updated_at": "2026-07-25T00:00:00.000Z"}}], "projects": [], "owner": {}, "billing": {}, "feature_flags": ["feature_flag_1", "feature_flag_2"]}}], "meta": {}}
   post-team:
     Created:
       requestBody:
@@ -3067,6 +3072,14 @@ examples:
       responses:
         "200":
           application/vnd.api+json: {"data": [{"id": "team_yEMAp05jx2ule2aA1ZwVtp5GLZk4", "attributes": {"name": "625 Team", "slug": "625-team", "address": "75739 Parker Common, Murphyview, CT 54114", "currency": "BRL", "created_at": "2024-12-31T00:00:00+00:00", "updated_at": "2025-04-02T00:00:00+00:00", "owner": {"id": "user_X0j5j5Kbabhyex1g2N97HJ3p2wY", "first_name": "Cara", "last_name": "Gerlach", "email": "waylon@oberbrunner.example", "created_at": "2024-09-16T00:00:00.000Z", "updated_at": "2024-08-01T00:00:00.000Z", "role": {"id": "role_4ANgaERK0yS4wQ8lA4pLH0bAw4JW", "name": "owner", "created_at": "2025-05-23T00:00:00.000Z", "updated_at": "2026-04-24T00:00:00.000Z"}}, "billing": {"id": "bill_mw49QDB5qagKb", "customer_billing_id": "cus_oxro8kom3akzra"}}}], "meta": {}}
+    when team is recent (created within last month):
+      responses:
+        "200":
+          application/vnd.api+json: {"data": [{"id": "team_mQvE9R9E7ofrQVaZXn0zcWWjzZWe", "attributes": {"name": "653 Team", "slug": "653-team", "address": "Suite 853 20535 Teofila Plain, Wizaberg, NH 82567", "currency": "BRL", "created_at": "2025-10-22T01:03:28+00:00", "updated_at": "2025-10-27T01:03:28+00:00", "owner": {"id": "user_MJv1LkyeKzt5Aa7lEjj9hVVo049Z", "first_name": "Lucio", "last_name": "Veum", "email": "felix@conroy.example", "created_at": "2025-04-17T00:00:00.000Z", "updated_at": "2025-05-03T00:00:00.000Z", "role": {"id": "role_Yy4yoXz1lwFoeyw4407BTYZo4xV", "name": "owner", "created_at": "2025-08-31T00:00:00.000Z", "updated_at": "2026-05-27T00:00:00.000Z"}}, "billing": {"id": "bill_mw49QDB5qagKb", "customer_billing_id": "cus_hxy4ysqu81nnjc"}}}], "meta": {}}
+    when team is older than one month:
+      responses:
+        "200":
+          application/vnd.api+json: {"data": [{"id": "team_mmb6A0zLJbcr5JZLEA02iWaMB473", "attributes": {"name": "654 Team", "slug": "654-team", "address": "296 Veum Rapid, New Victor, SD 68288-4249", "currency": "BRL", "created_at": "2025-08-27T01:03:28+00:00", "updated_at": "2025-10-27T01:03:28+00:00", "owner": {"id": "user_Q8xm46L0K0SW9p8YY1A8um0am0l", "first_name": "Cheryle", "last_name": "Schultz", "email": "kirstie.kihn@cole.test", "created_at": "2025-06-02T00:00:00.000Z", "updated_at": "2025-06-22T00:00:00.000Z", "role": {"id": "role_G0NAYy7B0PC2nvW92L6JC8ePplze", "name": "owner", "created_at": "2024-12-13T00:00:00.000Z", "updated_at": "2026-02-17T00:00:00.000Z"}}, "billing": {"id": "bill_AW6Q2D9lqKLpr", "customer_billing_id": "cus_sh4hgql0h1v1do"}}}], "meta": {}}
   create-virtual-machine:
     Created:
       requestBody:
@@ -3161,7 +3174,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "vlan_AW6Q2D9lqKLpr", "type": "virtual_networks", "attributes": {"vid": 2040, "description": "Odit quod ratione exercitationem.", "region": {"city": "Santiago 3", "country": "Chile", "site": {"id": "loc_aNmodj6ZdbE8W", "facility": "Santiago 3", "name": "Santiago 3", "slug": "SAN3"}}, "created_at": "2023-08-09T01:47:06.301Z", "assignments_count": 1, "project": {"id": "proj_RMLydp5WqQKr1", "name": "Lightweight Rubber Knife", "slug": "lightweight-rubber-knife", "description": "Fantastic Copper Watch", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {"subscription_id": "<id>", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 2, "prefixes": 0, "servers": 1, "vlans": 2}}, "tags": [{"id": "tag_Q2Ppk7YymBIWNy74NpgpTQZMRwl", "name": "tag1", "description": "Cupiditate doloremque reiciendis ut.", "color": "#030307"}]}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "vlan_AW6Q2D9lqKLpr", "type": "virtual_networks", "attributes": {"vid": 2040, "description": "Odit quod ratione exercitationem.", "project": {"id": "proj_RMLydp5WqQKr1", "name": "Lightweight Rubber Knife", "slug": "lightweight-rubber-knife", "description": "Fantastic Copper Watch", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {"subscription_id": "<id>", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 2, "prefixes": 0, "servers": 1, "vlans": 2}}, "region": {"city": "Santiago 3", "country": "Chile", "site": {"id": "loc_aNmodj6ZdbE8W", "facility": "Santiago 3", "name": "Santiago 3", "slug": "SAN3"}}, "created_at": "2023-08-09T01:47:06.301Z", "assignments_count": 1, "tags": [{"id": "tag_Q2Ppk7YymBIWNy74NpgpTQZMRwl", "name": "tag1", "description": "Cupiditate doloremque reiciendis ut.", "color": "#030307"}]}}], "meta": {}}
   create-virtual-network:
     when the user is allowed to create:
       requestBody:
@@ -3662,7 +3675,7 @@ examples:
           filter[project]: "proj_GnzRD5X6qM5yw"
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "vol_RLYV8DZ2D5QoE", "type": "volumes", "attributes": {"name": "Enormous Wool Watch", "size_in_gb": 1500, "created_at": "2025-10-03T17:09:37.415Z", "namespace_id": 722662, "connector_id": "nqn.2001-07.com.ceph:1757602476548", "initiators": [{"nqn": "nqn.2014-08.org.nvmexpress:uuid:ae717767-c0fa-56f7-ab4b-5c426b0c553f"}], "project": {"id": "proj_GnzRD5X6qM5yw", "name": "Heavy Duty Iron Shoes", "slug": "heavy-duty-iron-shoes", "description": "Sleek Wool Clock", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {"subscription_id": "<id>", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_QnjVypy08mCW7amJPYj0hXGZgjjg", "name": "583 Team", "slug": "583-team", "description": "583 Team", "address": "69731 Lueilwitz Spurs, Aufderharmouth, MI 93262-2199", "currency": {}, "status": "verified"}}}]}
+          application/vnd.api+json: {"data": [{"id": "vol_RLYV8DZ2D5QoE", "type": "volumes", "attributes": {"name": "Enormous Wool Watch", "size_in_gb": 1500, "created_at": "2025-10-03T17:09:37.415Z", "namespace_id": 1, "connector_id": "nqn.2001-07.com.ceph:1757602476548", "initiators": [{"nqn": "nqn.2014-08.org.nvmexpress:uuid:ae717767-c0fa-56f7-ab4b-5c426b0c553f"}], "project": {"id": "proj_GnzRD5X6qM5yw", "name": "Heavy Duty Iron Shoes", "slug": "heavy-duty-iron-shoes", "description": "Sleek Wool Clock", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {"subscription_id": "<id>", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_QnjVypy08mCW7amJPYj0hXGZgjjg", "name": "583 Team", "slug": "583-team", "description": "583 Team", "address": "69731 Lueilwitz Spurs, Aufderharmouth, MI 93262-2199", "currency": {}, "status": "verified"}}}]}
   post-storage-volumes-mount:
     speakeasy-default-post-storage-volumes-mount:
       parameters:
@@ -3677,7 +3690,7 @@ examples:
           id: "vol_aKXgRdR3qv9k5"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "vol_aKXgRdR3qv9k5", "type": "volumes", "attributes": {"name": "Ergonomic Concrete Shoes", "size_in_gb": 1500, "created_at": "2025-10-03T17:09:38.006Z", "namespace_id": 580856, "connector_id": "nqn.2001-07.com.ceph:1757602476548", "initiators": [{"nqn": "nqn.2014-08.org.nvmexpress:uuid:ae717767-c0fa-56f7-ab4b-5c426b0c553f"}], "project": {"id": "proj_Z8rodmkAD1jLB", "name": "Practical Copper Bag", "slug": "practical-copper-bag", "description": "Aerodynamic Rubber Car", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {"subscription_id": "<id>", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_4zo3v0EbRvUKMXX1gKR2TkmXVPA", "name": "592 Team", "slug": "592-team", "description": "592 Team", "address": "58253 Schuppe Ports, Heathcoteborough, ND 34198-0887", "currency": {}, "status": "verified"}}}}
+          application/vnd.api+json: {"data": {"id": "vol_aKXgRdR3qv9k5", "type": "volumes", "attributes": {"name": "Ergonomic Concrete Shoes", "size_in_gb": 1500, "created_at": "2025-10-03T17:09:38.006Z", "namespace_id": 1, "connector_id": "nqn.2001-07.com.ceph:1757602476548", "initiators": [{"nqn": "nqn.2014-08.org.nvmexpress:uuid:ae717767-c0fa-56f7-ab4b-5c426b0c553f"}], "project": {"id": "proj_Z8rodmkAD1jLB", "name": "Practical Copper Bag", "slug": "practical-copper-bag", "description": "Aerodynamic Rubber Car", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {"subscription_id": "<id>", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_4zo3v0EbRvUKMXX1gKR2TkmXVPA", "name": "592 Team", "slug": "592-team", "description": "592 Team", "address": "58253 Schuppe Ports, Heathcoteborough, ND 34198-0887", "currency": {}, "status": "verified"}}}}
   delete-storage-volumes:
     speakeasy-default-delete-storage-volumes:
       parameters:
@@ -3687,7 +3700,23 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Go SDK Changes Detected:
-  * `Latitudesh.PrivateNetworks.List()`:  `response.Data.[].Attributes.Tags` **Added**
-  * `Latitudesh.PrivateNetworks.Create()`:  `response.Data.Attributes.Tags` **Added**
-  * `Latitudesh.PrivateNetworks.Get()`:  `response.Data.Data.Attributes.Tags` **Added**
-  * `Latitudesh.PrivateNetworks.Update()`:  `response.Data.Attributes.Tags` **Added**
+  * `Latitudesh.Teams.Get()`:  `response.Data.[].Attributes.Limits` **Removed** **Breaking** :warning:
+  * `Latitudesh.Teams.Create()`:  `response.Data.Attributes.Limits` **Removed** **Breaking** :warning:
+  * `Latitudesh.Teams.Update()`:  `response.Data.Attributes.Limits` **Removed** **Breaking** :warning:
+  * `Latitudesh.Projects.List()`:  `response.Data.[].Attributes.Team.Limits` **Removed** **Breaking** :warning:
+  * `Latitudesh.Projects.Create()`:  `response.Data.Attributes.Team.Limits` **Removed** **Breaking** :warning:
+  * `Latitudesh.Projects.Update()`:  `response.Data.Attributes.Team.Limits` **Removed** **Breaking** :warning:
+  * `Latitudesh.Servers.List()`:  `response.Data.[].Attributes.Team.Limits` **Removed** **Breaking** :warning:
+  * `Latitudesh.Servers.Create()`:  `response.Data.Attributes.Team.Limits` **Removed** **Breaking** :warning:
+  * `Latitudesh.Servers.Get()`:  `response.Data.Attributes.Team.Limits` **Removed** **Breaking** :warning:
+  * `Latitudesh.Servers.Update()`:  `response.Data.Attributes.Team.Limits` **Removed** **Breaking** :warning:
+  * `Latitudesh.Servers.Lock()`:  `response.Data.Attributes.Team.Limits` **Removed** **Breaking** :warning:
+  * `Latitudesh.Servers.Unlock()`:  `response.Data.Attributes.Team.Limits` **Removed** **Breaking** :warning:
+  * `Latitudesh.Storage.Get-Storage-Volumes()`:  `response.Data.[].Attributes.Team.Limits` **Removed** **Breaking** :warning:
+  * `Latitudesh.Storage.Post-Storage-Volumes()`:  `response.Data.Attributes.Team.Limits` **Removed** **Breaking** :warning:
+  * `Latitudesh.Storage.Get-Storage-Volume()`:  `response.Data.Attributes.Team.Limits` **Removed** **Breaking** :warning:
+  * `Latitudesh.Tags.List()`:  `response.Data.[].Attributes.Team.Limits` **Removed** **Breaking** :warning:
+  * `Latitudesh.Tags.Create()`:  `response.Data.Attributes.Team.Limits` **Removed** **Breaking** :warning:
+  * `Latitudesh.Tags.Update()`:  `response.Data.Attributes.Team.Limits` **Removed** **Breaking** :warning:
+  * `Latitudesh.UserProfile.Get()`:  `response.Data.Attributes.Teams.[].Limits` **Removed** **Breaking** :warning:
+  * `Latitudesh.VirtualMachines.Create()`:  `response.Data.Attributes.Team.Limits` **Removed** **Breaking** :warning:

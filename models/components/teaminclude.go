@@ -5,65 +5,6 @@ package components
 type Currency struct {
 }
 
-type Limits struct {
-	BareMetal         *int64 `json:"bare_metal,omitempty"`
-	BareMetalGpu      *int64 `json:"bare_metal_gpu,omitempty"`
-	VirtualMachine    *int64 `json:"virtual_machine,omitempty"`
-	VirtualMachineGpu *int64 `json:"virtual_machine_gpu,omitempty"`
-	Database          *int64 `json:"database,omitempty"`
-	Filesystem        *int64 `json:"filesystem,omitempty"`
-	BlockStorage      *int64 `json:"block_storage,omitempty"`
-}
-
-func (l *Limits) GetBareMetal() *int64 {
-	if l == nil {
-		return nil
-	}
-	return l.BareMetal
-}
-
-func (l *Limits) GetBareMetalGpu() *int64 {
-	if l == nil {
-		return nil
-	}
-	return l.BareMetalGpu
-}
-
-func (l *Limits) GetVirtualMachine() *int64 {
-	if l == nil {
-		return nil
-	}
-	return l.VirtualMachine
-}
-
-func (l *Limits) GetVirtualMachineGpu() *int64 {
-	if l == nil {
-		return nil
-	}
-	return l.VirtualMachineGpu
-}
-
-func (l *Limits) GetDatabase() *int64 {
-	if l == nil {
-		return nil
-	}
-	return l.Database
-}
-
-func (l *Limits) GetFilesystem() *int64 {
-	if l == nil {
-		return nil
-	}
-	return l.Filesystem
-}
-
-func (l *Limits) GetBlockStorage() *int64 {
-	if l == nil {
-		return nil
-	}
-	return l.BlockStorage
-}
-
 type TeamInclude struct {
 	ID           *string   `json:"id,omitempty"`
 	Name         *string   `json:"name,omitempty"`
@@ -73,7 +14,6 @@ type TeamInclude struct {
 	Currency     *Currency `json:"currency,omitempty"`
 	Status       *string   `json:"status,omitempty"`
 	FeatureFlags []string  `json:"feature_flags,omitempty"`
-	Limits       *Limits   `json:"limits,omitempty"`
 }
 
 func (t *TeamInclude) GetID() *string {
@@ -130,11 +70,4 @@ func (t *TeamInclude) GetFeatureFlags() []string {
 		return nil
 	}
 	return t.FeatureFlags
-}
-
-func (t *TeamInclude) GetLimits() *Limits {
-	if t == nil {
-		return nil
-	}
-	return t.Limits
 }

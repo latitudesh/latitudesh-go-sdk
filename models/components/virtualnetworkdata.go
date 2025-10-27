@@ -136,11 +136,11 @@ type VirtualNetworkDataAttributes struct {
 	Name *string `json:"name,omitempty"`
 	// Description of the virtual network
 	Description *string                   `json:"description,omitempty"`
+	Project     *ProjectInclude           `json:"project,omitempty"`
 	Region      *VirtualNetworkDataRegion `json:"region,omitempty"`
 	CreatedAt   *time.Time                `json:"created_at,omitempty"`
 	// Amount of devices assigned to the virtual network
-	AssignmentsCount *int64          `json:"assignments_count,omitempty"`
-	Project          *ProjectInclude `json:"project,omitempty"`
+	AssignmentsCount *int64 `json:"assignments_count,omitempty"`
 	// Tags associated with the virtual network
 	Tags []Tags `json:"tags,omitempty"`
 }
@@ -177,6 +177,13 @@ func (v *VirtualNetworkDataAttributes) GetDescription() *string {
 	return v.Description
 }
 
+func (v *VirtualNetworkDataAttributes) GetProject() *ProjectInclude {
+	if v == nil {
+		return nil
+	}
+	return v.Project
+}
+
 func (v *VirtualNetworkDataAttributes) GetRegion() *VirtualNetworkDataRegion {
 	if v == nil {
 		return nil
@@ -196,13 +203,6 @@ func (v *VirtualNetworkDataAttributes) GetAssignmentsCount() *int64 {
 		return nil
 	}
 	return v.AssignmentsCount
-}
-
-func (v *VirtualNetworkDataAttributes) GetProject() *ProjectInclude {
-	if v == nil {
-		return nil
-	}
-	return v.Project
 }
 
 func (v *VirtualNetworkDataAttributes) GetTags() []Tags {
