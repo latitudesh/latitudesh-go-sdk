@@ -11,9 +11,9 @@
 * [UpdateFilesystem](#updatefilesystem) - Update a filesystem for a project
 * [PostStorageVolumes](#poststoragevolumes) - Create volume
 * [GetStorageVolumes](#getstoragevolumes) - List volumes
-* [PostStorageVolumesMount](#poststoragevolumesmount) - Mount volume
-* [GetStorageVolume](#getstoragevolume) - Get volume
 * [DeleteStorageVolumes](#deletestoragevolumes) - Delete volume
+* [GetStorageVolume](#getstoragevolume) - Get volume
+* [PostStorageVolumesMount](#poststoragevolumesmount) - Mount volume
 
 ## CreateFilesystem
 
@@ -355,13 +355,13 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## PostStorageVolumesMount
+## DeleteStorageVolumes
 
-Mounts volume storage by adding the client to an allowed list
+Allows you to remove persistent storage from a project.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="post-storage-volumes-mount" method="post" path="/storage/volumes/{id}/mount" -->
+<!-- UsageSnippet language="go" operationID="delete-storage-volumes" method="delete" path="/storage/volumes/{id}" -->
 ```go
 package main
 
@@ -369,7 +369,6 @@ import(
 	"context"
 	"os"
 	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
-	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
 	"log"
 )
 
@@ -380,14 +379,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Storage.PostStorageVolumesMount(ctx, "<id>", operations.PostStorageVolumesMountRequestBody{
-        Data: operations.PostStorageVolumesMountData{
-            Type: operations.PostStorageVolumesMountTypeVolumes,
-            Attributes: operations.PostStorageVolumesMountAttributes{
-                Nqn: "nqn.2024-01.com.example:server01",
-            },
-        },
-    })
+    res, err := s.Storage.DeleteStorageVolumes(ctx, "<id>")
     if err != nil {
         log.Fatal(err)
     }
@@ -399,16 +391,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
-| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                                          | :heavy_check_mark:                                                                                             | The context to use for the request.                                                                            |
-| `id`                                                                                                           | *string*                                                                                                       | :heavy_check_mark:                                                                                             | Volume storage ID                                                                                              |
-| `requestBody`                                                                                                  | [operations.PostStorageVolumesMountRequestBody](../../models/operations/poststoragevolumesmountrequestbody.md) | :heavy_check_mark:                                                                                             | N/A                                                                                                            |
-| `opts`                                                                                                         | [][operations.Option](../../models/operations/option.md)                                                       | :heavy_minus_sign:                                                                                             | The options for this request.                                                                                  |
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `id`                                                     | *string*                                                 | :heavy_check_mark:                                       | N/A                                                      |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
 
 ### Response
 
-**[*operations.PostStorageVolumesMountResponse](../../models/operations/poststoragevolumesmountresponse.md), error**
+**[*operations.DeleteStorageVolumesResponse](../../models/operations/deletestoragevolumesresponse.md), error**
 
 ### Errors
 
@@ -468,13 +459,13 @@ func main() {
 | ------------------- | ------------------- | ------------------- |
 | components.APIError | 4XX, 5XX            | \*/\*               |
 
-## DeleteStorageVolumes
+## PostStorageVolumesMount
 
-Allows you to remove persistent storage from a project.
+Mounts volume storage by adding the client to an allowed list
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="delete-storage-volumes" method="delete" path="/storage/volumes/{id}" -->
+<!-- UsageSnippet language="go" operationID="post-storage-volumes-mount" method="post" path="/storage/volumes/{id}/mount" -->
 ```go
 package main
 
@@ -482,6 +473,7 @@ import(
 	"context"
 	"os"
 	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
 	"log"
 )
 
@@ -492,7 +484,14 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Storage.DeleteStorageVolumes(ctx, "<id>")
+    res, err := s.Storage.PostStorageVolumesMount(ctx, "<id>", operations.PostStorageVolumesMountRequestBody{
+        Data: operations.PostStorageVolumesMountData{
+            Type: operations.PostStorageVolumesMountTypeVolumes,
+            Attributes: operations.PostStorageVolumesMountAttributes{
+                Nqn: "nqn.2024-01.com.example:server01",
+            },
+        },
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -504,15 +503,16 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `id`                                                     | *string*                                                 | :heavy_check_mark:                                       | N/A                                                      |
-| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                                          | :heavy_check_mark:                                                                                             | The context to use for the request.                                                                            |
+| `id`                                                                                                           | *string*                                                                                                       | :heavy_check_mark:                                                                                             | Volume storage ID                                                                                              |
+| `requestBody`                                                                                                  | [operations.PostStorageVolumesMountRequestBody](../../models/operations/poststoragevolumesmountrequestbody.md) | :heavy_check_mark:                                                                                             | N/A                                                                                                            |
+| `opts`                                                                                                         | [][operations.Option](../../models/operations/option.md)                                                       | :heavy_minus_sign:                                                                                             | The options for this request.                                                                                  |
 
 ### Response
 
-**[*operations.DeleteStorageVolumesResponse](../../models/operations/deletestoragevolumesresponse.md), error**
+**[*operations.PostStorageVolumesMountResponse](../../models/operations/poststoragevolumesmountresponse.md), error**
 
 ### Errors
 

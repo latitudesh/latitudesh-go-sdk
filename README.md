@@ -235,9 +235,9 @@ func main() {
 * [UpdateFilesystem](docs/sdks/storage/README.md#updatefilesystem) - Update a filesystem for a project
 * [PostStorageVolumes](docs/sdks/storage/README.md#poststoragevolumes) - Create volume
 * [GetStorageVolumes](docs/sdks/storage/README.md#getstoragevolumes) - List volumes
-* [PostStorageVolumesMount](docs/sdks/storage/README.md#poststoragevolumesmount) - Mount volume
-* [GetStorageVolume](docs/sdks/storage/README.md#getstoragevolume) - Get volume
 * [DeleteStorageVolumes](docs/sdks/storage/README.md#deletestoragevolumes) - Delete volume
+* [GetStorageVolume](docs/sdks/storage/README.md#getstoragevolume) - Get volume
+* [PostStorageVolumesMount](docs/sdks/storage/README.md#poststoragevolumesmount) - Mount volume
 
 ### [Tags](docs/sdks/tags/README.md)
 
