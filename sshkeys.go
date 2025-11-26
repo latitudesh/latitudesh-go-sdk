@@ -876,9 +876,10 @@ func (s *SSHKeys) RemoveFromProject(ctx context.Context, projectID string, sshKe
 
 // ListAll - List all SSH Keys
 // List all SSH Keys in the project. These keys can be used to access servers after deploy and reinstall actions.
-func (s *SSHKeys) ListAll(ctx context.Context, filterTags *string, opts ...operations.Option) (*operations.GetSSHKeysResponse, error) {
+func (s *SSHKeys) ListAll(ctx context.Context, filterProject *string, filterTags *string, opts ...operations.Option) (*operations.GetSSHKeysResponse, error) {
 	request := operations.GetSSHKeysRequest{
-		FilterTags: filterTags,
+		FilterProject: filterProject,
+		FilterTags:    filterTags,
 	}
 
 	o := operations.Options{}

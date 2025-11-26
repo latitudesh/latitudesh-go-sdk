@@ -31,6 +31,7 @@ func (e *PostVpnSessionVpnSessionsType) UnmarshalJSON(data []byte) error {
 	}
 }
 
+// PostVpnSessionVpnSessionsSite - Site slug (case-insensitive)
 type PostVpnSessionVpnSessionsSite string
 
 const (
@@ -109,6 +110,7 @@ func (e *PostVpnSessionVpnSessionsSite) UnmarshalJSON(data []byte) error {
 }
 
 type PostVpnSessionVpnSessionsAttributes struct {
+	// Site slug (case-insensitive)
 	Site     *PostVpnSessionVpnSessionsSite `json:"site,omitempty"`
 	ServerID *string                        `json:"server_id,omitempty"`
 }

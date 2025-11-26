@@ -34,6 +34,8 @@ func (e *PostUserDataUserDataType) UnmarshalJSON(data []byte) error {
 type PostUserDataUserDataAttributes struct {
 	// description of the User Data
 	Description string `json:"description"`
+	// Project ID or slug
+	Project *string `json:"project,omitempty"`
 	// base64 encoded content of the User Data
 	Content string `json:"content"`
 }
@@ -43,6 +45,13 @@ func (p *PostUserDataUserDataAttributes) GetDescription() string {
 		return ""
 	}
 	return p.Description
+}
+
+func (p *PostUserDataUserDataAttributes) GetProject() *string {
+	if p == nil {
+		return nil
+	}
+	return p.Project
 }
 
 func (p *PostUserDataUserDataAttributes) GetContent() string {

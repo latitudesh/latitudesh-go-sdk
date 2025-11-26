@@ -34,6 +34,8 @@ func (e *PostSSHKeySSHKeysType) UnmarshalJSON(data []byte) error {
 type PostSSHKeySSHKeysAttributes struct {
 	// Name of the SSH Key
 	Name *string `json:"name,omitempty"`
+	// Project ID or slug
+	Project *string `json:"project,omitempty"`
 	// SSH Public Key
 	PublicKey *string `json:"public_key,omitempty"`
 }
@@ -43,6 +45,13 @@ func (p *PostSSHKeySSHKeysAttributes) GetName() *string {
 		return nil
 	}
 	return p.Name
+}
+
+func (p *PostSSHKeySSHKeysAttributes) GetProject() *string {
+	if p == nil {
+		return nil
+	}
+	return p.Project
 }
 
 func (p *PostSSHKeySSHKeysAttributes) GetPublicKey() *string {

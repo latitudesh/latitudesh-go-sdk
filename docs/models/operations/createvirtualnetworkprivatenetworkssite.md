@@ -1,6 +1,6 @@
 # CreateVirtualNetworkPrivateNetworksSite
 
-Site ID or slug
+Site ID or slug (case-insensitive)
 
 
 ## Values

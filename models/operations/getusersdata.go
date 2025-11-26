@@ -8,6 +8,8 @@ import (
 )
 
 type GetUsersDataRequest struct {
+	// Project ID or slug
+	FilterProject *string `queryParam:"style=form,explode=true,name=filter[project]"`
 	// The `decoded_content` is provided as an extra attribute that shows content in decoded form.
 	ExtraFieldsUserData *string `default:"decoded_content" queryParam:"style=form,explode=true,name=extra_fields[user_data]"`
 }
@@ -21,6 +23,13 @@ func (g *GetUsersDataRequest) UnmarshalJSON(data []byte) error {
 		return err
 	}
 	return nil
+}
+
+func (g *GetUsersDataRequest) GetFilterProject() *string {
+	if g == nil {
+		return nil
+	}
+	return g.FilterProject
 }
 
 func (g *GetUsersDataRequest) GetExtraFieldsUserData() *string {

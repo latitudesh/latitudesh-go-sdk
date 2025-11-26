@@ -527,8 +527,8 @@ func main() {
 	ctx := context.Background()
 
 	s := latitudeshgosdk.New(
-		latitudeshgosdk.WithServerIndex(1),
-		latitudeshgosdk.WithLatitudeAPIKey("<value>"),
+		latitudeshgosdk.WithServerIndex(0),
+		latitudeshgosdk.WithLatitudeAPIKey("<insert your api key here>"),
 		latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
 	)
 
