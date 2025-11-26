@@ -341,7 +341,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserData.List(ctx, latitudeshgosdk.Pointer("decoded_content"))
+    res, err := s.UserData.List(ctx, nil, latitudeshgosdk.Pointer("decoded_content"))
     if err != nil {
         log.Fatal(err)
     }
@@ -356,6 +356,7 @@ func main() {
 | Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
 | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
 | `ctx`                                                                                       | [context.Context](https://pkg.go.dev/context#Context)                                       | :heavy_check_mark:                                                                          | The context to use for the request.                                                         |
+| `filterProject`                                                                             | **string*                                                                                   | :heavy_minus_sign:                                                                          | Project ID or slug                                                                          |
 | `extraFieldsUserData`                                                                       | **string*                                                                                   | :heavy_minus_sign:                                                                          | The `decoded_content` is provided as an extra attribute that shows content in decoded form. |
 | `opts`                                                                                      | [][operations.Option](../../models/operations/option.md)                                    | :heavy_minus_sign:                                                                          | The options for this request.                                                               |
 
@@ -400,6 +401,7 @@ func main() {
             Type: operations.PostUserDataUserDataTypeUserData,
             Attributes: &operations.PostUserDataUserDataAttributes{
                 Description: "User Data description",
+                Project: latitudeshgosdk.Pointer("proj_AW6Q2D9lqKLpr"),
                 Content: "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd",
             },
         },

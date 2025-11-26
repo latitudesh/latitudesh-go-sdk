@@ -277,7 +277,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.ListAll(ctx, latitudeshgosdk.Pointer("tag_lYXenaknWwsJ4rryVbNoUbn6p4V,tag_ARJPX1YRrgTKQ4xpvX5YuWNG2nwW"))
+    res, err := s.SSHKeys.ListAll(ctx, nil, latitudeshgosdk.Pointer("tag_lYXenaknWwsJ4rryVbNoUbn6p4V,tag_ARJPX1YRrgTKQ4xpvX5YuWNG2nwW"))
     if err != nil {
         log.Fatal(err)
     }
@@ -292,6 +292,7 @@ func main() {
 | Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
 | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | `ctx`                                                                                                                       | [context.Context](https://pkg.go.dev/context#Context)                                                                       | :heavy_check_mark:                                                                                                          | The context to use for the request.                                                                                         |
+| `filterProject`                                                                                                             | **string*                                                                                                                   | :heavy_minus_sign:                                                                                                          | Project ID or slug                                                                                                          |
 | `filterTags`                                                                                                                | **string*                                                                                                                   | :heavy_minus_sign:                                                                                                          | The tags ids to filter by, separated by comma, e.g. `filter[tags]=tag_1,tag_2`will return ssh keys with `tag_1` AND `tag_2` |
 | `opts`                                                                                                                      | [][operations.Option](../../models/operations/option.md)                                                                    | :heavy_minus_sign:                                                                                                          | The options for this request.                                                                                               |
 
@@ -336,6 +337,7 @@ func main() {
             Type: operations.PostSSHKeySSHKeysTypeSSHKeys,
             Attributes: &operations.PostSSHKeySSHKeysAttributes{
                 Name: latitudeshgosdk.Pointer("SSH Key"),
+                Project: latitudeshgosdk.Pointer("proj_mw49QDB5qagKb"),
                 PublicKey: latitudeshgosdk.Pointer("ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx"),
             },
         },

@@ -31,7 +31,7 @@ func (e *CreateVirtualNetworkPrivateNetworksType) UnmarshalJSON(data []byte) err
 	}
 }
 
-// CreateVirtualNetworkPrivateNetworksSite - Site ID or slug
+// CreateVirtualNetworkPrivateNetworksSite - Site ID or slug (case-insensitive)
 type CreateVirtualNetworkPrivateNetworksSite string
 
 const (
@@ -111,7 +111,7 @@ func (e *CreateVirtualNetworkPrivateNetworksSite) UnmarshalJSON(data []byte) err
 
 type CreateVirtualNetworkPrivateNetworksAttributes struct {
 	Description string `json:"description"`
-	// Site ID or slug
+	// Site ID or slug (case-insensitive)
 	Site *CreateVirtualNetworkPrivateNetworksSite `json:"site,omitempty"`
 	// Project ID or slug
 	Project string `json:"project"`

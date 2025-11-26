@@ -253,7 +253,10 @@ func (v *VirtualMachinePlansRegions) GetPricing() *VirtualMachinePlansPricing {
 type VirtualMachinePlansStockLevel string
 
 const (
-	VirtualMachinePlansStockLevelLow VirtualMachinePlansStockLevel = "low"
+	VirtualMachinePlansStockLevelLow         VirtualMachinePlansStockLevel = "low"
+	VirtualMachinePlansStockLevelUnavailable VirtualMachinePlansStockLevel = "unavailable"
+	VirtualMachinePlansStockLevelMedium      VirtualMachinePlansStockLevel = "medium"
+	VirtualMachinePlansStockLevelHigh        VirtualMachinePlansStockLevel = "high"
 )
 
 func (e VirtualMachinePlansStockLevel) ToPointer() *VirtualMachinePlansStockLevel {
@@ -266,6 +269,12 @@ func (e *VirtualMachinePlansStockLevel) UnmarshalJSON(data []byte) error {
 	}
 	switch v {
 	case "low":
+		fallthrough
+	case "unavailable":
+		fallthrough
+	case "medium":
+		fallthrough
+	case "high":
 		*e = VirtualMachinePlansStockLevel(v)
 		return nil
 	default:

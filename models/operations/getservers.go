@@ -10,7 +10,7 @@ import (
 type GetServersRequest struct {
 	// The project ID or Slug to filter by
 	FilterProject *string `queryParam:"style=form,explode=true,name=filter[project]"`
-	// The region Slug to filter by
+	// The region Slug to filter by (case-insensitive)
 	FilterRegion *string `queryParam:"style=form,explode=true,name=filter[region]"`
 	// The hostname of server to filter by
 	FilterHostname *string `queryParam:"style=form,explode=true,name=filter[hostname]"`

@@ -94,7 +94,7 @@ func (e *CreateServerPlan) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// CreateServerSite - The site slug to deploy the server
+// CreateServerSite - The site slug to deploy the server (case-insensitive)
 type CreateServerSite string
 
 const (
@@ -330,7 +330,7 @@ type CreateServerServersAttributes struct {
 	Project *string `json:"project,omitempty"`
 	// The plan slug to choose server from, defining the specs the server will have
 	Plan *CreateServerPlan `json:"plan,omitempty"`
-	// The site slug to deploy the server
+	// The site slug to deploy the server (case-insensitive)
 	Site *CreateServerSite `json:"site,omitempty"`
 	// The operating system slug for the new server
 	OperatingSystem *CreateServerOperatingSystem `json:"operating_system,omitempty"`

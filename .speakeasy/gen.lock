@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 18db0f5fbefb4c8c7c5192144b54e474
+  docChecksum: 9a98a1659b27016aabb8c8bb3fa12323
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.639.3
-  generationVersion: 2.730.5
-  releaseVersion: 1.9.0
-  configChecksum: 303e3ecdb3804fc7e9e2f492a51c8a58
+  speakeasyVersion: 1.661.2
+  generationVersion: 2.763.3
+  releaseVersion: 1.10.0
+  configChecksum: d780986523247d31fe48ecdb62461fb7
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 features:
   go:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.12.0
+    core: 3.13.3
     defaultEnabledRetries: 0.2.0
     deprecations: 2.81.3
     devContainers: 2.90.0
@@ -22,7 +22,7 @@ features:
     globalSecurity: 2.82.12
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
-    globalServerURLs: 2.82.3
+    globalServerURLs: 2.83.0
     groups: 2.81.3
     intellisenseMarkdownSupport: 0.1.0
     nameOverrides: 2.81.2
@@ -3440,8 +3440,8 @@ examples:
   post-ssh-key:
     Created:
       requestBody:
-        application/json: {"data": {"type": "ssh_keys", "attributes": {"name": "SSH Key", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx"}}}
-        application/vnd.api+json: {"data": {"type": "ssh_keys", "attributes": {"name": "SSH Key", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx"}}}
+        application/json: {"data": {"type": "ssh_keys", "attributes": {"name": "SSH Key", "project": "proj_mw49QDB5qagKb", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx"}}}
+        application/vnd.api+json: {"data": {"type": "ssh_keys", "attributes": {"name": "SSH Key", "project": "proj_mw49QDB5qagKb", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx"}}}
       responses:
         "201":
           application/vnd.api+json: {"data": {"id": "ssh_1ZJrdxw5Og4LV", "type": "ssh_keys", "attributes": {"name": "SSH Key", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx", "fingerprint": "0a:00:34:53:51:0e:a5:4e:06:2c:d7:16:88:96:82:f3", "user": {"id": "user_wwjA0m2L4BTXAXMw4X17hMlZl6z", "first_name": "Genevive", "last_name": "Shields", "email": "jamel_mcdermott@homenick.example", "created_at": "2025-04-28T00:00:00.000Z", "updated_at": "2024-11-18T00:00:00.000Z", "role": {"id": "role_bj5BPjB5o7iyw0QbxWZatE5K81YQ", "name": "owner", "created_at": "2024-12-04T00:00:00.000Z", "updated_at": "2026-01-16T00:00:00.000Z"}}, "created_at": "2025-07-16T18:37:07+00:00", "updated_at": "2025-07-16T18:37:07+00:00"}}}
@@ -3528,8 +3528,8 @@ examples:
   post-user-data:
     Created:
       requestBody:
-        application/json: {"data": {"type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"}}}
-        application/vnd.api+json: {"data": {"type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"}}}
+        application/json: {"data": {"type": "user_data", "attributes": {"description": "User Data description", "project": "proj_AW6Q2D9lqKLpr", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"}}}
+        application/vnd.api+json: {"data": {"type": "user_data", "attributes": {"description": "User Data description", "project": "proj_AW6Q2D9lqKLpr", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"}}}
       responses:
         "201":
           application/vnd.api+json: {"data": {"id": "ud_GKN4ydzgqVob3", "type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "created_at": "2025-07-16T18:37:12+00:00", "updated_at": "2025-07-16T18:37:12+00:00"}}, "meta": {}}
@@ -3698,25 +3698,4 @@ examples:
           id: "<id>"
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Go SDK Changes Detected:
-  * `Latitudesh.Teams.Get()`:  `response.Data.[].Attributes.Limits` **Removed** **Breaking** :warning:
-  * `Latitudesh.Teams.Create()`:  `response.Data.Attributes.Limits` **Removed** **Breaking** :warning:
-  * `Latitudesh.Teams.Update()`:  `response.Data.Attributes.Limits` **Removed** **Breaking** :warning:
-  * `Latitudesh.Projects.List()`:  `response.Data.[].Attributes.Team.Limits` **Removed** **Breaking** :warning:
-  * `Latitudesh.Projects.Create()`:  `response.Data.Attributes.Team.Limits` **Removed** **Breaking** :warning:
-  * `Latitudesh.Projects.Update()`:  `response.Data.Attributes.Team.Limits` **Removed** **Breaking** :warning:
-  * `Latitudesh.Servers.List()`:  `response.Data.[].Attributes.Team.Limits` **Removed** **Breaking** :warning:
-  * `Latitudesh.Servers.Create()`:  `response.Data.Attributes.Team.Limits` **Removed** **Breaking** :warning:
-  * `Latitudesh.Servers.Get()`:  `response.Data.Attributes.Team.Limits` **Removed** **Breaking** :warning:
-  * `Latitudesh.Servers.Update()`:  `response.Data.Attributes.Team.Limits` **Removed** **Breaking** :warning:
-  * `Latitudesh.Servers.Lock()`:  `response.Data.Attributes.Team.Limits` **Removed** **Breaking** :warning:
-  * `Latitudesh.Servers.Unlock()`:  `response.Data.Attributes.Team.Limits` **Removed** **Breaking** :warning:
-  * `Latitudesh.Storage.Get-Storage-Volumes()`:  `response.Data.[].Attributes.Team.Limits` **Removed** **Breaking** :warning:
-  * `Latitudesh.Storage.Post-Storage-Volumes()`:  `response.Data.Attributes.Team.Limits` **Removed** **Breaking** :warning:
-  * `Latitudesh.Storage.Get-Storage-Volume()`:  `response.Data.Attributes.Team.Limits` **Removed** **Breaking** :warning:
-  * `Latitudesh.Tags.List()`:  `response.Data.[].Attributes.Team.Limits` **Removed** **Breaking** :warning:
-  * `Latitudesh.Tags.Create()`:  `response.Data.Attributes.Team.Limits` **Removed** **Breaking** :warning:
-  * `Latitudesh.Tags.Update()`:  `response.Data.Attributes.Team.Limits` **Removed** **Breaking** :warning:
-  * `Latitudesh.UserProfile.Get()`:  `response.Data.Attributes.Teams.[].Limits` **Removed** **Breaking** :warning:
-  * `Latitudesh.VirtualMachines.Create()`:  `response.Data.Attributes.Team.Limits` **Removed** **Breaking** :warning:
+releaseNotes: "## Go SDK Changes Detected:\n* `Latitudesh.SshKeys.ListAll()`:  `request.Filter[project]` **Added**\n* `Latitudesh.SshKeys.Create()`: \n  *  `request.Request.Data.Attributes.Project` **Added**\n* `Latitudesh.UserData.List()`:  `request.Filter[project]` **Added**\n* `Latitudesh.UserData.CreateNew()`: \n  *  `request.Request.Data.Attributes.Project` **Added**\n"

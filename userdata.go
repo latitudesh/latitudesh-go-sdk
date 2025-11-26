@@ -1101,8 +1101,9 @@ func (s *UserData) UpdateForProject(ctx context.Context, projectID string, userD
 
 // List all User Data
 // List all Users Data in the project. These scripts can be used to configure servers with user data.
-func (s *UserData) List(ctx context.Context, extraFieldsUserData *string, opts ...operations.Option) (*operations.GetUsersDataResponse, error) {
+func (s *UserData) List(ctx context.Context, filterProject *string, extraFieldsUserData *string, opts ...operations.Option) (*operations.GetUsersDataResponse, error) {
 	request := operations.GetUsersDataRequest{
+		FilterProject:       filterProject,
 		ExtraFieldsUserData: extraFieldsUserData,
 	}
 
