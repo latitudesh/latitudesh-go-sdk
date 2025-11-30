@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 9a98a1659b27016aabb8c8bb3fa12323
+  docChecksum: 80e458ac3ae960c17fda2c3c67b740ce
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.661.2
-  generationVersion: 2.763.3
-  releaseVersion: 1.10.0
-  configChecksum: d780986523247d31fe48ecdb62461fb7
+  speakeasyVersion: 1.665.0
+  generationVersion: 2.767.2
+  releaseVersion: 1.11.0
+  configChecksum: 9737599cc637780f476058224026fe2b
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 features:
   go:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.13.3
+    core: 3.13.5
     defaultEnabledRetries: 0.2.0
     deprecations: 2.81.3
     devContainers: 2.90.0
@@ -29,7 +29,7 @@ features:
     pagination: 2.82.5
     responseFormat: 0.1.2
     retries: 2.84.2
-    sdkHooks: 0.2.0
+    sdkHooks: 0.3.0
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
@@ -1109,7 +1109,7 @@ examples:
           filter[project]: "proj_6059EqYkOQj8p"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "", "attributes": {"project": {"id": "proj_6059EqYkOQj8p", "slug": "ergonomic-marble-shoes", "name": "Ergonomic Marble Shoes"}, "period": {"start": "2025-06-25T18:36:28+00:00", "end": "2025-07-26T18:36:28+00:00"}, "price": 0, "threshold": 10000, "products": []}}}
+          application/vnd.api+json: {"data": {"id": "", "attributes": {"project": {"id": "proj_6059EqYkOQj8p", "slug": "ergonomic-marble-shoes", "name": "Ergonomic Marble Shoes"}, "period": {"start": "2025-06-25T18:36:28+00:00", "end": "2025-07-26T18:36:28+00:00"}, "price": 0, "threshold": 10000, "products": [], "available_credit_balance": 123}}}
   get-events:
     Success:
       parameters:
@@ -3698,4 +3698,6 @@ examples:
           id: "<id>"
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes Detected:\n* `Latitudesh.SshKeys.ListAll()`:  `request.Filter[project]` **Added**\n* `Latitudesh.SshKeys.Create()`: \n  *  `request.Request.Data.Attributes.Project` **Added**\n* `Latitudesh.UserData.List()`:  `request.Filter[project]` **Added**\n* `Latitudesh.UserData.CreateNew()`: \n  *  `request.Request.Data.Attributes.Project` **Added**\n"
+releaseNotes: |
+  ## Go SDK Changes:
+  * `Latitudesh.Billing.ListUsage()`:  `response.Data.Attributes.AvailableCreditBalance` **Added**

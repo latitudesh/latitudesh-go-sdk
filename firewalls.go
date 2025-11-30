@@ -94,7 +94,7 @@ func (s *Firewalls) GetAllFirewallAssignments(ctx context.Context, filterServer 
 	req.Header.Set("Accept", "application/vnd.api+json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
+	if err := utils.PopulateQueryParams(ctx, req, request, nil, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
@@ -569,7 +569,7 @@ func (s *Firewalls) List(ctx context.Context, filterProject *string, pageSize *i
 	req.Header.Set("Accept", "application/vnd.api+json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
+	if err := utils.PopulateQueryParams(ctx, req, request, nil, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
@@ -1449,7 +1449,7 @@ func (s *Firewalls) ListAssignments(ctx context.Context, firewallID string, page
 	req.Header.Set("Accept", "application/vnd.api+json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
+	if err := utils.PopulateQueryParams(ctx, req, request, nil, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 

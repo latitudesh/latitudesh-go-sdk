@@ -91,7 +91,7 @@ func (s *UserData) GetProjectUsersData(ctx context.Context, projectID string, ex
 	req.Header.Set("Accept", "application/vnd.api+json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
+	if err := utils.PopulateQueryParams(ctx, req, request, nil, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
@@ -309,7 +309,7 @@ func (s *UserData) GetProjectUserData(ctx context.Context, projectID string, use
 	req.Header.Set("Accept", "application/vnd.api+json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
+	if err := utils.PopulateQueryParams(ctx, req, request, nil, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
@@ -1158,7 +1158,7 @@ func (s *UserData) List(ctx context.Context, filterProject *string, extraFieldsU
 	req.Header.Set("Accept", "application/vnd.api+json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
+	if err := utils.PopulateQueryParams(ctx, req, request, nil, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
@@ -1586,7 +1586,7 @@ func (s *UserData) Retrieve(ctx context.Context, userDataID string, extraFieldsU
 	req.Header.Set("Accept", "application/vnd.api+json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
+	if err := utils.PopulateQueryParams(ctx, req, request, nil, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
