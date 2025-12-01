@@ -369,6 +369,8 @@ type BillingUsageAttributes struct {
 	// The threshold which we use to charge your usage, in cents
 	Threshold *float64   `json:"threshold,omitempty"`
 	Products  []Products `json:"products,omitempty"`
+	// The available credit balance in cents
+	AvailableCreditBalance *int64 `json:"available_credit_balance,omitempty"`
 }
 
 func (b *BillingUsageAttributes) GetProject() *BillingUsageProject {
@@ -404,6 +406,13 @@ func (b *BillingUsageAttributes) GetProducts() []Products {
 		return nil
 	}
 	return b.Products
+}
+
+func (b *BillingUsageAttributes) GetAvailableCreditBalance() *int64 {
+	if b == nil {
+		return nil
+	}
+	return b.AvailableCreditBalance
 }
 
 type BillingUsageData struct {
