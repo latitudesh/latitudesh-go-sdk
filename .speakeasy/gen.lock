@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 80e458ac3ae960c17fda2c3c67b740ce
+  docChecksum: 9273434eaeabb5486b523cd37cdb1932
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.665.0
-  generationVersion: 2.767.2
-  releaseVersion: 1.11.0
-  configChecksum: 9737599cc637780f476058224026fe2b
+  speakeasyVersion: 1.668.0
+  generationVersion: 2.770.0
+  releaseVersion: 1.12.0
+  configChecksum: 45104b8b680bb883332cce846326308b
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 features:
@@ -26,6 +26,7 @@ features:
     groups: 2.81.3
     intellisenseMarkdownSupport: 0.1.0
     nameOverrides: 2.81.2
+    nullables: 0.2.1
     pagination: 2.82.5
     responseFormat: 0.1.2
     retries: 2.84.2
@@ -1109,7 +1110,7 @@ examples:
           filter[project]: "proj_6059EqYkOQj8p"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "", "attributes": {"project": {"id": "proj_6059EqYkOQj8p", "slug": "ergonomic-marble-shoes", "name": "Ergonomic Marble Shoes"}, "period": {"start": "2025-06-25T18:36:28+00:00", "end": "2025-07-26T18:36:28+00:00"}, "price": 0, "threshold": 10000, "products": [], "available_credit_balance": 123}}}
+          application/vnd.api+json: {"data": {"id": "", "attributes": {"project": {"id": "proj_6059EqYkOQj8p", "slug": "ergonomic-marble-shoes", "name": "Ergonomic Marble Shoes"}, "period": {"start": "2025-06-25T18:36:28+00:00", "end": "2025-07-26T18:36:28+00:00"}, "available_credit_balance": 123, "price": 0, "threshold": 10000, "products": []}}}
   get-events:
     Success:
       parameters:
@@ -3667,7 +3668,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "volumes", "attributes": {"project": "proj_8NkvdyPXOeLpx", "name": "my-data", "size_in_gb": 1500}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "vol_Av9BVDavORm1W", "type": "volumes", "attributes": {"name": "Incredible Linen Chair", "size_in_gb": 1500, "created_at": "2025-10-03T18:09:37.000Z", "namespace_id": 767995, "connector_id": "<id>", "initiators": [{}], "project": {"id": "proj_8NkvdyPXOeLpx", "name": "Small Concrete Bag", "slug": "small-concrete-bag", "description": "Enormous Iron Shoes", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {"subscription_id": "<id>", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_mPzlevJWQotr05vlaQ6mu9XaWvK", "name": "578 Team", "slug": "578-team", "description": "578 Team", "address": "Suite 629 420 Lindgren Square, Mahaven, KY 74726", "currency": {}, "status": "verified"}}}}
+          application/vnd.api+json: {"data": {"id": "vol_Av9BVDavORm1W", "type": "volumes", "attributes": {"name": "Incredible Linen Chair", "size_in_gb": 1500, "created_at": "2025-10-03T18:09:37.000Z", "namespace_id": null, "connector_id": "<id>", "initiators": [{}], "project": {"id": "proj_8NkvdyPXOeLpx", "name": "Small Concrete Bag", "slug": "small-concrete-bag", "description": "Enormous Iron Shoes", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {"subscription_id": "<id>", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_mPzlevJWQotr05vlaQ6mu9XaWvK", "name": "578 Team", "slug": "578-team", "description": "578 Team", "address": "Suite 629 420 Lindgren Square, Mahaven, KY 74726", "currency": {}, "status": "verified"}}}}
   get-storage-volumes:
     Success:
       parameters:
@@ -3675,7 +3676,7 @@ examples:
           filter[project]: "proj_GnzRD5X6qM5yw"
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "vol_RLYV8DZ2D5QoE", "type": "volumes", "attributes": {"name": "Enormous Wool Watch", "size_in_gb": 1500, "created_at": "2025-10-03T17:09:37.415Z", "namespace_id": 1, "connector_id": "nqn.2001-07.com.ceph:1757602476548", "initiators": [{"nqn": "nqn.2014-08.org.nvmexpress:uuid:ae717767-c0fa-56f7-ab4b-5c426b0c553f"}], "project": {"id": "proj_GnzRD5X6qM5yw", "name": "Heavy Duty Iron Shoes", "slug": "heavy-duty-iron-shoes", "description": "Sleek Wool Clock", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {"subscription_id": "<id>", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_QnjVypy08mCW7amJPYj0hXGZgjjg", "name": "583 Team", "slug": "583-team", "description": "583 Team", "address": "69731 Lueilwitz Spurs, Aufderharmouth, MI 93262-2199", "currency": {}, "status": "verified"}}}]}
+          application/vnd.api+json: {"data": [{"id": "vol_RLYV8DZ2D5QoE", "type": "volumes", "attributes": {"name": "Enormous Wool Watch", "size_in_gb": 1500, "created_at": "2025-10-03T17:09:37.415Z", "namespace_id": "1", "connector_id": "nqn.2001-07.com.ceph:1757602476548", "initiators": [{"nqn": "nqn.2014-08.org.nvmexpress:uuid:ae717767-c0fa-56f7-ab4b-5c426b0c553f"}], "project": {"id": "proj_GnzRD5X6qM5yw", "name": "Heavy Duty Iron Shoes", "slug": "heavy-duty-iron-shoes", "description": "Sleek Wool Clock", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {"subscription_id": "<id>", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_QnjVypy08mCW7amJPYj0hXGZgjjg", "name": "583 Team", "slug": "583-team", "description": "583 Team", "address": "69731 Lueilwitz Spurs, Aufderharmouth, MI 93262-2199", "currency": {}, "status": "verified"}}}]}
   post-storage-volumes-mount:
     speakeasy-default-post-storage-volumes-mount:
       parameters:
@@ -3690,7 +3691,7 @@ examples:
           id: "vol_aKXgRdR3qv9k5"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "vol_aKXgRdR3qv9k5", "type": "volumes", "attributes": {"name": "Ergonomic Concrete Shoes", "size_in_gb": 1500, "created_at": "2025-10-03T17:09:38.006Z", "namespace_id": 1, "connector_id": "nqn.2001-07.com.ceph:1757602476548", "initiators": [{"nqn": "nqn.2014-08.org.nvmexpress:uuid:ae717767-c0fa-56f7-ab4b-5c426b0c553f"}], "project": {"id": "proj_Z8rodmkAD1jLB", "name": "Practical Copper Bag", "slug": "practical-copper-bag", "description": "Aerodynamic Rubber Car", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {"subscription_id": "<id>", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_4zo3v0EbRvUKMXX1gKR2TkmXVPA", "name": "592 Team", "slug": "592-team", "description": "592 Team", "address": "58253 Schuppe Ports, Heathcoteborough, ND 34198-0887", "currency": {}, "status": "verified"}}}}
+          application/vnd.api+json: {"data": {"id": "vol_aKXgRdR3qv9k5", "type": "volumes", "attributes": {"name": "Ergonomic Concrete Shoes", "size_in_gb": 1500, "created_at": "2025-10-03T17:09:38.006Z", "namespace_id": "1", "connector_id": "nqn.2001-07.com.ceph:1757602476548", "initiators": [{"nqn": "nqn.2014-08.org.nvmexpress:uuid:ae717767-c0fa-56f7-ab4b-5c426b0c553f"}], "project": {"id": "proj_Z8rodmkAD1jLB", "name": "Practical Copper Bag", "slug": "practical-copper-bag", "description": "Aerodynamic Rubber Car", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {"subscription_id": "<id>", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_4zo3v0EbRvUKMXX1gKR2TkmXVPA", "name": "592 Team", "slug": "592-team", "description": "592 Team", "address": "58253 Schuppe Ports, Heathcoteborough, ND 34198-0887", "currency": {}, "status": "verified"}}}}
   delete-storage-volumes:
     speakeasy-default-delete-storage-volumes:
       parameters:
@@ -3700,4 +3701,7 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Go SDK Changes:
-  * `Latitudesh.Billing.ListUsage()`:  `response.Data.Attributes.AvailableCreditBalance` **Added**
+  * `Latitudesh.Billing.ListUsage()`:  `response.Data.Attributes.Threshold` **Changed** **Breaking** :warning:
+  * `Latitudesh.Storage.Get-Storage-Volumes()`:  `response.Data.[].Attributes.NamespaceId` **Changed** **Breaking** :warning:
+  * `Latitudesh.Storage.Post-Storage-Volumes()`:  `response.Data.Attributes.NamespaceId` **Changed** **Breaking** :warning:
+  * `Latitudesh.Storage.Get-Storage-Volume()`:  `response.Data.Attributes.NamespaceId` **Changed** **Breaking** :warning:

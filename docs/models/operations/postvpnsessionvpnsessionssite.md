@@ -1,7 +1,5 @@
 # PostVpnSessionVpnSessionsSite
 
-Site slug (case-insensitive)
-
 
 ## Values
 
