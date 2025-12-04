@@ -72,7 +72,7 @@ type GetIpsRequest struct {
 	FilterFamily *FilterFamily `queryParam:"style=form,explode=true,name=filter[family]"`
 	// The protocol type to filter by
 	FilterType *FilterType `queryParam:"style=form,explode=true,name=filter[type]"`
-	// The site slug to filter by (case-insensitive)
+	// The site slug to filter by
 	FilterLocation *string `queryParam:"style=form,explode=true,name=filter[location]"`
 	// The address of IP to filter by starts_with
 	FilterAddress *string `queryParam:"style=form,explode=true,name=filter[address]"`
