@@ -1,5 +1,4 @@
 # UserData
-(*UserData*)
 
 ## Overview
 
@@ -47,7 +46,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.Object != nil {
+    if res.UserData != nil {
         // handle response
     }
 }
@@ -103,7 +102,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.UserData != nil {
+    if res.UserDataObject != nil {
         // handle response
     }
 }
@@ -225,7 +224,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.UserData != nil {
+    if res.UserDataObject != nil {
         // handle response
     }
 }
@@ -290,7 +289,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.UserData != nil {
+    if res.UserDataObject != nil {
         // handle response
     }
 }
@@ -345,7 +344,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.Object != nil {
+    if res.UserData != nil {
         // handle response
     }
 }
@@ -409,7 +408,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.UserData != nil {
+    if res.UserDataObject != nil {
         // handle response
     }
 }
@@ -462,7 +461,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.UserData != nil {
+    if res.UserDataObject != nil {
         // handle response
     }
 }
@@ -525,7 +524,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.UserData != nil {
+    if res.UserDataObject != nil {
         // handle response
     }
 }
