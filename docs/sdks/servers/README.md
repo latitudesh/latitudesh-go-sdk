@@ -1,5 +1,4 @@
 # Servers
-(*Servers*)
 
 ## Overview
 

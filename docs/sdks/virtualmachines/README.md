@@ -1,5 +1,4 @@
 # VirtualMachines
-(*VirtualMachines*)
 
 ## Overview
 

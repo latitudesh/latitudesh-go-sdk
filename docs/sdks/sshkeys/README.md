@@ -1,5 +1,4 @@
 # SSHKeys
-(*SSHKeys*)
 
 ## Overview
 
