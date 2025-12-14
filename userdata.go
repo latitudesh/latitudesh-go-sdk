@@ -210,12 +210,12 @@ func (s *UserData) GetProjectUsersData(ctx context.Context, projectID string, ex
 				return nil, err
 			}
 
-			var out operations.GetProjectUsersDataResponseBody
+			var out components.UserData
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.Object = &out
+			res.UserData = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -428,12 +428,12 @@ func (s *UserData) GetProjectUserData(ctx context.Context, projectID string, use
 				return nil, err
 			}
 
-			var out components.UserData
+			var out components.UserDataObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.UserData = &out
+			res.UserDataObject = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -841,12 +841,12 @@ func (s *UserData) Create(ctx context.Context, projectID string, requestBody ope
 				return nil, err
 			}
 
-			var out components.UserData
+			var out components.UserDataObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.UserData = &out
+			res.UserDataObject = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -1062,12 +1062,12 @@ func (s *UserData) UpdateForProject(ctx context.Context, projectID string, userD
 				return nil, err
 			}
 
-			var out components.UserData
+			var out components.UserDataObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.UserData = &out
+			res.UserDataObject = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -1277,12 +1277,12 @@ func (s *UserData) List(ctx context.Context, filterProject *string, extraFieldsU
 				return nil, err
 			}
 
-			var out operations.GetUsersDataResponseBody
+			var out components.UserData
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.Object = &out
+			res.UserData = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -1490,12 +1490,12 @@ func (s *UserData) CreateNew(ctx context.Context, request operations.PostUserDat
 				return nil, err
 			}
 
-			var out components.UserData
+			var out components.UserDataObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.UserData = &out
+			res.UserDataObject = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -1705,12 +1705,12 @@ func (s *UserData) Retrieve(ctx context.Context, userDataID string, extraFieldsU
 				return nil, err
 			}
 
-			var out components.UserData
+			var out components.UserDataObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.UserData = &out
+			res.UserDataObject = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -1923,12 +1923,12 @@ func (s *UserData) Update(ctx context.Context, userDataID string, requestBody *o
 				return nil, err
 			}
 
-			var out components.UserData
+			var out components.UserDataObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.UserData = &out
+			res.UserDataObject = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
