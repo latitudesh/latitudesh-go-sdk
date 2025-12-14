@@ -32,8 +32,10 @@ func (e *VirtualMachinePayloadType) UnmarshalJSON(data []byte) error {
 }
 
 type VirtualMachinePayloadAttributes struct {
-	Name    *string  `default:"my-vm" json:"name"`
-	Plan    *string  `json:"plan,omitempty"`
+	Name *string `default:"my-vm" json:"name"`
+	Plan *string `json:"plan,omitempty"`
+	// The site slug where the virtual machine will be deployed. Defaults to 'DAL' if not specified. To see which sites are available for a given plan, check the 'available' array in the plan's regions.
+	Site    *string  `json:"site,omitempty"`
 	SSHKeys []string `json:"ssh_keys,omitempty"`
 	Project *string  `default:"my-project" json:"project"`
 }
@@ -61,6 +63,13 @@ func (v *VirtualMachinePayloadAttributes) GetPlan() *string {
 		return nil
 	}
 	return v.Plan
+}
+
+func (v *VirtualMachinePayloadAttributes) GetSite() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Site
 }
 
 func (v *VirtualMachinePayloadAttributes) GetSSHKeys() []string {

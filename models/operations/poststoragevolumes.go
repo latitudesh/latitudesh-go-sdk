@@ -46,7 +46,7 @@ func (p PostStorageVolumesStorageAttributes) MarshalJSON() ([]byte, error) {
 }
 
 func (p *PostStorageVolumesStorageAttributes) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &p, "", false, []string{"project", "name"}); err != nil {
+	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
 		return err
 	}
 	return nil
