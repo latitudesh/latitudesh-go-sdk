@@ -31,11 +31,45 @@ func (e *VirtualMachinePayloadType) UnmarshalJSON(data []byte) error {
 	}
 }
 
+// VirtualMachinePayloadBilling - The billing type for the virtual machine. Accepts `hourly` and `monthly` for on demand projects and `yearly` for reserved projects. Defaults to `monthly` for on demand projects and `yearly` for reserved projects.
+type VirtualMachinePayloadBilling string
+
+const (
+	VirtualMachinePayloadBillingHourly  VirtualMachinePayloadBilling = "hourly"
+	VirtualMachinePayloadBillingMonthly VirtualMachinePayloadBilling = "monthly"
+	VirtualMachinePayloadBillingYearly  VirtualMachinePayloadBilling = "yearly"
+)
+
+func (e VirtualMachinePayloadBilling) ToPointer() *VirtualMachinePayloadBilling {
+	return &e
+}
+func (e *VirtualMachinePayloadBilling) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "hourly":
+		fallthrough
+	case "monthly":
+		fallthrough
+	case "yearly":
+		*e = VirtualMachinePayloadBilling(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for VirtualMachinePayloadBilling: %v", v)
+	}
+}
+
 type VirtualMachinePayloadAttributes struct {
-	Name    *string  `default:"my-vm" json:"name"`
-	Plan    *string  `json:"plan,omitempty"`
+	Name *string `default:"my-vm" json:"name"`
+	Plan *string `json:"plan,omitempty"`
+	// The site slug where the virtual machine will be deployed. Defaults to 'DAL' if not specified. To see which sites are available for a given plan, check the 'available' array in the plan's regions.
+	Site    *string  `json:"site,omitempty"`
 	SSHKeys []string `json:"ssh_keys,omitempty"`
 	Project *string  `default:"my-project" json:"project"`
+	// The billing type for the virtual machine. Accepts `hourly` and `monthly` for on demand projects and `yearly` for reserved projects. Defaults to `monthly` for on demand projects and `yearly` for reserved projects.
+	Billing *VirtualMachinePayloadBilling `json:"billing,omitempty"`
 }
 
 func (v VirtualMachinePayloadAttributes) MarshalJSON() ([]byte, error) {
@@ -63,6 +97,13 @@ func (v *VirtualMachinePayloadAttributes) GetPlan() *string {
 	return v.Plan
 }
 
+func (v *VirtualMachinePayloadAttributes) GetSite() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Site
+}
+
 func (v *VirtualMachinePayloadAttributes) GetSSHKeys() []string {
 	if v == nil {
 		return nil
@@ -75,6 +116,13 @@ func (v *VirtualMachinePayloadAttributes) GetProject() *string {
 		return nil
 	}
 	return v.Project
+}
+
+func (v *VirtualMachinePayloadAttributes) GetBilling() *VirtualMachinePayloadBilling {
+	if v == nil {
+		return nil
+	}
+	return v.Billing
 }
 
 type VirtualMachinePayloadData struct {

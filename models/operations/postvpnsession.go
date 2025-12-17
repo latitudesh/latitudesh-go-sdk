@@ -52,7 +52,7 @@ const (
 	PostVpnSessionVpnSessionsSiteSao2 PostVpnSessionVpnSessionsSite = "SAO2"
 	PostVpnSessionVpnSessionsSiteSyd  PostVpnSessionVpnSessionsSite = "SYD"
 	PostVpnSessionVpnSessionsSiteTyo  PostVpnSessionVpnSessionsSite = "TYO"
-	PostVpnSessionVpnSessionsSiteTyo2 PostVpnSessionVpnSessionsSite = "TYO2"
+	PostVpnSessionVpnSessionsSiteTyo4 PostVpnSessionVpnSessionsSite = "TYO4"
 )
 
 func (e PostVpnSessionVpnSessionsSite) ToPointer() *PostVpnSessionVpnSessionsSite {
@@ -100,7 +100,7 @@ func (e *PostVpnSessionVpnSessionsSite) UnmarshalJSON(data []byte) error {
 		fallthrough
 	case "TYO":
 		fallthrough
-	case "TYO2":
+	case "TYO4":
 		*e = PostVpnSessionVpnSessionsSite(v)
 		return nil
 	default:

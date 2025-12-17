@@ -111,7 +111,7 @@ func main() {
 <details open>
 <summary>Available methods</summary>
 
-### [APIKeys](docs/sdks/apikeys/README.md)
+### [ApiKeys](docs/sdks/apikeys/README.md)
 
 * [List](docs/sdks/apikeys/README.md#list) - List API Keys
 * [Create](docs/sdks/apikeys/README.md#create) - Create API Key
@@ -137,11 +137,11 @@ func main() {
 * [ListAssignments](docs/sdks/firewalls/README.md#listassignments) - Firewall Assignments
 * [DeleteAssignment](docs/sdks/firewalls/README.md#deleteassignment) - Delete Firewall Assignment
 
-#### [Firewalls.Assignments](docs/sdks/assignments/README.md)
+### [Firewalls.Assignments](docs/sdks/assignments/README.md)
 
 * [Create](docs/sdks/assignments/README.md#create) - Firewall Assignment
 
-### [IPAddresses](docs/sdks/ipaddresses/README.md)
+### [IpAddresses](docs/sdks/ipaddresses/README.md)
 
 * [List](docs/sdks/ipaddresses/README.md#list) - List IPs
 * [Get](docs/sdks/ipaddresses/README.md#get) - Retrieve an IP
@@ -159,7 +159,7 @@ func main() {
 * [GetContainersPlan](docs/sdks/plans/README.md#getcontainersplan) - Retrieve container plan
 * [ListStorage](docs/sdks/plans/README.md#liststorage) - List all Storage Plans
 
-#### [Plans.VM](docs/sdks/vm/README.md)
+### [Plans.Vm](docs/sdks/vm/README.md)
 
 * [List](docs/sdks/vm/README.md#list) - List all Virtual Machines Plans
 
@@ -180,7 +180,7 @@ func main() {
 * [Update](docs/sdks/projects/README.md#update) - Update a Project
 * [Delete](docs/sdks/projects/README.md#delete) - Delete a Project
 
-#### [~~Projects.SSHKeys~~](docs/sdks/latitudeshprojectssshkeys/README.md)
+### [~~Projects.SshKeys~~](docs/sdks/latitudeshprojectssshkeys/README.md)
 
 * [~~PostProjectSSHKey~~](docs/sdks/latitudeshprojectssshkeys/README.md#postprojectsshkey) - Create a Project SSH Key :warning: **Deprecated**
 

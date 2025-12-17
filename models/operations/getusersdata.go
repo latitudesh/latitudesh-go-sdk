@@ -39,22 +39,10 @@ func (g *GetUsersDataRequest) GetExtraFieldsUserData() *string {
 	return g.ExtraFieldsUserData
 }
 
-// GetUsersDataResponseBody - Success
-type GetUsersDataResponseBody struct {
-	Data []components.UserData `json:"data,omitempty"`
-}
-
-func (g *GetUsersDataResponseBody) GetData() []components.UserData {
-	if g == nil {
-		return nil
-	}
-	return g.Data
-}
-
 type GetUsersDataResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Success
-	Object *GetUsersDataResponseBody
+	UserData *components.UserData
 }
 
 func (g *GetUsersDataResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -64,9 +52,9 @@ func (g *GetUsersDataResponse) GetHTTPMeta() components.HTTPMetadata {
 	return g.HTTPMeta
 }
 
-func (g *GetUsersDataResponse) GetObject() *GetUsersDataResponseBody {
+func (g *GetUsersDataResponse) GetUserData() *components.UserData {
 	if g == nil {
 		return nil
 	}
-	return g.Object
+	return g.UserData
 }

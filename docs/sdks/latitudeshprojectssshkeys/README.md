@@ -1,5 +1,7 @@
-# LatitudeshProjectsSSHKeys
-(*Projects.SSHKeys*)
+# ~~Projects.SshKeys~~
+
+> [!WARNING]
+> This SDK is **DEPRECATED**
 
 ## Overview
 

@@ -23,4 +23,4 @@
 | `FilterLocationSao2` | SAO2                 |
 | `FilterLocationSyd`  | SYD                  |
 | `FilterLocationTyo`  | TYO                  |
-| `FilterLocationTyo2` | TYO2                 |
+| `FilterLocationTyo4` | TYO4                 |

@@ -116,7 +116,7 @@ const (
 	CreateServerSiteSao2 CreateServerSite = "SAO2"
 	CreateServerSiteSyd  CreateServerSite = "SYD"
 	CreateServerSiteTyo  CreateServerSite = "TYO"
-	CreateServerSiteTyo2 CreateServerSite = "TYO2"
+	CreateServerSiteTyo4 CreateServerSite = "TYO4"
 )
 
 func (e CreateServerSite) ToPointer() *CreateServerSite {
@@ -164,7 +164,7 @@ func (e *CreateServerSite) UnmarshalJSON(data []byte) error {
 		fallthrough
 	case "TYO":
 		fallthrough
-	case "TYO2":
+	case "TYO4":
 		*e = CreateServerSite(v)
 		return nil
 	default:

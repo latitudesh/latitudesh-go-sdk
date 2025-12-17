@@ -1,5 +1,4 @@
 # Tags
-(*Tags*)
 
 ## Overview
 

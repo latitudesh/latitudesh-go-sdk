@@ -25,4 +25,4 @@ Site ID or slug
 | `CreateVirtualNetworkPrivateNetworksSiteSao2` | SAO2                                          |
 | `CreateVirtualNetworkPrivateNetworksSiteSyd`  | SYD                                           |
 | `CreateVirtualNetworkPrivateNetworksSiteTyo`  | TYO                                           |
-| `CreateVirtualNetworkPrivateNetworksSiteTyo2` | TYO2                                          |
+| `CreateVirtualNetworkPrivateNetworksSiteTyo4` | TYO4                                          |

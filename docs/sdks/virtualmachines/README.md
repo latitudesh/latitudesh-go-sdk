@@ -1,5 +1,4 @@
 # VirtualMachines
-(*VirtualMachines*)
 
 ## Overview
 
@@ -42,7 +41,9 @@ func main() {
             Type: components.VirtualMachinePayloadTypeVirtualMachines.ToPointer(),
             Attributes: &components.VirtualMachinePayloadAttributes{
                 Name: latitudeshgosdk.Pointer("my-new-vm"),
+                Site: latitudeshgosdk.Pointer("ASH"),
                 Project: latitudeshgosdk.Pointer("enormous-wool-keyboard"),
+                Billing: components.VirtualMachinePayloadBillingMonthly.ToPointer(),
             },
         },
     })

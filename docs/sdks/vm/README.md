@@ -1,5 +1,4 @@
-# VM
-(*Plans.VM*)
+# Plans.Vm
 
 ## Overview
 

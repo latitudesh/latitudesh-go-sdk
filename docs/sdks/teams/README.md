@@ -1,5 +1,4 @@
 # Teams
-(*Teams*)
 
 ## Overview
 

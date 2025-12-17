@@ -18,7 +18,7 @@ func (g GetUserDataRequest) MarshalJSON() ([]byte, error) {
 }
 
 func (g *GetUserDataRequest) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &g, "", false, []string{"user_data_id"}); err != nil {
+	if err := utils.UnmarshalJSON(data, &g, "", false, nil); err != nil {
 		return err
 	}
 	return nil
@@ -41,7 +41,7 @@ func (g *GetUserDataRequest) GetExtraFieldsUserData() *string {
 type GetUserDataResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Success
-	UserData *components.UserData
+	UserDataObject *components.UserDataObject
 }
 
 func (g *GetUserDataResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -51,9 +51,9 @@ func (g *GetUserDataResponse) GetHTTPMeta() components.HTTPMetadata {
 	return g.HTTPMeta
 }
 
-func (g *GetUserDataResponse) GetUserData() *components.UserData {
+func (g *GetUserDataResponse) GetUserDataObject() *components.UserDataObject {
 	if g == nil {
 		return nil
 	}
-	return g.UserData
+	return g.UserDataObject
 }

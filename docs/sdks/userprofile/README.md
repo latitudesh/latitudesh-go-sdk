@@ -1,5 +1,4 @@
 # UserProfile
-(*UserProfile*)
 
 ## Overview
 

@@ -30,6 +30,38 @@ func (e *PlanDataType) UnmarshalJSON(data []byte) error {
 	}
 }
 
+type PlanDataFeatures string
+
+const (
+	PlanDataFeaturesSSH      PlanDataFeatures = "ssh"
+	PlanDataFeaturesRaid     PlanDataFeatures = "raid"
+	PlanDataFeaturesUserData PlanDataFeatures = "user_data"
+	PlanDataFeaturesSev      PlanDataFeatures = "sev"
+)
+
+func (e PlanDataFeatures) ToPointer() *PlanDataFeatures {
+	return &e
+}
+func (e *PlanDataFeatures) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "ssh":
+		fallthrough
+	case "raid":
+		fallthrough
+	case "user_data":
+		fallthrough
+	case "sev":
+		*e = PlanDataFeatures(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for PlanDataFeatures: %v", v)
+	}
+}
+
 type CPU struct {
 	Type  *string  `json:"type,omitempty"`
 	Clock *float64 `json:"clock,omitempty"`
@@ -154,6 +186,10 @@ func (n *Nics) GetType() *string {
 type Gpu struct {
 	Count *float64 `json:"count,omitempty"`
 	Type  *string  `json:"type,omitempty"`
+	// VRAM per GPU in GB
+	VramPerGpu *float64 `json:"vram_per_gpu,omitempty"`
+	// GPU interconnection type (e.g., NVLink, PCIe)
+	Interconnect *string `json:"interconnect,omitempty"`
 }
 
 func (g *Gpu) GetCount() *float64 {
@@ -168,6 +204,20 @@ func (g *Gpu) GetType() *string {
 		return nil
 	}
 	return g.Type
+}
+
+func (g *Gpu) GetVramPerGpu() *float64 {
+	if g == nil {
+		return nil
+	}
+	return g.VramPerGpu
+}
+
+func (g *Gpu) GetInterconnect() *string {
+	if g == nil {
+		return nil
+	}
+	return g.Interconnect
 }
 
 type Specs struct {
@@ -338,7 +388,8 @@ func (p *PlanDataPricing) GetBrl() *PlanDataBRL {
 }
 
 type PlanDataRegions struct {
-	Name             *string          `json:"name,omitempty"`
+	Name *string `json:"name,omitempty"`
+	// Array of operating system slugs that support instant deployment at this location. Instant deployments are provisioned immediately without the typical deployment delay.
 	DeploysInstantly []string         `json:"deploys_instantly,omitempty"`
 	Locations        *Locations       `json:"locations,omitempty"`
 	StockLevel       *StockLevel      `json:"stock_level,omitempty"`
@@ -381,11 +432,12 @@ func (p *PlanDataRegions) GetPricing() *PlanDataPricing {
 }
 
 type PlanDataAttributes struct {
-	Slug     *string           `json:"slug,omitempty"`
-	Name     *string           `json:"name,omitempty"`
-	Features []string          `json:"features,omitempty"`
-	Specs    *Specs            `json:"specs,omitempty"`
-	Regions  []PlanDataRegions `json:"regions,omitempty"`
+	Slug *string `json:"slug,omitempty"`
+	Name *string `json:"name,omitempty"`
+	// List of available features for the plan
+	Features []PlanDataFeatures `json:"features,omitempty"`
+	Specs    *Specs             `json:"specs,omitempty"`
+	Regions  []PlanDataRegions  `json:"regions,omitempty"`
 }
 
 func (p *PlanDataAttributes) GetSlug() *string {
@@ -402,7 +454,7 @@ func (p *PlanDataAttributes) GetName() *string {
 	return p.Name
 }
 
-func (p *PlanDataAttributes) GetFeatures() []string {
+func (p *PlanDataAttributes) GetFeatures() []PlanDataFeatures {
 	if p == nil {
 		return nil
 	}
