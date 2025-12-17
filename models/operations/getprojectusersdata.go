@@ -19,7 +19,7 @@ func (g GetProjectUsersDataRequest) MarshalJSON() ([]byte, error) {
 }
 
 func (g *GetProjectUsersDataRequest) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &g, "", false, []string{"project_id"}); err != nil {
+	if err := utils.UnmarshalJSON(data, &g, "", false, nil); err != nil {
 		return err
 	}
 	return nil
@@ -39,22 +39,10 @@ func (g *GetProjectUsersDataRequest) GetExtraFieldsUserData() *string {
 	return g.ExtraFieldsUserData
 }
 
-// GetProjectUsersDataResponseBody - Success
-type GetProjectUsersDataResponseBody struct {
-	Data []components.UserData `json:"data,omitempty"`
-}
-
-func (g *GetProjectUsersDataResponseBody) GetData() []components.UserData {
-	if g == nil {
-		return nil
-	}
-	return g.Data
-}
-
 type GetProjectUsersDataResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Success
-	Object *GetProjectUsersDataResponseBody
+	UserData *components.UserData
 }
 
 func (g *GetProjectUsersDataResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -64,9 +52,9 @@ func (g *GetProjectUsersDataResponse) GetHTTPMeta() components.HTTPMetadata {
 	return g.HTTPMeta
 }
 
-func (g *GetProjectUsersDataResponse) GetObject() *GetProjectUsersDataResponseBody {
+func (g *GetProjectUsersDataResponse) GetUserData() *components.UserData {
 	if g == nil {
 		return nil
 	}
-	return g.Object
+	return g.UserData
 }

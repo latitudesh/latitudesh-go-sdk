@@ -1,5 +1,4 @@
 # VirtualNetworks
-(*VirtualNetworks*)
 
 ## Overview
 

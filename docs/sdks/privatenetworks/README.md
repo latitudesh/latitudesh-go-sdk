@@ -1,5 +1,4 @@
 # PrivateNetworks
-(*PrivateNetworks*)
 
 ## Overview
 

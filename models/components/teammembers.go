@@ -2,6 +2,11 @@
 
 package components
 
+import (
+	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
+	"time"
+)
+
 type TeamMembersRole struct {
 	ID        *string `json:"id,omitempty"`
 	Name      *string `json:"name,omitempty"`
@@ -37,47 +42,109 @@ func (t *TeamMembersRole) GetUpdatedAt() *string {
 	return t.UpdatedAt
 }
 
-type TeamMembersData struct {
-	FirstName  *string          `json:"first_name,omitempty"`
-	LastName   *string          `json:"last_name,omitempty"`
-	Email      *string          `json:"email,omitempty"`
-	MfaEnabled *bool            `json:"mfa_enabled,omitempty"`
-	Role       *TeamMembersRole `json:"role,omitempty"`
+type TeamMembersAttributes struct {
+	FirstName   *string          `json:"first_name,omitempty"`
+	LastName    *string          `json:"last_name,omitempty"`
+	Email       *string          `json:"email,omitempty"`
+	MfaEnabled  *bool            `json:"mfa_enabled,omitempty"`
+	CreatedAt   *time.Time       `json:"created_at,omitempty"`
+	UpdatedAt   *time.Time       `json:"updated_at,omitempty"`
+	LastLoginAt *time.Time       `json:"last_login_at,omitempty"`
+	Role        *TeamMembersRole `json:"role,omitempty"`
 }
 
-func (t *TeamMembersData) GetFirstName() *string {
+func (t TeamMembersAttributes) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(t, "", false)
+}
+
+func (t *TeamMembersAttributes) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &t, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (t *TeamMembersAttributes) GetFirstName() *string {
 	if t == nil {
 		return nil
 	}
 	return t.FirstName
 }
 
-func (t *TeamMembersData) GetLastName() *string {
+func (t *TeamMembersAttributes) GetLastName() *string {
 	if t == nil {
 		return nil
 	}
 	return t.LastName
 }
 
-func (t *TeamMembersData) GetEmail() *string {
+func (t *TeamMembersAttributes) GetEmail() *string {
 	if t == nil {
 		return nil
 	}
 	return t.Email
 }
 
-func (t *TeamMembersData) GetMfaEnabled() *bool {
+func (t *TeamMembersAttributes) GetMfaEnabled() *bool {
 	if t == nil {
 		return nil
 	}
 	return t.MfaEnabled
 }
 
-func (t *TeamMembersData) GetRole() *TeamMembersRole {
+func (t *TeamMembersAttributes) GetCreatedAt() *time.Time {
+	if t == nil {
+		return nil
+	}
+	return t.CreatedAt
+}
+
+func (t *TeamMembersAttributes) GetUpdatedAt() *time.Time {
+	if t == nil {
+		return nil
+	}
+	return t.UpdatedAt
+}
+
+func (t *TeamMembersAttributes) GetLastLoginAt() *time.Time {
+	if t == nil {
+		return nil
+	}
+	return t.LastLoginAt
+}
+
+func (t *TeamMembersAttributes) GetRole() *TeamMembersRole {
 	if t == nil {
 		return nil
 	}
 	return t.Role
+}
+
+type TeamMembersData struct {
+	ID         *string                `json:"id,omitempty"`
+	Type       *string                `json:"type,omitempty"`
+	Attributes *TeamMembersAttributes `json:"attributes,omitempty"`
+}
+
+func (t *TeamMembersData) GetID() *string {
+	if t == nil {
+		return nil
+	}
+	return t.ID
+}
+
+func (t *TeamMembersData) GetType() *string {
+	if t == nil {
+		return nil
+	}
+	return t.Type
+}
+
+func (t *TeamMembersData) GetAttributes() *TeamMembersAttributes {
+	if t == nil {
+		return nil
+	}
+	return t.Attributes
 }
 
 type TeamMembers struct {

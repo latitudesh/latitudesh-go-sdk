@@ -112,7 +112,7 @@ func (p *PatchUserDataRequest) GetRequestBody() *PatchUserDataUserDataRequestBod
 type PatchUserDataResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Success
-	UserData *components.UserData
+	UserDataObject *components.UserDataObject
 }
 
 func (p *PatchUserDataResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -122,9 +122,9 @@ func (p *PatchUserDataResponse) GetHTTPMeta() components.HTTPMetadata {
 	return p.HTTPMeta
 }
 
-func (p *PatchUserDataResponse) GetUserData() *components.UserData {
+func (p *PatchUserDataResponse) GetUserDataObject() *components.UserDataObject {
 	if p == nil {
 		return nil
 	}
-	return p.UserData
+	return p.UserDataObject
 }

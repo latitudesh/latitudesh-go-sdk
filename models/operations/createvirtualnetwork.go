@@ -53,7 +53,7 @@ const (
 	CreateVirtualNetworkPrivateNetworksSiteSao2 CreateVirtualNetworkPrivateNetworksSite = "SAO2"
 	CreateVirtualNetworkPrivateNetworksSiteSyd  CreateVirtualNetworkPrivateNetworksSite = "SYD"
 	CreateVirtualNetworkPrivateNetworksSiteTyo  CreateVirtualNetworkPrivateNetworksSite = "TYO"
-	CreateVirtualNetworkPrivateNetworksSiteTyo2 CreateVirtualNetworkPrivateNetworksSite = "TYO2"
+	CreateVirtualNetworkPrivateNetworksSiteTyo4 CreateVirtualNetworkPrivateNetworksSite = "TYO4"
 )
 
 func (e CreateVirtualNetworkPrivateNetworksSite) ToPointer() *CreateVirtualNetworkPrivateNetworksSite {
@@ -101,7 +101,7 @@ func (e *CreateVirtualNetworkPrivateNetworksSite) UnmarshalJSON(data []byte) err
 		fallthrough
 	case "TYO":
 		fallthrough
-	case "TYO2":
+	case "TYO4":
 		*e = CreateVirtualNetworkPrivateNetworksSite(v)
 		return nil
 	default:

@@ -1,5 +1,7 @@
 # VirtualMachinePlansPricing
 
+Pricing information for this plan in the region
+
 
 ## Fields
 

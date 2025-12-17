@@ -29,7 +29,7 @@ const (
 	FilterLocationSao2 FilterLocation = "SAO2"
 	FilterLocationSyd  FilterLocation = "SYD"
 	FilterLocationTyo  FilterLocation = "TYO"
-	FilterLocationTyo2 FilterLocation = "TYO2"
+	FilterLocationTyo4 FilterLocation = "TYO4"
 )
 
 func (e FilterLocation) ToPointer() *FilterLocation {
@@ -77,7 +77,7 @@ func (e *FilterLocation) UnmarshalJSON(data []byte) error {
 		fallthrough
 	case "TYO":
 		fallthrough
-	case "TYO2":
+	case "TYO4":
 		*e = FilterLocation(v)
 		return nil
 	default:

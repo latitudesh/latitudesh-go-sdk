@@ -23,4 +23,4 @@
 | `PostVpnSessionVpnSessionsSiteSao2` | SAO2                                |
 | `PostVpnSessionVpnSessionsSiteSyd`  | SYD                                 |
 | `PostVpnSessionVpnSessionsSiteTyo`  | TYO                                 |
-| `PostVpnSessionVpnSessionsSiteTyo2` | TYO2                                |
+| `PostVpnSessionVpnSessionsSiteTyo4` | TYO4                                |

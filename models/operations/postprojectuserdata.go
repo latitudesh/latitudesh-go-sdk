@@ -105,7 +105,7 @@ func (p *PostProjectUserDataRequest) GetRequestBody() PostProjectUserDataUserDat
 type PostProjectUserDataResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Created
-	UserData *components.UserData
+	UserDataObject *components.UserDataObject
 }
 
 func (p *PostProjectUserDataResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -115,9 +115,9 @@ func (p *PostProjectUserDataResponse) GetHTTPMeta() components.HTTPMetadata {
 	return p.HTTPMeta
 }
 
-func (p *PostProjectUserDataResponse) GetUserData() *components.UserData {
+func (p *PostProjectUserDataResponse) GetUserDataObject() *components.UserDataObject {
 	if p == nil {
 		return nil
 	}
-	return p.UserData
+	return p.UserDataObject
 }

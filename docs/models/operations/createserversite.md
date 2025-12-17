@@ -25,4 +25,4 @@ The site slug to deploy the server
 | `CreateServerSiteSao2` | SAO2                   |
 | `CreateServerSiteSyd`  | SYD                    |
 | `CreateServerSiteTyo`  | TYO                    |
-| `CreateServerSiteTyo2` | TYO2                   |
+| `CreateServerSiteTyo4` | TYO4                   |

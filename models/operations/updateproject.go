@@ -126,7 +126,7 @@ func (u UpdateProjectProjectsData) MarshalJSON() ([]byte, error) {
 }
 
 func (u *UpdateProjectProjectsData) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &u, "", false, []string{"type"}); err != nil {
+	if err := utils.UnmarshalJSON(data, &u, "", false, nil); err != nil {
 		return err
 	}
 	return nil
