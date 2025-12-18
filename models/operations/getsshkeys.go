@@ -9,6 +9,8 @@ import (
 type GetSSHKeysRequest struct {
 	// Project ID or slug
 	FilterProject *string `queryParam:"style=form,explode=true,name=filter[project]"`
+	// Filter by scope: `project` (has projects), `team` (no projects), or empty (all)
+	FilterScope *string `queryParam:"style=form,explode=true,name=filter[scope]"`
 	// The tags ids to filter by, separated by comma, e.g. `filter[tags]=tag_1,tag_2`will return ssh keys with `tag_1` AND `tag_2`
 	FilterTags *string `queryParam:"style=form,explode=true,name=filter[tags]"`
 }
@@ -18,6 +20,13 @@ func (g *GetSSHKeysRequest) GetFilterProject() *string {
 		return nil
 	}
 	return g.FilterProject
+}
+
+func (g *GetSSHKeysRequest) GetFilterScope() *string {
+	if g == nil {
+		return nil
+	}
+	return g.FilterScope
 }
 
 func (g *GetSSHKeysRequest) GetFilterTags() *string {

@@ -168,6 +168,7 @@ type IPAddressAttributes struct {
 	Type       *IPAddressType    `json:"type,omitempty"`
 	Public     *bool             `json:"public,omitempty"`
 	Management *bool             `json:"management,omitempty"`
+	Additional *bool             `json:"additional,omitempty"`
 	Project    *IPAddressProject `json:"project,omitempty"`
 	Region     *IPAddressRegion  `json:"region,omitempty"`
 	Available  *bool             `json:"available,omitempty"`
@@ -228,6 +229,13 @@ func (i *IPAddressAttributes) GetManagement() *bool {
 		return nil
 	}
 	return i.Management
+}
+
+func (i *IPAddressAttributes) GetAdditional() *bool {
+	if i == nil {
+		return nil
+	}
+	return i.Additional
 }
 
 func (i *IPAddressAttributes) GetProject() *IPAddressProject {

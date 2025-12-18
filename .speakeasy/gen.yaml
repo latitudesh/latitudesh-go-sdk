@@ -29,7 +29,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 go:
-  version: 1.12.1
+  version: 1.12.2
   additionalDependencies: {}
   allowUnknownFieldsInWeakUnions: false
   baseErrorName: LatitudeshError

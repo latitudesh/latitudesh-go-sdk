@@ -244,6 +244,7 @@ func (s *IPAddresses) List(ctx context.Context, request operations.GetIpsRequest
 				FilterType:             request.FilterType,
 				FilterLocation:         request.FilterLocation,
 				FilterAddress:          request.FilterAddress,
+				FilterAdditional:       request.FilterAdditional,
 				ExtraFieldsIPAddresses: request.ExtraFieldsIPAddresses,
 				PageSize:               request.PageSize,
 				PageNumber:             &nP,

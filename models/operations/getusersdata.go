@@ -10,6 +10,8 @@ import (
 type GetUsersDataRequest struct {
 	// Project ID or slug
 	FilterProject *string `queryParam:"style=form,explode=true,name=filter[project]"`
+	// Filter by scope: `project` (has project), `team` (no project), or empty (all)
+	FilterScope *string `queryParam:"style=form,explode=true,name=filter[scope]"`
 	// The `decoded_content` is provided as an extra attribute that shows content in decoded form.
 	ExtraFieldsUserData *string `default:"decoded_content" queryParam:"style=form,explode=true,name=extra_fields[user_data]"`
 }
@@ -30,6 +32,13 @@ func (g *GetUsersDataRequest) GetFilterProject() *string {
 		return nil
 	}
 	return g.FilterProject
+}
+
+func (g *GetUsersDataRequest) GetFilterScope() *string {
+	if g == nil {
+		return nil
+	}
+	return g.FilterScope
 }
 
 func (g *GetUsersDataRequest) GetExtraFieldsUserData() *string {
