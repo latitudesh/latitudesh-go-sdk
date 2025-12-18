@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: f451f236980fe1e8f54bb78f18e01a4c
+  docChecksum: 779762c6bcb855cfa4f0b577e2439c4b
   docVersion: "2023-06-01"
   speakeasyVersion: 1.680.0
   generationVersion: 2.788.4
-  releaseVersion: 1.12.1
-  configChecksum: 85d9054c47909cd02b275b6eb26b7a1a
+  releaseVersion: 1.12.2
+  configChecksum: fc7ddec6a0cac8f530e17424d7e1f028
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 9d86cda1-e33d-42fd-a214-8ac9b1967414
-  pristine_commit_hash: 2f50961907812872d57583005da9f8fb5e8e5bdc
-  pristine_tree_hash: 25e7522035cb2197139ae0b4803abdf8dae2486d
+  generation_id: 68037342-223a-4000-b95d-ed3b9d1352d8
+  pristine_commit_hash: 790fbf0f0590903aa9cb725bbcd770970e0167be
+  pristine_tree_hash: 12e7ed12424c03eba81fc628ffbe4743e2211229
 features:
   go:
     additionalDependencies: 0.1.0
@@ -446,8 +446,8 @@ trackedFiles:
     pristine_git_object: cf6653a6106028705ef7dd0f02ef71ce1f8cf2ce
   docs/models/components/ipaddressattributes.md:
     id: 15d3f3dbdef8
-    last_write_checksum: sha1:65306070037be53642a4a22e5b528bd9a03579b2
-    pristine_git_object: f5ddf297cbafb60e3ac406f185e521a979d867a3
+    last_write_checksum: sha1:2693b2c8b7f7c438598853c82ebb2810d6779337
+    pristine_git_object: 442d63176e6dad5ad93b34f73424dfd097605ea7
   docs/models/components/ipaddresses.md:
     id: 1a4efba49e5a
     last_write_checksum: sha1:6f1355e89c12f9575dde294032d8ceba4b36852a
@@ -838,8 +838,8 @@ trackedFiles:
     pristine_git_object: 5ad200070f4c8357c2f4d20ca5aa4187bcfe4e06
   docs/models/components/sshkeydataattributes.md:
     id: 0cab08f07659
-    last_write_checksum: sha1:5fda5517b647ecdc6c5f6bcee0bf99d92e2d4f3d
-    pristine_git_object: 9d956b4559948e3bad3fc1a53c44f61828c9b6ce
+    last_write_checksum: sha1:d8aab419f8aba3f9f6f238db07c933bc994526d8
+    pristine_git_object: 70b07c67dd9e790193bd81f4b05faeb06cfeb1c6
   docs/models/components/sshkeydatatype.md:
     id: 8c10be84b28a
     last_write_checksum: sha1:a51d78feb0723c72d2ab5f53b597cadd65fe922c
@@ -1038,8 +1038,8 @@ trackedFiles:
     pristine_git_object: c298671a2496f434cddfedf7794df3d643c480eb
   docs/models/components/userdatapropertiesattributes.md:
     id: 55b7cfdf755f
-    last_write_checksum: sha1:3e612f706633489d8d909c834265d2747dda6aff
-    pristine_git_object: f4952e413142bac807afceea9fcc0566d1620d63
+    last_write_checksum: sha1:97efb9cc0e4bbcd880d36a319de628f0ac6b47cd
+    pristine_git_object: 3f744737c0f1d3e7d5ac9a7e891fd9c75b78f1e4
   docs/models/components/userdatapropertiestype.md:
     id: f9e2e04c1784
     last_write_checksum: sha1:49956b6982da7c7bdd6c3c487267d96936cc6b2c
@@ -1826,8 +1826,8 @@ trackedFiles:
     pristine_git_object: 935bd254232a5825e7782088cd53f649bec3535e
   docs/models/operations/getipsrequest.md:
     id: c967b67ba989
-    last_write_checksum: sha1:787c8d91ccbe1e9b78d54c6ab2216ca1ffeb6697
-    pristine_git_object: c680bdf1739be9bb97ddb383de5fc324d2d0fffd
+    last_write_checksum: sha1:2eee613d2c89f53e389a2358d1851958325a5301
+    pristine_git_object: 4d0f1f489f23e8fec32d1ac6e2712184a7083a42
   docs/models/operations/getipsresponse.md:
     id: 8ca61ba3f1cf
     last_write_checksum: sha1:cb17257064184910df3c9450fe1662d9f73fe971
@@ -1990,8 +1990,8 @@ trackedFiles:
     pristine_git_object: 6dd3c9e0a07c1311e00082ed85623862736b03b8
   docs/models/operations/getsshkeysrequest.md:
     id: 780701ec0c33
-    last_write_checksum: sha1:0217aa79c07b6e6dccba0632adda0f1b08c8af61
-    pristine_git_object: dc0cfe1b50ba8b766db5f08ee1a99d57ca755ee0
+    last_write_checksum: sha1:7dae9472df8955a99bfec58b7c4a954be0d0296f
+    pristine_git_object: 01f706e57abc590497eebcab8e82835d0c8b47a3
   docs/models/operations/getsshkeysresponse.md:
     id: 942d7c089ca0
     last_write_checksum: sha1:60f05260dcd5e511072e685f718af17ac422f004
@@ -2082,8 +2082,8 @@ trackedFiles:
     pristine_git_object: 7969d91c5d2204c48d46ac8296922b9c62c24746
   docs/models/operations/getusersdatarequest.md:
     id: 927e3670548d
-    last_write_checksum: sha1:f3b77491ce37f5a75d63338edfb0d4ee220a0b64
-    pristine_git_object: f42bf8ae5281d15867c0a799f92d81fbe5f8f1b5
+    last_write_checksum: sha1:032e56dc680e63b5e01d08186329c92dcf2bba44
+    pristine_git_object: b5a71c058d162b3ccfb2ab5d178db010b9b63bf2
   docs/models/operations/getusersdataresponse.md:
     id: 244c33f7d7f9
     last_write_checksum: sha1:7dc0c70a6e83375a1593994605c0210e2e8d24fd
@@ -2938,8 +2938,8 @@ trackedFiles:
     pristine_git_object: c9a2bfce1667f972fdfdc55f3bd1b8395fb6be52
   docs/sdks/sshkeys/README.md:
     id: 34435aa66d61
-    last_write_checksum: sha1:7ca836c859e67337f0c8f4247fa6d381598c5850
-    pristine_git_object: b06abf3cc88433e13a8b381e35ec181b0f263d5e
+    last_write_checksum: sha1:6c3764dc99a01e8cf485f706fb3bfe75e6f9ebba
+    pristine_git_object: bdd2ac0f1bd9983d99661c5bdc05b90ea3038aea
   docs/sdks/storage/README.md:
     id: 36ff94e3114a
     last_write_checksum: sha1:44e6d4c46e1f9bc9b1acc6c23b888bee9b855952
@@ -2962,8 +2962,8 @@ trackedFiles:
     pristine_git_object: 45cd931e7404580b7c37b3c2445fd430bc227b5a
   docs/sdks/userdata/README.md:
     id: cb44a5227361
-    last_write_checksum: sha1:d066cca29ffd22ae18481cd476ac316b68000b84
-    pristine_git_object: 4194af148b221486d1593aa30d0087a3f3b6e525
+    last_write_checksum: sha1:d9a849e0bfe85c873117fd72fb93e98990a370ea
+    pristine_git_object: 37a3b0272bac58df9c57d37938c9828aa8d4ad23
   docs/sdks/userprofile/README.md:
     id: e89a7f3efcd6
     last_write_checksum: sha1:1e4f7f4b1357e9ac6b568edc0eefd017257af657
@@ -3058,12 +3058,12 @@ trackedFiles:
     pristine_git_object: ee4300f7b7469c4e66572ada7b95f7ff7f2e506a
   ipaddresses.go:
     id: 003e6cb23c46
-    last_write_checksum: sha1:60193daa767a052a988eae5339665bdfe111f2c0
-    pristine_git_object: 9c5f94a03f82f00bdf6938478488e70da87f4a03
+    last_write_checksum: sha1:29f88ffee463ad42d9d6579e98e50c355978d9b5
+    pristine_git_object: 266aecc99c8bdd9f173c458c3b6e1ad9a2ac00fd
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:2fbbbe092542bfef7e3879427dedcaa8f2fd5904
-    pristine_git_object: cbf985d07601f73cfb5e22a0c787999a914d1a6e
+    last_write_checksum: sha1:3346e53cf5cbb53da039539bea814e6d86f95992
+    pristine_git_object: 9641b0a9cfb9c56e89360a3bae4bc44079093fe7
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:4f11a99df8adbdfe311b44c3ab3bef29cfb4f66d
@@ -3162,8 +3162,8 @@ trackedFiles:
     pristine_git_object: 148ec47fb2dea6c188ec68eb3532d93169608168
   models/components/ipaddress.go:
     id: cde212846d48
-    last_write_checksum: sha1:9543acce4304fde36e3407133a2070d8d3885adc
-    pristine_git_object: 23613503b16840482a06fb4092ffe9241eeca39c
+    last_write_checksum: sha1:d15f3c2ef547ee2dde526a754875cc6d62c629b6
+    pristine_git_object: 15ed111b3d319b67df53e724c7f3bf1ea707da34
   models/components/ipaddresses.go:
     id: 294eb5dd3785
     last_write_checksum: sha1:cb765f8109bab8f74ed4c2b973cfbb01605c3ffb
@@ -3262,8 +3262,8 @@ trackedFiles:
     pristine_git_object: 11e0b64cd9a670ced544e62006dd2df483f7732c
   models/components/sshkeydata.go:
     id: 26d9b41cfa8e
-    last_write_checksum: sha1:704e08a8b9fdd1e72e55c01f0fc571837f1ed0a1
-    pristine_git_object: a3aee60d59ca2bb903e14c42a01417da1f7bed11
+    last_write_checksum: sha1:9353cccbe9dd06b922a760b1218e7d42e578c4a8
+    pristine_git_object: 37ad4186c69c72d8427b3b1348c523e59f18b7e7
   models/components/sshkeys.go:
     id: 8fdc091d71a1
     last_write_checksum: sha1:20a2d22417b6e325c627bc3961b73dc4f0aeafb8
@@ -3318,8 +3318,8 @@ trackedFiles:
     pristine_git_object: a295cca9350c4f6d24d7b711b0e3a79a837f33da
   models/components/userdataproperties.go:
     id: "428819928935"
-    last_write_checksum: sha1:c5ca96c5246a71e7b006053a6d91e460c427f0c2
-    pristine_git_object: c2cc866407dfb00ece7d087e0e90159098160de9
+    last_write_checksum: sha1:1afa243459ceb9e915abfb15fa63f3b93cab77f1
+    pristine_git_object: f95d6c835268f11aeffcde7a1fed31105e1d90ca
   models/components/userinclude.go:
     id: 7904775a2570
     last_write_checksum: sha1:fb6296743c1ac01be04c823c2407b60895f38625
@@ -3546,8 +3546,8 @@ trackedFiles:
     pristine_git_object: d5ab145f218ab56093b999b2bfe03f1949ee89f6
   models/operations/getips.go:
     id: 9a253fff5e79
-    last_write_checksum: sha1:df97d23ef0a95ca012765a8617f31eafe3930284
-    pristine_git_object: 1362c444b3caa72079ed7b0a2de2155318df8809
+    last_write_checksum: sha1:93922217e401232155cb82da337e0a87a7917fac
+    pristine_git_object: 0d450aafa722f507bf6f9c18cc1a8d53d90af3c5
   models/operations/getplan.go:
     id: 9a21a9e26fa5
     last_write_checksum: sha1:cf77318bbc49edbeefc9782e3c15c3e5bd7a521b
@@ -3618,8 +3618,8 @@ trackedFiles:
     pristine_git_object: 64f4b676f5dc82a1631db0d8c84ebf1178b6d1b0
   models/operations/getsshkeys.go:
     id: ed4a52b06314
-    last_write_checksum: sha1:c9073a0ff34937ef8976844b67d17231c6cba2dd
-    pristine_git_object: 9d60d7d143960f03e505009d1d61307b7a5721a9
+    last_write_checksum: sha1:d141905e31404b341baefdd08c5c517068d0aeb7
+    pristine_git_object: 78cde82f03d6fb47c6be934a07a19999755b2be0
   models/operations/getstoragefilesystems.go:
     id: 87c202ad4308
     last_write_checksum: sha1:a6b67eee0d56039cf0e924ff99072a5aed7b7bf0
@@ -3666,8 +3666,8 @@ trackedFiles:
     pristine_git_object: 0bef44af65e2d5c37fe00a7060b0b50a14fbb9d7
   models/operations/getusersdata.go:
     id: 2fa25d74cf68
-    last_write_checksum: sha1:676461df2019547dd4829804193ce8054484a235
-    pristine_git_object: dc275cfba5244f2be1dd0a87e867cfb55c8388ce
+    last_write_checksum: sha1:9497e447f3179fed045ffb74d28728732d9f5577
+    pristine_git_object: b97507b8e7b9c8fbb757976cbbb63369f0830ba6
   models/operations/getuserteams.go:
     id: 682449e004f8
     last_write_checksum: sha1:8d3b0db53ecadde999fd7a3a06afa7d42c8cb0e6
@@ -3882,8 +3882,8 @@ trackedFiles:
     pristine_git_object: 752a0b57fe7d762179886652769881a5a27fddfa
   sshkeys.go:
     id: 7f02ec5e3505
-    last_write_checksum: sha1:a41c24bfea21329e9e2eef8777cb7bea70a21da5
-    pristine_git_object: 8e43a9cbd5a15bfe6f3832842cbd498693712e3b
+    last_write_checksum: sha1:beb4e777ac444a338b9bdae65001161140c5476c
+    pristine_git_object: 7b213339d804e16fb0d4adab43ae913afe36edcb
   storage.go:
     id: fad3c6f07953
     last_write_checksum: sha1:1edbbd0825dda00039e71f8f116acc73a91b98c5
@@ -3922,8 +3922,8 @@ trackedFiles:
     pristine_git_object: 35c439d2661e08fcb6a854096fd7b9a8561b3938
   userdata.go:
     id: aefa63a61dd1
-    last_write_checksum: sha1:726d6a192363ff8d8ca068b126caa3f10f8a2edd
-    pristine_git_object: 7d79da347b132dfc9cea4abbb865ad531d7092d9
+    last_write_checksum: sha1:9edd1c143d8acb2713561489a1ec3d76ad196e27
+    pristine_git_object: 1f43d1277500163278d721705fc152e073d9356c
   userprofile.go:
     id: 1e4afe168e18
     last_write_checksum: sha1:6da152ee2e1004e3caa2dc88417453578e4c2472
@@ -4333,7 +4333,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "ip_wg3ZDr23D5QlP", "attributes": {"address": "112.74.133.123", "cidr": "<value>", "family": "IPv4", "gateway": "<value>", "netmask": "255.255.255.255", "type": "Public", "public": true, "management": true, "project": {"id": "proj_RMLydp20DQKr1", "name": "Intelligent Silk Computer"}, "region": {}, "available": true, "assignment": {}}}, {"id": "ip_k0Ryqvz1qW36X", "attributes": {"address": "24.156.198.223", "cidr": "<value>", "family": "IPv4", "gateway": "<value>", "netmask": "255.255.255.255", "type": "Public", "public": true, "management": true, "project": {"id": "proj_RMLydp20DQKr1", "name": "Intelligent Silk Computer"}, "region": {}, "available": true, "assignment": {}}}]}
+          application/vnd.api+json: {"data": [{"id": "ip_wg3ZDr23D5QlP", "attributes": {"address": "112.74.133.123", "cidr": "<value>", "family": "IPv4", "gateway": "<value>", "netmask": "255.255.255.255", "type": "Public", "public": true, "management": true, "additional": false, "project": {"id": "proj_RMLydp20DQKr1", "name": "Intelligent Silk Computer"}, "region": {}, "available": true, "assignment": {}}}, {"id": "ip_k0Ryqvz1qW36X", "attributes": {"address": "24.156.198.223", "cidr": "<value>", "family": "IPv4", "gateway": "<value>", "netmask": "255.255.255.255", "type": "Public", "public": true, "management": true, "additional": false, "project": {"id": "proj_RMLydp20DQKr1", "name": "Intelligent Silk Computer"}, "region": {}, "available": true, "assignment": {}}}]}
   get-ip:
     when basic GET:
       parameters:
@@ -4705,7 +4705,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "ssh_keys", "attributes": {"name": "SSH Key", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "ssh_w5AEmq7XDBkWX", "type": "ssh_keys", "attributes": {"name": "SSH Key", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx", "fingerprint": "0a:00:34:53:51:0e:a5:4e:06:2c:d7:16:88:96:82:f3", "user": {"id": "user_VQNWk4maWktbnyBZr13YF6v7YvPo", "first_name": "Dino", "last_name": "Huels", "email": "jaye@fahey.test", "created_at": "2024-08-23T00:00:00.000Z", "updated_at": "2024-07-24T00:00:00.000Z", "role": {"id": "role_J6VmkZN3A5sLkXJeNrvJfykwnmW", "name": "owner", "created_at": "2025-04-29T00:00:00.000Z", "updated_at": "2026-06-29T00:00:00.000Z"}}, "created_at": "2025-07-16T18:36:37+00:00", "updated_at": "2025-07-16T18:36:37+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ssh_w5AEmq7XDBkWX", "type": "ssh_keys", "attributes": {"name": "SSH Key", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx", "fingerprint": "0a:00:34:53:51:0e:a5:4e:06:2c:d7:16:88:96:82:f3", "user": {"id": "user_VQNWk4maWktbnyBZr13YF6v7YvPo", "first_name": "Dino", "last_name": "Huels", "email": "jaye@fahey.test", "created_at": "2024-08-23T00:00:00.000Z", "updated_at": "2024-07-24T00:00:00.000Z", "role": {"id": "role_J6VmkZN3A5sLkXJeNrvJfykwnmW", "name": "owner", "created_at": "2025-04-29T00:00:00.000Z", "updated_at": "2026-06-29T00:00:00.000Z"}}, "created_at": "2025-07-16T18:36:37+00:00", "updated_at": "2025-07-16T18:36:37+00:00", "project": {"id": "proj_pRMLydp0dQKr1", "name": "Heavy Duty Marble Computer", "slug": "heavy-duty-marble-computer", "description": "Awesome Cotton Chair", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}}}}
     Bad Request:
       parameters:
         path:
@@ -5430,7 +5430,7 @@ examples:
           filter[tags]: "tag_K9kzXA45BEsjobKPNVEQCrrKbw4o,tag_my9K5XGPYBIr1ve257anIW4KRX2e"
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "ssh_mw49QDB5qagKb", "type": "ssh_keys", "attributes": {"name": "carroll-hane.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCjM7C3yylR7PMGQONLP64DvcopzCCgHT0jbfeX5cjja/SohEHEkFnS3MzRn9EBuZH1AKzVU25PlPuMmq3LZeyyOE9GQ087dF4SnRGgNWw8KL0W+HxdONq40MVjivT1luswFp61Vkty5zSpEvT9t7ZtZ9iV4QcCHCGZP2rf0YMEaT+FkPr5eIiwkfyONaMQn5Sr6+kCfwZbwTD7oM9MPWCu+Nazo62TA/Dyb6gj5+izINy4ynWO7YFnwcxGgT/sn+mznlopEEq4vay0air9wulcCM8eE/N3QyB86o/DebEYFUT85RXMtAocSNeehduyEVNNg9NbP1vXWX6/SWpOT71/", "fingerprint": "d1:77:d0:81:ab:b6:bb:7d:a1:2d:07:41:fb:f4:5d:c7", "user": {"id": "user_e2r1zkAyagSNz191p4NnI5MgreM", "first_name": "Isela", "last_name": "Altenwerth", "email": "dorathy@corkery-bode.test", "created_at": "2025-01-19T00:00:00.000Z", "updated_at": "2025-04-30T00:00:00.000Z", "role": {"id": "role_VjzZGYNr4AFb4zPwoXxVH6vk4xmZ", "name": "owner", "created_at": "2024-09-30T00:00:00.000Z", "updated_at": "2025-12-08T00:00:00.000Z"}}, "created_at": "2025-07-16T18:36:36+00:00", "updated_at": "2025-07-16T18:36:36+00:00"}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "ssh_mw49QDB5qagKb", "type": "ssh_keys", "attributes": {"name": "carroll-hane.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCjM7C3yylR7PMGQONLP64DvcopzCCgHT0jbfeX5cjja/SohEHEkFnS3MzRn9EBuZH1AKzVU25PlPuMmq3LZeyyOE9GQ087dF4SnRGgNWw8KL0W+HxdONq40MVjivT1luswFp61Vkty5zSpEvT9t7ZtZ9iV4QcCHCGZP2rf0YMEaT+FkPr5eIiwkfyONaMQn5Sr6+kCfwZbwTD7oM9MPWCu+Nazo62TA/Dyb6gj5+izINy4ynWO7YFnwcxGgT/sn+mznlopEEq4vay0air9wulcCM8eE/N3QyB86o/DebEYFUT85RXMtAocSNeehduyEVNNg9NbP1vXWX6/SWpOT71/", "fingerprint": "d1:77:d0:81:ab:b6:bb:7d:a1:2d:07:41:fb:f4:5d:c7", "user": {"id": "user_e2r1zkAyagSNz191p4NnI5MgreM", "first_name": "Isela", "last_name": "Altenwerth", "email": "dorathy@corkery-bode.test", "created_at": "2025-01-19T00:00:00.000Z", "updated_at": "2025-04-30T00:00:00.000Z", "role": {"id": "role_VjzZGYNr4AFb4zPwoXxVH6vk4xmZ", "name": "owner", "created_at": "2024-09-30T00:00:00.000Z", "updated_at": "2025-12-08T00:00:00.000Z"}}, "created_at": "2025-07-16T18:36:36+00:00", "updated_at": "2025-07-16T18:36:36+00:00", "project": {"id": "proj_mw49QDB5qagKb", "name": "Durable Silk Bench", "slug": "durable-silk-bench", "description": "Ergonomic Wooden Plate", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}}}], "meta": {}}
     when trying to filter by tag:
       parameters:
         path:
@@ -5457,7 +5457,7 @@ examples:
           ssh_key_id: "ssh_zGr47qlMDAg0m"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "ssh_zGr47qlMDAg0m", "type": "ssh_keys", "attributes": {"name": "ryan.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDL1aEqz3fu3mSqIUFUmN2ZoNjlqcWOZpHqBA89atzwag1epA/VhcaeCCkMHOKc6lEyaM45dcBMpnRxp8MyyOWDdvHe2aZ2g3zh8CnPUZZlIdGOj/JbzfF6gfmVbVPUor/hJUvCgW8DqFYU++BwlowDSXv6g0IWraY+9NhH+7Fy+eWX/Axdryb7vr/pnwMwYC693nI8FfRjUTxJft7/HG4Hf0Frp4inI8571z5EhrdjhXFaAU9W76qw2YhHUx54cFZXcL1LzIIjhU6BjKVNOxl7xY2AUnC0bnU19N1gALo0IyVSjQz+o10qgsubDkA0CXnmczmU8FbJs3pajdly2smn", "fingerprint": "7f:f1:16:b1:af:23:3e:7d:91:29:3d:58:ab:ab:99:07", "user": {"id": "user_86BjYvaogPsKnQYbLPMmtXmvk70X", "first_name": "Levi", "last_name": "White", "email": "tamela.parker@christiansen-damore.test", "created_at": "2024-10-25T00:00:00.000Z", "updated_at": "2025-05-19T00:00:00.000Z", "role": {"id": "role_JaWoMlVWw5fMx0BVbX6YcAAQj9Y", "name": "owner", "created_at": "2025-06-12T00:00:00.000Z", "updated_at": "2026-02-14T00:00:00.000Z"}}, "created_at": "2025-07-16T18:36:37+00:00", "updated_at": "2025-07-16T18:36:37+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ssh_zGr47qlMDAg0m", "type": "ssh_keys", "attributes": {"name": "ryan.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDL1aEqz3fu3mSqIUFUmN2ZoNjlqcWOZpHqBA89atzwag1epA/VhcaeCCkMHOKc6lEyaM45dcBMpnRxp8MyyOWDdvHe2aZ2g3zh8CnPUZZlIdGOj/JbzfF6gfmVbVPUor/hJUvCgW8DqFYU++BwlowDSXv6g0IWraY+9NhH+7Fy+eWX/Axdryb7vr/pnwMwYC693nI8FfRjUTxJft7/HG4Hf0Frp4inI8571z5EhrdjhXFaAU9W76qw2YhHUx54cFZXcL1LzIIjhU6BjKVNOxl7xY2AUnC0bnU19N1gALo0IyVSjQz+o10qgsubDkA0CXnmczmU8FbJs3pajdly2smn", "fingerprint": "7f:f1:16:b1:af:23:3e:7d:91:29:3d:58:ab:ab:99:07", "user": {"id": "user_86BjYvaogPsKnQYbLPMmtXmvk70X", "first_name": "Levi", "last_name": "White", "email": "tamela.parker@christiansen-damore.test", "created_at": "2024-10-25T00:00:00.000Z", "updated_at": "2025-05-19T00:00:00.000Z", "role": {"id": "role_JaWoMlVWw5fMx0BVbX6YcAAQj9Y", "name": "owner", "created_at": "2025-06-12T00:00:00.000Z", "updated_at": "2026-02-14T00:00:00.000Z"}}, "created_at": "2025-07-16T18:36:37+00:00", "updated_at": "2025-07-16T18:36:37+00:00", "project": {"id": "proj_0g1mbDwBqLv5B", "name": "Awesome Granite Gloves", "slug": "awesome-granite-gloves", "description": "Practical Plastic Coat", "billing_type": "Hourly", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}}}}
   put-project-ssh-key:
     Success:
       parameters:
@@ -5469,7 +5469,7 @@ examples:
         application/vnd.api+json: {"data": {"id": "ssh_zlkg1DegdvZE5", "type": "ssh_keys", "attributes": {"tags": ["tag_7YpWMjKZ8vujwmEV7blQhG87aaB", "tag_E8ZoPkZPXXsgN2L46WVvTeWog1rz"], "name": "New SSH Key Name"}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "ssh_zlkg1DegdvZE5", "type": "ssh_keys", "attributes": {"name": "quitzon-hahn.example", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIPUwSU0uUOOHaiRgNvchWwbE1mMsLIXiMhsWu2HYCCskWhI87AIGGhesf8iqv/L61ZR4xSY2vpS+Ydj9m6DAIcbw4SrwCCbzYlSnJC8A3DNplfH8Yv3w1moJkryIu0Y1OPFstvr4UKLQKBzNPR5cjKKmJPX34BrmubNhRCOi9MR33UZAn+ek7Y6soHx+ftGNfLQTNCRa9l1pWk+zcaw3f1rIgrgCxRJZUxsfhAvhrH6gMQ52J4YPTwNYXiDz183lCXQ7ttCraTZOkt9Wrjes9GpAWdyAb54/YxB9C3a5Yuekd3affxWf5qS6iPH2cH4WqD85cCiAHWgP50QDy0Jzx", "fingerprint": "0a:d4:d1:f6:4a:b9:eb:d9:fc:b1:7f:3d:b1:7d:78:94", "user": {"id": "user_9LywwYp44LHZ8aarom8ziRm9MJw", "first_name": "Tennie", "last_name": "Cremin", "email": "antone.ward@streich.example", "created_at": "2024-09-10T00:00:00.000Z", "updated_at": "2024-12-12T00:00:00.000Z", "role": {"id": "role_wJZBnlQNwyhXGWEnZZGosBzP2VM", "name": "owner", "created_at": "2025-04-05T00:00:00.000Z", "updated_at": "2026-03-06T00:00:00.000Z"}}, "created_at": "2025-07-16T18:36:39+00:00", "updated_at": "2025-07-16T18:36:39+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ssh_zlkg1DegdvZE5", "type": "ssh_keys", "attributes": {"name": "quitzon-hahn.example", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIPUwSU0uUOOHaiRgNvchWwbE1mMsLIXiMhsWu2HYCCskWhI87AIGGhesf8iqv/L61ZR4xSY2vpS+Ydj9m6DAIcbw4SrwCCbzYlSnJC8A3DNplfH8Yv3w1moJkryIu0Y1OPFstvr4UKLQKBzNPR5cjKKmJPX34BrmubNhRCOi9MR33UZAn+ek7Y6soHx+ftGNfLQTNCRa9l1pWk+zcaw3f1rIgrgCxRJZUxsfhAvhrH6gMQ52J4YPTwNYXiDz183lCXQ7ttCraTZOkt9Wrjes9GpAWdyAb54/YxB9C3a5Yuekd3affxWf5qS6iPH2cH4WqD85cCiAHWgP50QDy0Jzx", "fingerprint": "0a:d4:d1:f6:4a:b9:eb:d9:fc:b1:7f:3d:b1:7d:78:94", "user": {"id": "user_9LywwYp44LHZ8aarom8ziRm9MJw", "first_name": "Tennie", "last_name": "Cremin", "email": "antone.ward@streich.example", "created_at": "2024-09-10T00:00:00.000Z", "updated_at": "2024-12-12T00:00:00.000Z", "role": {"id": "role_wJZBnlQNwyhXGWEnZZGosBzP2VM", "name": "owner", "created_at": "2025-04-05T00:00:00.000Z", "updated_at": "2026-03-06T00:00:00.000Z"}}, "created_at": "2025-07-16T18:36:39+00:00", "updated_at": "2025-07-16T18:36:39+00:00", "project": {"id": "proj_zlkg1DegdvZE5", "name": "Practical Bronze Plate", "slug": "practical-bronze-plate", "description": "Awesome Leather Wallet", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}}}}
     Bad Request:
       parameters:
         path:
@@ -5803,7 +5803,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "ud_pRMLydp0dQKr1", "type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "created_at": "2025-07-16T18:36:39+00:00", "updated_at": "2025-07-16T18:36:39+00:00"}}, "meta": {}}
+          application/vnd.api+json: {"data": {"id": "ud_pRMLydp0dQKr1", "type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "created_at": "2025-07-16T18:36:39+00:00", "updated_at": "2025-07-16T18:36:39+00:00", "project": {"id": "proj_Av9BVDavORm1W", "name": "Lightweight Bronze Clock", "slug": "lightweight-bronze-clock", "description": "Aerodynamic Silk Computer", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}}}, "meta": {}}
     Bad Request:
       parameters:
         path:
@@ -5864,7 +5864,7 @@ examples:
           extra_fields[user_data]: "decoded_content"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "ud_VLMmAD8EOwop2", "type": "user_data", "attributes": {"description": "Breaded fried chicken with waffles, and a side of maple syrup.", "content": "VHdvIGJ1dHRlciBjcm9pc3NhbnRzIG9mIHlvdXIgY2hvaWNlIChwbGFpbiwgYWxtb25kIG9yIGNoZWVzZSkuIFdpdGggYSBzaWRlIG9mIGhlcmIgYnV0dGVyIG9yIGhvdXNlLW1hZGUgaGF6ZWxudXQgc3ByZWFkLg==", "created_at": "2025-07-16T18:36:39+00:00", "updated_at": "2025-07-16T18:36:39+00:00"}}, "meta": {}}
+          application/vnd.api+json: {"data": {"id": "ud_VLMmAD8EOwop2", "type": "user_data", "attributes": {"description": "Breaded fried chicken with waffles, and a side of maple syrup.", "content": "VHdvIGJ1dHRlciBjcm9pc3NhbnRzIG9mIHlvdXIgY2hvaWNlIChwbGFpbiwgYWxtb25kIG9yIGNoZWVzZSkuIFdpdGggYSBzaWRlIG9mIGhlcmIgYnV0dGVyIG9yIGhvdXNlLW1hZGUgaGF6ZWxudXQgc3ByZWFkLg==", "created_at": "2025-07-16T18:36:39+00:00", "updated_at": "2025-07-16T18:36:39+00:00", "project": {"id": "proj_r0MK4O4kDa95w", "name": "Awesome Bronze Wallet", "slug": "awesome-bronze-wallet", "description": "Lightweight Wool Table", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}}}, "meta": {}}
     Not Found:
       parameters:
         path:
@@ -6379,7 +6379,7 @@ examples:
           filter[tags]: "tag_lYXenaknWwsJ4rryVbNoUbn6p4V,tag_ARJPX1YRrgTKQ4xpvX5YuWNG2nwW"
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "ssh_aNmodj4eDbE8W", "type": "ssh_keys", "attributes": {"name": "shields-lind.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAifZt83PbEYnFX/pVfbUAw+hN60eTak5x3EqSUAG2vUrchJiU+V5fVj9H1IstDOB3clhEGiAqxby+Bur9lp3mWSXvRoPo85VU5OH7DS/+8GFUKGtLpHPI7It+ZEq/LaIq8p1VIwql77SBbaUYgKJxWobfJPpQgipr2kphrrfXkqeqP/W0tLKHq6XYzKFl0dZWdduDDZ9ltfZJcLRnYMOMqh6rVw79lOIi6HCxANNoxEKE0p4qUaOWbGRknOADD4qlES7vZWRindKSRgN0jf21STzzzXdB9o4PQmHM/q39UbjBvFppE0NVwD5oBC7Vkej7GnoUxwUgwjgC4fDrZM2X", "fingerprint": "62:cd:46:63:46:c4:2b:19:47:9f:9e:19:f9:d8:be:87", "user": {"id": "user_5m68r767gNC5G528wokRFW2lLPy", "first_name": "Harris", "last_name": "Mills", "email": "carlton_feeney@fisher.example", "created_at": "2024-12-09T00:00:00.000Z", "updated_at": "2024-07-20T00:00:00.000Z", "role": {"id": "role_P2QbX40bZnu4J37oVba2TaQYp5M", "name": "owner", "created_at": "2025-03-15T00:00:00.000Z", "updated_at": "2026-06-22T00:00:00.000Z"}}, "created_at": "2025-07-16T18:37:05+00:00", "updated_at": "2025-07-16T18:37:05+00:00"}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "ssh_aNmodj4eDbE8W", "type": "ssh_keys", "attributes": {"name": "shields-lind.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAifZt83PbEYnFX/pVfbUAw+hN60eTak5x3EqSUAG2vUrchJiU+V5fVj9H1IstDOB3clhEGiAqxby+Bur9lp3mWSXvRoPo85VU5OH7DS/+8GFUKGtLpHPI7It+ZEq/LaIq8p1VIwql77SBbaUYgKJxWobfJPpQgipr2kphrrfXkqeqP/W0tLKHq6XYzKFl0dZWdduDDZ9ltfZJcLRnYMOMqh6rVw79lOIi6HCxANNoxEKE0p4qUaOWbGRknOADD4qlES7vZWRindKSRgN0jf21STzzzXdB9o4PQmHM/q39UbjBvFppE0NVwD5oBC7Vkej7GnoUxwUgwjgC4fDrZM2X", "fingerprint": "62:cd:46:63:46:c4:2b:19:47:9f:9e:19:f9:d8:be:87", "user": {"id": "user_5m68r767gNC5G528wokRFW2lLPy", "first_name": "Harris", "last_name": "Mills", "email": "carlton_feeney@fisher.example", "created_at": "2024-12-09T00:00:00.000Z", "updated_at": "2024-07-20T00:00:00.000Z", "role": {"id": "role_P2QbX40bZnu4J37oVba2TaQYp5M", "name": "owner", "created_at": "2025-03-15T00:00:00.000Z", "updated_at": "2026-06-22T00:00:00.000Z"}}, "created_at": "2025-07-16T18:37:05+00:00", "updated_at": "2025-07-16T18:37:05+00:00", "project": {}}}], "meta": {}}
   post-ssh-key:
     Created:
       requestBody:
@@ -6387,7 +6387,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "ssh_keys", "attributes": {"name": "SSH Key", "project": "proj_mw49QDB5qagKb", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "ssh_1ZJrdxw5Og4LV", "type": "ssh_keys", "attributes": {"name": "SSH Key", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx", "fingerprint": "0a:00:34:53:51:0e:a5:4e:06:2c:d7:16:88:96:82:f3", "user": {"id": "user_wwjA0m2L4BTXAXMw4X17hMlZl6z", "first_name": "Genevive", "last_name": "Shields", "email": "jamel_mcdermott@homenick.example", "created_at": "2025-04-28T00:00:00.000Z", "updated_at": "2024-11-18T00:00:00.000Z", "role": {"id": "role_bj5BPjB5o7iyw0QbxWZatE5K81YQ", "name": "owner", "created_at": "2024-12-04T00:00:00.000Z", "updated_at": "2026-01-16T00:00:00.000Z"}}, "created_at": "2025-07-16T18:37:07+00:00", "updated_at": "2025-07-16T18:37:07+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ssh_1ZJrdxw5Og4LV", "type": "ssh_keys", "attributes": {"name": "SSH Key", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx", "fingerprint": "0a:00:34:53:51:0e:a5:4e:06:2c:d7:16:88:96:82:f3", "user": {"id": "user_wwjA0m2L4BTXAXMw4X17hMlZl6z", "first_name": "Genevive", "last_name": "Shields", "email": "jamel_mcdermott@homenick.example", "created_at": "2025-04-28T00:00:00.000Z", "updated_at": "2024-11-18T00:00:00.000Z", "role": {"id": "role_bj5BPjB5o7iyw0QbxWZatE5K81YQ", "name": "owner", "created_at": "2024-12-04T00:00:00.000Z", "updated_at": "2026-01-16T00:00:00.000Z"}}, "created_at": "2025-07-16T18:37:07+00:00", "updated_at": "2025-07-16T18:37:07+00:00", "project": {"id": "proj_8WVQJDMwdRbyE", "name": "Rustic Leather Knife", "slug": "rustic-leather-knife", "description": "Sleek Granite Computer", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}}}}
     Bad Request:
       requestBody:
         application/json: {"data": {"type": "ssh_keys", "attributes": {"name": "SSH Key", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx"}}}
@@ -6409,7 +6409,7 @@ examples:
           ssh_key_id: "ssh_0MK4O4Zkqa95w"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "ssh_0MK4O4Zkqa95w", "type": "ssh_keys", "attributes": {"name": "skiles.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOrRGYU+6bjz8a7DgqNdn4tHIZOp66o6imzvDk1clS4RRGCUwQlk8e0uOf3vEv2EF6QYlPpu+AaSiLryV4cT+RdY4XFLksTVwJ6pH5PIDpfcb+hh5E/HpyDUea38FDyED6+tkz75v6rvcVS7GliLKaHyiawMNqNPBEgEJBNPxwjhgDouhg9qjFcqFbEsKcVF+vZFrCpvTXWjI2O7EqI0es5p6161e88BvnKcVMsKfdpD35n2LwwGm2rK6+mBy1znUS0xDS0XDU8O/hAWPFQHhWj5TpoIrOwpYdfBIP/+tdQwmswD2JedsdcJl0MQMGSs5xSPZqUTB8qIktZ260o11h", "fingerprint": "06:9f:69:74:ab:43:9b:a6:47:d9:37:15:e2:d5:0d:31", "user": {"id": "user_VGBlzEKMLYIbpXXxZV8mCaKwPYV", "first_name": "Chuck", "last_name": "Kemmer", "email": "florencio@nader.example", "created_at": "2024-11-17T00:00:00.000Z", "updated_at": "2025-04-30T00:00:00.000Z", "role": {"id": "role_ZR4vkpP58YSGRzy8Qk4XHQeKjQK", "name": "owner", "created_at": "2025-02-01T00:00:00.000Z", "updated_at": "2026-05-25T00:00:00.000Z"}}, "created_at": "2025-07-16T18:37:07+00:00", "updated_at": "2025-07-16T18:37:07+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ssh_0MK4O4Zkqa95w", "type": "ssh_keys", "attributes": {"name": "skiles.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOrRGYU+6bjz8a7DgqNdn4tHIZOp66o6imzvDk1clS4RRGCUwQlk8e0uOf3vEv2EF6QYlPpu+AaSiLryV4cT+RdY4XFLksTVwJ6pH5PIDpfcb+hh5E/HpyDUea38FDyED6+tkz75v6rvcVS7GliLKaHyiawMNqNPBEgEJBNPxwjhgDouhg9qjFcqFbEsKcVF+vZFrCpvTXWjI2O7EqI0es5p6161e88BvnKcVMsKfdpD35n2LwwGm2rK6+mBy1znUS0xDS0XDU8O/hAWPFQHhWj5TpoIrOwpYdfBIP/+tdQwmswD2JedsdcJl0MQMGSs5xSPZqUTB8qIktZ260o11h", "fingerprint": "06:9f:69:74:ab:43:9b:a6:47:d9:37:15:e2:d5:0d:31", "user": {"id": "user_VGBlzEKMLYIbpXXxZV8mCaKwPYV", "first_name": "Chuck", "last_name": "Kemmer", "email": "florencio@nader.example", "created_at": "2024-11-17T00:00:00.000Z", "updated_at": "2025-04-30T00:00:00.000Z", "role": {"id": "role_ZR4vkpP58YSGRzy8Qk4XHQeKjQK", "name": "owner", "created_at": "2025-02-01T00:00:00.000Z", "updated_at": "2026-05-25T00:00:00.000Z"}}, "created_at": "2025-07-16T18:37:07+00:00", "updated_at": "2025-07-16T18:37:07+00:00", "project": {}}}}
   put-ssh-key:
     Success:
       parameters:
@@ -6420,7 +6420,7 @@ examples:
         application/vnd.api+json: {"data": {"id": "ssh_8Nkvdyn1qeLpx", "type": "ssh_keys", "attributes": {"tags": ["tag_BR6a9QPmXWCPVzLrmEYAslyroMK", "tag_yxVkGz7rxMsl9M54lr71fp5XZg60"], "name": "New SSH Key Name"}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "ssh_8Nkvdyn1qeLpx", "type": "ssh_keys", "attributes": {"name": "larson-grady.example", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCy3NKkUMbR6a+Z0i0UbVQfuTeSQ/9fspeNCCv/biB0QtJ5AgrtoxsBc2PVtUysBX0ZoBZrVX76ataGmivZdWzxRrli/ezpeLpQD4GWt2jhhdCfsHxrvorpfTNCzSSPl7DTmvOVHjHtOgytoPpB5V1C46tLomd78LqkQfM1pIaE1XFysnPNNSRIBgkY9IMfD1vp94ubx66FpgFO5e+kGEMueo8+zklf7Ec6bjzzsexdJ1MFHvkhzuieg5XApFczudD25wrKuZb4VIDfDCkaqKr3hMl1cLlFjEEng3bVNKtmkMtAalVIxK+h9Hg88uvvobPuO+fn9YEMzLRAlK+DW+3t", "fingerprint": "39:0b:6e:63:f8:a7:1a:55:85:1f:2f:32:22:b9:f7:60", "user": {"id": "user_Z40pnNJK5oImXEaPkBxbCpj3WZW", "first_name": "Clarence", "last_name": "Kilback", "email": "carey.ruecker@zboncak.example", "created_at": "2025-01-05T00:00:00.000Z", "updated_at": "2024-10-07T00:00:00.000Z", "role": {"id": "role_vePpArmPWlC0RAP78Gn5FvWgGY6o", "name": "owner", "created_at": "2024-11-25T00:00:00.000Z", "updated_at": "2026-01-28T00:00:00.000Z"}}, "created_at": "2025-07-16T18:37:09+00:00", "updated_at": "2025-07-16T18:37:09+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ssh_8Nkvdyn1qeLpx", "type": "ssh_keys", "attributes": {"name": "larson-grady.example", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCy3NKkUMbR6a+Z0i0UbVQfuTeSQ/9fspeNCCv/biB0QtJ5AgrtoxsBc2PVtUysBX0ZoBZrVX76ataGmivZdWzxRrli/ezpeLpQD4GWt2jhhdCfsHxrvorpfTNCzSSPl7DTmvOVHjHtOgytoPpB5V1C46tLomd78LqkQfM1pIaE1XFysnPNNSRIBgkY9IMfD1vp94ubx66FpgFO5e+kGEMueo8+zklf7Ec6bjzzsexdJ1MFHvkhzuieg5XApFczudD25wrKuZb4VIDfDCkaqKr3hMl1cLlFjEEng3bVNKtmkMtAalVIxK+h9Hg88uvvobPuO+fn9YEMzLRAlK+DW+3t", "fingerprint": "39:0b:6e:63:f8:a7:1a:55:85:1f:2f:32:22:b9:f7:60", "user": {"id": "user_Z40pnNJK5oImXEaPkBxbCpj3WZW", "first_name": "Clarence", "last_name": "Kilback", "email": "carey.ruecker@zboncak.example", "created_at": "2025-01-05T00:00:00.000Z", "updated_at": "2024-10-07T00:00:00.000Z", "role": {"id": "role_vePpArmPWlC0RAP78Gn5FvWgGY6o", "name": "owner", "created_at": "2024-11-25T00:00:00.000Z", "updated_at": "2026-01-28T00:00:00.000Z"}}, "created_at": "2025-07-16T18:37:09+00:00", "updated_at": "2025-07-16T18:37:09+00:00", "project": {}}}}
     Bad Request:
       parameters:
         path:
@@ -6475,7 +6475,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "user_data", "attributes": {"description": "User Data description", "project": "proj_AW6Q2D9lqKLpr", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "ud_GKN4ydzgqVob3", "type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "created_at": "2025-07-16T18:37:12+00:00", "updated_at": "2025-07-16T18:37:12+00:00"}}, "meta": {}}
+          application/vnd.api+json: {"data": {"id": "ud_GKN4ydzgqVob3", "type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "created_at": "2025-07-16T18:37:12+00:00", "updated_at": "2025-07-16T18:37:12+00:00", "project": {"id": "proj_6WeGoqAnDP7nz", "name": "Incredible Cotton Knife", "slug": "incredible-cotton-knife", "description": "Fantastic Cotton Pants", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}}}, "meta": {}}
   get-user-data:
     Success:
       parameters:
@@ -6485,7 +6485,7 @@ examples:
           extra_fields[user_data]: "decoded_content"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "ud_1Qkm7dXzD8nZV", "type": "user_data", "attributes": {"description": "Breaded fried chicken with waffles, and a side of maple syrup.", "content": "QnJlYWRlZCBmcmllZCBjaGlja2VuIHdpdGggd2FmZmxlcywgYW5kIGEgc2lkZSBvZiBtYXBsZSBzeXJ1cC4=", "created_at": "2025-07-16T18:37:12+00:00", "updated_at": "2025-07-16T18:37:12+00:00"}}, "meta": {}}
+          application/vnd.api+json: {"data": {"id": "ud_1Qkm7dXzD8nZV", "type": "user_data", "attributes": {"description": "Breaded fried chicken with waffles, and a side of maple syrup.", "content": "QnJlYWRlZCBmcmllZCBjaGlja2VuIHdpdGggd2FmZmxlcywgYW5kIGEgc2lkZSBvZiBtYXBsZSBzeXJ1cC4=", "created_at": "2025-07-16T18:37:12+00:00", "updated_at": "2025-07-16T18:37:12+00:00", "project": {"id": "proj_m5xyZOnNOWM0l", "name": "Ergonomic Granite Shirt", "slug": "ergonomic-granite-shirt", "description": "Durable Linen Bottle", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": "<value>", "billing": {}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}}}, "meta": {}}
     Not Found:
       parameters:
         path:
@@ -6641,7 +6641,7 @@ examples:
           id: "<id>"
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes:\n* `Latitudesh.Teams.Members.Get-Team-Members()`:  `response.Data.[]` **Changed** **Breaking** :warning:\n* `Latitudesh.Plans.List()`:  `response.Data.[].Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.Plans.Get()`:  `response.Data.Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.UserData.Get-Project-Users-Data()`:  `response` **Changed** **Breaking** :warning:\n* `Latitudesh.UserData.List()`:  `response` **Changed** **Breaking** :warning:\n* `Latitudesh.VirtualMachines.Create()`: \n  *  `request.Request.Data.Attributes` **Changed**\n  *  `response.Data.Attributes.Billing` **Added**\n* `Latitudesh.VpnSessions.List()`:  `request.Filter[location]` **Changed**\n"
+releaseNotes: "## Go SDK Changes:\n* `Latitudesh.IpAddresses.List()`: \n  *  `request.Request.Filter[additional]` **Added**\n  *  `response.Data.[].Attributes.Additional` **Added**\n* `Latitudesh.IpAddresses.Get()`:  `response.Attributes.Additional` **Added**\n* `Latitudesh.Projects.SshKeys.Post-Project-Ssh-Key()`:  `response.Data.Attributes.Project` **Added**\n* `Latitudesh.SshKeys.List()`:  `response.Data.[].Attributes.Project` **Added**\n* `Latitudesh.SshKeys.Get()`:  `response.Data.Attributes.Project` **Added**\n* `Latitudesh.SshKeys.ModifyProjectKey()`:  `response.Data.Attributes.Project` **Added**\n* `Latitudesh.SshKeys.ListAll()`: \n  *  `request.Filter[scope]` **Added**\n  *  `response.Data.[].Attributes.Project` **Added**\n* `Latitudesh.SshKeys.Create()`:  `response.Data.Attributes.Project` **Added**\n* `Latitudesh.SshKeys.Retrieve()`:  `response.Data.Attributes.Project` **Added**\n* `Latitudesh.SshKeys.Update()`:  `response.Data.Attributes.Project` **Added**\n* `Latitudesh.UserData.Get-Project-Users-Data()`:  `response.Data.Attributes.Project` **Added**\n* `Latitudesh.UserData.Get-Project-User-Data()`:  `response.Data.Attributes.Project` **Added**\n* `Latitudesh.UserData.Create()`:  `response.Data.Attributes.Project` **Added**\n* `Latitudesh.UserData.UpdateForProject()`:  `response.Data.Attributes.Project` **Added**\n* `Latitudesh.UserData.List()`: \n  *  `request.Filter[scope]` **Added**\n  *  `response.Data.Attributes.Project` **Added**\n* `Latitudesh.UserData.CreateNew()`:  `response.Data.Attributes.Project` **Added**\n* `Latitudesh.UserData.Retrieve()`:  `response.Data.Attributes.Project` **Added**\n* `Latitudesh.UserData.Update()`:  `response.Data.Attributes.Project` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

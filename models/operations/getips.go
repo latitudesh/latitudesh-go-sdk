@@ -76,6 +76,8 @@ type GetIpsRequest struct {
 	FilterLocation *string `queryParam:"style=form,explode=true,name=filter[location]"`
 	// The address of IP to filter by starts_with
 	FilterAddress *string `queryParam:"style=form,explode=true,name=filter[address]"`
+	// Filter by additional IPs (true) or management IPs (false)
+	FilterAdditional *bool `queryParam:"style=form,explode=true,name=filter[additional]"`
 	// The `region` and `server` are provided as extra attributes that are lazy loaded. To request it, just set `extra_fields[ip_addresses]=region,server` in the query string.
 	ExtraFieldsIPAddresses *string `queryParam:"style=form,explode=true,name=extra_fields[ip_addresses]"`
 	// Number of items to return per page
@@ -135,6 +137,13 @@ func (g *GetIpsRequest) GetFilterAddress() *string {
 		return nil
 	}
 	return g.FilterAddress
+}
+
+func (g *GetIpsRequest) GetFilterAdditional() *bool {
+	if g == nil {
+		return nil
+	}
+	return g.FilterAdditional
 }
 
 func (g *GetIpsRequest) GetExtraFieldsIPAddresses() *string {
