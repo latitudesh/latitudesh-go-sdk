@@ -4,12 +4,12 @@
 
 ### Available Operations
 
-* [Get](#get) - Retrieve Traffic consumption
-* [GetQuota](#getquota) - Retrieve Traffic Quota
+* [Get](#get) - Retrieve traffic
+* [GetQuota](#getquota) - Retrieve traffic quota
 
 ## Get
 
-Retrieve Traffic consumption
+Retrieve traffic
 
 ### Example Usage
 
@@ -64,7 +64,7 @@ func main() {
 
 ## GetQuota
 
-Retrieve Traffic Quota
+Retrieve traffic quota
 
 ### Example Usage
 

@@ -31,8 +31,8 @@ func newEvents(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *ho
 	}
 }
 
-// List all Events
-// Lists all events.
+// List events
+// Lists actions performed by users on your account.
 func (s *Events) List(ctx context.Context, request operations.GetEventsRequest, opts ...operations.Option) (*operations.GetEventsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{

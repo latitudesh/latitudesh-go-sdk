@@ -30,7 +30,7 @@ func newBilling(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *h
 	}
 }
 
-// ListUsage - List Billing Usage
+// ListUsage - Retrieve billing usage
 // Returns the billing usage of a project
 func (s *Billing) ListUsage(ctx context.Context, filterProject string, filterProducts []string, filterPlan *string, opts ...operations.Option) (*operations.GetBillingUsageResponse, error) {
 	request := operations.GetBillingUsageRequest{

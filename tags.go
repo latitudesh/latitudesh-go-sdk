@@ -30,7 +30,7 @@ func newTags(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *hook
 	}
 }
 
-// List all Tags
+// List tags
 // List all Tags in the team.
 func (s *Tags) List(ctx context.Context, opts ...operations.Option) (*operations.GetTagsResponse, error) {
 	o := operations.Options{}
@@ -236,7 +236,7 @@ func (s *Tags) List(ctx context.Context, opts ...operations.Option) (*operations
 
 }
 
-// Create a Tag
+// Create tag
 // Create a Tag in the team.
 func (s *Tags) Create(ctx context.Context, request operations.CreateTagTagsRequestBody, opts ...operations.Option) (*operations.CreateTagResponse, error) {
 	o := operations.Options{}
@@ -449,7 +449,7 @@ func (s *Tags) Create(ctx context.Context, request operations.CreateTagTagsReque
 
 }
 
-// Update Tag
+// Update tag
 // Update a Tag in the team.
 func (s *Tags) Update(ctx context.Context, tagID string, requestBody operations.UpdateTagTagsRequestBody, opts ...operations.Option) (*operations.UpdateTagResponse, error) {
 	request := operations.UpdateTagRequest{
@@ -667,7 +667,7 @@ func (s *Tags) Update(ctx context.Context, tagID string, requestBody operations.
 
 }
 
-// Delete Tag
+// Delete tag
 // Update a Tag in the team.
 func (s *Tags) Delete(ctx context.Context, tagID string, opts ...operations.Option) (*operations.DestroyTagResponse, error) {
 	request := operations.DestroyTagRequest{

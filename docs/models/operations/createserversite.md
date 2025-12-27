@@ -14,6 +14,7 @@ The site slug to deploy the server
 | `CreateServerSiteDal`  | DAL                    |
 | `CreateServerSiteFra`  | FRA                    |
 | `CreateServerSiteLax`  | LAX                    |
+| `CreateServerSiteLax2` | LAX2                   |
 | `CreateServerSiteLon`  | LON                    |
 | `CreateServerSiteMex`  | MEX                    |
 | `CreateServerSiteMex2` | MEX2                   |

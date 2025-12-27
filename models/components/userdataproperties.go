@@ -31,9 +31,9 @@ func (e *UserDataPropertiesType) UnmarshalJSON(data []byte) error {
 }
 
 type UserDataPropertiesAttributes struct {
-	// description of the User Data
+	// description of the User data
 	Description *string `json:"description,omitempty"`
-	// content of the User Data
+	// content of the User data
 	Content   *string         `json:"content,omitempty"`
 	CreatedAt *string         `json:"created_at,omitempty"`
 	UpdatedAt *string         `json:"updated_at,omitempty"`

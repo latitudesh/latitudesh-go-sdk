@@ -4,16 +4,16 @@
 
 ### Available Operations
 
-* [~~GetProjectUsersData~~](#getprojectusersdata) - List all Project User Data :warning: **Deprecated**
-* [~~GetProjectUserData~~](#getprojectuserdata) - Retrieve a Project User Data :warning: **Deprecated**
-* [~~DeleteProjectUserData~~](#deleteprojectuserdata) - Delete a Project User Data :warning: **Deprecated**
-* [~~Create~~](#create) - Create a Project User Data :warning: **Deprecated**
-* [~~UpdateForProject~~](#updateforproject) - Update a Project User Data :warning: **Deprecated**
-* [List](#list) - List all User Data
-* [CreateNew](#createnew) - Create an User Data
-* [Retrieve](#retrieve) - Retrieve an User Data
-* [Update](#update) - Update an User Data
-* [Delete](#delete) - Delete an User Data
+* [~~GetProjectUsersData~~](#getprojectusersdata) - List all Project User data :warning: **Deprecated**
+* [~~GetProjectUserData~~](#getprojectuserdata) - Retrieve a Project User data :warning: **Deprecated**
+* [~~DeleteProjectUserData~~](#deleteprojectuserdata) - Delete a Project User data :warning: **Deprecated**
+* [~~Create~~](#create) - Create a Project User data :warning: **Deprecated**
+* [~~UpdateForProject~~](#updateforproject) - Update a Project User data :warning: **Deprecated**
+* [List](#list) - List user data
+* [CreateNew](#createnew) - Create user data
+* [Retrieve](#retrieve) - Retrieve user data
+* [Update](#update) - Update user data
+* [Delete](#delete) - Delete user data
 
 ## ~~GetProjectUsersData~~
 
@@ -73,7 +73,7 @@ func main() {
 
 ## ~~GetProjectUserData~~
 
-Get User Data in the project. These scripts can be used to configure servers with user data.
+Get User data in the project. These scripts can be used to configure servers with user data.
 
 
 > :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -130,7 +130,7 @@ func main() {
 
 ## ~~DeleteProjectUserData~~
 
-Allow you remove User Data in a project.
+Allow you remove User data in a project.
 
 
 > :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -186,7 +186,7 @@ func main() {
 
 ## ~~Create~~
 
-Allows you to create User Data in a project, which can be used to perform custom setup on your servers after deploy and reinstall.
+Allows you to create User data in a project, which can be used to perform custom setup on your servers after deploy and reinstall.
 
 
 > :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -216,7 +216,7 @@ func main() {
         Data: operations.PostProjectUserDataUserDataData{
             Type: operations.PostProjectUserDataUserDataTypeUserData,
             Attributes: &operations.PostProjectUserDataUserDataAttributes{
-                Description: "User Data description",
+                Description: "User data description",
                 Content: "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd",
             },
         },
@@ -251,7 +251,7 @@ func main() {
 
 ## ~~UpdateForProject~~
 
-Allow you update User Data in a project.
+Allow you update User data in a project.
 
 
 > :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -372,7 +372,7 @@ func main() {
 
 ## CreateNew
 
-Allows you to create User Data in a team, which can be used to perform custom setup on your servers after deploy and reinstall.
+Allows you to create User data in a team, which can be used to perform custom setup on your servers after deploy and reinstall.
 
 
 ### Example Usage
@@ -400,7 +400,7 @@ func main() {
         Data: operations.PostUserDataUserDataData{
             Type: operations.PostUserDataUserDataTypeUserData,
             Attributes: &operations.PostUserDataUserDataAttributes{
-                Description: "User Data description",
+                Description: "User data description",
                 Project: latitudeshgosdk.Pointer("proj_AW6Q2D9lqKLpr"),
                 Content: "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd",
             },
@@ -435,7 +435,7 @@ func main() {
 
 ## Retrieve
 
-Get User Data in the project. These scripts can be used to configure servers with user data.
+Get User data in the project. These scripts can be used to configure servers with user data.
 
 
 ### Example Usage
@@ -489,7 +489,7 @@ func main() {
 
 ## Update
 
-Allow you update User Data in a team.
+Allow you update User data in a team.
 
 
 ### Example Usage
@@ -552,7 +552,7 @@ func main() {
 
 ## Delete
 
-Delete an User Data
+Delete user data
 
 ### Example Usage
 
