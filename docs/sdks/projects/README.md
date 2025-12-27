@@ -4,10 +4,10 @@
 
 ### Available Operations
 
-* [List](#list) - List all Projects
-* [Create](#create) - Create a Project
-* [Update](#update) - Update a Project
-* [Delete](#delete) - Delete a Project
+* [List](#list) - List projects
+* [Create](#create) - Create a project
+* [Update](#update) - Update a project
+* [Delete](#delete) - Delete a project
 
 ## List
 
@@ -79,7 +79,7 @@ func main() {
 
 ## Create
 
-Create a Project
+Create a project
 
 ### Example Usage
 
@@ -142,7 +142,7 @@ func main() {
 
 ## Update
 
-Update a Project
+Update a project
 
 ### Example Usage
 
@@ -207,7 +207,7 @@ func main() {
 
 ## Delete
 
-Delete a Project
+Delete a project
 
 ### Example Usage
 

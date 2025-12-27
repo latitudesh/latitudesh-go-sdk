@@ -4,13 +4,13 @@
 
 ### Available Operations
 
-* [Get](#get) - Retrieve the team
-* [Create](#create) - Create a team
-* [Update](#update) - Update a team
+* [Get](#get) - Retrieve team
+* [Create](#create) - Create team
+* [Update](#update) - Update team
 
 ## Get
 
-Retrieve the team
+Retrieve team
 
 ### Example Usage
 
@@ -61,7 +61,7 @@ func main() {
 
 ## Create
 
-Create a team
+Create team
 
 ### Example Usage
 
@@ -123,7 +123,7 @@ func main() {
 
 ## Update
 
-Update a team
+Update team
 
 ### Example Usage
 

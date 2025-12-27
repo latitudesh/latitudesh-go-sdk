@@ -12,6 +12,7 @@
 | `FilterLocationDal`  | DAL                  |
 | `FilterLocationFra`  | FRA                  |
 | `FilterLocationLax`  | LAX                  |
+| `FilterLocationLax2` | LAX2                 |
 | `FilterLocationLon`  | LON                  |
 | `FilterLocationMex`  | MEX                  |
 | `FilterLocationMex2` | MEX2                 |

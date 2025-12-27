@@ -41,6 +41,7 @@ const (
 	PostVpnSessionVpnSessionsSiteDal  PostVpnSessionVpnSessionsSite = "DAL"
 	PostVpnSessionVpnSessionsSiteFra  PostVpnSessionVpnSessionsSite = "FRA"
 	PostVpnSessionVpnSessionsSiteLax  PostVpnSessionVpnSessionsSite = "LAX"
+	PostVpnSessionVpnSessionsSiteLax2 PostVpnSessionVpnSessionsSite = "LAX2"
 	PostVpnSessionVpnSessionsSiteLon  PostVpnSessionVpnSessionsSite = "LON"
 	PostVpnSessionVpnSessionsSiteMex  PostVpnSessionVpnSessionsSite = "MEX"
 	PostVpnSessionVpnSessionsSiteMex2 PostVpnSessionVpnSessionsSite = "MEX2"
@@ -77,6 +78,8 @@ func (e *PostVpnSessionVpnSessionsSite) UnmarshalJSON(data []byte) error {
 	case "FRA":
 		fallthrough
 	case "LAX":
+		fallthrough
+	case "LAX2":
 		fallthrough
 	case "LON":
 		fallthrough

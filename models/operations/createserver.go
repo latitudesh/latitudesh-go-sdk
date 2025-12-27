@@ -105,6 +105,7 @@ const (
 	CreateServerSiteDal  CreateServerSite = "DAL"
 	CreateServerSiteFra  CreateServerSite = "FRA"
 	CreateServerSiteLax  CreateServerSite = "LAX"
+	CreateServerSiteLax2 CreateServerSite = "LAX2"
 	CreateServerSiteLon  CreateServerSite = "LON"
 	CreateServerSiteMex  CreateServerSite = "MEX"
 	CreateServerSiteMex2 CreateServerSite = "MEX2"
@@ -141,6 +142,8 @@ func (e *CreateServerSite) UnmarshalJSON(data []byte) error {
 	case "FRA":
 		fallthrough
 	case "LAX":
+		fallthrough
+	case "LAX2":
 		fallthrough
 	case "LON":
 		fallthrough

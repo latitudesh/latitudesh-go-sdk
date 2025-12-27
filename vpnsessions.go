@@ -30,7 +30,8 @@ func newVpnSessions(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hook
 	}
 }
 
-// List all Active VPN Sessions
+// List VPN sessions
+// List active VPN sessions.
 func (s *VpnSessions) List(ctx context.Context, filterLocation *operations.FilterLocation, opts ...operations.Option) (*operations.GetVpnSessionsResponse, error) {
 	request := operations.GetVpnSessionsRequest{
 		FilterLocation: filterLocation,
@@ -243,7 +244,7 @@ func (s *VpnSessions) List(ctx context.Context, filterLocation *operations.Filte
 
 }
 
-// Create a VPN Session
+// Create VPN session
 // Creates a new VPN Session.
 // `NOTE:` The VPN credentials are only listed ONCE upon creation. They can however be refreshed or deleted.
 func (s *VpnSessions) Create(ctx context.Context, request operations.PostVpnSessionVpnSessionsRequestBody, opts ...operations.Option) (*operations.PostVpnSessionResponse, error) {
@@ -457,7 +458,7 @@ func (s *VpnSessions) Create(ctx context.Context, request operations.PostVpnSess
 
 }
 
-// RefreshPassword - Refresh a VPN Session
+// RefreshPassword - Refresh VPN session
 // Refreshing an existing VPN Session will create new credentials for that session
 func (s *VpnSessions) RefreshPassword(ctx context.Context, vpnSessionID string, opts ...operations.Option) (*operations.PutVpnSessionResponse, error) {
 	request := operations.PutVpnSessionRequest{
@@ -667,7 +668,7 @@ func (s *VpnSessions) RefreshPassword(ctx context.Context, vpnSessionID string, 
 
 }
 
-// Delete a VPN Session
+// Delete VPN session
 // Deletes an existing VPN Session.
 func (s *VpnSessions) Delete(ctx context.Context, vpnSessionID string, opts ...operations.Option) (*operations.DeleteVpnSessionResponse, error) {
 	request := operations.DeleteVpnSessionRequest{

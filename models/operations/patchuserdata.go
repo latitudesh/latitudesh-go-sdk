@@ -34,7 +34,7 @@ func (e *PatchUserDataUserDataType) UnmarshalJSON(data []byte) error {
 type PatchUserDataUserDataAttributes struct {
 	// description dummy user data
 	Description *string `json:"description,omitempty"`
-	// encoded content of the User Data
+	// encoded content of the User data
 	Content *string `json:"content,omitempty"`
 }
 

@@ -42,6 +42,7 @@ const (
 	CreateVirtualNetworkPrivateNetworksSiteDal  CreateVirtualNetworkPrivateNetworksSite = "DAL"
 	CreateVirtualNetworkPrivateNetworksSiteFra  CreateVirtualNetworkPrivateNetworksSite = "FRA"
 	CreateVirtualNetworkPrivateNetworksSiteLax  CreateVirtualNetworkPrivateNetworksSite = "LAX"
+	CreateVirtualNetworkPrivateNetworksSiteLax2 CreateVirtualNetworkPrivateNetworksSite = "LAX2"
 	CreateVirtualNetworkPrivateNetworksSiteLon  CreateVirtualNetworkPrivateNetworksSite = "LON"
 	CreateVirtualNetworkPrivateNetworksSiteMex  CreateVirtualNetworkPrivateNetworksSite = "MEX"
 	CreateVirtualNetworkPrivateNetworksSiteMex2 CreateVirtualNetworkPrivateNetworksSite = "MEX2"
@@ -78,6 +79,8 @@ func (e *CreateVirtualNetworkPrivateNetworksSite) UnmarshalJSON(data []byte) err
 	case "FRA":
 		fallthrough
 	case "LAX":
+		fallthrough
+	case "LAX2":
 		fallthrough
 	case "LON":
 		fallthrough

@@ -4,8 +4,8 @@
 
 ### Available Operations
 
-* [Get](#get) - List all Regions
-* [Fetch](#fetch) - Retrieve a Region
+* [Get](#get) - List regions
+* [Fetch](#fetch) - Retrieve region
 
 ## Get
 
@@ -76,7 +76,7 @@ func main() {
 
 ## Fetch
 
-Retrieve a Region
+Retrieve region
 
 ### Example Usage
 
