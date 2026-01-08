@@ -30,8 +30,8 @@ func newSSHKeys(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *h
 	}
 }
 
-// List all Project SSH Keys
-// List all SSH Keys in the project. These keys can be used to access servers after deploy and reinstall actions.
+// List SSH keys
+// List SSH keys in the project. These keys can be used to access servers after deploy and reinstall actions.
 //
 // Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *SSHKeys) List(ctx context.Context, projectID string, filterTags *string, opts ...operations.Option) (*operations.GetProjectSSHKeysResponse, error) {
@@ -874,7 +874,7 @@ func (s *SSHKeys) RemoveFromProject(ctx context.Context, projectID string, sshKe
 
 }
 
-// ListAll - List all SSH Keys
+// ListAll - List SSH Keys
 // List all SSH Keys in the project. These keys can be used to access servers after deploy and reinstall actions.
 func (s *SSHKeys) ListAll(ctx context.Context, filterProject *string, filterScope *string, filterTags *string, opts ...operations.Option) (*operations.GetSSHKeysResponse, error) {
 	request := operations.GetSSHKeysRequest{

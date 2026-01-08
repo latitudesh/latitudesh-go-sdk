@@ -4,14 +4,14 @@
 
 ### Available Operations
 
-* [List](#list) - List API Keys
-* [Create](#create) - Create API Key
-* [Update](#update) - Regenerate API Key
-* [Delete](#delete) - Delete API Key
+* [List](#list) - List API keys
+* [Create](#create) - Create API key
+* [Update](#update) - Rotate API key
+* [Delete](#delete) - Delete API key
 
 ## List
 
-Returns a list of all API keys from the team members
+Returns a list of all API keys.
 
 
 ### Example Usage

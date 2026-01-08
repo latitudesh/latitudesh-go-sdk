@@ -14,6 +14,7 @@ Site ID or slug
 | `CreateVirtualNetworkPrivateNetworksSiteDal`  | DAL                                           |
 | `CreateVirtualNetworkPrivateNetworksSiteFra`  | FRA                                           |
 | `CreateVirtualNetworkPrivateNetworksSiteLax`  | LAX                                           |
+| `CreateVirtualNetworkPrivateNetworksSiteLax2` | LAX2                                          |
 | `CreateVirtualNetworkPrivateNetworksSiteLon`  | LON                                           |
 | `CreateVirtualNetworkPrivateNetworksSiteMex`  | MEX                                           |
 | `CreateVirtualNetworkPrivateNetworksSiteMex2` | MEX2                                          |

@@ -4,11 +4,11 @@
 
 ### Available Operations
 
-* [~~List~~](#list) - List all Project SSH Keys :warning: **Deprecated**
+* [~~List~~](#list) - List SSH keys :warning: **Deprecated**
 * [~~Get~~](#get) - Retrieve a Project SSH Key :warning: **Deprecated**
 * [~~ModifyProjectKey~~](#modifyprojectkey) - Update a Project SSH Key :warning: **Deprecated**
 * [~~RemoveFromProject~~](#removefromproject) - Delete a Project SSH Key :warning: **Deprecated**
-* [ListAll](#listall) - List all SSH Keys
+* [ListAll](#listall) - List SSH Keys
 * [Create](#create) - Create a SSH Key
 * [Retrieve](#retrieve) - Retrieve a SSH Key
 * [Update](#update) - Update a SSH Key
@@ -16,7 +16,7 @@
 
 ## ~~List~~
 
-List all SSH Keys in the project. These keys can be used to access servers after deploy and reinstall actions.
+List SSH keys in the project. These keys can be used to access servers after deploy and reinstall actions.
 
 
 > :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.

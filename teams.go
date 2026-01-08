@@ -33,7 +33,7 @@ func newTeams(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *hoo
 	}
 }
 
-// Get - Retrieve the team
+// Get - Retrieve team
 func (s *Teams) Get(ctx context.Context, opts ...operations.Option) (*operations.GetTeamResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -238,7 +238,7 @@ func (s *Teams) Get(ctx context.Context, opts ...operations.Option) (*operations
 
 }
 
-// Create a team
+// Create team
 func (s *Teams) Create(ctx context.Context, request operations.PostTeamTeamsRequestBody, opts ...operations.Option) (*operations.PostTeamResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -450,7 +450,7 @@ func (s *Teams) Create(ctx context.Context, request operations.PostTeamTeamsRequ
 
 }
 
-// Update a team
+// Update team
 func (s *Teams) Update(ctx context.Context, teamID string, requestBody operations.PatchCurrentTeamTeamsRequestBody, opts ...operations.Option) (*operations.PatchCurrentTeamResponse, error) {
 	request := operations.PatchCurrentTeamRequest{
 		TeamID:      teamID,
