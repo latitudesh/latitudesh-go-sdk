@@ -4,14 +4,14 @@
 
 ### Available Operations
 
-* [List](#list) - List all Active VPN Sessions
-* [Create](#create) - Create a VPN Session
-* [RefreshPassword](#refreshpassword) - Refresh a VPN Session
-* [Delete](#delete) - Delete a VPN Session
+* [List](#list) - List VPN sessions
+* [Create](#create) - Create VPN session
+* [RefreshPassword](#refreshpassword) - Refresh VPN session
+* [Delete](#delete) - Delete VPN session
 
 ## List
 
-List all Active VPN Sessions
+List active VPN sessions.
 
 ### Example Usage
 

@@ -30,7 +30,7 @@ func newVM(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *hooks.
 	}
 }
 
-// List all Virtual Machines Plans
+// List VM plans
 func (s *VM) List(ctx context.Context, opts ...operations.Option) (*operations.GetVMPlansResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{

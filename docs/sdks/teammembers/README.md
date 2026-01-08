@@ -4,12 +4,12 @@
 
 ### Available Operations
 
-* [PostTeamMembers](#postteammembers) - Add a Team Member
-* [Delete](#delete) - Remove a Team Member
+* [PostTeamMembers](#postteammembers) - Create member
+* [Delete](#delete) - Remove a member
 
 ## PostTeamMembers
 
-Add a Team Member
+Create member
 
 ### Example Usage
 
@@ -72,7 +72,7 @@ func main() {
 
 ## Delete
 
-Remove a Team Member
+Remove a member
 
 ### Example Usage
 

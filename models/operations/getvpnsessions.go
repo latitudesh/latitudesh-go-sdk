@@ -18,6 +18,7 @@ const (
 	FilterLocationDal  FilterLocation = "DAL"
 	FilterLocationFra  FilterLocation = "FRA"
 	FilterLocationLax  FilterLocation = "LAX"
+	FilterLocationLax2 FilterLocation = "LAX2"
 	FilterLocationLon  FilterLocation = "LON"
 	FilterLocationMex  FilterLocation = "MEX"
 	FilterLocationMex2 FilterLocation = "MEX2"
@@ -54,6 +55,8 @@ func (e *FilterLocation) UnmarshalJSON(data []byte) error {
 	case "FRA":
 		fallthrough
 	case "LAX":
+		fallthrough
+	case "LAX2":
 		fallthrough
 	case "LON":
 		fallthrough

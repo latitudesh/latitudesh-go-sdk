@@ -34,7 +34,7 @@ func newProjects(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *
 	}
 }
 
-// List all Projects
+// List projects
 // Returns a list of all projects for the current team
 func (s *Projects) List(ctx context.Context, request operations.GetProjectsRequest, opts ...operations.Option) (*operations.GetProjectsResponse, error) {
 	o := operations.Options{}
@@ -298,7 +298,7 @@ func (s *Projects) List(ctx context.Context, request operations.GetProjectsReque
 
 }
 
-// Create a Project
+// Create a project
 func (s *Projects) Create(ctx context.Context, request operations.CreateProjectProjectsRequestBody, opts ...operations.Option) (*operations.CreateProjectResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -510,7 +510,7 @@ func (s *Projects) Create(ctx context.Context, request operations.CreateProjectP
 
 }
 
-// Update a Project
+// Update a project
 func (s *Projects) Update(ctx context.Context, projectID string, requestBody *operations.UpdateProjectProjectsRequestBody, opts ...operations.Option) (*operations.UpdateProjectResponse, error) {
 	request := operations.UpdateProjectRequest{
 		ProjectID:   projectID,
@@ -727,7 +727,7 @@ func (s *Projects) Update(ctx context.Context, projectID string, requestBody *op
 
 }
 
-// Delete a Project
+// Delete a project
 func (s *Projects) Delete(ctx context.Context, projectID string, opts ...operations.Option) (*operations.DeleteProjectResponse, error) {
 	request := operations.DeleteProjectRequest{
 		ProjectID: projectID,

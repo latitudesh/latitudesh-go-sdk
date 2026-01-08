@@ -12,6 +12,7 @@
 | `PostVpnSessionVpnSessionsSiteDal`  | DAL                                 |
 | `PostVpnSessionVpnSessionsSiteFra`  | FRA                                 |
 | `PostVpnSessionVpnSessionsSiteLax`  | LAX                                 |
+| `PostVpnSessionVpnSessionsSiteLax2` | LAX2                                |
 | `PostVpnSessionVpnSessionsSiteLon`  | LON                                 |
 | `PostVpnSessionVpnSessionsSiteMex`  | MEX                                 |
 | `PostVpnSessionVpnSessionsSiteMex2` | MEX2                                |
