@@ -1,23 +1,23 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 2e0c2e0fabef9bf87fc7bf57383c105f
+  docChecksum: ecfab030bc412b60e4e4b09cac3dd99f
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.682.0
-  generationVersion: 2.791.1
-  releaseVersion: 1.12.3
-  configChecksum: 85d883c00ebadd33c0ca0773ef401498
+  speakeasyVersion: 1.684.0
+  generationVersion: 2.793.0
+  releaseVersion: 1.12.4
+  configChecksum: 6d0e4d49fa890e793f42af661a30e4d0
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: a5f1be3b-03d5-4d64-ab89-f0369f6cd762
-  pristine_commit_hash: d09abf69235a9c4065c91fda3cd02e6efc8da08b
-  pristine_tree_hash: ead04bcdc24fd2759b254a27e4be04edd8a05a68
+  generation_id: 4d7a2802-0a13-4c5b-acb5-b87b20708ee6
+  pristine_commit_hash: c30bfd3dbaf36ff0320bdc84d8a8470638fda25d
+  pristine_tree_hash: bb4edc084537a1e51ebe2c1aaff9dc88d446dc4e
 features:
   go:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.13.8
+    core: 3.13.9
     defaultEnabledRetries: 0.2.0
     deprecations: 2.81.3
     devContainers: 2.90.0
@@ -58,8 +58,8 @@ trackedFiles:
     pristine_git_object: 949f31b11f7ed70a1aa724767f6e2e8f6c99b067
   apikeys.go:
     id: 8baafe5dc76e
-    last_write_checksum: sha1:b86a6880f5d462b12e0c68fc3099adc837cbeebb
-    pristine_git_object: 81e5e5e1ce0ae0ea0f4540324478d34b8caf26b1
+    last_write_checksum: sha1:930c98df98aa8f263183d22d971ee08f40817c06
+    pristine_git_object: 52e40b83d2d1bbda11cd6547b0aca3aea5e0b208
   assignments.go:
     id: acb934dc4029
     last_write_checksum: sha1:b50f0fe39aeff503118911579c4149a63a3cad4f
@@ -82,8 +82,8 @@ trackedFiles:
     pristine_git_object: f424369a2956a5e5d2889dbe857e0ddb4d0f1887
   docs/models/components/attributes.md:
     id: 192a09a50cd9
-    last_write_checksum: sha1:6d1ee5ecf1cd20530bce8ffc67f60c4b8bb470af
-    pristine_git_object: e49dc8c6b6d892e290f6206e232a6aa1391539da
+    last_write_checksum: sha1:5986823202800123cf47ea34795f1d5a18b56939
+    pristine_git_object: 14a996e33cfb1deeb49a36028ea9b97ce87b0f05
   docs/models/components/author.md:
     id: 11fd94ac06ba
     last_write_checksum: sha1:487767f53c6926d2f1485e55b8b873ae9a2dbbb3
@@ -174,8 +174,8 @@ trackedFiles:
     pristine_git_object: 15535f1c537ec4da71ec8329161abfe7315000a5
   docs/models/components/createapikeyattributes.md:
     id: 99b8abb2f02d
-    last_write_checksum: sha1:53fba3b0b85e5ca9794a5e89af3b8a33218424c9
-    pristine_git_object: bd3937bae89d23daa632cb7d7c0bc3d44edf8a04
+    last_write_checksum: sha1:c7497b6c56dba3c9df0467dec731332d091aeac0
+    pristine_git_object: fd9360bec7b6638218eee66009a773dc9a642b93
   docs/models/components/createapikeytype.md:
     id: 3ce9dfd41c9f
     last_write_checksum: sha1:917616a5745b6113ab695b3d068ccd511e03b047
@@ -934,8 +934,8 @@ trackedFiles:
     pristine_git_object: 40d4d7490fcc1d4e550be786e9f37619ca4aaf3d
   docs/models/components/updateapikeyattributes.md:
     id: ec21015d84c6
-    last_write_checksum: sha1:e56d292f90cb9c8bec63ee6a607712cfbd4dcaae
-    pristine_git_object: a934f55f6f38605618d42920ca1709d80ce79cb7
+    last_write_checksum: sha1:60709afaa4f9a1612346942010c41d0c2f0fe30f
+    pristine_git_object: bc2cde88cc2a0dbdb05f098b72336f9a65ff9256
   docs/models/components/updateapikeydata.md:
     id: b780e32524f1
     last_write_checksum: sha1:d02e3348a0952ff98127dd301393f71f280344e4
@@ -2096,6 +2096,18 @@ trackedFiles:
     id: 2ac1bd52a5fb
     last_write_checksum: sha1:08cfee5d266c9d82987e448f6c98a143aa42c5f8
     pristine_git_object: 35d8a1e2ad48a64702c6a654ac8880dabec053b0
+  docs/models/operations/patchapikeyrequest.md:
+    id: 970f0ff64cc5
+    last_write_checksum: sha1:86a2139ac6fb200bc77cd7e5459235e960eb70b8
+    pristine_git_object: b2a9b28fd8e8d53f1298165a838ceae8e3f079b3
+  docs/models/operations/patchapikeyresponse.md:
+    id: 32027adc86a5
+    last_write_checksum: sha1:d3cbe67c72340691f9c3dcaf289b894273046a13
+    pristine_git_object: 0b89ec80ef8cda07e72dc35151753d63483be722
+  docs/models/operations/patchapikeyresponsebody.md:
+    id: 461fbc82d2f5
+    last_write_checksum: sha1:5316edaf634e42e6f03f8da2036e2bc0fba1e607
+    pristine_git_object: e0f38690807f575eade8c5fc6d709810377bcee3
   docs/models/operations/patchcurrentteamrequest.md:
     id: 9a6300f520ad
     last_write_checksum: sha1:37ceff9af2d01ef8faabe2083ac13a125fc31dba
@@ -2614,12 +2626,8 @@ trackedFiles:
     pristine_git_object: 5e077d12fa1e97650820662136c74a26e5b27c99
   docs/models/operations/updateapikeyresponse.md:
     id: 2aa4ad24aa03
-    last_write_checksum: sha1:9656cfdea237796601ec4ca29f2ba6529cfa52d6
-    pristine_git_object: ce664ec96bf4407bacc6c764743c8912118becd7
-  docs/models/operations/updateapikeyresponsebody.md:
-    id: c67a7315e931
-    last_write_checksum: sha1:2c878f5b058af15d2b21547f9f325edc3bbb943e
-    pristine_git_object: 4be535a2aaee76ddba7d6e56782b69a93b24fb40
+    last_write_checksum: sha1:5b7669a8ac706da32a72525bb9347199e0ab5d24
+    pristine_git_object: 02e48743dda6c24c9ff7074f159f2582a962b1ab
   docs/models/operations/updatefirewallfirewallsattributes.md:
     id: cf08afe297b5
     last_write_checksum: sha1:d724d1f4530a23324e5d74f6550d7b8487174e8d
@@ -2814,8 +2822,8 @@ trackedFiles:
     pristine_git_object: 9f51359231bb9200ecbff16a5b36e8efd49381b1
   docs/sdks/apikeys/README.md:
     id: e2bd25998427
-    last_write_checksum: sha1:bf6bcce10df4c626e381115fa1bc2c163749ecac
-    pristine_git_object: f59b2ff9bafc7f1329a89acac21584089115a426
+    last_write_checksum: sha1:c5826d91d5412ea6d506bf624b839c54de900dfb
+    pristine_git_object: e52b1862c9e4283204808464e3ef6f5af18c9cda
   docs/sdks/assignments/README.md:
     id: 1a65ed1b1ceb
     last_write_checksum: sha1:2dcf2d2415ad2fa7e7e4ae199dd00664d45a6c14
@@ -2970,8 +2978,8 @@ trackedFiles:
     pristine_git_object: 94f28b63c9327359f1e0d6b7aa6fb613afb5175d
   internal/utils/requestbody.go:
     id: 22445ec1c044
-    last_write_checksum: sha1:46c42b497dd45ed9819b7029436a45c67689a50d
-    pristine_git_object: a20edd60a3ac1ec8dfcf9ebfd042241e3428bf6c
+    last_write_checksum: sha1:1226719b670de3f5bc2547b3923b55048b2709f0
+    pristine_git_object: f30a2a3326dce40ecf44f2834eaa327b71462311
   internal/utils/retries.go:
     id: b5e011d15c2d
     last_write_checksum: sha1:3fe5df8d09d6d8ceb077cdf98038b0973f8ef0c9
@@ -2998,8 +3006,8 @@ trackedFiles:
     pristine_git_object: 266aecc99c8bdd9f173c458c3b6e1ad9a2ac00fd
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:6472bf68fbd401846607ded1d2de388e543b2fb1
-    pristine_git_object: 65d9e9d206373aff35c47cfab74f43577363c478
+    last_write_checksum: sha1:3eeda09540925d193dcf1cfcb031ac1cd9e11a56
+    pristine_git_object: 5da3f4b9db84da1009c12475efb33dec01e2a67c
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:02a8655a227a7d515839ea2225e2f3631b1463c0
@@ -3014,8 +3022,8 @@ trackedFiles:
     pristine_git_object: afd9d71094d78c03ae56c07cca84473026e1bcd7
   models/components/apikey.go:
     id: d49d32b6b55e
-    last_write_checksum: sha1:61bdb0c9e460534fcff91e98a216d17affdee4ff
-    pristine_git_object: 44cac078b30f0e8b40ed3546bb3246cbcd2c931c
+    last_write_checksum: sha1:0df897262fa72f88029c239cfa80ed571064dcdc
+    pristine_git_object: def175a9b77c3b045c79cca2ba218c6074184f2c
   models/components/bandwidthpackages.go:
     id: 0e5a73da3ff2
     last_write_checksum: sha1:b27f50fbda12907a60d1b23503c3b191ca7e510d
@@ -3034,8 +3042,8 @@ trackedFiles:
     pristine_git_object: 35746f0eac98a8709d8aff2b99c791c64b07510b
   models/components/createapikey.go:
     id: 9800fc9156fa
-    last_write_checksum: sha1:fe914493a3043b71f5958e70fcb4c06eccc45a7e
-    pristine_git_object: 468a3b4b9f61db057784f1e55bf700e26079c388
+    last_write_checksum: sha1:c7acbf91dd409cd7b1346e3b2dc39f9f2ba3222d
+    pristine_git_object: 92211bb6de3cf5e6a4a68b92ae7c6e24f0063fd9
   models/components/customtag.go:
     id: e1fee34c743e
     last_write_checksum: sha1:ba6f0df0134068495ee1b01366c95e3c3d7ccc2b
@@ -3234,8 +3242,8 @@ trackedFiles:
     pristine_git_object: 43b1b57b27d4d75fa9eeaec97197856d74c92e9a
   models/components/updateapikey.go:
     id: ff7bcf4d2004
-    last_write_checksum: sha1:c64635fcddc718029b0ac9a7a8f234246f12351e
-    pristine_git_object: cba912f74a4b2f29fff92686e93c9032f8e30b92
+    last_write_checksum: sha1:bad63c4d597c7fe68521134b54cd75a5bd621ba4
+    pristine_git_object: 06c1b28dc390c6c2fa86d9ec63ef629ae82e51f8
   models/components/user.go:
     id: 972e0ca973c7
     last_write_checksum: sha1:ed38cbd20465db8431694c997088109f403d229f
@@ -3632,6 +3640,10 @@ trackedFiles:
     id: d20dd4db9865
     last_write_checksum: sha1:95ffc9e2e9fdab9495686d211ea4f7105766240e
     pristine_git_object: 4815e47441dbfa73074239c0ce91300645dca38d
+  models/operations/patchapikey.go:
+    id: ba509974e3e0
+    last_write_checksum: sha1:52a0bb13d1e58f2325fb024eb2dcd5b48798a167
+    pristine_git_object: d3f10ae5f57d39339610ffe64728d35a479b48b2
   models/operations/patchcurrentteam.go:
     id: 7f1a7a91e131
     last_write_checksum: sha1:f1cde164f7f05d5bd6bf492badfebc9c6f31bfc9
@@ -3738,8 +3750,8 @@ trackedFiles:
     pristine_git_object: 0e7dfca0bc40e5e7b0ddf9d8db2ba162f5a5b740
   models/operations/updateapikey.go:
     id: db69ff154a99
-    last_write_checksum: sha1:07168f8076f7b14b1de9f3afb2b160c839ec8fff
-    pristine_git_object: 93f26c5cf52f31b027530cdc921518d282d53319
+    last_write_checksum: sha1:4c366f0139034d4c2d330e1aebd0c8d92c8cb8ec
+    pristine_git_object: 5517c35e38b89aa80e219eb162a01ebedd58fc3c
   models/operations/updatefirewall.go:
     id: 279f058101b2
     last_write_checksum: sha1:45ec2fe86753bbb6b78ed8bb809ed2ee7e4eae72
@@ -3908,7 +3920,28 @@ examples:
         application/vnd.api+json: {"data": {"type": "api_keys", "attributes": {"name": "App Token"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "tok_ez2A3DVldnawP", "type": "api_keys", "attributes": {"name": "App Token", "api_version": "2023-06-01", "token_last_slice": "2c5bc", "last_used_at": "2025-01-24T09:24:12.041Z", "user": {"id": "user_W3oeKxYvbWIQlBGElMVWsrK2Qyw", "email": "harold@abshire.example"}, "created_at": "2025-07-16T18:36:26+00:00", "updated_at": "2025-07-16T18:36:26+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "tok_ez2A3DVldnawP", "type": "api_keys", "attributes": {"name": "App Token", "api_version": "2023-06-01", "token_last_slice": "2c5bc", "last_used_at": "2025-01-24T09:24:12.041Z", "user": {"id": "user_W3oeKxYvbWIQlBGElMVWsrK2Qyw", "email": "harold@abshire.example"}, "created_at": "2025-07-16T18:36:26+00:00", "updated_at": "2025-07-16T18:36:26+00:00", "read_only": false, "allowed_ips": null}}}
+    ReadOnlyKey:
+      requestBody:
+        application/json: {"data": {"type": "api_keys", "attributes": {"name": "Read-Only Analytics Key", "read_only": true}}}
+        application/vnd.api+json: {"data": {"type": "api_keys", "attributes": {"name": "Read-Only Analytics Key", "read_only": true}}}
+      responses:
+        "201":
+          application/vnd.api+json: {"data": {"id": "tok_aB3Cd4eF5gH6i", "type": "api_keys", "attributes": {"name": "Read-Only Analytics Key", "api_version": "2023-06-01", "token_last_slice": "3e2f1", "last_used_at": "2026-01-24T09:24:12.041Z", "user": {"id": "user_W3oeKxYvbWIQlBGElMVWsrK2Qyw", "email": "harold@abshire.example"}, "created_at": "2025-07-16T19:15:30+00:00", "updated_at": "2025-07-16T19:15:30+00:00", "read_only": true, "allowed_ips": null}}}
+    IPRestrictedKey:
+      requestBody:
+        application/json: {"data": {"type": "api_keys", "attributes": {"name": "Office Network Key", "allowed_ips": ["192.168.1.100", "10.0.0.0/24"]}}}
+        application/vnd.api+json: {"data": {"type": "api_keys", "attributes": {"name": "Office Network Key", "allowed_ips": ["192.168.1.100", "10.0.0.0/24"]}}}
+      responses:
+        "201":
+          application/vnd.api+json: {"data": {"id": "tok_xY9zW8vU7tS6r", "type": "api_keys", "attributes": {"name": "Office Network Key", "api_version": "2023-06-01", "token_last_slice": "7e8f9", "last_used_at": "2025-02-04T20:31:50.052Z", "user": {"id": "user_W3oeKxYvbWIQlBGElMVWsrK2Qyw", "email": "harold@abshire.example"}, "created_at": "2025-07-16T19:20:45+00:00", "updated_at": "2025-07-16T19:20:45+00:00", "read_only": false, "allowed_ips": ["192.168.1.100", "10.0.0.0/24"]}}}
+    ReadOnlyIPRestrictedKey:
+      requestBody:
+        application/json: {"data": {"type": "api_keys", "attributes": {"name": "Monitoring Dashboard Key", "read_only": true, "allowed_ips": ["203.0.113.50"]}}}
+        application/vnd.api+json: {"data": {"type": "api_keys", "attributes": {"name": "Monitoring Dashboard Key", "read_only": true, "allowed_ips": ["203.0.113.50"]}}}
+      responses:
+        "201":
+          application/vnd.api+json: {"data": {"id": "tok_pQ5rS4tU3vW2x", "type": "api_keys", "attributes": {"name": "Monitoring Dashboard Key", "api_version": "2023-06-01", "token_last_slice": "1b2a3", "last_used_at": "2024-10-25T06:18:32.773Z", "user": {"id": "user_W3oeKxYvbWIQlBGElMVWsrK2Qyw", "email": "harold@abshire.example"}, "created_at": "2025-07-16T19:25:12+00:00", "updated_at": "2025-07-16T19:25:12+00:00", "read_only": true, "allowed_ips": ["203.0.113.50"]}}}
   update-api-key:
     API Key Updated:
       parameters:
@@ -6582,32 +6615,37 @@ examples:
       parameters:
         path:
           id: "<id>"
+  patch-api-key:
+    Success:
+      parameters:
+        path:
+          api_key_id: "tok_zlkg1DegdvZE5"
+      requestBody:
+        application/vnd.api+json: {"data": {"id": "tok_zlkg1DegdvZE5", "type": "api_keys", "attributes": {"name": "Updated Token Name", "api_version": "2023-06-01"}}}
+      responses:
+        "200":
+          application/vnd.api+json: {"data": {"id": "tok_zlkg1DegdvZE5", "type": "api_keys", "attributes": {"name": "Updated Token Name", "api_version": "2023-06-01", "token_last_slice": "e0fd0", "last_used_at": "2024-05-20T11:48:08.882Z", "user": {"id": "user_Lp2QwzbxephLaWxAnwpouknrPzm", "email": "leland_kutch@hayes-beatty.test"}, "created_at": "2025-07-16T18:36:27+00:00", "updated_at": "2025-07-16T18:36:27+00:00", "read_only": false, "allowed_ips": null}}}
+    UpdateToReadOnly:
+      parameters:
+        path:
+          api_key_id: "<id>"
+      requestBody:
+        application/vnd.api+json: {"data": {"id": "tok_zlkg1DegdvZE5", "type": "api_keys", "attributes": {"name": "Name of the API Key", "api_version": "2023-06-01", "read_only": true}}}
+      responses:
+        "200":
+          application/vnd.api+json: {"data": {"id": "tok_zlkg1DegdvZE5", "type": "api_keys", "attributes": {"name": "App Token", "api_version": "2023-06-01", "token_last_slice": "e0fd0", "last_used_at": "2026-12-23T13:06:11.438Z", "user": {"id": "user_Lp2QwzbxephLaWxAnwpouknrPzm", "email": "leland_kutch@hayes-beatty.test"}, "created_at": "2025-07-16T18:36:27+00:00", "updated_at": "2025-07-16T18:36:27+00:00", "read_only": true, "allowed_ips": null}}}
+    AddIPRestrictions:
+      parameters:
+        path:
+          api_key_id: "<id>"
+      requestBody:
+        application/vnd.api+json: {"data": {"id": "tok_zlkg1DegdvZE5", "type": "api_keys", "attributes": {"name": "Name of the API Key", "api_version": "2023-06-01", "allowed_ips": ["192.168.1.100", "10.0.0.0/24"]}}}
+      responses:
+        "200":
+          application/vnd.api+json: {"data": {"id": "tok_zlkg1DegdvZE5", "type": "api_keys", "attributes": {"name": "App Token", "api_version": "2023-06-01", "token_last_slice": "e0fd0", "last_used_at": "2026-02-09T12:31:59.868Z", "user": {"id": "user_Lp2QwzbxephLaWxAnwpouknrPzm", "email": "leland_kutch@hayes-beatty.test"}, "created_at": "2025-07-16T18:36:27+00:00", "updated_at": "2025-07-16T18:36:27+00:00", "read_only": false, "allowed_ips": ["192.168.1.100", "10.0.0.0/24"]}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Go SDK Changes:
-  * `Latitudesh.UserData.Get-Project-Users-Data()`: **Added**
-  * `Latitudesh.UserData.Get-Project-User-Data()`: **Added**
-  * `Latitudesh.UserData.Delete-Project-User-Data()`: **Added**
-  * `Latitudesh.UserData.Create()`: **Added**
-  * `Latitudesh.UserData.UpdateForProject()`: **Added**
-  * `Latitudesh.UserData.List()`: **Added**
-  * `Latitudesh.UserData.CreateNew()`: **Added**
-  * `Latitudesh.UserData.Retrieve()`: **Added**
-  * `Latitudesh.UserData.Update()`: **Added**
-  * `Latitudesh.UserData.Delete()`: **Added**
-  * `Latitudesh.Plans.Get-Containers-Plan()`: **Deleted** **Breaking** :warning:
-  * `Latitudesh.UserData.Get-Project-Users-Data()`: **Deleted** **Breaking** :warning:
-  * `Latitudesh.UserData.Get-Project-User-Data()`: **Deleted** **Breaking** :warning:
-  * `Latitudesh.UserData.Delete-Project-User-Data()`: **Deleted** **Breaking** :warning:
-  * `Latitudesh.UserData.Create()`: **Deleted** **Breaking** :warning:
-  * `Latitudesh.UserData.UpdateForProject()`: **Deleted** **Breaking** :warning:
-  * `Latitudesh.UserData.List()`: **Deleted** **Breaking** :warning:
-  * `Latitudesh.UserData.CreateNew()`: **Deleted** **Breaking** :warning:
-  * `Latitudesh.UserData.Retrieve()`: **Deleted** **Breaking** :warning:
-  * `Latitudesh.UserData.Delete()`: **Deleted** **Breaking** :warning:
-  * `Latitudesh.UserData.Update()`: **Deleted** **Breaking** :warning:
-  * `Latitudesh.VpnSessions.List()`:  `request.Filter[location]` **Changed**
+releaseNotes: "## Go SDK Changes:\n* `Latitudesh.ApiKeys.Update()`: \n  *  `request.UpdateApiKey.Data.Attributes` **Changed**\n  *  `response` **Changed** **Breaking** :warning:\n  *  `error` **Changed**\n* `Latitudesh.ApiKeys.Patch-Api-Key()`: **Added**\n* `Latitudesh.ApiKeys.List()`:  `response.Attributes` **Changed**\n* `Latitudesh.ApiKeys.Create()`: \n  *  `request.Request.Data.Attributes` **Changed**\n  *  `response.Data.Attributes` **Changed**\n  *  `error` **Changed**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
