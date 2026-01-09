@@ -117,6 +117,7 @@ func main() {
 * [Create](docs/sdks/apikeys/README.md#create) - Create API key
 * [Update](docs/sdks/apikeys/README.md#update) - Rotate API key
 * [Delete](docs/sdks/apikeys/README.md#delete) - Delete API key
+* [PatchAPIKey](docs/sdks/apikeys/README.md#patchapikey) - Update API key settings
 
 ### [Billing](docs/sdks/billing/README.md)
 

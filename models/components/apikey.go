@@ -67,6 +67,10 @@ type Attributes struct {
 	CreatedAt *time.Time `json:"created_at,omitempty"`
 	// The time when the API Key was updated
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
+	// Whether the API Key is read-only. Read-only keys can only perform GET, HEAD, and OPTIONS requests. Any POST, PUT, PATCH, or DELETE requests will return a 403 error.
+	ReadOnly *bool `json:"read_only,omitempty"`
+	// List of allowed IP addresses or CIDR ranges. If set, the API key can only be used from these IP addresses. Supports both IPv4 and IPv6 addresses.
+	AllowedIps []string `json:"allowed_ips,omitempty"`
 }
 
 func (a Attributes) MarshalJSON() ([]byte, error) {
@@ -127,6 +131,20 @@ func (a *Attributes) GetUpdatedAt() *time.Time {
 		return nil
 	}
 	return a.UpdatedAt
+}
+
+func (a *Attributes) GetReadOnly() *bool {
+	if a == nil {
+		return nil
+	}
+	return a.ReadOnly
+}
+
+func (a *Attributes) GetAllowedIps() []string {
+	if a == nil {
+		return nil
+	}
+	return a.AllowedIps
 }
 
 type APIKey struct {

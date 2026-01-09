@@ -36,6 +36,10 @@ type UpdateAPIKeyAttributes struct {
 	Name *string `default:"Name of the API Key" json:"name"`
 	// The API version to use
 	APIVersion *string `default:"2023-06-01" json:"api_version"`
+	// Whether the API Key is read-only. Read-only keys can only perform GET, HEAD, and OPTIONS requests.
+	ReadOnly *bool `json:"read_only,omitempty"`
+	// List of allowed IP addresses or CIDR ranges. If set, the API key can only be used from these IP addresses.
+	AllowedIps []string `json:"allowed_ips,omitempty"`
 }
 
 func (u UpdateAPIKeyAttributes) MarshalJSON() ([]byte, error) {
@@ -61,6 +65,20 @@ func (u *UpdateAPIKeyAttributes) GetAPIVersion() *string {
 		return nil
 	}
 	return u.APIVersion
+}
+
+func (u *UpdateAPIKeyAttributes) GetReadOnly() *bool {
+	if u == nil {
+		return nil
+	}
+	return u.ReadOnly
+}
+
+func (u *UpdateAPIKeyAttributes) GetAllowedIps() []string {
+	if u == nil {
+		return nil
+	}
+	return u.AllowedIps
 }
 
 type UpdateAPIKeyData struct {

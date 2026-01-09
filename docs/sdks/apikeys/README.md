@@ -8,6 +8,7 @@
 * [Create](#create) - Create API key
 * [Update](#update) - Rotate API key
 * [Delete](#delete) - Delete API key
+* [PatchAPIKey](#patchapikey) - Update API key settings
 
 ## List
 
@@ -124,7 +125,7 @@ func main() {
 
 ## Update
 
-Regenerate an existing API Key that is tied to the current user. This overrides the previous key.
+Rotate (regenerate) an API key's token and optionally update its settings. This generates a new token and invalidates the previous one. To update settings without rotating the token, use the PATCH endpoint instead.
 
 
 ### Example Usage
@@ -160,7 +161,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.Object != nil {
+    if res != nil {
         // handle response
     }
 }
@@ -231,6 +232,69 @@ func main() {
 ### Response
 
 **[*operations.DeleteAPIKeyResponse](../../models/operations/deleteapikeyresponse.md), error**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
+
+## PatchAPIKey
+
+Update an API key's settings (name, read_only, allowed_ips) without regenerating the token. To rotate the token, use the PUT endpoint instead.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="patch-api-key" method="patch" path="/auth/api_keys/{api_key_id}" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.APIKeys.PatchAPIKey(ctx, "tok_zlkg1DegdvZE5", components.UpdateAPIKey{
+        Data: &components.UpdateAPIKeyData{
+            ID: latitudeshgosdk.Pointer("tok_zlkg1DegdvZE5"),
+            Type: components.UpdateAPIKeyTypeAPIKeys,
+            Attributes: &components.UpdateAPIKeyAttributes{
+                Name: latitudeshgosdk.Pointer("Updated Token Name"),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `ctx`                                                              | [context.Context](https://pkg.go.dev/context#Context)              | :heavy_check_mark:                                                 | The context to use for the request.                                |
+| `apiKeyID`                                                         | *string*                                                           | :heavy_check_mark:                                                 | N/A                                                                |
+| `updateAPIKey`                                                     | [components.UpdateAPIKey](../../models/components/updateapikey.md) | :heavy_check_mark:                                                 | N/A                                                                |
+| `opts`                                                             | [][operations.Option](../../models/operations/option.md)           | :heavy_minus_sign:                                                 | The options for this request.                                      |
+
+### Response
+
+**[*operations.PatchAPIKeyResponse](../../models/operations/patchapikeyresponse.md), error**
 
 ### Errors
 
