@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: ecfab030bc412b60e4e4b09cac3dd99f
+  docChecksum: 37cff21b285bceb75595420d292c7d37
   docVersion: "2023-06-01"
   speakeasyVersion: 1.684.0
   generationVersion: 2.793.0
-  releaseVersion: 1.12.4
-  configChecksum: 6d0e4d49fa890e793f42af661a30e4d0
+  releaseVersion: 1.12.5
+  configChecksum: 5ae0d5d3e9ec245a841ce6f999387906
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 4d7a2802-0a13-4c5b-acb5-b87b20708ee6
-  pristine_commit_hash: c30bfd3dbaf36ff0320bdc84d8a8470638fda25d
-  pristine_tree_hash: bb4edc084537a1e51ebe2c1aaff9dc88d446dc4e
+  generation_id: 69f4ae5a-b9bd-449a-a9d7-7afe5e7ecb4a
+  pristine_commit_hash: 0b0aded0350152c26b889e568b6f80cd08784d3a
+  pristine_tree_hash: ae8f0c42ec7da94d1f4a00e62ee573fbc82a99d5
 features:
   go:
     additionalDependencies: 0.1.0
@@ -3006,8 +3006,8 @@ trackedFiles:
     pristine_git_object: 266aecc99c8bdd9f173c458c3b6e1ad9a2ac00fd
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:3eeda09540925d193dcf1cfcb031ac1cd9e11a56
-    pristine_git_object: 5da3f4b9db84da1009c12475efb33dec01e2a67c
+    last_write_checksum: sha1:b8ad0d75187a574cf2cef3b85f3c9974cbcc7bcd
+    pristine_git_object: 42e2b6d2eeddfc8ac33adac8447fb2957c224a9d
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:02a8655a227a7d515839ea2225e2f3631b1463c0
@@ -3920,14 +3920,14 @@ examples:
         application/vnd.api+json: {"data": {"type": "api_keys", "attributes": {"name": "App Token"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "tok_ez2A3DVldnawP", "type": "api_keys", "attributes": {"name": "App Token", "api_version": "2023-06-01", "token_last_slice": "2c5bc", "last_used_at": "2025-01-24T09:24:12.041Z", "user": {"id": "user_W3oeKxYvbWIQlBGElMVWsrK2Qyw", "email": "harold@abshire.example"}, "created_at": "2025-07-16T18:36:26+00:00", "updated_at": "2025-07-16T18:36:26+00:00", "read_only": false, "allowed_ips": null}}}
+          application/vnd.api+json: {"data": {"id": "tok_ez2A3DVldnawP", "type": "api_keys", "attributes": {"name": "App Token", "api_version": "2023-06-01", "token_last_slice": "2c5bc", "last_used_at": "2025-01-24T09:24:12.041Z", "user": {"id": "user_W3oeKxYvbWIQlBGElMVWsrK2Qyw", "email": "harold@abshire.example"}, "created_at": "2025-07-16T18:36:26+00:00", "updated_at": "2025-07-16T18:36:26+00:00", "read_only": false, "allowed_ips": []}}}
     ReadOnlyKey:
       requestBody:
         application/json: {"data": {"type": "api_keys", "attributes": {"name": "Read-Only Analytics Key", "read_only": true}}}
         application/vnd.api+json: {"data": {"type": "api_keys", "attributes": {"name": "Read-Only Analytics Key", "read_only": true}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "tok_aB3Cd4eF5gH6i", "type": "api_keys", "attributes": {"name": "Read-Only Analytics Key", "api_version": "2023-06-01", "token_last_slice": "3e2f1", "last_used_at": "2026-01-24T09:24:12.041Z", "user": {"id": "user_W3oeKxYvbWIQlBGElMVWsrK2Qyw", "email": "harold@abshire.example"}, "created_at": "2025-07-16T19:15:30+00:00", "updated_at": "2025-07-16T19:15:30+00:00", "read_only": true, "allowed_ips": null}}}
+          application/vnd.api+json: {"data": {"id": "tok_aB3Cd4eF5gH6i", "type": "api_keys", "attributes": {"name": "Read-Only Analytics Key", "api_version": "2023-06-01", "token_last_slice": "3e2f1", "last_used_at": "2026-01-24T09:24:12.041Z", "user": {"id": "user_W3oeKxYvbWIQlBGElMVWsrK2Qyw", "email": "harold@abshire.example"}, "created_at": "2025-07-16T19:15:30+00:00", "updated_at": "2025-07-16T19:15:30+00:00", "read_only": true, "allowed_ips": []}}}
     IPRestrictedKey:
       requestBody:
         application/json: {"data": {"type": "api_keys", "attributes": {"name": "Office Network Key", "allowed_ips": ["192.168.1.100", "10.0.0.0/24"]}}}
@@ -6624,7 +6624,7 @@ examples:
         application/vnd.api+json: {"data": {"id": "tok_zlkg1DegdvZE5", "type": "api_keys", "attributes": {"name": "Updated Token Name", "api_version": "2023-06-01"}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "tok_zlkg1DegdvZE5", "type": "api_keys", "attributes": {"name": "Updated Token Name", "api_version": "2023-06-01", "token_last_slice": "e0fd0", "last_used_at": "2024-05-20T11:48:08.882Z", "user": {"id": "user_Lp2QwzbxephLaWxAnwpouknrPzm", "email": "leland_kutch@hayes-beatty.test"}, "created_at": "2025-07-16T18:36:27+00:00", "updated_at": "2025-07-16T18:36:27+00:00", "read_only": false, "allowed_ips": null}}}
+          application/vnd.api+json: {"data": {"id": "tok_zlkg1DegdvZE5", "type": "api_keys", "attributes": {"name": "Updated Token Name", "api_version": "2023-06-01", "token_last_slice": "e0fd0", "last_used_at": "2024-05-20T11:48:08.882Z", "user": {"id": "user_Lp2QwzbxephLaWxAnwpouknrPzm", "email": "leland_kutch@hayes-beatty.test"}, "created_at": "2025-07-16T18:36:27+00:00", "updated_at": "2025-07-16T18:36:27+00:00", "read_only": false, "allowed_ips": []}}}
     UpdateToReadOnly:
       parameters:
         path:
@@ -6633,7 +6633,7 @@ examples:
         application/vnd.api+json: {"data": {"id": "tok_zlkg1DegdvZE5", "type": "api_keys", "attributes": {"name": "Name of the API Key", "api_version": "2023-06-01", "read_only": true}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "tok_zlkg1DegdvZE5", "type": "api_keys", "attributes": {"name": "App Token", "api_version": "2023-06-01", "token_last_slice": "e0fd0", "last_used_at": "2026-12-23T13:06:11.438Z", "user": {"id": "user_Lp2QwzbxephLaWxAnwpouknrPzm", "email": "leland_kutch@hayes-beatty.test"}, "created_at": "2025-07-16T18:36:27+00:00", "updated_at": "2025-07-16T18:36:27+00:00", "read_only": true, "allowed_ips": null}}}
+          application/vnd.api+json: {"data": {"id": "tok_zlkg1DegdvZE5", "type": "api_keys", "attributes": {"name": "App Token", "api_version": "2023-06-01", "token_last_slice": "e0fd0", "last_used_at": "2026-12-23T13:06:11.438Z", "user": {"id": "user_Lp2QwzbxephLaWxAnwpouknrPzm", "email": "leland_kutch@hayes-beatty.test"}, "created_at": "2025-07-16T18:36:27+00:00", "updated_at": "2025-07-16T18:36:27+00:00", "read_only": true, "allowed_ips": []}}}
     AddIPRestrictions:
       parameters:
         path:
@@ -6645,7 +6645,11 @@ examples:
           application/vnd.api+json: {"data": {"id": "tok_zlkg1DegdvZE5", "type": "api_keys", "attributes": {"name": "App Token", "api_version": "2023-06-01", "token_last_slice": "e0fd0", "last_used_at": "2026-02-09T12:31:59.868Z", "user": {"id": "user_Lp2QwzbxephLaWxAnwpouknrPzm", "email": "leland_kutch@hayes-beatty.test"}, "created_at": "2025-07-16T18:36:27+00:00", "updated_at": "2025-07-16T18:36:27+00:00", "read_only": false, "allowed_ips": ["192.168.1.100", "10.0.0.0/24"]}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes:\n* `Latitudesh.ApiKeys.Update()`: \n  *  `request.UpdateApiKey.Data.Attributes` **Changed**\n  *  `response` **Changed** **Breaking** :warning:\n  *  `error` **Changed**\n* `Latitudesh.ApiKeys.Patch-Api-Key()`: **Added**\n* `Latitudesh.ApiKeys.List()`:  `response.Attributes` **Changed**\n* `Latitudesh.ApiKeys.Create()`: \n  *  `request.Request.Data.Attributes` **Changed**\n  *  `response.Data.Attributes` **Changed**\n  *  `error` **Changed**\n"
+releaseNotes: |
+  ## Go SDK Changes:
+  * `Latitudesh.ApiKeys.List()`:  `response.Attributes` **Changed** **Breaking** :warning:
+  * `Latitudesh.ApiKeys.Create()`:  `response.Data.Attributes` **Changed** **Breaking** :warning:
+  * `Latitudesh.ApiKeys.Patch-Api-Key()`:  `response.Data.Attributes` **Changed** **Breaking** :warning:
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
