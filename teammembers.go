@@ -30,7 +30,7 @@ func newTeamMembers(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hook
 	}
 }
 
-// PostTeamMembers - Create member
+// PostTeamMembers - Add a Team Member
 func (s *TeamMembers) PostTeamMembers(ctx context.Context, request operations.PostTeamMembersTeamMembersRequestBody, opts ...operations.Option) (*operations.PostTeamMembersResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -242,7 +242,7 @@ func (s *TeamMembers) PostTeamMembers(ctx context.Context, request operations.Po
 
 }
 
-// Delete - Remove a member
+// Delete - Remove a Team Member
 func (s *TeamMembers) Delete(ctx context.Context, userID string, opts ...operations.Option) (*operations.DestroyTeamMemberResponse, error) {
 	request := operations.DestroyTeamMemberRequest{
 		UserID: userID,

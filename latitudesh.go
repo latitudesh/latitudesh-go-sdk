@@ -2,7 +2,7 @@
 
 package latitudeshgosdk
 
-// Generated from OpenAPI doc version 2023-06-01 and generator version 2.793.2
+// Generated from OpenAPI doc version 2023-06-01 and generator version 2.796.1
 
 import (
 	"context"
@@ -19,6 +19,7 @@ import (
 // ServerList contains the list of servers available to the SDK
 var ServerList = []string{
 	"https://api.latitude.sh",
+	"http://api.latitude.sh",
 }
 
 // HTTPClient provides an interface for supplying the SDK with a custom HTTP client
@@ -162,11 +163,14 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Latitudesh {
 	sdk := &Latitudesh{
-		SDKVersion: "1.12.6",
+		SDKVersion: "1.12.7",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 1.12.6 2.793.2 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
+			UserAgent:  "speakeasy-sdk/go 1.12.7 2.796.1 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
 			ServerList: ServerList,
 			ServerVariables: []map[string]string{
+				{
+					"latitude_api_key": "<insert your api key here>",
+				},
 				{
 					"latitude_api_key": "<insert your api key here>",
 				},

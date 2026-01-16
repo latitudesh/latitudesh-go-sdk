@@ -31,13 +31,13 @@ func (e *UserDataPropertiesType) UnmarshalJSON(data []byte) error {
 }
 
 type UserDataPropertiesAttributes struct {
-	// description of the User data
+	// description of the User Data
 	Description *string `json:"description,omitempty"`
-	// content of the User data
+	// content of the User Data
 	Content   *string         `json:"content,omitempty"`
+	Project   *ProjectInclude `json:"project,omitempty"`
 	CreatedAt *string         `json:"created_at,omitempty"`
 	UpdatedAt *string         `json:"updated_at,omitempty"`
-	Project   *ProjectInclude `json:"project,omitempty"`
 }
 
 func (u *UserDataPropertiesAttributes) GetDescription() *string {
@@ -54,6 +54,13 @@ func (u *UserDataPropertiesAttributes) GetContent() *string {
 	return u.Content
 }
 
+func (u *UserDataPropertiesAttributes) GetProject() *ProjectInclude {
+	if u == nil {
+		return nil
+	}
+	return u.Project
+}
+
 func (u *UserDataPropertiesAttributes) GetCreatedAt() *string {
 	if u == nil {
 		return nil
@@ -66,13 +73,6 @@ func (u *UserDataPropertiesAttributes) GetUpdatedAt() *string {
 		return nil
 	}
 	return u.UpdatedAt
-}
-
-func (u *UserDataPropertiesAttributes) GetProject() *ProjectInclude {
-	if u == nil {
-		return nil
-	}
-	return u.Project
 }
 
 type UserDataProperties struct {

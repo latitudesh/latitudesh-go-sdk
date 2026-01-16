@@ -35,25 +35,23 @@ type PostVpnSessionVpnSessionsSite string
 
 const (
 	PostVpnSessionVpnSessionsSiteAsh  PostVpnSessionVpnSessionsSite = "ASH"
-	PostVpnSessionVpnSessionsSiteBgt  PostVpnSessionVpnSessionsSite = "BGT"
 	PostVpnSessionVpnSessionsSiteBue  PostVpnSessionVpnSessionsSite = "BUE"
 	PostVpnSessionVpnSessionsSiteChi  PostVpnSessionVpnSessionsSite = "CHI"
 	PostVpnSessionVpnSessionsSiteDal  PostVpnSessionVpnSessionsSite = "DAL"
 	PostVpnSessionVpnSessionsSiteFra  PostVpnSessionVpnSessionsSite = "FRA"
 	PostVpnSessionVpnSessionsSiteLax  PostVpnSessionVpnSessionsSite = "LAX"
-	PostVpnSessionVpnSessionsSiteLax2 PostVpnSessionVpnSessionsSite = "LAX2"
 	PostVpnSessionVpnSessionsSiteLon  PostVpnSessionVpnSessionsSite = "LON"
 	PostVpnSessionVpnSessionsSiteMex  PostVpnSessionVpnSessionsSite = "MEX"
 	PostVpnSessionVpnSessionsSiteMex2 PostVpnSessionVpnSessionsSite = "MEX2"
 	PostVpnSessionVpnSessionsSiteMia  PostVpnSessionVpnSessionsSite = "MIA"
 	PostVpnSessionVpnSessionsSiteMia2 PostVpnSessionVpnSessionsSite = "MIA2"
 	PostVpnSessionVpnSessionsSiteNyc  PostVpnSessionVpnSessionsSite = "NYC"
-	PostVpnSessionVpnSessionsSiteSan  PostVpnSessionVpnSessionsSite = "SAN"
 	PostVpnSessionVpnSessionsSiteSao  PostVpnSessionVpnSessionsSite = "SAO"
 	PostVpnSessionVpnSessionsSiteSao2 PostVpnSessionVpnSessionsSite = "SAO2"
+	PostVpnSessionVpnSessionsSiteSgp  PostVpnSessionVpnSessionsSite = "SGP"
 	PostVpnSessionVpnSessionsSiteSyd  PostVpnSessionVpnSessionsSite = "SYD"
 	PostVpnSessionVpnSessionsSiteTyo  PostVpnSessionVpnSessionsSite = "TYO"
-	PostVpnSessionVpnSessionsSiteTyo4 PostVpnSessionVpnSessionsSite = "TYO4"
+	PostVpnSessionVpnSessionsSiteTyo2 PostVpnSessionVpnSessionsSite = "TYO2"
 )
 
 func (e PostVpnSessionVpnSessionsSite) ToPointer() *PostVpnSessionVpnSessionsSite {
@@ -67,8 +65,6 @@ func (e *PostVpnSessionVpnSessionsSite) UnmarshalJSON(data []byte) error {
 	switch v {
 	case "ASH":
 		fallthrough
-	case "BGT":
-		fallthrough
 	case "BUE":
 		fallthrough
 	case "CHI":
@@ -78,8 +74,6 @@ func (e *PostVpnSessionVpnSessionsSite) UnmarshalJSON(data []byte) error {
 	case "FRA":
 		fallthrough
 	case "LAX":
-		fallthrough
-	case "LAX2":
 		fallthrough
 	case "LON":
 		fallthrough
@@ -93,17 +87,17 @@ func (e *PostVpnSessionVpnSessionsSite) UnmarshalJSON(data []byte) error {
 		fallthrough
 	case "NYC":
 		fallthrough
-	case "SAN":
-		fallthrough
 	case "SAO":
 		fallthrough
 	case "SAO2":
+		fallthrough
+	case "SGP":
 		fallthrough
 	case "SYD":
 		fallthrough
 	case "TYO":
 		fallthrough
-	case "TYO4":
+	case "TYO2":
 		*e = PostVpnSessionVpnSessionsSite(v)
 		return nil
 	default:

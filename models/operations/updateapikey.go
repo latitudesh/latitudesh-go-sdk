@@ -25,8 +25,22 @@ func (u *UpdateAPIKeyRequest) GetUpdateAPIKey() components.UpdateAPIKey {
 	return u.UpdateAPIKey
 }
 
+// UpdateAPIKeyResponseBody - Success - Update name without rotating token
+type UpdateAPIKeyResponseBody struct {
+	Data *components.APIKey `json:"data,omitempty"`
+}
+
+func (u *UpdateAPIKeyResponseBody) GetData() *components.APIKey {
+	if u == nil {
+		return nil
+	}
+	return u.Data
+}
+
 type UpdateAPIKeyResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
+	// Success - Update name without rotating token
+	Object *UpdateAPIKeyResponseBody
 }
 
 func (u *UpdateAPIKeyResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -34,4 +48,11 @@ func (u *UpdateAPIKeyResponse) GetHTTPMeta() components.HTTPMetadata {
 		return components.HTTPMetadata{}
 	}
 	return u.HTTPMeta
+}
+
+func (u *UpdateAPIKeyResponse) GetObject() *UpdateAPIKeyResponseBody {
+	if u == nil {
+		return nil
+	}
+	return u.Object
 }

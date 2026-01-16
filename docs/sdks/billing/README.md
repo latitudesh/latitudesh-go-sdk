@@ -4,7 +4,7 @@
 
 ### Available Operations
 
-* [ListUsage](#listusage) - Retrieve billing usage
+* [ListUsage](#listusage) - List Billing Usage
 
 ## ListUsage
 
@@ -31,9 +31,9 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Billing.ListUsage(ctx, "proj_6059EqYkOQj8p", []string{
-        "si_lvdub7r3",
-        "si_utp5nfrf",
+    res, err := s.Billing.ListUsage(ctx, "proj_r0MK4O4kDa95w", []string{
+        "si_aslft06m",
+        "si_on0fybnq",
     }, latitudeshgosdk.Pointer("plan.name"))
     if err != nil {
         log.Fatal(err)

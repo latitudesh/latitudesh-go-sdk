@@ -30,7 +30,7 @@ func newUserProfile(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hook
 	}
 }
 
-// Get - Retrieve profile
+// Get user profile
 // Retrieve the current user profile
 func (s *UserProfile) Get(ctx context.Context, opts ...operations.Option) (*operations.GetUserProfileResponse, error) {
 	o := operations.Options{}
@@ -236,7 +236,7 @@ func (s *UserProfile) Get(ctx context.Context, opts ...operations.Option) (*oper
 
 }
 
-// Update profile
+// Update User Profile
 // Update the current user profile
 func (s *UserProfile) Update(ctx context.Context, id string, requestBody operations.PatchUserProfileUserProfileRequestBody, opts ...operations.Option) (*operations.PatchUserProfileResponse, error) {
 	request := operations.PatchUserProfileRequest{
@@ -454,7 +454,7 @@ func (s *UserProfile) Update(ctx context.Context, id string, requestBody operati
 
 }
 
-// ListTeams - List user teams
+// ListTeams - List User Teams
 // Returns a list of all teams the user belongs to
 func (s *UserProfile) ListTeams(ctx context.Context, opts ...operations.Option) (*operations.GetUserTeamsResponse, error) {
 	o := operations.Options{}

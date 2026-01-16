@@ -30,7 +30,7 @@ func newTraffic(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *h
 	}
 }
 
-// Get - Retrieve traffic
+// Get - Retrieve Traffic consumption
 func (s *Traffic) Get(ctx context.Context, filterDateGte string, filterDateLte string, filterServer *string, filterProject *string, opts ...operations.Option) (*operations.GetTrafficConsumptionResponse, error) {
 	request := operations.GetTrafficConsumptionRequest{
 		FilterServer:  filterServer,
@@ -246,7 +246,7 @@ func (s *Traffic) Get(ctx context.Context, filterDateGte string, filterDateLte s
 
 }
 
-// GetQuota - Retrieve traffic quota
+// GetQuota - Retrieve Traffic Quota
 func (s *Traffic) GetQuota(ctx context.Context, filterProject *string, opts ...operations.Option) (*operations.GetTrafficQuotaResponse, error) {
 	request := operations.GetTrafficQuotaRequest{
 		FilterProject: filterProject,

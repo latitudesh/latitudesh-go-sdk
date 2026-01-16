@@ -12,25 +12,23 @@ type FilterLocation string
 
 const (
 	FilterLocationAsh  FilterLocation = "ASH"
-	FilterLocationBgt  FilterLocation = "BGT"
 	FilterLocationBue  FilterLocation = "BUE"
 	FilterLocationChi  FilterLocation = "CHI"
 	FilterLocationDal  FilterLocation = "DAL"
 	FilterLocationFra  FilterLocation = "FRA"
 	FilterLocationLax  FilterLocation = "LAX"
-	FilterLocationLax2 FilterLocation = "LAX2"
 	FilterLocationLon  FilterLocation = "LON"
 	FilterLocationMex  FilterLocation = "MEX"
 	FilterLocationMex2 FilterLocation = "MEX2"
 	FilterLocationMia  FilterLocation = "MIA"
 	FilterLocationMia2 FilterLocation = "MIA2"
 	FilterLocationNyc  FilterLocation = "NYC"
-	FilterLocationSan  FilterLocation = "SAN"
 	FilterLocationSao  FilterLocation = "SAO"
 	FilterLocationSao2 FilterLocation = "SAO2"
+	FilterLocationSgp  FilterLocation = "SGP"
 	FilterLocationSyd  FilterLocation = "SYD"
 	FilterLocationTyo  FilterLocation = "TYO"
-	FilterLocationTyo4 FilterLocation = "TYO4"
+	FilterLocationTyo2 FilterLocation = "TYO2"
 )
 
 func (e FilterLocation) ToPointer() *FilterLocation {
@@ -44,8 +42,6 @@ func (e *FilterLocation) UnmarshalJSON(data []byte) error {
 	switch v {
 	case "ASH":
 		fallthrough
-	case "BGT":
-		fallthrough
 	case "BUE":
 		fallthrough
 	case "CHI":
@@ -55,8 +51,6 @@ func (e *FilterLocation) UnmarshalJSON(data []byte) error {
 	case "FRA":
 		fallthrough
 	case "LAX":
-		fallthrough
-	case "LAX2":
 		fallthrough
 	case "LON":
 		fallthrough
@@ -70,17 +64,17 @@ func (e *FilterLocation) UnmarshalJSON(data []byte) error {
 		fallthrough
 	case "NYC":
 		fallthrough
-	case "SAN":
-		fallthrough
 	case "SAO":
 		fallthrough
 	case "SAO2":
+		fallthrough
+	case "SGP":
 		fallthrough
 	case "SYD":
 		fallthrough
 	case "TYO":
 		fallthrough
-	case "TYO4":
+	case "TYO2":
 		*e = FilterLocation(v)
 		return nil
 	default:

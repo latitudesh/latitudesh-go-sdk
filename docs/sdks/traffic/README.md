@@ -4,12 +4,12 @@
 
 ### Available Operations
 
-* [Get](#get) - Retrieve traffic
-* [GetQuota](#getquota) - Retrieve traffic quota
+* [Get](#get) - Retrieve Traffic consumption
+* [GetQuota](#getquota) - Retrieve Traffic Quota
 
 ## Get
 
-Retrieve traffic
+Retrieve Traffic consumption
 
 ### Example Usage
 
@@ -31,7 +31,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Traffic.Get(ctx, "2025-06-16T18:45:37Z", "2025-07-16T18:45:37Z", latitudeshgosdk.Pointer("sv_kjQwdEMXdYNVP"), latitudeshgosdk.Pointer("proj_AW6Q2D9lqKLpr"))
+    res, err := s.Traffic.Get(ctx, "2025-12-14T15:57:10Z", "2026-01-14T15:57:10Z", latitudeshgosdk.Pointer("sv_A05EdQ50dvKYQ"), latitudeshgosdk.Pointer("proj_AW6Q2D9lqKLpr"))
     if err != nil {
         log.Fatal(err)
     }
@@ -64,7 +64,7 @@ func main() {
 
 ## GetQuota
 
-Retrieve traffic quota
+Retrieve Traffic Quota
 
 ### Example Usage
 

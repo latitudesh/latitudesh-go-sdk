@@ -4,7 +4,7 @@
 
 ### Available Operations
 
-* [ListPlans](#listplans) - List operating systems
+* [ListPlans](#listplans) - List all operating systems available
 
 ## ListPlans
 

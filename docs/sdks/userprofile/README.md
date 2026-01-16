@@ -4,9 +4,9 @@
 
 ### Available Operations
 
-* [Get](#get) - Retrieve profile
-* [Update](#update) - Update profile
-* [ListTeams](#listteams) - List user teams
+* [Get](#get) - Get user profile
+* [Update](#update) - Update User Profile
+* [ListTeams](#listteams) - List User Teams
 
 ## Get
 
@@ -86,9 +86,9 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.UserProfile.Update(ctx, "user_lGJBgAxbgeUJ4yZj56wmfrK4vag", operations.PatchUserProfileUserProfileRequestBody{
+    res, err := s.UserProfile.Update(ctx, "user_8PMvy2GL72uKKyXyANEnsjMQYMP", operations.PatchUserProfileUserProfileRequestBody{
         Data: operations.PatchUserProfileUserProfileData{
-            ID: "user_lGJBgAxbgeUJ4yZj56wmfrK4vag",
+            ID: "user_8PMvy2GL72uKKyXyANEnsjMQYMP",
             Type: operations.PatchUserProfileUserProfileTypeUsers,
             Attributes: &operations.PatchUserProfileUserProfileAttributes{
                 Role: operations.PatchUserProfileUserProfileRoleCollaborator.ToPointer(),

@@ -35,20 +35,25 @@ func (e *CreateServerServersType) UnmarshalJSON(data []byte) error {
 type CreateServerPlan string
 
 const (
-	CreateServerPlanC2LargeX86  CreateServerPlan = "c2-large-x86"
-	CreateServerPlanC2MediumX86 CreateServerPlan = "c2-medium-x86"
-	CreateServerPlanC2SmallX86  CreateServerPlan = "c2-small-x86"
-	CreateServerPlanC3LargeX86  CreateServerPlan = "c3-large-x86"
-	CreateServerPlanC3MediumX86 CreateServerPlan = "c3-medium-x86"
-	CreateServerPlanC3SmallX86  CreateServerPlan = "c3-small-x86"
-	CreateServerPlanC3XlargeX86 CreateServerPlan = "c3-xlarge-x86"
-	CreateServerPlanG3LargeX86  CreateServerPlan = "g3-large-x86"
-	CreateServerPlanG3MediumX86 CreateServerPlan = "g3-medium-x86"
-	CreateServerPlanG3SmallX86  CreateServerPlan = "g3-small-x86"
-	CreateServerPlanG3XlargeX86 CreateServerPlan = "g3-xlarge-x86"
-	CreateServerPlanM3LargeX86  CreateServerPlan = "m3-large-x86"
-	CreateServerPlanS2SmallX86  CreateServerPlan = "s2-small-x86"
-	CreateServerPlanS3LargeX86  CreateServerPlan = "s3-large-x86"
+	CreateServerPlanC2LargeX86      CreateServerPlan = "c2-large-x86"
+	CreateServerPlanC2MediumX86     CreateServerPlan = "c2-medium-x86"
+	CreateServerPlanC2SmallX86      CreateServerPlan = "c2-small-x86"
+	CreateServerPlanC3LargeX86      CreateServerPlan = "c3-large-x86"
+	CreateServerPlanC3MediumX86     CreateServerPlan = "c3-medium-x86"
+	CreateServerPlanC3SmallX86      CreateServerPlan = "c3-small-x86"
+	CreateServerPlanC3XlargeX86     CreateServerPlan = "c3-xlarge-x86"
+	CreateServerPlanG3Gh200         CreateServerPlan = "g3-gh200"
+	CreateServerPlanG3LargeX86      CreateServerPlan = "g3-large-x86"
+	CreateServerPlanG3MediumX86     CreateServerPlan = "g3-medium-x86"
+	CreateServerPlanG3SmallX86      CreateServerPlan = "g3-small-x86"
+	CreateServerPlanG3XlargeX86     CreateServerPlan = "g3-xlarge-x86"
+	CreateServerPlanG4Rtx6kproLarge CreateServerPlan = "g4-rtx6kpro-large"
+	CreateServerPlanM3LargeX86      CreateServerPlan = "m3-large-x86"
+	CreateServerPlanM4MetalLarge    CreateServerPlan = "m4-metal-large"
+	CreateServerPlanM4MetalSmall    CreateServerPlan = "m4-metal-small"
+	CreateServerPlanRs4MetalXlarge  CreateServerPlan = "rs4-metal-xlarge"
+	CreateServerPlanS2SmallX86      CreateServerPlan = "s2-small-x86"
+	CreateServerPlanS3LargeX86      CreateServerPlan = "s3-large-x86"
 )
 
 func (e CreateServerPlan) ToPointer() *CreateServerPlan {
@@ -74,6 +79,8 @@ func (e *CreateServerPlan) UnmarshalJSON(data []byte) error {
 		fallthrough
 	case "c3-xlarge-x86":
 		fallthrough
+	case "g3-gh200":
+		fallthrough
 	case "g3-large-x86":
 		fallthrough
 	case "g3-medium-x86":
@@ -82,7 +89,15 @@ func (e *CreateServerPlan) UnmarshalJSON(data []byte) error {
 		fallthrough
 	case "g3-xlarge-x86":
 		fallthrough
+	case "g4-rtx6kpro-large":
+		fallthrough
 	case "m3-large-x86":
+		fallthrough
+	case "m4-metal-large":
+		fallthrough
+	case "m4-metal-small":
+		fallthrough
+	case "rs4-metal-xlarge":
 		fallthrough
 	case "s2-small-x86":
 		fallthrough
@@ -99,25 +114,23 @@ type CreateServerSite string
 
 const (
 	CreateServerSiteAsh  CreateServerSite = "ASH"
-	CreateServerSiteBgt  CreateServerSite = "BGT"
 	CreateServerSiteBue  CreateServerSite = "BUE"
 	CreateServerSiteChi  CreateServerSite = "CHI"
 	CreateServerSiteDal  CreateServerSite = "DAL"
 	CreateServerSiteFra  CreateServerSite = "FRA"
 	CreateServerSiteLax  CreateServerSite = "LAX"
-	CreateServerSiteLax2 CreateServerSite = "LAX2"
 	CreateServerSiteLon  CreateServerSite = "LON"
 	CreateServerSiteMex  CreateServerSite = "MEX"
 	CreateServerSiteMex2 CreateServerSite = "MEX2"
 	CreateServerSiteMia  CreateServerSite = "MIA"
 	CreateServerSiteMia2 CreateServerSite = "MIA2"
 	CreateServerSiteNyc  CreateServerSite = "NYC"
-	CreateServerSiteSan  CreateServerSite = "SAN"
 	CreateServerSiteSao  CreateServerSite = "SAO"
 	CreateServerSiteSao2 CreateServerSite = "SAO2"
+	CreateServerSiteSgp  CreateServerSite = "SGP"
 	CreateServerSiteSyd  CreateServerSite = "SYD"
 	CreateServerSiteTyo  CreateServerSite = "TYO"
-	CreateServerSiteTyo4 CreateServerSite = "TYO4"
+	CreateServerSiteTyo2 CreateServerSite = "TYO2"
 )
 
 func (e CreateServerSite) ToPointer() *CreateServerSite {
@@ -131,8 +144,6 @@ func (e *CreateServerSite) UnmarshalJSON(data []byte) error {
 	switch v {
 	case "ASH":
 		fallthrough
-	case "BGT":
-		fallthrough
 	case "BUE":
 		fallthrough
 	case "CHI":
@@ -142,8 +153,6 @@ func (e *CreateServerSite) UnmarshalJSON(data []byte) error {
 	case "FRA":
 		fallthrough
 	case "LAX":
-		fallthrough
-	case "LAX2":
 		fallthrough
 	case "LON":
 		fallthrough
@@ -157,17 +166,17 @@ func (e *CreateServerSite) UnmarshalJSON(data []byte) error {
 		fallthrough
 	case "NYC":
 		fallthrough
-	case "SAN":
-		fallthrough
 	case "SAO":
 		fallthrough
 	case "SAO2":
+		fallthrough
+	case "SGP":
 		fallthrough
 	case "SYD":
 		fallthrough
 	case "TYO":
 		fallthrough
-	case "TYO4":
+	case "TYO2":
 		*e = CreateServerSite(v)
 		return nil
 	default:
@@ -179,31 +188,21 @@ func (e *CreateServerSite) UnmarshalJSON(data []byte) error {
 type CreateServerOperatingSystem string
 
 const (
-	CreateServerOperatingSystemIpxe                      CreateServerOperatingSystem = "ipxe"
-	CreateServerOperatingSystemWindowsServer2019StdV1    CreateServerOperatingSystem = "windows_server_2019_std_v1"
-	CreateServerOperatingSystemUbuntu2204X64Lts          CreateServerOperatingSystem = "ubuntu_22_04_x64_lts"
-	CreateServerOperatingSystemDebian11                  CreateServerOperatingSystem = "debian_11"
-	CreateServerOperatingSystemDebian10                  CreateServerOperatingSystem = "debian_10"
-	CreateServerOperatingSystemRhel8                     CreateServerOperatingSystem = "rhel8"
-	CreateServerOperatingSystemWindowsServer2012R2StdV28 CreateServerOperatingSystem = "windows_server_2012_r2_std_v28"
-	CreateServerOperatingSystemWindowsServer2012R2DcV5   CreateServerOperatingSystem = "windows_server_2012_r2_dc_v5"
-	CreateServerOperatingSystemEsxi67                    CreateServerOperatingSystem = "esxi_6_7"
-	CreateServerOperatingSystemDebian94X64               CreateServerOperatingSystem = "debian_9_4_x64"
-	CreateServerOperatingSystemCentos74X64               CreateServerOperatingSystem = "centos_7_4_x64"
-	CreateServerOperatingSystemCentos8X64                CreateServerOperatingSystem = "centos_8_x64"
-	CreateServerOperatingSystemUbuntu1604X64Lts          CreateServerOperatingSystem = "ubuntu_16_04_x64_lts"
-	CreateServerOperatingSystemUbuntu2004X64Lts          CreateServerOperatingSystem = "ubuntu_20_04_x64_lts"
-	CreateServerOperatingSystemWindowsServer2016StdV1    CreateServerOperatingSystem = "windows_server_2016_std_v1"
-	CreateServerOperatingSystemWindowsServer2016DcV1     CreateServerOperatingSystem = "windows_server_2016_dc_v1"
-	CreateServerOperatingSystemWindowsServer2019DcV1     CreateServerOperatingSystem = "windows_server_2019_dc_v1"
-	CreateServerOperatingSystemDebian12                  CreateServerOperatingSystem = "debian_12"
-	CreateServerOperatingSystemUbuntu22MlInABox          CreateServerOperatingSystem = "ubuntu22_ml_in_a_box"
-	CreateServerOperatingSystemUbuntu1804X64Lts          CreateServerOperatingSystem = "ubuntu_18_04_x64_lts"
-	CreateServerOperatingSystemWindowsServer2019StdUefi  CreateServerOperatingSystem = "windows_server_2019_std_uefi"
-	CreateServerOperatingSystemWindows2022StdUefi        CreateServerOperatingSystem = "windows_2022_std_uefi"
-	CreateServerOperatingSystemWindows2022Std            CreateServerOperatingSystem = "windows_2022_std"
-	CreateServerOperatingSystemUbuntu2404X64Lts          CreateServerOperatingSystem = "ubuntu_24_04_x64_lts"
-	CreateServerOperatingSystemRockylinux8               CreateServerOperatingSystem = "rockylinux_8"
+	CreateServerOperatingSystemCentos74X64            CreateServerOperatingSystem = "centos_7_4_x64"
+	CreateServerOperatingSystemCentos8X64             CreateServerOperatingSystem = "centos_8_x64"
+	CreateServerOperatingSystemDebian10               CreateServerOperatingSystem = "debian_10"
+	CreateServerOperatingSystemDebian11               CreateServerOperatingSystem = "debian_11"
+	CreateServerOperatingSystemDebian12               CreateServerOperatingSystem = "debian_12"
+	CreateServerOperatingSystemIpxe                   CreateServerOperatingSystem = "ipxe"
+	CreateServerOperatingSystemRhel8                  CreateServerOperatingSystem = "rhel8"
+	CreateServerOperatingSystemRockylinux8            CreateServerOperatingSystem = "rockylinux_8"
+	CreateServerOperatingSystemUbuntu22MlInABox       CreateServerOperatingSystem = "ubuntu22_ml_in_a_box"
+	CreateServerOperatingSystemUbuntu24MlInABox       CreateServerOperatingSystem = "ubuntu24_ml_in_a_box"
+	CreateServerOperatingSystemUbuntu2004X64Lts       CreateServerOperatingSystem = "ubuntu_20_04_x64_lts"
+	CreateServerOperatingSystemUbuntu2204X64Lts       CreateServerOperatingSystem = "ubuntu_22_04_x64_lts"
+	CreateServerOperatingSystemUbuntu2404X64Lts       CreateServerOperatingSystem = "ubuntu_24_04_x64_lts"
+	CreateServerOperatingSystemWindows2022Std         CreateServerOperatingSystem = "windows_2022_std"
+	CreateServerOperatingSystemWindowsServer2019StdV1 CreateServerOperatingSystem = "windows_server_2019_std_v1"
 )
 
 func (e CreateServerOperatingSystem) ToPointer() *CreateServerOperatingSystem {
@@ -215,55 +214,35 @@ func (e *CreateServerOperatingSystem) UnmarshalJSON(data []byte) error {
 		return err
 	}
 	switch v {
-	case "ipxe":
-		fallthrough
-	case "windows_server_2019_std_v1":
-		fallthrough
-	case "ubuntu_22_04_x64_lts":
-		fallthrough
-	case "debian_11":
-		fallthrough
-	case "debian_10":
-		fallthrough
-	case "rhel8":
-		fallthrough
-	case "windows_server_2012_r2_std_v28":
-		fallthrough
-	case "windows_server_2012_r2_dc_v5":
-		fallthrough
-	case "esxi_6_7":
-		fallthrough
-	case "debian_9_4_x64":
-		fallthrough
 	case "centos_7_4_x64":
 		fallthrough
 	case "centos_8_x64":
 		fallthrough
-	case "ubuntu_16_04_x64_lts":
+	case "debian_10":
 		fallthrough
-	case "ubuntu_20_04_x64_lts":
-		fallthrough
-	case "windows_server_2016_std_v1":
-		fallthrough
-	case "windows_server_2016_dc_v1":
-		fallthrough
-	case "windows_server_2019_dc_v1":
+	case "debian_11":
 		fallthrough
 	case "debian_12":
 		fallthrough
+	case "ipxe":
+		fallthrough
+	case "rhel8":
+		fallthrough
+	case "rockylinux_8":
+		fallthrough
 	case "ubuntu22_ml_in_a_box":
 		fallthrough
-	case "ubuntu_18_04_x64_lts":
+	case "ubuntu24_ml_in_a_box":
 		fallthrough
-	case "windows_server_2019_std_uefi":
+	case "ubuntu_20_04_x64_lts":
 		fallthrough
-	case "windows_2022_std_uefi":
-		fallthrough
-	case "windows_2022_std":
+	case "ubuntu_22_04_x64_lts":
 		fallthrough
 	case "ubuntu_24_04_x64_lts":
 		fallthrough
-	case "rockylinux_8":
+	case "windows_2022_std":
+		fallthrough
+	case "windows_server_2019_std_v1":
 		*e = CreateServerOperatingSystem(v)
 		return nil
 	default:
@@ -271,7 +250,7 @@ func (e *CreateServerOperatingSystem) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// CreateServerRaid - RAID mode for the server
+// CreateServerRaid - RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, or omit/null for no RAID configuration
 type CreateServerRaid string
 
 const (
@@ -343,7 +322,7 @@ type CreateServerServersAttributes struct {
 	SSHKeys []string `json:"ssh_keys,omitempty"`
 	// User data ID to set on the server. This is a custom script that will run after the deploy
 	UserData *string `json:"user_data,omitempty"`
-	// RAID mode for the server
+	// RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, or omit/null for no RAID configuration
 	Raid *CreateServerRaid `json:"raid,omitempty"`
 	// URL where iPXE script is stored on, OR the iPXE script encoded in base64. This attribute is required when iPXE is selected as operating system.
 	Ipxe *string `json:"ipxe,omitempty"`

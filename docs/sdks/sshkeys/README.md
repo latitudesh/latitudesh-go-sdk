@@ -4,11 +4,11 @@
 
 ### Available Operations
 
-* [~~List~~](#list) - List SSH keys :warning: **Deprecated**
+* [~~List~~](#list) - List all Project SSH Keys :warning: **Deprecated**
 * [~~Get~~](#get) - Retrieve a Project SSH Key :warning: **Deprecated**
 * [~~ModifyProjectKey~~](#modifyprojectkey) - Update a Project SSH Key :warning: **Deprecated**
 * [~~RemoveFromProject~~](#removefromproject) - Delete a Project SSH Key :warning: **Deprecated**
-* [ListAll](#listall) - List SSH Keys
+* [ListAll](#listall) - List all SSH Keys
 * [Create](#create) - Create a SSH Key
 * [Retrieve](#retrieve) - Retrieve a SSH Key
 * [Update](#update) - Update a SSH Key
@@ -16,7 +16,7 @@
 
 ## ~~List~~
 
-List SSH keys in the project. These keys can be used to access servers after deploy and reinstall actions.
+List all SSH Keys in the project. These keys can be used to access servers after deploy and reinstall actions.
 
 
 > :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -41,7 +41,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.List(ctx, "proj_LMmAD8kEqwop2", latitudeshgosdk.Pointer("tag_K9kzXA45BEsjobKPNVEQCrrKbw4o,tag_my9K5XGPYBIr1ve257anIW4KRX2e"))
+    res, err := s.SSHKeys.List(ctx, "proj_5AEmq7wMqBkWX", latitudeshgosdk.Pointer("tag_5wKQ2Y9eoAi5plr4zlQ6tjl6rEw,tag_8GKKZ6B9MbtYl4K09gj4fXy9Nneg"))
     if err != nil {
         log.Fatal(err)
     }
@@ -97,7 +97,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.Get(ctx, "proj_g1mbDwrBqLv5B", "ssh_zGr47qlMDAg0m")
+    res, err := s.SSHKeys.Get(ctx, "proj_kjQwdE0XOYNVP", "ssh_zGr47qlMDAg0m")
     if err != nil {
         log.Fatal(err)
     }
@@ -154,14 +154,14 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.ModifyProjectKey(ctx, "proj_W6Q2D9lGqKLpr", "ssh_zlkg1DegdvZE5", operations.PutProjectSSHKeySSHKeysRequestBody{
+    res, err := s.SSHKeys.ModifyProjectKey(ctx, "proj_v9BVDaR3ORm1W", "ssh_zlkg1DegdvZE5", operations.PutProjectSSHKeySSHKeysRequestBody{
         Data: operations.PutProjectSSHKeySSHKeysData{
             ID: latitudeshgosdk.Pointer("ssh_zlkg1DegdvZE5"),
             Type: operations.PutProjectSSHKeySSHKeysTypeSSHKeys,
             Attributes: &operations.PutProjectSSHKeySSHKeysAttributes{
                 Tags: []string{
-                    "tag_7YpWMjKZ8vujwmEV7blQhG87aaB",
-                    "tag_E8ZoPkZPXXsgN2L46WVvTeWog1rz",
+                    "tag_rB7B21L1QbiJ6yWYxQLmHWJE3GmR",
+                    "tag_57nzyG0Bn3c5wooyYyeLH1w9kmN",
                 },
             },
         },
@@ -222,7 +222,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.RemoveFromProject(ctx, "proj_LMmAD8k4qwop2", "ssh_7vYAZqGBdMQ94")
+    res, err := s.SSHKeys.RemoveFromProject(ctx, "proj_LA73qk4wDaJ2o", "ssh_7vYAZqGBdMQ94")
     if err != nil {
         log.Fatal(err)
     }
@@ -276,7 +276,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.ListAll(ctx, nil, nil, latitudeshgosdk.Pointer("tag_lYXenaknWwsJ4rryVbNoUbn6p4V,tag_ARJPX1YRrgTKQ4xpvX5YuWNG2nwW"))
+    res, err := s.SSHKeys.ListAll(ctx, nil, nil, latitudeshgosdk.Pointer("tag_A06EMPEmKXhKBNKgWrv0CRZMN5a,tag_P7xlGZzYNZF4w3YXRrYMU7AjQEAX"))
     if err != nil {
         log.Fatal(err)
     }
@@ -337,7 +337,7 @@ func main() {
             Type: operations.PostSSHKeySSHKeysTypeSSHKeys,
             Attributes: &operations.PostSSHKeySSHKeysAttributes{
                 Name: latitudeshgosdk.Pointer("SSH Key"),
-                Project: latitudeshgosdk.Pointer("proj_mw49QDB5qagKb"),
+                Project: latitudeshgosdk.Pointer("proj_z2A3DV4wdnawP"),
                 PublicKey: latitudeshgosdk.Pointer("ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx"),
             },
         },
@@ -394,7 +394,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.Retrieve(ctx, "ssh_0MK4O4Zkqa95w")
+    res, err := s.SSHKeys.Retrieve(ctx, "ssh_LYV8DZ12q5QoE")
     if err != nil {
         log.Fatal(err)
     }
@@ -448,14 +448,14 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.Update(ctx, "ssh_8Nkvdyn1qeLpx", operations.PutSSHKeySSHKeysRequestBody{
+    res, err := s.SSHKeys.Update(ctx, "ssh_GnzRD5xAqM5yw", operations.PutSSHKeySSHKeysRequestBody{
         Data: operations.PutSSHKeySSHKeysData{
-            ID: latitudeshgosdk.Pointer("ssh_8Nkvdyn1qeLpx"),
+            ID: latitudeshgosdk.Pointer("ssh_GnzRD5xAqM5yw"),
             Type: operations.PutSSHKeySSHKeysTypeSSHKeys,
             Attributes: &operations.PutSSHKeySSHKeysAttributes{
                 Tags: []string{
-                    "tag_BR6a9QPmXWCPVzLrmEYAslyroMK",
-                    "tag_yxVkGz7rxMsl9M54lr71fp5XZg60",
+                    "tag_JLA906BzyKHLyVJbJr8NH3QQbev",
+                    "tag_Yy7PJ68y22FoQyBppnW7FjNGX1k",
                 },
             },
         },
@@ -513,7 +513,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.Delete(ctx, "ssh_lxWpD6xKdm6rk")
+    res, err := s.SSHKeys.Delete(ctx, "ssh_KXgRdRa3Ov9k5")
     if err != nil {
         log.Fatal(err)
     }

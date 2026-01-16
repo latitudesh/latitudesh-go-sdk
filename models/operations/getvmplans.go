@@ -6,6 +6,18 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
+type GetVMPlansRequest struct {
+	// Filter plans by GPU availability
+	FilterGpu *bool `queryParam:"style=form,explode=true,name=filter[gpu]"`
+}
+
+func (g *GetVMPlansRequest) GetFilterGpu() *bool {
+	if g == nil {
+		return nil
+	}
+	return g.FilterGpu
+}
+
 type GetVMPlansResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Success

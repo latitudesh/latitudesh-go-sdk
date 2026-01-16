@@ -29,8 +29,8 @@ func newLatitudeshProjectsSSHKeys(rootSDK *Latitudesh, sdkConfig config.SDKConfi
 	}
 }
 
-// PostProjectSSHKey - Create a SSH key
-// Allow you create SSH keys in a project. These keys can be used to access servers after deploy and reinstall actions.
+// PostProjectSSHKey - Create a Project SSH Key
+// Allow you create SSH Keys in a project. These keys can be used to access servers after deploy and reinstall actions.
 //
 // Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *LatitudeshProjectsSSHKeys) PostProjectSSHKey(ctx context.Context, projectID string, requestBody operations.PostProjectSSHKeyProjectsSSHKeysRequestBody, opts ...operations.Option) (*operations.PostProjectSSHKeyResponse, error) {

@@ -4,19 +4,18 @@
 
 ### Available Operations
 
-* [GetAllFirewallAssignments](#getallfirewallassignments) - Firewalls assignments
+* [GetAllFirewallAssignments](#getallfirewallassignments) - List All Firewall Assignments
 * [Create](#create) - Create a firewall
 * [List](#list) - List firewalls
-* [Get](#get) - Retrieve firewall
-* [Update](#update) - Update firewall
-* [Delete](#delete) - Delete firewall
-* [ListAssignments](#listassignments) - Firewall assignments
-* [DeleteAssignment](#deleteassignment) - Delete assignment
+* [Get](#get) - Retrieve Firewall
+* [Update](#update) - Update Firewall
+* [Delete](#delete) - Delete Firewall
+* [ListAssignments](#listassignments) - Firewall Assignments
+* [DeleteAssignment](#deleteassignment) - Delete Firewall Assignment
 
 ## GetAllFirewallAssignments
 
-Returns a list of all servers assigned to one or more firewalls.
-
+List all firewall assignments
 
 ### Example Usage
 
@@ -38,7 +37,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Firewalls.GetAllFirewallAssignments(ctx, latitudeshgosdk.Pointer("sv_RLYV8DZ2D5QoE"), latitudeshgosdk.Pointer[int64](20), latitudeshgosdk.Pointer[int64](1))
+    res, err := s.Firewalls.GetAllFirewallAssignments(ctx, latitudeshgosdk.Pointer("sv_Qk0Ryqv1dW36X"), latitudeshgosdk.Pointer[int64](20), latitudeshgosdk.Pointer[int64](1))
     if err != nil {
         log.Fatal(err)
     }
@@ -110,7 +109,7 @@ func main() {
             Type: operations.CreateFirewallTypeFirewalls,
             Attributes: &operations.CreateFirewallAttributes{
                 Name: "my-firewall",
-                Project: "awesome-granite-chair",
+                Project: "heavy-duty-copper-watch",
                 Rules: []operations.CreateFirewallRules{
                     operations.CreateFirewallRules{
                         From: latitudeshgosdk.Pointer("192.168.42.73"),
@@ -119,8 +118,8 @@ func main() {
                         Port: latitudeshgosdk.Pointer("80"),
                     },
                     operations.CreateFirewallRules{
-                        From: latitudeshgosdk.Pointer("192.168.1.0/24"),
-                        To: latitudeshgosdk.Pointer("ANY"),
+                        From: latitudeshgosdk.Pointer("192.168.1.16"),
+                        To: latitudeshgosdk.Pointer("192.168.1.30"),
                         Protocol: operations.CreateFirewallProtocolTCP.ToPointer(),
                         Port: latitudeshgosdk.Pointer("80"),
                     },
@@ -185,7 +184,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Firewalls.List(ctx, latitudeshgosdk.Pointer("incredible-bronze-car"), latitudeshgosdk.Pointer[int64](20), latitudeshgosdk.Pointer[int64](1))
+    res, err := s.Firewalls.List(ctx, latitudeshgosdk.Pointer("intelligent-marble-lamp"), latitudeshgosdk.Pointer[int64](20), latitudeshgosdk.Pointer[int64](1))
     if err != nil {
         log.Fatal(err)
     }
@@ -229,8 +228,7 @@ func main() {
 
 ## Get
 
-Returns a single firewall by its ID.
-
+Retrieve a firewall
 
 ### Example Usage
 
@@ -252,7 +250,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Firewalls.Get(ctx, "fw_xkjQwdENqYNVP")
+    res, err := s.Firewalls.Get(ctx, "fw_6A05EdQ1dvKYQ")
     if err != nil {
         log.Fatal(err)
     }
@@ -282,8 +280,7 @@ func main() {
 
 ## Update
 
-Updates a firewall by its ID.
-
+Update a firewall
 
 ### Example Usage
 
@@ -306,15 +303,15 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Firewalls.Update(ctx, "fw_6A05EdQ1dvKYQ", operations.UpdateFirewallFirewallsRequestBody{
+    res, err := s.Firewalls.Update(ctx, "fw_r0MK4O4kDa95w", operations.UpdateFirewallFirewallsRequestBody{
         Data: operations.UpdateFirewallFirewallsData{
             Type: operations.UpdateFirewallFirewallsTypeFirewalls,
             Attributes: &operations.UpdateFirewallFirewallsAttributes{
                 Name: latitudeshgosdk.Pointer("new-name"),
                 Rules: []operations.UpdateFirewallFirewallsRules{
                     operations.UpdateFirewallFirewallsRules{
-                        From: latitudeshgosdk.Pointer("192.168.1.0/24"),
-                        To: latitudeshgosdk.Pointer("ANY"),
+                        From: latitudeshgosdk.Pointer("192.168.42.72"),
+                        To: latitudeshgosdk.Pointer("192.168.43.51"),
                         Protocol: operations.UpdateFirewallFirewallsProtocolTCP.ToPointer(),
                         Port: latitudeshgosdk.Pointer("80"),
                     },
@@ -352,7 +349,7 @@ func main() {
 
 ## Delete
 
-Delete firewall
+Delete a firewall
 
 ### Example Usage
 
@@ -404,8 +401,7 @@ func main() {
 
 ## ListAssignments
 
-Returns a list of all servers assigned to a particular firewall.
-
+List servers assigned to a firewall
 
 ### Example Usage
 
@@ -427,7 +423,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Firewalls.ListAssignments(ctx, "fw_z8Nkvdy1deLpx", latitudeshgosdk.Pointer[int64](20), latitudeshgosdk.Pointer[int64](1))
+    res, err := s.Firewalls.ListAssignments(ctx, "fw_Qk0Ryqv1dW36X", latitudeshgosdk.Pointer[int64](20), latitudeshgosdk.Pointer[int64](1))
     if err != nil {
         log.Fatal(err)
     }
@@ -471,8 +467,7 @@ func main() {
 
 ## DeleteAssignment
 
-Removes a server from a firewall by its ID.
-
+Remove a server from a firewall
 
 ### Example Usage
 

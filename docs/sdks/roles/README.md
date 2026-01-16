@@ -4,8 +4,8 @@
 
 ### Available Operations
 
-* [List](#list) - List roles
-* [Get](#get) - Retrieve role
+* [List](#list) - List all Roles
+* [Get](#get) - Retrieve Role
 
 ## List
 
@@ -75,7 +75,7 @@ func main() {
 
 ## Get
 
-Retrieve role
+Retrieve Role
 
 ### Example Usage
 

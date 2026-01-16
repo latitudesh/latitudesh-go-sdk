@@ -4,13 +4,13 @@
 
 ### Available Operations
 
-* [Get](#get) - Retrieve team
-* [Create](#create) - Create team
-* [Update](#update) - Update team
+* [Get](#get) - Retrieve the team
+* [Create](#create) - Create a team
+* [Update](#update) - Update a team
 
 ## Get
 
-Retrieve team
+Retrieve the team
 
 ### Example Usage
 
@@ -61,7 +61,7 @@ func main() {
 
 ## Create
 
-Create team
+Create a team
 
 ### Example Usage
 
@@ -123,7 +123,7 @@ func main() {
 
 ## Update
 
-Update team
+Update a team
 
 ### Example Usage
 
@@ -146,9 +146,9 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Teams.Update(ctx, "team_VNoL4jAy7YTbvVV0005jI6vQylGZ", operations.PatchCurrentTeamTeamsRequestBody{
+    res, err := s.Teams.Update(ctx, "team_bVJM4y6m4VCyy101JzA3szlVGRb", operations.PatchCurrentTeamTeamsRequestBody{
         Data: operations.PatchCurrentTeamTeamsData{
-            ID: "team_z3Qna7E2QRc3455EQ34JfAWNQ42",
+            ID: "team_bVJM4y6m4VCyy101JzA3szlVGRb",
             Type: operations.PatchCurrentTeamTeamsTypeTeams,
             Attributes: &operations.PatchCurrentTeamTeamsAttributes{
                 Address: latitudeshgosdk.Pointer("Address"),

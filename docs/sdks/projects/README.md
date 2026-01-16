@@ -4,10 +4,10 @@
 
 ### Available Operations
 
-* [List](#list) - List projects
-* [Create](#create) - Create a project
-* [Update](#update) - Update a project
-* [Delete](#delete) - Delete a project
+* [List](#list) - List all Projects
+* [Create](#create) - Create a Project
+* [Update](#update) - Update a Project
+* [Delete](#delete) - Delete a Project
 
 ## List
 
@@ -36,7 +36,7 @@ func main() {
     )
 
     res, err := s.Projects.List(ctx, operations.GetProjectsRequest{
-        FilterTags: latitudeshgosdk.Pointer("tag_GGXAB6PNQbU285ZYLP3wt3ZQyXW,tag_xR2B8J4W81TBL6YRGPJaCQRkVyn"),
+        FilterTags: latitudeshgosdk.Pointer("tag_GXeww714mRF2gZ05lnKgU8emo5RE,tag_QQkaK9JnV6tWwPG3pmLviXveVK0Y"),
     })
     if err != nil {
         log.Fatal(err)
@@ -79,7 +79,7 @@ func main() {
 
 ## Create
 
-Create a project
+Create a Project
 
 ### Example Usage
 
@@ -106,7 +106,7 @@ func main() {
         Data: &operations.CreateProjectProjectsData{
             Type: operations.CreateProjectProjectsTypeProjects,
             Attributes: &operations.CreateProjectProjectsAttributes{
-                Name: "Kshlerin, Hand and Beer",
+                Name: "Bailey and Sons",
                 ProvisioningType: operations.CreateProjectProvisioningTypeOnDemand,
                 Description: latitudeshgosdk.Pointer("Thick slices of French toast bread, brown sugar, half-and-half and vanilla, topped with powdered sugar. With two eggs served any style, and your choice of smoked bacon or smoked ham."),
                 Environment: operations.CreateProjectEnvironmentDevelopment.ToPointer(),
@@ -142,7 +142,7 @@ func main() {
 
 ## Update
 
-Update a project
+Update a Project
 
 ### Example Usage
 
@@ -165,14 +165,14 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Projects.Update(ctx, "proj_WVQJDMMwDRbyE", &operations.UpdateProjectProjectsRequestBody{
+    res, err := s.Projects.Update(ctx, "proj_Gr47qleMDAg0m", &operations.UpdateProjectProjectsRequestBody{
         Data: operations.UpdateProjectProjectsData{
-            ID: latitudeshgosdk.Pointer("proj_WVQJDMMwDRbyE"),
+            ID: latitudeshgosdk.Pointer("proj_Gr47qleMDAg0m"),
             Type: operations.UpdateProjectProjectsTypeProjects,
             Attributes: &operations.UpdateProjectProjectsAttributes{
                 Tags: []string{
-                    "tag_xNrKWa1ZaMtBKwaZnYaMTBE2XQb",
-                    "tag_Ge9E4oboPgILP5e9aKNAUB4Gaw5",
+                    "tag_VgrmvzlEGJhbGYv0z8YzHLa9PKV",
+                    "tag_PEAMyKnQZEHpGAWKMpB6F7EVYyYj",
                 },
             },
         },
@@ -207,7 +207,7 @@ func main() {
 
 ## Delete
 
-Delete a project
+Delete a Project
 
 ### Example Usage
 

@@ -4,24 +4,24 @@
 
 ### Available Operations
 
-* [List](#list) - List servers
-* [Create](#create) - Create server
-* [Get](#get) - Retrieve server
-* [Update](#update) - Update server
-* [Delete](#delete) - Remove server
-* [GetDeployConfig](#getdeployconfig) - Retrieve deploy config
-* [UpdateDeployConfig](#updatedeployconfig) - Update deploy config
-* [Lock](#lock) - Lock server
-* [Unlock](#unlock) - Unlock server
-* [StartOutOfBandConnection](#startoutofbandconnection) - Create out-of-band connection
-* [GetOutOfBand](#getoutofband) - List out-of-band connections
-* [RunAction](#runaction) - Run power action
-* [CreateIpmiSession](#createipmisession) - Create IPMI credentials
-* [StartRescueMode](#startrescuemode) - Put server in rescue mode
-* [ExitRescueMode](#exitrescuemode) - Exits rescue mode
-* [ScheduleDeletion](#scheduledeletion) - Schedule server deletion
-* [UnscheduleDeletion](#unscheduledeletion) - Unschedule server deletion
-* [Reinstall](#reinstall) - Reinstall server
+* [List](#list) - List all Servers
+* [Create](#create) - Deploy Server
+* [Get](#get) - Retrieve a Server
+* [Update](#update) - Update Server
+* [Delete](#delete) - Remove Server
+* [GetDeployConfig](#getdeployconfig) - Retrieve Deploy Config
+* [UpdateDeployConfig](#updatedeployconfig) - Update Deploy Config
+* [Lock](#lock) - Lock the server
+* [Unlock](#unlock) - Unlock the server
+* [StartOutOfBandConnection](#startoutofbandconnection) - Start Out of Band Connection
+* [GetOutOfBand](#getoutofband) - List Out of Band Connections
+* [RunAction](#runaction) - Run Server Action
+* [CreateIpmiSession](#createipmisession) - Generate IPMI credentials
+* [StartRescueMode](#startrescuemode) - Puts a Server in rescue mode
+* [ExitRescueMode](#exitrescuemode) - Exits rescue mode for a Server
+* [ScheduleDeletion](#scheduledeletion) - Schedule the server deletion
+* [UnscheduleDeletion](#unscheduledeletion) - Unschedule the server deletion
+* [Reinstall](#reinstall) - Run Server Reinstall
 
 ## List
 
@@ -55,7 +55,7 @@ func main() {
         FilterRAMEql: latitudeshgosdk.Pointer[int64](32),
         FilterRAMGte: latitudeshgosdk.Pointer[int64](40),
         FilterRAMLte: latitudeshgosdk.Pointer[int64](40),
-        FilterTags: latitudeshgosdk.Pointer("tag_Az0EY3zglei3jVBY1LroSWNyanye,tag_GXK6NGol1jF2xre0JrB0fK6wg0p"),
+        FilterTags: latitudeshgosdk.Pointer("tag_pjAkRjVzw0tlYBA2WX1eHzW7w79,tag_yARk1KLJAvslWY7k5wNBCaKEV7e"),
     })
     if err != nil {
         log.Fatal(err)
@@ -98,7 +98,7 @@ func main() {
 
 ## Create
 
-Create server
+Deploy Server
 
 ### Example Usage
 
@@ -125,7 +125,7 @@ func main() {
         Data: &operations.CreateServerServersData{
             Type: operations.CreateServerServersTypeServers,
             Attributes: &operations.CreateServerServersAttributes{
-                Project: latitudeshgosdk.Pointer("proj_A05EdQ50dvKYQ"),
+                Project: latitudeshgosdk.Pointer("proj_lxWpD699qm6rk"),
                 Plan: operations.CreateServerPlanC2SmallX86.ToPointer(),
                 Site: operations.CreateServerSiteAsh.ToPointer(),
                 OperatingSystem: operations.CreateServerOperatingSystemUbuntu2204X64Lts.ToPointer(),
@@ -185,7 +185,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.Get(ctx, "sv_Gr47qleMDAg0m", nil)
+    res, err := s.Servers.Get(ctx, "sv_VE1Wd3aXDXnZJ", nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -216,7 +216,7 @@ func main() {
 
 ## Update
 
-Update server
+Update Server
 
 ### Example Usage
 
@@ -239,12 +239,12 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.Update(ctx, "sv_aNmodjGyqbE8W", operations.UpdateServerServersRequestBody{
+    res, err := s.Servers.Update(ctx, "sv_yQrJdNAGO30gv", operations.UpdateServerServersRequestBody{
         Data: &operations.UpdateServerServersData{
-            ID: latitudeshgosdk.Pointer("sv_aNmodjGyqbE8W"),
+            ID: latitudeshgosdk.Pointer("sv_yQrJdNAGO30gv"),
             Type: operations.UpdateServerServersTypeServers.ToPointer(),
             Attributes: &operations.UpdateServerServersAttributes{
-                Project: latitudeshgosdk.Pointer("proj_aNmodjoyqbE8W"),
+                Project: latitudeshgosdk.Pointer("proj_yQrJdNMGO30gv"),
             },
         },
     })
@@ -278,7 +278,7 @@ func main() {
 
 ## Delete
 
-Remove server
+Remove Server
 
 ### Example Usage
 
@@ -331,7 +331,7 @@ func main() {
 
 ## GetDeployConfig
 
-Retrieve deploy config
+Retrieve Deploy Config
 
 ### Example Usage
 
@@ -353,7 +353,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.GetDeployConfig(ctx, "sv_VLMmAD8EOwop2")
+    res, err := s.Servers.GetDeployConfig(ctx, "sv_pRMLydp0dQKr1")
     if err != nil {
         log.Fatal(err)
     }
@@ -383,7 +383,7 @@ func main() {
 
 ## UpdateDeployConfig
 
-Update deploy config
+Update Deploy Config
 
 ### Example Usage
 
@@ -406,7 +406,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.UpdateDeployConfig(ctx, "sv_0L6WO141DPlXy", operations.UpdateServerDeployConfigServersRequestBody{
+    res, err := s.Servers.UpdateDeployConfig(ctx, "sv_lkg1DeYLDvZE5", operations.UpdateServerDeployConfigServersRequestBody{
         Type: operations.UpdateServerDeployConfigServersTypeDeployConfig,
     })
     if err != nil {
@@ -461,7 +461,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.Lock(ctx, "sv_RMLydpoXOQKr1")
+    res, err := s.Servers.Lock(ctx, "sv_pbV0DgjKq4AWz")
     if err != nil {
         log.Fatal(err)
     }
@@ -513,7 +513,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.Unlock(ctx, "sv_5AEmq7xMDBkWX")
+    res, err := s.Servers.Unlock(ctx, "sv_e8pKq0xYqWAob")
     if err != nil {
         log.Fatal(err)
     }
@@ -543,7 +543,7 @@ func main() {
 
 ## StartOutOfBandConnection
 
-Create out-of-band connection
+Start Out of Band Connection
 
 ### Example Usage
 
@@ -566,11 +566,11 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.StartOutOfBandConnection(ctx, "sv_059EqYX2dQj8p", operations.CreateServerOutOfBandServersRequestBody{
+    res, err := s.Servers.StartOutOfBandConnection(ctx, "sv_8NkvdyGKDeLpx", operations.CreateServerOutOfBandServersRequestBody{
         Data: operations.CreateServerOutOfBandServersData{
             Type: operations.CreateServerOutOfBandServersTypeOutOfBand,
             Attributes: &operations.CreateServerOutOfBandServersAttributes{
-                SSHKeyID: latitudeshgosdk.Pointer("ssh_w49QDB55qagKb"),
+                SSHKeyID: latitudeshgosdk.Pointer("ssh_3YjJOLMydvZ87"),
             },
         },
     })
@@ -604,7 +604,7 @@ func main() {
 
 ## GetOutOfBand
 
-List out-of-band connections
+List Out of Band Connections
 
 ### Example Usage
 
@@ -626,7 +626,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.GetOutOfBand(ctx, "sv_vYAZqGyJOMQ94")
+    res, err := s.Servers.GetOutOfBand(ctx, "sv_GnzRD5lvqM5yw")
     if err != nil {
         log.Fatal(err)
     }
@@ -683,7 +683,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.RunAction(ctx, "sv_LA73qkJwdaJ2o", operations.CreateServerActionServersRequestBody{
+    res, err := s.Servers.RunAction(ctx, "sv_WVQJDMVBORbyE", operations.CreateServerActionServersRequestBody{
         Data: operations.CreateServerActionServersData{
             Type: operations.CreateServerActionServersTypeActions,
             Attributes: &operations.CreateServerActionServersAttributes{
@@ -747,7 +747,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.CreateIpmiSession(ctx, "sv_e8pKq0xYqWAob")
+    res, err := s.Servers.CreateIpmiSession(ctx, "sv_Qkm7dXaRq8nZV")
     if err != nil {
         log.Fatal(err)
     }
@@ -799,7 +799,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.StartRescueMode(ctx, "sv_695BdK25OevVo")
+    res, err := s.Servers.StartRescueMode(ctx, "sv_WeGoqAWNOP7nz")
     if err != nil {
         log.Fatal(err)
     }
@@ -851,7 +851,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.ExitRescueMode(ctx, "sv_wg3ZDr0Wd5QlP")
+    res, err := s.Servers.ExitRescueMode(ctx, "sv_3YjJOLQNdvZ87")
     if err != nil {
         log.Fatal(err)
     }
@@ -903,7 +903,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.ScheduleDeletion(ctx, "sv_GMy1Db2NDN50m")
+    res, err := s.Servers.ScheduleDeletion(ctx, "sv_g1mbDwBZqLv5B")
     if err != nil {
         log.Fatal(err)
     }
@@ -985,8 +985,7 @@ func main() {
 
 ## Reinstall
 
-Reinstalls the server with a new operating system. All data on the server will be wiped during this process.
-
+Run Server Reinstall
 
 ### Example Usage
 
@@ -1009,7 +1008,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Servers.Reinstall(ctx, "sv_Z8rodmJGq1jLB", operations.CreateServerReinstallServersRequestBody{
+    res, err := s.Servers.Reinstall(ctx, "sv_aNmodj6ydbE8W", operations.CreateServerReinstallServersRequestBody{
         Data: operations.CreateServerReinstallServersData{
             Type: operations.CreateServerReinstallServersTypeReinstalls,
             Attributes: &operations.CreateServerReinstallServersAttributes{

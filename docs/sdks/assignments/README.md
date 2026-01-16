@@ -4,12 +4,11 @@
 
 ### Available Operations
 
-* [Create](#create) - Assign server to firewall
+* [Create](#create) - Firewall Assignment
 
 ## Create
 
-Assigns a server to a firewall by its ID.
-
+Assign a server to a firewall
 
 ### Example Usage
 
@@ -32,11 +31,11 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Firewalls.Assignments.Create(ctx, "fw_Av9BVDavORm1W", operations.CreateFirewallAssignmentFirewallsAssignmentsRequestBody{
+    res, err := s.Firewalls.Assignments.Create(ctx, "fw_Ee8pKq05DWAob", operations.CreateFirewallAssignmentFirewallsAssignmentsRequestBody{
         Data: operations.CreateFirewallAssignmentFirewallsAssignmentsData{
             Type: operations.CreateFirewallAssignmentFirewallsAssignmentsTypeFirewallAssignments,
             Attributes: &operations.CreateFirewallAssignmentFirewallsAssignmentsAttributes{
-                ServerID: "sv_lpbV0DgRq4AWz",
+                ServerID: "sv_aKXgRdR3qv9k5",
             },
         },
     })
