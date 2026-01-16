@@ -4,7 +4,7 @@
 
 ### Available Operations
 
-* [Delete](#delete) - Delete VLAN
+* [Delete](#delete) - Delete a Virtual Network
 
 ## Delete
 

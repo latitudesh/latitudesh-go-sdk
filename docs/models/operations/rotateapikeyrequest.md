@@ -1,4 +1,4 @@
-# PatchAPIKeyRequest
+# RotateAPIKeyRequest
 
 
 ## Fields

@@ -203,7 +203,6 @@ func (v *VirtualMachinePlansBRL) GetYear() *float64 {
 	return v.Year
 }
 
-// VirtualMachinePlansPricing - Pricing information for this plan in the region
 type VirtualMachinePlansPricing struct {
 	Usd *VirtualMachinePlansUSD `json:"USD,omitempty"`
 	Brl *VirtualMachinePlansBRL `json:"BRL,omitempty"`
@@ -224,12 +223,9 @@ func (v *VirtualMachinePlansPricing) GetBrl() *VirtualMachinePlansBRL {
 }
 
 type VirtualMachinePlansRegions struct {
-	// The name of the region
-	Name *string `json:"name,omitempty"`
-	// List of site codes where this virtual machine plan can be deployed
-	Available []string `json:"available,omitempty"`
-	// Pricing information for this plan in the region
-	Pricing *VirtualMachinePlansPricing `json:"pricing,omitempty"`
+	Name      *string                     `json:"name,omitempty"`
+	Available []string                    `json:"available,omitempty"`
+	Pricing   *VirtualMachinePlansPricing `json:"pricing,omitempty"`
 }
 
 func (v *VirtualMachinePlansRegions) GetName() *string {
@@ -288,9 +284,8 @@ func (e *VirtualMachinePlansStockLevel) UnmarshalJSON(data []byte) error {
 
 type VirtualMachinePlansAttributes struct {
 	// The name of the plan
-	Name  *string                   `json:"name,omitempty"`
-	Specs *VirtualMachinePlansSpecs `json:"specs,omitempty"`
-	// List of regions where infrastructure with available stock exists for this virtual machine plan
+	Name    *string                      `json:"name,omitempty"`
+	Specs   *VirtualMachinePlansSpecs    `json:"specs,omitempty"`
 	Regions []VirtualMachinePlansRegions `json:"regions,omitempty"`
 	// The stock level of the plan
 	StockLevel *VirtualMachinePlansStockLevel `json:"stock_level,omitempty"`

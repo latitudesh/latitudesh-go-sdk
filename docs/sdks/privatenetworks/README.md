@@ -4,13 +4,13 @@
 
 ### Available Operations
 
-* [List](#list) - List VLANs
-* [Create](#create) - Create VLAN
-* [Update](#update) - Update VLAN
-* [Get](#get) - Retrieve VLAN
-* [ListAssignments](#listassignments) - List VLAN assignments
-* [Assign](#assign) - Assign VLAN
-* [DeleteAssignment](#deleteassignment) - Delete assignment
+* [List](#list) - List all Virtual Networks
+* [Create](#create) - Create a Virtual Network
+* [Update](#update) - Update a Virtual Network
+* [Get](#get) - Retrieve a Virtual Network
+* [ListAssignments](#listassignments) - List all servers assigned to virtual networks
+* [Assign](#assign) - Assign Virtual network
+* [DeleteAssignment](#deleteassignment) - Delete Virtual Network Assignment
 
 ## List
 
@@ -41,7 +41,7 @@ func main() {
     res, err := s.PrivateNetworks.List(ctx, operations.GetVirtualNetworksRequest{
         FilterLocation: latitudeshgosdk.Pointer("SAO"),
         FilterProject: latitudeshgosdk.Pointer("awesome-copper-clock"),
-        FilterTags: latitudeshgosdk.Pointer("tag_P284pBvBEoT492NeXgv7TPaR3k8,tag_nPpEv2AnR9u9RBrGLLJ3C89nZJN"),
+        FilterTags: latitudeshgosdk.Pointer("tag_BZWAJKePr2Fx9kRyyaARImQlXmW,tag_X8yMgb8AZPFrX72lQgrwhBVnPN2"),
     })
     if err != nil {
         log.Fatal(err)
@@ -114,7 +114,7 @@ func main() {
             Attributes: operations.CreateVirtualNetworkPrivateNetworksAttributes{
                 Description: "São Paulo VLAN",
                 Site: operations.CreateVirtualNetworkPrivateNetworksSiteMia.ToPointer(),
-                Project: "incredible-granite-coat",
+                Project: "ergonomic-steel-bag",
             },
         },
     })
@@ -177,8 +177,8 @@ func main() {
             Type: operations.UpdateVirtualNetworkPrivateNetworksTypeVirtualNetworks,
             Attributes: &operations.UpdateVirtualNetworkPrivateNetworksAttributes{
                 Tags: []string{
-                    "tag_Mjb3aoBkXRi5nR0gBQ5EhV30voRx",
-                    "tag_QnkPzo8Wj1iWWzg24P5bhXAzrxmm",
+                    "tag_RjLvG6oe84IAw7BxxEGaFAXK4l4",
+                    "tag_lpPQ21kXEYfb9az3jRoVIVw4RBk",
                 },
             },
         },
@@ -335,7 +335,7 @@ func main() {
 
 ## Assign
 
-Assign VLAN
+Assign Virtual network
 
 ### Example Usage
 
@@ -362,8 +362,8 @@ func main() {
         Data: &operations.AssignServerVirtualNetworkPrivateNetworksData{
             Type: operations.AssignServerVirtualNetworkPrivateNetworksTypeVirtualNetworkAssignment,
             Attributes: &operations.AssignServerVirtualNetworkPrivateNetworksAttributes{
-                ServerID: "sv_pbV0DgQGd4AWz",
-                VirtualNetworkID: "vlan_3YjJOLBjqvZ87",
+                ServerID: "sv_5xyZOn5vDWM0l",
+                VirtualNetworkID: "vlan_Z8rodmpGO1jLB",
             },
         },
     })

@@ -34,31 +34,21 @@ func (e *UpdateServerDeployConfigServersType) UnmarshalJSON(data []byte) error {
 type UpdateServerDeployConfigServersOperatingSystem string
 
 const (
-	UpdateServerDeployConfigServersOperatingSystemIpxe                      UpdateServerDeployConfigServersOperatingSystem = "ipxe"
-	UpdateServerDeployConfigServersOperatingSystemWindowsServer2019StdV1    UpdateServerDeployConfigServersOperatingSystem = "windows_server_2019_std_v1"
-	UpdateServerDeployConfigServersOperatingSystemUbuntu2204X64Lts          UpdateServerDeployConfigServersOperatingSystem = "ubuntu_22_04_x64_lts"
-	UpdateServerDeployConfigServersOperatingSystemDebian11                  UpdateServerDeployConfigServersOperatingSystem = "debian_11"
-	UpdateServerDeployConfigServersOperatingSystemDebian10                  UpdateServerDeployConfigServersOperatingSystem = "debian_10"
-	UpdateServerDeployConfigServersOperatingSystemRhel8                     UpdateServerDeployConfigServersOperatingSystem = "rhel8"
-	UpdateServerDeployConfigServersOperatingSystemWindowsServer2012R2StdV28 UpdateServerDeployConfigServersOperatingSystem = "windows_server_2012_r2_std_v28"
-	UpdateServerDeployConfigServersOperatingSystemWindowsServer2012R2DcV5   UpdateServerDeployConfigServersOperatingSystem = "windows_server_2012_r2_dc_v5"
-	UpdateServerDeployConfigServersOperatingSystemEsxi67                    UpdateServerDeployConfigServersOperatingSystem = "esxi_6_7"
-	UpdateServerDeployConfigServersOperatingSystemDebian94X64               UpdateServerDeployConfigServersOperatingSystem = "debian_9_4_x64"
-	UpdateServerDeployConfigServersOperatingSystemCentos74X64               UpdateServerDeployConfigServersOperatingSystem = "centos_7_4_x64"
-	UpdateServerDeployConfigServersOperatingSystemCentos8X64                UpdateServerDeployConfigServersOperatingSystem = "centos_8_x64"
-	UpdateServerDeployConfigServersOperatingSystemUbuntu1604X64Lts          UpdateServerDeployConfigServersOperatingSystem = "ubuntu_16_04_x64_lts"
-	UpdateServerDeployConfigServersOperatingSystemUbuntu2004X64Lts          UpdateServerDeployConfigServersOperatingSystem = "ubuntu_20_04_x64_lts"
-	UpdateServerDeployConfigServersOperatingSystemWindowsServer2016StdV1    UpdateServerDeployConfigServersOperatingSystem = "windows_server_2016_std_v1"
-	UpdateServerDeployConfigServersOperatingSystemWindowsServer2016DcV1     UpdateServerDeployConfigServersOperatingSystem = "windows_server_2016_dc_v1"
-	UpdateServerDeployConfigServersOperatingSystemWindowsServer2019DcV1     UpdateServerDeployConfigServersOperatingSystem = "windows_server_2019_dc_v1"
-	UpdateServerDeployConfigServersOperatingSystemDebian12                  UpdateServerDeployConfigServersOperatingSystem = "debian_12"
-	UpdateServerDeployConfigServersOperatingSystemUbuntu22MlInABox          UpdateServerDeployConfigServersOperatingSystem = "ubuntu22_ml_in_a_box"
-	UpdateServerDeployConfigServersOperatingSystemUbuntu1804X64Lts          UpdateServerDeployConfigServersOperatingSystem = "ubuntu_18_04_x64_lts"
-	UpdateServerDeployConfigServersOperatingSystemWindowsServer2019StdUefi  UpdateServerDeployConfigServersOperatingSystem = "windows_server_2019_std_uefi"
-	UpdateServerDeployConfigServersOperatingSystemWindows2022StdUefi        UpdateServerDeployConfigServersOperatingSystem = "windows_2022_std_uefi"
-	UpdateServerDeployConfigServersOperatingSystemWindows2022Std            UpdateServerDeployConfigServersOperatingSystem = "windows_2022_std"
-	UpdateServerDeployConfigServersOperatingSystemUbuntu2404X64Lts          UpdateServerDeployConfigServersOperatingSystem = "ubuntu_24_04_x64_lts"
-	UpdateServerDeployConfigServersOperatingSystemRockylinux8               UpdateServerDeployConfigServersOperatingSystem = "rockylinux_8"
+	UpdateServerDeployConfigServersOperatingSystemCentos74X64            UpdateServerDeployConfigServersOperatingSystem = "centos_7_4_x64"
+	UpdateServerDeployConfigServersOperatingSystemCentos8X64             UpdateServerDeployConfigServersOperatingSystem = "centos_8_x64"
+	UpdateServerDeployConfigServersOperatingSystemDebian10               UpdateServerDeployConfigServersOperatingSystem = "debian_10"
+	UpdateServerDeployConfigServersOperatingSystemDebian11               UpdateServerDeployConfigServersOperatingSystem = "debian_11"
+	UpdateServerDeployConfigServersOperatingSystemDebian12               UpdateServerDeployConfigServersOperatingSystem = "debian_12"
+	UpdateServerDeployConfigServersOperatingSystemIpxe                   UpdateServerDeployConfigServersOperatingSystem = "ipxe"
+	UpdateServerDeployConfigServersOperatingSystemRhel8                  UpdateServerDeployConfigServersOperatingSystem = "rhel8"
+	UpdateServerDeployConfigServersOperatingSystemRockylinux8            UpdateServerDeployConfigServersOperatingSystem = "rockylinux_8"
+	UpdateServerDeployConfigServersOperatingSystemUbuntu22MlInABox       UpdateServerDeployConfigServersOperatingSystem = "ubuntu22_ml_in_a_box"
+	UpdateServerDeployConfigServersOperatingSystemUbuntu24MlInABox       UpdateServerDeployConfigServersOperatingSystem = "ubuntu24_ml_in_a_box"
+	UpdateServerDeployConfigServersOperatingSystemUbuntu2004X64Lts       UpdateServerDeployConfigServersOperatingSystem = "ubuntu_20_04_x64_lts"
+	UpdateServerDeployConfigServersOperatingSystemUbuntu2204X64Lts       UpdateServerDeployConfigServersOperatingSystem = "ubuntu_22_04_x64_lts"
+	UpdateServerDeployConfigServersOperatingSystemUbuntu2404X64Lts       UpdateServerDeployConfigServersOperatingSystem = "ubuntu_24_04_x64_lts"
+	UpdateServerDeployConfigServersOperatingSystemWindows2022Std         UpdateServerDeployConfigServersOperatingSystem = "windows_2022_std"
+	UpdateServerDeployConfigServersOperatingSystemWindowsServer2019StdV1 UpdateServerDeployConfigServersOperatingSystem = "windows_server_2019_std_v1"
 )
 
 func (e UpdateServerDeployConfigServersOperatingSystem) ToPointer() *UpdateServerDeployConfigServersOperatingSystem {
@@ -70,55 +60,35 @@ func (e *UpdateServerDeployConfigServersOperatingSystem) UnmarshalJSON(data []by
 		return err
 	}
 	switch v {
-	case "ipxe":
-		fallthrough
-	case "windows_server_2019_std_v1":
-		fallthrough
-	case "ubuntu_22_04_x64_lts":
-		fallthrough
-	case "debian_11":
-		fallthrough
-	case "debian_10":
-		fallthrough
-	case "rhel8":
-		fallthrough
-	case "windows_server_2012_r2_std_v28":
-		fallthrough
-	case "windows_server_2012_r2_dc_v5":
-		fallthrough
-	case "esxi_6_7":
-		fallthrough
-	case "debian_9_4_x64":
-		fallthrough
 	case "centos_7_4_x64":
 		fallthrough
 	case "centos_8_x64":
 		fallthrough
-	case "ubuntu_16_04_x64_lts":
+	case "debian_10":
 		fallthrough
-	case "ubuntu_20_04_x64_lts":
-		fallthrough
-	case "windows_server_2016_std_v1":
-		fallthrough
-	case "windows_server_2016_dc_v1":
-		fallthrough
-	case "windows_server_2019_dc_v1":
+	case "debian_11":
 		fallthrough
 	case "debian_12":
 		fallthrough
+	case "ipxe":
+		fallthrough
+	case "rhel8":
+		fallthrough
+	case "rockylinux_8":
+		fallthrough
 	case "ubuntu22_ml_in_a_box":
 		fallthrough
-	case "ubuntu_18_04_x64_lts":
+	case "ubuntu24_ml_in_a_box":
 		fallthrough
-	case "windows_server_2019_std_uefi":
+	case "ubuntu_20_04_x64_lts":
 		fallthrough
-	case "windows_2022_std_uefi":
-		fallthrough
-	case "windows_2022_std":
+	case "ubuntu_22_04_x64_lts":
 		fallthrough
 	case "ubuntu_24_04_x64_lts":
 		fallthrough
-	case "rockylinux_8":
+	case "windows_2022_std":
+		fallthrough
+	case "windows_server_2019_std_v1":
 		*e = UpdateServerDeployConfigServersOperatingSystem(v)
 		return nil
 	default:
@@ -126,6 +96,7 @@ func (e *UpdateServerDeployConfigServersOperatingSystem) UnmarshalJSON(data []by
 	}
 }
 
+// UpdateServerDeployConfigServersRaid - RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, or omit/null for no RAID configuration
 type UpdateServerDeployConfigServersRaid string
 
 const (
@@ -182,7 +153,8 @@ func (u *UpdateServerDeployConfigPartitions) GetFilesystemType() *string {
 type UpdateServerDeployConfigServersAttributes struct {
 	Hostname        *string                                         `json:"hostname,omitempty"`
 	OperatingSystem *UpdateServerDeployConfigServersOperatingSystem `json:"operating_system,omitempty"`
-	Raid            *UpdateServerDeployConfigServersRaid            `json:"raid,omitempty"`
+	// RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, or omit/null for no RAID configuration
+	Raid *UpdateServerDeployConfigServersRaid `json:"raid,omitempty"`
 	// User data to configure the server
 	UserData   *string                              `json:"user_data,omitempty"`
 	SSHKeys    []string                             `json:"ssh_keys,omitempty"`

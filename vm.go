@@ -30,8 +30,12 @@ func newVM(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *hooks.
 	}
 }
 
-// List VM plans
-func (s *VM) List(ctx context.Context, opts ...operations.Option) (*operations.GetVMPlansResponse, error) {
+// List all Virtual Machines Plans
+func (s *VM) List(ctx context.Context, filterGpu *bool, opts ...operations.Option) (*operations.GetVMPlansResponse, error) {
+	request := operations.GetVMPlansRequest{
+		FilterGpu: filterGpu,
+	}
+
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -82,6 +86,10 @@ func (s *VM) List(ctx context.Context, opts ...operations.Option) (*operations.G
 	}
 	req.Header.Set("Accept", "application/vnd.api+json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
+
+	if err := utils.PopulateQueryParams(ctx, req, request, nil, nil); err != nil {
+		return nil, fmt.Errorf("error populating query params: %w", err)
+	}
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err

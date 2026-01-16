@@ -4,11 +4,11 @@
 
 ### Available Operations
 
-* [Create](#create) - Create VM
-* [List](#list) - List VMs
-* [Get](#get) - Retrieve VM
-* [Delete](#delete) - Destroy VM
-* [CreateVirtualMachineAction](#createvirtualmachineaction) - Run VM power action
+* [Create](#create) - Create a Virtual Machine
+* [List](#list) - Get Teams Virtual Machines
+* [Get](#get) - Get a Virtual Machine
+* [Delete](#delete) - Destroy a Virtual Machine
+* [CreateVirtualMachineAction](#createvirtualmachineaction) - Run Virtual Machine Action
 
 ## Create
 
@@ -41,9 +41,7 @@ func main() {
             Type: components.VirtualMachinePayloadTypeVirtualMachines.ToPointer(),
             Attributes: &components.VirtualMachinePayloadAttributes{
                 Name: latitudeshgosdk.Pointer("my-new-vm"),
-                Site: latitudeshgosdk.Pointer("ASH"),
-                Project: latitudeshgosdk.Pointer("enormous-wool-keyboard"),
-                Billing: components.VirtualMachinePayloadBillingMonthly.ToPointer(),
+                Project: latitudeshgosdk.Pointer("lightweight-leather-lamp"),
             },
         },
     })
@@ -76,7 +74,7 @@ func main() {
 
 ## List
 
-Show all Team's Virtual machines.
+Show all Team's Virtual Machines.
 
 
 ### Example Usage
@@ -153,7 +151,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VirtualMachines.Get(ctx, "vm_w5AEmq7XDBkWX")
+    res, err := s.VirtualMachines.Get(ctx, "vm_7vYAZqGBdMQ94")
     if err != nil {
         log.Fatal(err)
     }
@@ -263,8 +261,8 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VirtualMachines.CreateVirtualMachineAction(ctx, "vm_VLMmAD8EOwop2", operations.CreateVirtualMachineActionVirtualMachinesRequestBody{
-        ID: "vm_VLMmAD8EOwop2",
+    res, err := s.VirtualMachines.CreateVirtualMachineAction(ctx, "vm_5LA73qkjdaJ2o", operations.CreateVirtualMachineActionVirtualMachinesRequestBody{
+        ID: "vm_5LA73qkjdaJ2o",
         Type: operations.CreateVirtualMachineActionVirtualMachinesTypeVirtualMachines,
         Attributes: operations.CreateVirtualMachineActionVirtualMachinesAttributes{
             Action: operations.CreateVirtualMachineActionVirtualMachinesActionReboot,

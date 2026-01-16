@@ -162,36 +162,6 @@ func (v *VirtualMachineAttributesSpecs) GetGpu() *string {
 	return v.Gpu
 }
 
-// VirtualMachineAttributesBilling - The billing type for the virtual machine.
-type VirtualMachineAttributesBilling string
-
-const (
-	VirtualMachineAttributesBillingHourly  VirtualMachineAttributesBilling = "hourly"
-	VirtualMachineAttributesBillingMonthly VirtualMachineAttributesBilling = "monthly"
-	VirtualMachineAttributesBillingYearly  VirtualMachineAttributesBilling = "yearly"
-)
-
-func (e VirtualMachineAttributesBilling) ToPointer() *VirtualMachineAttributesBilling {
-	return &e
-}
-func (e *VirtualMachineAttributesBilling) UnmarshalJSON(data []byte) error {
-	var v string
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-	switch v {
-	case "hourly":
-		fallthrough
-	case "monthly":
-		fallthrough
-	case "yearly":
-		*e = VirtualMachineAttributesBilling(v)
-		return nil
-	default:
-		return fmt.Errorf("invalid value for VirtualMachineAttributesBilling: %v", v)
-	}
-}
-
 type VirtualMachineAttributesAttributes struct {
 	Name            *string                         `json:"name,omitempty"`
 	CreatedAt       *string                         `json:"created_at,omitempty"`
@@ -202,8 +172,6 @@ type VirtualMachineAttributesAttributes struct {
 	Specs           *VirtualMachineAttributesSpecs  `json:"specs,omitempty"`
 	Team            *TeamInclude                    `json:"team,omitempty"`
 	Project         *ProjectInclude                 `json:"project,omitempty"`
-	// The billing type for the virtual machine.
-	Billing *VirtualMachineAttributesBilling `json:"billing,omitempty"`
 }
 
 func (v *VirtualMachineAttributesAttributes) GetName() *string {
@@ -267,13 +235,6 @@ func (v *VirtualMachineAttributesAttributes) GetProject() *ProjectInclude {
 		return nil
 	}
 	return v.Project
-}
-
-func (v *VirtualMachineAttributesAttributes) GetBilling() *VirtualMachineAttributesBilling {
-	if v == nil {
-		return nil
-	}
-	return v.Billing
 }
 
 type VirtualMachineAttributes struct {

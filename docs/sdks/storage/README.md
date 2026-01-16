@@ -4,14 +4,14 @@
 
 ### Available Operations
 
-* [CreateFilesystem](#createfilesystem) - Create filesystem
+* [CreateFilesystem](#createfilesystem) - Create a filesystem for a project
 * [ListFilesystems](#listfilesystems) - List filesystems
-* [DeleteFilesystem](#deletefilesystem) - Delete filesystem
-* [UpdateFilesystem](#updatefilesystem) - Update filesystem
+* [DeleteFilesystem](#deletefilesystem) - Delete a filesystem for a project
+* [UpdateFilesystem](#updatefilesystem) - Update a filesystem for a project
 * [PostStorageVolumes](#poststoragevolumes) - Create volume
 * [GetStorageVolumes](#getstoragevolumes) - List volumes
 * [DeleteStorageVolumes](#deletestoragevolumes) - Delete volume
-* [GetStorageVolume](#getstoragevolume) - Retrieve volume
+* [GetStorageVolume](#getstoragevolume) - Get volume
 * [PostStorageVolumesMount](#poststoragevolumesmount) - Mount volume
 
 ## CreateFilesystem
@@ -43,7 +43,7 @@ func main() {
         Data: operations.PostStorageFilesystemsStorageData{
             Type: operations.PostStorageFilesystemsStorageTypeFilesystems,
             Attributes: operations.PostStorageFilesystemsStorageAttributes{
-                Project: "proj_kjQwdE2bqYNVP",
+                Project: "proj_lkg1De6ROvZE5",
                 Name: "my-data",
             },
         },
@@ -99,7 +99,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Storage.ListFilesystems(ctx, latitudeshgosdk.Pointer("sleek-silk-car"))
+    res, err := s.Storage.ListFilesystems(ctx, latitudeshgosdk.Pointer("small-rubber-shirt"))
     if err != nil {
         log.Fatal(err)
     }
@@ -270,7 +270,7 @@ func main() {
         Data: operations.PostStorageVolumesStorageData{
             Type: operations.PostStorageVolumesStorageTypeVolumes,
             Attributes: operations.PostStorageVolumesStorageAttributes{
-                Project: "proj_8NkvdyPXOeLpx",
+                Project: "proj_enPbqoZ6dA2MQ",
                 Name: "my-data",
             },
         },
@@ -326,7 +326,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Storage.GetStorageVolumes(ctx, latitudeshgosdk.Pointer("proj_GnzRD5X6qM5yw"))
+    res, err := s.Storage.GetStorageVolumes(ctx, latitudeshgosdk.Pointer("proj_WeGoqA5AqP7nz"))
     if err != nil {
         log.Fatal(err)
     }

@@ -20,7 +20,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	if res.APIKey != nil {
+	if res.APIKeys != nil {
 		// handle response
 	}
 }

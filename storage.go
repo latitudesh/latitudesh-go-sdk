@@ -30,7 +30,7 @@ func newStorage(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *h
 	}
 }
 
-// CreateFilesystem - Create filesystem
+// CreateFilesystem - Create a filesystem for a project
 // Allows you to add persistent storage to a project. These filesystems can be used to store data across your servers.
 func (s *Storage) CreateFilesystem(ctx context.Context, request operations.PostStorageFilesystemsStorageRequestBody, opts ...operations.Option) (*operations.PostStorageFilesystemsResponse, error) {
 	o := operations.Options{}
@@ -437,7 +437,7 @@ func (s *Storage) ListFilesystems(ctx context.Context, filterProject *string, op
 
 }
 
-// DeleteFilesystem - Delete filesystem
+// DeleteFilesystem - Delete a filesystem for a project
 // Allows you to remove persistent storage from a project.
 func (s *Storage) DeleteFilesystem(ctx context.Context, filesystemID string, opts ...operations.Option) (*operations.DeleteStorageFilesystemsResponse, error) {
 	request := operations.DeleteStorageFilesystemsRequest{
@@ -627,7 +627,7 @@ func (s *Storage) DeleteFilesystem(ctx context.Context, filesystemID string, opt
 
 }
 
-// UpdateFilesystem - Update filesystem
+// UpdateFilesystem - Update a filesystem for a project
 // Allow you to upgrade the size of a filesystem.
 func (s *Storage) UpdateFilesystem(ctx context.Context, filesystemID string, requestBody operations.PatchStorageFilesystemsStorageRequestBody, opts ...operations.Option) (*operations.PatchStorageFilesystemsResponse, error) {
 	request := operations.PatchStorageFilesystemsRequest{
@@ -1462,7 +1462,7 @@ func (s *Storage) DeleteStorageVolumes(ctx context.Context, id string, opts ...o
 
 }
 
-// GetStorageVolume - Retrieve volume
+// GetStorageVolume - Get volume
 // Shows details of a specific volume storage.
 func (s *Storage) GetStorageVolume(ctx context.Context, id string, opts ...operations.Option) (*operations.GetStorageVolumeResponse, error) {
 	request := operations.GetStorageVolumeRequest{

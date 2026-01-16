@@ -38,9 +38,9 @@ type SSHKeyDataAttributes struct {
 	// SSH Key fingerprint
 	Fingerprint *string         `json:"fingerprint,omitempty"`
 	User        *UserInclude    `json:"user,omitempty"`
+	Project     *ProjectInclude `json:"project,omitempty"`
 	CreatedAt   *string         `json:"created_at,omitempty"`
 	UpdatedAt   *string         `json:"updated_at,omitempty"`
-	Project     *ProjectInclude `json:"project,omitempty"`
 }
 
 func (s *SSHKeyDataAttributes) GetName() *string {
@@ -71,6 +71,13 @@ func (s *SSHKeyDataAttributes) GetUser() *UserInclude {
 	return s.User
 }
 
+func (s *SSHKeyDataAttributes) GetProject() *ProjectInclude {
+	if s == nil {
+		return nil
+	}
+	return s.Project
+}
+
 func (s *SSHKeyDataAttributes) GetCreatedAt() *string {
 	if s == nil {
 		return nil
@@ -83,13 +90,6 @@ func (s *SSHKeyDataAttributes) GetUpdatedAt() *string {
 		return nil
 	}
 	return s.UpdatedAt
-}
-
-func (s *SSHKeyDataAttributes) GetProject() *ProjectInclude {
-	if s == nil {
-		return nil
-	}
-	return s.Project
 }
 
 type SSHKeyData struct {

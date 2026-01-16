@@ -9,7 +9,7 @@ import (
 type GetAPIKeysResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Success
-	APIKey *components.APIKey
+	APIKeys *components.APIKeys
 }
 
 func (g *GetAPIKeysResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -19,9 +19,9 @@ func (g *GetAPIKeysResponse) GetHTTPMeta() components.HTTPMetadata {
 	return g.HTTPMeta
 }
 
-func (g *GetAPIKeysResponse) GetAPIKey() *components.APIKey {
+func (g *GetAPIKeysResponse) GetAPIKeys() *components.APIKeys {
 	if g == nil {
 		return nil
 	}
-	return g.APIKey
+	return g.APIKeys
 }

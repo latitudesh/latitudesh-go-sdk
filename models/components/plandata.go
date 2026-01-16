@@ -388,8 +388,7 @@ func (p *PlanDataPricing) GetBrl() *PlanDataBRL {
 }
 
 type PlanDataRegions struct {
-	Name *string `json:"name,omitempty"`
-	// Array of operating system slugs that support instant deployment at this location. Instant deployments are provisioned immediately without the typical deployment delay.
+	Name             *string          `json:"name,omitempty"`
 	DeploysInstantly []string         `json:"deploys_instantly,omitempty"`
 	Locations        *Locations       `json:"locations,omitempty"`
 	StockLevel       *StockLevel      `json:"stock_level,omitempty"`

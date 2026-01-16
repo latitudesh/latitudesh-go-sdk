@@ -35,31 +35,21 @@ func (e *CreateServerReinstallServersType) UnmarshalJSON(data []byte) error {
 type CreateServerReinstallServersOperatingSystem string
 
 const (
-	CreateServerReinstallServersOperatingSystemIpxe                      CreateServerReinstallServersOperatingSystem = "ipxe"
-	CreateServerReinstallServersOperatingSystemWindowsServer2019StdV1    CreateServerReinstallServersOperatingSystem = "windows_server_2019_std_v1"
-	CreateServerReinstallServersOperatingSystemUbuntu2204X64Lts          CreateServerReinstallServersOperatingSystem = "ubuntu_22_04_x64_lts"
-	CreateServerReinstallServersOperatingSystemDebian11                  CreateServerReinstallServersOperatingSystem = "debian_11"
-	CreateServerReinstallServersOperatingSystemDebian10                  CreateServerReinstallServersOperatingSystem = "debian_10"
-	CreateServerReinstallServersOperatingSystemRhel8                     CreateServerReinstallServersOperatingSystem = "rhel8"
-	CreateServerReinstallServersOperatingSystemWindowsServer2012R2StdV28 CreateServerReinstallServersOperatingSystem = "windows_server_2012_r2_std_v28"
-	CreateServerReinstallServersOperatingSystemWindowsServer2012R2DcV5   CreateServerReinstallServersOperatingSystem = "windows_server_2012_r2_dc_v5"
-	CreateServerReinstallServersOperatingSystemEsxi67                    CreateServerReinstallServersOperatingSystem = "esxi_6_7"
-	CreateServerReinstallServersOperatingSystemDebian94X64               CreateServerReinstallServersOperatingSystem = "debian_9_4_x64"
-	CreateServerReinstallServersOperatingSystemCentos74X64               CreateServerReinstallServersOperatingSystem = "centos_7_4_x64"
-	CreateServerReinstallServersOperatingSystemCentos8X64                CreateServerReinstallServersOperatingSystem = "centos_8_x64"
-	CreateServerReinstallServersOperatingSystemUbuntu1604X64Lts          CreateServerReinstallServersOperatingSystem = "ubuntu_16_04_x64_lts"
-	CreateServerReinstallServersOperatingSystemUbuntu2004X64Lts          CreateServerReinstallServersOperatingSystem = "ubuntu_20_04_x64_lts"
-	CreateServerReinstallServersOperatingSystemWindowsServer2016StdV1    CreateServerReinstallServersOperatingSystem = "windows_server_2016_std_v1"
-	CreateServerReinstallServersOperatingSystemWindowsServer2016DcV1     CreateServerReinstallServersOperatingSystem = "windows_server_2016_dc_v1"
-	CreateServerReinstallServersOperatingSystemWindowsServer2019DcV1     CreateServerReinstallServersOperatingSystem = "windows_server_2019_dc_v1"
-	CreateServerReinstallServersOperatingSystemDebian12                  CreateServerReinstallServersOperatingSystem = "debian_12"
-	CreateServerReinstallServersOperatingSystemUbuntu22MlInABox          CreateServerReinstallServersOperatingSystem = "ubuntu22_ml_in_a_box"
-	CreateServerReinstallServersOperatingSystemUbuntu1804X64Lts          CreateServerReinstallServersOperatingSystem = "ubuntu_18_04_x64_lts"
-	CreateServerReinstallServersOperatingSystemWindowsServer2019StdUefi  CreateServerReinstallServersOperatingSystem = "windows_server_2019_std_uefi"
-	CreateServerReinstallServersOperatingSystemWindows2022StdUefi        CreateServerReinstallServersOperatingSystem = "windows_2022_std_uefi"
-	CreateServerReinstallServersOperatingSystemWindows2022Std            CreateServerReinstallServersOperatingSystem = "windows_2022_std"
-	CreateServerReinstallServersOperatingSystemUbuntu2404X64Lts          CreateServerReinstallServersOperatingSystem = "ubuntu_24_04_x64_lts"
-	CreateServerReinstallServersOperatingSystemRockylinux8               CreateServerReinstallServersOperatingSystem = "rockylinux_8"
+	CreateServerReinstallServersOperatingSystemCentos74X64            CreateServerReinstallServersOperatingSystem = "centos_7_4_x64"
+	CreateServerReinstallServersOperatingSystemCentos8X64             CreateServerReinstallServersOperatingSystem = "centos_8_x64"
+	CreateServerReinstallServersOperatingSystemDebian10               CreateServerReinstallServersOperatingSystem = "debian_10"
+	CreateServerReinstallServersOperatingSystemDebian11               CreateServerReinstallServersOperatingSystem = "debian_11"
+	CreateServerReinstallServersOperatingSystemDebian12               CreateServerReinstallServersOperatingSystem = "debian_12"
+	CreateServerReinstallServersOperatingSystemIpxe                   CreateServerReinstallServersOperatingSystem = "ipxe"
+	CreateServerReinstallServersOperatingSystemRhel8                  CreateServerReinstallServersOperatingSystem = "rhel8"
+	CreateServerReinstallServersOperatingSystemRockylinux8            CreateServerReinstallServersOperatingSystem = "rockylinux_8"
+	CreateServerReinstallServersOperatingSystemUbuntu22MlInABox       CreateServerReinstallServersOperatingSystem = "ubuntu22_ml_in_a_box"
+	CreateServerReinstallServersOperatingSystemUbuntu24MlInABox       CreateServerReinstallServersOperatingSystem = "ubuntu24_ml_in_a_box"
+	CreateServerReinstallServersOperatingSystemUbuntu2004X64Lts       CreateServerReinstallServersOperatingSystem = "ubuntu_20_04_x64_lts"
+	CreateServerReinstallServersOperatingSystemUbuntu2204X64Lts       CreateServerReinstallServersOperatingSystem = "ubuntu_22_04_x64_lts"
+	CreateServerReinstallServersOperatingSystemUbuntu2404X64Lts       CreateServerReinstallServersOperatingSystem = "ubuntu_24_04_x64_lts"
+	CreateServerReinstallServersOperatingSystemWindows2022Std         CreateServerReinstallServersOperatingSystem = "windows_2022_std"
+	CreateServerReinstallServersOperatingSystemWindowsServer2019StdV1 CreateServerReinstallServersOperatingSystem = "windows_server_2019_std_v1"
 )
 
 func (e CreateServerReinstallServersOperatingSystem) ToPointer() *CreateServerReinstallServersOperatingSystem {
@@ -71,55 +61,35 @@ func (e *CreateServerReinstallServersOperatingSystem) UnmarshalJSON(data []byte)
 		return err
 	}
 	switch v {
-	case "ipxe":
-		fallthrough
-	case "windows_server_2019_std_v1":
-		fallthrough
-	case "ubuntu_22_04_x64_lts":
-		fallthrough
-	case "debian_11":
-		fallthrough
-	case "debian_10":
-		fallthrough
-	case "rhel8":
-		fallthrough
-	case "windows_server_2012_r2_std_v28":
-		fallthrough
-	case "windows_server_2012_r2_dc_v5":
-		fallthrough
-	case "esxi_6_7":
-		fallthrough
-	case "debian_9_4_x64":
-		fallthrough
 	case "centos_7_4_x64":
 		fallthrough
 	case "centos_8_x64":
 		fallthrough
-	case "ubuntu_16_04_x64_lts":
+	case "debian_10":
 		fallthrough
-	case "ubuntu_20_04_x64_lts":
-		fallthrough
-	case "windows_server_2016_std_v1":
-		fallthrough
-	case "windows_server_2016_dc_v1":
-		fallthrough
-	case "windows_server_2019_dc_v1":
+	case "debian_11":
 		fallthrough
 	case "debian_12":
 		fallthrough
+	case "ipxe":
+		fallthrough
+	case "rhel8":
+		fallthrough
+	case "rockylinux_8":
+		fallthrough
 	case "ubuntu22_ml_in_a_box":
 		fallthrough
-	case "ubuntu_18_04_x64_lts":
+	case "ubuntu24_ml_in_a_box":
 		fallthrough
-	case "windows_server_2019_std_uefi":
+	case "ubuntu_20_04_x64_lts":
 		fallthrough
-	case "windows_2022_std_uefi":
-		fallthrough
-	case "windows_2022_std":
+	case "ubuntu_22_04_x64_lts":
 		fallthrough
 	case "ubuntu_24_04_x64_lts":
 		fallthrough
-	case "rockylinux_8":
+	case "windows_2022_std":
+		fallthrough
+	case "windows_server_2019_std_v1":
 		*e = CreateServerReinstallServersOperatingSystem(v)
 		return nil
 	default:
@@ -154,7 +124,7 @@ func (c *CreateServerReinstallServersPartitions) GetFilesystemType() *string {
 	return c.FilesystemType
 }
 
-// CreateServerReinstallServersRaid - RAID mode for the server
+// CreateServerReinstallServersRaid - RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, or omit/null for no RAID configuration
 type CreateServerReinstallServersRaid string
 
 const (
@@ -191,7 +161,7 @@ type CreateServerReinstallServersAttributes struct {
 	SSHKeys []string `json:"ssh_keys,omitempty"`
 	// User data ID to set upon reinstall
 	UserData *string `json:"user_data,omitempty"`
-	// RAID mode for the server
+	// RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, or omit/null for no RAID configuration
 	Raid *CreateServerReinstallServersRaid `json:"raid,omitempty"`
 	// URL where iPXE script is stored on, OR the iPXE script encoded in base64. This attribute is required when operating system iPXE is selected.
 	Ipxe *string `json:"ipxe,omitempty"`

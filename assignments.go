@@ -29,8 +29,8 @@ func newAssignments(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hook
 	}
 }
 
-// Create - Assign server to firewall
-// Assigns a server to a firewall by its ID.
+// Create - Firewall Assignment
+// Assign a server to a firewall
 func (s *Assignments) Create(ctx context.Context, firewallID string, requestBody operations.CreateFirewallAssignmentFirewallsAssignmentsRequestBody, opts ...operations.Option) (*operations.CreateFirewallAssignmentResponse, error) {
 	request := operations.CreateFirewallAssignmentRequest{
 		FirewallID:  firewallID,

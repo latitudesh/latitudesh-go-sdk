@@ -31,7 +31,7 @@ func newRoles(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *hoo
 	}
 }
 
-// List roles
+// List all Roles
 // Returns a list of all roles that can be assigned to users
 func (s *Roles) List(ctx context.Context, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetRolesResponse, error) {
 	request := operations.GetRolesRequest{
@@ -291,7 +291,7 @@ func (s *Roles) List(ctx context.Context, pageSize *int64, pageNumber *int64, op
 
 }
 
-// Get - Retrieve role
+// Get - Retrieve Role
 func (s *Roles) Get(ctx context.Context, roleID string, opts ...operations.Option) (*operations.GetRoleIDResponse, error) {
 	request := operations.GetRoleIDRequest{
 		RoleID: roleID,

@@ -4,12 +4,12 @@
 
 ### Available Operations
 
-* [PostTeamMembers](#postteammembers) - Create member
-* [Delete](#delete) - Remove a member
+* [PostTeamMembers](#postteammembers) - Add a Team Member
+* [Delete](#delete) - Remove a Team Member
 
 ## PostTeamMembers
 
-Create member
+Add a Team Member
 
 ### Example Usage
 
@@ -36,9 +36,9 @@ func main() {
         Data: operations.PostTeamMembersTeamMembersData{
             Type: operations.PostTeamMembersTeamMembersTypeMemberships,
             Attributes: &operations.PostTeamMembersTeamMembersAttributes{
-                FirstName: latitudeshgosdk.Pointer("Bernard"),
-                LastName: latitudeshgosdk.Pointer("Cremin"),
-                Email: "ernest@carter-lehner.example",
+                FirstName: latitudeshgosdk.Pointer("Maricela"),
+                LastName: latitudeshgosdk.Pointer("Torphy"),
+                Email: "maritza_schneider@mcglynn.test",
                 Role: operations.PostTeamMembersRoleCollaborator,
             },
         },
@@ -72,7 +72,7 @@ func main() {
 
 ## Delete
 
-Remove a member
+Remove a Team Member
 
 ### Example Usage
 

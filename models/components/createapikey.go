@@ -34,9 +34,9 @@ func (e *CreateAPIKeyType) UnmarshalJSON(data []byte) error {
 type CreateAPIKeyAttributes struct {
 	// Name of the API Key
 	Name *string `default:"Name of the API Key" json:"name"`
-	// Whether the API Key is read-only. Read-only keys can only perform GET, HEAD, and OPTIONS requests.
+	// Whether the API Key is read-only. Read-only keys can only perform GET requests.
 	ReadOnly *bool `json:"read_only,omitempty"`
-	// List of allowed IP addresses or CIDR ranges. If set, the API key can only be used from these IP addresses.
+	// List of allowed IP addresses or CIDR ranges (e.g., "192.168.1.100", "10.0.0.0/24")
 	AllowedIps []string `json:"allowed_ips,omitempty"`
 }
 

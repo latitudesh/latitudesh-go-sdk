@@ -4,14 +4,14 @@
 
 ### Available Operations
 
-* [List](#list) - List VPN sessions
-* [Create](#create) - Create VPN session
-* [RefreshPassword](#refreshpassword) - Refresh VPN session
-* [Delete](#delete) - Delete VPN session
+* [List](#list) - List all Active VPN Sessions
+* [Create](#create) - Create a VPN Session
+* [RefreshPassword](#refreshpassword) - Refresh a VPN Session
+* [Delete](#delete) - Delete a VPN Session
 
 ## List
 
-List active VPN sessions.
+List all Active VPN Sessions
 
 ### Example Usage
 
@@ -93,7 +93,7 @@ func main() {
         Data: &operations.PostVpnSessionVpnSessionsData{
             Attributes: &operations.PostVpnSessionVpnSessionsAttributes{
                 Site: operations.PostVpnSessionVpnSessionsSiteSao.ToPointer(),
-                ServerID: latitudeshgosdk.Pointer("sv_wg3ZDrKyO5QlP"),
+                ServerID: latitudeshgosdk.Pointer("sv_LMmAD8wyqwop2"),
             },
         },
     })
@@ -149,7 +149,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VpnSessions.RefreshPassword(ctx, "vpn_6VE1Wd37dXnZJ")
+    res, err := s.VpnSessions.RefreshPassword(ctx, "vpn_pRMLydp0dQKr1")
     if err != nil {
         log.Fatal(err)
     }

@@ -30,8 +30,8 @@ func newAPIKeys(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *h
 	}
 }
 
-// List API keys
-// Returns a list of all API keys.
+// List API Keys
+// Returns a list of all API keys from the team members
 func (s *APIKeys) List(ctx context.Context, opts ...operations.Option) (*operations.GetAPIKeysResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -199,12 +199,12 @@ func (s *APIKeys) List(ctx context.Context, opts ...operations.Option) (*operati
 				return nil, err
 			}
 
-			var out components.APIKey
+			var out components.APIKeys
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.APIKey = &out
+			res.APIKeys = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -236,7 +236,7 @@ func (s *APIKeys) List(ctx context.Context, opts ...operations.Option) (*operati
 
 }
 
-// Create API key
+// Create API Key
 // Create a new API Key that is tied to the current user account. The created API key is only listed ONCE upon creation. It can however be regenerated or deleted.
 func (s *APIKeys) Create(ctx context.Context, request components.CreateAPIKey, opts ...operations.Option) (*operations.PostAPIKeyResponse, error) {
 	o := operations.Options{}
@@ -381,7 +381,7 @@ func (s *APIKeys) Create(ctx context.Context, request components.CreateAPIKey, o
 
 			_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 			return nil, err
-		} else if utils.MatchStatusCodes([]string{"401", "403", "4XX", "5XX"}, httpRes.StatusCode) {
+		} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
 			_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 			if err != nil {
 				return nil, err
@@ -425,10 +425,6 @@ func (s *APIKeys) Create(ctx context.Context, request components.CreateAPIKey, o
 			}
 			return nil, components.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
 		}
-	case httpRes.StatusCode == 401:
-		fallthrough
-	case httpRes.StatusCode == 403:
-		fallthrough
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)
 		if err != nil {
@@ -453,10 +449,11 @@ func (s *APIKeys) Create(ctx context.Context, request components.CreateAPIKey, o
 
 }
 
-// Update - Rotate API key
-// Rotate (regenerate) an API key's token and optionally update its settings. This generates a new token and invalidates the previous one. To update settings without rotating the token, use the PATCH endpoint instead.
-func (s *APIKeys) Update(ctx context.Context, apiKeyID string, updateAPIKey components.UpdateAPIKey, opts ...operations.Option) (*operations.UpdateAPIKeyResponse, error) {
-	request := operations.UpdateAPIKeyRequest{
+// Update - Rotate API Key
+// Rotate an existing API Key, generating a new token. This invalidates the previous key.
+// Use PATCH to update settings without rotating the token.
+func (s *APIKeys) Update(ctx context.Context, apiKeyID string, updateAPIKey components.UpdateAPIKey, opts ...operations.Option) (*operations.RotateAPIKeyResponse, error) {
+	request := operations.RotateAPIKeyRequest{
 		APIKeyID:     apiKeyID,
 		UpdateAPIKey: updateAPIKey,
 	}
@@ -489,7 +486,7 @@ func (s *APIKeys) Update(ctx context.Context, apiKeyID string, updateAPIKey comp
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "update-api-key",
+		OperationID:      "rotate-api-key",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
@@ -513,7 +510,7 @@ func (s *APIKeys) Update(ctx context.Context, apiKeyID string, updateAPIKey comp
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
-	req.Header.Set("Accept", "*/*")
+	req.Header.Set("Accept", "application/vnd.api+json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
@@ -603,7 +600,7 @@ func (s *APIKeys) Update(ctx context.Context, apiKeyID string, updateAPIKey comp
 
 			_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 			return nil, err
-		} else if utils.MatchStatusCodes([]string{"401", "403", "4XX", "5XX"}, httpRes.StatusCode) {
+		} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
 			_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 			if err != nil {
 				return nil, err
@@ -618,7 +615,7 @@ func (s *APIKeys) Update(ctx context.Context, apiKeyID string, updateAPIKey comp
 		}
 	}
 
-	res := &operations.UpdateAPIKeyResponse{
+	res := &operations.RotateAPIKeyResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -626,11 +623,27 @@ func (s *APIKeys) Update(ctx context.Context, apiKeyID string, updateAPIKey comp
 	}
 
 	switch {
-	case httpRes.StatusCode >= 200 && httpRes.StatusCode < 300:
-	case httpRes.StatusCode == 401:
-		fallthrough
-	case httpRes.StatusCode == 403:
-		fallthrough
+	case httpRes.StatusCode == 200:
+		switch {
+		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/vnd.api+json`):
+			rawBody, err := utils.ConsumeRawBody(httpRes)
+			if err != nil {
+				return nil, err
+			}
+
+			var out operations.RotateAPIKeyResponseBody
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
+				return nil, err
+			}
+
+			res.Object = &out
+		default:
+			rawBody, err := utils.ConsumeRawBody(httpRes)
+			if err != nil {
+				return nil, err
+			}
+			return nil, components.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
+		}
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)
 		if err != nil {
@@ -655,7 +668,7 @@ func (s *APIKeys) Update(ctx context.Context, apiKeyID string, updateAPIKey comp
 
 }
 
-// Delete API key
+// Delete API Key
 // Delete an existing API Key. Once deleted, the API Key can no longer be used to access the API.
 func (s *APIKeys) Delete(ctx context.Context, apiKeyID string, opts ...operations.Option) (*operations.DeleteAPIKeyResponse, error) {
 	request := operations.DeleteAPIKeyRequest{
@@ -845,10 +858,11 @@ func (s *APIKeys) Delete(ctx context.Context, apiKeyID string, opts ...operation
 
 }
 
-// PatchAPIKey - Update API key settings
-// Update an API key's settings (name, read_only, allowed_ips) without regenerating the token. To rotate the token, use the PUT endpoint instead.
-func (s *APIKeys) PatchAPIKey(ctx context.Context, apiKeyID string, updateAPIKey components.UpdateAPIKey, opts ...operations.Option) (*operations.PatchAPIKeyResponse, error) {
-	request := operations.PatchAPIKeyRequest{
+// UpdateAPIKey - Update API Key Settings
+// Update API Key settings (name, read_only, allowed_ips) without rotating the token.
+// Use PUT to rotate the token.
+func (s *APIKeys) UpdateAPIKey(ctx context.Context, apiKeyID string, updateAPIKey components.UpdateAPIKey, opts ...operations.Option) (*operations.UpdateAPIKeyResponse, error) {
+	request := operations.UpdateAPIKeyRequest{
 		APIKeyID:     apiKeyID,
 		UpdateAPIKey: updateAPIKey,
 	}
@@ -881,11 +895,11 @@ func (s *APIKeys) PatchAPIKey(ctx context.Context, apiKeyID string, updateAPIKey
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "patch-api-key",
+		OperationID:      "update-api-key",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "UpdateAPIKey", "json", `request:"mediaType=application/vnd.api+json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "UpdateAPIKey", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -995,7 +1009,7 @@ func (s *APIKeys) PatchAPIKey(ctx context.Context, apiKeyID string, updateAPIKey
 
 			_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 			return nil, err
-		} else if utils.MatchStatusCodes([]string{"401", "403", "4XX", "5XX"}, httpRes.StatusCode) {
+		} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
 			_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 			if err != nil {
 				return nil, err
@@ -1010,7 +1024,7 @@ func (s *APIKeys) PatchAPIKey(ctx context.Context, apiKeyID string, updateAPIKey
 		}
 	}
 
-	res := &operations.PatchAPIKeyResponse{
+	res := &operations.UpdateAPIKeyResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -1026,7 +1040,7 @@ func (s *APIKeys) PatchAPIKey(ctx context.Context, apiKeyID string, updateAPIKey
 				return nil, err
 			}
 
-			var out operations.PatchAPIKeyResponseBody
+			var out operations.UpdateAPIKeyResponseBody
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -1039,10 +1053,6 @@ func (s *APIKeys) PatchAPIKey(ctx context.Context, apiKeyID string, updateAPIKey
 			}
 			return nil, components.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
 		}
-	case httpRes.StatusCode == 401:
-		fallthrough
-	case httpRes.StatusCode == 403:
-		fallthrough
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)
 		if err != nil {

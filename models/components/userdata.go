@@ -6,11 +6,11 @@ type UserDataMeta struct {
 }
 
 type UserData struct {
-	Data *UserDataProperties `json:"data,omitempty"`
-	Meta *UserDataMeta       `json:"meta,omitempty"`
+	Data []UserDataObject `json:"data,omitempty"`
+	Meta *UserDataMeta    `json:"meta,omitempty"`
 }
 
-func (u *UserData) GetData() *UserDataProperties {
+func (u *UserData) GetData() []UserDataObject {
 	if u == nil {
 		return nil
 	}

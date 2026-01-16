@@ -4,10 +4,10 @@
 
 ### Available Operations
 
-* [List](#list) - List tags
-* [Create](#create) - Create tag
-* [Update](#update) - Update tag
-* [Delete](#delete) - Delete tag
+* [List](#list) - List all Tags
+* [Create](#create) - Create a Tag
+* [Update](#update) - Update Tag
+* [Delete](#delete) - Delete Tag
 
 ## List
 
@@ -150,9 +150,9 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Tags.Update(ctx, "tag_k88kazkbPktNYRWa2l9ZsN6gVrrL", operations.UpdateTagTagsRequestBody{
+    res, err := s.Tags.Update(ctx, "tag_XBlke2r5RyiyVpG9LPK8tWjalLL", operations.UpdateTagTagsRequestBody{
         Data: &operations.UpdateTagTagsData{
-            ID: latitudeshgosdk.Pointer("tag_k88kazkbPktNYRWa2l9ZsN6gVrrL"),
+            ID: latitudeshgosdk.Pointer("tag_XBlke2r5RyiyVpG9LPK8tWjalLL"),
             Type: operations.UpdateTagTagsTypeTags.ToPointer(),
             Attributes: &operations.UpdateTagTagsAttributes{
                 Name: latitudeshgosdk.Pointer("Tag Name"),

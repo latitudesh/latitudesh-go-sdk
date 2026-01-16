@@ -5,7 +5,6 @@ package components
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
 )
 
 type UpdateAPIKeyType string
@@ -33,24 +32,11 @@ func (e *UpdateAPIKeyType) UnmarshalJSON(data []byte) error {
 
 type UpdateAPIKeyAttributes struct {
 	// Name of the API Key
-	Name *string `default:"Name of the API Key" json:"name"`
-	// The API version to use
-	APIVersion *string `default:"2023-06-01" json:"api_version"`
-	// Whether the API Key is read-only. Read-only keys can only perform GET, HEAD, and OPTIONS requests.
+	Name *string `json:"name,omitempty"`
+	// Whether the API Key is read-only. Read-only keys can only perform GET requests.
 	ReadOnly *bool `json:"read_only,omitempty"`
-	// List of allowed IP addresses or CIDR ranges. If set, the API key can only be used from these IP addresses.
+	// List of allowed IP addresses or CIDR ranges (e.g., "192.168.1.100", "10.0.0.0/24")
 	AllowedIps []string `json:"allowed_ips,omitempty"`
-}
-
-func (u UpdateAPIKeyAttributes) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(u, "", false)
-}
-
-func (u *UpdateAPIKeyAttributes) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &u, "", false, nil); err != nil {
-		return err
-	}
-	return nil
 }
 
 func (u *UpdateAPIKeyAttributes) GetName() *string {
@@ -58,13 +44,6 @@ func (u *UpdateAPIKeyAttributes) GetName() *string {
 		return nil
 	}
 	return u.Name
-}
-
-func (u *UpdateAPIKeyAttributes) GetAPIVersion() *string {
-	if u == nil {
-		return nil
-	}
-	return u.APIVersion
 }
 
 func (u *UpdateAPIKeyAttributes) GetReadOnly() *bool {

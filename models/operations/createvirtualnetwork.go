@@ -36,25 +36,23 @@ type CreateVirtualNetworkPrivateNetworksSite string
 
 const (
 	CreateVirtualNetworkPrivateNetworksSiteAsh  CreateVirtualNetworkPrivateNetworksSite = "ASH"
-	CreateVirtualNetworkPrivateNetworksSiteBgt  CreateVirtualNetworkPrivateNetworksSite = "BGT"
 	CreateVirtualNetworkPrivateNetworksSiteBue  CreateVirtualNetworkPrivateNetworksSite = "BUE"
 	CreateVirtualNetworkPrivateNetworksSiteChi  CreateVirtualNetworkPrivateNetworksSite = "CHI"
 	CreateVirtualNetworkPrivateNetworksSiteDal  CreateVirtualNetworkPrivateNetworksSite = "DAL"
 	CreateVirtualNetworkPrivateNetworksSiteFra  CreateVirtualNetworkPrivateNetworksSite = "FRA"
 	CreateVirtualNetworkPrivateNetworksSiteLax  CreateVirtualNetworkPrivateNetworksSite = "LAX"
-	CreateVirtualNetworkPrivateNetworksSiteLax2 CreateVirtualNetworkPrivateNetworksSite = "LAX2"
 	CreateVirtualNetworkPrivateNetworksSiteLon  CreateVirtualNetworkPrivateNetworksSite = "LON"
 	CreateVirtualNetworkPrivateNetworksSiteMex  CreateVirtualNetworkPrivateNetworksSite = "MEX"
 	CreateVirtualNetworkPrivateNetworksSiteMex2 CreateVirtualNetworkPrivateNetworksSite = "MEX2"
 	CreateVirtualNetworkPrivateNetworksSiteMia  CreateVirtualNetworkPrivateNetworksSite = "MIA"
 	CreateVirtualNetworkPrivateNetworksSiteMia2 CreateVirtualNetworkPrivateNetworksSite = "MIA2"
 	CreateVirtualNetworkPrivateNetworksSiteNyc  CreateVirtualNetworkPrivateNetworksSite = "NYC"
-	CreateVirtualNetworkPrivateNetworksSiteSan  CreateVirtualNetworkPrivateNetworksSite = "SAN"
 	CreateVirtualNetworkPrivateNetworksSiteSao  CreateVirtualNetworkPrivateNetworksSite = "SAO"
 	CreateVirtualNetworkPrivateNetworksSiteSao2 CreateVirtualNetworkPrivateNetworksSite = "SAO2"
+	CreateVirtualNetworkPrivateNetworksSiteSgp  CreateVirtualNetworkPrivateNetworksSite = "SGP"
 	CreateVirtualNetworkPrivateNetworksSiteSyd  CreateVirtualNetworkPrivateNetworksSite = "SYD"
 	CreateVirtualNetworkPrivateNetworksSiteTyo  CreateVirtualNetworkPrivateNetworksSite = "TYO"
-	CreateVirtualNetworkPrivateNetworksSiteTyo4 CreateVirtualNetworkPrivateNetworksSite = "TYO4"
+	CreateVirtualNetworkPrivateNetworksSiteTyo2 CreateVirtualNetworkPrivateNetworksSite = "TYO2"
 )
 
 func (e CreateVirtualNetworkPrivateNetworksSite) ToPointer() *CreateVirtualNetworkPrivateNetworksSite {
@@ -68,8 +66,6 @@ func (e *CreateVirtualNetworkPrivateNetworksSite) UnmarshalJSON(data []byte) err
 	switch v {
 	case "ASH":
 		fallthrough
-	case "BGT":
-		fallthrough
 	case "BUE":
 		fallthrough
 	case "CHI":
@@ -79,8 +75,6 @@ func (e *CreateVirtualNetworkPrivateNetworksSite) UnmarshalJSON(data []byte) err
 	case "FRA":
 		fallthrough
 	case "LAX":
-		fallthrough
-	case "LAX2":
 		fallthrough
 	case "LON":
 		fallthrough
@@ -94,17 +88,17 @@ func (e *CreateVirtualNetworkPrivateNetworksSite) UnmarshalJSON(data []byte) err
 		fallthrough
 	case "NYC":
 		fallthrough
-	case "SAN":
-		fallthrough
 	case "SAO":
 		fallthrough
 	case "SAO2":
+		fallthrough
+	case "SGP":
 		fallthrough
 	case "SYD":
 		fallthrough
 	case "TYO":
 		fallthrough
-	case "TYO4":
+	case "TYO2":
 		*e = CreateVirtualNetworkPrivateNetworksSite(v)
 		return nil
 	default:

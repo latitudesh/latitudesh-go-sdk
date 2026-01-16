@@ -4,11 +4,11 @@
 
 ### Available Operations
 
-* [List](#list) - List VM plans
+* [List](#list) - List all Virtual Machines Plans
 
 ## List
 
-List VM plans
+List all Virtual Machines Plans
 
 ### Example Usage
 
@@ -30,7 +30,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Plans.VM.List(ctx)
+    res, err := s.Plans.VM.List(ctx, nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -45,6 +45,7 @@ func main() {
 | Parameter                                                | Type                                                     | Required                                                 | Description                                              |
 | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
 | `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `filterGpu`                                              | **bool*                                                  | :heavy_minus_sign:                                       | Filter plans by GPU availability                         |
 | `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
 
 ### Response

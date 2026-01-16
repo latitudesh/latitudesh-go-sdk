@@ -31,7 +31,7 @@ func newMembers(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *h
 	}
 }
 
-// GetTeamMembers - List members
+// GetTeamMembers - List all Team Members
 func (s *Members) GetTeamMembers(ctx context.Context, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetTeamMembersResponse, error) {
 	request := operations.GetTeamMembersRequest{
 		PageSize:   pageSize,
