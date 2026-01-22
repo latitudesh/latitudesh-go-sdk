@@ -32,7 +32,8 @@ func (e *VirtualMachinePayloadType) UnmarshalJSON(data []byte) error {
 }
 
 type VirtualMachinePayloadAttributes struct {
-	Name    *string  `default:"my-vm" json:"name"`
+	Name *string `default:"my-vm" json:"name"`
+	// The plan ID or Slug for the Virtual Machine
 	Plan    *string  `json:"plan,omitempty"`
 	SSHKeys []string `json:"ssh_keys,omitempty"`
 	Project *string  `default:"my-project" json:"project"`
