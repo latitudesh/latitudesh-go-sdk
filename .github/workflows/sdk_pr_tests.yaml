@@ -37,9 +37,11 @@ jobs:
       - name: Run integration tests with coverage
         working-directory: tests/integration
         run: |
-          go test -v -coverprofile=coverage.out -covermode=atomic ./... > test-output.txt 2>&1
-          echo "TEST_EXIT_CODE=$?" >> $GITHUB_ENV
-        continue-on-error: true
+          set +e
+          go test -v -coverprofile=coverage.out -covermode=atomic ./... 2>&1 | tee test-output.txt
+          TEST_CODE=$?
+          echo "TEST_EXIT_CODE=${TEST_CODE}" >> $GITHUB_ENV
+          exit 0
 
       - name: Generate coverage statistics
         working-directory: tests/integration
@@ -50,18 +52,25 @@ jobs:
           else
             total_coverage="0.0%"
           fi
+          # Ensure coverage is not empty
+          total_coverage="${total_coverage:-0.0%}"
           echo "COVERAGE=${total_coverage}" >> $GITHUB_ENV
 
           # Count tests
           if [ -f test-output.txt ]; then
-            total_tests=$(grep -c "^=== RUN" test-output.txt || echo "0")
-            passed_tests=$(grep -c "^--- PASS:" test-output.txt || echo "0")
-            failed_tests=$(grep -c "^--- FAIL:" test-output.txt || echo "0")
+            total_tests=$(grep -c "^=== RUN" test-output.txt 2>/dev/null || echo "0")
+            passed_tests=$(grep -c "^--- PASS:" test-output.txt 2>/dev/null || echo "0")
+            failed_tests=$(grep -c "^--- FAIL:" test-output.txt 2>/dev/null || echo "0")
           else
             total_tests="0"
             passed_tests="0"
             failed_tests="0"
           fi
+
+          # Ensure all values are not empty
+          total_tests="${total_tests:-0}"
+          passed_tests="${passed_tests:-0}"
+          failed_tests="${failed_tests:-0}"
 
           echo "TOTAL_TESTS=${total_tests}" >> $GITHUB_ENV
           echo "PASSED_TESTS=${passed_tests}" >> $GITHUB_ENV
