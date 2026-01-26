@@ -1,0 +1,68 @@
+# golangci-lint configuration for integration tests
+
+run:
+  timeout: 5m
+  tests: true
+  skip-dirs:
+    - vendor
+
+linters:
+  enable:
+    - gofmt
+    - goimports
+    - govet
+    - errcheck
+    - staticcheck
+    - unused
+    - gosimple
+    - ineffassign
+    - typecheck
+    - misspell
+    - unconvert
+    - unparam
+    - gocritic
+    - gosec
+
+linters-settings:
+  gofmt:
+    simplify: true
+
+  goimports:
+    local-prefixes: github.com/latitudesh/latitudesh-go-sdk
+
+  govet:
+    check-shadowing: true
+    enable-all: true
+
+  errcheck:
+    check-type-assertions: true
+    check-blank: false
+
+  gocritic:
+    enabled-tags:
+      - diagnostic
+      - style
+      - performance
+    disabled-checks:
+      - commentFormatting
+      - whyNoLint
+
+  gosec:
+    excludes:
+      - G404 # Use of weak random number generator (acceptable in tests)
+
+issues:
+  exclude-rules:
+    # Exclude some linters from running on tests files
+    - path: _test\.go
+      linters:
+        - gosec
+        - errcheck
+
+  max-same-issues: 0
+  max-issues-per-linter: 0
+
+output:
+  format: colored-line-number
+  print-issued-lines: true
+  print-linter-name: true

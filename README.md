@@ -1,4 +1,10 @@
 # latitudesh-go-sdk
+
+[![Integration Tests](https://github.com/latitudesh/latitudesh-go-sdk/actions/workflows/sdk_integration_tests.yaml/badge.svg)](https://github.com/latitudesh/latitudesh-go-sdk/actions/workflows/sdk_integration_tests.yaml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/latitudesh/latitudesh-go-sdk)](https://goreportcard.com/report/github.com/latitudesh/latitudesh-go-sdk)
+[![Go Reference](https://pkg.go.dev/badge/github.com/latitudesh/latitudesh-go-sdk.svg)](https://pkg.go.dev/github.com/latitudesh/latitudesh-go-sdk)
+[![License](https://img.shields.io/github/license/latitudesh/latitudesh-go-sdk)](LICENSE)
+
 <!-- Start Summary [summary] -->
 ## Summary
 

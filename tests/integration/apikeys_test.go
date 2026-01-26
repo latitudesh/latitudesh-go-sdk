@@ -1,0 +1,385 @@
+// Integration tests for API Keys resource
+package integration
+
+import (
+	"context"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"github.com/latitudesh/latitudesh-go-sdk/tests/integration/helpers"
+)
+
+func TestAPIKeysIntegration(t *testing.T) {
+	testClient := helpers.SetupTest()
+
+	t.Run("List Operations", func(t *testing.T) {
+		t.Run("should list all API keys", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("GET", "/api_keys", &helpers.MockResponse{
+				Status: 200,
+				Body:   helpers.MockAPIKeyList(),
+			})
+
+			// Act
+			result, err := testClient.SDK.APIKeys.List(context.Background())
+
+			// Assert
+			require.NoError(t, err)
+			assert.NotNil(t, result)
+			assert.NotNil(t, result.APIKeys.Data)
+			assert.Equal(t, 2, len(result.APIKeys.Data))
+			assert.Equal(t, "apikey_test123", *result.APIKeys.Data[0].ID)
+			assert.Equal(t, "Test API Key", *result.APIKeys.Data[0].Attributes.Name)
+			assert.False(t, *result.APIKeys.Data[0].Attributes.ReadOnly)
+			assert.Equal(t, "apikey_test456", *result.APIKeys.Data[1].ID)
+			assert.True(t, *result.APIKeys.Data[1].Attributes.ReadOnly)
+		})
+
+		t.Run("should handle empty API keys list", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("GET", "/api_keys", &helpers.MockResponse{
+				Status: 200,
+				Body: map[string]interface{}{
+					"data": []interface{}{},
+				},
+			})
+
+			// Act
+			result, err := testClient.SDK.APIKeys.List(context.Background())
+
+			// Assert
+			require.NoError(t, err)
+			assert.NotNil(t, result)
+			assert.NotNil(t, result.APIKeys.Data)
+			assert.Equal(t, 0, len(result.APIKeys.Data))
+		})
+
+		t.Run("should include user information in API keys", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("GET", "/api_keys", &helpers.MockResponse{
+				Status: 200,
+				Body:   helpers.MockAPIKeyList(),
+			})
+
+			// Act
+			result, err := testClient.SDK.APIKeys.List(context.Background())
+
+			// Assert
+			require.NoError(t, err)
+			apiKey := result.APIKeys.Data[0]
+			assert.NotNil(t, apiKey.Attributes.User)
+			assert.Equal(t, "user_test123", *apiKey.Attributes.User.ID)
+			assert.Equal(t, "test@example.com", *apiKey.Attributes.User.Email)
+		})
+	})
+
+	t.Run("Create Operations", func(t *testing.T) {
+		t.Run("should create a new API key", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			newAPIKey := map[string]interface{}{
+				"id":   "apikey_new123",
+				"type": "api_keys",
+				"attributes": map[string]interface{}{
+					"name":             "New API Key",
+					"api_version":      "v1",
+					"token_last_slice": "new12",
+					"read_only":        false,
+					"allowed_ips":      []string{"192.168.1.100"},
+					"last_used_at":     nil,
+					"user": map[string]interface{}{
+						"id":    "user_test123",
+						"email": "test@example.com",
+					},
+					"created_at": "2024-01-25T00:00:00Z",
+					"updated_at": "2024-01-25T00:00:00Z",
+				},
+			}
+
+			testClient.MockClient.MockResponse("POST", "/api_keys", &helpers.MockResponse{
+				Status: 201,
+				Body: map[string]interface{}{
+					"data": newAPIKey,
+				},
+			})
+
+			// Act
+			readOnly := false
+			allowedIPs := []string{"192.168.1.100"}
+			name := "New API Key"
+			result, err := testClient.SDK.APIKeys.Create(context.Background(), components.CreateAPIKey{
+				Data: &components.Data{
+					Type: components.CreateAPIKeyTypeAPIKeys,
+					Attributes: &components.CreateAPIKeyAttributes{
+						Name:       &name,
+						ReadOnly:   &readOnly,
+						AllowedIps: allowedIPs,
+					},
+				},
+			})
+
+			// Assert
+			require.NoError(t, err)
+			assert.NotNil(t, result)
+			assert.Equal(t, "apikey_new123", *result.Object.Data.ID)
+			assert.Equal(t, "New API Key", *result.Object.Data.Attributes.Name)
+			assert.False(t, *result.Object.Data.Attributes.ReadOnly)
+		})
+
+		t.Run("should create read-only API key", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			readOnlyKey := map[string]interface{}{
+				"id":   "apikey_readonly123",
+				"type": "api_keys",
+				"attributes": map[string]interface{}{
+					"name":             "Read Only Key",
+					"api_version":      "v1",
+					"token_last_slice": "ro123",
+					"read_only":        true,
+					"allowed_ips":      nil,
+					"last_used_at":     nil,
+					"user": map[string]interface{}{
+						"id":    "user_test123",
+						"email": "test@example.com",
+					},
+					"created_at": "2024-01-25T00:00:00Z",
+					"updated_at": "2024-01-25T00:00:00Z",
+				},
+			}
+
+			testClient.MockClient.MockResponse("POST", "/api_keys", &helpers.MockResponse{
+				Status: 201,
+				Body: map[string]interface{}{
+					"data": readOnlyKey,
+				},
+			})
+
+			// Act
+			readOnly := true
+			name := "Read Only Key"
+			result, err := testClient.SDK.APIKeys.Create(context.Background(), components.CreateAPIKey{
+				Data: &components.Data{
+					Type: components.CreateAPIKeyTypeAPIKeys,
+					Attributes: &components.CreateAPIKeyAttributes{
+						Name:     &name,
+						ReadOnly: &readOnly,
+					},
+				},
+			})
+
+			// Assert
+			require.NoError(t, err)
+			assert.True(t, *result.Object.Data.Attributes.ReadOnly)
+			assert.Nil(t, result.Object.Data.Attributes.AllowedIps)
+		})
+
+		t.Run("should handle validation error on create", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("POST", "/api_keys", &helpers.MockResponse{
+				Status: 422,
+				Body:   helpers.MockValidationError(),
+			})
+
+			// Act
+			name := ""
+			result, err := testClient.SDK.APIKeys.Create(context.Background(), components.CreateAPIKey{
+				Data: &components.Data{
+					Type: components.CreateAPIKeyTypeAPIKeys,
+					Attributes: &components.CreateAPIKeyAttributes{
+						Name: &name,
+					},
+				},
+			})
+
+			// Assert
+			assert.Error(t, err)
+			assert.Nil(t, result)
+		})
+	})
+
+	t.Run("Update Operations", func(t *testing.T) {
+		t.Run("should update API key settings without rotating token", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("PATCH", "/api_keys/apikey_test123", &helpers.MockResponse{
+				Status: 200,
+				Body: map[string]interface{}{
+					"data": map[string]interface{}{
+						"id":   "apikey_test123",
+						"type": "api_keys",
+						"attributes": map[string]interface{}{
+							"name":             "Updated API Key Name",
+							"api_version":      "v1",
+							"token_last_slice": "abc12",
+							"read_only":        true,
+							"allowed_ips":      nil,
+							"last_used_at":     "2024-01-20T10:00:00Z",
+							"user": map[string]interface{}{
+								"id":    "user_test123",
+								"email": "test@example.com",
+							},
+							"created_at": "2024-01-01T00:00:00Z",
+							"updated_at": "2024-01-26T00:00:00Z",
+						},
+					},
+				},
+			})
+
+			// Act
+			readOnly := true
+			result, err := testClient.SDK.APIKeys.UpdateAPIKey(context.Background(), "apikey_test123", components.UpdateAPIKey{
+				Data: &components.UpdateAPIKeyData{
+					Type: components.UpdateAPIKeyTypeAPIKeys,
+					Attributes: &components.UpdateAPIKeyAttributes{
+						Name:     latitudeshgosdk.String("Updated API Key Name"),
+						ReadOnly: &readOnly,
+					},
+				},
+			})
+
+			// Assert
+			require.NoError(t, err)
+			assert.Equal(t, "Updated API Key Name", *result.Object.Data.Attributes.Name)
+			assert.True(t, *result.Object.Data.Attributes.ReadOnly)
+			assert.Equal(t, "abc12", *result.Object.Data.Attributes.TokenLastSlice) // Token unchanged
+		})
+
+		t.Run("should handle not found error on update", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("PATCH", "/api_keys/apikey_nonexistent", &helpers.MockResponse{
+				Status: 404,
+				Body:   helpers.MockError(),
+			})
+
+			// Act
+			result, err := testClient.SDK.APIKeys.UpdateAPIKey(context.Background(), "apikey_nonexistent", components.UpdateAPIKey{
+				Data: &components.UpdateAPIKeyData{
+					Type: components.UpdateAPIKeyTypeAPIKeys,
+					Attributes: &components.UpdateAPIKeyAttributes{
+						Name: latitudeshgosdk.String("Updated Name"),
+					},
+				},
+			})
+
+			// Assert
+			assert.Error(t, err)
+			assert.Nil(t, result)
+		})
+	})
+
+	t.Run("Delete Operations", func(t *testing.T) {
+		t.Run("should delete an API key", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("DELETE", "/api_keys/apikey_test123", &helpers.MockResponse{
+				Status: 200,
+				Body:   nil,
+			})
+
+			// Act
+			_, err := testClient.SDK.APIKeys.Delete(context.Background(), "apikey_test123")
+
+			// Assert
+			require.NoError(t, err)
+			assert.True(t, testClient.MockClient.VerifyRequest("DELETE", "/api_keys/apikey_test123"))
+		})
+
+		t.Run("should handle not found error on delete", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("DELETE", "/api_keys/apikey_nonexistent", &helpers.MockResponse{
+				Status: 404,
+				Body:   helpers.MockError(),
+			})
+
+			// Act
+			_, err := testClient.SDK.APIKeys.Delete(context.Background(), "apikey_nonexistent")
+
+			// Assert
+			assert.Error(t, err)
+		})
+
+		t.Run("should handle unauthorized error on delete", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("DELETE", "/api_keys/apikey_test123", &helpers.MockResponse{
+				Status: 403,
+				Body: map[string]interface{}{
+					"errors": []map[string]interface{}{
+						{
+							"status": "403",
+							"title":  "Forbidden",
+							"detail": "You do not have permission to delete this API key",
+						},
+					},
+				},
+			})
+
+			// Act
+			_, err := testClient.SDK.APIKeys.Delete(context.Background(), "apikey_test123")
+
+			// Assert
+			assert.Error(t, err)
+		})
+	})
+
+	t.Run("API Key Security Features", func(t *testing.T) {
+		t.Run("should verify last used timestamp is tracked", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("GET", "/api_keys", &helpers.MockResponse{
+				Status: 200,
+				Body:   helpers.MockAPIKeyList(),
+			})
+
+			// Act
+			result, err := testClient.SDK.APIKeys.List(context.Background())
+
+			// Assert
+			require.NoError(t, err)
+			usedKey := result.APIKeys.Data[0]
+			assert.NotNil(t, usedKey.Attributes.LastUsedAt)
+		})
+
+		t.Run("should show token last slice for identification", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("GET", "/api_keys", &helpers.MockResponse{
+				Status: 200,
+				Body:   helpers.MockAPIKeyList(),
+			})
+
+			// Act
+			result, err := testClient.SDK.APIKeys.List(context.Background())
+
+			// Assert
+			require.NoError(t, err)
+			key := result.APIKeys.Data[0]
+			assert.NotNil(t, key.Attributes.TokenLastSlice)
+			assert.Equal(t, "abc12", *key.Attributes.TokenLastSlice)
+		})
+	})
+}
