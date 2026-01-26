@@ -44,17 +44,28 @@ jobs:
       - name: Generate coverage statistics
         working-directory: tests/integration
         run: |
-          total_coverage=$(go tool cover -func=coverage.out | grep total | awk '{print $3}')
-          echo "COVERAGE=$total_coverage" >> $GITHUB_ENV
+          # Generate coverage statistics
+          if [ -f coverage.out ]; then
+            total_coverage=$(go tool cover -func=coverage.out | grep total | awk '{print $3}' || echo "0.0%")
+          else
+            total_coverage="0.0%"
+          fi
+          echo "COVERAGE=${total_coverage}" >> $GITHUB_ENV
 
           # Count tests
-          total_tests=$(grep -c "^=== RUN" test-output.txt || echo "0")
-          passed_tests=$(grep -c "^--- PASS:" test-output.txt || echo "0")
-          failed_tests=$(grep -c "^--- FAIL:" test-output.txt || echo "0")
+          if [ -f test-output.txt ]; then
+            total_tests=$(grep -c "^=== RUN" test-output.txt || echo "0")
+            passed_tests=$(grep -c "^--- PASS:" test-output.txt || echo "0")
+            failed_tests=$(grep -c "^--- FAIL:" test-output.txt || echo "0")
+          else
+            total_tests="0"
+            passed_tests="0"
+            failed_tests="0"
+          fi
 
-          echo "TOTAL_TESTS=$total_tests" >> $GITHUB_ENV
-          echo "PASSED_TESTS=$passed_tests" >> $GITHUB_ENV
-          echo "FAILED_TESTS=$failed_tests" >> $GITHUB_ENV
+          echo "TOTAL_TESTS=${total_tests}" >> $GITHUB_ENV
+          echo "PASSED_TESTS=${passed_tests}" >> $GITHUB_ENV
+          echo "FAILED_TESTS=${failed_tests}" >> $GITHUB_ENV
 
       - name: Comment PR with test results
         uses: actions/github-script@v7
