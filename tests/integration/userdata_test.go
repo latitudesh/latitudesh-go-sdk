@@ -21,8 +21,8 @@ func TestUserDataIntegration(t *testing.T) {
 
 			// Arrange
 			testClient.MockClient.MockResponse("GET", "/projects/project_test123/user_data", &helpers.MockResponse{
-				Status: 200,
 				Body:   helpers.MockUserDataList(),
+				Status: 200,
 			})
 
 			// Act
@@ -43,7 +43,6 @@ func TestUserDataIntegration(t *testing.T) {
 
 			// Arrange
 			testClient.MockClient.MockResponse("GET", "/projects/project_test123/user_data", &helpers.MockResponse{
-				Status: 200,
 				Body: map[string]interface{}{
 					"data": []interface{}{},
 					"meta": map[string]interface{}{
@@ -53,6 +52,7 @@ func TestUserDataIntegration(t *testing.T) {
 						"per_page":     25,
 					},
 				},
+				Status: 200,
 			})
 
 			// Act
@@ -71,10 +71,10 @@ func TestUserDataIntegration(t *testing.T) {
 
 			// Arrange
 			testClient.MockClient.MockResponse("GET", "/projects/project_test123/user_data/userdata_test123", &helpers.MockResponse{
-				Status: 200,
 				Body: map[string]interface{}{
 					"data": helpers.MockUserData(),
 				},
+				Status: 200,
 			})
 
 			// Act
@@ -94,13 +94,13 @@ func TestUserDataIntegration(t *testing.T) {
 
 			// Arrange
 			testClient.MockClient.MockResponse("GET", "/projects/project_test123/user_data/nonexistent", &helpers.MockResponse{
-				Status: 404,
 				Body:   helpers.MockError(),
+				Status: 404,
 			})
 
 			// Act
-			result, err := testClient.SDK.UserData.GetProjectUserData(context.Background(), "project_test123", "nonexistent", nil)
 			//nolint:staticcheck // Testing deprecated API
+			result, err := testClient.SDK.UserData.GetProjectUserData(context.Background(), "project_test123", "nonexistent", nil)
 
 			// Assert
 			assert.Error(t, err)
@@ -125,16 +125,16 @@ func TestUserDataIntegration(t *testing.T) {
 			}
 
 			testClient.MockClient.MockResponse("POST", "/projects/project_test123/user_data", &helpers.MockResponse{
-				Status: 201,
 				Body: map[string]interface{}{
 					"data": newUserData,
 				},
+				Status: 201,
 			})
 
 			// Act
+			//nolint:staticcheck // Testing deprecated API
 			result, err := testClient.SDK.UserData.Create(context.Background(), "project_test123", operations.PostProjectUserDataUserDataRequestBody{
 				Data: operations.PostProjectUserDataUserDataData{
-			//nolint:staticcheck // Testing deprecated API
 					Type: operations.PostProjectUserDataUserDataTypeUserData,
 					Attributes: &operations.PostProjectUserDataUserDataAttributes{
 						Description: "New User Data",
@@ -155,15 +155,15 @@ func TestUserDataIntegration(t *testing.T) {
 
 			// Arrange
 			testClient.MockClient.MockResponse("POST", "/projects/project_test123/user_data", &helpers.MockResponse{
-				Status: 422,
 				Body:   helpers.MockValidationError(),
+				Status: 422,
 			})
 
 			// Act
+			//nolint:staticcheck // Testing deprecated API
 			result, err := testClient.SDK.UserData.Create(context.Background(), "project_test123", operations.PostProjectUserDataUserDataRequestBody{
 				Data: operations.PostProjectUserDataUserDataData{
 					Type: operations.PostProjectUserDataUserDataTypeUserData,
-			//nolint:staticcheck // Testing deprecated API
 					Attributes: &operations.PostProjectUserDataUserDataAttributes{
 						Description: "",
 						Content:     "",
@@ -188,18 +188,18 @@ func TestUserDataIntegration(t *testing.T) {
 			attrs["content"] = "#!/bin/bash\necho 'Updated Script'"
 
 			testClient.MockClient.MockResponse("PATCH", "/projects/project_test123/user_data/userdata_test123", &helpers.MockResponse{
-				Status: 200,
 				Body: map[string]interface{}{
 					"data": updatedUserDataMap,
 				},
+				Status: 200,
 			})
 
 			// Act
+			//nolint:staticcheck // Testing deprecated API
 			result, err := testClient.SDK.UserData.UpdateForProject(context.Background(), "project_test123", "userdata_test123", &operations.PutProjectUserDataUserDataRequestBody{
 				Data: operations.PutProjectUserDataUserDataData{
 					ID:   "userdata_test123",
 					Type: operations.PutProjectUserDataUserDataTypeUserData,
-			//nolint:staticcheck // Testing deprecated API
 					Attributes: &operations.PutProjectUserDataUserDataAttributes{
 						Description: latitudeshgosdk.String("Updated User Data"),
 						Content:     latitudeshgosdk.String("#!/bin/bash\necho 'Updated Script'"),
@@ -220,17 +220,17 @@ func TestUserDataIntegration(t *testing.T) {
 
 			// Arrange
 			testClient.MockClient.MockResponse("DELETE", "/projects/project_test123/user_data/userdata_test123", &helpers.MockResponse{
-				Status: 204,
 				Body:   nil,
+				Status: 204,
 			})
 
 			// Act
+			//nolint:staticcheck // Testing deprecated API
 			_, err := testClient.SDK.UserData.DeleteProjectUserData(context.Background(), "project_test123", "userdata_test123")
 
 			// Assert
 			require.NoError(t, err)
 			assert.True(t, testClient.MockClient.VerifyRequest("DELETE", "/projects/project_test123/user_data/userdata_test123"))
-			//nolint:staticcheck // Testing deprecated API
 		})
 
 		t.Run("should handle not found error on delete", func(t *testing.T) {
@@ -238,16 +238,16 @@ func TestUserDataIntegration(t *testing.T) {
 
 			// Arrange
 			testClient.MockClient.MockResponse("DELETE", "/projects/project_test123/user_data/nonexistent", &helpers.MockResponse{
-				Status: 404,
 				Body:   helpers.MockError(),
+				Status: 404,
 			})
 
 			// Act
+			//nolint:staticcheck // Testing deprecated API
 			_, err := testClient.SDK.UserData.DeleteProjectUserData(context.Background(), "project_test123", "nonexistent")
 
 			// Assert
 			assert.Error(t, err)
 		})
 	})
-			//nolint:staticcheck // Testing deprecated API
 }
