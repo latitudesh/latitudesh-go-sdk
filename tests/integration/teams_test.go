@@ -5,9 +5,10 @@ import (
 	"context"
 	"testing"
 
-	"github.com/latitudesh/latitudesh-go-sdk/tests/integration/helpers"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	"github.com/latitudesh/latitudesh-go-sdk/tests/integration/helpers"
 )
 
 func TestTeamsIntegration(t *testing.T) {
