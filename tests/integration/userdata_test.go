@@ -26,6 +26,7 @@ func TestUserDataIntegration(t *testing.T) {
 			})
 
 			// Act
+			//nolint:staticcheck // Testing deprecated API
 			result, err := testClient.SDK.UserData.GetProjectUsersData(context.Background(), "project_test123", nil)
 
 			// Assert
@@ -55,6 +56,7 @@ func TestUserDataIntegration(t *testing.T) {
 			})
 
 			// Act
+			//nolint:staticcheck // Testing deprecated API
 			result, err := testClient.SDK.UserData.GetProjectUsersData(context.Background(), "project_test123", nil)
 
 			// Assert
@@ -76,6 +78,7 @@ func TestUserDataIntegration(t *testing.T) {
 			})
 
 			// Act
+			//nolint:staticcheck // Testing deprecated API
 			result, err := testClient.SDK.UserData.GetProjectUserData(context.Background(), "project_test123", "userdata_test123", nil)
 
 			// Assert
@@ -97,6 +100,7 @@ func TestUserDataIntegration(t *testing.T) {
 
 			// Act
 			result, err := testClient.SDK.UserData.GetProjectUserData(context.Background(), "project_test123", "nonexistent", nil)
+			//nolint:staticcheck // Testing deprecated API
 
 			// Assert
 			assert.Error(t, err)
@@ -130,6 +134,7 @@ func TestUserDataIntegration(t *testing.T) {
 			// Act
 			result, err := testClient.SDK.UserData.Create(context.Background(), "project_test123", operations.PostProjectUserDataUserDataRequestBody{
 				Data: operations.PostProjectUserDataUserDataData{
+			//nolint:staticcheck // Testing deprecated API
 					Type: operations.PostProjectUserDataUserDataTypeUserData,
 					Attributes: &operations.PostProjectUserDataUserDataAttributes{
 						Description: "New User Data",
@@ -158,6 +163,7 @@ func TestUserDataIntegration(t *testing.T) {
 			result, err := testClient.SDK.UserData.Create(context.Background(), "project_test123", operations.PostProjectUserDataUserDataRequestBody{
 				Data: operations.PostProjectUserDataUserDataData{
 					Type: operations.PostProjectUserDataUserDataTypeUserData,
+			//nolint:staticcheck // Testing deprecated API
 					Attributes: &operations.PostProjectUserDataUserDataAttributes{
 						Description: "",
 						Content:     "",
@@ -193,6 +199,7 @@ func TestUserDataIntegration(t *testing.T) {
 				Data: operations.PutProjectUserDataUserDataData{
 					ID:   "userdata_test123",
 					Type: operations.PutProjectUserDataUserDataTypeUserData,
+			//nolint:staticcheck // Testing deprecated API
 					Attributes: &operations.PutProjectUserDataUserDataAttributes{
 						Description: latitudeshgosdk.String("Updated User Data"),
 						Content:     latitudeshgosdk.String("#!/bin/bash\necho 'Updated Script'"),
@@ -223,6 +230,7 @@ func TestUserDataIntegration(t *testing.T) {
 			// Assert
 			require.NoError(t, err)
 			assert.True(t, testClient.MockClient.VerifyRequest("DELETE", "/projects/project_test123/user_data/userdata_test123"))
+			//nolint:staticcheck // Testing deprecated API
 		})
 
 		t.Run("should handle not found error on delete", func(t *testing.T) {
@@ -241,4 +249,5 @@ func TestUserDataIntegration(t *testing.T) {
 			assert.Error(t, err)
 		})
 	})
+			//nolint:staticcheck // Testing deprecated API
 }

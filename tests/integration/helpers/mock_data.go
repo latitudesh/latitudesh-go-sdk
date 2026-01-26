@@ -43,7 +43,7 @@ func MockPlan() map[string]interface{} {
 						"available": []string{"sao-paulo-1"},
 						"in_stock":  []string{"sao-paulo-1"},
 					},
-					"stock_level":     "high",
+					"stock_level":       "high",
 					"deploys_instantly": []string{"sao-paulo-1"},
 				},
 			},
@@ -297,7 +297,7 @@ func MockServer() map[string]interface{} {
 			"region": map[string]interface{}{
 				"city":    "São Paulo",
 				"country": "BR",
-				"site":    map[string]interface{}{
+				"site": map[string]interface{}{
 					"id":       "sao-paulo-1",
 					"name":     "São Paulo 1",
 					"slug":     "sao-paulo-1",
@@ -317,8 +317,8 @@ func MockServer() map[string]interface{} {
 			},
 			"primary_ipv4": "203.0.113.10",
 			"primary_ipv6": "2001:db8::1",
-			"created_at": time.Now().Add(-24 * time.Hour).Format(time.RFC3339),
-			"updated_at": time.Now().Format(time.RFC3339),
+			"created_at":   time.Now().Add(-24 * time.Hour).Format(time.RFC3339),
+			"updated_at":   time.Now().Format(time.RFC3339),
 		},
 	}
 }

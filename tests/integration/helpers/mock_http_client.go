@@ -13,9 +13,9 @@ import (
 
 // MockResponse represents a mock HTTP response
 type MockResponse struct {
-	Status  int
-	Headers map[string]string
 	Body    interface{}
+	Headers map[string]string
+	Status  int
 }
 
 // MockRequest represents a recorded request
