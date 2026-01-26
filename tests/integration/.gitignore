@@ -1,0 +1,14 @@
+# Test artifacts
+coverage.out
+coverage.html
+
+# Go test cache
+*.test
+*.prof
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

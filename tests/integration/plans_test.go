@@ -1,0 +1,393 @@
+// Integration tests for Plans resource
+package integration
+
+import (
+	"context"
+	"testing"
+
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"github.com/latitudesh/latitudesh-go-sdk/tests/integration/helpers"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+)
+
+func TestPlansIntegration(t *testing.T) {
+	testClient := helpers.SetupTest()
+
+	t.Run("List Operations", func(t *testing.T) {
+		t.Run("should list all plans", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("GET", "/plans", &helpers.MockResponse{
+				Status: 200,
+				Body:   helpers.MockPlanList(),
+			})
+
+			// Act
+			result, err := testClient.SDK.Plans.List(context.Background(), operations.GetPlansRequest{})
+
+			// Assert
+			require.NoError(t, err)
+			assert.NotNil(t, result)
+			assert.NotNil(t, result.Object)
+			assert.NotNil(t, result.Object.Data)
+			assert.Greater(t, len(result.Object.Data), 0)
+			assert.Equal(t, "c3.small.x86", *result.Object.Data[0].ID)
+			assert.Equal(t, "c3.small.x86", *result.Object.Data[0].Attributes.Name)
+			assert.Equal(t, "c3-small-x86", *result.Object.Data[0].Attributes.Slug)
+		})
+
+		t.Run("should handle empty plans list", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("GET", "/plans", &helpers.MockResponse{
+				Status: 200,
+				Body: map[string]interface{}{
+					"data": []interface{}{},
+					"meta": map[string]interface{}{
+						"total":        0,
+						"current_page": 1,
+						"last_page":    1,
+						"per_page":     25,
+					},
+				},
+			})
+
+			// Act
+			result, err := testClient.SDK.Plans.List(context.Background(), operations.GetPlansRequest{})
+
+			// Assert
+			require.NoError(t, err)
+			assert.NotNil(t, result)
+			assert.NotNil(t, result.Object)
+			assert.Equal(t, 0, len(result.Object.Data))
+		})
+
+		t.Run("should include plan specifications", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("GET", "/plans", &helpers.MockResponse{
+				Status: 200,
+				Body:   helpers.MockPlanList(),
+			})
+
+			// Act
+			result, err := testClient.SDK.Plans.List(context.Background(), operations.GetPlansRequest{})
+
+			// Assert
+			require.NoError(t, err)
+			plan := result.Object.Data[0]
+			assert.NotNil(t, plan.Attributes.Specs)
+			assert.NotNil(t, plan.Attributes.Specs.CPU)
+			assert.Equal(t, "Intel Xeon E3", *plan.Attributes.Specs.CPU.Type)
+			assert.Equal(t, 3.4, *plan.Attributes.Specs.CPU.Clock)
+			assert.Equal(t, 4.0, *plan.Attributes.Specs.CPU.Cores)
+			assert.Equal(t, 1.0, *plan.Attributes.Specs.CPU.Count)
+		})
+
+		t.Run("should include regional availability", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("GET", "/plans", &helpers.MockResponse{
+				Status: 200,
+				Body:   helpers.MockPlanList(),
+			})
+
+			// Act
+			result, err := testClient.SDK.Plans.List(context.Background(), operations.GetPlansRequest{})
+
+			// Assert
+			require.NoError(t, err)
+			plan := result.Object.Data[0]
+			assert.NotNil(t, plan.Attributes.Regions)
+			assert.Greater(t, len(plan.Attributes.Regions), 0)
+			assert.Equal(t, "São Paulo", *plan.Attributes.Regions[0].Name)
+			assert.Equal(t, components.StockLevelHigh, *plan.Attributes.Regions[0].StockLevel)
+		})
+	})
+
+	t.Run("Filter Operations", func(t *testing.T) {
+		t.Run("should filter plans by name", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("GET", "/plans", &helpers.MockResponse{
+				Status: 200,
+				Body: map[string]interface{}{
+					"data": []interface{}{
+						helpers.MockPlan(),
+					},
+				},
+			})
+
+			// Act
+			result, err := testClient.SDK.Plans.List(context.Background(), operations.GetPlansRequest{
+				FilterName: latitudeshgosdk.String("c3.small.x86"),
+			})
+
+			// Assert
+			require.NoError(t, err)
+			assert.Equal(t, 1, len(result.Object.Data))
+			assert.Equal(t, "c3.small.x86", *result.Object.Data[0].Attributes.Name)
+		})
+
+		t.Run("should filter plans by slug", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("GET", "/plans", &helpers.MockResponse{
+				Status: 200,
+				Body: map[string]interface{}{
+					"data": []interface{}{
+						helpers.MockPlan(),
+					},
+				},
+			})
+
+			// Act
+			result, err := testClient.SDK.Plans.List(context.Background(), operations.GetPlansRequest{
+				FilterSlug: latitudeshgosdk.String("c3-small-x86"),
+			})
+
+			// Assert
+			require.NoError(t, err)
+			assert.Equal(t, 1, len(result.Object.Data))
+			assert.Equal(t, "c3-small-x86", *result.Object.Data[0].Attributes.Slug)
+		})
+
+		t.Run("should filter plans by stock level", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("GET", "/plans", &helpers.MockResponse{
+				Status: 200,
+				Body: map[string]interface{}{
+					"data": []interface{}{
+						helpers.MockPlan(),
+					},
+				},
+			})
+
+			// Act
+			stockLevel := operations.FilterStockLevelHigh
+			result, err := testClient.SDK.Plans.List(context.Background(), operations.GetPlansRequest{
+				FilterStockLevel: &stockLevel,
+			})
+
+			// Assert
+			require.NoError(t, err)
+			assert.Greater(t, len(result.Object.Data), 0)
+			assert.Equal(t, components.StockLevelHigh, *result.Object.Data[0].Attributes.Regions[0].StockLevel)
+		})
+	})
+
+	t.Run("Get Single Plan", func(t *testing.T) {
+		t.Run("should get a specific plan", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("GET", "/plans/c3.small.x86", &helpers.MockResponse{
+				Status: 200,
+				Body: map[string]interface{}{
+					"data": helpers.MockPlan(),
+				},
+			})
+
+			// Act
+			result, err := testClient.SDK.Plans.Get(context.Background(), "c3.small.x86")
+
+			// Assert
+			require.NoError(t, err)
+			assert.NotNil(t, result)
+			assert.NotNil(t, result.Plan)
+			assert.NotNil(t, result.Plan.Data)
+			assert.Equal(t, "c3.small.x86", *result.Plan.Data.ID)
+			assert.Equal(t, "c3.small.x86", *result.Plan.Data.Attributes.Name)
+			assert.Equal(t, "c3-small-x86", *result.Plan.Data.Attributes.Slug)
+		})
+
+		t.Run("should handle not found error", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("GET", "/plans/nonexistent", &helpers.MockResponse{
+				Status: 404,
+				Body:   helpers.MockError(),
+			})
+
+			// Act
+			result, err := testClient.SDK.Plans.Get(context.Background(), "nonexistent")
+
+			// Assert
+			assert.Error(t, err)
+			assert.Nil(t, result)
+		})
+	})
+
+	t.Run("Plan Specifications", func(t *testing.T) {
+		t.Run("should include CPU specifications", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("GET", "/plans/c3.small.x86", &helpers.MockResponse{
+				Status: 200,
+				Body: map[string]interface{}{
+					"data": helpers.MockPlan(),
+				},
+			})
+
+			// Act
+			result, err := testClient.SDK.Plans.Get(context.Background(), "c3.small.x86")
+
+			// Assert
+			require.NoError(t, err)
+			specs := result.Plan.Data.Attributes.Specs
+			assert.NotNil(t, specs)
+			assert.NotNil(t, specs.CPU)
+			assert.Equal(t, "Intel Xeon E3", *specs.CPU.Type)
+			assert.Equal(t, 3.4, *specs.CPU.Clock)
+			assert.Equal(t, 4.0, *specs.CPU.Cores)
+			assert.Equal(t, 1.0, *specs.CPU.Count)
+		})
+
+		t.Run("should include storage specifications", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("GET", "/plans/c3.small.x86", &helpers.MockResponse{
+				Status: 200,
+				Body: map[string]interface{}{
+					"data": helpers.MockPlan(),
+				},
+			})
+
+			// Act
+			result, err := testClient.SDK.Plans.Get(context.Background(), "c3.small.x86")
+
+			// Assert
+			require.NoError(t, err)
+			specs := result.Plan.Data.Attributes.Specs
+			assert.NotNil(t, specs)
+			assert.NotNil(t, specs.Drives)
+			assert.Greater(t, len(specs.Drives), 0)
+			assert.Equal(t, components.PlanDataAttributesTypeSsd, *specs.Drives[0].Type)
+			assert.Equal(t, "480 GB", *specs.Drives[0].Size)
+			assert.Equal(t, 2.0, *specs.Drives[0].Count)
+		})
+
+		t.Run("should include GPU specifications when available", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			planWithGPU := helpers.MockPlanList()
+			testClient.MockClient.MockResponse("GET", "/plans/c3.large.x86", &helpers.MockResponse{
+				Status: 200,
+				Body: map[string]interface{}{
+					"data": planWithGPU["data"].([]interface{})[1],
+				},
+			})
+
+			// Act
+			result, err := testClient.SDK.Plans.Get(context.Background(), "c3.large.x86")
+
+			// Assert
+			require.NoError(t, err)
+			specs := result.Plan.Data.Attributes.Specs
+			assert.NotNil(t, specs)
+			assert.NotNil(t, specs.Gpu)
+			assert.Equal(t, "NVIDIA RTX 4090", *specs.Gpu.Type)
+			assert.Equal(t, 2.0, *specs.Gpu.Count)
+		})
+
+		t.Run("should include memory specifications", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("GET", "/plans/c3.small.x86", &helpers.MockResponse{
+				Status: 200,
+				Body: map[string]interface{}{
+					"data": helpers.MockPlan(),
+				},
+			})
+
+			// Act
+			result, err := testClient.SDK.Plans.Get(context.Background(), "c3.small.x86")
+
+			// Assert
+			require.NoError(t, err)
+			specs := result.Plan.Data.Attributes.Specs
+			assert.NotNil(t, specs)
+			assert.NotNil(t, specs.Memory)
+			assert.Equal(t, 16.0, *specs.Memory.Total)
+		})
+	})
+
+	t.Run("Error Handling", func(t *testing.T) {
+		t.Run("should handle validation error", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("GET", "/plans", &helpers.MockResponse{
+				Status: 422,
+				Body:   helpers.MockValidationError(),
+			})
+
+			// Act
+			result, err := testClient.SDK.Plans.List(context.Background(), operations.GetPlansRequest{
+				FilterRAM: latitudeshgosdk.Int64(-1),
+			})
+
+			// Assert
+			assert.Error(t, err)
+			assert.Nil(t, result)
+		})
+
+		t.Run("should handle rate limit error", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("GET", "/plans", &helpers.MockResponse{
+				Status: 429,
+				Body:   helpers.MockRateLimitError(),
+			})
+
+			// Act
+			result, err := testClient.SDK.Plans.List(context.Background(), operations.GetPlansRequest{})
+
+			// Assert
+			assert.Error(t, err)
+			assert.Nil(t, result)
+		})
+
+		t.Run("should handle unauthorized error", func(t *testing.T) {
+			testClient.Reset()
+
+			// Arrange
+			testClient.MockClient.MockResponse("GET", "/plans", &helpers.MockResponse{
+				Status: 401,
+				Body: map[string]interface{}{
+					"errors": []map[string]interface{}{
+						{
+							"status": "401",
+							"title":  "Unauthorized",
+							"detail": "Invalid API key",
+						},
+					},
+				},
+			})
+
+			// Act
+			result, err := testClient.SDK.Plans.List(context.Background(), operations.GetPlansRequest{})
+
+			// Assert
+			assert.Error(t, err)
+			assert.Nil(t, result)
+		})
+	})
+}

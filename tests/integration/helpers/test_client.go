@@ -1,0 +1,53 @@
+// Package helpers provides test client setup utilities
+package helpers
+
+import (
+	"net/http"
+
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+)
+
+// TestClient wraps SDK instance and mock client
+type TestClient struct {
+	SDK        *latitudeshgosdk.Latitudesh
+	MockClient *MockHTTPClient
+}
+
+// CreateTestClient creates a test SDK instance with mock HTTP client
+func CreateTestClient(apiKey, serverURL string) *TestClient {
+	if apiKey == "" {
+		apiKey = "test-api-key"
+	}
+	if serverURL == "" {
+		serverURL = "https://api.latitude.sh"
+	}
+
+	mockClient := NewMockHTTPClient()
+
+	// Create HTTP client with mock transport
+	httpClient := &http.Client{
+		Transport: mockClient,
+	}
+
+	// Create SDK instance with mock client
+	sdk := latitudeshgosdk.New(
+		latitudeshgosdk.WithSecurity(apiKey),
+		latitudeshgosdk.WithServerURL(serverURL),
+		latitudeshgosdk.WithClient(httpClient),
+	)
+
+	return &TestClient{
+		SDK:        sdk,
+		MockClient: mockClient,
+	}
+}
+
+// Reset clears all mock responses and recorded requests
+func (t *TestClient) Reset() {
+	t.MockClient.Reset()
+}
+
+// SetupTest is a helper function to setup common test utilities
+func SetupTest() *TestClient {
+	return CreateTestClient("", "")
+}
