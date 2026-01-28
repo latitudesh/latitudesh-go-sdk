@@ -37,6 +37,8 @@ type Rules struct {
 	To       *string `json:"to,omitempty"`
 	Port     *string `json:"port,omitempty"`
 	Protocol *string `json:"protocol,omitempty"`
+	// Optional description explaining the purpose of this rule
+	Description *string `json:"description,omitempty"`
 }
 
 func (r *Rules) GetFrom() *string {
@@ -65,6 +67,13 @@ func (r *Rules) GetProtocol() *string {
 		return nil
 	}
 	return r.Protocol
+}
+
+func (r *Rules) GetDescription() *string {
+	if r == nil {
+		return nil
+	}
+	return r.Description
 }
 
 type FirewallDataProject struct {

@@ -63,6 +63,8 @@ type UpdateFirewallFirewallsRules struct {
 	Protocol *UpdateFirewallFirewallsProtocol `json:"protocol,omitempty"`
 	// Port number or range (e.g., "80", "80-443")
 	Port *string `json:"port,omitempty"`
+	// Optional description explaining the purpose of this rule
+	Description *string `json:"description,omitempty"`
 }
 
 func (u *UpdateFirewallFirewallsRules) GetFrom() *string {
@@ -91,6 +93,13 @@ func (u *UpdateFirewallFirewallsRules) GetPort() *string {
 		return nil
 	}
 	return u.Port
+}
+
+func (u *UpdateFirewallFirewallsRules) GetDescription() *string {
+	if u == nil {
+		return nil
+	}
+	return u.Description
 }
 
 type UpdateFirewallFirewallsAttributes struct {

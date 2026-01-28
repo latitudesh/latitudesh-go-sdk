@@ -65,6 +65,8 @@ type CreateFirewallRules struct {
 	Protocol *CreateFirewallProtocol `json:"protocol,omitempty"`
 	// Port number or range (e.g., "80", "80-443")
 	Port *string `json:"port,omitempty"`
+	// Optional description explaining the purpose of this rule
+	Description *string `json:"description,omitempty"`
 }
 
 func (c *CreateFirewallRules) GetFrom() *string {
@@ -93,6 +95,13 @@ func (c *CreateFirewallRules) GetPort() *string {
 		return nil
 	}
 	return c.Port
+}
+
+func (c *CreateFirewallRules) GetDescription() *string {
+	if c == nil {
+		return nil
+	}
+	return c.Description
 }
 
 type CreateFirewallAttributes struct {
