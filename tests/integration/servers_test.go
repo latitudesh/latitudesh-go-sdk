@@ -183,7 +183,7 @@ func TestServersIntegration(t *testing.T) {
 			assert.NotNil(t, result)
 			assert.Equal(t, "server_test123", *result.Server.Data.ID)
 			assert.Equal(t, "test-server-01", *result.Server.Data.Attributes.Hostname)
-			assert.Equal(t, components.StatusReady, *result.Server.Data.Attributes.Status)
+			assert.Equal(t, components.StatusOn, *result.Server.Data.Attributes.Status)
 		})
 
 		t.Run("should handle not found error", func(t *testing.T) {
@@ -239,7 +239,7 @@ func TestServersIntegration(t *testing.T) {
 
 			// Act
 			projectID := "project_test123"
-			status := "ready"
+			status := "on"
 			result, err := testClient.SDK.Servers.List(context.Background(), operations.GetServersRequest{
 				FilterProject: &projectID,
 				FilterStatus:  &status,
@@ -248,7 +248,7 @@ func TestServersIntegration(t *testing.T) {
 			// Assert
 			require.NoError(t, err)
 			assert.Equal(t, 1, len(result.Servers.Data))
-			assert.Equal(t, components.StatusReady, *result.Servers.Data[0].Attributes.Status)
+			assert.Equal(t, components.StatusOn, *result.Servers.Data[0].Attributes.Status)
 		})
 	})
 }
