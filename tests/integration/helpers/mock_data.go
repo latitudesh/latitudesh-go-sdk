@@ -287,7 +287,7 @@ func MockServer() map[string]interface{} {
 		"attributes": map[string]interface{}{
 			"hostname": "test-server-01",
 			"label":    "Test Server",
-			"status":   "ready",
+			"status":   "on",
 			"role":     "server",
 			"operating_system": map[string]interface{}{
 				"id":   "ubuntu_22_04_x64",
