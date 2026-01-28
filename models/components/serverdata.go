@@ -10,22 +10,20 @@ import (
 // Status - `on` - The server is powered ON
 // `off` - The server is powered OFF
 // `unknown` - The server power status is unknown
-// `ready` - The server is in reinstalling state `ready` and should start `disk_erasing` shortly
 // `disk_erasing` - The server is in reinstalling state `disk_erasing`
-// `failed_disk_erasing` - The server has failed disk erasing in reinstall
-// `deploying` - The server is in the last reinstalling stage and is `deploying`
-// `failed_deployment` - The server has failed deployment in reinstall
+// `deploying` - The server is deploying or reinstalling
+// `failed_deployment` - The server has failed deployment or reinstall
+// `rescue_mode` - The server is in rescue mode
 type Status string
 
 const (
-	StatusOn                Status = "on"
-	StatusOff               Status = "off"
-	StatusUnknown           Status = "unknown"
-	StatusReady             Status = "ready"
-	StatusDiskErasing       Status = "disk_erasing"
-	StatusFailedDiskErasing Status = "failed_disk_erasing"
-	StatusDeploying         Status = "deploying"
-	StatusFailedDeployment  Status = "failed_deployment"
+	StatusOn               Status = "on"
+	StatusOff              Status = "off"
+	StatusUnknown          Status = "unknown"
+	StatusDiskErasing      Status = "disk_erasing"
+	StatusDeploying        Status = "deploying"
+	StatusFailedDeployment Status = "failed_deployment"
+	StatusRescueMode       Status = "rescue_mode"
 )
 
 func (e Status) ToPointer() *Status {
@@ -43,15 +41,13 @@ func (e *Status) UnmarshalJSON(data []byte) error {
 		fallthrough
 	case "unknown":
 		fallthrough
-	case "ready":
-		fallthrough
 	case "disk_erasing":
-		fallthrough
-	case "failed_disk_erasing":
 		fallthrough
 	case "deploying":
 		fallthrough
 	case "failed_deployment":
+		fallthrough
+	case "rescue_mode":
 		*e = Status(v)
 		return nil
 	default:
@@ -352,11 +348,10 @@ type ServerDataAttributes struct {
 	// `on` - The server is powered ON
 	// `off` - The server is powered OFF
 	// `unknown` - The server power status is unknown
-	// `ready` - The server is in reinstalling state `ready` and should start `disk_erasing` shortly
 	// `disk_erasing` - The server is in reinstalling state `disk_erasing`
-	// `failed_disk_erasing` - The server has failed disk erasing in reinstall
-	// `deploying` - The server is in the last reinstalling stage and is `deploying`
-	// `failed_deployment` - The server has failed deployment in reinstall
+	// `deploying` - The server is deploying or reinstalling
+	// `failed_deployment` - The server has failed deployment or reinstall
+	// `rescue_mode` - The server is in rescue mode
 	//
 	Status     *Status     `json:"status,omitempty"`
 	IpmiStatus *IpmiStatus `json:"ipmi_status,omitempty"`
@@ -364,7 +359,7 @@ type ServerDataAttributes struct {
 	Role                *string                   `json:"role,omitempty"`
 	Site                *string                   `json:"site,omitempty"`
 	Locked              *bool                     `json:"locked,omitempty"`
-	Rescue              *bool                     `json:"rescue,omitempty"`
+	RescueAllowed       *bool                     `json:"rescue_allowed,omitempty"`
 	PrimaryIpv4         *string                   `json:"primary_ipv4,omitempty"`
 	PrimaryIpv6         *string                   `json:"primary_ipv6,omitempty"`
 	CreatedAt           *string                   `json:"created_at,omitempty"`
@@ -427,11 +422,11 @@ func (s *ServerDataAttributes) GetLocked() *bool {
 	return s.Locked
 }
 
-func (s *ServerDataAttributes) GetRescue() *bool {
+func (s *ServerDataAttributes) GetRescueAllowed() *bool {
 	if s == nil {
 		return nil
 	}
-	return s.Rescue
+	return s.RescueAllowed
 }
 
 func (s *ServerDataAttributes) GetPrimaryIpv4() *string {

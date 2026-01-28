@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 78934c6d4112debcfedede08f7d78a9b
+  docChecksum: 50cc73ef5360adae30f39169db3060a2
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.694.0
-  generationVersion: 2.799.0
-  releaseVersion: 1.12.8
-  configChecksum: 69c6c915fdc1d4178b75a0630be786c3
+  speakeasyVersion: 1.700.2
+  generationVersion: 2.801.2
+  releaseVersion: 1.12.9
+  configChecksum: 895949996f11d7468f762324fc421b71
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 7a3dcc80-af9b-4c8f-8ecd-f074e787cdbd
-  pristine_commit_hash: 06d816bf77dec5018c6a4520df50ae9f834a2b86
-  pristine_tree_hash: 9aed11f64adcec6a73fb0e39f40866bb110a49e0
+  generation_id: f0a4d25a-7ecb-4d98-a202-986de77dcc9b
+  pristine_commit_hash: 8cee595464ac1c63a9e596b80a4f6c979048359b
+  pristine_tree_hash: 25f9119c50e10a61fd8991ba85ee874c7cae0bea
 features:
   go:
     additionalDependencies: 0.1.0
@@ -294,8 +294,8 @@ trackedFiles:
     pristine_git_object: 7ecc5ff2eb955944ba4699b2603242bf72dd842b
   docs/models/components/disk.md:
     id: d1c7d95af3cc
-    last_write_checksum: sha1:37c41638090b8eff8fa95c04dda8d509842d12c9
-    pristine_git_object: 43ed6423f4782841147306a0e950f16e4d24038b
+    last_write_checksum: sha1:246a096fa9c2d2c87b5656af9edb8b4012206257
+    pristine_git_object: b7138509d14f8d36b796b96cfeb1ed5fc77cd92a
   docs/models/components/distro.md:
     id: e555c228ff90
     last_write_checksum: sha1:305d747a3b9d83c2627d0c9b34706e536ee7a61a
@@ -762,8 +762,8 @@ trackedFiles:
     pristine_git_object: bcc0d05e14317f9bca6c19b7cf82dbf385fc646d
   docs/models/components/serverdataattributes.md:
     id: db014613735a
-    last_write_checksum: sha1:d272b4c8f2f0538118ebb0e1274b8eeb8f28ec5c
-    pristine_git_object: 8d0e71153c5939cf36af50fa66dbb0e55a5aaac1
+    last_write_checksum: sha1:b2ccd6105f452c10a167fc6be8f7095a830c7290
+    pristine_git_object: 611cb83c1b0656e17b804a6a1bd787ffbd462155
   docs/models/components/serverdatafeatures.md:
     id: a159b1fec8b7
     last_write_checksum: sha1:ec2bf07d946fd06526d5d09a1adf73cbeb510a8d
@@ -862,8 +862,8 @@ trackedFiles:
     pristine_git_object: 9590d332f8557cee66496524cb0449a62795cdf8
   docs/models/components/status.md:
     id: e26b2fe7f53e
-    last_write_checksum: sha1:233c6a8743d01d5bf30f09a85c182d8219c49bfc
-    pristine_git_object: 39a5ab07a41cb1ef3dfca51b78171e0469821385
+    last_write_checksum: sha1:613ebcf0b55abda3ede995a112778511de1edef0
+    pristine_git_object: e2026fdc9d351f735ba20160be8d794c66ce98d5
   docs/models/components/stocklevel.md:
     id: 7473760eb25c
     last_write_checksum: sha1:eaed9d4824dd94d763a14cf6f6bbfc849d27c389
@@ -1088,6 +1088,10 @@ trackedFiles:
     id: a5ceedf1eaa9
     last_write_checksum: sha1:cab5f6d1449a006b0df5cd584ad641a5e57e14fc
     pristine_git_object: 496b8d6d5e5fd8a4b4025776ff076a57701af053
+  docs/models/components/vcpu.md:
+    id: a591ef7f193c
+    last_write_checksum: sha1:15df0718cb75e8eca21a8d6471e5003cfcaca95f
+    pristine_git_object: d46894d778769bc76b9b81d7ff202a0ad2aae93e
   docs/models/components/virtualmachine.md:
     id: b1c6a9b11208
     last_write_checksum: sha1:27002c9806e6d51db614ef12513b569f8c6ecd76
@@ -1152,22 +1156,30 @@ trackedFiles:
     id: 36a6a9ee5035
     last_write_checksum: sha1:c53af0f46e897331d4f7a3fddd1daf656218bbe6
     pristine_git_object: ca08b972be94d236d4737ef4efead1d2c99095ee
-  docs/models/components/virtualmachineplansdatatype.md:
-    id: 1e28629d4015
-    last_write_checksum: sha1:3bcbb06ea0a6cc47dc0433e6be4132bcd6b3cd34
-    pristine_git_object: c926880d359a2c0c6aea1637673dfc262fa653cb
+  docs/models/components/virtualmachineplansdatastocklevel.md:
+    id: 8f5d569a51bc
+    last_write_checksum: sha1:7742d30affc4141954bb7e83f812f18067dbc483
+    pristine_git_object: 52eec0b5cf4c783ff63965cda2eaea253fdca959
+  docs/models/components/virtualmachineplanslocations.md:
+    id: 1de34c6f848f
+    last_write_checksum: sha1:28a5482ab6c3b0405f1848095304841e92d35921
+    pristine_git_object: c6b6589ac6e1e8b2043624f7ac6845e142ef3516
+  docs/models/components/virtualmachineplansnics.md:
+    id: 83ee5a9a5b70
+    last_write_checksum: sha1:f3e4e3189b984cb33198f0107bf5458aabb4df09
+    pristine_git_object: b6090ac1808331e3a614a9970d417b29c0b325d1
   docs/models/components/virtualmachineplanspricing.md:
     id: e8988ad54322
     last_write_checksum: sha1:013127ba74043e5fe361757e5de130e1dc4a17ed
     pristine_git_object: 4168011c77eb029c5fb5230ef46f93435a0c0a65
   docs/models/components/virtualmachineplansregions.md:
     id: 9de682dafed5
-    last_write_checksum: sha1:40cc0a1ce07fe3eb773d0efda1cd7e6300d5b4f4
-    pristine_git_object: 0d8ea6d05c42d1aa2ac8b2fe08bacea5d29ff79d
+    last_write_checksum: sha1:60f80e9e5afd918f8c274935002af2b6373081b7
+    pristine_git_object: 31ed2fea4a7ee19fb7ee1743126c555f371c30b6
   docs/models/components/virtualmachineplansspecs.md:
     id: d7e67504042e
-    last_write_checksum: sha1:3641a0267cb4134ca3cbc2a1f8291a17da447a87
-    pristine_git_object: 35cc086d8bc9133780614194591c99c420618d14
+    last_write_checksum: sha1:1efe0fafa8bf18bdc66c51cc32190a64e492cbb4
+    pristine_git_object: b98bffa993d28a6b28a067fa5481963e3462aa96
   docs/models/components/virtualmachineplansstocklevel.md:
     id: e55f78a03a28
     last_write_checksum: sha1:10f380fc46073ec7048730cd1fb4c51330d5d9dd
@@ -3074,8 +3086,8 @@ trackedFiles:
     pristine_git_object: 266aecc99c8bdd9f173c458c3b6e1ad9a2ac00fd
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:65bcd6bbf05d830e31c20c0a2298a5c73627e70f
-    pristine_git_object: 1622693f0d69dad4ffff1c22065795b77ccd53bb
+    last_write_checksum: sha1:4b7ee901d3d09fa47a4a57f4f7474a7d7a9bc538
+    pristine_git_object: b609ed19ce9876893b2546d8705b872655a609f3
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:4f11a99df8adbdfe311b44c3ab3bef29cfb4f66d
@@ -3258,8 +3270,8 @@ trackedFiles:
     pristine_git_object: 2ff59d3802037483b3b28c2b2626c26171e7447a
   models/components/serverdata.go:
     id: d109f00ea97c
-    last_write_checksum: sha1:a0d750efd379e8df6f55eb2b8fbad9df487b5102
-    pristine_git_object: e81eb131259922848e1d76b465422978ab27995d
+    last_write_checksum: sha1:02355158bc2c47445c4de1a1b2e1f72fd370fc72
+    pristine_git_object: 9c5f2b39a849906faa16d99f0d9599489f462e0a
   models/components/serverregionresourcedata.go:
     id: e692ae58dc90
     last_write_checksum: sha1:680d3be6c5d05f820c0bacc28c5072c5fd0443ce
@@ -3366,8 +3378,8 @@ trackedFiles:
     pristine_git_object: de8f4f752f40188a131d0869672e91acdd5a558b
   models/components/virtualmachineplans.go:
     id: 1607b9634af6
-    last_write_checksum: sha1:6e06b5ec22df6bc1e3d90b8a9813dcc4c04e588e
-    pristine_git_object: 43f91a72b1cbd62becf58991d3d6ac1c76cd818d
+    last_write_checksum: sha1:741fecd4ec53f50191f764fd5268a181282efa91
+    pristine_git_object: 08da31c607fad9d08ea03ed3b796f2bcefb83469
   models/components/virtualnetwork.go:
     id: 8f1acccc8179
     last_write_checksum: sha1:d3613b449c1626bc49501d728c4f12ba150bd5bf
@@ -3969,7 +3981,7 @@ examples:
     Success:
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "tok_6VE1Wd37dXnZJ", "type": "api_keys", "attributes": {"name": "Dor Daidelos", "api_version": "2023-06-01", "token_last_slice": "2daaa", "read_only": false, "allowed_ips": null, "last_used_at": null, "user": {"id": "user_Wel4PnEAmauQYZz3Vz83CkyV2BW", "email": "beckie.prosacco@willms.test"}, "created_at": "2026-01-14T15:56:29+00:00", "updated_at": "2026-01-14T14:56:29+00:00"}}]}
+          application/vnd.api+json: {"data": [{"id": "tok_6VE1Wd37dXnZJ", "type": "api_keys", "attributes": {"name": "Dor Daidelos", "api_version": "2023-06-01", "token_last_slice": "2daaa", "read_only": false, "allowed_ips": [], "last_used_at": null, "user": {"id": "user_Wel4PnEAmauQYZz3Vz83CkyV2BW", "email": "beckie.prosacco@willms.test"}, "created_at": "2026-01-14T15:56:29+00:00", "updated_at": "2026-01-14T14:56:29+00:00"}}]}
   post-api-key:
     API Key Created:
       requestBody:
@@ -4604,7 +4616,7 @@ examples:
     Success:
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "plan_aNmodj4eDbE8W", "type": "virtual_machine_plans", "attributes": {"name": "vm.l40s.tiny", "specs": {"memory": 16, "vcpus": 14, "disk": {"type": "local", "size": {"amount": 150, "unit": "gib"}}}, "regions": [{"name": "United States", "available": ["DAL"], "pricing": {"USD": {"hour": 1, "month": 720, "year": 8640}, "BRL": {"hour": 1, "month": 720, "year": 8640}}}], "stock_level": "low"}}]}
+          application/vnd.api+json: {"data": [{"id": "plan_aNmodj4eDbE8W", "type": "virtual_machine_plans", "attributes": {"name": "vm.l40s.tiny", "specs": {"memory": 16, "gpu": "NVIDIA H100 Tensor Core GPU", "vram_per_gpu": 80, "vcpus": 14, "vcpu": {"count": 14, "clock": 3.8, "type": "Intel Xeon"}, "nics": [{"type": "1 Gbps", "count": "1"}], "disk": {"type": "local NVMe", "size": {"amount": 150, "unit": "gib"}}}, "regions": [{"name": "United States", "pricing": {"USD": {"hour": 1, "month": 720, "year": 8640}, "BRL": {"hour": 1, "month": 720, "year": 8640}}, "locations": {"available": ["DAL"], "in_stock": ["DAL"]}, "stock_level": "low"}], "stock_level": "low"}}]}
   get-projects:
     Filtered by tag:
       parameters:
@@ -4913,7 +4925,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "sv_WeGoqAanqP7nz", "type": "servers", "attributes": {"hostname": "Hostname", "label": "832845NODEKG", "status": "on", "ipmi_status": "Normal", "role": "Bare Metal", "locked": false, "primary_ipv4": "19.98.98.65", "primary_ipv6": "49e5:fef3:7891:16df:ccf6:93bb:a930:4dc0", "created_at": null, "scheduled_deletion_at": null, "plan": {"id": "plan_pbV0Dg1Rd4AWz", "name": "g3.h100.small-51", "slug": "plan-slug", "billing": "hourly"}, "operating_system": {"name": "Ubuntu (18.04 x64 LTS)", "slug": "ubuntu_18_04_x64_lts", "version": "18.04 x64 LTS", "features": {"raid": true, "ssh_keys": true}, "distro": {"name": "Ubuntu", "slug": "ubuntu", "series": "bionic"}}, "region": {"city": "São Paulo 74", "country": "Singapore 66", "site": {"id": "loc_695BdKjrOevVo", "name": "São Paulo 74", "slug": "SAO", "facility": "São Paulo 74", "rack_id": "rack_VLMmAD8EOwop2"}}, "specs": {"cpu": "Xeon E-2186G CPU @ 3.80GHz (6 cores)", "disk": "500 GB SSD", "ram": "32 GB", "nic": "", "gpu": null}, "interfaces": [{"role": "ipmi", "name": "IPMI", "mac_address": "00:11:22:33:44:55", "description": "IPMI Interface"}, {"role": "internal", "name": "PXE", "mac_address": "66:77:88:99:aa:bb", "description": "PXE Interface"}], "project": {"id": "proj_Z8rodmnGq1jLB", "name": "Incredible Linen Car", "slug": "incredible-linen-car", "description": "Lightweight Iron Chair", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"ip_addresses": 8, "prefixes": 0, "servers": 3, "vlans": 0}}, "team": {"id": "team_Ygapr2KkrMur4QneZ00yUEGl4W2", "name": "292 Team", "slug": "292-team", "description": "292 Team", "address": "Apt. 180 27016 Chi Prairie, Kenyaport, CA 12866", "currency": {}, "status": "verified", "feature_flags": []}}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "sv_WeGoqAanqP7nz", "type": "servers", "attributes": {"hostname": "Hostname", "label": "832845NODEKG", "status": "on", "ipmi_status": "Normal", "role": "Bare Metal", "locked": false, "rescue_allowed": false, "primary_ipv4": "19.98.98.65", "primary_ipv6": "49e5:fef3:7891:16df:ccf6:93bb:a930:4dc0", "created_at": null, "scheduled_deletion_at": null, "plan": {"id": "plan_pbV0Dg1Rd4AWz", "name": "g3.h100.small-51", "slug": "plan-slug", "billing": "hourly"}, "operating_system": {"name": "Ubuntu (18.04 x64 LTS)", "slug": "ubuntu_18_04_x64_lts", "version": "18.04 x64 LTS", "features": {"raid": true, "ssh_keys": true}, "distro": {"name": "Ubuntu", "slug": "ubuntu", "series": "bionic"}}, "region": {"city": "São Paulo 74", "country": "Singapore 66", "site": {"id": "loc_695BdKjrOevVo", "name": "São Paulo 74", "slug": "SAO", "facility": "São Paulo 74", "rack_id": "rack_VLMmAD8EOwop2"}}, "specs": {"cpu": "Xeon E-2186G CPU @ 3.80GHz (6 cores)", "disk": "500 GB SSD", "ram": "32 GB", "nic": "", "gpu": null}, "interfaces": [{"role": "ipmi", "name": "IPMI", "mac_address": "00:11:22:33:44:55", "description": "IPMI Interface"}, {"role": "internal", "name": "PXE", "mac_address": "66:77:88:99:aa:bb", "description": "PXE Interface"}], "project": {"id": "proj_Z8rodmnGq1jLB", "name": "Incredible Linen Car", "slug": "incredible-linen-car", "description": "Lightweight Iron Chair", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"ip_addresses": 8, "prefixes": 0, "servers": 3, "vlans": 0}}, "team": {"id": "team_Ygapr2KkrMur4QneZ00yUEGl4W2", "name": "292 Team", "slug": "292-team", "description": "292 Team", "address": "Apt. 180 27016 Chi Prairie, Kenyaport, CA 12866", "currency": {}, "status": "verified", "feature_flags": []}}}], "meta": {}}
     SuccessWithCredentials:
       parameters:
         query:
@@ -4962,7 +4974,7 @@ examples:
           server_id: "sv_VE1Wd3aXDXnZJ"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "sv_VE1Wd3aXDXnZJ", "type": "servers", "attributes": {"hostname": "Hostname", "label": "327106NODEQI", "status": "on", "ipmi_status": "Normal", "role": "Bare Metal", "locked": false, "primary_ipv4": "9.120.132.45", "primary_ipv6": "889e:8540:973b:5c04:abce:2551:47ae:a67e", "created_at": null, "scheduled_deletion_at": null, "plan": {"id": "plan_yQrJdN9JO30gv", "name": "c2.large.arm", "slug": "c2-large-arm", "billing": "hourly"}, "operating_system": {"name": "Ubuntu (18.04 x64 LTS)", "slug": "ubuntu_18_04_x64_lts", "version": "18.04 x64 LTS", "features": {"raid": true, "ssh_keys": true}, "distro": {"name": "Ubuntu", "slug": "ubuntu", "series": "bionic"}}, "region": {"city": "São Paulo 81", "country": "Mexico 73", "site": {"id": "loc_GMy1DbNgDN50m", "name": "São Paulo 81", "slug": "SAO", "facility": "São Paulo 81", "rack_id": "rack_6VE1Wd37dXnZJ"}}, "specs": {"cpu": "", "disk": "", "ram": "", "nic": "", "gpu": null}, "interfaces": [{"role": "ipmi", "name": "IPMI", "mac_address": "00:11:22:33:44:55", "description": "IPMI Interface"}, {"role": "internal", "name": "PXE", "mac_address": "66:77:88:99:aa:bb", "description": "PXE Interface"}], "project": {"id": "proj_LMmAD8E4Owop2", "name": "Awesome Granite Chair", "slug": "awesome-granite-chair", "description": "Mediocre Paper Wallet", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"ip_addresses": 2, "prefixes": 0, "servers": 1, "vlans": 0}}, "team": {"id": "team_M2WyX3zpQMf5Wvaw6zkotLZx0Ne", "name": "308 Team", "slug": "308-team", "description": "308 Team", "address": "Suite 667 299 Enoch Lights, Lake Lilli, MT 24573-1532", "currency": {}, "status": "verified", "feature_flags": []}}}, "meta": {}}
+          application/vnd.api+json: {"data": {"id": "sv_VE1Wd3aXDXnZJ", "type": "servers", "attributes": {"hostname": "Hostname", "label": "327106NODEQI", "status": "on", "ipmi_status": "Normal", "role": "Bare Metal", "locked": false, "rescue_allowed": false, "primary_ipv4": "9.120.132.45", "primary_ipv6": "889e:8540:973b:5c04:abce:2551:47ae:a67e", "created_at": null, "scheduled_deletion_at": null, "plan": {"id": "plan_yQrJdN9JO30gv", "name": "c2.large.arm", "slug": "c2-large-arm", "billing": "hourly"}, "operating_system": {"name": "Ubuntu (18.04 x64 LTS)", "slug": "ubuntu_18_04_x64_lts", "version": "18.04 x64 LTS", "features": {"raid": true, "ssh_keys": true}, "distro": {"name": "Ubuntu", "slug": "ubuntu", "series": "bionic"}}, "region": {"city": "São Paulo 81", "country": "Mexico 73", "site": {"id": "loc_GMy1DbNgDN50m", "name": "São Paulo 81", "slug": "SAO", "facility": "São Paulo 81", "rack_id": "rack_6VE1Wd37dXnZJ"}}, "specs": {"cpu": "", "disk": "", "ram": "", "nic": "", "gpu": null}, "interfaces": [{"role": "ipmi", "name": "IPMI", "mac_address": "00:11:22:33:44:55", "description": "IPMI Interface"}, {"role": "internal", "name": "PXE", "mac_address": "66:77:88:99:aa:bb", "description": "PXE Interface"}], "project": {"id": "proj_LMmAD8E4Owop2", "name": "Awesome Granite Chair", "slug": "awesome-granite-chair", "description": "Mediocre Paper Wallet", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"ip_addresses": 2, "prefixes": 0, "servers": 1, "vlans": 0}}, "team": {"id": "team_M2WyX3zpQMf5Wvaw6zkotLZx0Ne", "name": "308 Team", "slug": "308-team", "description": "308 Team", "address": "Suite 667 299 Enoch Lights, Lake Lilli, MT 24573-1532", "currency": {}, "status": "verified", "feature_flags": []}}}, "meta": {}}
     SuccessWithCredentials:
       parameters:
         path:
@@ -5042,7 +5054,7 @@ examples:
         "402":
           application/vnd.api+json: {}
         "200":
-          application/vnd.api+json: {"data": {"id": "sv_yQrJdNAGO30gv", "type": "servers", "attributes": {"hostname": "Lightweight Wooden Knife", "label": "136877NODEKM", "status": "unknown", "ipmi_status": "Normal", "role": "Bare Metal", "locked": false, "primary_ipv4": "214.249.69.62", "primary_ipv6": "b0c8:139:6f83:7f0c:6e2:33a3:78e4:e03f", "created_at": null, "scheduled_deletion_at": null, "plan": {"id": "plan_3YjJOLLyOvZ87", "name": "c2.large.arm", "slug": "c2-large-arm", "billing": "hourly"}, "operating_system": {}, "region": {"city": "Frankfurt 115", "country": "Germany 107", "site": {"id": "loc_aNmodjGyqbE8W", "name": "Frankfurt 115", "slug": "FRA96", "facility": "Frankfurt 115", "rack_id": "rack_byQrJdNJd30gv"}}, "specs": {"cpu": "", "disk": "", "ram": "", "nic": "", "gpu": null}, "interfaces": [], "project": {"id": "proj_yQrJdNMGO30gv", "name": "Awesome Wool Computer", "slug": "awesome-wool-computer", "description": "Practical Rubber Shirt", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 1, "vlans": 0}}, "team": {"id": "team_YQZmYB34Nxso86ZgyKj2UEPEnyA", "name": "348 Team", "slug": "348-team", "description": "348 Team", "address": "51588 Goodwin Mission, Port Oswaldo, KS 14871-0638", "currency": {}, "status": "verified", "feature_flags": []}}}, "meta": {}}
+          application/vnd.api+json: {"data": {"id": "sv_yQrJdNAGO30gv", "type": "servers", "attributes": {"hostname": "Lightweight Wooden Knife", "label": "136877NODEKM", "status": "unknown", "ipmi_status": "Normal", "role": "Bare Metal", "locked": false, "rescue_allowed": false, "primary_ipv4": "214.249.69.62", "primary_ipv6": "b0c8:139:6f83:7f0c:6e2:33a3:78e4:e03f", "created_at": null, "scheduled_deletion_at": null, "plan": {"id": "plan_3YjJOLLyOvZ87", "name": "c2.large.arm", "slug": "c2-large-arm", "billing": "hourly"}, "operating_system": {}, "region": {"city": "Frankfurt 115", "country": "Germany 107", "site": {"id": "loc_aNmodjGyqbE8W", "name": "Frankfurt 115", "slug": "FRA96", "facility": "Frankfurt 115", "rack_id": "rack_byQrJdNJd30gv"}}, "specs": {"cpu": "", "disk": "", "ram": "", "nic": "", "gpu": null}, "interfaces": [], "project": {"id": "proj_yQrJdNMGO30gv", "name": "Awesome Wool Computer", "slug": "awesome-wool-computer", "description": "Practical Rubber Shirt", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 1, "vlans": 0}}, "team": {"id": "team_YQZmYB34Nxso86ZgyKj2UEPEnyA", "name": "348 Team", "slug": "348-team", "description": "348 Team", "address": "51588 Goodwin Mission, Port Oswaldo, KS 14871-0638", "currency": {}, "status": "verified", "feature_flags": []}}}, "meta": {}}
     Unprocessable Entity:
       parameters:
         path:
@@ -6781,7 +6793,15 @@ examples:
           application/vnd.api+json: {"data": {"id": "tok_x1ZJrdx5qg4LV", "type": "api_keys", "attributes": {"name": "App Token", "api_version": "2023-06-01", "token_last_slice": "17b4c", "read_only": false, "allowed_ips": null, "last_used_at": null, "user": {"id": "user_3J8PY3vz8ahap5nLXYmws36rwRE", "email": "arnette@kutch.test"}, "created_at": "2026-01-14T15:56:30+00:00", "updated_at": "2026-01-14T15:56:30+00:00"}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes:\n* `Latitudesh.ApiKeys.List()`:  `response.Data.[].Attributes.ReadOnly` **Changed** **Breaking** :warning:\n* `Latitudesh.ApiKeys.Create()`:  `response.Data.Attributes.ReadOnly` **Changed** **Breaking** :warning:\n* `Latitudesh.ApiKeys.Update()`:  `response.Data.Attributes.ReadOnly` **Changed** **Breaking** :warning:\n* `Latitudesh.ApiKeys.Update-Api-Key()`:  `response.Data.Attributes.ReadOnly` **Changed** **Breaking** :warning:\n* `Latitudesh.Billing.ListUsage()`:  `response.Data.Attributes.Products.[]` **Changed** **Breaking** :warning:\n* `Latitudesh.IpAddresses.List()`:  `response.Data.[].Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.IpAddresses.Get()`:  `response.Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.Teams.Get()`:  `response.Data.[].Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.Teams.Create()`:  `response.Data.Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.Teams.Update()`:  `response.Data.Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.Plans.List()`:  `response.Data.[].Attributes.Regions.[].Pricing` **Changed** **Breaking** :warning:\n* `Latitudesh.Plans.Get()`:  `response.Data.Attributes.Regions.[].Pricing` **Changed** **Breaking** :warning:\n* `Latitudesh.Plans.Get-Containers-Plan()`:  `response.Attributes.Regions.[].Pricing` **Changed** **Breaking** :warning:\n* `Latitudesh.Projects.List()`:  `response.Data.[].Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.Projects.Create()`:  `response.Data.Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.Projects.Update()`:  `response.Data.Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.Projects.SshKeys.Post-Project-Ssh-Key()`:  `response.Data.Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.SshKeys.List()`:  `response.Data.[].Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.SshKeys.Get()`:  `response.Data.Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.SshKeys.ModifyProjectKey()`:  `response.Data.Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.SshKeys.ListAll()`:  `response.Data.[].Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.SshKeys.Create()`:  `response.Data.Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.SshKeys.Retrieve()`:  `response.Data.Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.SshKeys.Update()`:  `response.Data.Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.UserData.Get-Project-Users-Data()`:  `response.Data.[].Data.Attributes.Project` **Changed** **Breaking** :warning:\n* `Latitudesh.UserData.Get-Project-User-Data()`:  `response.Data.Attributes.Project` **Changed** **Breaking** :warning:\n* `Latitudesh.UserData.Create()`:  `response.Data.Attributes.Project` **Changed** **Breaking** :warning:\n* `Latitudesh.UserData.UpdateForProject()`:  `response.Data.Attributes.Project` **Changed** **Breaking** :warning:\n* `Latitudesh.UserData.List()`:  `response.Data.[].Data.Attributes.Project` **Changed** **Breaking** :warning:\n* `Latitudesh.UserData.CreateNew()`:  `response.Data.Attributes.Project` **Changed** **Breaking** :warning:\n* `Latitudesh.UserData.Retrieve()`:  `response.Data.Attributes.Project` **Changed** **Breaking** :warning:\n* `Latitudesh.UserData.Update()`:  `response.Data.Attributes.Project` **Changed** **Breaking** :warning:\n* `Latitudesh.Servers.List()`:  `response.Data.[].Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.Servers.Create()`: \n  *  `request.Request.Data.Attributes` **Changed**\n  *  `response.Data.Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.Servers.Get()`:  `response.Data.Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.Servers.Update()`: \n  *  `request.RequestBody.Data.Attributes` **Changed**\n  *  `response.Data.Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.Servers.GetDeployConfig()`:  `response.Data.Attributes.Partitions` **Changed** **Breaking** :warning:\n* `Latitudesh.Servers.UpdateDeployConfig()`: \n  *  `request.RequestBody.Attributes` **Changed**\n  *  `response.Data.Attributes.Partitions` **Changed** **Breaking** :warning:\n* `Latitudesh.Servers.Lock()`:  `response.Data.Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.Servers.Unlock()`:  `response.Data.Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.Storage.CreateFilesystem()`:  `response.Data.Attributes.CreatedAt` **Changed** **Breaking** :warning:\n* `Latitudesh.Storage.UpdateFilesystem()`:  `response.Data.Attributes.CreatedAt` **Changed** **Breaking** :warning:\n* `Latitudesh.Storage.Get-Storage-Volumes()`:  `response.Data.[].Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.Storage.Post-Storage-Volumes()`:  `response.Data.Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.Storage.Get-Storage-Volume()`:  `response.Data.Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.Traffic.GetQuota()`:  `response.Data.Attributes.QuotaPerProject.[].Price` **Changed** **Breaking** :warning:\n* `Latitudesh.UserProfile.Update()`:  `response.Data.Attributes.AuthenticationFactorId` **Changed** **Breaking** :warning:\n* `Latitudesh.UserProfile.ListTeams()`:  `response.Data.[].Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.VirtualMachines.Create()`: \n  *  `request.Request.Data.Attributes` **Changed**\n  *  `response.Data.Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.PrivateNetworks.List()`:  `response.Data.[].Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.PrivateNetworks.Create()`:  `response.Data.Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.PrivateNetworks.Get()`:  `response.Data.Data.Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.PrivateNetworks.Update()`:  `response.Data.Attributes` **Changed** **Breaking** :warning:\n* `Latitudesh.Servers.Reinstall()`: \n  *  `request.RequestBody.Data.Attributes` **Changed**\n* `Latitudesh.Tags.Create()`: \n  *  `request.Request.Data.Attributes.Description` **Changed**\n* `Latitudesh.Tags.Update()`: \n  *  `request.RequestBody.Data.Attributes.Description` **Changed**\n"
+releaseNotes: |
+  ## Go SDK Changes:
+  * `Latitudesh.Plans.Vm.List()`:  `response.Data[].Attributes` **Changed** **Breaking** ⚠️
+  * `Latitudesh.Servers.List()`:  `response.Data[].Attributes` **Changed** **Breaking** ⚠️
+  * `Latitudesh.Servers.Create()`:  `response.Data.Attributes` **Changed** **Breaking** ⚠️
+  * `Latitudesh.Servers.Get()`:  `response.Data.Attributes` **Changed** **Breaking** ⚠️
+  * `Latitudesh.Servers.Update()`:  `response.Data.Attributes` **Changed** **Breaking** ⚠️
+  * `Latitudesh.Servers.Lock()`:  `response.Data.Attributes` **Changed** **Breaking** ⚠️
+  * `Latitudesh.Servers.Unlock()`:  `response.Data.Attributes` **Changed** **Breaking** ⚠️
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
