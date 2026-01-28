@@ -31,28 +31,56 @@ func (e *VirtualMachinePlansType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// VirtualMachinePlansDataType - The type of the disk
-type VirtualMachinePlansDataType string
-
-const (
-	VirtualMachinePlansDataTypeLocal VirtualMachinePlansDataType = "local"
-)
-
-func (e VirtualMachinePlansDataType) ToPointer() *VirtualMachinePlansDataType {
-	return &e
+// Vcpu - Detailed vCPU specifications
+type Vcpu struct {
+	// The number of virtual CPUs
+	Count *int64 `json:"count,omitempty"`
+	// The CPU clock speed in GHz
+	Clock *float64 `json:"clock,omitempty"`
+	// The CPU type/model
+	Type *string `json:"type,omitempty"`
 }
-func (e *VirtualMachinePlansDataType) UnmarshalJSON(data []byte) error {
-	var v string
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-	switch v {
-	case "local":
-		*e = VirtualMachinePlansDataType(v)
+
+func (v *Vcpu) GetCount() *int64 {
+	if v == nil {
 		return nil
-	default:
-		return fmt.Errorf("invalid value for VirtualMachinePlansDataType: %v", v)
 	}
+	return v.Count
+}
+
+func (v *Vcpu) GetClock() *float64 {
+	if v == nil {
+		return nil
+	}
+	return v.Clock
+}
+
+func (v *Vcpu) GetType() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Type
+}
+
+type VirtualMachinePlansNics struct {
+	// NIC speed/type
+	Type *string `json:"type,omitempty"`
+	// Number of NICs
+	Count *string `json:"count,omitempty"`
+}
+
+func (v *VirtualMachinePlansNics) GetType() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Type
+}
+
+func (v *VirtualMachinePlansNics) GetCount() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Count
 }
 
 // VirtualMachinePlansUnit - The unit of the disk size
@@ -101,12 +129,12 @@ func (s *Size) GetUnit() *VirtualMachinePlansUnit {
 }
 
 type Disk struct {
-	// The type of the disk
-	Type *VirtualMachinePlansDataType `json:"type,omitempty"`
-	Size *Size                        `json:"size,omitempty"`
+	// The type of the disk (e.g., local SSD, local NVMe)
+	Type *string `json:"type,omitempty"`
+	Size *Size   `json:"size,omitempty"`
 }
 
-func (d *Disk) GetType() *VirtualMachinePlansDataType {
+func (d *Disk) GetType() *string {
 	if d == nil {
 		return nil
 	}
@@ -123,9 +151,17 @@ func (d *Disk) GetSize() *Size {
 type VirtualMachinePlansSpecs struct {
 	// The total memory
 	Memory *int64 `json:"memory,omitempty"`
-	// The number of virtual CPUs
+	// The GPU type
+	Gpu *string `json:"gpu,omitempty"`
+	// VRAM per GPU in GB
+	VramPerGpu *int64 `json:"vram_per_gpu,omitempty"`
+	// The number of virtual CPUs (legacy field)
 	Vcpus *int64 `json:"vcpus,omitempty"`
-	Disk  *Disk  `json:"disk,omitempty"`
+	// Detailed vCPU specifications
+	Vcpu *Vcpu `json:"vcpu,omitempty"`
+	// Network interface cards
+	Nics []VirtualMachinePlansNics `json:"nics,omitempty"`
+	Disk *Disk                     `json:"disk,omitempty"`
 }
 
 func (v *VirtualMachinePlansSpecs) GetMemory() *int64 {
@@ -135,11 +171,39 @@ func (v *VirtualMachinePlansSpecs) GetMemory() *int64 {
 	return v.Memory
 }
 
+func (v *VirtualMachinePlansSpecs) GetGpu() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Gpu
+}
+
+func (v *VirtualMachinePlansSpecs) GetVramPerGpu() *int64 {
+	if v == nil {
+		return nil
+	}
+	return v.VramPerGpu
+}
+
 func (v *VirtualMachinePlansSpecs) GetVcpus() *int64 {
 	if v == nil {
 		return nil
 	}
 	return v.Vcpus
+}
+
+func (v *VirtualMachinePlansSpecs) GetVcpu() *Vcpu {
+	if v == nil {
+		return nil
+	}
+	return v.Vcpu
+}
+
+func (v *VirtualMachinePlansSpecs) GetNics() []VirtualMachinePlansNics {
+	if v == nil {
+		return nil
+	}
+	return v.Nics
 }
 
 func (v *VirtualMachinePlansSpecs) GetDisk() *Disk {
@@ -222,10 +286,67 @@ func (v *VirtualMachinePlansPricing) GetBrl() *VirtualMachinePlansBRL {
 	return v.Brl
 }
 
+type VirtualMachinePlansLocations struct {
+	// Sites with clusters that support this plan
+	Available []string `json:"available,omitempty"`
+	// Sites with available capacity for this plan
+	InStock []string `json:"in_stock,omitempty"`
+}
+
+func (v *VirtualMachinePlansLocations) GetAvailable() []string {
+	if v == nil {
+		return nil
+	}
+	return v.Available
+}
+
+func (v *VirtualMachinePlansLocations) GetInStock() []string {
+	if v == nil {
+		return nil
+	}
+	return v.InStock
+}
+
+// VirtualMachinePlansDataStockLevel - The stock level in this region
+type VirtualMachinePlansDataStockLevel string
+
+const (
+	VirtualMachinePlansDataStockLevelLow         VirtualMachinePlansDataStockLevel = "low"
+	VirtualMachinePlansDataStockLevelUnavailable VirtualMachinePlansDataStockLevel = "unavailable"
+	VirtualMachinePlansDataStockLevelMedium      VirtualMachinePlansDataStockLevel = "medium"
+	VirtualMachinePlansDataStockLevelHigh        VirtualMachinePlansDataStockLevel = "high"
+)
+
+func (e VirtualMachinePlansDataStockLevel) ToPointer() *VirtualMachinePlansDataStockLevel {
+	return &e
+}
+func (e *VirtualMachinePlansDataStockLevel) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "low":
+		fallthrough
+	case "unavailable":
+		fallthrough
+	case "medium":
+		fallthrough
+	case "high":
+		*e = VirtualMachinePlansDataStockLevel(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for VirtualMachinePlansDataStockLevel: %v", v)
+	}
+}
+
 type VirtualMachinePlansRegions struct {
-	Name      *string                     `json:"name,omitempty"`
-	Available []string                    `json:"available,omitempty"`
-	Pricing   *VirtualMachinePlansPricing `json:"pricing,omitempty"`
+	Name      *string                       `json:"name,omitempty"`
+	Available []string                      `json:"available,omitempty"`
+	Pricing   *VirtualMachinePlansPricing   `json:"pricing,omitempty"`
+	Locations *VirtualMachinePlansLocations `json:"locations,omitempty"`
+	// The stock level in this region
+	StockLevel *VirtualMachinePlansDataStockLevel `json:"stock_level,omitempty"`
 }
 
 func (v *VirtualMachinePlansRegions) GetName() *string {
@@ -247,6 +368,20 @@ func (v *VirtualMachinePlansRegions) GetPricing() *VirtualMachinePlansPricing {
 		return nil
 	}
 	return v.Pricing
+}
+
+func (v *VirtualMachinePlansRegions) GetLocations() *VirtualMachinePlansLocations {
+	if v == nil {
+		return nil
+	}
+	return v.Locations
+}
+
+func (v *VirtualMachinePlansRegions) GetStockLevel() *VirtualMachinePlansDataStockLevel {
+	if v == nil {
+		return nil
+	}
+	return v.StockLevel
 }
 
 // VirtualMachinePlansStockLevel - The stock level of the plan
