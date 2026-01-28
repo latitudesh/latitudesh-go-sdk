@@ -116,6 +116,7 @@ func main() {
                         To: latitudeshgosdk.Pointer("192.168.43.51"),
                         Protocol: operations.CreateFirewallProtocolTCP.ToPointer(),
                         Port: latitudeshgosdk.Pointer("80"),
+                        Description: latitudeshgosdk.Pointer("Allow HTTP traffic"),
                     },
                     operations.CreateFirewallRules{
                         From: latitudeshgosdk.Pointer("192.168.1.16"),
@@ -128,6 +129,7 @@ func main() {
                         To: latitudeshgosdk.Pointer("192.168.1.20"),
                         Protocol: operations.CreateFirewallProtocolUDP.ToPointer(),
                         Port: latitudeshgosdk.Pointer("3000-4000"),
+                        Description: latitudeshgosdk.Pointer("Application ports"),
                     },
                 },
             },
@@ -314,6 +316,7 @@ func main() {
                         To: latitudeshgosdk.Pointer("192.168.43.51"),
                         Protocol: operations.UpdateFirewallFirewallsProtocolTCP.ToPointer(),
                         Port: latitudeshgosdk.Pointer("80"),
+                        Description: latitudeshgosdk.Pointer("Allow HTTP"),
                     },
                 },
             },

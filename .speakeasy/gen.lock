@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 50cc73ef5360adae30f39169db3060a2
+  docChecksum: 37973d74c8f4af470e95cad58eb25da8
   docVersion: "2023-06-01"
   speakeasyVersion: 1.700.2
   generationVersion: 2.801.2
-  releaseVersion: 1.12.9
-  configChecksum: 895949996f11d7468f762324fc421b71
+  releaseVersion: 1.12.10
+  configChecksum: b40112afea8f99433869ccae0aa12e61
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: f0a4d25a-7ecb-4d98-a202-986de77dcc9b
-  pristine_commit_hash: 8cee595464ac1c63a9e596b80a4f6c979048359b
-  pristine_tree_hash: 25f9119c50e10a61fd8991ba85ee874c7cae0bea
+  generation_id: 4517ce4f-8a75-4d5e-95bb-eab99d7fad96
+  pristine_commit_hash: 741d0a8538b209acb4955bcef0fee9c9d8c1bfae
+  pristine_tree_hash: 5b0ac268ebd19967e4f6f12c14297dd6d48cf93b
 features:
   go:
     additionalDependencies: 0.1.0
@@ -726,8 +726,8 @@ trackedFiles:
     pristine_git_object: 3a5a0cc404b7a7b1faec9be6a119bafcfd0f42e0
   docs/models/components/rules.md:
     id: eb448b1a4698
-    last_write_checksum: sha1:a0980bd642d92ff7eaed2faf510b693fd495cb08
-    pristine_git_object: 626b062a89d57919b6c10160b8791c52d9d1561b
+    last_write_checksum: sha1:9378f5aa88eb969c3812efb2cd39fcf89f070ebc
+    pristine_git_object: b45a74101e0111a5d3c3bea8abe3f7a11e4406d9
   docs/models/components/security.md:
     id: 54906b49ea28
     last_write_checksum: sha1:dd21057d3f48b84aa2695ff476d9daa2cfd29b6c
@@ -1362,8 +1362,8 @@ trackedFiles:
     pristine_git_object: 1375b8d25ae368b91d79a74a3ae76d554ab2140c
   docs/models/operations/createfirewallrules.md:
     id: 0c1aac338c91
-    last_write_checksum: sha1:736dd3e0b3ff86ea3883bedbf4eef668681acbfe
-    pristine_git_object: 6ac7be6ca4908a021ddd3fe7056064eb7da4719e
+    last_write_checksum: sha1:2dad5fc4b8dae68609e5ef62e341e3bd63f33994
+    pristine_git_object: f97e29debcbaa8b652d4555e9a431108eaf4db61
   docs/models/operations/createfirewalltype.md:
     id: bcdec4a2632c
     last_write_checksum: sha1:23d9b2d2901311ef14f4526113183dbfef55ff3a
@@ -2726,8 +2726,8 @@ trackedFiles:
     pristine_git_object: e9d42973cfb0466971a3e1a345b71705330cc29f
   docs/models/operations/updatefirewallfirewallsrules.md:
     id: e7066495f0ad
-    last_write_checksum: sha1:82ec9c33a0e3cd67232941f7de9d7cf26ff6e3d3
-    pristine_git_object: 32e0425e50ac609a06ec5033709fb69f51d22ebd
+    last_write_checksum: sha1:5b0962bd280c64266bbdae745430104077fd2006
+    pristine_git_object: 5c7fcb7eb7717cc1d03665ff421738c17b9a8d80
   docs/models/operations/updatefirewallfirewallstype.md:
     id: ecaa0539111a
     last_write_checksum: sha1:014fffec2a3243d41242c590c0d66915eaee92ca
@@ -2918,8 +2918,8 @@ trackedFiles:
     pristine_git_object: 4479ee31950f7f417aff76db46f2c648e873acc6
   docs/sdks/firewalls/README.md:
     id: 128bc40d5beb
-    last_write_checksum: sha1:93cb35a70a0556a5d3dea5089aed6c1e03516fe6
-    pristine_git_object: a1d936c6cf9a91edaee35fc4eb50f1fe0cd30a98
+    last_write_checksum: sha1:346971bf3e2143e6cc40ea20dba1c8a8574330e4
+    pristine_git_object: ad1a06fe5ffe86f9ff079f816ea07f564ca95397
   docs/sdks/ipaddresses/README.md:
     id: be16ccaa04c0
     last_write_checksum: sha1:4ffe6e85703af0fb054088f057270aa03cfe4931
@@ -3086,8 +3086,8 @@ trackedFiles:
     pristine_git_object: 266aecc99c8bdd9f173c458c3b6e1ad9a2ac00fd
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:4b7ee901d3d09fa47a4a57f4f7474a7d7a9bc538
-    pristine_git_object: b609ed19ce9876893b2546d8705b872655a609f3
+    last_write_checksum: sha1:4eaf1294842a1397f23b8dd32bd4801ec6a514e3
+    pristine_git_object: b12b9af9c59dd47ede0c604fef9715a65f64b46e
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:4f11a99df8adbdfe311b44c3ab3bef29cfb4f66d
@@ -3174,8 +3174,8 @@ trackedFiles:
     pristine_git_object: 5e295cb91410a3e545af02d2e672eeec4b879027
   models/components/firewalldata.go:
     id: 64341b71aa6a
-    last_write_checksum: sha1:f0c37a2af8f14758abda133d8c8cca420caee45f
-    pristine_git_object: 9a15a575942977fb79101c697087e16baf7690f5
+    last_write_checksum: sha1:d4b5671df7fcb1b322b654b2b09bc3ae9a08cbc5
+    pristine_git_object: 8cc4165030e41b4d69bba49f248a679d7fceb977
   models/components/firewalls.go:
     id: 892115d77d2a
     last_write_checksum: sha1:268ce35646367356fc369119390252d2f345694c
@@ -3422,8 +3422,8 @@ trackedFiles:
     pristine_git_object: 2e8c1df7ed1745d25328efccd65a3dcf1d24ae45
   models/operations/createfirewall.go:
     id: b7c0b6be49d5
-    last_write_checksum: sha1:f240854a83226582d5a88627dc31158e27b43a0c
-    pristine_git_object: 16a22b85fc6ff18ab50d96a983438550db763127
+    last_write_checksum: sha1:b55400f232cc5ad776a87ffc35b715583efa96d1
+    pristine_git_object: 9bac73ebf5284734d07f5284f7604717f49826ad
   models/operations/createfirewallassignment.go:
     id: e6a31ff83d34
     last_write_checksum: sha1:b9c922d17a3203a5641769fb47f0c65c34e48510
@@ -3846,8 +3846,8 @@ trackedFiles:
     pristine_git_object: 29c9262e613656d01bfd3203c25f00b7c6a8fb58
   models/operations/updatefirewall.go:
     id: 279f058101b2
-    last_write_checksum: sha1:45ec2fe86753bbb6b78ed8bb809ed2ee7e4eae72
-    pristine_git_object: 81f7f3cd9dcc0d0d58ab4b61da478bb49a6a2510
+    last_write_checksum: sha1:5dd7eb661e83c4eaec35897a84e9157263a8b8d0
+    pristine_git_object: 1ea1af379ac2902b65398223ad80ad43e2bc0641
   models/operations/updateplansbandwidth.go:
     id: 27541e2776fa
     last_write_checksum: sha1:b6bb709d34e76eba359b0f6f12996f3305c74360
@@ -4146,8 +4146,8 @@ examples:
           application/vnd.api+json: {"errors": [{"code": "VALIDATION_ERROR", "status": "422", "title": "Validation Error", "detail": "must be filled", "meta": {}}, {"code": "VALIDATION_ERROR", "status": "422", "title": "Validation Error", "detail": "must be a string", "meta": {}}, {"code": "VALIDATION_ERROR", "status": "422", "title": "Validation Error", "detail": "is missing", "meta": {}}]}
     Created:
       requestBody:
-        application/json: {"data": {"type": "firewalls", "attributes": {"name": "my-firewall", "project": "heavy-duty-copper-watch", "rules": [{"from": "192.168.42.73", "to": "192.168.43.51", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.16", "to": "192.168.1.30", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.10", "to": "192.168.1.20", "protocol": "UDP", "port": "3000-4000"}]}}}
-        application/vnd.api+json: {"data": {"type": "firewalls", "attributes": {"name": "my-firewall", "project": "heavy-duty-copper-watch", "rules": [{"from": "192.168.42.73", "to": "192.168.43.51", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.16", "to": "192.168.1.30", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.10", "to": "192.168.1.20", "protocol": "UDP", "port": "3000-4000"}]}}}
+        application/json: {"data": {"type": "firewalls", "attributes": {"name": "my-firewall", "project": "heavy-duty-copper-watch", "rules": [{"from": "192.168.42.73", "to": "192.168.43.51", "protocol": "TCP", "port": "80", "description": "Allow HTTP traffic"}, {"from": "192.168.1.16", "to": "192.168.1.30", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.10", "to": "192.168.1.20", "protocol": "UDP", "port": "3000-4000", "description": "Application ports"}]}}}
+        application/vnd.api+json: {"data": {"type": "firewalls", "attributes": {"name": "my-firewall", "project": "heavy-duty-copper-watch", "rules": [{"from": "192.168.42.73", "to": "192.168.43.51", "protocol": "TCP", "port": "80", "description": "Allow HTTP traffic"}, {"from": "192.168.1.16", "to": "192.168.1.30", "protocol": "TCP", "port": "80"}, {"from": "192.168.1.10", "to": "192.168.1.20", "protocol": "UDP", "port": "3000-4000", "description": "Application ports"}]}}}
       responses:
         "201":
           application/vnd.api+json: {"data": {"id": "fw_w5AEmq7XDBkWX", "type": "firewalls", "attributes": {"name": "my-firewall", "rules": [{"from": "ANY", "to": "ANY", "port": "22", "protocol": "TCP"}, {"from": "192.168.42.73", "to": "192.168.43.51", "port": "80", "protocol": "TCP"}, {"from": "192.168.1.16", "to": "192.168.1.30", "port": "80", "protocol": "TCP"}, {"from": "192.168.1.10", "to": "192.168.1.20", "port": "3000-4000", "protocol": "UDP"}], "project": {"id": "proj_RLYV8DZ2D5QoE", "slug": "heavy-duty-copper-watch", "name": "Heavy Duty Copper Watch"}}}}
@@ -4192,8 +4192,8 @@ examples:
         path:
           firewall_id: "fw_r0MK4O4kDa95w"
       requestBody:
-        application/json: {"data": {"type": "firewalls", "attributes": {"name": "new-name", "rules": [{"from": "192.168.42.72", "to": "192.168.43.51", "protocol": "TCP", "port": "80"}]}}}
-        application/vnd.api+json: {"data": {"type": "firewalls", "attributes": {"name": "new-name", "rules": [{"from": "192.168.42.72", "to": "192.168.43.51", "protocol": "TCP", "port": "80"}]}}}
+        application/json: {"data": {"type": "firewalls", "attributes": {"name": "new-name", "rules": [{"from": "192.168.42.72", "to": "192.168.43.51", "protocol": "TCP", "port": "80", "description": "Allow HTTP"}]}}}
+        application/vnd.api+json: {"data": {"type": "firewalls", "attributes": {"name": "new-name", "rules": [{"from": "192.168.42.72", "to": "192.168.43.51", "protocol": "TCP", "port": "80", "description": "Allow HTTP"}]}}}
       responses:
         "200":
           application/vnd.api+json: {"data": {"id": "fw_r0MK4O4kDa95w", "type": "firewalls", "attributes": {"name": "new-name", "rules": [{"from": "192.168.42.72", "to": "192.168.43.51", "port": "80", "protocol": "TCP"}], "project": {"id": "proj_aKXgRdR3qv9k5", "slug": "rustic-wooden-clock", "name": "Rustic Wooden Clock"}}}}
@@ -6793,15 +6793,7 @@ examples:
           application/vnd.api+json: {"data": {"id": "tok_x1ZJrdx5qg4LV", "type": "api_keys", "attributes": {"name": "App Token", "api_version": "2023-06-01", "token_last_slice": "17b4c", "read_only": false, "allowed_ips": null, "last_used_at": null, "user": {"id": "user_3J8PY3vz8ahap5nLXYmws36rwRE", "email": "arnette@kutch.test"}, "created_at": "2026-01-14T15:56:30+00:00", "updated_at": "2026-01-14T15:56:30+00:00"}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Go SDK Changes:
-  * `Latitudesh.Plans.Vm.List()`:  `response.Data[].Attributes` **Changed** **Breaking** ⚠️
-  * `Latitudesh.Servers.List()`:  `response.Data[].Attributes` **Changed** **Breaking** ⚠️
-  * `Latitudesh.Servers.Create()`:  `response.Data.Attributes` **Changed** **Breaking** ⚠️
-  * `Latitudesh.Servers.Get()`:  `response.Data.Attributes` **Changed** **Breaking** ⚠️
-  * `Latitudesh.Servers.Update()`:  `response.Data.Attributes` **Changed** **Breaking** ⚠️
-  * `Latitudesh.Servers.Lock()`:  `response.Data.Attributes` **Changed** **Breaking** ⚠️
-  * `Latitudesh.Servers.Unlock()`:  `response.Data.Attributes` **Changed** **Breaking** ⚠️
+releaseNotes: "## Go SDK Changes:\n* `Latitudesh.Firewalls.List()`:  `response.Data[].Attributes.Rules[].Description` **Added**\n* `Latitudesh.Firewalls.Create()`: \n  *  `request.Request.Data.Attributes.Rules[].Description` **Added**\n  *  `response.Data.Attributes.Rules[].Description` **Added**\n* `Latitudesh.Firewalls.Get()`:  `response.Data.Attributes.Rules[].Description` **Added**\n* `Latitudesh.Firewalls.Update()`: \n  *  `request.RequestBody.Data.Attributes.Rules[].Description` **Added**\n  *  `response.Data.Attributes.Rules[].Description` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
