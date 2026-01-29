@@ -7,7 +7,7 @@
 
 ### Available Operations
 
-* [~~PostProjectSSHKey~~](#postprojectsshkey) - Create a Project SSH Key :warning: **Deprecated**
+* [~~PostProjectSSHKey~~](#postprojectsshkey) - Create SSH key :warning: **Deprecated**
 
 ## ~~PostProjectSSHKey~~
 

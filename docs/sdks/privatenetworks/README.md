@@ -4,13 +4,13 @@
 
 ### Available Operations
 
-* [List](#list) - List all Virtual Networks
-* [Create](#create) - Create a Virtual Network
-* [Update](#update) - Update a Virtual Network
-* [Get](#get) - Retrieve a Virtual Network
-* [ListAssignments](#listassignments) - List all servers assigned to virtual networks
-* [Assign](#assign) - Assign Virtual network
-* [DeleteAssignment](#deleteassignment) - Delete Virtual Network Assignment
+* [List](#list) - List VLANs
+* [Create](#create) - Create VLAN
+* [Update](#update) - Update VLAN
+* [Get](#get) - Retrieve VLAN
+* [ListAssignments](#listassignments) - List VLAN assignments
+* [Assign](#assign) - Assign VLAN
+* [DeleteAssignment](#deleteassignment) - Delete VLAN assignment
 
 ## List
 
@@ -335,7 +335,7 @@ func main() {
 
 ## Assign
 
-Assign Virtual network
+Assign VLAN
 
 ### Example Usage
 

@@ -4,18 +4,18 @@
 
 ### Available Operations
 
-* [GetAllFirewallAssignments](#getallfirewallassignments) - List All Firewall Assignments
+* [GetAllFirewallAssignments](#getallfirewallassignments) - List firewall assignments
 * [Create](#create) - Create a firewall
 * [List](#list) - List firewalls
-* [Get](#get) - Retrieve Firewall
-* [Update](#update) - Update Firewall
-* [Delete](#delete) - Delete Firewall
-* [ListAssignments](#listassignments) - Firewall Assignments
-* [DeleteAssignment](#deleteassignment) - Delete Firewall Assignment
+* [Get](#get) - Retrieve firewall
+* [Update](#update) - Update firewall
+* [Delete](#delete) - Delete firewall
+* [ListAssignments](#listassignments) - Firewall assignments
+* [DeleteAssignment](#deleteassignment) - Delete assignment
 
 ## GetAllFirewallAssignments
 
-List all firewall assignments
+Returns a list of all servers assigned to one or more firewalls.
 
 ### Example Usage
 
@@ -230,7 +230,7 @@ func main() {
 
 ## Get
 
-Retrieve a firewall
+Returns a single firewall by its ID.
 
 ### Example Usage
 
@@ -282,7 +282,7 @@ func main() {
 
 ## Update
 
-Update a firewall
+Updates a firewall by its ID.
 
 ### Example Usage
 
@@ -352,7 +352,7 @@ func main() {
 
 ## Delete
 
-Delete a firewall
+Delete firewall
 
 ### Example Usage
 
@@ -404,7 +404,7 @@ func main() {
 
 ## ListAssignments
 
-List servers assigned to a firewall
+Returns a list of all servers assigned to a particular firewall.
 
 ### Example Usage
 
@@ -470,7 +470,7 @@ func main() {
 
 ## DeleteAssignment
 
-Remove a server from a firewall
+Removes a server from a firewall by its ID.
 
 ### Example Usage
 

@@ -30,8 +30,8 @@ func newAPIKeys(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *h
 	}
 }
 
-// List API Keys
-// Returns a list of all API keys from the team members
+// List API keys
+// Returns a list of all API keys.
 func (s *APIKeys) List(ctx context.Context, opts ...operations.Option) (*operations.GetAPIKeysResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -236,7 +236,7 @@ func (s *APIKeys) List(ctx context.Context, opts ...operations.Option) (*operati
 
 }
 
-// Create API Key
+// Create API key
 // Create a new API Key that is tied to the current user account. The created API key is only listed ONCE upon creation. It can however be regenerated or deleted.
 func (s *APIKeys) Create(ctx context.Context, request components.CreateAPIKey, opts ...operations.Option) (*operations.PostAPIKeyResponse, error) {
 	o := operations.Options{}
@@ -449,7 +449,7 @@ func (s *APIKeys) Create(ctx context.Context, request components.CreateAPIKey, o
 
 }
 
-// Update - Rotate API Key
+// Update - Rotate API key
 // Rotate an existing API Key, generating a new token. This invalidates the previous key.
 // Use PATCH to update settings without rotating the token.
 func (s *APIKeys) Update(ctx context.Context, apiKeyID string, updateAPIKey components.UpdateAPIKey, opts ...operations.Option) (*operations.RotateAPIKeyResponse, error) {
@@ -668,7 +668,7 @@ func (s *APIKeys) Update(ctx context.Context, apiKeyID string, updateAPIKey comp
 
 }
 
-// Delete API Key
+// Delete API key
 // Delete an existing API Key. Once deleted, the API Key can no longer be used to access the API.
 func (s *APIKeys) Delete(ctx context.Context, apiKeyID string, opts ...operations.Option) (*operations.DeleteAPIKeyResponse, error) {
 	request := operations.DeleteAPIKeyRequest{
@@ -858,7 +858,7 @@ func (s *APIKeys) Delete(ctx context.Context, apiKeyID string, opts ...operation
 
 }
 
-// UpdateAPIKey - Update API Key Settings
+// UpdateAPIKey - Update API key settings
 // Update API Key settings (name, read_only, allowed_ips) without rotating the token.
 // Use PUT to rotate the token.
 func (s *APIKeys) UpdateAPIKey(ctx context.Context, apiKeyID string, updateAPIKey components.UpdateAPIKey, opts ...operations.Option) (*operations.UpdateAPIKeyResponse, error) {

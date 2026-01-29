@@ -30,7 +30,7 @@ func newUserData(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *
 	}
 }
 
-// GetProjectUsersData - List all Project User Data
+// GetProjectUsersData - List Project user data
 // List all Users Data in the project. These scripts can be used to configure servers with user data.
 //
 // Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -247,7 +247,7 @@ func (s *UserData) GetProjectUsersData(ctx context.Context, projectID string, ex
 
 }
 
-// GetProjectUserData - Retrieve a Project User Data
+// GetProjectUserData - Retrieve Project user data
 // Get User Data in the project. These scripts can be used to configure servers with user data.
 //
 // Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -465,7 +465,7 @@ func (s *UserData) GetProjectUserData(ctx context.Context, projectID string, use
 
 }
 
-// DeleteProjectUserData - Delete a Project User Data
+// DeleteProjectUserData - Delete Project user data
 // Allow you remove User Data in a project.
 //
 // Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -658,7 +658,7 @@ func (s *UserData) DeleteProjectUserData(ctx context.Context, projectID string, 
 
 }
 
-// Create a Project User Data
+// Create Project user data
 // Allows you to create User Data in a project, which can be used to perform custom setup on your servers after deploy and reinstall.
 //
 // Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -878,7 +878,7 @@ func (s *UserData) Create(ctx context.Context, projectID string, requestBody ope
 
 }
 
-// UpdateForProject - Update a Project User Data
+// UpdateForProject - Update Project user data
 // Allow you update User Data in a project.
 //
 // Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -1099,7 +1099,7 @@ func (s *UserData) UpdateForProject(ctx context.Context, projectID string, userD
 
 }
 
-// List all User Data
+// List user data
 // List all Users Data in the project. These scripts can be used to configure servers with user data.
 func (s *UserData) List(ctx context.Context, filterProject *string, filterScope *string, extraFieldsUserData *string, opts ...operations.Option) (*operations.GetUsersDataResponse, error) {
 	request := operations.GetUsersDataRequest{
@@ -1315,7 +1315,7 @@ func (s *UserData) List(ctx context.Context, filterProject *string, filterScope 
 
 }
 
-// CreateNew - Create an User Data
+// CreateNew - Create user data
 // Allows you to create User Data in a team, which can be used to perform custom setup on your servers after deploy and reinstall.
 func (s *UserData) CreateNew(ctx context.Context, request operations.PostUserDataUserDataRequestBody, opts ...operations.Option) (*operations.PostUserDataResponse, error) {
 	o := operations.Options{}
@@ -1528,7 +1528,7 @@ func (s *UserData) CreateNew(ctx context.Context, request operations.PostUserDat
 
 }
 
-// Retrieve an User Data
+// Retrieve user data
 // Get User Data in the project. These scripts can be used to configure servers with user data.
 func (s *UserData) Retrieve(ctx context.Context, userDataID string, extraFieldsUserData *string, opts ...operations.Option) (*operations.GetUserDataResponse, error) {
 	request := operations.GetUserDataRequest{
@@ -1743,7 +1743,7 @@ func (s *UserData) Retrieve(ctx context.Context, userDataID string, extraFieldsU
 
 }
 
-// Update an User Data
+// Update user data
 // Allow you update User Data in a team.
 func (s *UserData) Update(ctx context.Context, userDataID string, requestBody *operations.PatchUserDataUserDataRequestBody, opts ...operations.Option) (*operations.PatchUserDataResponse, error) {
 	request := operations.PatchUserDataRequest{
@@ -1961,7 +1961,7 @@ func (s *UserData) Update(ctx context.Context, userDataID string, requestBody *o
 
 }
 
-// Delete an User Data
+// Delete user data
 func (s *UserData) Delete(ctx context.Context, userDataID string, opts ...operations.Option) (*operations.DeleteUserDataResponse, error) {
 	request := operations.DeleteUserDataRequest{
 		UserDataID: userDataID,
