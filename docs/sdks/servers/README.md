@@ -4,23 +4,23 @@
 
 ### Available Operations
 
-* [List](#list) - List all Servers
-* [Create](#create) - Deploy Server
-* [Get](#get) - Retrieve a Server
-* [Update](#update) - Update Server
-* [Delete](#delete) - Remove Server
-* [GetDeployConfig](#getdeployconfig) - Retrieve Deploy Config
-* [UpdateDeployConfig](#updatedeployconfig) - Update Deploy Config
-* [Lock](#lock) - Lock the server
-* [Unlock](#unlock) - Unlock the server
-* [StartOutOfBandConnection](#startoutofbandconnection) - Start Out of Band Connection
-* [GetOutOfBand](#getoutofband) - List Out of Band Connections
-* [RunAction](#runaction) - Run Server Action
-* [CreateIpmiSession](#createipmisession) - Generate IPMI credentials
-* [StartRescueMode](#startrescuemode) - Puts a Server in rescue mode
-* [ExitRescueMode](#exitrescuemode) - Exits rescue mode for a Server
-* [ScheduleDeletion](#scheduledeletion) - Schedule the server deletion
-* [UnscheduleDeletion](#unscheduledeletion) - Unschedule the server deletion
+* [List](#list) - List servers
+* [Create](#create) - Create server
+* [Get](#get) - Retrieve server
+* [Update](#update) - Update server
+* [Delete](#delete) - Remove server
+* [GetDeployConfig](#getdeployconfig) - Retrieve deploy config
+* [UpdateDeployConfig](#updatedeployconfig) - Update deploy config
+* [Lock](#lock) - Lock server
+* [Unlock](#unlock) - Unlock server
+* [StartOutOfBandConnection](#startoutofbandconnection) - Create out-of-band connection
+* [GetOutOfBand](#getoutofband) - List out-of-band connections
+* [RunAction](#runaction) - Run power action
+* [CreateIpmiSession](#createipmisession) - Create IPMI credentials
+* [StartRescueMode](#startrescuemode) - Put server in rescue mode
+* [ExitRescueMode](#exitrescuemode) - Exits rescue mode
+* [ScheduleDeletion](#scheduledeletion) - Schedule server deletion
+* [UnscheduleDeletion](#unscheduledeletion) - Unschedule server deletion
 * [Reinstall](#reinstall) - Run Server Reinstall
 
 ## List
@@ -98,7 +98,7 @@ func main() {
 
 ## Create
 
-Deploy Server
+Create server
 
 ### Example Usage
 
@@ -216,7 +216,7 @@ func main() {
 
 ## Update
 
-Update Server
+Update server
 
 ### Example Usage
 
@@ -278,7 +278,7 @@ func main() {
 
 ## Delete
 
-Remove Server
+Remove server
 
 ### Example Usage
 
@@ -331,7 +331,7 @@ func main() {
 
 ## GetDeployConfig
 
-Retrieve Deploy Config
+Retrieve deploy config
 
 ### Example Usage
 
@@ -383,7 +383,7 @@ func main() {
 
 ## UpdateDeployConfig
 
-Update Deploy Config
+Update deploy config
 
 ### Example Usage
 
@@ -543,7 +543,7 @@ func main() {
 
 ## StartOutOfBandConnection
 
-Start Out of Band Connection
+Create out-of-band connection
 
 ### Example Usage
 
@@ -604,7 +604,7 @@ func main() {
 
 ## GetOutOfBand
 
-List Out of Band Connections
+List out-of-band connections
 
 ### Example Usage
 

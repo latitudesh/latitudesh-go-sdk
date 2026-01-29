@@ -31,7 +31,7 @@ func newPrivateNetworks(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, 
 	}
 }
 
-// List all Virtual Networks
+// List VLANs
 // Lists virtual networks assigned to a project
 func (s *PrivateNetworks) List(ctx context.Context, request operations.GetVirtualNetworksRequest, opts ...operations.Option) (*operations.GetVirtualNetworksResponse, error) {
 	o := operations.Options{}
@@ -291,7 +291,7 @@ func (s *PrivateNetworks) List(ctx context.Context, request operations.GetVirtua
 
 }
 
-// Create a Virtual Network
+// Create VLAN
 // Creates a new Virtual Network.
 func (s *PrivateNetworks) Create(ctx context.Context, request operations.CreateVirtualNetworkPrivateNetworksRequestBody, opts ...operations.Option) (*operations.CreateVirtualNetworkResponse, error) {
 	o := operations.Options{}
@@ -504,7 +504,7 @@ func (s *PrivateNetworks) Create(ctx context.Context, request operations.CreateV
 
 }
 
-// Update a Virtual Network
+// Update VLAN
 // Update a Virtual Network.
 func (s *PrivateNetworks) Update(ctx context.Context, vlanID string, requestBody operations.UpdateVirtualNetworkPrivateNetworksRequestBody, opts ...operations.Option) (*operations.UpdateVirtualNetworkResponse, error) {
 	request := operations.UpdateVirtualNetworkRequest{
@@ -722,7 +722,7 @@ func (s *PrivateNetworks) Update(ctx context.Context, vlanID string, requestBody
 
 }
 
-// Get - Retrieve a Virtual Network
+// Get - Retrieve VLAN
 // Retrieve a Virtual Network.
 func (s *PrivateNetworks) Get(ctx context.Context, vlanID string, opts ...operations.Option) (*operations.GetVirtualNetworkResponse, error) {
 	request := operations.GetVirtualNetworkRequest{
@@ -932,7 +932,7 @@ func (s *PrivateNetworks) Get(ctx context.Context, vlanID string, opts ...operat
 
 }
 
-// ListAssignments - List all servers assigned to virtual networks
+// ListAssignments - List VLAN assignments
 // Returns a list of all servers assigned to virtual networks.
 func (s *PrivateNetworks) ListAssignments(ctx context.Context, request operations.GetVirtualNetworksAssignmentsRequest, opts ...operations.Option) (*operations.GetVirtualNetworksAssignmentsResponse, error) {
 	o := operations.Options{}
@@ -1192,7 +1192,7 @@ func (s *PrivateNetworks) ListAssignments(ctx context.Context, request operation
 
 }
 
-// Assign Virtual network
+// Assign VLAN
 func (s *PrivateNetworks) Assign(ctx context.Context, request operations.AssignServerVirtualNetworkPrivateNetworksRequestBody, opts ...operations.Option) (*operations.AssignServerVirtualNetworkResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -1404,7 +1404,7 @@ func (s *PrivateNetworks) Assign(ctx context.Context, request operations.AssignS
 
 }
 
-// DeleteAssignment - Delete Virtual Network Assignment
+// DeleteAssignment - Delete VLAN assignment
 // Allow you to remove a Virtual Network assignment.
 func (s *PrivateNetworks) DeleteAssignment(ctx context.Context, assignmentID string, opts ...operations.Option) (*operations.DeleteVirtualNetworksAssignmentsResponse, error) {
 	request := operations.DeleteVirtualNetworksAssignmentsRequest{

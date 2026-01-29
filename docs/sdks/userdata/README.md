@@ -4,16 +4,16 @@
 
 ### Available Operations
 
-* [~~GetProjectUsersData~~](#getprojectusersdata) - List all Project User Data :warning: **Deprecated**
-* [~~GetProjectUserData~~](#getprojectuserdata) - Retrieve a Project User Data :warning: **Deprecated**
-* [~~DeleteProjectUserData~~](#deleteprojectuserdata) - Delete a Project User Data :warning: **Deprecated**
-* [~~Create~~](#create) - Create a Project User Data :warning: **Deprecated**
-* [~~UpdateForProject~~](#updateforproject) - Update a Project User Data :warning: **Deprecated**
-* [List](#list) - List all User Data
-* [CreateNew](#createnew) - Create an User Data
-* [Retrieve](#retrieve) - Retrieve an User Data
-* [Update](#update) - Update an User Data
-* [Delete](#delete) - Delete an User Data
+* [~~GetProjectUsersData~~](#getprojectusersdata) - List Project user data :warning: **Deprecated**
+* [~~GetProjectUserData~~](#getprojectuserdata) - Retrieve Project user data :warning: **Deprecated**
+* [~~DeleteProjectUserData~~](#deleteprojectuserdata) - Delete Project user data :warning: **Deprecated**
+* [~~Create~~](#create) - Create Project user data :warning: **Deprecated**
+* [~~UpdateForProject~~](#updateforproject) - Update Project user data :warning: **Deprecated**
+* [List](#list) - List user data
+* [CreateNew](#createnew) - Create user data
+* [Retrieve](#retrieve) - Retrieve user data
+* [Update](#update) - Update user data
+* [Delete](#delete) - Delete user data
 
 ## ~~GetProjectUsersData~~
 
@@ -552,7 +552,7 @@ func main() {
 
 ## Delete
 
-Delete an User Data
+Delete user data
 
 ### Example Usage
 

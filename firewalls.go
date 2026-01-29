@@ -34,8 +34,8 @@ func newFirewalls(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks 
 	}
 }
 
-// GetAllFirewallAssignments - List All Firewall Assignments
-// List all firewall assignments
+// GetAllFirewallAssignments - List firewall assignments
+// Returns a list of all servers assigned to one or more firewalls.
 func (s *Firewalls) GetAllFirewallAssignments(ctx context.Context, filterServer *string, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetAllFirewallAssignmentsResponse, error) {
 	request := operations.GetAllFirewallAssignmentsRequest{
 		FilterServer: filterServer,
@@ -771,8 +771,8 @@ func (s *Firewalls) List(ctx context.Context, filterProject *string, pageSize *i
 
 }
 
-// Get - Retrieve Firewall
-// Retrieve a firewall
+// Get - Retrieve firewall
+// Returns a single firewall by its ID.
 func (s *Firewalls) Get(ctx context.Context, firewallID string, opts ...operations.Option) (*operations.GetFirewallResponse, error) {
 	request := operations.GetFirewallRequest{
 		FirewallID: firewallID,
@@ -981,8 +981,8 @@ func (s *Firewalls) Get(ctx context.Context, firewallID string, opts ...operatio
 
 }
 
-// Update Firewall
-// Update a firewall
+// Update firewall
+// Updates a firewall by its ID.
 func (s *Firewalls) Update(ctx context.Context, firewallID string, requestBody operations.UpdateFirewallFirewallsRequestBody, opts ...operations.Option) (*operations.UpdateFirewallResponse, error) {
 	request := operations.UpdateFirewallRequest{
 		FirewallID:  firewallID,
@@ -1199,8 +1199,7 @@ func (s *Firewalls) Update(ctx context.Context, firewallID string, requestBody o
 
 }
 
-// Delete Firewall
-// Delete a firewall
+// Delete firewall
 func (s *Firewalls) Delete(ctx context.Context, firewallID string, opts ...operations.Option) (*operations.DeleteFirewallResponse, error) {
 	request := operations.DeleteFirewallRequest{
 		FirewallID: firewallID,
@@ -1389,8 +1388,8 @@ func (s *Firewalls) Delete(ctx context.Context, firewallID string, opts ...opera
 
 }
 
-// ListAssignments - Firewall Assignments
-// List servers assigned to a firewall
+// ListAssignments - Firewall assignments
+// Returns a list of all servers assigned to a particular firewall.
 func (s *Firewalls) ListAssignments(ctx context.Context, firewallID string, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetFirewallAssignmentsResponse, error) {
 	request := operations.GetFirewallAssignmentsRequest{
 		FirewallID: firewallID,
@@ -1651,8 +1650,8 @@ func (s *Firewalls) ListAssignments(ctx context.Context, firewallID string, page
 
 }
 
-// DeleteAssignment - Delete Firewall Assignment
-// Remove a server from a firewall
+// DeleteAssignment - Delete assignment
+// Removes a server from a firewall by its ID.
 func (s *Firewalls) DeleteAssignment(ctx context.Context, firewallID string, assignmentID string, opts ...operations.Option) (*operations.DeleteFirewallAssignmentResponse, error) {
 	request := operations.DeleteFirewallAssignmentRequest{
 		FirewallID:   firewallID,

@@ -30,7 +30,7 @@ func newVirtualMachines(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, 
 	}
 }
 
-// Create a Virtual Machine
+// Create VM
 // Creates a new Virtual Machine.
 func (s *VirtualMachines) Create(ctx context.Context, request components.VirtualMachinePayload, opts ...operations.Option) (*operations.CreateVirtualMachineResponse, error) {
 	o := operations.Options{}
@@ -243,7 +243,7 @@ func (s *VirtualMachines) Create(ctx context.Context, request components.Virtual
 
 }
 
-// List - Get Teams Virtual Machines
+// List VMs
 // Show all Team's Virtual Machines.
 func (s *VirtualMachines) List(ctx context.Context, filterProject *string, extraFieldsVirtualMachines *string, opts ...operations.Option) (*operations.IndexVirtualMachineResponse, error) {
 	request := operations.IndexVirtualMachineRequest{
@@ -438,7 +438,7 @@ func (s *VirtualMachines) List(ctx context.Context, filterProject *string, extra
 
 }
 
-// Get a Virtual Machine
+// Get - Retrieve VM
 // Show a Virtual Machine.
 func (s *VirtualMachines) Get(ctx context.Context, virtualMachineID string, opts ...operations.Option) (*operations.ShowVirtualMachineResponse, error) {
 	request := operations.ShowVirtualMachineRequest{
@@ -628,7 +628,7 @@ func (s *VirtualMachines) Get(ctx context.Context, virtualMachineID string, opts
 
 }
 
-// Delete - Destroy a Virtual Machine
+// Delete - Destroy VM
 // Destroys a Virtual Machine.
 func (s *VirtualMachines) Delete(ctx context.Context, virtualMachineID string, opts ...operations.Option) (*operations.DestroyVirtualMachineResponse, error) {
 	request := operations.DestroyVirtualMachineRequest{
@@ -818,7 +818,7 @@ func (s *VirtualMachines) Delete(ctx context.Context, virtualMachineID string, o
 
 }
 
-// CreateVirtualMachineAction - Run Virtual Machine Action
+// CreateVirtualMachineAction - Run VM power action
 // Performs a power action on a given virtual machine:
 // - `power_on` - Starts the virtual machine
 // - `power_off` - Stops the virtual machine

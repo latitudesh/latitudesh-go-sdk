@@ -30,7 +30,7 @@ func newVM(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *hooks.
 	}
 }
 
-// List all Virtual Machines Plans
+// List VM plans
 func (s *VM) List(ctx context.Context, filterGpu *bool, opts ...operations.Option) (*operations.GetVMPlansResponse, error) {
 	request := operations.GetVMPlansRequest{
 		FilterGpu: filterGpu,
