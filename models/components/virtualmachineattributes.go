@@ -166,6 +166,7 @@ type VirtualMachineAttributesAttributes struct {
 	Name            *string                         `json:"name,omitempty"`
 	CreatedAt       *string                         `json:"created_at,omitempty"`
 	Status          *VirtualMachineAttributesStatus `json:"status,omitempty"`
+	PrimaryIpv4     *string                         `json:"primary_ipv4,omitempty"`
 	OperatingSystem *string                         `json:"operating_system,omitempty"`
 	Credentials     *Credentials                    `json:"credentials,omitempty"`
 	Plan            *VirtualMachineAttributesPlan   `json:"plan,omitempty"`
@@ -193,6 +194,13 @@ func (v *VirtualMachineAttributesAttributes) GetStatus() *VirtualMachineAttribut
 		return nil
 	}
 	return v.Status
+}
+
+func (v *VirtualMachineAttributesAttributes) GetPrimaryIpv4() *string {
+	if v == nil {
+		return nil
+	}
+	return v.PrimaryIpv4
 }
 
 func (v *VirtualMachineAttributesAttributes) GetOperatingSystem() *string {

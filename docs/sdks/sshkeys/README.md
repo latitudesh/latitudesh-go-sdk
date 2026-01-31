@@ -4,15 +4,15 @@
 
 ### Available Operations
 
-* [~~List~~](#list) - List SSH keys :warning: **Deprecated**
-* [~~Get~~](#get) - Retrieve a Project SSH Key :warning: **Deprecated**
-* [~~ModifyProjectKey~~](#modifyprojectkey) - Update a Project SSH Key :warning: **Deprecated**
-* [~~RemoveFromProject~~](#removefromproject) - Delete a Project SSH Key :warning: **Deprecated**
-* [ListAll](#listall) - List all SSH Keys
-* [Create](#create) - Create a SSH Key
-* [Retrieve](#retrieve) - Retrieve a SSH Key
-* [Update](#update) - Update a SSH Key
-* [Delete](#delete) - Delete a SSH Key
+* [~~List~~](#list) - List SSH Keys :warning: **Deprecated**
+* [~~Get~~](#get) - Retrieve Project SSH Key :warning: **Deprecated**
+* [~~ModifyProjectKey~~](#modifyprojectkey) - Update Project SSH Key :warning: **Deprecated**
+* [~~RemoveFromProject~~](#removefromproject) - Delete Project SSH Key :warning: **Deprecated**
+* [ListAll](#listall) - List SSH Keys
+* [Create](#create) - Create SSH Key
+* [Retrieve](#retrieve) - Retrieve SSH Key
+* [Update](#update) - Update SSH Key
+* [Delete](#delete) - Delete SSH Key
 
 ## ~~List~~
 
