@@ -5,7 +5,7 @@
 ### Available Operations
 
 * [GetAllFirewallAssignments](#getallfirewallassignments) - List firewall assignments
-* [Create](#create) - Create a firewall
+* [Create](#create) - Create firewall
 * [List](#list) - List firewalls
 * [Get](#get) - Retrieve firewall
 * [Update](#update) - Update firewall

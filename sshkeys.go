@@ -30,7 +30,7 @@ func newSSHKeys(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *h
 	}
 }
 
-// List SSH keys
+// List SSH Keys
 // List all SSH Keys in the project. These keys can be used to access servers after deploy and reinstall actions.
 //
 // Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -247,7 +247,7 @@ func (s *SSHKeys) List(ctx context.Context, projectID string, filterTags *string
 
 }
 
-// Get - Retrieve a Project SSH Key
+// Get - Retrieve Project SSH Key
 // List all SSH Keys in the project. These keys can be used to access servers after deploy and reinstall actions.
 //
 // Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -460,7 +460,7 @@ func (s *SSHKeys) Get(ctx context.Context, projectID string, sshKeyID string, op
 
 }
 
-// ModifyProjectKey - Update a Project SSH Key
+// ModifyProjectKey - Update Project SSH Key
 // Allow you update SSH Key in a project. These keys can be used to access servers after deploy and reinstall actions.
 //
 // Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -681,7 +681,7 @@ func (s *SSHKeys) ModifyProjectKey(ctx context.Context, projectID string, sshKey
 
 }
 
-// RemoveFromProject - Delete a Project SSH Key
+// RemoveFromProject - Delete Project SSH Key
 // Allow you remove SSH Keys in a project. Remove a SSH Key from the project won't revoke the SSH Keys access for previously deploy and reinstall actions.
 //
 // Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -874,7 +874,7 @@ func (s *SSHKeys) RemoveFromProject(ctx context.Context, projectID string, sshKe
 
 }
 
-// ListAll - List all SSH Keys
+// ListAll - List SSH Keys
 // List all SSH Keys in the project. These keys can be used to access servers after deploy and reinstall actions.
 func (s *SSHKeys) ListAll(ctx context.Context, filterProject *string, filterScope *string, filterTags *string, opts ...operations.Option) (*operations.GetSSHKeysResponse, error) {
 	request := operations.GetSSHKeysRequest{
@@ -1090,7 +1090,7 @@ func (s *SSHKeys) ListAll(ctx context.Context, filterProject *string, filterScop
 
 }
 
-// Create a SSH Key
+// Create SSH Key
 // Allows you create SSH Keys. These keys can be used to access servers after deploy and reinstall actions.
 func (s *SSHKeys) Create(ctx context.Context, request operations.PostSSHKeySSHKeysRequestBody, opts ...operations.Option) (*operations.PostSSHKeyResponse, error) {
 	o := operations.Options{}
@@ -1303,7 +1303,7 @@ func (s *SSHKeys) Create(ctx context.Context, request operations.PostSSHKeySSHKe
 
 }
 
-// Retrieve a SSH Key
+// Retrieve SSH Key
 // List all SSH Keys in the project. These keys can be used to access servers after deploy and reinstall actions.
 func (s *SSHKeys) Retrieve(ctx context.Context, sshKeyID string, opts ...operations.Option) (*operations.GetSSHKeyResponse, error) {
 	request := operations.GetSSHKeyRequest{
@@ -1513,7 +1513,7 @@ func (s *SSHKeys) Retrieve(ctx context.Context, sshKeyID string, opts ...operati
 
 }
 
-// Update a SSH Key
+// Update SSH Key
 // Allows you update SSH Key in a project. These keys can be used to access servers after deploy and reinstall actions.
 func (s *SSHKeys) Update(ctx context.Context, sshKeyID string, requestBody operations.PutSSHKeySSHKeysRequestBody, opts ...operations.Option) (*operations.PutSSHKeyResponse, error) {
 	request := operations.PutSSHKeyRequest{
@@ -1731,7 +1731,7 @@ func (s *SSHKeys) Update(ctx context.Context, sshKeyID string, requestBody opera
 
 }
 
-// Delete a SSH Key
+// Delete SSH Key
 // Allows you remove SSH Keys in a project. Remove a SSH Key from the project won't revoke the SSH Keys access for previously deploy and reinstall actions.
 func (s *SSHKeys) Delete(ctx context.Context, sshKeyID string, opts ...operations.Option) (*operations.DeleteSSHKeyResponse, error) {
 	request := operations.DeleteSSHKeyRequest{
