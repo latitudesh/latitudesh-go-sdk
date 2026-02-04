@@ -8,6 +8,7 @@
 * [List](#list) - List VMs
 * [Get](#get) - Retrieve VM
 * [Delete](#delete) - Destroy VM
+* [UpdateVirtualMachine](#updatevirtualmachine) - Update VM
 * [CreateVirtualMachineAction](#createvirtualmachineaction) - Run VM power action
 
 ## Create
@@ -225,6 +226,69 @@ func main() {
 ### Response
 
 **[*operations.DestroyVirtualMachineResponse](../../models/operations/destroyvirtualmachineresponse.md), error**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
+
+## UpdateVirtualMachine
+
+Updates a Virtual Machine's display name (hostname).
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="update-virtual-machine" method="patch" path="/virtual_machines/{virtual_machine_id}" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.VirtualMachines.UpdateVirtualMachine(ctx, "vm_7vYAZqGBdMQ94", components.VirtualMachineUpdatePayload{
+        Data: components.VirtualMachineUpdatePayloadData{
+            Type: components.VirtualMachineUpdatePayloadTypeVirtualMachines,
+            ID: latitudeshgosdk.Pointer("vm_7vYAZqGBdMQ94"),
+            Attributes: components.VirtualMachineUpdatePayloadAttributes{
+                Name: "my-updated-vm",
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.VirtualMachine != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
+| `virtualMachineID`                                                                               | *string*                                                                                         | :heavy_check_mark:                                                                               | N/A                                                                                              |
+| `virtualMachineUpdatePayload`                                                                    | [components.VirtualMachineUpdatePayload](../../models/components/virtualmachineupdatepayload.md) | :heavy_check_mark:                                                                               | N/A                                                                                              |
+| `opts`                                                                                           | [][operations.Option](../../models/operations/option.md)                                         | :heavy_minus_sign:                                                                               | The options for this request.                                                                    |
+
+### Response
+
+**[*operations.UpdateVirtualMachineResponse](../../models/operations/updatevirtualmachineresponse.md), error**
 
 ### Errors
 

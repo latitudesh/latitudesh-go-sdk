@@ -122,6 +122,10 @@ func (t *Target) GetName() *string {
 	return t.Name
 }
 
+// Properties - Additional event-specific data
+type Properties struct {
+}
+
 type EventDataAttributes struct {
 	Action    *string           `json:"action,omitempty"`
 	CreatedAt *string           `json:"created_at,omitempty"`
@@ -129,6 +133,8 @@ type EventDataAttributes struct {
 	Project   *EventDataProject `json:"project,omitempty"`
 	Team      *EventDataTeam    `json:"team,omitempty"`
 	Target    *Target           `json:"target,omitempty"`
+	// Additional event-specific data
+	Properties *Properties `json:"properties,omitempty"`
 }
 
 func (e *EventDataAttributes) GetAction() *string {
@@ -171,6 +177,13 @@ func (e *EventDataAttributes) GetTarget() *Target {
 		return nil
 	}
 	return e.Target
+}
+
+func (e *EventDataAttributes) GetProperties() *Properties {
+	if e == nil {
+		return nil
+	}
+	return e.Properties
 }
 
 type EventData struct {
