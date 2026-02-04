@@ -37,6 +37,8 @@ type VirtualMachinePayloadAttributes struct {
 	Plan    *string  `json:"plan,omitempty"`
 	SSHKeys []string `json:"ssh_keys,omitempty"`
 	Project *string  `default:"my-project" json:"project"`
+	// The operating system slug for the Virtual Machine. Defaults to ubuntu_24_04_x64_lts if not specified.
+	OperatingSystem *string `json:"operating_system,omitempty"`
 }
 
 func (v VirtualMachinePayloadAttributes) MarshalJSON() ([]byte, error) {
@@ -76,6 +78,13 @@ func (v *VirtualMachinePayloadAttributes) GetProject() *string {
 		return nil
 	}
 	return v.Project
+}
+
+func (v *VirtualMachinePayloadAttributes) GetOperatingSystem() *string {
+	if v == nil {
+		return nil
+	}
+	return v.OperatingSystem
 }
 
 type VirtualMachinePayloadData struct {

@@ -136,7 +136,7 @@ func main() {
 ### [Firewalls](docs/sdks/firewalls/README.md)
 
 * [GetAllFirewallAssignments](docs/sdks/firewalls/README.md#getallfirewallassignments) - List firewall assignments
-* [Create](docs/sdks/firewalls/README.md#create) - Create a firewall
+* [Create](docs/sdks/firewalls/README.md#create) - Create firewall
 * [List](docs/sdks/firewalls/README.md#list) - List firewalls
 * [Get](docs/sdks/firewalls/README.md#get) - Retrieve firewall
 * [Update](docs/sdks/firewalls/README.md#update) - Update firewall
@@ -188,7 +188,7 @@ func main() {
 
 ### [~~Projects.SshKeys~~](docs/sdks/latitudeshprojectssshkeys/README.md)
 
-* [~~PostProjectSSHKey~~](docs/sdks/latitudeshprojectssshkeys/README.md#postprojectsshkey) - Create SSH key :warning: **Deprecated**
+* [~~PostProjectSSHKey~~](docs/sdks/latitudeshprojectssshkeys/README.md#postprojectsshkey) - Create SSH Key :warning: **Deprecated**
 
 ### [Regions](docs/sdks/regions/README.md)
 
@@ -223,15 +223,15 @@ func main() {
 
 ### [SSHKeys](docs/sdks/sshkeys/README.md)
 
-* [~~List~~](docs/sdks/sshkeys/README.md#list) - List SSH keys :warning: **Deprecated**
-* [~~Get~~](docs/sdks/sshkeys/README.md#get) - Retrieve a Project SSH Key :warning: **Deprecated**
-* [~~ModifyProjectKey~~](docs/sdks/sshkeys/README.md#modifyprojectkey) - Update a Project SSH Key :warning: **Deprecated**
-* [~~RemoveFromProject~~](docs/sdks/sshkeys/README.md#removefromproject) - Delete a Project SSH Key :warning: **Deprecated**
-* [ListAll](docs/sdks/sshkeys/README.md#listall) - List all SSH Keys
-* [Create](docs/sdks/sshkeys/README.md#create) - Create a SSH Key
-* [Retrieve](docs/sdks/sshkeys/README.md#retrieve) - Retrieve a SSH Key
-* [Update](docs/sdks/sshkeys/README.md#update) - Update a SSH Key
-* [Delete](docs/sdks/sshkeys/README.md#delete) - Delete a SSH Key
+* [~~List~~](docs/sdks/sshkeys/README.md#list) - List SSH Keys :warning: **Deprecated**
+* [~~Get~~](docs/sdks/sshkeys/README.md#get) - Retrieve Project SSH Key :warning: **Deprecated**
+* [~~ModifyProjectKey~~](docs/sdks/sshkeys/README.md#modifyprojectkey) - Update Project SSH Key :warning: **Deprecated**
+* [~~RemoveFromProject~~](docs/sdks/sshkeys/README.md#removefromproject) - Delete Project SSH Key :warning: **Deprecated**
+* [ListAll](docs/sdks/sshkeys/README.md#listall) - List SSH Keys
+* [Create](docs/sdks/sshkeys/README.md#create) - Create SSH Key
+* [Retrieve](docs/sdks/sshkeys/README.md#retrieve) - Retrieve SSH Key
+* [Update](docs/sdks/sshkeys/README.md#update) - Update SSH Key
+* [Delete](docs/sdks/sshkeys/README.md#delete) - Delete SSH Key
 
 ### [Storage](docs/sdks/storage/README.md)
 
@@ -297,6 +297,7 @@ func main() {
 * [List](docs/sdks/virtualmachines/README.md#list) - List VMs
 * [Get](docs/sdks/virtualmachines/README.md#get) - Retrieve VM
 * [Delete](docs/sdks/virtualmachines/README.md#delete) - Destroy VM
+* [UpdateVirtualMachine](docs/sdks/virtualmachines/README.md#updatevirtualmachine) - Update VM
 * [CreateVirtualMachineAction](docs/sdks/virtualmachines/README.md#createvirtualmachineaction) - Run VM power action
 
 ### [VirtualNetworks](docs/sdks/virtualnetworks/README.md)

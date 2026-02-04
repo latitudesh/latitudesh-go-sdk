@@ -296,7 +296,7 @@ func (s *Firewalls) GetAllFirewallAssignments(ctx context.Context, filterServer 
 
 }
 
-// Create a firewall
+// Create firewall
 // Create a firewall
 func (s *Firewalls) Create(ctx context.Context, request operations.CreateFirewallFirewallsRequestBody, opts ...operations.Option) (*operations.CreateFirewallResponse, error) {
 	o := operations.Options{}
