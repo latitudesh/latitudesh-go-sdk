@@ -13,7 +13,7 @@ Returns the billing usage of a project
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="get-billing-usage" method="get" path="/billing/usage" -->
+<!-- UsageSnippet language="go" operationID="get-billing-usage" method="get" path="/billing/usage" example="Success" -->
 ```go
 package main
 

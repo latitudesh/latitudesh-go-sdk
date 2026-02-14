@@ -15,7 +15,7 @@ Lists all [available locations](https://latitude.sh/locations). For server avail
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="get-regions" method="get" path="/regions" -->
+<!-- UsageSnippet language="go" operationID="get-regions" method="get" path="/regions" example="Success" -->
 ```go
 package main
 
@@ -80,7 +80,7 @@ Retrieve region
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="get-region" method="get" path="/regions/{region_id}" -->
+<!-- UsageSnippet language="go" operationID="get-region" method="get" path="/regions/{region_id}" example="Success" -->
 ```go
 package main
 
