@@ -16,9 +16,47 @@ Allow you create SSH Keys in a project. These keys can be used to access servers
 
 > :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
-### Example Usage
+### Example Usage: Bad Request
 
-<!-- UsageSnippet language="go" operationID="post-project-ssh-key" method="post" path="/projects/{project_id}/ssh_keys" -->
+<!-- UsageSnippet language="go" operationID="post-project-ssh-key" method="post" path="/projects/{project_id}/ssh_keys" example="Bad Request" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Projects.SSHKeys.PostProjectSSHKey(ctx, "proj_GnzRD5GYdM5yw", operations.PostProjectSSHKeyProjectsSSHKeysRequestBody{
+        Data: operations.PostProjectSSHKeyProjectsSSHKeysData{
+            Type: operations.PostProjectSSHKeyProjectsSSHKeysTypeSSHKeys,
+            Attributes: &operations.PostProjectSSHKeyProjectsSSHKeysAttributes{
+                Name: latitudeshgosdk.Pointer("SSH Key"),
+                PublicKey: latitudeshgosdk.Pointer("ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx"),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Created
+
+<!-- UsageSnippet language="go" operationID="post-project-ssh-key" method="post" path="/projects/{project_id}/ssh_keys" example="Created" -->
 ```go
 package main
 
@@ -43,6 +81,44 @@ func main() {
             Attributes: &operations.PostProjectSSHKeyProjectsSSHKeysAttributes{
                 Name: latitudeshgosdk.Pointer("SSH Key"),
                 PublicKey: latitudeshgosdk.Pointer("ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx"),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Unprocessable Entity
+
+<!-- UsageSnippet language="go" operationID="post-project-ssh-key" method="post" path="/projects/{project_id}/ssh_keys" example="Unprocessable Entity" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Projects.SSHKeys.PostProjectSSHKey(ctx, "proj_KXgRdRMKOv9k5", operations.PostProjectSSHKeyProjectsSSHKeysRequestBody{
+        Data: operations.PostProjectSSHKeyProjectsSSHKeysData{
+            Type: operations.PostProjectSSHKeyProjectsSSHKeysTypeSSHKeys,
+            Attributes: &operations.PostProjectSSHKeyProjectsSSHKeysAttributes{
+                Name: latitudeshgosdk.Pointer("<value>"),
+                PublicKey: latitudeshgosdk.Pointer("1234"),
             },
         },
     })

@@ -22,9 +22,38 @@ List all Users Data in the project. These scripts can be used to configure serve
 
 > :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
-### Example Usage
+### Example Usage: Not Found
 
-<!-- UsageSnippet language="go" operationID="get-project-users-data" method="get" path="/projects/{project_id}/user_data" -->
+<!-- UsageSnippet language="go" operationID="get-project-users-data" method="get" path="/projects/{project_id}/user_data" example="Not Found" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.UserData.GetProjectUsersData(ctx, "123", latitudeshgosdk.Pointer("decoded_content"))
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.UserData != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Success
+
+<!-- UsageSnippet language="go" operationID="get-project-users-data" method="get" path="/projects/{project_id}/user_data" example="Success" -->
 ```go
 package main
 
@@ -78,9 +107,38 @@ Get User Data in the project. These scripts can be used to configure servers wit
 
 > :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
-### Example Usage
+### Example Usage: Not Found
 
-<!-- UsageSnippet language="go" operationID="get-project-user-data" method="get" path="/projects/{project_id}/user_data/{user_data_id}" -->
+<!-- UsageSnippet language="go" operationID="get-project-user-data" method="get" path="/projects/{project_id}/user_data/{user_data_id}" example="Not Found" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.UserData.GetProjectUserData(ctx, "123", "123", latitudeshgosdk.Pointer("decoded_content"))
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.UserDataObject != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Success
+
+<!-- UsageSnippet language="go" operationID="get-project-user-data" method="get" path="/projects/{project_id}/user_data/{user_data_id}" example="Success" -->
 ```go
 package main
 
@@ -191,9 +249,47 @@ Allows you to create User Data in a project, which can be used to perform custom
 
 > :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
-### Example Usage
+### Example Usage: Bad Request
 
-<!-- UsageSnippet language="go" operationID="post-project-user-data" method="post" path="/projects/{project_id}/user_data" -->
+<!-- UsageSnippet language="go" operationID="post-project-user-data" method="post" path="/projects/{project_id}/user_data" example="Bad Request" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.UserData.Create(ctx, "proj_v9BVDap8qRm1W", operations.PostProjectUserDataUserDataRequestBody{
+        Data: operations.PostProjectUserDataUserDataData{
+            Type: operations.PostProjectUserDataUserDataTypeUserData,
+            Attributes: &operations.PostProjectUserDataUserDataAttributes{
+                Description: "User Data description",
+                Content: "User Data base64 encoded content",
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.UserDataObject != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Created
+
+<!-- UsageSnippet language="go" operationID="post-project-user-data" method="post" path="/projects/{project_id}/user_data" example="Created" -->
 ```go
 package main
 
@@ -217,6 +313,158 @@ func main() {
             Type: operations.PostProjectUserDataUserDataTypeUserData,
             Attributes: &operations.PostProjectUserDataUserDataAttributes{
                 Description: "User Data description",
+                Content: "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd",
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.UserDataObject != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Not Found
+
+<!-- UsageSnippet language="go" operationID="post-project-user-data" method="post" path="/projects/{project_id}/user_data" example="Not Found" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.UserData.Create(ctx, "123", operations.PostProjectUserDataUserDataRequestBody{
+        Data: operations.PostProjectUserDataUserDataData{
+            Type: operations.PostProjectUserDataUserDataTypeUserData,
+            Attributes: &operations.PostProjectUserDataUserDataAttributes{
+                Description: "User Data description",
+                Content: "#cloud-config\\nruncmd:\\n - [ touch,  /home/ubuntu/test ]",
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.UserDataObject != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: when content is not base64 encoded
+
+<!-- UsageSnippet language="go" operationID="post-project-user-data" method="post" path="/projects/{project_id}/user_data" example="when content is not base64 encoded" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.UserData.Create(ctx, "proj_LYV8DZK3O5QoE", operations.PostProjectUserDataUserDataRequestBody{
+        Data: operations.PostProjectUserDataUserDataData{
+            Type: operations.PostProjectUserDataUserDataTypeUserData,
+            Attributes: &operations.PostProjectUserDataUserDataAttributes{
+                Description: "User Data description",
+                Content: "I am not base64 encoded",
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.UserDataObject != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: when content is not present
+
+<!-- UsageSnippet language="go" operationID="post-project-user-data" method="post" path="/projects/{project_id}/user_data" example="when content is not present" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.UserData.Create(ctx, "proj_LA73qkVodaJ2o", operations.PostProjectUserDataUserDataRequestBody{
+        Data: operations.PostProjectUserDataUserDataData{
+            Type: operations.PostProjectUserDataUserDataTypeUserData,
+            Attributes: &operations.PostProjectUserDataUserDataAttributes{
+                Description: "User Data description",
+                Content: "<value>",
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.UserDataObject != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: when description is not present
+
+<!-- UsageSnippet language="go" operationID="post-project-user-data" method="post" path="/projects/{project_id}/user_data" example="when description is not present" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.UserData.Create(ctx, "proj_pbV0Dgbzq4AWz", operations.PostProjectUserDataUserDataRequestBody{
+        Data: operations.PostProjectUserDataUserDataData{
+            Type: operations.PostProjectUserDataUserDataTypeUserData,
+            Attributes: &operations.PostProjectUserDataUserDataAttributes{
+                Description: "duh drat ick fabricate from yum hovel",
                 Content: "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd",
             },
         },
@@ -256,9 +504,200 @@ Allow you update User Data in a project.
 
 > :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
-### Example Usage
+### Example Usage: Bad Request
 
-<!-- UsageSnippet language="go" operationID="put-project-user-data" method="patch" path="/projects/{project_id}/user_data/{user_data_id}" -->
+<!-- UsageSnippet language="go" operationID="put-project-user-data" method="patch" path="/projects/{project_id}/user_data/{user_data_id}" example="Bad Request" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.UserData.UpdateForProject(ctx, "proj_lxWpD62zDm6rk", "ud_pwg3ZDr3O5QlP", &operations.PutProjectUserDataUserDataRequestBody{
+        Data: operations.PutProjectUserDataUserDataData{
+            ID: "ud_pwg3ZDr3O5QlP",
+            Type: operations.PutProjectUserDataUserDataTypeUserData,
+            Attributes: &operations.PutProjectUserDataUserDataAttributes{
+                Content: latitudeshgosdk.Pointer("New User Data content"),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.UserDataObject != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Not Found
+
+<!-- UsageSnippet language="go" operationID="put-project-user-data" method="patch" path="/projects/{project_id}/user_data/{user_data_id}" example="Not Found" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.UserData.UpdateForProject(ctx, "proj_695BdKNeOevVo", "invalid", &operations.PutProjectUserDataUserDataRequestBody{
+        Data: operations.PutProjectUserDataUserDataData{
+            ID: "invalid",
+            Type: operations.PutProjectUserDataUserDataTypeUserData,
+            Attributes: &operations.PutProjectUserDataUserDataAttributes{
+                Content: latitudeshgosdk.Pointer("New User Content"),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.UserDataObject != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: when both content and description are present
+
+<!-- UsageSnippet language="go" operationID="put-project-user-data" method="patch" path="/projects/{project_id}/user_data/{user_data_id}" example="when both content and description are present" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.UserData.UpdateForProject(ctx, "proj_8NkvdyPXOeLpx", "ud_Qk0Ryqv1dW36X", &operations.PutProjectUserDataUserDataRequestBody{
+        Data: operations.PutProjectUserDataUserDataData{
+            ID: "ud_Qk0Ryqv1dW36X",
+            Type: operations.PutProjectUserDataUserDataTypeUserData,
+            Attributes: &operations.PutProjectUserDataUserDataAttributes{
+                Description: latitudeshgosdk.Pointer("New Name"),
+                Content: latitudeshgosdk.Pointer("I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.UserDataObject != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: when content is not present
+
+<!-- UsageSnippet language="go" operationID="put-project-user-data" method="patch" path="/projects/{project_id}/user_data/{user_data_id}" example="when content is not present" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.UserData.UpdateForProject(ctx, "proj_k0Ryqv2RqW36X", "ud_m1R3zq2bqWxyn", &operations.PutProjectUserDataUserDataRequestBody{
+        Data: operations.PutProjectUserDataUserDataData{
+            ID: "ud_m1R3zq2bqWxyn",
+            Type: operations.PutProjectUserDataUserDataTypeUserData,
+            Attributes: &operations.PutProjectUserDataUserDataAttributes{
+                Content: latitudeshgosdk.Pointer("<value>"),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.UserDataObject != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: when description is not present
+
+<!-- UsageSnippet language="go" operationID="put-project-user-data" method="patch" path="/projects/{project_id}/user_data/{user_data_id}" example="when description is not present" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.UserData.UpdateForProject(ctx, "proj_yQrJdNm5O30gv", "ud_aKXgRdR3qv9k5", &operations.PutProjectUserDataUserDataRequestBody{
+        Data: operations.PutProjectUserDataUserDataData{
+            ID: "ud_aKXgRdR3qv9k5",
+            Type: operations.PutProjectUserDataUserDataTypeUserData,
+            Attributes: &operations.PutProjectUserDataUserDataAttributes{
+                Description: latitudeshgosdk.Pointer("toaster petal creative flame"),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.UserDataObject != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: when only content is present
+
+<!-- UsageSnippet language="go" operationID="put-project-user-data" method="patch" path="/projects/{project_id}/user_data/{user_data_id}" example="when only content is present" -->
 ```go
 package main
 
@@ -283,6 +722,44 @@ func main() {
             Type: operations.PutProjectUserDataUserDataTypeUserData,
             Attributes: &operations.PutProjectUserDataUserDataAttributes{
                 Content: latitudeshgosdk.Pointer("I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.UserDataObject != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: when only description is present
+
+<!-- UsageSnippet language="go" operationID="put-project-user-data" method="patch" path="/projects/{project_id}/user_data/{user_data_id}" example="when only description is present" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.UserData.UpdateForProject(ctx, "proj_QraYDPA3OpjwW", "ud_byQrJdNJd30gv", &operations.PutProjectUserDataUserDataRequestBody{
+        Data: operations.PutProjectUserDataUserDataData{
+            ID: "ud_byQrJdNJd30gv",
+            Type: operations.PutProjectUserDataUserDataTypeUserData,
+            Attributes: &operations.PutProjectUserDataUserDataAttributes{
+                Description: latitudeshgosdk.Pointer("New Name"),
             },
         },
     })
@@ -322,7 +799,7 @@ List all Users Data in the project. These scripts can be used to configure serve
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="get-users-data" method="get" path="/user_data" -->
+<!-- UsageSnippet language="go" operationID="get-users-data" method="get" path="/user_data" example="Success" -->
 ```go
 package main
 
@@ -377,7 +854,7 @@ Allows you to create User Data in a team, which can be used to perform custom se
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="post-user-data" method="post" path="/user_data" -->
+<!-- UsageSnippet language="go" operationID="post-user-data" method="post" path="/user_data" example="Created" -->
 ```go
 package main
 
@@ -438,9 +915,38 @@ func main() {
 Get User Data in the project. These scripts can be used to configure servers with user data.
 
 
-### Example Usage
+### Example Usage: Not Found
 
-<!-- UsageSnippet language="go" operationID="get-user-data" method="get" path="/user_data/{user_data_id}" -->
+<!-- UsageSnippet language="go" operationID="get-user-data" method="get" path="/user_data/{user_data_id}" example="Not Found" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.UserData.Retrieve(ctx, "123", latitudeshgosdk.Pointer("decoded_content"))
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.UserDataObject != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Success
+
+<!-- UsageSnippet language="go" operationID="get-user-data" method="get" path="/user_data/{user_data_id}" example="Success" -->
 ```go
 package main
 
@@ -492,9 +998,48 @@ func main() {
 Allow you update User Data in a team.
 
 
-### Example Usage
+### Example Usage: when both content and description are present
 
-<!-- UsageSnippet language="go" operationID="patch-user-data" method="patch" path="/user_data/{user_data_id}" -->
+<!-- UsageSnippet language="go" operationID="patch-user-data" method="patch" path="/user_data/{user_data_id}" example="when both content and description are present" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.UserData.Update(ctx, "ud_lpbV0DgRq4AWz", &operations.PatchUserDataUserDataRequestBody{
+        Data: operations.PatchUserDataUserDataData{
+            ID: "ud_lpbV0DgRq4AWz",
+            Type: operations.PatchUserDataUserDataTypeUserData,
+            Attributes: &operations.PatchUserDataUserDataAttributes{
+                Description: latitudeshgosdk.Pointer("New Name"),
+                Content: latitudeshgosdk.Pointer("I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.UserDataObject != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: when only content is present
+
+<!-- UsageSnippet language="go" operationID="patch-user-data" method="patch" path="/user_data/{user_data_id}" example="when only content is present" -->
 ```go
 package main
 
@@ -519,6 +1064,44 @@ func main() {
             Type: operations.PatchUserDataUserDataTypeUserData,
             Attributes: &operations.PatchUserDataUserDataAttributes{
                 Content: latitudeshgosdk.Pointer("I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.UserDataObject != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: when only description is present
+
+<!-- UsageSnippet language="go" operationID="patch-user-data" method="patch" path="/user_data/{user_data_id}" example="when only description is present" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.UserData.Update(ctx, "ud_5LA73qkjdaJ2o", &operations.PatchUserDataUserDataRequestBody{
+        Data: operations.PatchUserDataUserDataData{
+            ID: "ud_5LA73qkjdaJ2o",
+            Type: operations.PatchUserDataUserDataTypeUserData,
+            Attributes: &operations.PatchUserDataUserDataAttributes{
+                Description: latitudeshgosdk.Pointer("New Name"),
             },
         },
     })

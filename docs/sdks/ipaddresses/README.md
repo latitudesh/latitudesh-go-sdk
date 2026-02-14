@@ -15,9 +15,139 @@ List all Management and Additional IP Addresses.
  • Additional IPs are individual IPs that can be added to a device as an additional IP that can be used.
 
 
-### Example Usage
+### Example Usage: Success
 
-<!-- UsageSnippet language="go" operationID="get-ips" method="get" path="/ips" -->
+<!-- UsageSnippet language="go" operationID="get-ips" method="get" path="/ips" example="Success" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.IPAddresses.List(ctx, operations.GetIpsRequest{})
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.IPAddresses != nil {
+        for {
+            // handle items
+
+            res, err = res.Next()
+
+            if err != nil {
+                // handle error
+            }
+
+            if res == nil {
+                break
+            }
+        }
+    }
+}
+```
+### Example Usage: when a project ID filter is provided 
+
+<!-- UsageSnippet language="go" operationID="get-ips" method="get" path="/ips" example="when a project ID filter is provided " -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.IPAddresses.List(ctx, operations.GetIpsRequest{
+        FilterProject: latitudeshgosdk.Pointer("59"),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.IPAddresses != nil {
+        for {
+            // handle items
+
+            res, err = res.Next()
+
+            if err != nil {
+                // handle error
+            }
+
+            if res == nil {
+                break
+            }
+        }
+    }
+}
+```
+### Example Usage: when filtering by a server that does not have assigned IPs
+
+<!-- UsageSnippet language="go" operationID="get-ips" method="get" path="/ips" example="when filtering by a server that does not have assigned IPs" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.IPAddresses.List(ctx, operations.GetIpsRequest{
+        FilterServer: latitudeshgosdk.Pointer("sv_LMmAD8pEDwop2"),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.IPAddresses != nil {
+        for {
+            // handle items
+
+            res, err = res.Next()
+
+            if err != nil {
+                // handle error
+            }
+
+            if res == nil {
+                break
+            }
+        }
+    }
+}
+```
+### Example Usage: when filtering by a server that has assigned IPs
+
+<!-- UsageSnippet language="go" operationID="get-ips" method="get" path="/ips" example="when filtering by a server that has assigned IPs" -->
 ```go
 package main
 
@@ -38,8 +168,93 @@ func main() {
 
     res, err := s.IPAddresses.List(ctx, operations.GetIpsRequest{
         FilterServer: latitudeshgosdk.Pointer("46"),
-        FilterProject: latitudeshgosdk.Pointer("64"),
     })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.IPAddresses != nil {
+        for {
+            // handle items
+
+            res, err = res.Next()
+
+            if err != nil {
+                // handle error
+            }
+
+            if res == nil {
+                break
+            }
+        }
+    }
+}
+```
+### Example Usage: when there are no IPs matching the project filter
+
+<!-- UsageSnippet language="go" operationID="get-ips" method="get" path="/ips" example="when there are no IPs matching the project filter" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.IPAddresses.List(ctx, operations.GetIpsRequest{
+        FilterProject: latitudeshgosdk.Pointer("63"),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.IPAddresses != nil {
+        for {
+            // handle items
+
+            res, err = res.Next()
+
+            if err != nil {
+                // handle error
+            }
+
+            if res == nil {
+                break
+            }
+        }
+    }
+}
+```
+### Example Usage: without filters
+
+<!-- UsageSnippet language="go" operationID="get-ips" method="get" path="/ips" example="without filters" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.IPAddresses.List(ctx, operations.GetIpsRequest{})
     if err != nil {
         log.Fatal(err)
     }
@@ -85,7 +300,7 @@ Retrieve an IP Address
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="get-ip" method="get" path="/ips/{ip_id}" -->
+<!-- UsageSnippet language="go" operationID="get-ip" method="get" path="/ips/{ip_id}" example="when basic GET" -->
 ```go
 package main
 

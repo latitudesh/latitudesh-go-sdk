@@ -12,7 +12,7 @@ List members
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="get-team-members" method="get" path="/team/members" -->
+<!-- UsageSnippet language="go" operationID="get-team-members" method="get" path="/team/members" example="Success" -->
 ```go
 package main
 

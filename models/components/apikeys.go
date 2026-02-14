@@ -2,8 +2,12 @@
 
 package components
 
+type Meta struct {
+}
+
 type APIKeys struct {
 	Data []APIKey `json:"data,omitempty"`
+	Meta *Meta    `json:"meta,omitempty"`
 }
 
 func (a *APIKeys) GetData() []APIKey {
@@ -11,4 +15,11 @@ func (a *APIKeys) GetData() []APIKey {
 		return nil
 	}
 	return a.Data
+}
+
+func (a *APIKeys) GetMeta() *Meta {
+	if a == nil {
+		return nil
+	}
+	return a.Meta
 }
