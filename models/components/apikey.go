@@ -57,6 +57,8 @@ type Attributes struct {
 	Name *string `json:"name,omitempty"`
 	// The API version associated with this API Key
 	APIVersion *string `json:"api_version,omitempty"`
+	// The full token (only returned on create or rotate)
+	Token *string `json:"token,omitempty"`
 	// The last 5 characters of the token created for this API Key
 	TokenLastSlice *string `json:"token_last_slice,omitempty"`
 	// Whether this API Key is read-only
@@ -96,6 +98,13 @@ func (a *Attributes) GetAPIVersion() *string {
 		return nil
 	}
 	return a.APIVersion
+}
+
+func (a *Attributes) GetToken() *string {
+	if a == nil {
+		return nil
+	}
+	return a.Token
 }
 
 func (a *Attributes) GetTokenLastSlice() *string {

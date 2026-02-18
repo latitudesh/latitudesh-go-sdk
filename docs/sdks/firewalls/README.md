@@ -19,7 +19,7 @@ Returns a list of all servers assigned to one or more firewalls.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="get-all-firewall-assignments" method="get" path="/firewalls/assignments" -->
+<!-- UsageSnippet language="go" operationID="get-all-firewall-assignments" method="get" path="/firewalls/assignments" example="Success" -->
 ```go
 package main
 
@@ -83,9 +83,9 @@ func main() {
 
 Create a firewall
 
-### Example Usage
+### Example Usage: Created
 
-<!-- UsageSnippet language="go" operationID="create-firewall" method="post" path="/firewalls" -->
+<!-- UsageSnippet language="go" operationID="create-firewall" method="post" path="/firewalls" example="Created" -->
 ```go
 package main
 
@@ -143,6 +143,102 @@ func main() {
     }
 }
 ```
+### Example Usage: with invalid parameters
+
+<!-- UsageSnippet language="go" operationID="create-firewall" method="post" path="/firewalls" example="with invalid parameters" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Firewalls.Create(ctx, operations.CreateFirewallFirewallsRequestBody{
+        Data: operations.CreateFirewallData{
+            Type: operations.CreateFirewallTypeFirewalls,
+            Attributes: &operations.CreateFirewallAttributes{
+                Name: "<value>",
+                Project: "<value>",
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Firewall != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: with valid parameters
+
+<!-- UsageSnippet language="go" operationID="create-firewall" method="post" path="/firewalls" example="with valid parameters" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Firewalls.Create(ctx, operations.CreateFirewallFirewallsRequestBody{
+        Data: operations.CreateFirewallData{
+            Type: operations.CreateFirewallTypeFirewalls,
+            Attributes: &operations.CreateFirewallAttributes{
+                Name: "my-firewall",
+                Project: "sleek-steel-shirt",
+                Rules: []operations.CreateFirewallRules{
+                    operations.CreateFirewallRules{
+                        From: latitudeshgosdk.Pointer("192.168.42.72"),
+                        To: latitudeshgosdk.Pointer("192.168.43.51"),
+                        Protocol: operations.CreateFirewallProtocolTCP.ToPointer(),
+                        Port: latitudeshgosdk.Pointer("80"),
+                    },
+                    operations.CreateFirewallRules{
+                        From: latitudeshgosdk.Pointer("192.168.1.16"),
+                        To: latitudeshgosdk.Pointer("192.168.1.30"),
+                        Protocol: operations.CreateFirewallProtocolTCP.ToPointer(),
+                        Port: latitudeshgosdk.Pointer("80"),
+                    },
+                    operations.CreateFirewallRules{
+                        From: latitudeshgosdk.Pointer("192.168.1.10"),
+                        To: latitudeshgosdk.Pointer("192.168.1.20"),
+                        Protocol: operations.CreateFirewallProtocolUDP.ToPointer(),
+                        Port: latitudeshgosdk.Pointer("3000-4000"),
+                    },
+                },
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Firewall != nil {
+        // handle response
+    }
+}
+```
 
 ### Parameters
 
@@ -168,7 +264,7 @@ List firewalls
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="list-firewalls" method="get" path="/firewalls" -->
+<!-- UsageSnippet language="go" operationID="list-firewalls" method="get" path="/firewalls" example="Success" -->
 ```go
 package main
 
@@ -234,7 +330,7 @@ Returns a single firewall by its ID.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="get-firewall" method="get" path="/firewalls/{firewall_id}" -->
+<!-- UsageSnippet language="go" operationID="get-firewall" method="get" path="/firewalls/{firewall_id}" example="Success" -->
 ```go
 package main
 
@@ -284,9 +380,43 @@ func main() {
 
 Updates a firewall by its ID.
 
-### Example Usage
+### Example Usage: Not Found
 
-<!-- UsageSnippet language="go" operationID="update-firewall" method="patch" path="/firewalls/{firewall_id}" -->
+<!-- UsageSnippet language="go" operationID="update-firewall" method="patch" path="/firewalls/{firewall_id}" example="Not Found" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Firewalls.Update(ctx, "fw_123", operations.UpdateFirewallFirewallsRequestBody{
+        Data: operations.UpdateFirewallFirewallsData{
+            Type: operations.UpdateFirewallFirewallsTypeFirewalls,
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Firewall != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Success
+
+<!-- UsageSnippet language="go" operationID="update-firewall" method="patch" path="/firewalls/{firewall_id}" example="Success" -->
 ```go
 package main
 
@@ -319,6 +449,43 @@ func main() {
                         Description: latitudeshgosdk.Pointer("Allow HTTP"),
                     },
                 },
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Firewall != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Unprocessable Entity
+
+<!-- UsageSnippet language="go" operationID="update-firewall" method="patch" path="/firewalls/{firewall_id}" example="Unprocessable Entity" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Firewalls.Update(ctx, "fw_VaNmodjeObE8W", operations.UpdateFirewallFirewallsRequestBody{
+        Data: operations.UpdateFirewallFirewallsData{
+            Type: operations.UpdateFirewallFirewallsTypeFirewalls,
+            Attributes: &operations.UpdateFirewallFirewallsAttributes{
+                Rules: []operations.UpdateFirewallFirewallsRules{},
             },
         },
     })
@@ -406,9 +573,50 @@ func main() {
 
 Returns a list of all servers assigned to a particular firewall.
 
-### Example Usage
+### Example Usage: Ok
 
-<!-- UsageSnippet language="go" operationID="get-firewall-assignments" method="get" path="/firewalls/{firewall_id}/assignments" -->
+<!-- UsageSnippet language="go" operationID="get-firewall-assignments" method="get" path="/firewalls/{firewall_id}/assignments" example="Ok" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Firewalls.ListAssignments(ctx, "fw_z8Nkvdy1deLpx", latitudeshgosdk.Pointer[int64](20), latitudeshgosdk.Pointer[int64](1))
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.FirewallAssignments != nil {
+        for {
+            // handle items
+
+            res, err = res.Next()
+
+            if err != nil {
+                // handle error
+            }
+
+            if res == nil {
+                break
+            }
+        }
+    }
+}
+```
+### Example Usage: Success
+
+<!-- UsageSnippet language="go" operationID="get-firewall-assignments" method="get" path="/firewalls/{firewall_id}/assignments" example="Success" -->
 ```go
 package main
 

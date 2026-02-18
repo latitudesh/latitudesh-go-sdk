@@ -15,7 +15,7 @@ Retrieve the current user profile
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="get-user-profile" method="get" path="/user/profile" -->
+<!-- UsageSnippet language="go" operationID="get-user-profile" method="get" path="/user/profile" example="Success" -->
 ```go
 package main
 
@@ -65,9 +65,47 @@ func main() {
 Update the current user profile
 
 
-### Example Usage
+### Example Usage: Forbidden
 
-<!-- UsageSnippet language="go" operationID="patch-user-profile" method="patch" path="/user/profile/{id}" -->
+<!-- UsageSnippet language="go" operationID="patch-user-profile" method="patch" path="/user/profile/{id}" example="Forbidden" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.UserProfile.Update(ctx, "user_kLn528op4zIMZ61MzRapu7XnAkL", operations.PatchUserProfileUserProfileRequestBody{
+        Data: operations.PatchUserProfileUserProfileData{
+            ID: "user_kLn528op4zIMZ61MzRapu7XnAkL",
+            Type: operations.PatchUserProfileUserProfileTypeUsers,
+            Attributes: &operations.PatchUserProfileUserProfileAttributes{
+                Role: operations.PatchUserProfileUserProfileRoleCollaborator.ToPointer(),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Success
+
+<!-- UsageSnippet language="go" operationID="patch-user-profile" method="patch" path="/user/profile/{id}" example="Success" -->
 ```go
 package main
 
@@ -103,6 +141,42 @@ func main() {
     }
 }
 ```
+### Example Usage: Unprocessable Entity
+
+<!-- UsageSnippet language="go" operationID="patch-user-profile" method="patch" path="/user/profile/{id}" example="Unprocessable Entity" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.UserProfile.Update(ctx, "user_WeGoqA4ndP7nz", operations.PatchUserProfileUserProfileRequestBody{
+        Data: operations.PatchUserProfileUserProfileData{
+            ID: "user_WeGoqA4ndP7nz",
+            Type: operations.PatchUserProfileUserProfileTypeUsers,
+            Attributes: &operations.PatchUserProfileUserProfileAttributes{},
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        // handle response
+    }
+}
+```
 
 ### Parameters
 
@@ -128,9 +202,67 @@ func main() {
 Returns a list of all teams the user belongs to
 
 
-### Example Usage
+### Example Usage: Success
 
-<!-- UsageSnippet language="go" operationID="get-user-teams" method="get" path="/user/teams" -->
+<!-- UsageSnippet language="go" operationID="get-user-teams" method="get" path="/user/teams" example="Success" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.UserProfile.ListTeams(ctx)
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.UserTeams != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: when team is older than one month
+
+<!-- UsageSnippet language="go" operationID="get-user-teams" method="get" path="/user/teams" example="when team is older than one month" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.UserProfile.ListTeams(ctx)
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.UserTeams != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: when team is recent (created within last month)
+
+<!-- UsageSnippet language="go" operationID="get-user-teams" method="get" path="/user/teams" example="when team is recent (created within last month)" -->
 ```go
 package main
 
