@@ -18,22 +18,10 @@ func (g *GetVirtualNetworkRequest) GetVlanID() string {
 	return g.VlanID
 }
 
-// GetVirtualNetworkResponseBody - Success
-type GetVirtualNetworkResponseBody struct {
-	Data *components.VirtualNetwork `json:"data,omitempty"`
-}
-
-func (g *GetVirtualNetworkResponseBody) GetData() *components.VirtualNetwork {
-	if g == nil {
-		return nil
-	}
-	return g.Data
-}
-
 type GetVirtualNetworkResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Success
-	Object *GetVirtualNetworkResponseBody
+	VirtualNetwork *components.VirtualNetwork
 }
 
 func (g *GetVirtualNetworkResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -43,9 +31,9 @@ func (g *GetVirtualNetworkResponse) GetHTTPMeta() components.HTTPMetadata {
 	return g.HTTPMeta
 }
 
-func (g *GetVirtualNetworkResponse) GetObject() *GetVirtualNetworkResponseBody {
+func (g *GetVirtualNetworkResponse) GetVirtualNetwork() *components.VirtualNetwork {
 	if g == nil {
 		return nil
 	}
-	return g.Object
+	return g.VirtualNetwork
 }

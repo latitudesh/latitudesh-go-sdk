@@ -21,9 +21,38 @@ List all SSH Keys in the project. These keys can be used to access servers after
 
 > :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
-### Example Usage
+### Example Usage: Filtered by multiple tags
 
-<!-- UsageSnippet language="go" operationID="get-project-ssh-keys" method="get" path="/projects/{project_id}/ssh_keys" -->
+<!-- UsageSnippet language="go" operationID="get-project-ssh-keys" method="get" path="/projects/{project_id}/ssh_keys" example="Filtered by multiple tags" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.SSHKeys.List(ctx, "proj_yQrJdNemO30gv", latitudeshgosdk.Pointer("tag_N88P7WK0w5u4PKevRB5ahVeLaPW,tag_Wal9mQPJzJI7jWRreANNcblXGRP"))
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.SSHKeys != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Success
+
+<!-- UsageSnippet language="go" operationID="get-project-ssh-keys" method="get" path="/projects/{project_id}/ssh_keys" example="Success" -->
 ```go
 package main
 
@@ -42,6 +71,35 @@ func main() {
     )
 
     res, err := s.SSHKeys.List(ctx, "proj_5AEmq7wMqBkWX", latitudeshgosdk.Pointer("tag_5wKQ2Y9eoAi5plr4zlQ6tjl6rEw,tag_8GKKZ6B9MbtYl4K09gj4fXy9Nneg"))
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.SSHKeys != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: when trying to filter by tag
+
+<!-- UsageSnippet language="go" operationID="get-project-ssh-keys" method="get" path="/projects/{project_id}/ssh_keys" example="when trying to filter by tag" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.SSHKeys.List(ctx, "proj_695BdKggdevVo", latitudeshgosdk.Pointer("tag_JzoXbwJ7KgFM2J4wALjXHbVrjX4"))
     if err != nil {
         log.Fatal(err)
     }
@@ -79,7 +137,7 @@ List all SSH Keys in the project. These keys can be used to access servers after
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="get-project-ssh-key" method="get" path="/projects/{project_id}/ssh_keys/{ssh_key_id}" -->
+<!-- UsageSnippet language="go" operationID="get-project-ssh-key" method="get" path="/projects/{project_id}/ssh_keys/{ssh_key_id}" example="Success" -->
 ```go
 package main
 
@@ -133,9 +191,45 @@ Allow you update SSH Key in a project. These keys can be used to access servers 
 
 > :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
-### Example Usage
+### Example Usage: Bad Request
 
-<!-- UsageSnippet language="go" operationID="put-project-ssh-key" method="patch" path="/projects/{project_id}/ssh_keys/{ssh_key_id}" -->
+<!-- UsageSnippet language="go" operationID="put-project-ssh-key" method="patch" path="/projects/{project_id}/ssh_keys/{ssh_key_id}" example="Bad Request" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.SSHKeys.ModifyProjectKey(ctx, "proj_GMy1DbW0ON50m", "ssh_W6Q2D9plqKLpr", operations.PutProjectSSHKeySSHKeysRequestBody{
+        Data: operations.PutProjectSSHKeySSHKeysData{
+            ID: latitudeshgosdk.Pointer("ssh_W6Q2D9plqKLpr"),
+            Type: operations.PutProjectSSHKeySSHKeysTypeSSHKeys,
+            Attributes: &operations.PutProjectSSHKeySSHKeysAttributes{},
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Success
+
+<!-- UsageSnippet language="go" operationID="put-project-ssh-key" method="patch" path="/projects/{project_id}/ssh_keys/{ssh_key_id}" example="Success" -->
 ```go
 package main
 
@@ -164,6 +258,82 @@ func main() {
                     "tag_57nzyG0Bn3c5wooyYyeLH1w9kmN",
                 },
             },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Tag not Updated
+
+<!-- UsageSnippet language="go" operationID="put-project-ssh-key" method="patch" path="/projects/{project_id}/ssh_keys/{ssh_key_id}" example="Tag not Updated" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.SSHKeys.ModifyProjectKey(ctx, "proj_0MoLqJZ0q57pY", "ssh_RMLydp20DQKr1", operations.PutProjectSSHKeySSHKeysRequestBody{
+        Data: operations.PutProjectSSHKeySSHKeysData{
+            ID: latitudeshgosdk.Pointer("ssh_RMLydp20DQKr1"),
+            Type: operations.PutProjectSSHKeySSHKeysTypeSSHKeys,
+            Attributes: &operations.PutProjectSSHKeySSHKeysAttributes{
+                Tags: []string{
+                    "invalid-tag",
+                },
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Unprocessable Entity
+
+<!-- UsageSnippet language="go" operationID="put-project-ssh-key" method="patch" path="/projects/{project_id}/ssh_keys/{ssh_key_id}" example="Unprocessable Entity" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.SSHKeys.ModifyProjectKey(ctx, "proj_WVQJDMAvDRbyE", "ssh_LMmAD8pEDwop2", operations.PutProjectSSHKeySSHKeysRequestBody{
+        Data: operations.PutProjectSSHKeySSHKeysData{
+            ID: latitudeshgosdk.Pointer("ssh_LMmAD8pEDwop2"),
+            Type: operations.PutProjectSSHKeySSHKeysTypeSSHKeys,
+            Attributes: &operations.PutProjectSSHKeySSHKeysAttributes{},
         },
     })
     if err != nil {
@@ -258,7 +428,7 @@ List all SSH Keys in the project. These keys can be used to access servers after
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="get-ssh-keys" method="get" path="/ssh_keys" -->
+<!-- UsageSnippet language="go" operationID="get-ssh-keys" method="get" path="/ssh_keys" example="Success" -->
 ```go
 package main
 
@@ -311,9 +481,47 @@ func main() {
 Allows you create SSH Keys. These keys can be used to access servers after deploy and reinstall actions.
 
 
-### Example Usage
+### Example Usage: Bad Request
 
-<!-- UsageSnippet language="go" operationID="post-ssh-key" method="post" path="/ssh_keys" -->
+<!-- UsageSnippet language="go" operationID="post-ssh-key" method="post" path="/ssh_keys" example="Bad Request" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.SSHKeys.Create(ctx, operations.PostSSHKeySSHKeysRequestBody{
+        Data: operations.PostSSHKeySSHKeysData{
+            Type: operations.PostSSHKeySSHKeysTypeSSHKeys,
+            Attributes: &operations.PostSSHKeySSHKeysAttributes{
+                Name: latitudeshgosdk.Pointer("SSH Key"),
+                PublicKey: latitudeshgosdk.Pointer("ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx"),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Created
+
+<!-- UsageSnippet language="go" operationID="post-ssh-key" method="post" path="/ssh_keys" example="Created" -->
 ```go
 package main
 
@@ -339,6 +547,44 @@ func main() {
                 Name: latitudeshgosdk.Pointer("SSH Key"),
                 Project: latitudeshgosdk.Pointer("proj_z2A3DV4wdnawP"),
                 PublicKey: latitudeshgosdk.Pointer("ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx"),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Unprocessable Entity
+
+<!-- UsageSnippet language="go" operationID="post-ssh-key" method="post" path="/ssh_keys" example="Unprocessable Entity" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.SSHKeys.Create(ctx, operations.PostSSHKeySSHKeysRequestBody{
+        Data: operations.PostSSHKeySSHKeysData{
+            Type: operations.PostSSHKeySSHKeysTypeSSHKeys,
+            Attributes: &operations.PostSSHKeySSHKeysAttributes{
+                Name: latitudeshgosdk.Pointer("<value>"),
+                PublicKey: latitudeshgosdk.Pointer("1234"),
             },
         },
     })
@@ -376,7 +622,7 @@ List all SSH Keys in the project. These keys can be used to access servers after
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="get-ssh-key" method="get" path="/ssh_keys/{ssh_key_id}" -->
+<!-- UsageSnippet language="go" operationID="get-ssh-key" method="get" path="/ssh_keys/{ssh_key_id}" example="Success" -->
 ```go
 package main
 
@@ -427,9 +673,45 @@ func main() {
 Allows you update SSH Key in a project. These keys can be used to access servers after deploy and reinstall actions.
 
 
-### Example Usage
+### Example Usage: Bad Request
 
-<!-- UsageSnippet language="go" operationID="put-ssh-key" method="patch" path="/ssh_keys/{ssh_key_id}" -->
+<!-- UsageSnippet language="go" operationID="put-ssh-key" method="patch" path="/ssh_keys/{ssh_key_id}" example="Bad Request" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.SSHKeys.Update(ctx, "ssh_xkjQwdENqYNVP", operations.PutSSHKeySSHKeysRequestBody{
+        Data: operations.PutSSHKeySSHKeysData{
+            ID: latitudeshgosdk.Pointer("ssh_xkjQwdENqYNVP"),
+            Type: operations.PutSSHKeySSHKeysTypeSSHKeys,
+            Attributes: &operations.PutSSHKeySSHKeysAttributes{},
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Success
+
+<!-- UsageSnippet language="go" operationID="put-ssh-key" method="patch" path="/ssh_keys/{ssh_key_id}" example="Success" -->
 ```go
 package main
 
@@ -458,6 +740,82 @@ func main() {
                     "tag_Yy7PJ68y22FoQyBppnW7FjNGX1k",
                 },
             },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Tag not Updated
+
+<!-- UsageSnippet language="go" operationID="put-ssh-key" method="patch" path="/ssh_keys/{ssh_key_id}" example="Tag not Updated" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.SSHKeys.Update(ctx, "ssh_VaNmodjeObE8W", operations.PutSSHKeySSHKeysRequestBody{
+        Data: operations.PutSSHKeySSHKeysData{
+            ID: latitudeshgosdk.Pointer("ssh_VaNmodjeObE8W"),
+            Type: operations.PutSSHKeySSHKeysTypeSSHKeys,
+            Attributes: &operations.PutSSHKeySSHKeysAttributes{
+                Tags: []string{
+                    "invalid-tag",
+                },
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Unprocessable Entity
+
+<!-- UsageSnippet language="go" operationID="put-ssh-key" method="patch" path="/ssh_keys/{ssh_key_id}" example="Unprocessable Entity" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.SSHKeys.Update(ctx, "ssh_6059EqYkOQj8p", operations.PutSSHKeySSHKeysRequestBody{
+        Data: operations.PutSSHKeySSHKeysData{
+            ID: latitudeshgosdk.Pointer("ssh_6059EqYkOQj8p"),
+            Type: operations.PutSSHKeySSHKeysTypeSSHKeys,
+            Attributes: &operations.PutSSHKeySSHKeysAttributes{},
         },
     })
     if err != nil {

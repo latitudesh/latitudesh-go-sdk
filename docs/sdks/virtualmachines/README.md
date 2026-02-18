@@ -16,9 +16,47 @@
 Creates a new Virtual Machine.
 
 
-### Example Usage
+### Example Usage: Conflict
 
-<!-- UsageSnippet language="go" operationID="create-virtual-machine" method="post" path="/virtual_machines" -->
+<!-- UsageSnippet language="go" operationID="create-virtual-machine" method="post" path="/virtual_machines" example="Conflict" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.VirtualMachines.Create(ctx, components.VirtualMachinePayload{
+        Data: &components.VirtualMachinePayloadData{
+            Type: components.VirtualMachinePayloadTypeVirtualMachines.ToPointer(),
+            Attributes: &components.VirtualMachinePayloadAttributes{
+                Name: latitudeshgosdk.Pointer("my-new-vm"),
+                Project: latitudeshgosdk.Pointer("intelligent-paper-table"),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.VirtualMachine != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Created
+
+<!-- UsageSnippet language="go" operationID="create-virtual-machine" method="post" path="/virtual_machines" example="Created" -->
 ```go
 package main
 
@@ -43,6 +81,83 @@ func main() {
             Attributes: &components.VirtualMachinePayloadAttributes{
                 Name: latitudeshgosdk.Pointer("my-new-vm"),
                 Project: latitudeshgosdk.Pointer("lightweight-leather-lamp"),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.VirtualMachine != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: CreatedWithOS
+
+<!-- UsageSnippet language="go" operationID="create-virtual-machine" method="post" path="/virtual_machines" example="CreatedWithOS" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.VirtualMachines.Create(ctx, components.VirtualMachinePayload{
+        Data: &components.VirtualMachinePayloadData{
+            Type: components.VirtualMachinePayloadTypeVirtualMachines.ToPointer(),
+            Attributes: &components.VirtualMachinePayloadAttributes{
+                Name: latitudeshgosdk.Pointer("my-new-vm"),
+                Project: latitudeshgosdk.Pointer("lightweight-leather-lamp"),
+                OperatingSystem: latitudeshgosdk.Pointer("ubuntu_24_04_x64_lts"),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.VirtualMachine != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Unprocessable Entity
+
+<!-- UsageSnippet language="go" operationID="create-virtual-machine" method="post" path="/virtual_machines" example="Unprocessable Entity" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.VirtualMachines.Create(ctx, components.VirtualMachinePayload{
+        Data: &components.VirtualMachinePayloadData{
+            Type: components.VirtualMachinePayloadTypeVirtualMachines.ToPointer(),
+            Attributes: &components.VirtualMachinePayloadAttributes{
+                Name: latitudeshgosdk.Pointer("My new-vm"),
+                Project: latitudeshgosdk.Pointer("mediocre-wool-knife"),
             },
         },
     })
@@ -240,7 +355,7 @@ Updates a Virtual Machine's display name (hostname).
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="update-virtual-machine" method="patch" path="/virtual_machines/{virtual_machine_id}" -->
+<!-- UsageSnippet language="go" operationID="update-virtual-machine" method="patch" path="/virtual_machines/{virtual_machine_id}" example="Success" -->
 ```go
 package main
 
@@ -306,7 +421,7 @@ Performs a power action on a given virtual machine:
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="create-virtual-machine-action" method="post" path="/virtual_machines/{virtual_machine_id}/actions" -->
+<!-- UsageSnippet language="go" operationID="create-virtual-machine-action" method="post" path="/virtual_machines/{virtual_machine_id}/actions" example="Created" -->
 ```go
 package main
 

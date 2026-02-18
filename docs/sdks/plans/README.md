@@ -17,7 +17,7 @@ Lists all plans. Availability by region is included in `attributes.regions.locat
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="get-plans" method="get" path="/plans" -->
+<!-- UsageSnippet language="go" operationID="get-plans" method="get" path="/plans" example="Success" -->
 ```go
 package main
 
@@ -70,7 +70,7 @@ Retrieve plan
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="get-plan" method="get" path="/plans/{plan_id}" -->
+<!-- UsageSnippet language="go" operationID="get-plan" method="get" path="/plans/{plan_id}" example="Success" -->
 ```go
 package main
 
@@ -122,7 +122,7 @@ Lists all bandwidth plans.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="get-bandwidth-plans" method="get" path="/plans/bandwidth" -->
+<!-- UsageSnippet language="go" operationID="get-bandwidth-plans" method="get" path="/plans/bandwidth" example="Success" -->
 ```go
 package main
 
@@ -188,9 +188,48 @@ func main() {
 Allows to increase or decrease bandwidth packages. Only admins and owners can request.
 
 
-### Example Usage
+### Example Usage: Forbidden
 
-<!-- UsageSnippet language="go" operationID="update-plans-bandwidth" method="post" path="/plans/bandwidth" -->
+<!-- UsageSnippet language="go" operationID="update-plans-bandwidth" method="post" path="/plans/bandwidth" example="Forbidden" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Plans.UpdateBandwidth(ctx, operations.UpdatePlansBandwidthPlansRequestBody{
+        Data: &operations.UpdatePlansBandwidthPlansData{
+            Type: operations.UpdatePlansBandwidthPlansTypeBandwidthPackages.ToPointer(),
+            Attributes: &operations.UpdatePlansBandwidthPlansAttributes{
+                Project: latitudeshgosdk.Pointer("proj_v9BVDaEYDRm1W"),
+                Quantity: latitudeshgosdk.Pointer[int64](5),
+                RegionSlug: latitudeshgosdk.Pointer("brazil"),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.BandwidthPackages != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Success
+
+<!-- UsageSnippet language="go" operationID="update-plans-bandwidth" method="post" path="/plans/bandwidth" example="Success" -->
 ```go
 package main
 
@@ -252,7 +291,7 @@ List storage plans
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="get-storage-plans" method="get" path="/plans/storage" -->
+<!-- UsageSnippet language="go" operationID="get-storage-plans" method="get" path="/plans/storage" example="Success" -->
 ```go
 package main
 
