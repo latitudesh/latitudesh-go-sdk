@@ -895,12 +895,12 @@ func (s *PrivateNetworks) Get(ctx context.Context, vlanID string, opts ...operat
 				return nil, err
 			}
 
-			var out operations.GetVirtualNetworkResponseBody
+			var out components.VirtualNetwork
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.Object = &out
+			res.VirtualNetwork = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {

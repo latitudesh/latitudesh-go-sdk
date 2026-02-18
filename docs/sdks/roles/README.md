@@ -14,7 +14,7 @@ Returns a list of all roles that can be assigned to users
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="get-roles" method="get" path="/roles" -->
+<!-- UsageSnippet language="go" operationID="get-roles" method="get" path="/roles" example="Success" -->
 ```go
 package main
 
@@ -79,7 +79,7 @@ Retrieve role
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="get-role-id" method="get" path="/roles/{role_id}" -->
+<!-- UsageSnippet language="go" operationID="get-role-id" method="get" path="/roles/{role_id}" example="Success" -->
 ```go
 package main
 

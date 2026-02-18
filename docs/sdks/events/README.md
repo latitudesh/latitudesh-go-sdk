@@ -11,9 +11,261 @@
 Lists actions performed by users on your account.
 
 
-### Example Usage
+### Example Usage: DeploymentFailed
 
-<!-- UsageSnippet language="go" operationID="get-events" method="get" path="/events" -->
+<!-- UsageSnippet language="go" operationID="get-events" method="get" path="/events" example="DeploymentFailed" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Events.List(ctx, operations.GetEventsRequest{})
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        for {
+            // handle items
+
+            res, err = res.Next()
+
+            if err != nil {
+                // handle error
+            }
+
+            if res == nil {
+                break
+            }
+        }
+    }
+}
+```
+### Example Usage: ReinstallFailed
+
+<!-- UsageSnippet language="go" operationID="get-events" method="get" path="/events" example="ReinstallFailed" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Events.List(ctx, operations.GetEventsRequest{})
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        for {
+            // handle items
+
+            res, err = res.Next()
+
+            if err != nil {
+                // handle error
+            }
+
+            if res == nil {
+                break
+            }
+        }
+    }
+}
+```
+### Example Usage: ScheduleDeletion
+
+<!-- UsageSnippet language="go" operationID="get-events" method="get" path="/events" example="ScheduleDeletion" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Events.List(ctx, operations.GetEventsRequest{})
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        for {
+            // handle items
+
+            res, err = res.Next()
+
+            if err != nil {
+                // handle error
+            }
+
+            if res == nil {
+                break
+            }
+        }
+    }
+}
+```
+### Example Usage: ServerDestroy
+
+<!-- UsageSnippet language="go" operationID="get-events" method="get" path="/events" example="ServerDestroy" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Events.List(ctx, operations.GetEventsRequest{})
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        for {
+            // handle items
+
+            res, err = res.Next()
+
+            if err != nil {
+                // handle error
+            }
+
+            if res == nil {
+                break
+            }
+        }
+    }
+}
+```
+### Example Usage: ServerLock
+
+<!-- UsageSnippet language="go" operationID="get-events" method="get" path="/events" example="ServerLock" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Events.List(ctx, operations.GetEventsRequest{})
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        for {
+            // handle items
+
+            res, err = res.Next()
+
+            if err != nil {
+                // handle error
+            }
+
+            if res == nil {
+                break
+            }
+        }
+    }
+}
+```
+### Example Usage: ServerUnlock
+
+<!-- UsageSnippet language="go" operationID="get-events" method="get" path="/events" example="ServerUnlock" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Events.List(ctx, operations.GetEventsRequest{})
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        for {
+            // handle items
+
+            res, err = res.Next()
+
+            if err != nil {
+                // handle error
+            }
+
+            if res == nil {
+                break
+            }
+        }
+    }
+}
+```
+### Example Usage: Success
+
+<!-- UsageSnippet language="go" operationID="get-events" method="get" path="/events" example="Success" -->
 ```go
 package main
 

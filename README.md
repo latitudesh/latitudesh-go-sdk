@@ -239,10 +239,10 @@ func main() {
 * [ListFilesystems](docs/sdks/storage/README.md#listfilesystems) - List filesystems
 * [DeleteFilesystem](docs/sdks/storage/README.md#deletefilesystem) - Delete filesystem
 * [UpdateFilesystem](docs/sdks/storage/README.md#updatefilesystem) - Update filesystem
-* [PostStorageVolumes](docs/sdks/storage/README.md#poststoragevolumes) - Create volume
 * [GetStorageVolumes](docs/sdks/storage/README.md#getstoragevolumes) - List volumes
-* [DeleteStorageVolumes](docs/sdks/storage/README.md#deletestoragevolumes) - Delete volume
+* [PostStorageVolumes](docs/sdks/storage/README.md#poststoragevolumes) - Create volume
 * [GetStorageVolume](docs/sdks/storage/README.md#getstoragevolume) - Retrieve volume
+* [DeleteStorageVolumes](docs/sdks/storage/README.md#deletestoragevolumes) - Delete volume
 * [PostStorageVolumesMount](docs/sdks/storage/README.md#poststoragevolumesmount) - Mount volume
 
 ### [Tags](docs/sdks/tags/README.md)
@@ -459,11 +459,12 @@ Handling errors in this SDK should largely match your expectations. All operatio
 
 By Default, an API error will return `components.APIError`. When custom error responses are specified for an operation, the SDK may also return their associated error. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation.
 
-For example, the `List` function may return the following errors:
+For example, the `CreateFilesystem` function may return the following errors:
 
-| Error Type          | Status Code | Content Type |
-| ------------------- | ----------- | ------------ |
-| components.APIError | 4XX, 5XX    | \*/\*        |
+| Error Type             | Status Code | Content Type             |
+| ---------------------- | ----------- | ------------------------ |
+| components.ErrorObject | 503         | application/vnd.api+json |
+| components.APIError    | 4XX, 5XX    | \*/\*                    |
 
 ### Example
 
@@ -475,6 +476,7 @@ import (
 	"errors"
 	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
 	"log"
 	"os"
 )
@@ -486,8 +488,22 @@ func main() {
 		latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
 	)
 
-	res, err := s.APIKeys.List(ctx)
+	res, err := s.Storage.CreateFilesystem(ctx, operations.PostStorageFilesystemsStorageRequestBody{
+		Data: operations.PostStorageFilesystemsStorageData{
+			Type: operations.PostStorageFilesystemsStorageTypeFilesystems,
+			Attributes: operations.PostStorageFilesystemsStorageAttributes{
+				Project: "proj_lkg1De6ROvZE5",
+				Name:    "my-data",
+			},
+		},
+	})
 	if err != nil {
+
+		var e *components.ErrorObject
+		if errors.As(err, &e) {
+			// handle error
+			log.Fatal(e.Error())
+		}
 
 		var e *components.APIError
 		if errors.As(err, &e) {

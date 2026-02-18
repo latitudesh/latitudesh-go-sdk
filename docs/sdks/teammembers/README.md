@@ -11,9 +11,9 @@
 
 Create member
 
-### Example Usage
+### Example Usage: Created
 
-<!-- UsageSnippet language="go" operationID="post-team-members" method="post" path="/team/members" -->
+<!-- UsageSnippet language="go" operationID="post-team-members" method="post" path="/team/members" example="Created" -->
 ```go
 package main
 
@@ -39,6 +39,86 @@ func main() {
                 FirstName: latitudeshgosdk.Pointer("Maricela"),
                 LastName: latitudeshgosdk.Pointer("Torphy"),
                 Email: "maritza_schneider@mcglynn.test",
+                Role: operations.PostTeamMembersRoleCollaborator,
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Membership != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Forbidden
+
+<!-- UsageSnippet language="go" operationID="post-team-members" method="post" path="/team/members" example="Forbidden" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.TeamMembers.PostTeamMembers(ctx, operations.PostTeamMembersTeamMembersRequestBody{
+        Data: operations.PostTeamMembersTeamMembersData{
+            Type: operations.PostTeamMembersTeamMembersTypeMemberships,
+            Attributes: &operations.PostTeamMembersTeamMembersAttributes{
+                FirstName: latitudeshgosdk.Pointer("Waltraud"),
+                LastName: latitudeshgosdk.Pointer("Feil"),
+                Email: "denis_senger@paucek.test",
+                Role: operations.PostTeamMembersRoleCollaborator,
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Membership != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Unprocessable Entity
+
+<!-- UsageSnippet language="go" operationID="post-team-members" method="post" path="/team/members" example="Unprocessable Entity" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.TeamMembers.PostTeamMembers(ctx, operations.PostTeamMembersTeamMembersRequestBody{
+        Data: operations.PostTeamMembersTeamMembersData{
+            Type: operations.PostTeamMembersTeamMembersTypeMemberships,
+            Attributes: &operations.PostTeamMembersTeamMembersAttributes{
+                FirstName: latitudeshgosdk.Pointer("Gabriel"),
+                LastName: latitudeshgosdk.Pointer("Roob"),
+                Email: "Jack.Schamberger-Kerluke@gmail.com",
                 Role: operations.PostTeamMembersRoleCollaborator,
             },
         },
