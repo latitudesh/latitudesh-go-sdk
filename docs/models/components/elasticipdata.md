@@ -1,0 +1,10 @@
+# ElasticIPData
+
+
+## Fields
+
+| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `ID`                                                                                      | **string*                                                                                 | :heavy_minus_sign:                                                                        | The Elastic IP ID. May be null during initial provisioning.                               |
+| `Type`                                                                                    | [*components.ElasticIPDataType](../../models/components/elasticipdatatype.md)             | :heavy_minus_sign:                                                                        | N/A                                                                                       |
+| `Attributes`                                                                              | [*components.ElasticIPDataAttributes](../../models/components/elasticipdataattributes.md) | :heavy_minus_sign:                                                                        | N/A                                                                                       |

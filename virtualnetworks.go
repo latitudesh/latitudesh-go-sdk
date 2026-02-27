@@ -194,6 +194,7 @@ func (s *VirtualNetworks) Delete(ctx context.Context, vlanID string, opts ...ope
 
 	switch {
 	case httpRes.StatusCode == 204:
+		utils.DrainBody(httpRes)
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)
 		if err != nil {

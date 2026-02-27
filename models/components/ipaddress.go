@@ -7,17 +7,17 @@ import (
 	"fmt"
 )
 
-type Family string
+type IPAddressFamily string
 
 const (
-	FamilyIPv4 Family = "IPv4"
-	FamilyIPv6 Family = "IPv6"
+	IPAddressFamilyIPv4 IPAddressFamily = "IPv4"
+	IPAddressFamilyIPv6 IPAddressFamily = "IPv6"
 )
 
-func (e Family) ToPointer() *Family {
+func (e IPAddressFamily) ToPointer() *IPAddressFamily {
 	return &e
 }
-func (e *Family) UnmarshalJSON(data []byte) error {
+func (e *IPAddressFamily) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -26,10 +26,10 @@ func (e *Family) UnmarshalJSON(data []byte) error {
 	case "IPv4":
 		fallthrough
 	case "IPv6":
-		*e = Family(v)
+		*e = IPAddressFamily(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for Family: %v", v)
+		return fmt.Errorf("invalid value for IPAddressFamily: %v", v)
 	}
 }
 
@@ -162,7 +162,7 @@ func (a *Assignment) GetAssignedAt() *string {
 type IPAddressAttributes struct {
 	Address    *string           `json:"address,omitempty"`
 	Cidr       *string           `json:"cidr,omitempty"`
-	Family     *Family           `json:"family,omitempty"`
+	Family     *IPAddressFamily  `json:"family,omitempty"`
 	Gateway    *string           `json:"gateway,omitempty"`
 	Netmask    *string           `json:"netmask,omitempty"`
 	Type       *IPAddressType    `json:"type,omitempty"`
@@ -189,7 +189,7 @@ func (i *IPAddressAttributes) GetCidr() *string {
 	return i.Cidr
 }
 
-func (i *IPAddressAttributes) GetFamily() *Family {
+func (i *IPAddressAttributes) GetFamily() *IPAddressFamily {
 	if i == nil {
 		return nil
 	}

@@ -1,0 +1,9 @@
+# CreateKubernetesClusterData
+
+
+## Fields
+
+| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `Type`                                                                                                       | [components.CreateKubernetesClusterType](../../models/components/createkubernetesclustertype.md)             | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `Attributes`                                                                                                 | [components.CreateKubernetesClusterAttributes](../../models/components/createkubernetesclusterattributes.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |

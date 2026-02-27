@@ -850,6 +850,7 @@ func (s *SSHKeys) RemoveFromProject(ctx context.Context, projectID string, sshKe
 
 	switch {
 	case httpRes.StatusCode == 200:
+		utils.DrainBody(httpRes)
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)
 		if err != nil {
@@ -1897,6 +1898,7 @@ func (s *SSHKeys) Delete(ctx context.Context, sshKeyID string, opts ...operation
 
 	switch {
 	case httpRes.StatusCode == 200:
+		utils.DrainBody(httpRes)
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)
 		if err != nil {

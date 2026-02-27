@@ -1,0 +1,9 @@
+# CreateKubernetesClusterResponse
+
+
+## Fields
+
+| Field                                                                                                     | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                                | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                        | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
+| `KubernetesClusterCreateResponse`                                                                         | [*components.KubernetesClusterCreateResponse](../../models/components/kubernetesclustercreateresponse.md) | :heavy_minus_sign:                                                                                        | Created                                                                                                   |
