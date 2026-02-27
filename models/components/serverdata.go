@@ -7,29 +7,29 @@ import (
 	"fmt"
 )
 
-// Status - `on` - The server is powered ON
+// ServerDataStatus - `on` - The server is powered ON
 // `off` - The server is powered OFF
 // `unknown` - The server power status is unknown
 // `disk_erasing` - The server is in reinstalling state `disk_erasing`
 // `deploying` - The server is deploying or reinstalling
 // `failed_deployment` - The server has failed deployment or reinstall
 // `rescue_mode` - The server is in rescue mode
-type Status string
+type ServerDataStatus string
 
 const (
-	StatusOn               Status = "on"
-	StatusOff              Status = "off"
-	StatusUnknown          Status = "unknown"
-	StatusDiskErasing      Status = "disk_erasing"
-	StatusDeploying        Status = "deploying"
-	StatusFailedDeployment Status = "failed_deployment"
-	StatusRescueMode       Status = "rescue_mode"
+	ServerDataStatusOn               ServerDataStatus = "on"
+	ServerDataStatusOff              ServerDataStatus = "off"
+	ServerDataStatusUnknown          ServerDataStatus = "unknown"
+	ServerDataStatusDiskErasing      ServerDataStatus = "disk_erasing"
+	ServerDataStatusDeploying        ServerDataStatus = "deploying"
+	ServerDataStatusFailedDeployment ServerDataStatus = "failed_deployment"
+	ServerDataStatusRescueMode       ServerDataStatus = "rescue_mode"
 )
 
-func (e Status) ToPointer() *Status {
+func (e ServerDataStatus) ToPointer() *ServerDataStatus {
 	return &e
 }
-func (e *Status) UnmarshalJSON(data []byte) error {
+func (e *ServerDataStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -48,10 +48,10 @@ func (e *Status) UnmarshalJSON(data []byte) error {
 	case "failed_deployment":
 		fallthrough
 	case "rescue_mode":
-		*e = Status(v)
+		*e = ServerDataStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for Status: %v", v)
+		return fmt.Errorf("invalid value for ServerDataStatus: %v", v)
 	}
 }
 
@@ -353,8 +353,8 @@ type ServerDataAttributes struct {
 	// `failed_deployment` - The server has failed deployment or reinstall
 	// `rescue_mode` - The server is in rescue mode
 	//
-	Status     *Status     `json:"status,omitempty"`
-	IpmiStatus *IpmiStatus `json:"ipmi_status,omitempty"`
+	Status     *ServerDataStatus `json:"status,omitempty"`
+	IpmiStatus *IpmiStatus       `json:"ipmi_status,omitempty"`
 	// The server role (e.g. Bare Metal)
 	Role                *string                   `json:"role,omitempty"`
 	Site                *string                   `json:"site,omitempty"`
@@ -387,7 +387,7 @@ func (s *ServerDataAttributes) GetLabel() *string {
 	return s.Label
 }
 
-func (s *ServerDataAttributes) GetStatus() *Status {
+func (s *ServerDataAttributes) GetStatus() *ServerDataStatus {
 	if s == nil {
 		return nil
 	}

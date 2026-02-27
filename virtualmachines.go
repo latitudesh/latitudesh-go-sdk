@@ -414,6 +414,7 @@ func (s *VirtualMachines) List(ctx context.Context, filterProject *string, extra
 
 	switch {
 	case httpRes.StatusCode == 200:
+		utils.DrainBody(httpRes)
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)
 		if err != nil {
@@ -604,6 +605,7 @@ func (s *VirtualMachines) Get(ctx context.Context, virtualMachineID string, opts
 
 	switch {
 	case httpRes.StatusCode == 200:
+		utils.DrainBody(httpRes)
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)
 		if err != nil {
@@ -794,6 +796,7 @@ func (s *VirtualMachines) Delete(ctx context.Context, virtualMachineID string, o
 
 	switch {
 	case httpRes.StatusCode == 204:
+		utils.DrainBody(httpRes)
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)
 		if err != nil {
@@ -1217,6 +1220,7 @@ func (s *VirtualMachines) CreateVirtualMachineAction(ctx context.Context, virtua
 
 	switch {
 	case httpRes.StatusCode == 201:
+		utils.DrainBody(httpRes)
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)
 		if err != nil {

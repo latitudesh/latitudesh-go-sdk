@@ -1,0 +1,12 @@
+# KubernetesClusterSummaryData
+
+Summary representation of a cluster (used in list responses)
+
+
+## Fields
+
+| Field                                                                                                                   | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `ID`                                                                                                                    | **string*                                                                                                               | :heavy_minus_sign:                                                                                                      | The cluster name used as identifier                                                                                     |
+| `Type`                                                                                                                  | **string*                                                                                                               | :heavy_minus_sign:                                                                                                      | N/A                                                                                                                     |
+| `Attributes`                                                                                                            | [*components.KubernetesClusterSummaryDataAttributes](../../models/components/kubernetesclustersummarydataattributes.md) | :heavy_minus_sign:                                                                                                      | N/A                                                                                                                     |

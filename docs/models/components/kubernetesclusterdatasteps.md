@@ -1,0 +1,9 @@
+# KubernetesClusterDataSteps
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `Name`                                                                                            | [*components.KubernetesClusterDataName](../../models/components/kubernetesclusterdataname.md)     | :heavy_minus_sign:                                                                                | Step identifier                                                                                   |
+| `Status`                                                                                          | [*components.KubernetesClusterDataStatus](../../models/components/kubernetesclusterdatastatus.md) | :heavy_minus_sign:                                                                                | Current status of this step                                                                       |

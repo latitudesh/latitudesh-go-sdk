@@ -1,0 +1,9 @@
+# Steps
+
+
+## Fields
+
+| Field                                                                                                           | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `Name`                                                                                                          | [*components.Name](../../models/components/name.md)                                                             | :heavy_minus_sign:                                                                                              | Step identifier                                                                                                 |
+| `Status`                                                                                                        | [*components.KubernetesClusterSummaryDataStatus](../../models/components/kubernetesclustersummarydatastatus.md) | :heavy_minus_sign:                                                                                              | Current status of this step                                                                                     |

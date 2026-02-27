@@ -129,6 +129,14 @@ func main() {
 
 * [ListUsage](docs/sdks/billing/README.md#listusage) - Retrieve billing usage
 
+### [ElasticIPs](docs/sdks/elasticips/README.md)
+
+* [ListElasticIps](docs/sdks/elasticips/README.md#listelasticips) - List Elastic IPs
+* [CreateElasticIP](docs/sdks/elasticips/README.md#createelasticip) - Create an Elastic IP
+* [GetElasticIP](docs/sdks/elasticips/README.md#getelasticip) - Retrieve an Elastic IP
+* [DeleteElasticIP](docs/sdks/elasticips/README.md#deleteelasticip) - Release an Elastic IP
+* [UpdateElasticIP](docs/sdks/elasticips/README.md#updateelasticip) - Move an Elastic IP
+
 ### [Events](docs/sdks/events/README.md)
 
 * [List](docs/sdks/events/README.md#list) - List events
@@ -152,6 +160,14 @@ func main() {
 
 * [List](docs/sdks/ipaddresses/README.md#list) - List IPs
 * [Get](docs/sdks/ipaddresses/README.md#get) - Retrieve an IP
+
+### [KubernetesClusters](docs/sdks/kubernetesclusters/README.md)
+
+* [ListKubernetesClusters](docs/sdks/kubernetesclusters/README.md#listkubernetesclusters) - List Kubernetes Clusters
+* [CreateKubernetesCluster](docs/sdks/kubernetesclusters/README.md#createkubernetescluster) - Create a Kubernetes Cluster
+* [GetKubernetesCluster](docs/sdks/kubernetesclusters/README.md#getkubernetescluster) - Get a Kubernetes Cluster
+* [DeleteKubernetesCluster](docs/sdks/kubernetesclusters/README.md#deletekubernetescluster) - Delete a Kubernetes Cluster
+* [GetKubernetesClusterKubeconfig](docs/sdks/kubernetesclusters/README.md#getkubernetesclusterkubeconfig) - Get Kubernetes Cluster Kubeconfig
 
 ### [OperatingSystems](docs/sdks/operatingsystems/README.md)
 
@@ -459,11 +475,11 @@ Handling errors in this SDK should largely match your expectations. All operatio
 
 By Default, an API error will return `components.APIError`. When custom error responses are specified for an operation, the SDK may also return their associated error. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation.
 
-For example, the `CreateFilesystem` function may return the following errors:
+For example, the `CreateElasticIP` function may return the following errors:
 
 | Error Type             | Status Code | Content Type             |
 | ---------------------- | ----------- | ------------------------ |
-| components.ErrorObject | 503         | application/vnd.api+json |
+| components.ErrorObject | 403, 422    | application/vnd.api+json |
 | components.APIError    | 4XX, 5XX    | \*/\*                    |
 
 ### Example
@@ -476,7 +492,6 @@ import (
 	"errors"
 	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
-	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
 	"log"
 	"os"
 )
@@ -488,12 +503,12 @@ func main() {
 		latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
 	)
 
-	res, err := s.Storage.CreateFilesystem(ctx, operations.PostStorageFilesystemsStorageRequestBody{
-		Data: operations.PostStorageFilesystemsStorageData{
-			Type: operations.PostStorageFilesystemsStorageTypeFilesystems,
-			Attributes: operations.PostStorageFilesystemsStorageAttributes{
-				Project: "proj_lkg1De6ROvZE5",
-				Name:    "my-data",
+	res, err := s.ElasticIPs.CreateElasticIP(ctx, components.CreateElasticIP{
+		Data: components.CreateElasticIPData{
+			Type: components.CreateElasticIPTypeElasticIps,
+			Attributes: components.CreateElasticIPAttributes{
+				ProjectID: "proj_AoW6vRnwkvLn0",
+				ServerID:  "sv_2GmAlJ6BXlK1a",
 			},
 		},
 	})
