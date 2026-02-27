@@ -8,7 +8,6 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
 	"github.com/latitudesh/latitudesh-go-sdk/tests/integration/helpers"
 )
@@ -183,7 +182,7 @@ func TestServersIntegration(t *testing.T) {
 			assert.NotNil(t, result)
 			assert.Equal(t, "server_test123", *result.Server.Data.ID)
 			assert.Equal(t, "test-server-01", *result.Server.Data.Attributes.Hostname)
-			assert.Equal(t, components.StatusOn, *result.Server.Data.Attributes.Status)
+			assert.Equal(t, "on", string(*result.Server.Data.Attributes.Status))
 		})
 
 		t.Run("should handle not found error", func(t *testing.T) {
@@ -248,7 +247,7 @@ func TestServersIntegration(t *testing.T) {
 			// Assert
 			require.NoError(t, err)
 			assert.Equal(t, 1, len(result.Servers.Data))
-			assert.Equal(t, components.StatusOn, *result.Servers.Data[0].Attributes.Status)
+			assert.Equal(t, "on", string(*result.Servers.Data[0].Attributes.Status))
 		})
 	})
 }
