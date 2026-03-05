@@ -129,7 +129,7 @@ func main() {
 
 * [ListUsage](docs/sdks/billing/README.md#listusage) - Retrieve billing usage
 
-### [ElasticIPs](docs/sdks/elasticips/README.md)
+### [ElasticIps](docs/sdks/elasticips/README.md)
 
 * [ListElasticIps](docs/sdks/elasticips/README.md#listelasticips) - List Elastic IPs
 * [CreateElasticIP](docs/sdks/elasticips/README.md#createelasticip) - Create an Elastic IP
@@ -503,7 +503,7 @@ func main() {
 		latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
 	)
 
-	res, err := s.ElasticIPs.CreateElasticIP(ctx, components.CreateElasticIP{
+	res, err := s.ElasticIps.CreateElasticIP(ctx, components.CreateElasticIP{
 		Data: components.CreateElasticIPData{
 			Type: components.CreateElasticIPTypeElasticIps,
 			Attributes: components.CreateElasticIPAttributes{

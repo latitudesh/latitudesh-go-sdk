@@ -84,10 +84,11 @@ func (e *Mode) UnmarshalJSON(data []byte) error {
 type Status string
 
 const (
-	StatusProvisioning Status = "provisioning"
-	StatusActive       Status = "active"
-	StatusReleasing    Status = "releasing"
-	StatusError        Status = "error"
+	StatusConfiguring Status = "configuring"
+	StatusActive      Status = "active"
+	StatusMoving      Status = "moving"
+	StatusReleasing   Status = "releasing"
+	StatusError       Status = "error"
 )
 
 func (e Status) ToPointer() *Status {
@@ -99,9 +100,11 @@ func (e *Status) UnmarshalJSON(data []byte) error {
 		return err
 	}
 	switch v {
-	case "provisioning":
+	case "configuring":
 		fallthrough
 	case "active":
+		fallthrough
+	case "moving":
 		fallthrough
 	case "releasing":
 		fallthrough
@@ -115,9 +118,10 @@ func (e *Status) UnmarshalJSON(data []byte) error {
 
 // ElasticIPDataServer - The server this Elastic IP is assigned to
 type ElasticIPDataServer struct {
-	ID          *string `json:"id,omitempty"`
-	Hostname    *string `json:"hostname,omitempty"`
-	PrimaryIpv4 *string `json:"primary_ipv4,omitempty"`
+	ID              *string `json:"id,omitempty"`
+	Hostname        *string `json:"hostname,omitempty"`
+	PrimaryIpv4     *string `json:"primary_ipv4,omitempty"`
+	OperatingSystem *string `json:"operating_system,omitempty"`
 }
 
 func (e *ElasticIPDataServer) GetID() *string {
@@ -139,6 +143,13 @@ func (e *ElasticIPDataServer) GetPrimaryIpv4() *string {
 		return nil
 	}
 	return e.PrimaryIpv4
+}
+
+func (e *ElasticIPDataServer) GetOperatingSystem() *string {
+	if e == nil {
+		return nil
+	}
+	return e.OperatingSystem
 }
 
 // ElasticIPDataProject - The project this Elastic IP belongs to
@@ -169,35 +180,66 @@ func (e *ElasticIPDataProject) GetSlug() *string {
 	return e.Slug
 }
 
-type ElasticIPDataSite struct {
+// Location - The site/location within the region
+type Location struct {
+	// The site ID
+	ID *string `json:"id,omitempty"`
+	// The site name
+	Name *string `json:"name,omitempty"`
+	// The site slug
 	Slug *string `json:"slug,omitempty"`
 }
 
-func (e *ElasticIPDataSite) GetSlug() *string {
-	if e == nil {
+func (l *Location) GetID() *string {
+	if l == nil {
 		return nil
 	}
-	return e.Slug
+	return l.ID
+}
+
+func (l *Location) GetName() *string {
+	if l == nil {
+		return nil
+	}
+	return l.Name
+}
+
+func (l *Location) GetSlug() *string {
+	if l == nil {
+		return nil
+	}
+	return l.Slug
 }
 
 // ElasticIPDataRegion - The region where this Elastic IP is located
 type ElasticIPDataRegion struct {
-	City *string            `json:"city,omitempty"`
-	Site *ElasticIPDataSite `json:"site,omitempty"`
+	// The region ID
+	ID *string `json:"id,omitempty"`
+	// The region name
+	Name *string `json:"name,omitempty"`
+	// The site/location within the region
+	Location *Location `json:"location,omitempty"`
 }
 
-func (e *ElasticIPDataRegion) GetCity() *string {
+func (e *ElasticIPDataRegion) GetID() *string {
 	if e == nil {
 		return nil
 	}
-	return e.City
+	return e.ID
 }
 
-func (e *ElasticIPDataRegion) GetSite() *ElasticIPDataSite {
+func (e *ElasticIPDataRegion) GetName() *string {
 	if e == nil {
 		return nil
 	}
-	return e.Site
+	return e.Name
+}
+
+func (e *ElasticIPDataRegion) GetLocation() *Location {
+	if e == nil {
+		return nil
+	}
+	return e.Location
 }
 
 type ElasticIPDataAttributes struct {

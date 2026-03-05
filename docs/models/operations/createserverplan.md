@@ -2,6 +2,16 @@
 
 The plan slug to choose server from, defining the specs the server will have
 
+## Example Usage
+
+```go
+import (
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+)
+
+value := operations.CreateServerPlanC2LargeX86
+```
+
 
 ## Values
 

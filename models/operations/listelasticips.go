@@ -13,10 +13,11 @@ import (
 type FilterStatus string
 
 const (
-	FilterStatusProvisioning FilterStatus = "provisioning"
-	FilterStatusActive       FilterStatus = "active"
-	FilterStatusReleasing    FilterStatus = "releasing"
-	FilterStatusError        FilterStatus = "error"
+	FilterStatusConfiguring FilterStatus = "configuring"
+	FilterStatusActive      FilterStatus = "active"
+	FilterStatusMoving      FilterStatus = "moving"
+	FilterStatusReleasing   FilterStatus = "releasing"
+	FilterStatusError       FilterStatus = "error"
 )
 
 func (e FilterStatus) ToPointer() *FilterStatus {
@@ -28,9 +29,11 @@ func (e *FilterStatus) UnmarshalJSON(data []byte) error {
 		return err
 	}
 	switch v {
-	case "provisioning":
+	case "configuring":
 		fallthrough
 	case "active":
+		fallthrough
+	case "moving":
 		fallthrough
 	case "releasing":
 		fallthrough

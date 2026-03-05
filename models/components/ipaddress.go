@@ -78,37 +78,37 @@ func (i *IPAddressProject) GetName() *string {
 	return i.Name
 }
 
-type Location struct {
+type IPAddressLocation struct {
 	ID   *string `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Slug *string `json:"slug,omitempty"`
 }
 
-func (l *Location) GetID() *string {
-	if l == nil {
+func (i *IPAddressLocation) GetID() *string {
+	if i == nil {
 		return nil
 	}
-	return l.ID
+	return i.ID
 }
 
-func (l *Location) GetName() *string {
-	if l == nil {
+func (i *IPAddressLocation) GetName() *string {
+	if i == nil {
 		return nil
 	}
-	return l.Name
+	return i.Name
 }
 
-func (l *Location) GetSlug() *string {
-	if l == nil {
+func (i *IPAddressLocation) GetSlug() *string {
+	if i == nil {
 		return nil
 	}
-	return l.Slug
+	return i.Slug
 }
 
 type IPAddressRegion struct {
-	ID       *string   `json:"id,omitempty"`
-	Name     *string   `json:"name,omitempty"`
-	Location *Location `json:"location,omitempty"`
+	ID       *string            `json:"id,omitempty"`
+	Name     *string            `json:"name,omitempty"`
+	Location *IPAddressLocation `json:"location,omitempty"`
 }
 
 func (i *IPAddressRegion) GetID() *string {
@@ -125,7 +125,7 @@ func (i *IPAddressRegion) GetName() *string {
 	return i.Name
 }
 
-func (i *IPAddressRegion) GetLocation() *Location {
+func (i *IPAddressRegion) GetLocation() *IPAddressLocation {
 	if i == nil {
 		return nil
 	}

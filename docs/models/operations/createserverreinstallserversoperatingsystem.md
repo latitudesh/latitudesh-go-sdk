@@ -2,6 +2,16 @@
 
 The OS selected for the reinstall process
 
+## Example Usage
+
+```go
+import (
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+)
+
+value := operations.CreateServerReinstallServersOperatingSystemCentos74X64
+```
+
 
 ## Values
 

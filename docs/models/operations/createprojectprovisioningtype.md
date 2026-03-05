@@ -2,6 +2,16 @@
 
 The provisioning type of the project. Default: on_demand
 
+## Example Usage
+
+```go
+import (
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+)
+
+value := operations.CreateProjectProvisioningTypeReserved
+```
+
 
 ## Values
 

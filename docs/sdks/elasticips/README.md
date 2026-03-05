@@ -1,4 +1,4 @@
-# ElasticIPs
+# ElasticIps
 
 ## Overview
 
@@ -38,7 +38,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.ElasticIPs.ListElasticIps(ctx, operations.ListElasticIpsRequest{})
+    res, err := s.ElasticIps.ListElasticIps(ctx, operations.ListElasticIpsRequest{})
     if err != nil {
         log.Fatal(err)
     }
@@ -80,7 +80,7 @@ func main() {
 
 ## CreateElasticIP
 
-Creates a new Elastic IP and assigns it to the specified server. The IP is provisioned asynchronously—the response will show status `provisioning` and the `id` will be `null` until provisioning completes.
+Creates a new Elastic IP and assigns it to the specified server. The IP is provisioned asynchronously—the response will show status `configuring` and the `id` will be `null` until provisioning completes.
 
 **Note:** This feature requires the `elastic_ips` feature flag to be enabled for your team. Currently only IPv4 /32 addresses in routed mode are supported.
 
@@ -106,7 +106,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.ElasticIPs.CreateElasticIP(ctx, components.CreateElasticIP{
+    res, err := s.ElasticIps.CreateElasticIP(ctx, components.CreateElasticIP{
         Data: components.CreateElasticIPData{
             Type: components.CreateElasticIPTypeElasticIps,
             Attributes: components.CreateElasticIPAttributes{
@@ -144,7 +144,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.ElasticIPs.CreateElasticIP(ctx, components.CreateElasticIP{
+    res, err := s.ElasticIps.CreateElasticIP(ctx, components.CreateElasticIP{
         Data: components.CreateElasticIPData{
             Type: components.CreateElasticIPTypeElasticIps,
             Attributes: components.CreateElasticIPAttributes{
@@ -182,7 +182,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.ElasticIPs.CreateElasticIP(ctx, components.CreateElasticIP{
+    res, err := s.ElasticIps.CreateElasticIP(ctx, components.CreateElasticIP{
         Data: components.CreateElasticIPData{
             Type: components.CreateElasticIPTypeElasticIps,
             Attributes: components.CreateElasticIPAttributes{
@@ -246,7 +246,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.ElasticIPs.GetElasticIP(ctx, "eip_KeQbB4BoO6x10")
+    res, err := s.ElasticIps.GetElasticIP(ctx, "eip_KeQbB4BoO6x10")
     if err != nil {
         log.Fatal(err)
     }
@@ -302,7 +302,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.ElasticIPs.DeleteElasticIP(ctx, "<id>")
+    res, err := s.ElasticIps.DeleteElasticIP(ctx, "<id>")
     if err != nil {
         log.Fatal(err)
     }
@@ -359,7 +359,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.ElasticIPs.UpdateElasticIP(ctx, "<id>", components.UpdateElasticIP{
+    res, err := s.ElasticIps.UpdateElasticIP(ctx, "<id>", components.UpdateElasticIP{
         Data: components.UpdateElasticIPData{
             Type: components.UpdateElasticIPTypeElasticIps,
             Attributes: components.UpdateElasticIPAttributes{
@@ -396,7 +396,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.ElasticIPs.UpdateElasticIP(ctx, "<id>", components.UpdateElasticIP{
+    res, err := s.ElasticIps.UpdateElasticIP(ctx, "<id>", components.UpdateElasticIP{
         Data: components.UpdateElasticIPData{
             Type: components.UpdateElasticIPTypeElasticIps,
             Attributes: components.UpdateElasticIPAttributes{
@@ -433,7 +433,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.ElasticIPs.UpdateElasticIP(ctx, "eip_KeQbB4BoO6x10", components.UpdateElasticIP{
+    res, err := s.ElasticIps.UpdateElasticIP(ctx, "eip_KeQbB4BoO6x10", components.UpdateElasticIP{
         Data: components.UpdateElasticIPData{
             Type: components.UpdateElasticIPTypeElasticIps,
             Attributes: components.UpdateElasticIPAttributes{

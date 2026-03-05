@@ -17,14 +17,14 @@ import (
 	"net/url"
 )
 
-type ElasticIPs struct {
+type ElasticIps struct {
 	rootSDK          *Latitudesh
 	sdkConfiguration config.SDKConfiguration
 	hooks            *hooks.Hooks
 }
 
-func newElasticIPs(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *hooks.Hooks) *ElasticIPs {
-	return &ElasticIPs{
+func newElasticIps(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *hooks.Hooks) *ElasticIps {
+	return &ElasticIps{
 		rootSDK:          rootSDK,
 		sdkConfiguration: sdkConfig,
 		hooks:            hooks,
@@ -35,7 +35,7 @@ func newElasticIPs(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks
 // List all Elastic IPs for the authenticated team. Elastic IPs are static public IP addresses that can be assigned to servers and moved between servers within the same project.
 //
 // **Note:** This feature requires the `elastic_ips` feature flag to be enabled for your team. When the flag is disabled, the endpoint returns an empty list.
-func (s *ElasticIPs) ListElasticIps(ctx context.Context, request operations.ListElasticIpsRequest, opts ...operations.Option) (*operations.ListElasticIpsResponse, error) {
+func (s *ElasticIps) ListElasticIps(ctx context.Context, request operations.ListElasticIpsRequest, opts ...operations.Option) (*operations.ListElasticIpsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -294,10 +294,10 @@ func (s *ElasticIPs) ListElasticIps(ctx context.Context, request operations.List
 }
 
 // CreateElasticIP - Create an Elastic IP
-// Creates a new Elastic IP and assigns it to the specified server. The IP is provisioned asynchronously—the response will show status `provisioning` and the `id` will be `null` until provisioning completes.
+// Creates a new Elastic IP and assigns it to the specified server. The IP is provisioned asynchronously—the response will show status `configuring` and the `id` will be `null` until provisioning completes.
 //
 // **Note:** This feature requires the `elastic_ips` feature flag to be enabled for your team. Currently only IPv4 /32 addresses in routed mode are supported.
-func (s *ElasticIPs) CreateElasticIP(ctx context.Context, request components.CreateElasticIP, opts ...operations.Option) (*operations.CreateElasticIPResponse, error) {
+func (s *ElasticIps) CreateElasticIP(ctx context.Context, request components.CreateElasticIP, opts ...operations.Option) (*operations.CreateElasticIPResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -535,7 +535,7 @@ func (s *ElasticIPs) CreateElasticIP(ctx context.Context, request components.Cre
 // Returns a single Elastic IP by its ID.
 //
 // **Note:** This feature requires the `elastic_ips` feature flag to be enabled for your team.
-func (s *ElasticIPs) GetElasticIP(ctx context.Context, elasticIPID string, opts ...operations.Option) (*operations.GetElasticIPResponse, error) {
+func (s *ElasticIps) GetElasticIP(ctx context.Context, elasticIPID string, opts ...operations.Option) (*operations.GetElasticIPResponse, error) {
 	request := operations.GetElasticIPRequest{
 		ElasticIPID: elasticIPID,
 	}
@@ -770,7 +770,7 @@ func (s *ElasticIPs) GetElasticIP(ctx context.Context, elasticIPID string, opts 
 // Releases an Elastic IP, returning it to the available pool. The IP will transition to `releasing` status before being fully removed.
 //
 // **Note:** This feature requires the `elastic_ips` feature flag to be enabled for your team. Only Elastic IPs with status `active` or `error` can be released.
-func (s *ElasticIPs) DeleteElasticIP(ctx context.Context, elasticIPID string, opts ...operations.Option) (*operations.DeleteElasticIPResponse, error) {
+func (s *ElasticIps) DeleteElasticIP(ctx context.Context, elasticIPID string, opts ...operations.Option) (*operations.DeleteElasticIPResponse, error) {
 	request := operations.DeleteElasticIPRequest{
 		ElasticIPID: elasticIPID,
 	}
@@ -988,7 +988,7 @@ func (s *ElasticIPs) DeleteElasticIP(ctx context.Context, elasticIPID string, op
 // Moves an Elastic IP to a different server within the same project. The reassignment is performed asynchronously.
 //
 // **Note:** This feature requires the `elastic_ips` feature flag to be enabled for your team. The Elastic IP must be in `active` status and the target server must belong to the same project.
-func (s *ElasticIPs) UpdateElasticIP(ctx context.Context, elasticIPID string, updateElasticIP components.UpdateElasticIP, opts ...operations.Option) (*operations.UpdateElasticIPResponse, error) {
+func (s *ElasticIps) UpdateElasticIP(ctx context.Context, elasticIPID string, updateElasticIP components.UpdateElasticIP, opts ...operations.Option) (*operations.UpdateElasticIPResponse, error) {
 	request := operations.UpdateElasticIPRequest{
 		ElasticIPID:     elasticIPID,
 		UpdateElasticIP: updateElasticIP,
@@ -1159,7 +1159,7 @@ func (s *ElasticIPs) UpdateElasticIP(ctx context.Context, elasticIPID string, up
 	}
 
 	switch {
-	case httpRes.StatusCode == 200:
+	case httpRes.StatusCode == 202:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/vnd.api+json`):
 			rawBody, err := utils.ConsumeRawBody(httpRes)
