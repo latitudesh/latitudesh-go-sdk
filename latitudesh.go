@@ -2,7 +2,7 @@
 
 package latitudeshgosdk
 
-// Generated from OpenAPI doc version 2023-06-01 and generator version 2.845.11
+// Generated from OpenAPI doc version 2023-06-01 and generator version 2.849.8
 
 import (
 	"context"
@@ -55,7 +55,7 @@ type Latitudesh struct {
 	Billing            *Billing
 	Events             *Events
 	Firewalls          *Firewalls
-	ElasticIPs         *ElasticIPs
+	ElasticIps         *ElasticIps
 	IPAddresses        *IPAddresses
 	Teams              *Teams
 	TeamMembers        *TeamMembers
@@ -165,9 +165,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Latitudesh {
 	sdk := &Latitudesh{
-		SDKVersion: "1.12.14",
+		SDKVersion: "1.12.15",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 1.12.14 2.845.11 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
+			UserAgent:  "speakeasy-sdk/go 1.12.15 2.849.8 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
 			ServerList: ServerList,
 			ServerVariables: []map[string]string{
 				{
@@ -207,7 +207,7 @@ func New(opts ...SDKOption) *Latitudesh {
 	sdk.Billing = newBilling(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Events = newEvents(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Firewalls = newFirewalls(sdk, sdk.sdkConfiguration, sdk.hooks)
-	sdk.ElasticIPs = newElasticIPs(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.ElasticIps = newElasticIps(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.IPAddresses = newIPAddresses(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Teams = newTeams(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.TeamMembers = newTeamMembers(sdk, sdk.sdkConfiguration, sdk.hooks)

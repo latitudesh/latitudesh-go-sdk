@@ -9,6 +9,16 @@
 `rescue_mode` - The server is in rescue mode
 
 
+## Example Usage
+
+```go
+import (
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+)
+
+value := components.ServerDataStatusOn
+```
+
 
 ## Values
 

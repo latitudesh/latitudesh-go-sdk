@@ -28,7 +28,7 @@ func (u *UpdateElasticIPRequest) GetUpdateElasticIP() components.UpdateElasticIP
 
 type UpdateElasticIPResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
-	// Success
+	// Accepted
 	ElasticIP *components.ElasticIP
 }
 

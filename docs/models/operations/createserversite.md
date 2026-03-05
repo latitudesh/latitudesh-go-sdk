@@ -2,6 +2,16 @@
 
 The site slug to deploy the server
 
+## Example Usage
+
+```go
+import (
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+)
+
+value := operations.CreateServerSiteAsh
+```
+
 
 ## Values
 

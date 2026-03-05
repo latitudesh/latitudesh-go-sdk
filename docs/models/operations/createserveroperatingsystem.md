@@ -2,6 +2,16 @@
 
 The operating system slug for the new server
 
+## Example Usage
+
+```go
+import (
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+)
+
+value := operations.CreateServerOperatingSystemCentos74X64
+```
+
 
 ## Values
 
