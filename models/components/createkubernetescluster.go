@@ -31,16 +31,16 @@ func (e *CreateKubernetesClusterType) UnmarshalJSON(data []byte) error {
 }
 
 type CreateKubernetesClusterAttributes struct {
-	// The cluster name. Must follow Kubernetes naming rules: lowercase alphanumeric or hyphens, must start and end with alphanumeric, max 63 characters.
-	Name string `json:"name"`
+	// The cluster name. Must follow Kubernetes naming rules: lowercase alphanumeric or hyphens, must start and end with alphanumeric, max 63 characters. Auto-generated if omitted.
+	Name *string `json:"name,omitempty"`
 	// The project ID where the cluster will be created
 	ProjectID string `json:"project_id"`
 	// The site/region code where to deploy the cluster (e.g., SAN3)
 	Site string `json:"site"`
 	// The machine plan for control plane nodes (e.g., c2-small-x86)
 	Plan string `json:"plan"`
-	// The SSH key ID to use for node access
-	SSHKeyID string `json:"ssh_key_id"`
+	// Array of SSH key IDs to use for node access. All keys must exist and belong to your team.
+	SSHKeys []string `json:"ssh_keys,omitempty"`
 	// The machine plan for worker nodes. Defaults to the control plane plan if not specified.
 	WorkerPlan *string `json:"worker_plan,omitempty"`
 	// The Kubernetes version to install. Defaults to v1.34.3+rke2r1.
@@ -53,9 +53,9 @@ type CreateKubernetesClusterAttributes struct {
 	OperatingSystem *string `json:"operating_system,omitempty"`
 }
 
-func (c *CreateKubernetesClusterAttributes) GetName() string {
+func (c *CreateKubernetesClusterAttributes) GetName() *string {
 	if c == nil {
-		return ""
+		return nil
 	}
 	return c.Name
 }
@@ -81,11 +81,11 @@ func (c *CreateKubernetesClusterAttributes) GetPlan() string {
 	return c.Plan
 }
 
-func (c *CreateKubernetesClusterAttributes) GetSSHKeyID() string {
+func (c *CreateKubernetesClusterAttributes) GetSSHKeys() []string {
 	if c == nil {
-		return ""
+		return nil
 	}
-	return c.SSHKeyID
+	return c.SSHKeys
 }
 
 func (c *CreateKubernetesClusterAttributes) GetWorkerPlan() *string {

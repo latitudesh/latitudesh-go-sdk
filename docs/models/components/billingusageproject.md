@@ -7,6 +7,6 @@ The project in which the returned usage belongs to
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `ID`               | **string*          | :heavy_minus_sign: | N/A                |
-| `Slug`             | **string*          | :heavy_minus_sign: | N/A                |
-| `Name`             | **string*          | :heavy_minus_sign: | N/A                |
+| `ID`               | `*string`          | :heavy_minus_sign: | N/A                |
+| `Slug`             | `*string`          | :heavy_minus_sign: | N/A                |
+| `Name`             | `*string`          | :heavy_minus_sign: | N/A                |

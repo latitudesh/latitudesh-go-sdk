@@ -7,6 +7,6 @@ Worker nodes status information
 
 | Field               | Type                | Required            | Description         |
 | ------------------- | ------------------- | ------------------- | ------------------- |
-| `Replicas`          | **int64*            | :heavy_minus_sign:  | N/A                 |
-| `ReadyReplicas`     | **int64*            | :heavy_minus_sign:  | N/A                 |
-| `AvailableReplicas` | **int64*            | :heavy_minus_sign:  | N/A                 |
+| `Replicas`          | `*int64`            | :heavy_minus_sign:  | N/A                 |
+| `ReadyReplicas`     | `*int64`            | :heavy_minus_sign:  | N/A                 |
+| `AvailableReplicas` | `*int64`            | :heavy_minus_sign:  | N/A                 |

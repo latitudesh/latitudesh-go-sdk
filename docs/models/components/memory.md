@@ -5,4 +5,4 @@
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `Total`            | **float64*         | :heavy_minus_sign: | N/A                |
+| `Total`            | `*float64`         | :heavy_minus_sign: | N/A                |

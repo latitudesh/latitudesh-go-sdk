@@ -5,4 +5,4 @@
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `RoleID`           | *string*           | :heavy_check_mark: | N/A                |
+| `RoleID`           | `string`           | :heavy_check_mark: | N/A                |
