@@ -261,7 +261,7 @@ func main() {
 | Parameter                                                | Type                                                     | Required                                                 | Description                                              |
 | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
 | `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `elasticIPID`                                            | *string*                                                 | :heavy_check_mark:                                       | The Elastic IP ID                                        |
+| `elasticIPID`                                            | `string`                                                 | :heavy_check_mark:                                       | The Elastic IP ID                                        |
 | `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
 
 ### Response
@@ -317,7 +317,7 @@ func main() {
 | Parameter                                                | Type                                                     | Required                                                 | Description                                              |
 | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
 | `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `elasticIPID`                                            | *string*                                                 | :heavy_check_mark:                                       | The Elastic IP ID                                        |
+| `elasticIPID`                                            | `string`                                                 | :heavy_check_mark:                                       | The Elastic IP ID                                        |
 | `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
 
 ### Response
@@ -455,7 +455,7 @@ func main() {
 | Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
 | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
 | `ctx`                                                                    | [context.Context](https://pkg.go.dev/context#Context)                    | :heavy_check_mark:                                                       | The context to use for the request.                                      |
-| `elasticIPID`                                                            | *string*                                                                 | :heavy_check_mark:                                                       | The Elastic IP ID                                                        |
+| `elasticIPID`                                                            | `string`                                                                 | :heavy_check_mark:                                                       | The Elastic IP ID                                                        |
 | `updateElasticIP`                                                        | [components.UpdateElasticIP](../../models/components/updateelasticip.md) | :heavy_check_mark:                                                       | N/A                                                                      |
 | `opts`                                                                   | [][operations.Option](../../models/operations/option.md)                 | :heavy_minus_sign:                                                       | The options for this request.                                            |
 

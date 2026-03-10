@@ -7,5 +7,5 @@ credentials are valid only when the server is deployed with ssh keys
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `User`             | **string*          | :heavy_minus_sign: | N/A                |
-| `Password`         | **string*          | :heavy_minus_sign: | N/A                |
+| `User`             | `*string`          | :heavy_minus_sign: | N/A                |
+| `Password`         | `*string`          | :heavy_minus_sign: | N/A                |

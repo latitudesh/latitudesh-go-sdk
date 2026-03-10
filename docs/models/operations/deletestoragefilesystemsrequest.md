@@ -5,4 +5,4 @@
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `FilesystemID`     | *string*           | :heavy_check_mark: | N/A                |
+| `FilesystemID`     | `string`           | :heavy_check_mark: | N/A                |

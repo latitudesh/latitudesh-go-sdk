@@ -5,4 +5,4 @@
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `TagID`            | *string*           | :heavy_check_mark: | N/A                |
+| `TagID`            | `string`           | :heavy_check_mark: | N/A                |

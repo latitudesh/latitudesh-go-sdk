@@ -79,7 +79,7 @@ func main() {
 | Parameter                                                | Type                                                     | Required                                                 | Description                                              |
 | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
 | `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `projectID`                                              | *string*                                                 | :heavy_check_mark:                                       | The project ID to filter clusters by                     |
+| `projectID`                                              | `string`                                                 | :heavy_check_mark:                                       | The project ID to filter clusters by                     |
 | `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
 
 ### Response
@@ -127,11 +127,52 @@ func main() {
         Data: components.CreateKubernetesClusterData{
             Type: components.CreateKubernetesClusterTypeKubernetesClusters,
             Attributes: components.CreateKubernetesClusterAttributes{
-                Name: "my-cluster",
+                Name: latitudeshgosdk.Pointer("my-cluster"),
                 ProjectID: "proj_6059EqYkOQj8p",
                 Site: "SAN3",
                 Plan: "c2-small-x86",
-                SSHKeyID: "ssh_VkE1DwV37dnZJ",
+                SSHKeys: []string{
+                    "ssh_VkE1DwV37dnZJ",
+                },
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.KubernetesClusterCreateResponse != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: InvalidSshKeys
+
+<!-- UsageSnippet language="go" operationID="create-kubernetes-cluster" method="post" path="/kubernetes_clusters" example="InvalidSshKeys" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.KubernetesClusters.CreateKubernetesCluster(ctx, components.CreateKubernetesCluster{
+        Data: components.CreateKubernetesClusterData{
+            Type: components.CreateKubernetesClusterTypeKubernetesClusters,
+            Attributes: components.CreateKubernetesClusterAttributes{
+                ProjectID: "<id>",
+                Site: "<value>",
+                Plan: "<value>",
             },
         },
     })
@@ -168,11 +209,9 @@ func main() {
         Data: components.CreateKubernetesClusterData{
             Type: components.CreateKubernetesClusterTypeKubernetesClusters,
             Attributes: components.CreateKubernetesClusterAttributes{
-                Name: "<value>",
                 ProjectID: "<id>",
                 Site: "<value>",
                 Plan: "<value>",
-                SSHKeyID: "<id>",
             },
         },
     })
@@ -274,7 +313,7 @@ func main() {
 | Parameter                                                | Type                                                     | Required                                                 | Description                                              |
 | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
 | `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `kubernetesClusterID`                                    | *string*                                                 | :heavy_check_mark:                                       | The cluster name                                         |
+| `kubernetesClusterID`                                    | `string`                                                 | :heavy_check_mark:                                       | The cluster name                                         |
 | `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
 
 ### Response
@@ -328,7 +367,7 @@ func main() {
 | Parameter                                                | Type                                                     | Required                                                 | Description                                              |
 | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
 | `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `kubernetesClusterID`                                    | *string*                                                 | :heavy_check_mark:                                       | The cluster name                                         |
+| `kubernetesClusterID`                                    | `string`                                                 | :heavy_check_mark:                                       | The cluster name                                         |
 | `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
 
 ### Response
@@ -382,7 +421,7 @@ func main() {
 | Parameter                                                | Type                                                     | Required                                                 | Description                                              |
 | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
 | `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `kubernetesClusterID`                                    | *string*                                                 | :heavy_check_mark:                                       | The cluster name                                         |
+| `kubernetesClusterID`                                    | `string`                                                 | :heavy_check_mark:                                       | The cluster name                                         |
 | `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
 
 ### Response

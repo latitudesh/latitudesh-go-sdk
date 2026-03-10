@@ -7,6 +7,6 @@ Control plane status information
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `Ready`            | **bool*            | :heavy_minus_sign: | N/A                |
-| `Replicas`         | **int64*           | :heavy_minus_sign: | N/A                |
-| `ReadyReplicas`    | **int64*           | :heavy_minus_sign: | N/A                |
+| `Ready`            | `*bool`            | :heavy_minus_sign: | N/A                |
+| `Replicas`         | `*int64`           | :heavy_minus_sign: | N/A                |
+| `ReadyReplicas`    | `*int64`           | :heavy_minus_sign: | N/A                |

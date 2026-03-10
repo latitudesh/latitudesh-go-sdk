@@ -5,4 +5,4 @@
 
 | Field                  | Type                   | Required               | Description            |
 | ---------------------- | ---------------------- | ---------------------- | ---------------------- |
-| `VlanID`               | *string*               | :heavy_check_mark:     | The virtual network ID |
+| `VlanID`               | `string`               | :heavy_check_mark:     | The virtual network ID |

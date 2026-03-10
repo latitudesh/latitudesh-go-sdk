@@ -5,4 +5,4 @@
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `VirtualMachineID` | *string*           | :heavy_check_mark: | N/A                |
+| `VirtualMachineID` | `string`           | :heavy_check_mark: | N/A                |

@@ -5,4 +5,4 @@
 
 | Field                  | Type                   | Required               | Description            |
 | ---------------------- | ---------------------- | ---------------------- | ---------------------- |
-| `ProjectID`            | *string*               | :heavy_check_mark:     | The project ID or Slug |
+| `ProjectID`            | `string`               | :heavy_check_mark:     | The project ID or Slug |

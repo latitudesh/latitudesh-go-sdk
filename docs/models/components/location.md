@@ -7,6 +7,6 @@ The site/location within the region
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `ID`               | **string*          | :heavy_minus_sign: | The site ID        |
-| `Name`             | **string*          | :heavy_minus_sign: | The site name      |
-| `Slug`             | **string*          | :heavy_minus_sign: | The site slug      |
+| `ID`               | `*string`          | :heavy_minus_sign: | The site ID        |
+| `Name`             | `*string`          | :heavy_minus_sign: | The site name      |
+| `Slug`             | `*string`          | :heavy_minus_sign: | The site slug      |

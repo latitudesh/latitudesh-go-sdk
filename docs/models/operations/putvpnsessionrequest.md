@@ -5,4 +5,4 @@
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `VpnSessionID`     | *string*           | :heavy_check_mark: | N/A                |
+| `VpnSessionID`     | `string`           | :heavy_check_mark: | N/A                |

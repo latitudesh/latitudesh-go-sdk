@@ -5,4 +5,4 @@
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `APIKeyID`         | *string*           | :heavy_check_mark: | N/A                |
+| `APIKeyID`         | `string`           | :heavy_check_mark: | N/A                |

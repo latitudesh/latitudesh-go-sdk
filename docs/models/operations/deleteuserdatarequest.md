@@ -5,4 +5,4 @@
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `UserDataID`       | *string*           | :heavy_check_mark: | N/A                |
+| `UserDataID`       | `string`           | :heavy_check_mark: | N/A                |
