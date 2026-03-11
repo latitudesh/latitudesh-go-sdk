@@ -33,7 +33,7 @@ func (k *KubernetesClusterCreateResponseAttributes) GetControlPlaneEndpoint() *s
 }
 
 type KubernetesClusterCreateResponseData struct {
-	// The cluster name used as identifier
+	// The cluster ID in hashed format (kc_<hash>)
 	ID         *string                                    `json:"id,omitempty"`
 	Type       *string                                    `json:"type,omitempty"`
 	Attributes *KubernetesClusterCreateResponseAttributes `json:"attributes,omitempty"`

@@ -7,7 +7,7 @@ import (
 )
 
 type GetKubernetesClusterKubeconfigRequest struct {
-	// The cluster name
+	// The cluster ID (format: kc_<hash>) or cluster name. Both formats are accepted for backward compatibility.
 	KubernetesClusterID string `pathParam:"style=simple,explode=false,name=kubernetes_cluster_id"`
 }
 
