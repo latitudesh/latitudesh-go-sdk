@@ -182,6 +182,150 @@ func (k *KubernetesClusterDataSteps) GetStatus() *KubernetesClusterDataStatus {
 	return k.Status
 }
 
+// KubernetesClusterDataType - The role of this node in the cluster
+type KubernetesClusterDataType string
+
+const (
+	KubernetesClusterDataTypeControlPlane KubernetesClusterDataType = "control_plane"
+	KubernetesClusterDataTypeWorker       KubernetesClusterDataType = "worker"
+)
+
+func (e KubernetesClusterDataType) ToPointer() *KubernetesClusterDataType {
+	return &e
+}
+func (e *KubernetesClusterDataType) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "control_plane":
+		fallthrough
+	case "worker":
+		*e = KubernetesClusterDataType(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for KubernetesClusterDataType: %v", v)
+	}
+}
+
+// KubernetesClusterDataAttributesStatus - Current status of the node
+type KubernetesClusterDataAttributesStatus string
+
+const (
+	KubernetesClusterDataAttributesStatusReady    KubernetesClusterDataAttributesStatus = "ready"
+	KubernetesClusterDataAttributesStatusPending  KubernetesClusterDataAttributesStatus = "pending"
+	KubernetesClusterDataAttributesStatusFailed   KubernetesClusterDataAttributesStatus = "failed"
+	KubernetesClusterDataAttributesStatusDeleting KubernetesClusterDataAttributesStatus = "deleting"
+)
+
+func (e KubernetesClusterDataAttributesStatus) ToPointer() *KubernetesClusterDataAttributesStatus {
+	return &e
+}
+func (e *KubernetesClusterDataAttributesStatus) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "ready":
+		fallthrough
+	case "pending":
+		fallthrough
+	case "failed":
+		fallthrough
+	case "deleting":
+		*e = KubernetesClusterDataAttributesStatus(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for KubernetesClusterDataAttributesStatus: %v", v)
+	}
+}
+
+type Nodes struct {
+	// Unique identifier for the node (machine name)
+	ID *string `json:"id,omitempty"`
+	// Name of the node
+	Name *string `json:"name,omitempty"`
+	// Hostname of the node
+	Hostname *string `json:"hostname,omitempty"`
+	// The Latitude server ID associated with this node
+	ServerID *string `json:"server_id,omitempty"`
+	// The role of this node in the cluster
+	Type *KubernetesClusterDataType `json:"type,omitempty"`
+	// Current status of the node
+	Status *KubernetesClusterDataAttributesStatus `json:"status,omitempty"`
+	// Primary IP address (external if available, otherwise internal)
+	IP *string `json:"ip,omitempty"`
+	// Internal/private IP address
+	InternalIP *string `json:"internal_ip,omitempty"`
+	// External/public IP address
+	ExternalIP *string `json:"external_ip,omitempty"`
+}
+
+func (n *Nodes) GetID() *string {
+	if n == nil {
+		return nil
+	}
+	return n.ID
+}
+
+func (n *Nodes) GetName() *string {
+	if n == nil {
+		return nil
+	}
+	return n.Name
+}
+
+func (n *Nodes) GetHostname() *string {
+	if n == nil {
+		return nil
+	}
+	return n.Hostname
+}
+
+func (n *Nodes) GetServerID() *string {
+	if n == nil {
+		return nil
+	}
+	return n.ServerID
+}
+
+func (n *Nodes) GetType() *KubernetesClusterDataType {
+	if n == nil {
+		return nil
+	}
+	return n.Type
+}
+
+func (n *Nodes) GetStatus() *KubernetesClusterDataAttributesStatus {
+	if n == nil {
+		return nil
+	}
+	return n.Status
+}
+
+func (n *Nodes) GetIP() *string {
+	if n == nil {
+		return nil
+	}
+	return n.IP
+}
+
+func (n *Nodes) GetInternalIP() *string {
+	if n == nil {
+		return nil
+	}
+	return n.InternalIP
+}
+
+func (n *Nodes) GetExternalIP() *string {
+	if n == nil {
+		return nil
+	}
+	return n.ExternalIP
+}
+
 // KubernetesClusterDataProject - The project this cluster belongs to
 type KubernetesClusterDataProject struct {
 	// The project ID
@@ -258,6 +402,8 @@ type KubernetesClusterDataAttributes struct {
 	FailureMessage *string `json:"failure_message,omitempty"`
 	// Reason code for cluster failure
 	FailureReason *string `json:"failure_reason,omitempty"`
+	// List of nodes (servers) in the cluster
+	Nodes []Nodes `json:"nodes,omitempty"`
 	// The project this cluster belongs to
 	Project *KubernetesClusterDataProject `json:"project,omitempty"`
 }
@@ -425,6 +571,13 @@ func (k *KubernetesClusterDataAttributes) GetFailureReason() *string {
 		return nil
 	}
 	return k.FailureReason
+}
+
+func (k *KubernetesClusterDataAttributes) GetNodes() []Nodes {
+	if k == nil {
+		return nil
+	}
+	return k.Nodes
 }
 
 func (k *KubernetesClusterDataAttributes) GetProject() *KubernetesClusterDataProject {

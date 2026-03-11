@@ -231,16 +231,11 @@ func (s *PrivateNetworks) List(ctx context.Context, request operations.GetVirtua
 		if len(arr) < l {
 			return nil, nil
 		}
+		request.PageNumber = &nP
 
 		return s.List(
 			ctx,
-			operations.GetVirtualNetworksRequest{
-				FilterLocation: request.FilterLocation,
-				FilterProject:  request.FilterProject,
-				FilterTags:     request.FilterTags,
-				PageSize:       request.PageSize,
-				PageNumber:     &nP,
-			},
+			request,
 			opts...,
 		)
 	}
@@ -1132,16 +1127,11 @@ func (s *PrivateNetworks) ListAssignments(ctx context.Context, request operation
 		if len(arr) < l {
 			return nil, nil
 		}
+		request.PageNumber = &nP
 
 		return s.ListAssignments(
 			ctx,
-			operations.GetVirtualNetworksAssignmentsRequest{
-				FilterServer:           request.FilterServer,
-				FilterVid:              request.FilterVid,
-				FilterVirtualNetworkID: request.FilterVirtualNetworkID,
-				PageSize:               request.PageSize,
-				PageNumber:             &nP,
-			},
+			request,
 			opts...,
 		)
 	}

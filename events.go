@@ -231,21 +231,11 @@ func (s *Events) List(ctx context.Context, request operations.GetEventsRequest, 
 		if len(arr) < l {
 			return nil, nil
 		}
+		request.PageNumber = &nP
 
 		return s.List(
 			ctx,
-			operations.GetEventsRequest{
-				FilterAuthor:       request.FilterAuthor,
-				FilterProject:      request.FilterProject,
-				FilterTargetName:   request.FilterTargetName,
-				FilterTargetID:     request.FilterTargetID,
-				FilterAction:       request.FilterAction,
-				FilterCreatedAtGte: request.FilterCreatedAtGte,
-				FilterCreatedAtLte: request.FilterCreatedAtLte,
-				FilterCreatedAt:    request.FilterCreatedAt,
-				PageSize:           request.PageSize,
-				PageNumber:         &nP,
-			},
+			request,
 			opts...,
 		)
 	}

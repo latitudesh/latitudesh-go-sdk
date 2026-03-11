@@ -246,7 +246,7 @@ func main() {
 
 ## GetKubernetesCluster
 
-Retrieves detailed information about a Kubernetes cluster including its status, control plane, and worker node details.
+Retrieves detailed information about a Kubernetes cluster including its status, control plane, worker node details, and individual node information.
 
 
 ### Example Usage: Provisioning

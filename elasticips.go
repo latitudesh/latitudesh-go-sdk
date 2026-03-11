@@ -233,16 +233,11 @@ func (s *ElasticIps) ListElasticIps(ctx context.Context, request operations.List
 		if len(arr) < l {
 			return nil, nil
 		}
+		request.PageNumber = &nP
 
 		return s.ListElasticIps(
 			ctx,
-			operations.ListElasticIpsRequest{
-				FilterProject: request.FilterProject,
-				FilterServer:  request.FilterServer,
-				FilterStatus:  request.FilterStatus,
-				PageSize:      request.PageSize,
-				PageNumber:    &nP,
-			},
+			request,
 			opts...,
 		)
 	}

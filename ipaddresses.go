@@ -234,21 +234,11 @@ func (s *IPAddresses) List(ctx context.Context, request operations.GetIpsRequest
 		if len(arr) < l {
 			return nil, nil
 		}
+		request.PageNumber = &nP
 
 		return s.List(
 			ctx,
-			operations.GetIpsRequest{
-				FilterServer:           request.FilterServer,
-				FilterProject:          request.FilterProject,
-				FilterFamily:           request.FilterFamily,
-				FilterType:             request.FilterType,
-				FilterLocation:         request.FilterLocation,
-				FilterAddress:          request.FilterAddress,
-				FilterAdditional:       request.FilterAdditional,
-				ExtraFieldsIPAddresses: request.ExtraFieldsIPAddresses,
-				PageSize:               request.PageSize,
-				PageNumber:             &nP,
-			},
+			request,
 			opts...,
 		)
 	}
