@@ -533,7 +533,7 @@ func (s *KubernetesClusters) CreateKubernetesCluster(ctx context.Context, reques
 }
 
 // GetKubernetesCluster - Get a Kubernetes Cluster
-// Retrieves detailed information about a Kubernetes cluster including its status, control plane, and worker node details.
+// Retrieves detailed information about a Kubernetes cluster including its status, control plane, worker node details, and individual node information.
 func (s *KubernetesClusters) GetKubernetesCluster(ctx context.Context, kubernetesClusterID string, opts ...operations.Option) (*operations.GetKubernetesClusterResponse, error) {
 	request := operations.GetKubernetesClusterRequest{
 		KubernetesClusterID: kubernetesClusterID,

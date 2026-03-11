@@ -234,20 +234,11 @@ func (s *Projects) List(ctx context.Context, request operations.GetProjectsReque
 		if len(arr) < l {
 			return nil, nil
 		}
+		request.PageNumber = &nP
 
 		return s.List(
 			ctx,
-			operations.GetProjectsRequest{
-				FilterName:          request.FilterName,
-				FilterSlug:          request.FilterSlug,
-				FilterDescription:   request.FilterDescription,
-				FilterBillingType:   request.FilterBillingType,
-				FilterEnvironment:   request.FilterEnvironment,
-				FilterTags:          request.FilterTags,
-				ExtraFieldsProjects: request.ExtraFieldsProjects,
-				PageSize:            request.PageSize,
-				PageNumber:          &nP,
-			},
+			request,
 			opts...,
 		)
 	}

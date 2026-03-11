@@ -231,28 +231,11 @@ func (s *Servers) List(ctx context.Context, request operations.GetServersRequest
 		if len(arr) < l {
 			return nil, nil
 		}
+		request.PageNumber = &nP
 
 		return s.List(
 			ctx,
-			operations.GetServersRequest{
-				FilterProject:      request.FilterProject,
-				FilterRegion:       request.FilterRegion,
-				FilterHostname:     request.FilterHostname,
-				FilterCreatedAtGte: request.FilterCreatedAtGte,
-				FilterCreatedAtLte: request.FilterCreatedAtLte,
-				FilterLabel:        request.FilterLabel,
-				FilterStatus:       request.FilterStatus,
-				FilterPlan:         request.FilterPlan,
-				FilterGpu:          request.FilterGpu,
-				FilterRAMEql:       request.FilterRAMEql,
-				FilterRAMGte:       request.FilterRAMGte,
-				FilterRAMLte:       request.FilterRAMLte,
-				FilterDisk:         request.FilterDisk,
-				FilterTags:         request.FilterTags,
-				ExtraFieldsServers: request.ExtraFieldsServers,
-				PageSize:           request.PageSize,
-				PageNumber:         &nP,
-			},
+			request,
 			opts...,
 		)
 	}
