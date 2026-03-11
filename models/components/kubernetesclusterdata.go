@@ -182,6 +182,37 @@ func (k *KubernetesClusterDataSteps) GetStatus() *KubernetesClusterDataStatus {
 	return k.Status
 }
 
+// KubernetesClusterDataProject - The project this cluster belongs to
+type KubernetesClusterDataProject struct {
+	// The project ID
+	ID *string `json:"id,omitempty"`
+	// The project name
+	Name *string `json:"name,omitempty"`
+	// The project slug
+	Slug *string `json:"slug,omitempty"`
+}
+
+func (k *KubernetesClusterDataProject) GetID() *string {
+	if k == nil {
+		return nil
+	}
+	return k.ID
+}
+
+func (k *KubernetesClusterDataProject) GetName() *string {
+	if k == nil {
+		return nil
+	}
+	return k.Name
+}
+
+func (k *KubernetesClusterDataProject) GetSlug() *string {
+	if k == nil {
+		return nil
+	}
+	return k.Slug
+}
+
 type KubernetesClusterDataAttributes struct {
 	// The cluster name
 	Name *string `json:"name,omitempty"`
@@ -195,10 +226,20 @@ type KubernetesClusterDataAttributes struct {
 	KubeconfigURL *string `json:"kubeconfig_url,omitempty"`
 	// The site/region where the cluster is deployed
 	Location *string `json:"location,omitempty"`
+	// IP addresses assigned to the cluster's load balancer
+	LoadBalancerIps []string `json:"load_balancer_ips,omitempty"`
 	// The Kubernetes version running on the cluster
 	KubernetesVersion *string `json:"kubernetes_version,omitempty"`
 	// When the cluster was created
 	CreatedAt *time.Time `json:"created_at,omitempty"`
+	// The machine plan slug for control plane nodes
+	Plan *string `json:"plan,omitempty"`
+	// The machine plan slug for worker nodes. Null if no workers exist.
+	WorkerPlan *string `json:"worker_plan,omitempty"`
+	// Number of control plane node replicas
+	ControlPlaneCount *int64 `json:"control_plane_count,omitempty"`
+	// Number of worker node replicas. Returns 0 if no workers exist.
+	WorkerCount *int64 `json:"worker_count,omitempty"`
 	// Control plane status information
 	ControlPlane *ControlPlane `json:"control_plane,omitempty"`
 	// Worker nodes status information
@@ -217,6 +258,8 @@ type KubernetesClusterDataAttributes struct {
 	FailureMessage *string `json:"failure_message,omitempty"`
 	// Reason code for cluster failure
 	FailureReason *string `json:"failure_reason,omitempty"`
+	// The project this cluster belongs to
+	Project *KubernetesClusterDataProject `json:"project,omitempty"`
 }
 
 func (k KubernetesClusterDataAttributes) MarshalJSON() ([]byte, error) {
@@ -272,6 +315,13 @@ func (k *KubernetesClusterDataAttributes) GetLocation() *string {
 	return k.Location
 }
 
+func (k *KubernetesClusterDataAttributes) GetLoadBalancerIps() []string {
+	if k == nil {
+		return nil
+	}
+	return k.LoadBalancerIps
+}
+
 func (k *KubernetesClusterDataAttributes) GetKubernetesVersion() *string {
 	if k == nil {
 		return nil
@@ -284,6 +334,34 @@ func (k *KubernetesClusterDataAttributes) GetCreatedAt() *time.Time {
 		return nil
 	}
 	return k.CreatedAt
+}
+
+func (k *KubernetesClusterDataAttributes) GetPlan() *string {
+	if k == nil {
+		return nil
+	}
+	return k.Plan
+}
+
+func (k *KubernetesClusterDataAttributes) GetWorkerPlan() *string {
+	if k == nil {
+		return nil
+	}
+	return k.WorkerPlan
+}
+
+func (k *KubernetesClusterDataAttributes) GetControlPlaneCount() *int64 {
+	if k == nil {
+		return nil
+	}
+	return k.ControlPlaneCount
+}
+
+func (k *KubernetesClusterDataAttributes) GetWorkerCount() *int64 {
+	if k == nil {
+		return nil
+	}
+	return k.WorkerCount
 }
 
 func (k *KubernetesClusterDataAttributes) GetControlPlane() *ControlPlane {
@@ -349,8 +427,15 @@ func (k *KubernetesClusterDataAttributes) GetFailureReason() *string {
 	return k.FailureReason
 }
 
+func (k *KubernetesClusterDataAttributes) GetProject() *KubernetesClusterDataProject {
+	if k == nil {
+		return nil
+	}
+	return k.Project
+}
+
 type KubernetesClusterData struct {
-	// The cluster name used as identifier
+	// The cluster ID in hashed format (kc_<hash>)
 	ID         *string                          `json:"id,omitempty"`
 	Type       *string                          `json:"type,omitempty"`
 	Attributes *KubernetesClusterDataAttributes `json:"attributes,omitempty"`

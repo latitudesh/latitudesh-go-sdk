@@ -223,7 +223,7 @@ func (k *KubernetesClusterSummaryDataAttributes) GetCreatedAt() *time.Time {
 
 // KubernetesClusterSummaryData - Summary representation of a cluster (used in list responses)
 type KubernetesClusterSummaryData struct {
-	// The cluster name used as identifier
+	// The cluster ID in hashed format (kc_<hash>)
 	ID         *string                                 `json:"id,omitempty"`
 	Type       *string                                 `json:"type,omitempty"`
 	Attributes *KubernetesClusterSummaryDataAttributes `json:"attributes,omitempty"`
