@@ -270,9 +270,7 @@ func (s *KubernetesClusters) ListKubernetesClusters(ctx context.Context, project
 }
 
 // CreateKubernetesCluster - Create a Kubernetes Cluster
-// Creates a new managed Kubernetes cluster. The cluster will be provisioned using Cluster API (CAPI) on the Management Cluster.
-//
-// **Note:** This feature requires the `managed_k8s_clusters_api` feature flag to be enabled for your team. Maximum of 1 cluster per project.
+// Creates a new managed Kubernetes cluster. Maximum of 1 cluster per project.
 //
 // Cluster names must follow Kubernetes naming rules: lowercase alphanumeric characters or hyphens, must start and end with an alphanumeric character, and be at most 63 characters long.
 func (s *KubernetesClusters) CreateKubernetesCluster(ctx context.Context, request components.CreateKubernetesCluster, opts ...operations.Option) (*operations.CreateKubernetesClusterResponse, error) {
