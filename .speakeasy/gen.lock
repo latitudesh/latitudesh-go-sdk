@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 45512abe54164696912390426389e231
+  docChecksum: 066078f17f8752e0b8def66599c0c7d9
   docVersion: "2023-06-01"
   speakeasyVersion: 1.752.0
   generationVersion: 2.859.2
-  releaseVersion: 1.12.18
-  configChecksum: fecf48d46e12af25e35ee7a96560bc16
+  releaseVersion: 1.12.19
+  configChecksum: edde5909d2286bc39379fdfff7690bdb
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 1d12909f-c5e4-4ac3-a63e-9634fe6669bf
-  pristine_commit_hash: 7253e46f94e25452d473acbdec436027f4022842
-  pristine_tree_hash: 4765bad1eb4a8a3c8ceb6c963a005fc02bf6a31f
+  generation_id: 79d68fa5-5bfc-4fba-8621-88d2c206185e
+  pristine_commit_hash: 9c6640779a575a5cce297ac2554104ef0d560e85
+  pristine_tree_hash: 042d54bbe637c348affb680167d0c99c58a498f0
 features:
   go:
     additionalDependencies: 0.1.0
@@ -3194,8 +3194,8 @@ trackedFiles:
     pristine_git_object: 7c90b2446a9aad32da7647e1424dd4f0f9fc8010
   docs/sdks/kubernetesclusters/README.md:
     id: 93994c21c7b4
-    last_write_checksum: sha1:8790eddb7b9d741c438ee558677b10776f0c767f
-    pristine_git_object: 103ccf6f1cb430097515ef1ccda98d291b67371a
+    last_write_checksum: sha1:ce54edbb8a779735273e8ae51bac632664a70eab
+    pristine_git_object: 921abeb6a65a6f0f3dde077abd29356c1d8141cd
   docs/sdks/latitudeshprojectssshkeys/README.md:
     id: 3c7e3885c2bb
     last_write_checksum: sha1:68decaa2e1c42af68b5f6ad39b987ef94c22d9d4
@@ -3362,12 +3362,12 @@ trackedFiles:
     pristine_git_object: 6a513fc23274a326cff6bbc58a707b071baa96fa
   kubernetesclusters.go:
     id: 27e24295c073
-    last_write_checksum: sha1:10a51e906a20ec00b4581566cda882e27e7670a7
-    pristine_git_object: 86862530da72dd6bdbf7f6a308cd4e50f216aa32
+    last_write_checksum: sha1:a37fce441ae2200965639119da2ec3363895ed55
+    pristine_git_object: 583cdbe5824e651ae8b19c71cc745665f6fd5e8f
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:9a58a084ddc2d42d17497885ee50805e0e799936
-    pristine_git_object: 924fc29558d72ec29d3c8d52ffbfef6cdaa55320
+    last_write_checksum: sha1:f0b420309a2c400ccf320d4d29077e4680a9adf2
+    pristine_git_object: 3cef3ffa09f6888148b092cb25939d1376370c6a
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -7442,9 +7442,6 @@ examples:
           application/vnd.api+json: {"errors": [{"code": "UNAUTHORIZED"}]}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Go SDK Changes:
-  * `Latitudesh.KubernetesClusters.GetKubernetesCluster()`:  `response.Data.Attributes.Nodes` **Added**
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
