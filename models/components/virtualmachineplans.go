@@ -424,6 +424,8 @@ type VirtualMachinePlansAttributes struct {
 	Regions []VirtualMachinePlansRegions `json:"regions,omitempty"`
 	// The stock level of the plan
 	StockLevel *VirtualMachinePlansStockLevel `json:"stock_level,omitempty"`
+	// List of operating system slugs that are compatible with this plan
+	AvailableOperatingSystems []string `json:"available_operating_systems,omitempty"`
 }
 
 func (v *VirtualMachinePlansAttributes) GetName() *string {
@@ -452,6 +454,13 @@ func (v *VirtualMachinePlansAttributes) GetStockLevel() *VirtualMachinePlansStoc
 		return nil
 	}
 	return v.StockLevel
+}
+
+func (v *VirtualMachinePlansAttributes) GetAvailableOperatingSystems() []string {
+	if v == nil {
+		return nil
+	}
+	return v.AvailableOperatingSystems
 }
 
 type VirtualMachinePlansData struct {

@@ -37,7 +37,7 @@ type VirtualMachinePayloadAttributes struct {
 	Plan    *string  `json:"plan,omitempty"`
 	SSHKeys []string `json:"ssh_keys,omitempty"`
 	Project *string  `default:"my-project" json:"project"`
-	// The operating system slug for the Virtual Machine. Defaults to ubuntu_24_04_x64_lts if not specified.
+	// The operating system slug for the Virtual Machine. If not specified, defaults to ubuntu-24-04 for CPU plans or ubuntu24_ml_in_a_box for GPU plans.
 	OperatingSystem *string `json:"operating_system,omitempty"`
 }
 

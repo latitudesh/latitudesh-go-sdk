@@ -65,6 +65,117 @@ func (e *VirtualMachineAttributesStatus) UnmarshalJSON(data []byte) error {
 	}
 }
 
+// VirtualMachineAttributesFeatures - Features supported by this operating system
+type VirtualMachineAttributesFeatures struct {
+	// Whether RAID is supported
+	Raid *bool `json:"raid,omitempty"`
+	// Whether SSH keys are supported
+	SSHKeys *bool `json:"ssh_keys,omitempty"`
+	// Whether user data is supported
+	UserData *bool `json:"user_data,omitempty"`
+}
+
+func (v *VirtualMachineAttributesFeatures) GetRaid() *bool {
+	if v == nil {
+		return nil
+	}
+	return v.Raid
+}
+
+func (v *VirtualMachineAttributesFeatures) GetSSHKeys() *bool {
+	if v == nil {
+		return nil
+	}
+	return v.SSHKeys
+}
+
+func (v *VirtualMachineAttributesFeatures) GetUserData() *bool {
+	if v == nil {
+		return nil
+	}
+	return v.UserData
+}
+
+// VirtualMachineAttributesDistro - Distribution information
+type VirtualMachineAttributesDistro struct {
+	// The name of the Linux distribution
+	Name *string `json:"name,omitempty"`
+	// The slug of the Linux distribution
+	Slug *string `json:"slug,omitempty"`
+	// The distribution series code name
+	Series *string `json:"series,omitempty"`
+}
+
+func (v *VirtualMachineAttributesDistro) GetName() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Name
+}
+
+func (v *VirtualMachineAttributesDistro) GetSlug() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Slug
+}
+
+func (v *VirtualMachineAttributesDistro) GetSeries() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Series
+}
+
+// VirtualMachineAttributesOperatingSystem - The operating system installed on the virtual machine
+type VirtualMachineAttributesOperatingSystem struct {
+	// The full name of the operating system
+	Name *string `json:"name,omitempty"`
+	// The unique slug identifier for the operating system
+	Slug *string `json:"slug,omitempty"`
+	// The version of the operating system
+	Version *string `json:"version,omitempty"`
+	// Features supported by this operating system
+	Features *VirtualMachineAttributesFeatures `json:"features,omitempty"`
+	// Distribution information
+	Distro *VirtualMachineAttributesDistro `json:"distro,omitempty"`
+}
+
+func (v *VirtualMachineAttributesOperatingSystem) GetName() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Name
+}
+
+func (v *VirtualMachineAttributesOperatingSystem) GetSlug() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Slug
+}
+
+func (v *VirtualMachineAttributesOperatingSystem) GetVersion() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Version
+}
+
+func (v *VirtualMachineAttributesOperatingSystem) GetFeatures() *VirtualMachineAttributesFeatures {
+	if v == nil {
+		return nil
+	}
+	return v.Features
+}
+
+func (v *VirtualMachineAttributesOperatingSystem) GetDistro() *VirtualMachineAttributesDistro {
+	if v == nil {
+		return nil
+	}
+	return v.Distro
+}
+
 type Credentials struct {
 	Username *string  `json:"username,omitempty"`
 	Host     *string  `json:"host,omitempty"`
@@ -163,16 +274,17 @@ func (v *VirtualMachineAttributesSpecs) GetGpu() *string {
 }
 
 type VirtualMachineAttributesAttributes struct {
-	Name            *string                         `json:"name,omitempty"`
-	CreatedAt       *string                         `json:"created_at,omitempty"`
-	Status          *VirtualMachineAttributesStatus `json:"status,omitempty"`
-	PrimaryIpv4     *string                         `json:"primary_ipv4,omitempty"`
-	OperatingSystem *string                         `json:"operating_system,omitempty"`
-	Credentials     *Credentials                    `json:"credentials,omitempty"`
-	Plan            *VirtualMachineAttributesPlan   `json:"plan,omitempty"`
-	Specs           *VirtualMachineAttributesSpecs  `json:"specs,omitempty"`
-	Team            *TeamInclude                    `json:"team,omitempty"`
-	Project         *ProjectInclude                 `json:"project,omitempty"`
+	Name        *string                         `json:"name,omitempty"`
+	CreatedAt   *string                         `json:"created_at,omitempty"`
+	Status      *VirtualMachineAttributesStatus `json:"status,omitempty"`
+	PrimaryIpv4 *string                         `json:"primary_ipv4,omitempty"`
+	// The operating system installed on the virtual machine
+	OperatingSystem *VirtualMachineAttributesOperatingSystem `json:"operating_system,omitempty"`
+	Credentials     *Credentials                             `json:"credentials,omitempty"`
+	Plan            *VirtualMachineAttributesPlan            `json:"plan,omitempty"`
+	Specs           *VirtualMachineAttributesSpecs           `json:"specs,omitempty"`
+	Team            *TeamInclude                             `json:"team,omitempty"`
+	Project         *ProjectInclude                          `json:"project,omitempty"`
 }
 
 func (v *VirtualMachineAttributesAttributes) GetName() *string {
@@ -203,7 +315,7 @@ func (v *VirtualMachineAttributesAttributes) GetPrimaryIpv4() *string {
 	return v.PrimaryIpv4
 }
 
-func (v *VirtualMachineAttributesAttributes) GetOperatingSystem() *string {
+func (v *VirtualMachineAttributesAttributes) GetOperatingSystem() *VirtualMachineAttributesOperatingSystem {
 	if v == nil {
 		return nil
 	}
