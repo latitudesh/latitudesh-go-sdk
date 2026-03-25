@@ -29,6 +29,8 @@ func (i *IndexVirtualMachineRequest) GetExtraFieldsVirtualMachines() *string {
 
 type IndexVirtualMachineResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
+	// Success
+	VirtualMachines *components.VirtualMachines
 }
 
 func (i *IndexVirtualMachineResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -36,4 +38,11 @@ func (i *IndexVirtualMachineResponse) GetHTTPMeta() components.HTTPMetadata {
 		return components.HTTPMetadata{}
 	}
 	return i.HTTPMeta
+}
+
+func (i *IndexVirtualMachineResponse) GetVirtualMachines() *components.VirtualMachines {
+	if i == nil {
+		return nil
+	}
+	return i.VirtualMachines
 }

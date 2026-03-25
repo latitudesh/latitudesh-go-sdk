@@ -7,7 +7,8 @@ import (
 )
 
 type Source struct {
-	Pointer *string `json:"pointer,omitempty"`
+	Pointer   *string `json:"pointer,omitempty"`
+	Parameter *string `json:"parameter,omitempty"`
 }
 
 func (s *Source) GetPointer() *string {
@@ -15,6 +16,13 @@ func (s *Source) GetPointer() *string {
 		return nil
 	}
 	return s.Pointer
+}
+
+func (s *Source) GetParameter() *string {
+	if s == nil {
+		return nil
+	}
+	return s.Parameter
 }
 
 type ErrorObjectMeta struct {

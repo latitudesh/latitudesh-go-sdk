@@ -1,0 +1,10 @@
+# ObjectStorageData
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `ID`                                                                                              | `*string`                                                                                         | :heavy_minus_sign:                                                                                | Object storage ID with bucket_ prefix                                                             |
+| `Type`                                                                                            | [*components.ObjectStorageDataType](../../models/components/objectstoragedatatype.md)             | :heavy_minus_sign:                                                                                | N/A                                                                                               |
+| `Attributes`                                                                                      | [*components.ObjectStorageDataAttributes](../../models/components/objectstoragedataattributes.md) | :heavy_minus_sign:                                                                                | N/A                                                                                               |
