@@ -6,3 +6,4 @@
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `Pointer`          | `*string`          | :heavy_minus_sign: | N/A                |
+| `Parameter`        | `*string`          | :heavy_minus_sign: | N/A                |

@@ -1,0 +1,9 @@
+# PostStorageObjectsData
+
+
+## Fields
+
+| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `Type`                                                                                             | [operations.PostStorageObjectsType](../../models/operations/poststorageobjectstype.md)             | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `Attributes`                                                                                       | [operations.PostStorageObjectsAttributes](../../models/operations/poststorageobjectsattributes.md) | :heavy_check_mark:                                                                                 | N/A                                                                                                |

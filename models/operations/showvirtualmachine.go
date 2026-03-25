@@ -19,6 +19,8 @@ func (s *ShowVirtualMachineRequest) GetVirtualMachineID() string {
 
 type ShowVirtualMachineResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
+	// Success
+	VirtualMachine *components.VirtualMachine
 }
 
 func (s *ShowVirtualMachineResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -26,4 +28,11 @@ func (s *ShowVirtualMachineResponse) GetHTTPMeta() components.HTTPMetadata {
 		return components.HTTPMetadata{}
 	}
 	return s.HTTPMeta
+}
+
+func (s *ShowVirtualMachineResponse) GetVirtualMachine() *components.VirtualMachine {
+	if s == nil {
+		return nil
+	}
+	return s.VirtualMachine
 }

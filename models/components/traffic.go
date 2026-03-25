@@ -37,9 +37,9 @@ type TrafficDataData struct {
 	InboundGb *int64 `json:"inbound_gb,omitempty"`
 	// Value in GB
 	OutboundGb *int64 `json:"outbound_gb,omitempty"`
-	// Value in MBps
+	// Value in Mbps
 	AvgOutboundSpeedMbps *float64 `json:"avg_outbound_speed_mbps,omitempty"`
-	// Value in MBps
+	// Value in Mbps
 	AvgInboundSpeedMbps *float64 `json:"avg_inbound_speed_mbps,omitempty"`
 }
 

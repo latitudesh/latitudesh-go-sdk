@@ -38,6 +38,7 @@ const (
 	VirtualMachineAttributesStatusStarting           VirtualMachineAttributesStatus = "Starting"
 	VirtualMachineAttributesStatusScheduling         VirtualMachineAttributesStatus = "Scheduling"
 	VirtualMachineAttributesStatusScheduled          VirtualMachineAttributesStatus = "Scheduled"
+	VirtualMachineAttributesStatusDestroying         VirtualMachineAttributesStatus = "Destroying"
 )
 
 func (e VirtualMachineAttributesStatus) ToPointer() *VirtualMachineAttributesStatus {
@@ -58,6 +59,8 @@ func (e *VirtualMachineAttributesStatus) UnmarshalJSON(data []byte) error {
 	case "Scheduling":
 		fallthrough
 	case "Scheduled":
+		fallthrough
+	case "Destroying":
 		*e = VirtualMachineAttributesStatus(v)
 		return nil
 	default:

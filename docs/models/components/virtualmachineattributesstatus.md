@@ -20,3 +20,4 @@ value := components.VirtualMachineAttributesStatusRunning
 | `VirtualMachineAttributesStatusStarting`           | Starting                                           |
 | `VirtualMachineAttributesStatusScheduling`         | Scheduling                                         |
 | `VirtualMachineAttributesStatusScheduled`          | Scheduled                                          |
+| `VirtualMachineAttributesStatusDestroying`         | Destroying                                         |

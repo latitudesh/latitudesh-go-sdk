@@ -195,7 +195,7 @@ Show all Team's Virtual Machines.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="index-virtual-machine" method="get" path="/virtual_machines" -->
+<!-- UsageSnippet language="go" operationID="index-virtual-machine" method="get" path="/virtual_machines" example="Success" -->
 ```go
 package main
 
@@ -217,7 +217,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res != nil {
+    if res.VirtualMachines != nil {
         // handle response
     }
 }
@@ -249,7 +249,7 @@ Show a Virtual Machine.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="show-virtual-machine" method="get" path="/virtual_machines/{virtual_machine_id}" -->
+<!-- UsageSnippet language="go" operationID="show-virtual-machine" method="get" path="/virtual_machines/{virtual_machine_id}" example="Success" -->
 ```go
 package main
 
@@ -271,7 +271,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res != nil {
+    if res.VirtualMachine != nil {
         // handle response
     }
 }

@@ -260,6 +260,10 @@ func main() {
 * [GetStorageVolume](docs/sdks/storage/README.md#getstoragevolume) - Retrieve volume
 * [DeleteStorageVolumes](docs/sdks/storage/README.md#deletestoragevolumes) - Delete volume
 * [PostStorageVolumesMount](docs/sdks/storage/README.md#poststoragevolumesmount) - Mount volume
+* [GetStorageObjects](docs/sdks/storage/README.md#getstorageobjects) - List object storages
+* [PostStorageObjects](docs/sdks/storage/README.md#poststorageobjects) - Create object storage
+* [GetStorageObject](docs/sdks/storage/README.md#getstorageobject) - Retrieve object storage
+* [DeleteStorageObjects](docs/sdks/storage/README.md#deletestorageobjects) - Delete object storage
 
 ### [Tags](docs/sdks/tags/README.md)
 

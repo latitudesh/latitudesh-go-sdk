@@ -105,6 +105,66 @@ func main() {
     }
 }
 ```
+### Example Usage: NameAlreadyTaken
+
+<!-- UsageSnippet language="go" operationID="create-tag" method="post" path="/tags" example="NameAlreadyTaken" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Tags.Create(ctx, operations.CreateTagTagsRequestBody{})
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.CustomTag != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: NameTooSimilar
+
+<!-- UsageSnippet language="go" operationID="create-tag" method="post" path="/tags" example="NameTooSimilar" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Tags.Create(ctx, operations.CreateTagTagsRequestBody{})
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.CustomTag != nil {
+        // handle response
+    }
+}
+```
 ### Example Usage: when any attribute is missing or not filled
 
 <!-- UsageSnippet language="go" operationID="create-tag" method="post" path="/tags" example="when any attribute is missing or not filled" -->
@@ -275,15 +335,76 @@ func main() {
 
 ### Errors
 
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| components.APIError | 4XX, 5XX            | \*/\*               |
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| components.ErrorObject   | 422                      | application/vnd.api+json |
+| components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
 ## Update
 
 Update a Tag in the team.
 
 
+### Example Usage: NameAlreadyTaken
+
+<!-- UsageSnippet language="go" operationID="update-tag" method="patch" path="/tags/{tag_id}" example="NameAlreadyTaken" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Tags.Update(ctx, "<id>", operations.UpdateTagTagsRequestBody{})
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.CustomTag != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: NameTooSimilar
+
+<!-- UsageSnippet language="go" operationID="update-tag" method="patch" path="/tags/{tag_id}" example="NameTooSimilar" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Tags.Update(ctx, "<id>", operations.UpdateTagTagsRequestBody{})
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.CustomTag != nil {
+        // handle response
+    }
+}
+```
 ### Example Usage: Not Found
 
 <!-- UsageSnippet language="go" operationID="update-tag" method="patch" path="/tags/{tag_id}" example="Not Found" -->
@@ -528,9 +649,10 @@ func main() {
 
 ### Errors
 
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| components.APIError | 4XX, 5XX            | \*/\*               |
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| components.ErrorObject   | 422                      | application/vnd.api+json |
+| components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
 ## Delete
 
