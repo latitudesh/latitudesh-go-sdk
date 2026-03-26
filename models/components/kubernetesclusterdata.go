@@ -101,6 +101,39 @@ func (w *Workers) GetAvailableReplicas() *int64 {
 	return w.AvailableReplicas
 }
 
+// WorkerStatus - Current status of worker nodes. 'idle' when 0 workers, 'ready' when all workers are ready, 'scaling' when workers are being provisioned/removed, 'error' when a worker has failed.
+type WorkerStatus string
+
+const (
+	WorkerStatusIdle    WorkerStatus = "idle"
+	WorkerStatusReady   WorkerStatus = "ready"
+	WorkerStatusScaling WorkerStatus = "scaling"
+	WorkerStatusError   WorkerStatus = "error"
+)
+
+func (e WorkerStatus) ToPointer() *WorkerStatus {
+	return &e
+}
+func (e *WorkerStatus) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "idle":
+		fallthrough
+	case "ready":
+		fallthrough
+	case "scaling":
+		fallthrough
+	case "error":
+		*e = WorkerStatus(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for WorkerStatus: %v", v)
+	}
+}
+
 // KubernetesClusterDataName - Step identifier
 type KubernetesClusterDataName string
 
@@ -388,6 +421,8 @@ type KubernetesClusterDataAttributes struct {
 	ControlPlane *ControlPlane `json:"control_plane,omitempty"`
 	// Worker nodes status information
 	Workers *Workers `json:"workers,omitempty"`
+	// Current status of worker nodes. 'idle' when 0 workers, 'ready' when all workers are ready, 'scaling' when workers are being provisioned/removed, 'error' when a worker has failed.
+	WorkerStatus *WorkerStatus `json:"worker_status,omitempty"`
 	// Whether the underlying infrastructure is ready
 	InfrastructureReady *bool `json:"infrastructure_ready,omitempty"`
 	// Whether the control plane is ready
@@ -522,6 +557,13 @@ func (k *KubernetesClusterDataAttributes) GetWorkers() *Workers {
 		return nil
 	}
 	return k.Workers
+}
+
+func (k *KubernetesClusterDataAttributes) GetWorkerStatus() *WorkerStatus {
+	if k == nil {
+		return nil
+	}
+	return k.WorkerStatus
 }
 
 func (k *KubernetesClusterDataAttributes) GetInfrastructureReady() *bool {

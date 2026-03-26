@@ -1,0 +1,9 @@
+# UpdateKubernetesClusterData
+
+
+## Fields
+
+| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `Type`                                                                                                       | [components.UpdateKubernetesClusterType](../../models/components/updatekubernetesclustertype.md)             | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `Attributes`                                                                                                 | [components.UpdateKubernetesClusterAttributes](../../models/components/updatekubernetesclusterattributes.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
