@@ -167,6 +167,7 @@ func main() {
 * [CreateKubernetesCluster](docs/sdks/kubernetesclusters/README.md#createkubernetescluster) - Create a Kubernetes Cluster
 * [GetKubernetesCluster](docs/sdks/kubernetesclusters/README.md#getkubernetescluster) - Get a Kubernetes Cluster
 * [DeleteKubernetesCluster](docs/sdks/kubernetesclusters/README.md#deletekubernetescluster) - Delete a Kubernetes Cluster
+* [UpdateKubernetesCluster](docs/sdks/kubernetesclusters/README.md#updatekubernetescluster) - Scale Kubernetes Cluster Workers
 * [GetKubernetesClusterKubeconfig](docs/sdks/kubernetesclusters/README.md#getkubernetesclusterkubeconfig) - Get Kubernetes Cluster Kubeconfig
 
 ### [OperatingSystems](docs/sdks/operatingsystems/README.md)
