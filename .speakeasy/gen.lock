@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 1cb41bc612e539e19d27dc748e638013
+  docChecksum: 727921e0d091d86ab7a82fcb715e0959
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.759.2
-  generationVersion: 2.869.23
-  releaseVersion: 1.12.21
-  configChecksum: 2d51cac90a1bdc2b8452f747e4a59398
+  speakeasyVersion: 1.759.3
+  generationVersion: 2.869.25
+  releaseVersion: 1.12.22
+  configChecksum: e160e474e801e44106d66d8bc93efe6d
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: f14a3e44-55e2-463f-9cf6-17213d4ac838
-  pristine_commit_hash: 627bd845bda620bc06e9fd876313944881ab7e1e
-  pristine_tree_hash: 13383e0528a61c04dce73363982875f82bb8a92b
+  generation_id: cbd8067a-1970-4258-b7f4-9dd5dcc9b966
+  pristine_commit_hash: 8d5b5e5e4885af79b5ae25a189766ab8c89f6449
+  pristine_tree_hash: b0aee926b14b8594c3ee927305c14592c85a70cb
 features:
   go:
     additionalDependencies: 0.1.0
@@ -3458,8 +3458,8 @@ trackedFiles:
     pristine_git_object: 583cdbe5824e651ae8b19c71cc745665f6fd5e8f
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:d4ec2929682714bd2fffcd0c69f7c37930c6f143
-    pristine_git_object: f3b443b9a735e828fb8caa04972a16a3baf9665f
+    last_write_checksum: sha1:3c2159878e88f8ede315f60111a2cdeb5c88e7c6
+    pristine_git_object: 03c045f7870c886a7923971e96de31d795a1e9cd
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -7697,29 +7697,6 @@ examples:
           application/vnd.api+json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Go SDK Changes:
-  * `Latitudesh.VirtualMachines.Create()`:  `response.Data.Attributes.Status.Enum(destroying)` **Added** (Breaking ⚠️)
-  * `Latitudesh.VirtualMachines.UpdateVirtualMachine()`:  `response.Data.Attributes.Status.Enum(destroying)` **Added** (Breaking ⚠️)
-  * `Latitudesh.KubernetesClusters.GetKubernetesCluster()`:  `error.Errors[].Source.Parameter` **Added**
-  * `Latitudesh.KubernetesClusters.DeleteKubernetesCluster()`:  `error.Errors[].Source.Parameter` **Added**
-  * `Latitudesh.ElasticIps.CreateElasticIp()`:  `error.Errors[].Source.Parameter` **Added**
-  * `Latitudesh.ElasticIps.GetElasticIp()`:  `error.Errors[].Source.Parameter` **Added**
-  * `Latitudesh.ElasticIps.DeleteElasticIp()`:  `error.Errors[].Source.Parameter` **Added**
-  * `Latitudesh.ElasticIps.UpdateElasticIp()`:  `error.Errors[].Source.Parameter` **Added**
-  * `Latitudesh.KubernetesClusters.ListKubernetesClusters()`:  `error.Errors[].Source.Parameter` **Added**
-  * `Latitudesh.KubernetesClusters.CreateKubernetesCluster()`:  `error.Errors[].Source.Parameter` **Added**
-  * `Latitudesh.Storage.GetStorageObjects()`: **Added**
-  * `Latitudesh.Storage.DeleteStorageObjects()`: **Added**
-  * `Latitudesh.KubernetesClusters.GetKubernetesClusterKubeconfig()`:  `error.Errors[].Source.Parameter` **Added**
-  * `Latitudesh.Storage.CreateFilesystem()`:  `error.Errors[].Source.Parameter` **Added**
-  * `Latitudesh.Storage.PostStorageVolumes()`:  `error.Errors[].Source.Parameter` **Added**
-  * `Latitudesh.Tags.Create()`:  `error.status[422]` **Added**
-  * `Latitudesh.Tags.Update()`:  `error.status[422]` **Added**
-  * `Latitudesh.Storage.GetStorageObject()`: **Added**
-  * `Latitudesh.VirtualMachines.List()`:  `response.status[200].content[application/vnd.api+json` **Added**
-  * `Latitudesh.VirtualMachines.Get()`:  `response.status[200].content[application/vnd.api+json` **Added**
-  * `Latitudesh.Storage.PostStorageObjects()`: **Added**
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
