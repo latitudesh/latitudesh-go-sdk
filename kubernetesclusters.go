@@ -983,14 +983,18 @@ func (s *KubernetesClusters) DeleteKubernetesCluster(ctx context.Context, kubern
 
 }
 
-// UpdateKubernetesCluster - Scale Kubernetes Cluster Workers
-// Scales the worker nodes of a Kubernetes cluster. The cluster must be in `Provisioned` phase to accept updates.
+// UpdateKubernetesCluster - Scale Kubernetes Cluster
+// Scales the worker nodes or control plane nodes of a Kubernetes cluster. The cluster must be in `Provisioned` phase to accept updates.
+//
+// Exactly one of `worker_count` or `control_plane_count` must be provided per request. You cannot scale workers and control plane nodes in the same request.
 //
 // When scaling up, the API validates that sufficient server stock is available for the requested delta (e.g., scaling from 2 to 5 workers checks for 3 available servers).
 //
 // When scaling from 0 workers, you must provide a `worker_plan` since there is no existing configuration to inherit the plan from.
 //
-// Returns 202 Accepted when a scaling operation is triggered. Poll the GET endpoint to monitor progress. Returns 200 OK if the requested worker count matches the current count (no-op).
+// Control plane scaling has a minimum of 1 node. You cannot scale control plane nodes to zero.
+//
+// Returns 202 Accepted when a scaling operation is triggered. Poll the GET endpoint to monitor progress. Returns 200 OK if the requested count matches the current count (no-op).
 func (s *KubernetesClusters) UpdateKubernetesCluster(ctx context.Context, kubernetesClusterID string, updateKubernetesCluster components.UpdateKubernetesCluster, opts ...operations.Option) (*operations.UpdateKubernetesClusterResponse, error) {
 	request := operations.UpdateKubernetesClusterRequest{
 		KubernetesClusterID:     kubernetesClusterID,

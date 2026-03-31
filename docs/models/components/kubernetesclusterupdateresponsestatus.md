@@ -1,6 +1,6 @@
 # KubernetesClusterUpdateResponseStatus
 
-The update status. 'scaling' indicates worker nodes are being added or removed. 'unchanged' indicates the requested worker_count matches the current count.
+The update status. 'scaling' indicates nodes are being added or removed. 'unchanged' indicates the requested count matches the current count.
 
 ## Example Usage
 

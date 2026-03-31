@@ -30,7 +30,7 @@ func (e *KubernetesClusterUpdateResponseType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// KubernetesClusterUpdateResponseStatus - The update status. 'scaling' indicates worker nodes are being added or removed. 'unchanged' indicates the requested worker_count matches the current count.
+// KubernetesClusterUpdateResponseStatus - The update status. 'scaling' indicates nodes are being added or removed. 'unchanged' indicates the requested count matches the current count.
 type KubernetesClusterUpdateResponseStatus string
 
 const (
@@ -60,10 +60,12 @@ func (e *KubernetesClusterUpdateResponseStatus) UnmarshalJSON(data []byte) error
 type KubernetesClusterUpdateResponseAttributes struct {
 	// The cluster name
 	Name *string `json:"name,omitempty"`
-	// The update status. 'scaling' indicates worker nodes are being added or removed. 'unchanged' indicates the requested worker_count matches the current count.
+	// The update status. 'scaling' indicates nodes are being added or removed. 'unchanged' indicates the requested count matches the current count.
 	Status *KubernetesClusterUpdateResponseStatus `json:"status,omitempty"`
-	// The requested number of worker nodes
+	// The requested number of worker nodes. Present when scaling workers.
 	WorkerCount *int64 `json:"worker_count,omitempty"`
+	// The requested number of control plane nodes. Present when scaling control plane.
+	ControlPlaneCount *int64 `json:"control_plane_count,omitempty"`
 }
 
 func (k *KubernetesClusterUpdateResponseAttributes) GetName() *string {
@@ -85,6 +87,13 @@ func (k *KubernetesClusterUpdateResponseAttributes) GetWorkerCount() *int64 {
 		return nil
 	}
 	return k.WorkerCount
+}
+
+func (k *KubernetesClusterUpdateResponseAttributes) GetControlPlaneCount() *int64 {
+	if k == nil {
+		return nil
+	}
+	return k.ControlPlaneCount
 }
 
 type KubernetesClusterUpdateResponseData struct {
