@@ -30,18 +30,28 @@ func (e *UpdateKubernetesClusterType) UnmarshalJSON(data []byte) error {
 	}
 }
 
+// UpdateKubernetesClusterAttributes - Exactly one of worker_count or control_plane_count must be provided. These parameters are mutually exclusive.
 type UpdateKubernetesClusterAttributes struct {
-	// Desired number of worker nodes. Must be between 0 and 10.
-	WorkerCount int64 `json:"worker_count"`
+	// Desired number of worker nodes. Must be between 0 and 10. Mutually exclusive with control_plane_count.
+	WorkerCount *int64 `json:"worker_count,omitempty"`
+	// Desired number of control plane nodes. Minimum 1. Mutually exclusive with worker_count.
+	ControlPlaneCount *int64 `json:"control_plane_count,omitempty"`
 	// Plan slug for worker nodes. Required when scaling from 0 workers. Ignored when scaling an existing deployment.
 	WorkerPlan *string `json:"worker_plan,omitempty"`
 }
 
-func (u *UpdateKubernetesClusterAttributes) GetWorkerCount() int64 {
+func (u *UpdateKubernetesClusterAttributes) GetWorkerCount() *int64 {
 	if u == nil {
-		return 0
+		return nil
 	}
 	return u.WorkerCount
+}
+
+func (u *UpdateKubernetesClusterAttributes) GetControlPlaneCount() *int64 {
+	if u == nil {
+		return nil
+	}
+	return u.ControlPlaneCount
 }
 
 func (u *UpdateKubernetesClusterAttributes) GetWorkerPlan() *string {
@@ -52,7 +62,8 @@ func (u *UpdateKubernetesClusterAttributes) GetWorkerPlan() *string {
 }
 
 type UpdateKubernetesClusterData struct {
-	Type       UpdateKubernetesClusterType       `json:"type"`
+	Type UpdateKubernetesClusterType `json:"type"`
+	// Exactly one of worker_count or control_plane_count must be provided. These parameters are mutually exclusive.
 	Attributes UpdateKubernetesClusterAttributes `json:"attributes"`
 }
 

@@ -134,6 +134,36 @@ func (e *WorkerStatus) UnmarshalJSON(data []byte) error {
 	}
 }
 
+// ControlPlaneStatus - Current status of control plane nodes. 'ready' when control plane is operational, 'scaling' when nodes are being provisioned/removed, 'error' when a control plane node has failed.
+type ControlPlaneStatus string
+
+const (
+	ControlPlaneStatusReady   ControlPlaneStatus = "ready"
+	ControlPlaneStatusScaling ControlPlaneStatus = "scaling"
+	ControlPlaneStatusError   ControlPlaneStatus = "error"
+)
+
+func (e ControlPlaneStatus) ToPointer() *ControlPlaneStatus {
+	return &e
+}
+func (e *ControlPlaneStatus) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "ready":
+		fallthrough
+	case "scaling":
+		fallthrough
+	case "error":
+		*e = ControlPlaneStatus(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for ControlPlaneStatus: %v", v)
+	}
+}
+
 // KubernetesClusterDataName - Step identifier
 type KubernetesClusterDataName string
 
@@ -423,6 +453,8 @@ type KubernetesClusterDataAttributes struct {
 	Workers *Workers `json:"workers,omitempty"`
 	// Current status of worker nodes. 'idle' when 0 workers, 'ready' when all workers are ready, 'scaling' when workers are being provisioned/removed, 'error' when a worker has failed.
 	WorkerStatus *WorkerStatus `json:"worker_status,omitempty"`
+	// Current status of control plane nodes. 'ready' when control plane is operational, 'scaling' when nodes are being provisioned/removed, 'error' when a control plane node has failed.
+	ControlPlaneStatus *ControlPlaneStatus `json:"control_plane_status,omitempty"`
 	// Whether the underlying infrastructure is ready
 	InfrastructureReady *bool `json:"infrastructure_ready,omitempty"`
 	// Whether the control plane is ready
@@ -564,6 +596,13 @@ func (k *KubernetesClusterDataAttributes) GetWorkerStatus() *WorkerStatus {
 		return nil
 	}
 	return k.WorkerStatus
+}
+
+func (k *KubernetesClusterDataAttributes) GetControlPlaneStatus() *ControlPlaneStatus {
+	if k == nil {
+		return nil
+	}
+	return k.ControlPlaneStatus
 }
 
 func (k *KubernetesClusterDataAttributes) GetInfrastructureReady() *bool {

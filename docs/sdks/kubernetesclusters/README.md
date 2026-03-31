@@ -8,7 +8,7 @@
 * [CreateKubernetesCluster](#createkubernetescluster) - Create a Kubernetes Cluster
 * [GetKubernetesCluster](#getkubernetescluster) - Get a Kubernetes Cluster
 * [DeleteKubernetesCluster](#deletekubernetescluster) - Delete a Kubernetes Cluster
-* [UpdateKubernetesCluster](#updatekubernetescluster) - Scale Kubernetes Cluster Workers
+* [UpdateKubernetesCluster](#updatekubernetescluster) - Scale Kubernetes Cluster
 * [GetKubernetesClusterKubeconfig](#getkubernetesclusterkubeconfig) - Get Kubernetes Cluster Kubeconfig
 
 ## ListKubernetesClusters
@@ -382,15 +382,89 @@ func main() {
 
 ## UpdateKubernetesCluster
 
-Scales the worker nodes of a Kubernetes cluster. The cluster must be in `Provisioned` phase to accept updates.
+Scales the worker nodes or control plane nodes of a Kubernetes cluster. The cluster must be in `Provisioned` phase to accept updates.
+
+Exactly one of `worker_count` or `control_plane_count` must be provided per request. You cannot scale workers and control plane nodes in the same request.
 
 When scaling up, the API validates that sufficient server stock is available for the requested delta (e.g., scaling from 2 to 5 workers checks for 3 available servers).
 
 When scaling from 0 workers, you must provide a `worker_plan` since there is no existing configuration to inherit the plan from.
 
-Returns 202 Accepted when a scaling operation is triggered. Poll the GET endpoint to monitor progress. Returns 200 OK if the requested worker count matches the current count (no-op).
+Control plane scaling has a minimum of 1 node. You cannot scale control plane nodes to zero.
+
+Returns 202 Accepted when a scaling operation is triggered. Poll the GET endpoint to monitor progress. Returns 200 OK if the requested count matches the current count (no-op).
 
 
+### Example Usage: ControlPlaneUnchanged
+
+<!-- UsageSnippet language="go" operationID="update-kubernetes-cluster" method="patch" path="/kubernetes_clusters/{kubernetes_cluster_id}" example="ControlPlaneUnchanged" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.KubernetesClusters.UpdateKubernetesCluster(ctx, "<id>", components.UpdateKubernetesCluster{
+        Data: components.UpdateKubernetesClusterData{
+            Type: components.UpdateKubernetesClusterTypeKubernetesClusters,
+            Attributes: components.UpdateKubernetesClusterAttributes{},
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.KubernetesClusterUpdateResponse != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: InvalidControlPlaneCountType
+
+<!-- UsageSnippet language="go" operationID="update-kubernetes-cluster" method="patch" path="/kubernetes_clusters/{kubernetes_cluster_id}" example="InvalidControlPlaneCountType" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.KubernetesClusters.UpdateKubernetesCluster(ctx, "<id>", components.UpdateKubernetesCluster{
+        Data: components.UpdateKubernetesClusterData{
+            Type: components.UpdateKubernetesClusterTypeKubernetesClusters,
+            Attributes: components.UpdateKubernetesClusterAttributes{},
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.KubernetesClusterUpdateResponse != nil {
+        // handle response
+    }
+}
+```
 ### Example Usage: InvalidWorkerCountType
 
 <!-- UsageSnippet language="go" operationID="update-kubernetes-cluster" method="patch" path="/kubernetes_clusters/{kubernetes_cluster_id}" example="InvalidWorkerCountType" -->
@@ -415,9 +489,42 @@ func main() {
     res, err := s.KubernetesClusters.UpdateKubernetesCluster(ctx, "<id>", components.UpdateKubernetesCluster{
         Data: components.UpdateKubernetesClusterData{
             Type: components.UpdateKubernetesClusterTypeKubernetesClusters,
-            Attributes: components.UpdateKubernetesClusterAttributes{
-                WorkerCount: 204185,
-            },
+            Attributes: components.UpdateKubernetesClusterAttributes{},
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.KubernetesClusterUpdateResponse != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: MissingScalingParameter
+
+<!-- UsageSnippet language="go" operationID="update-kubernetes-cluster" method="patch" path="/kubernetes_clusters/{kubernetes_cluster_id}" example="MissingScalingParameter" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.KubernetesClusters.UpdateKubernetesCluster(ctx, "<id>", components.UpdateKubernetesCluster{
+        Data: components.UpdateKubernetesClusterData{
+            Type: components.UpdateKubernetesClusterTypeKubernetesClusters,
+            Attributes: components.UpdateKubernetesClusterAttributes{},
         },
     })
     if err != nil {
@@ -453,7 +560,116 @@ func main() {
         Data: components.UpdateKubernetesClusterData{
             Type: components.UpdateKubernetesClusterTypeKubernetesClusters,
             Attributes: components.UpdateKubernetesClusterAttributes{
-                WorkerCount: 204185,
+                WorkerCount: latitudeshgosdk.Pointer[int64](204185),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.KubernetesClusterUpdateResponse != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: MutualExclusionViolation
+
+<!-- UsageSnippet language="go" operationID="update-kubernetes-cluster" method="patch" path="/kubernetes_clusters/{kubernetes_cluster_id}" example="MutualExclusionViolation" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.KubernetesClusters.UpdateKubernetesCluster(ctx, "<id>", components.UpdateKubernetesCluster{
+        Data: components.UpdateKubernetesClusterData{
+            Type: components.UpdateKubernetesClusterTypeKubernetesClusters,
+            Attributes: components.UpdateKubernetesClusterAttributes{},
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.KubernetesClusterUpdateResponse != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: ScaleControlPlaneDown
+
+<!-- UsageSnippet language="go" operationID="update-kubernetes-cluster" method="patch" path="/kubernetes_clusters/{kubernetes_cluster_id}" example="ScaleControlPlaneDown" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.KubernetesClusters.UpdateKubernetesCluster(ctx, "<id>", components.UpdateKubernetesCluster{
+        Data: components.UpdateKubernetesClusterData{
+            Type: components.UpdateKubernetesClusterTypeKubernetesClusters,
+            Attributes: components.UpdateKubernetesClusterAttributes{
+                ControlPlaneCount: latitudeshgosdk.Pointer[int64](1),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.KubernetesClusterUpdateResponse != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: ScaleControlPlaneUp
+
+<!-- UsageSnippet language="go" operationID="update-kubernetes-cluster" method="patch" path="/kubernetes_clusters/{kubernetes_cluster_id}" example="ScaleControlPlaneUp" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.KubernetesClusters.UpdateKubernetesCluster(ctx, "<id>", components.UpdateKubernetesCluster{
+        Data: components.UpdateKubernetesClusterData{
+            Type: components.UpdateKubernetesClusterTypeKubernetesClusters,
+            Attributes: components.UpdateKubernetesClusterAttributes{
+                ControlPlaneCount: latitudeshgosdk.Pointer[int64](3),
             },
         },
     })
@@ -490,7 +706,7 @@ func main() {
         Data: components.UpdateKubernetesClusterData{
             Type: components.UpdateKubernetesClusterTypeKubernetesClusters,
             Attributes: components.UpdateKubernetesClusterAttributes{
-                WorkerCount: 2,
+                WorkerCount: latitudeshgosdk.Pointer[int64](2),
             },
         },
     })
@@ -527,7 +743,7 @@ func main() {
         Data: components.UpdateKubernetesClusterData{
             Type: components.UpdateKubernetesClusterTypeKubernetesClusters,
             Attributes: components.UpdateKubernetesClusterAttributes{
-                WorkerCount: 3,
+                WorkerCount: latitudeshgosdk.Pointer[int64](3),
                 WorkerPlan: latitudeshgosdk.Pointer("c3-small-x86"),
             },
         },
@@ -565,7 +781,7 @@ func main() {
         Data: components.UpdateKubernetesClusterData{
             Type: components.UpdateKubernetesClusterTypeKubernetesClusters,
             Attributes: components.UpdateKubernetesClusterAttributes{
-                WorkerCount: 0,
+                WorkerCount: latitudeshgosdk.Pointer[int64](0),
             },
         },
     })
@@ -602,7 +818,156 @@ func main() {
         Data: components.UpdateKubernetesClusterData{
             Type: components.UpdateKubernetesClusterTypeKubernetesClusters,
             Attributes: components.UpdateKubernetesClusterAttributes{
-                WorkerCount: 5,
+                WorkerCount: latitudeshgosdk.Pointer[int64](5),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.KubernetesClusterUpdateResponse != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: ScaleWorkersDown
+
+<!-- UsageSnippet language="go" operationID="update-kubernetes-cluster" method="patch" path="/kubernetes_clusters/{kubernetes_cluster_id}" example="ScaleWorkersDown" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.KubernetesClusters.UpdateKubernetesCluster(ctx, "<id>", components.UpdateKubernetesCluster{
+        Data: components.UpdateKubernetesClusterData{
+            Type: components.UpdateKubernetesClusterTypeKubernetesClusters,
+            Attributes: components.UpdateKubernetesClusterAttributes{
+                WorkerCount: latitudeshgosdk.Pointer[int64](2),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.KubernetesClusterUpdateResponse != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: ScaleWorkersFromZero
+
+<!-- UsageSnippet language="go" operationID="update-kubernetes-cluster" method="patch" path="/kubernetes_clusters/{kubernetes_cluster_id}" example="ScaleWorkersFromZero" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.KubernetesClusters.UpdateKubernetesCluster(ctx, "<id>", components.UpdateKubernetesCluster{
+        Data: components.UpdateKubernetesClusterData{
+            Type: components.UpdateKubernetesClusterTypeKubernetesClusters,
+            Attributes: components.UpdateKubernetesClusterAttributes{
+                WorkerCount: latitudeshgosdk.Pointer[int64](3),
+                WorkerPlan: latitudeshgosdk.Pointer("c3-small-x86"),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.KubernetesClusterUpdateResponse != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: ScaleWorkersToZero
+
+<!-- UsageSnippet language="go" operationID="update-kubernetes-cluster" method="patch" path="/kubernetes_clusters/{kubernetes_cluster_id}" example="ScaleWorkersToZero" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.KubernetesClusters.UpdateKubernetesCluster(ctx, "<id>", components.UpdateKubernetesCluster{
+        Data: components.UpdateKubernetesClusterData{
+            Type: components.UpdateKubernetesClusterTypeKubernetesClusters,
+            Attributes: components.UpdateKubernetesClusterAttributes{
+                WorkerCount: latitudeshgosdk.Pointer[int64](0),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.KubernetesClusterUpdateResponse != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: ScaleWorkersUp
+
+<!-- UsageSnippet language="go" operationID="update-kubernetes-cluster" method="patch" path="/kubernetes_clusters/{kubernetes_cluster_id}" example="ScaleWorkersUp" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.KubernetesClusters.UpdateKubernetesCluster(ctx, "<id>", components.UpdateKubernetesCluster{
+        Data: components.UpdateKubernetesClusterData{
+            Type: components.UpdateKubernetesClusterTypeKubernetesClusters,
+            Attributes: components.UpdateKubernetesClusterAttributes{
+                WorkerCount: latitudeshgosdk.Pointer[int64](5),
             },
         },
     })
@@ -639,8 +1004,43 @@ func main() {
         Data: components.UpdateKubernetesClusterData{
             Type: components.UpdateKubernetesClusterTypeKubernetesClusters,
             Attributes: components.UpdateKubernetesClusterAttributes{
-                WorkerCount: 204185,
+                WorkerCount: latitudeshgosdk.Pointer[int64](204185),
             },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.KubernetesClusterUpdateResponse != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: WorkersUnchanged
+
+<!-- UsageSnippet language="go" operationID="update-kubernetes-cluster" method="patch" path="/kubernetes_clusters/{kubernetes_cluster_id}" example="WorkersUnchanged" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.KubernetesClusters.UpdateKubernetesCluster(ctx, "<id>", components.UpdateKubernetesCluster{
+        Data: components.UpdateKubernetesClusterData{
+            Type: components.UpdateKubernetesClusterTypeKubernetesClusters,
+            Attributes: components.UpdateKubernetesClusterAttributes{},
         },
     })
     if err != nil {
