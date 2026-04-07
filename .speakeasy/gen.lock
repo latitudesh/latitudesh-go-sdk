@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: b4cd3b393677e0c9305e368daf82be69
+  docChecksum: d69828482c1bc780e17a2017a3336322
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.761.0
-  generationVersion: 2.879.1
-  releaseVersion: 1.12.24
-  configChecksum: fe5175bbf5f255d1fb3682a2cdee1ca5
+  speakeasyVersion: 1.761.1
+  generationVersion: 2.879.6
+  releaseVersion: 1.12.25
+  configChecksum: 4206dfe78864c1f05d03d4c03fc491b0
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 43b1733c-fffc-4e12-b915-35d2ab2c91f1
-  pristine_commit_hash: 5bce741d70db311640afb8710f3a0922908f4b22
-  pristine_tree_hash: b95b2b09542bd4be37e106b0b1174e4a7641d23c
+  generation_id: c378a579-f96c-46da-beff-072db108ab39
+  pristine_commit_hash: 9534a6769f3ce1aa7c049a14e0b8dfbdaf4433b5
+  pristine_tree_hash: eb8da0c182e32c152d607e6a75f3f17c7d932e27
 features:
   go:
     additionalDependencies: 0.1.0
@@ -3374,8 +3374,8 @@ trackedFiles:
     pristine_git_object: 29dcf198ff540916ba740c6974b579da4e564fb7
   docs/sdks/servers/README.md:
     id: f4172022b7ef
-    last_write_checksum: sha1:635cc225855d709097abf45aaa18b612ae28e7d2
-    pristine_git_object: dc1e255c872cb39bec35bb832b68e01361d977e4
+    last_write_checksum: sha1:737ddf25266e8ad15106f18bc7605c5eb48fa5b7
+    pristine_git_object: c3c31be475f7cd702739dc22342b6e2f5cefe892
   docs/sdks/sshkeys/README.md:
     id: 34435aa66d61
     last_write_checksum: sha1:f3eae14507dae05a7a391977f391235271f468b1
@@ -3510,8 +3510,8 @@ trackedFiles:
     pristine_git_object: fefaeafa3c4d2db75e3a7fba97324a9c0e514052
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:64d87b59ff0b85de32d7da6c40ff18a6768aa16d
-    pristine_git_object: d16d1d01e7f37c39692b6354fa70f250c9212995
+    last_write_checksum: sha1:c94fc0875b4713099a9d648af921ce7dff4447ca
+    pristine_git_object: 6dfa2ae910f466b4811a4d383c28bfe9f96c77a0
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -4466,8 +4466,8 @@ trackedFiles:
     pristine_git_object: 558e6450f4d0981ad68f67edf67174569523732b
   servers.go:
     id: c9fb7df5e9aa
-    last_write_checksum: sha1:6b6f85c885a031bc45ee3c88d376ad6f46c7a2f8
-    pristine_git_object: 3f5317f675e4200410ed55f4f1d2477109f2d547
+    last_write_checksum: sha1:6befc418b8a71298a475c771b157ca24df59767b
+    pristine_git_object: b0df50d1d35aa65f179ea6b7852c49f0786f2995
   sshkeys.go:
     id: 7f02ec5e3505
     last_write_checksum: sha1:9c54ad0c9a78fbbb9d4677883373c10ee6d2710c
@@ -6067,6 +6067,8 @@ examples:
           application/vnd.api+json: {}
         "423":
           application/vnd.api+json: {}
+        "404":
+          application/vnd.api+json: {}
     Forbidden:
       parameters:
         path:
@@ -6118,6 +6120,19 @@ examples:
       requestBody:
         application/json: {"data": {"type": "reinstalls"}}
         application/vnd.api+json: {"data": {"type": "reinstalls"}}
+      responses:
+        "404":
+          application/vnd.api+json: {}
+    ServerNotFound:
+      parameters:
+        path:
+          server_id: "<id>"
+      requestBody:
+        application/json: {"data": {"type": "reinstalls"}}
+        application/vnd.api+json: {"data": {"type": "reinstalls"}}
+      responses:
+        "404":
+          application/vnd.api+json: {"errors": [{"code": "REINSTALL_SERVER_NOT_FOUND", "status": "404", "title": "Reinstall Server Not Found", "detail": "Sorry, we're unable to reinstall"}]}
   get-project-ssh-keys:
     Success:
       parameters:
@@ -7974,7 +7989,9 @@ examples:
           application/vnd.api+json: {"errors": [{"code": "VALIDATION_ERROR"}]}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes:\n* `Latitudesh.KubernetesClusters.UpdateKubernetesCluster()`: \n  *  `request.UpdateKubernetesCluster.Data.Attributes` **Changed**\n  *  `response.Data.Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.KubernetesClusters.GetKubernetesCluster()`:  `response.Data.Attributes.ControlPlaneStatus` **Added**\n"
+releaseNotes: |
+  ## Go SDK Changes:
+  * `Latitudesh.Servers.Reinstall()`:  `error` **Changed**
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
