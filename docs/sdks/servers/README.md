@@ -2575,6 +2575,40 @@ func main() {
     }
 }
 ```
+### Example Usage: ServerNotFound
+
+<!-- UsageSnippet language="go" operationID="create-server-reinstall" method="post" path="/servers/{server_id}/reinstall" example="ServerNotFound" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Servers.Reinstall(ctx, "<id>", operations.CreateServerReinstallServersRequestBody{
+        Data: operations.CreateServerReinstallServersData{
+            Type: operations.CreateServerReinstallServersTypeReinstalls,
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res != nil {
+        // handle response
+    }
+}
+```
 ### Example Usage: Unprocessable Entity
 
 <!-- UsageSnippet language="go" operationID="create-server-reinstall" method="post" path="/servers/{server_id}/reinstall" example="Unprocessable Entity" -->
@@ -2630,6 +2664,7 @@ func main() {
 
 ### Errors
 
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| components.APIError | 4XX, 5XX            | \*/\*               |
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| components.ErrorObject   | 404, 422                 | application/vnd.api+json |
+| components.APIError      | 4XX, 5XX                 | \*/\*                    |
