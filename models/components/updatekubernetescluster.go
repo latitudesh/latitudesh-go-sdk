@@ -30,14 +30,16 @@ func (e *UpdateKubernetesClusterType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// UpdateKubernetesClusterAttributes - Exactly one of worker_count or control_plane_count must be provided. These parameters are mutually exclusive.
+// UpdateKubernetesClusterAttributes - Provide one of: worker_count, control_plane_count (for scaling), or kubernetes_version (for upgrades). These are mutually exclusive operations.
 type UpdateKubernetesClusterAttributes struct {
-	// Desired number of worker nodes. Must be between 0 and 10. Mutually exclusive with control_plane_count.
+	// Desired number of worker nodes. Must be between 0 and 10. Mutually exclusive with control_plane_count and kubernetes_version.
 	WorkerCount *int64 `json:"worker_count,omitempty"`
-	// Desired number of control plane nodes. Minimum 1. Mutually exclusive with worker_count.
+	// Desired number of control plane nodes. Minimum 1. Mutually exclusive with worker_count and kubernetes_version.
 	ControlPlaneCount *int64 `json:"control_plane_count,omitempty"`
 	// Plan slug for worker nodes. Required when scaling from 0 workers. Ignored when scaling an existing deployment.
 	WorkerPlan *string `json:"worker_plan,omitempty"`
+	// Target Kubernetes version for upgrade (e.g., v1.35.0+rke2r1). Mutually exclusive with scaling operations. Must be one minor version higher than current.
+	KubernetesVersion *string `json:"kubernetes_version,omitempty"`
 }
 
 func (u *UpdateKubernetesClusterAttributes) GetWorkerCount() *int64 {
@@ -61,9 +63,16 @@ func (u *UpdateKubernetesClusterAttributes) GetWorkerPlan() *string {
 	return u.WorkerPlan
 }
 
+func (u *UpdateKubernetesClusterAttributes) GetKubernetesVersion() *string {
+	if u == nil {
+		return nil
+	}
+	return u.KubernetesVersion
+}
+
 type UpdateKubernetesClusterData struct {
 	Type UpdateKubernetesClusterType `json:"type"`
-	// Exactly one of worker_count or control_plane_count must be provided. These parameters are mutually exclusive.
+	// Provide one of: worker_count, control_plane_count (for scaling), or kubernetes_version (for upgrades). These are mutually exclusive operations.
 	Attributes UpdateKubernetesClusterAttributes `json:"attributes"`
 }
 

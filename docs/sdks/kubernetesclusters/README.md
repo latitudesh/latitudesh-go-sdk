@@ -6,9 +6,10 @@
 
 * [ListKubernetesClusters](#listkubernetesclusters) - List Kubernetes Clusters
 * [CreateKubernetesCluster](#createkubernetescluster) - Create a Kubernetes Cluster
+* [ListKubernetesAvailableVersions](#listkubernetesavailableversions) - List Available Kubernetes Versions
 * [GetKubernetesCluster](#getkubernetescluster) - Get a Kubernetes Cluster
 * [DeleteKubernetesCluster](#deletekubernetescluster) - Delete a Kubernetes Cluster
-* [UpdateKubernetesCluster](#updatekubernetescluster) - Scale Kubernetes Cluster
+* [UpdateKubernetesCluster](#updatekubernetescluster) - Update Kubernetes Cluster
 * [GetKubernetesClusterKubeconfig](#getkubernetesclusterkubeconfig) - Get Kubernetes Cluster Kubeconfig
 
 ## ListKubernetesClusters
@@ -243,6 +244,65 @@ func main() {
 | components.ErrorObject   | 503                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
+## ListKubernetesAvailableVersions
+
+Returns the list of available Kubernetes versions for cluster creation and upgrades. Versions are sourced from the RKE2 release channels and cached for 24 hours.
+
+Each version object includes:
+- `version`: The full version string (e.g., `v1.35.3+rke2r1`)
+- `minor`: The minor version number (e.g., `1.35`)
+
+The API returns the latest 5 supported minor versions. When upgrading clusters, you can only upgrade one minor version at a time (e.g., from 1.34 to 1.35).
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="list-kubernetes-available-versions" method="get" path="/kubernetes_clusters/available_versions" example="Success" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.KubernetesClusters.ListKubernetesAvailableVersions(ctx)
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.KubernetesAvailableVersions != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+
+### Response
+
+**[*operations.ListKubernetesAvailableVersionsResponse](../../models/operations/listkubernetesavailableversionsresponse.md), error**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| components.ErrorObject   | 401, 403                 | application/vnd.api+json |
+| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+
 ## GetKubernetesCluster
 
 Retrieves detailed information about a Kubernetes cluster including its status, control plane, worker node details, and individual node information.
@@ -382,7 +442,9 @@ func main() {
 
 ## UpdateKubernetesCluster
 
-Scales the worker nodes or control plane nodes of a Kubernetes cluster. The cluster must be in `Provisioned` phase to accept updates.
+Updates a Kubernetes cluster by scaling nodes or upgrading the Kubernetes version. The cluster must be in `Provisioned` phase to accept updates.
+
+## Scaling Operations
 
 Exactly one of `worker_count` or `control_plane_count` must be provided per request. You cannot scale workers and control plane nodes in the same request.
 
@@ -392,7 +454,16 @@ When scaling from 0 workers, you must provide a `worker_plan` since there is no 
 
 Control plane scaling has a minimum of 1 node. You cannot scale control plane nodes to zero.
 
-Returns 202 Accepted when a scaling operation is triggered. Poll the GET endpoint to monitor progress. Returns 200 OK if the requested count matches the current count (no-op).
+## Version Upgrades
+
+Provide a `kubernetes_version` parameter to upgrade the cluster to a new Kubernetes version. Version upgrades follow these rules:
+
+- **No downgrades**: You cannot downgrade to a lower version than currently installed
+- **One minor version at a time**: You can only upgrade one minor version at a time (e.g., from 1.34 to 1.35, not from 1.34 to 1.36)
+- **Mutually exclusive**: Version upgrades cannot be combined with scaling operations in the same request
+- **Available versions only**: The target version must be in the list returned by `GET /kubernetes_clusters/available_versions`
+
+Returns 202 Accepted when an update operation is triggered. Poll the GET endpoint to monitor progress. Returns 200 OK if no change is needed (no-op).
 
 
 ### Example Usage: ControlPlaneUnchanged
@@ -468,6 +539,41 @@ func main() {
 ### Example Usage: InvalidWorkerCountType
 
 <!-- UsageSnippet language="go" operationID="update-kubernetes-cluster" method="patch" path="/kubernetes_clusters/{kubernetes_cluster_id}" example="InvalidWorkerCountType" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.KubernetesClusters.UpdateKubernetesCluster(ctx, "<id>", components.UpdateKubernetesCluster{
+        Data: components.UpdateKubernetesClusterData{
+            Type: components.UpdateKubernetesClusterTypeKubernetesClusters,
+            Attributes: components.UpdateKubernetesClusterAttributes{},
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.KubernetesClusterUpdateResponse != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: MissingParameter
+
+<!-- UsageSnippet language="go" operationID="update-kubernetes-cluster" method="patch" path="/kubernetes_clusters/{kubernetes_cluster_id}" example="MissingParameter" -->
 ```go
 package main
 
@@ -979,6 +1085,41 @@ func main() {
     }
 }
 ```
+### Example Usage: ScalingMutualExclusion
+
+<!-- UsageSnippet language="go" operationID="update-kubernetes-cluster" method="patch" path="/kubernetes_clusters/{kubernetes_cluster_id}" example="ScalingMutualExclusion" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.KubernetesClusters.UpdateKubernetesCluster(ctx, "<id>", components.UpdateKubernetesCluster{
+        Data: components.UpdateKubernetesClusterData{
+            Type: components.UpdateKubernetesClusterTypeKubernetesClusters,
+            Attributes: components.UpdateKubernetesClusterAttributes{},
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.KubernetesClusterUpdateResponse != nil {
+        // handle response
+    }
+}
+```
 ### Example Usage: Unchanged
 
 <!-- UsageSnippet language="go" operationID="update-kubernetes-cluster" method="patch" path="/kubernetes_clusters/{kubernetes_cluster_id}" example="Unchanged" -->
@@ -1006,6 +1147,78 @@ func main() {
             Attributes: components.UpdateKubernetesClusterAttributes{
                 WorkerCount: latitudeshgosdk.Pointer[int64](204185),
             },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.KubernetesClusterUpdateResponse != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: UpgradeVersion
+
+<!-- UsageSnippet language="go" operationID="update-kubernetes-cluster" method="patch" path="/kubernetes_clusters/{kubernetes_cluster_id}" example="UpgradeVersion" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.KubernetesClusters.UpdateKubernetesCluster(ctx, "<id>", components.UpdateKubernetesCluster{
+        Data: components.UpdateKubernetesClusterData{
+            Type: components.UpdateKubernetesClusterTypeKubernetesClusters,
+            Attributes: components.UpdateKubernetesClusterAttributes{
+                KubernetesVersion: latitudeshgosdk.Pointer("v1.35.0+rke2r1"),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.KubernetesClusterUpdateResponse != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: VersionWithScaling
+
+<!-- UsageSnippet language="go" operationID="update-kubernetes-cluster" method="patch" path="/kubernetes_clusters/{kubernetes_cluster_id}" example="VersionWithScaling" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.KubernetesClusters.UpdateKubernetesCluster(ctx, "<id>", components.UpdateKubernetesCluster{
+        Data: components.UpdateKubernetesClusterData{
+            Type: components.UpdateKubernetesClusterTypeKubernetesClusters,
+            Attributes: components.UpdateKubernetesClusterAttributes{},
         },
     })
     if err != nil {
