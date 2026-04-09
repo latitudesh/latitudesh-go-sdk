@@ -30,11 +30,12 @@ func (e *KubernetesClusterUpdateResponseType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// KubernetesClusterUpdateResponseStatus - The update status. 'scaling' indicates nodes are being added or removed. 'unchanged' indicates the requested count matches the current count.
+// KubernetesClusterUpdateResponseStatus - The update status. 'scaling' indicates nodes are being added or removed. 'upgrading' indicates a version upgrade is in progress. 'unchanged' indicates no change was needed.
 type KubernetesClusterUpdateResponseStatus string
 
 const (
 	KubernetesClusterUpdateResponseStatusScaling   KubernetesClusterUpdateResponseStatus = "scaling"
+	KubernetesClusterUpdateResponseStatusUpgrading KubernetesClusterUpdateResponseStatus = "upgrading"
 	KubernetesClusterUpdateResponseStatusUnchanged KubernetesClusterUpdateResponseStatus = "unchanged"
 )
 
@@ -49,6 +50,8 @@ func (e *KubernetesClusterUpdateResponseStatus) UnmarshalJSON(data []byte) error
 	switch v {
 	case "scaling":
 		fallthrough
+	case "upgrading":
+		fallthrough
 	case "unchanged":
 		*e = KubernetesClusterUpdateResponseStatus(v)
 		return nil
@@ -60,12 +63,14 @@ func (e *KubernetesClusterUpdateResponseStatus) UnmarshalJSON(data []byte) error
 type KubernetesClusterUpdateResponseAttributes struct {
 	// The cluster name
 	Name *string `json:"name,omitempty"`
-	// The update status. 'scaling' indicates nodes are being added or removed. 'unchanged' indicates the requested count matches the current count.
+	// The update status. 'scaling' indicates nodes are being added or removed. 'upgrading' indicates a version upgrade is in progress. 'unchanged' indicates no change was needed.
 	Status *KubernetesClusterUpdateResponseStatus `json:"status,omitempty"`
 	// The requested number of worker nodes. Present when scaling workers.
 	WorkerCount *int64 `json:"worker_count,omitempty"`
 	// The requested number of control plane nodes. Present when scaling control plane.
 	ControlPlaneCount *int64 `json:"control_plane_count,omitempty"`
+	// The target Kubernetes version. Present when upgrading version.
+	KubernetesVersion *string `json:"kubernetes_version,omitempty"`
 }
 
 func (k *KubernetesClusterUpdateResponseAttributes) GetName() *string {
@@ -94,6 +99,13 @@ func (k *KubernetesClusterUpdateResponseAttributes) GetControlPlaneCount() *int6
 		return nil
 	}
 	return k.ControlPlaneCount
+}
+
+func (k *KubernetesClusterUpdateResponseAttributes) GetKubernetesVersion() *string {
+	if k == nil {
+		return nil
+	}
+	return k.KubernetesVersion
 }
 
 type KubernetesClusterUpdateResponseData struct {

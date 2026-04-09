@@ -1,6 +1,6 @@
 # KubernetesClusterUpdateResponseStatus
 
-The update status. 'scaling' indicates nodes are being added or removed. 'unchanged' indicates the requested count matches the current count.
+The update status. 'scaling' indicates nodes are being added or removed. 'upgrading' indicates a version upgrade is in progress. 'unchanged' indicates no change was needed.
 
 ## Example Usage
 
@@ -18,4 +18,5 @@ value := components.KubernetesClusterUpdateResponseStatusScaling
 | Name                                             | Value                                            |
 | ------------------------------------------------ | ------------------------------------------------ |
 | `KubernetesClusterUpdateResponseStatusScaling`   | scaling                                          |
+| `KubernetesClusterUpdateResponseStatusUpgrading` | upgrading                                        |
 | `KubernetesClusterUpdateResponseStatusUnchanged` | unchanged                                        |

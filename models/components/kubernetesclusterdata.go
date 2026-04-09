@@ -45,6 +45,39 @@ func (e *KubernetesClusterDataPhase) UnmarshalJSON(data []byte) error {
 	}
 }
 
+// VersionStatus - The cluster's version status relative to available upgrades
+type VersionStatus string
+
+const (
+	VersionStatusUpToDate         VersionStatus = "up_to_date"
+	VersionStatusUpgradeAvailable VersionStatus = "upgrade_available"
+	VersionStatusUnsupported      VersionStatus = "unsupported"
+	VersionStatusUnknown          VersionStatus = "unknown"
+)
+
+func (e VersionStatus) ToPointer() *VersionStatus {
+	return &e
+}
+func (e *VersionStatus) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "up_to_date":
+		fallthrough
+	case "upgrade_available":
+		fallthrough
+	case "unsupported":
+		fallthrough
+	case "unknown":
+		*e = VersionStatus(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for VersionStatus: %v", v)
+	}
+}
+
 // ControlPlane - Control plane status information
 type ControlPlane struct {
 	Ready         *bool  `json:"ready,omitempty"`
@@ -437,6 +470,10 @@ type KubernetesClusterDataAttributes struct {
 	LoadBalancerIps []string `json:"load_balancer_ips,omitempty"`
 	// The Kubernetes version running on the cluster
 	KubernetesVersion *string `json:"kubernetes_version,omitempty"`
+	// The cluster's version status relative to available upgrades
+	VersionStatus *VersionStatus `json:"version_status,omitempty"`
+	// The next available Kubernetes version for upgrade. Null if the cluster is already on the latest version, or if version status is unknown or unsupported.
+	AvailableUpgrade *string `json:"available_upgrade,omitempty"`
 	// When the cluster was created
 	CreatedAt *time.Time `json:"created_at,omitempty"`
 	// The machine plan slug for control plane nodes
@@ -540,6 +577,20 @@ func (k *KubernetesClusterDataAttributes) GetKubernetesVersion() *string {
 		return nil
 	}
 	return k.KubernetesVersion
+}
+
+func (k *KubernetesClusterDataAttributes) GetVersionStatus() *VersionStatus {
+	if k == nil {
+		return nil
+	}
+	return k.VersionStatus
+}
+
+func (k *KubernetesClusterDataAttributes) GetAvailableUpgrade() *string {
+	if k == nil {
+		return nil
+	}
+	return k.AvailableUpgrade
 }
 
 func (k *KubernetesClusterDataAttributes) GetCreatedAt() *time.Time {
