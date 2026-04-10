@@ -3,16 +3,16 @@ id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
   docChecksum: 8b2f685e9303209340cf4bf16af57eee
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.761.1
-  generationVersion: 2.879.6
-  releaseVersion: 1.12.26
-  configChecksum: 93704935ad101db57e4c6b2b507dcb34
+  speakeasyVersion: 1.761.2
+  generationVersion: 2.879.10
+  releaseVersion: 1.12.27
+  configChecksum: 189a8c2375b14497b22aa9b179a1d6d2
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 5c4526b9-734e-48d0-a396-a35e81f07270
-  pristine_commit_hash: 9dc9530e78d33854bd548b4d3770095acdb97abd
-  pristine_tree_hash: 0bd6efc2adf8b9ea6cee290d87315857605f909e
+  generation_id: ae3ae061-c1d7-4b5d-aff8-5fdd76cff5e6
+  pristine_commit_hash: 4efe8491ca1fbb536c8650083bbecb62b343a61b
+  pristine_tree_hash: ccd2e7d07759b1936d7452907b0df850df376551
 features:
   go:
     additionalDependencies: 0.1.0
@@ -3526,8 +3526,8 @@ trackedFiles:
     pristine_git_object: eedbd8c8f73ff56a66c5d24bdf131827dcb66f14
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:2d5052f582d7021fdf647ec27468109af12979bd
-    pristine_git_object: 3458d9fbb91e7fe8af92414ffe3e7a97d6ad3c06
+    last_write_checksum: sha1:42263f3845e4188387e98eada653da836912ee66
+    pristine_git_object: 5163df7c1d31e400a5ab82cdaa766ce4aec65210
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -8068,7 +8068,6 @@ examples:
           application/vnd.api+json: {"errors": [{"code": "UNAUTHORIZED"}]}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes:\n* `Latitudesh.KubernetesClusters.UpdateKubernetesCluster()`: \n  *  `request.UpdateKubernetesCluster.Data.Attributes.KubernetesVersion` **Added**\n  *  `response.Data.Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.KubernetesClusters.ListKubernetesAvailableVersions()`: **Added**\n* `Latitudesh.KubernetesClusters.GetKubernetesCluster()`:  `response.Data.Attributes` **Changed**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

@@ -1,4 +1,4 @@
-speakeasyVersion: 1.761.1
+speakeasyVersion: 1.761.2
 sources:
     Latitudesh-OAS:
         sourceNamespace: latitudesh-oas
@@ -14,7 +14,7 @@ targets:
         sourceRevisionDigest: sha256:7ead2d9b69d70dbc0ad6ca3c8f51b26feb0192e339e77283415d7c05ff4b2d46
         sourceBlobDigest: sha256:21a0c76b53b6d789483e15392bbdb2fec435a624c4796fee0c72ee872f8894f3
         codeSamplesNamespace: latitudesh-oas-go-code-samples
-        codeSamplesRevisionDigest: sha256:44fc6bde7e0406a4c3790f07d2ee6d12cec253adca0439258cd2e495bca64b04
+        codeSamplesRevisionDigest: sha256:9eb6bd28218740f87408b2d9773916f8e08e3e544b1b476ae24706a32d797d31
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
