@@ -249,7 +249,7 @@ func main() {
 Returns the list of available Kubernetes versions for cluster creation and upgrades. Versions are sourced from the RKE2 release channels and cached for 24 hours.
 
 Each version object includes:
-- `version`: The full version string (e.g., `v1.35.3+rke2r1`)
+- `latest`: The full version string (e.g., `v1.35.3+rke2r1`)
 - `minor`: The minor version number (e.g., `1.35`)
 
 The API returns the latest 5 supported minor versions. When upgrading clusters, you can only upgrade one minor version at a time (e.g., from 1.34 to 1.35).

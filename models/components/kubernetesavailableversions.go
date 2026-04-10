@@ -3,17 +3,17 @@
 package components
 
 type KubernetesAvailableVersionsData struct {
-	// The full Kubernetes version string (e.g., v1.35.3+rke2r1)
-	Version *string `json:"version,omitempty"`
+	// The latest full Kubernetes version string for this minor version (e.g., v1.35.3+rke2r1)
+	Latest *string `json:"latest,omitempty"`
 	// The minor version number (e.g., 1.35)
 	Minor *string `json:"minor,omitempty"`
 }
 
-func (k *KubernetesAvailableVersionsData) GetVersion() *string {
+func (k *KubernetesAvailableVersionsData) GetLatest() *string {
 	if k == nil {
 		return nil
 	}
-	return k.Version
+	return k.Latest
 }
 
 func (k *KubernetesAvailableVersionsData) GetMinor() *string {
