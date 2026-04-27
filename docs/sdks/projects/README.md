@@ -613,7 +613,7 @@ func main() {
 
 ## Delete
 
-Delete project
+Deletes a project and releases associated resources. Any Elastic IPs assigned to the project are automatically released and returned to the available pool.
 
 ### Example Usage
 

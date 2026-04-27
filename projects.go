@@ -719,6 +719,7 @@ func (s *Projects) Update(ctx context.Context, projectID string, requestBody *op
 }
 
 // Delete project
+// Deletes a project and releases associated resources. Any Elastic IPs assigned to the project are automatically released and returned to the available pool.
 func (s *Projects) Delete(ctx context.Context, projectID string, opts ...operations.Option) (*operations.DeleteProjectResponse, error) {
 	request := operations.DeleteProjectRequest{
 		ProjectID: projectID,
