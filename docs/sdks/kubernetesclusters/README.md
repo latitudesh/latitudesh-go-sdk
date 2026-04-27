@@ -92,7 +92,7 @@ func main() {
 
 | Error Type               | Status Code              | Content Type             |
 | ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 400, 401, 403            | application/vnd.api+json |
+| components.ErrorObject   | 400, 401                 | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
 ## CreateKubernetesCluster
@@ -240,7 +240,7 @@ func main() {
 
 | Error Type               | Status Code              | Content Type             |
 | ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 400, 403, 422            | application/vnd.api+json |
+| components.ErrorObject   | 400, 422                 | application/vnd.api+json |
 | components.ErrorObject   | 503                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
@@ -300,7 +300,7 @@ func main() {
 
 | Error Type               | Status Code              | Content Type             |
 | ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 401, 403                 | application/vnd.api+json |
+| components.ErrorObject   | 401                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
 ## GetKubernetesCluster
@@ -383,7 +383,7 @@ func main() {
 
 | Error Type               | Status Code              | Content Type             |
 | ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 401, 403, 404            | application/vnd.api+json |
+| components.ErrorObject   | 401, 404                 | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
 ## DeleteKubernetesCluster
@@ -437,7 +437,7 @@ func main() {
 
 | Error Type               | Status Code              | Content Type             |
 | ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 401, 403, 404, 422       | application/vnd.api+json |
+| components.ErrorObject   | 401, 404, 422            | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
 ## UpdateKubernetesCluster
@@ -1337,5 +1337,5 @@ func main() {
 
 | Error Type               | Status Code              | Content Type             |
 | ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 401, 403, 404            | application/vnd.api+json |
+| components.ErrorObject   | 401, 404                 | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |

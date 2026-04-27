@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 586ffe0a073e7f2a19b7ee313f4f43c2
+  docChecksum: bea6d1b3d0785b6a5dcb9aaf7df93060
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.761.2
-  generationVersion: 2.879.10
-  releaseVersion: 1.12.27
-  configChecksum: 189a8c2375b14497b22aa9b179a1d6d2
+  speakeasyVersion: 1.761.9
+  generationVersion: 2.881.4
+  releaseVersion: 1.12.28
+  configChecksum: 00990a6ad4ee31c6042c79764575f455
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 9d0f49b9-895d-4beb-b6a0-cee6d89bed01
-  pristine_commit_hash: 1bc5b46bf65ea8b760c6b771cd21b482edef3fa5
-  pristine_tree_hash: dacc966187ee42121635ae94c409218ad4c32128
+  generation_id: 70b0f352-1c07-444a-83a6-3c104de74b5f
+  pristine_commit_hash: fe81ee410c2a1da1e7c596a9a352974c8769782a
+  pristine_tree_hash: 4ea9da6b831cd5ec07a96d7ec0cf56669f06069d
 features:
   go:
     additionalDependencies: 0.1.0
@@ -3354,8 +3354,8 @@ trackedFiles:
     pristine_git_object: 7c90b2446a9aad32da7647e1424dd4f0f9fc8010
   docs/sdks/kubernetesclusters/README.md:
     id: 93994c21c7b4
-    last_write_checksum: sha1:59d54b4e0c19a1f9774d0193d214d46eec74f85d
-    pristine_git_object: 5f1c1ad733e9bbe5c95af99239dad88b99bcfe77
+    last_write_checksum: sha1:220d9d2282a286827590d5a05a703df7f9ede75d
+    pristine_git_object: 4c199aa0019594a726a0caf2c59f3fe2cad1847f
   docs/sdks/latitudeshprojectssshkeys/README.md:
     id: 3c7e3885c2bb
     last_write_checksum: sha1:68decaa2e1c42af68b5f6ad39b987ef94c22d9d4
@@ -3378,8 +3378,8 @@ trackedFiles:
     pristine_git_object: 4c9e6177a0574db41343ea010c84acd9b37c22e8
   docs/sdks/projects/README.md:
     id: 1c5f71754e17
-    last_write_checksum: sha1:3cdff3950be452194a2eea6419fe17cc30e08de4
-    pristine_git_object: 634baf139f90426199455bfb1eb4d3abb36fb626
+    last_write_checksum: sha1:745e3ff47ce93b34f3b5579e2366b3e6df54ee80
+    pristine_git_object: e9058af19e397b92effc9fed27958b05e481d365
   docs/sdks/regions/README.md:
     id: bad944ca9ff1
     last_write_checksum: sha1:35b6999a0209654075d848174dcdbae228b57d23
@@ -3442,8 +3442,8 @@ trackedFiles:
     pristine_git_object: 009fd663e9b282acab5e99862f284f90aaaab946
   elasticips.go:
     id: 37a5ef5f82e0
-    last_write_checksum: sha1:231de7f7ddda7de017ec2c24639937258168deea
-    pristine_git_object: 9570507d4b4672d08c29d184d5df35e5e673d326
+    last_write_checksum: sha1:bf06325e5354650b84839334520fc790269fd947
+    pristine_git_object: 5bc67cc1e2b91823a4f113fba5cbe26ab74bf695
   events.go:
     id: fe26b3f87ab7
     last_write_checksum: sha1:d4d8ba854f64d74faa9af03e66e08c1391148ef8
@@ -3522,12 +3522,12 @@ trackedFiles:
     pristine_git_object: 6a513fc23274a326cff6bbc58a707b071baa96fa
   kubernetesclusters.go:
     id: 27e24295c073
-    last_write_checksum: sha1:c676c6fec36a6d02417a64a1534a627332df3a3a
-    pristine_git_object: 6da2a1a63f401616356cb178ce245eb941b9d67f
+    last_write_checksum: sha1:9fb930c4699f18225e2610a4c7bd88e15ff7d6a8
+    pristine_git_object: a98e5f065472500306111d65b4f909b4de07a1df
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:42263f3845e4188387e98eada653da836912ee66
-    pristine_git_object: 5163df7c1d31e400a5ab82cdaa766ce4aec65210
+    last_write_checksum: sha1:f5e391e8ea8062dca9e14906c25767cbb6cb4275
+    pristine_git_object: 759a862943e4e84ace4f1637ff91ed7c40be8667
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -4474,8 +4474,8 @@ trackedFiles:
     pristine_git_object: fad50bf3e469f65072df890685409fbe5b9d655d
   projects.go:
     id: 18025b258b56
-    last_write_checksum: sha1:590ebd1432acf57e21416feff5cb41fc91ec95b4
-    pristine_git_object: 147ceb30e3b26d887881430e2d33eb344fe5362c
+    last_write_checksum: sha1:a7378b7883e210787d00ae0296a85b0fc41e49dc
+    pristine_git_object: 6a629a4a7755aa4cc6454cbc347054e47377e30c
   regions.go:
     id: f6c41935d664
     last_write_checksum: sha1:021ff94b5cb894be9aab93762ba4a1f8d2908742
@@ -4490,20 +4490,20 @@ trackedFiles:
     pristine_git_object: 558e6450f4d0981ad68f67edf67174569523732b
   servers.go:
     id: c9fb7df5e9aa
-    last_write_checksum: sha1:6befc418b8a71298a475c771b157ca24df59767b
-    pristine_git_object: b0df50d1d35aa65f179ea6b7852c49f0786f2995
+    last_write_checksum: sha1:ba91e1e9a27f65e6c2d619f999b50d63a4d16cdd
+    pristine_git_object: b0e3a9bd3f4d0c28ff88ad56496aa4bc08bb96e5
   sshkeys.go:
     id: 7f02ec5e3505
     last_write_checksum: sha1:9c54ad0c9a78fbbb9d4677883373c10ee6d2710c
     pristine_git_object: 17714f3f63f25de87bb7ba145dd884cd8a18d7fe
   storage.go:
     id: fad3c6f07953
-    last_write_checksum: sha1:2fb0b9447dc5dd52591b473a0c31dfdd88ea4c96
-    pristine_git_object: c32ab7898f17b8583b1c4d1367f6d7fa68b782f6
+    last_write_checksum: sha1:bfe43bf18755622b7d31e1a6952cc53a83e698ba
+    pristine_git_object: a3cd372e4806924ceec70f02d7071b22ad01c879
   tags.go:
     id: bd4768643fd1
-    last_write_checksum: sha1:6e8c6686f7e14c71b5481ba41fa28f47bf0767eb
-    pristine_git_object: 8d19174ca7fd39bfcad34164475b4fe35fd300b5
+    last_write_checksum: sha1:7b01c267f88e703d587f5308f799b76b7a9bec24
+    pristine_git_object: b9e788a1229c4fee06c5e2f12288ac769c407c51
   teammembers.go:
     id: fac4d4067f1d
     last_write_checksum: sha1:181f4edb7d7e3c2557cdf06a779d8c6098f5ebc1
@@ -4542,8 +4542,8 @@ trackedFiles:
     pristine_git_object: 80579a568a607841621d2dbf188bf44c087d6d70
   virtualmachines.go:
     id: 30cb88c4969c
-    last_write_checksum: sha1:0e501d8c967ebca78f2574c36cc8b89269b9b870
-    pristine_git_object: 973d1d99137ffe545d1f8fabec7503e2a4fae861
+    last_write_checksum: sha1:608fde1ad2adde9f3a7084c457982cf777bf5687
+    pristine_git_object: bdb7cd0a78c3000072814fb52e879f27ad0f9d84
   virtualnetworks.go:
     id: 3816b5f92080
     last_write_checksum: sha1:bbcd1e22df503f04659433c61ce44937baff816e
@@ -8070,7 +8070,12 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Go SDK Changes:
-  * `Latitudesh.KubernetesClusters.ListKubernetesAvailableVersions()`:  `response.Data[]` **Changed** (Breaking ⚠️)
+  * `Latitudesh.KubernetesClusters.ListKubernetesClusters()`:  `error.status[403]` **Removed** (Breaking ⚠️)
+  * `Latitudesh.KubernetesClusters.CreateKubernetesCluster()`:  `error.status[403]` **Removed** (Breaking ⚠️)
+  * `Latitudesh.KubernetesClusters.ListKubernetesAvailableVersions()`:  `error.status[403]` **Removed** (Breaking ⚠️)
+  * `Latitudesh.KubernetesClusters.GetKubernetesCluster()`:  `error.status[403]` **Removed** (Breaking ⚠️)
+  * `Latitudesh.KubernetesClusters.DeleteKubernetesCluster()`:  `error.status[403]` **Removed** (Breaking ⚠️)
+  * `Latitudesh.KubernetesClusters.GetKubernetesClusterKubeconfig()`:  `error.status[403]` **Removed** (Breaking ⚠️)
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
