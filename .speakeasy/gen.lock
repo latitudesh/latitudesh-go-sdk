@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: bea6d1b3d0785b6a5dcb9aaf7df93060
+  docChecksum: e4e27e6b04269a3728eb8d1c8e589736
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.761.9
-  generationVersion: 2.881.4
-  releaseVersion: 1.12.28
-  configChecksum: 00990a6ad4ee31c6042c79764575f455
+  speakeasyVersion: 1.761.10
+  generationVersion: 2.881.16
+  releaseVersion: 1.12.29
+  configChecksum: 9a364e69d6a332c92b59a4f1a372c913
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 70b0f352-1c07-444a-83a6-3c104de74b5f
-  pristine_commit_hash: fe81ee410c2a1da1e7c596a9a352974c8769782a
-  pristine_tree_hash: 4ea9da6b831cd5ec07a96d7ec0cf56669f06069d
+  generation_id: 125ee9ed-b95e-47e4-8ed6-7fe6f9bd20e6
+  pristine_commit_hash: e96d12ea2930716f4770772dc607440d575a2127
+  pristine_tree_hash: 541bde3e524140ae083f73d08d09cd7bd2cef288
 features:
   go:
     additionalDependencies: 0.1.0
@@ -31,7 +31,7 @@ features:
     intellisenseMarkdownSupport: 0.1.0
     nameOverrides: 2.81.4
     nullables: 0.2.1
-    pagination: 2.82.6
+    pagination: 2.82.7
     responseFormat: 0.1.2
     retries: 2.84.2
     sdkHooks: 0.3.0
@@ -3526,8 +3526,8 @@ trackedFiles:
     pristine_git_object: a98e5f065472500306111d65b4f909b4de07a1df
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:f5e391e8ea8062dca9e14906c25767cbb6cb4275
-    pristine_git_object: 759a862943e4e84ace4f1637ff91ed7c40be8667
+    last_write_checksum: sha1:9b26524c5e5ce5201e52ac495cc58418749b8ea9
+    pristine_git_object: 346019c9115e8ba5d19f53d20359d6724d6bcdb6
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -8070,12 +8070,12 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Go SDK Changes:
-  * `Latitudesh.KubernetesClusters.ListKubernetesClusters()`:  `error.status[403]` **Removed** (Breaking ⚠️)
-  * `Latitudesh.KubernetesClusters.CreateKubernetesCluster()`:  `error.status[403]` **Removed** (Breaking ⚠️)
-  * `Latitudesh.KubernetesClusters.ListKubernetesAvailableVersions()`:  `error.status[403]` **Removed** (Breaking ⚠️)
-  * `Latitudesh.KubernetesClusters.GetKubernetesCluster()`:  `error.status[403]` **Removed** (Breaking ⚠️)
-  * `Latitudesh.KubernetesClusters.DeleteKubernetesCluster()`:  `error.status[403]` **Removed** (Breaking ⚠️)
-  * `Latitudesh.KubernetesClusters.GetKubernetesClusterKubeconfig()`:  `error.status[403]` **Removed** (Breaking ⚠️)
+  * `Latitudesh.Servers.List()`:  `response.Data[].Attributes.Interfaces[].MacAddress` **Changed** (Breaking ⚠️)
+  * `Latitudesh.Servers.Create()`:  `response.Data.Attributes.Interfaces[].MacAddress` **Changed** (Breaking ⚠️)
+  * `Latitudesh.Servers.Get()`:  `response.Data.Attributes.Interfaces[].MacAddress` **Changed** (Breaking ⚠️)
+  * `Latitudesh.Servers.Update()`:  `response.Data.Attributes.Interfaces[].MacAddress` **Changed** (Breaking ⚠️)
+  * `Latitudesh.Servers.Lock()`:  `response.Data.Attributes.Interfaces[].MacAddress` **Changed** (Breaking ⚠️)
+  * `Latitudesh.Servers.Unlock()`:  `response.Data.Attributes.Interfaces[].MacAddress` **Changed** (Breaking ⚠️)
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
