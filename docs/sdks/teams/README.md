@@ -41,6 +41,64 @@ func main() {
     }
 }
 ```
+### Example Usage: when bare metal limit is not set
+
+<!-- UsageSnippet language="go" operationID="get-team" method="get" path="/team" example="when bare metal limit is not set" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Teams.Get(ctx)
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Teams != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: when bare metal limit is set
+
+<!-- UsageSnippet language="go" operationID="get-team" method="get" path="/team" example="when bare metal limit is set" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Teams.Get(ctx)
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Teams != nil {
+        // handle response
+    }
+}
+```
 ### Example Usage: when team is older than one month
 
 <!-- UsageSnippet language="go" operationID="get-team" method="get" path="/team" example="when team is older than one month" -->

@@ -74,8 +74,8 @@ type ObjectStorageDataAttributes struct {
 	BucketName *string `json:"bucket_name,omitempty"`
 	// S3-compatible endpoint URL for accessing the bucket
 	Endpoint *string `json:"endpoint,omitempty"`
-	// S3 access key(s) for authentication
-	AccessKey []string `json:"access_key,omitempty"`
+	// S3 access key for authentication
+	AccessKey *string `json:"access_key,omitempty"`
 	// Region information where the object storage is located
 	Region  *ObjectStorageDataRegion `json:"region,omitempty"`
 	Project *ProjectInclude          `json:"project,omitempty"`
@@ -128,7 +128,7 @@ func (o *ObjectStorageDataAttributes) GetEndpoint() *string {
 	return o.Endpoint
 }
 
-func (o *ObjectStorageDataAttributes) GetAccessKey() []string {
+func (o *ObjectStorageDataAttributes) GetAccessKey() *string {
 	if o == nil {
 		return nil
 	}
