@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: e4e27e6b04269a3728eb8d1c8e589736
+  docChecksum: d027526e6bc43f913661f2b2ffb2cfaa
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.761.10
-  generationVersion: 2.881.16
-  releaseVersion: 1.12.29
-  configChecksum: 9a364e69d6a332c92b59a4f1a372c913
+  speakeasyVersion: 1.763.1
+  generationVersion: 2.884.4
+  releaseVersion: 1.12.30
+  configChecksum: 585072524b667a20b091b75a7e2a736c
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 125ee9ed-b95e-47e4-8ed6-7fe6f9bd20e6
-  pristine_commit_hash: e96d12ea2930716f4770772dc607440d575a2127
-  pristine_tree_hash: 541bde3e524140ae083f73d08d09cd7bd2cef288
+  generation_id: 5f2a13fb-fe40-4483-9d7e-0fe9f5b72be5
+  pristine_commit_hash: c2e0b6984bc54d138a62ed777dd58b2344879060
+  pristine_tree_hash: 0de8657c1257ebd39feea921541064b02e1181a4
 features:
   go:
     additionalDependencies: 0.1.0
@@ -702,8 +702,8 @@ trackedFiles:
     pristine_git_object: 1e3344c03bf4253fc258a073f717bb7b7f9abd27
   docs/models/components/objectstoragedataattributes.md:
     id: 12875e1646b9
-    last_write_checksum: sha1:f78919e50f015705624da04574e23bf67177f58c
-    pristine_git_object: a732be93c88f9b91c78c556bd889e3e39b9fb672
+    last_write_checksum: sha1:3a5282f47adf31fff3d9f7e3bc4bf0ca48089a94
+    pristine_git_object: 614c9514871d9c7676fe15ea8e9991b996f10c3c
   docs/models/components/objectstoragedataregion.md:
     id: 35cd60c86dc4
     last_write_checksum: sha1:7327197e58d67868d885d68622ca3e5d05de07df
@@ -3338,8 +3338,8 @@ trackedFiles:
     pristine_git_object: 8bbb3886d598714a3fd39f0d7b488766b96f9b90
   docs/sdks/elasticips/README.md:
     id: d3a0d795d883
-    last_write_checksum: sha1:1eeb7d5b7be71d531e01f358085622580a8fbb95
-    pristine_git_object: 720ce23b368da31d5696b174e99f5cbafcba2445
+    last_write_checksum: sha1:441c19c2dc72260dcf76bf8de2d1f7994ca56749
+    pristine_git_object: b40907156ef7bd14edf611d30bde8c0c83cfc13a
   docs/sdks/events/README.md:
     id: cf45a4390b9b
     last_write_checksum: sha1:e84f620a4598cf34242d3489a979a7bdf05ab6a5
@@ -3410,8 +3410,8 @@ trackedFiles:
     pristine_git_object: 94fc1accad457c0d6e080eca00b73b95a6cb50cf
   docs/sdks/teams/README.md:
     id: aad657749b4d
-    last_write_checksum: sha1:c12fc53b07e96df4e352da83c5d368989048f13a
-    pristine_git_object: 69a61fe510899ed642c2eef931944ce7271ef048
+    last_write_checksum: sha1:83d8b72ca0504c391da303d626a6afeea40ce1a5
+    pristine_git_object: 2f6b7adea2a3f07647b657842e80a67c1527355f
   docs/sdks/traffic/README.md:
     id: f26e2ef1ad0a
     last_write_checksum: sha1:2543085a08bcf2d76188bb6da27d3180d9d7c0cf
@@ -3422,8 +3422,8 @@ trackedFiles:
     pristine_git_object: d263053d9adb5a1352149bcfc4dbcb540a4857bb
   docs/sdks/userprofile/README.md:
     id: e89a7f3efcd6
-    last_write_checksum: sha1:684855484ac80c7a8d491b30431159d16eaa531a
-    pristine_git_object: 8a9318f9b1b1774302bc79826a7ca6ca7d19604e
+    last_write_checksum: sha1:23db7c3a814e6f17296dad4c40fd1d9a49f133ef
+    pristine_git_object: ad2b8438a2c4f1dd84933ea811206e453f915cb6
   docs/sdks/virtualmachines/README.md:
     id: 9a444616366b
     last_write_checksum: sha1:e514f01511e82d1f898ae7553cbb30d801d9ed8d
@@ -3442,8 +3442,8 @@ trackedFiles:
     pristine_git_object: 009fd663e9b282acab5e99862f284f90aaaab946
   elasticips.go:
     id: 37a5ef5f82e0
-    last_write_checksum: sha1:bf06325e5354650b84839334520fc790269fd947
-    pristine_git_object: 5bc67cc1e2b91823a4f113fba5cbe26ab74bf695
+    last_write_checksum: sha1:a899b84c1f039ddfe837438bc61c25eb0d85b8fe
+    pristine_git_object: c9c61333b0168a262c1f3ec66fc60c3592c4920a
   events.go:
     id: fe26b3f87ab7
     last_write_checksum: sha1:d4d8ba854f64d74faa9af03e66e08c1391148ef8
@@ -3506,12 +3506,12 @@ trackedFiles:
     pristine_git_object: 7c1a372ae314a9d82ab82c3db610e7ffe67ecfab
   internal/utils/union.go:
     id: db86c85746b6
-    last_write_checksum: sha1:1351748e6d542d2c7f2ae03f73a5493874501d8e
-    pristine_git_object: fe6ef637494ed18e8c435f999190fe6c933627c9
+    last_write_checksum: sha1:a473e48a4838a6306ef388eef70d260bbe51c2e5
+    pristine_git_object: f60e7eb3f3d027353793eb261441f35fc2fc1d6f
   internal/utils/union_test.go:
     id: 4b56247171bd
-    last_write_checksum: sha1:83ac73c1901de4c6db90f65cf5879163f3d47a00
-    pristine_git_object: f66814c73ace94d8e71d785fd6161fb405745754
+    last_write_checksum: sha1:bd5c7506e1d6238117c1ac4e340314a5a41401b5
+    pristine_git_object: 138f7e2a066b10dffd0a9957ecfcab9e00dd26fe
   internal/utils/utils.go:
     id: 1133b2a27019
     last_write_checksum: sha1:36a3e6fb95d71868d1755dbb3b924a37340c7ea7
@@ -3526,8 +3526,8 @@ trackedFiles:
     pristine_git_object: a98e5f065472500306111d65b4f909b4de07a1df
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:9b26524c5e5ce5201e52ac495cc58418749b8ea9
-    pristine_git_object: 346019c9115e8ba5d19f53d20359d6724d6bcdb6
+    last_write_checksum: sha1:2cb4d4fb9a859ced2645d1c76de1ffb806257310
+    pristine_git_object: 418fae5648e5076079285ba711872f2701d38cda
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -3698,8 +3698,8 @@ trackedFiles:
     pristine_git_object: 2a55f3482cc054ae23a60e64f7f1f7c0abe5198b
   models/components/objectstoragedata.go:
     id: 6f2b8c483e94
-    last_write_checksum: sha1:7066da085868e10dadd9e7862fe60e05c74b034f
-    pristine_git_object: 0dbe1a3e4390108b026adcc356f764ca048be31b
+    last_write_checksum: sha1:2103bf73a1503b47d7b185399d47a1749860e0be
+    pristine_git_object: 44f61904ae5f9366511375a24aca7c7337cb6b62
   models/components/objectstorages.go:
     id: 98260401f4e7
     last_write_checksum: sha1:27d7b125a4e869141e39208df2001ab091367e38
@@ -5061,6 +5061,14 @@ examples:
         "200":
           application/vnd.api+json: {"data": [{"id": "team_BbQ0gXk6P1uxW7rNvg5VCM2znK2R", "attributes": {"name": "641 Team", "slug": "641-team", "address": "8998 Murphy Fork, North Danahaven, CT 98631", "currency": "1f7", "created_at": "2026-01-09T15:57:10+00:00", "updated_at": "2025-02-09T00:00:00+00:00", "enforce_mfa": false, "users": [{"id": "user_yxLxQ7mmJehljn3RK18aILyGP17", "first_name": "Russell", "last_name": "Wunsch", "email": "hoyt@brakus.example", "created_at": "2025-03-25T00:00:00.000Z", "updated_at": "2025-03-30T00:00:00.000Z", "role": {"id": "role_332j3k5oxYIKGZGPpxZKCl7nrXP", "name": "Steve", "created_at": "2025-04-13T00:00:00.000Z", "updated_at": "2026-01-23T00:00:00.000Z"}}], "projects": [], "owner": {}, "billing": {}, "feature_flags": ["feature_flag_1", "feature_flag_2"]}}], "meta": {}}
     when team is older than one month:
+      responses:
+        "200":
+          application/vnd.api+json: {"data": [{"id": "team_QzAj9782bVuWjQwwwv4guRw0lL5", "attributes": {"name": "642 Team", "slug": "642-team", "address": "Suite 873 7622 Neal Plaza, Almetaburgh, UT 19776", "currency": "7qq", "created_at": "2025-11-14T15:57:10+00:00", "updated_at": "2025-04-05T00:00:00+00:00", "enforce_mfa": false, "users": [{"id": "user_kEXBoLzrG4tNZzJYBrV8fN6Jzvy7", "first_name": "Marin", "last_name": "Pollich", "email": "winter.hodkiewicz@huel.test", "created_at": "2025-05-19T00:00:00.000Z", "updated_at": "2025-06-03T00:00:00.000Z", "role": {"id": "role_gpGwBll1EzsZ5GGZ7L6aCnGWbYE", "name": "Lincoln", "created_at": "2025-03-26T00:00:00.000Z", "updated_at": "2026-08-24T00:00:00.000Z"}}], "projects": [], "owner": {}, "billing": {}, "feature_flags": ["feature_flag_1", "feature_flag_2"]}}], "meta": {}}
+    when bare metal limit is set:
+      responses:
+        "200":
+          application/vnd.api+json: {"data": [{"id": "team_BbQ0gXk6P1uxW7rNvg5VCM2znK2R", "attributes": {"name": "641 Team", "slug": "641-team", "address": "8998 Murphy Fork, North Danahaven, CT 98631", "currency": "1f7", "created_at": "2026-01-09T15:57:10+00:00", "updated_at": "2025-02-09T00:00:00+00:00", "enforce_mfa": false, "users": [{"id": "user_yxLxQ7mmJehljn3RK18aILyGP17", "first_name": "Russell", "last_name": "Wunsch", "email": "hoyt@brakus.example", "created_at": "2025-03-25T00:00:00.000Z", "updated_at": "2025-03-30T00:00:00.000Z", "role": {"id": "role_332j3k5oxYIKGZGPpxZKCl7nrXP", "name": "Steve", "created_at": "2025-04-13T00:00:00.000Z", "updated_at": "2026-01-23T00:00:00.000Z"}}], "projects": [], "owner": {}, "billing": {}, "feature_flags": ["feature_flag_1", "feature_flag_2"]}}], "meta": {}}
+    when bare metal limit is not set:
       responses:
         "200":
           application/vnd.api+json: {"data": [{"id": "team_QzAj9782bVuWjQwwwv4guRw0lL5", "attributes": {"name": "642 Team", "slug": "642-team", "address": "Suite 873 7622 Neal Plaza, Almetaburgh, UT 19776", "currency": "7qq", "created_at": "2025-11-14T15:57:10+00:00", "updated_at": "2025-04-05T00:00:00+00:00", "enforce_mfa": false, "users": [{"id": "user_kEXBoLzrG4tNZzJYBrV8fN6Jzvy7", "first_name": "Marin", "last_name": "Pollich", "email": "winter.hodkiewicz@huel.test", "created_at": "2025-05-19T00:00:00.000Z", "updated_at": "2025-06-03T00:00:00.000Z", "role": {"id": "role_gpGwBll1EzsZ5GGZ7L6aCnGWbYE", "name": "Lincoln", "created_at": "2025-03-26T00:00:00.000Z", "updated_at": "2026-08-24T00:00:00.000Z"}}], "projects": [], "owner": {}, "billing": {}, "feature_flags": ["feature_flag_1", "feature_flag_2"]}}], "meta": {}}
@@ -6805,6 +6813,14 @@ examples:
       responses:
         "200":
           application/vnd.api+json: {"data": [{"id": "team_NXK2MpJXgzU8AGjryZ09Hper7l5", "attributes": {"name": "688 Team", "slug": "688-team", "address": "Apt. 492 6439 Salvatore Lodge, Denatown, MD 56634-2611", "currency": "BRL", "created_at": "2025-11-14T15:57:13+00:00", "updated_at": "2026-01-14T15:57:13+00:00", "owner": {"id": "user_MbwWpJ37LMt9rBj1E47PFVomyzB7", "first_name": "Nieves", "last_name": "Huel", "email": "nickolas@weimann.example", "created_at": "2025-11-16T00:00:00.000Z", "updated_at": "2025-04-20T00:00:00.000Z", "role": {"id": "role_97mkkRl14RCEzQbYeXJ0t905XMN", "name": "owner", "created_at": "2025-08-08T00:00:00.000Z", "updated_at": "2026-10-14T00:00:00.000Z"}}, "billing": {"id": "bill_AW6Q2D9lqKLpr", "customer_billing_id": "cus_nnflz4ow2j6zv9"}}}], "meta": {}}
+    when bare metal limit is set:
+      responses:
+        "200":
+          application/vnd.api+json: {"data": [{"id": "team_NYGwel1RnbC44GX83lamhRe8Jjw", "attributes": {"name": "687 Team", "slug": "687-team", "address": "595 Schmitt Mountains, West Frances, NJ 39049-3937", "currency": "BRL", "created_at": "2026-01-09T15:57:13+00:00", "updated_at": "2026-01-14T15:57:13+00:00", "owner": {"id": "user_Mzw8rQR7yyS9p5pyWrzBfyxrMV4", "first_name": "Jaime", "last_name": "Ziemann", "email": "codi_hand@miller.test", "created_at": "2026-01-08T00:00:00.000Z", "updated_at": "2025-01-27T00:00:00.000Z", "role": {"id": "role_V1aYWNZmvlhrk9eoK58JSrY0MX4", "name": "owner", "created_at": "2025-05-01T00:00:00.000Z", "updated_at": "2026-11-05T00:00:00.000Z"}}, "billing": {"id": "bill_mw49QDB5qagKb", "customer_billing_id": "cus_dluxyhyhjii4qk"}}}], "meta": {}}
+    when bare metal limit is not set:
+      responses:
+        "200":
+          application/vnd.api+json: {"data": [{"id": "team_NXK2MpJXgzU8AGjryZ09Hper7l5", "attributes": {"name": "688 Team", "slug": "688-team", "address": "Apt. 492 6439 Salvatore Lodge, Denatown, MD 56634-2611", "currency": "BRL", "created_at": "2025-11-14T15:57:13+00:00", "updated_at": "2026-01-14T15:57:13+00:00", "owner": {"id": "user_MbwWpJ37LMt9rBj1E47PFVomyzB7", "first_name": "Nieves", "last_name": "Huel", "email": "nickolas@weimann.example", "created_at": "2025-11-16T00:00:00.000Z", "updated_at": "2025-04-20T00:00:00.000Z", "role": {"id": "role_97mkkRl14RCEzQbYeXJ0t905XMN", "name": "owner", "created_at": "2025-08-08T00:00:00.000Z", "updated_at": "2026-10-14T00:00:00.000Z"}}, "billing": {"id": "bill_AW6Q2D9lqKLpr", "customer_billing_id": "cus_nnflz4ow2j6zv9"}}}], "meta": {}}
   create-virtual-machine:
     Created:
       requestBody:
@@ -7525,6 +7541,8 @@ examples:
           application/vnd.api+json: {}
         "403":
           application/vnd.api+json: {}
+        "422":
+          application/vnd.api+json: {}
     Accepted:
       requestBody:
         application/json: {"data": {"type": "elastic_ips", "attributes": {"project_id": "<id>", "server_id": "<id>"}}}
@@ -7539,6 +7557,34 @@ examples:
       responses:
         "403":
           application/vnd.api+json: {"errors": [{"code": "FEATURE_NOT_ENABLED"}]}
+    ServerNotInProject:
+      requestBody:
+        application/json: {"data": {"type": "elastic_ips", "attributes": {"project_id": "<id>", "server_id": "<id>"}}}
+        application/vnd.api+json: {"data": {"type": "elastic_ips", "attributes": {"project_id": "<id>", "server_id": "<id>"}}}
+      responses:
+        "422":
+          application/vnd.api+json: {"errors": [{"code": "SERVER_NOT_IN_PROJECT"}]}
+    IpAllocationFailed:
+      requestBody:
+        application/json: {"data": {"type": "elastic_ips", "attributes": {"project_id": "<id>", "server_id": "<id>"}}}
+        application/vnd.api+json: {"data": {"type": "elastic_ips", "attributes": {"project_id": "<id>", "server_id": "<id>"}}}
+      responses:
+        "422":
+          application/vnd.api+json: {"errors": [{"code": "IP_ALLOCATION_FAILED"}]}
+    SiteNotSupported:
+      requestBody:
+        application/json: {"data": {"type": "elastic_ips", "attributes": {"project_id": "<id>", "server_id": "<id>"}}}
+        application/vnd.api+json: {"data": {"type": "elastic_ips", "attributes": {"project_id": "<id>", "server_id": "<id>"}}}
+      responses:
+        "422":
+          application/vnd.api+json: {"errors": [{"code": "SITE_NOT_SUPPORTED", "status": "422", "title": "Site Not Supported", "detail": "Elastic IPs are not available for site SAO"}]}
+    ServerNetworkIncompatible:
+      requestBody:
+        application/json: {"data": {"type": "elastic_ips", "attributes": {"project_id": "<id>", "server_id": "<id>"}}}
+        application/vnd.api+json: {"data": {"type": "elastic_ips", "attributes": {"project_id": "<id>", "server_id": "<id>"}}}
+      responses:
+        "422":
+          application/vnd.api+json: {"errors": [{"code": "SERVER_NETWORK_INCOMPATIBLE", "status": "422", "title": "Server Network Incompatible", "detail": "Your server has outdated network configuration and we cannot enable elastic IP for it. Please reach out to support"}]}
   get-elastic-ip:
     Success:
       parameters:
@@ -7569,6 +7615,8 @@ examples:
       responses:
         "403":
           application/vnd.api+json: {}
+        "404":
+          application/vnd.api+json: {}
   update-elastic-ip:
     Move:
       parameters:
@@ -7583,6 +7631,8 @@ examples:
         "403":
           application/vnd.api+json: {}
         "202":
+          application/vnd.api+json: {}
+        "404":
           application/vnd.api+json: {}
     Success:
       parameters:
@@ -7707,7 +7757,7 @@ examples:
     Success:
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "bucket_6VE1Wd37dXnZJ", "type": "object_storages", "attributes": {"name": "my-bucket-storage", "size_in_gb": 500, "created_at": "2026-03-19T10:30:00.000Z", "bucket_name": "my-bucket", "endpoint": "https://s3.latitude.sh", "access_key": ["AKIAIOSFODNN7EXAMPLE"], "region": {"id": "SAO2", "city": "SAO2", "country": "Brazil"}, "project": {"id": "proj_6059EqYkOQj8p", "name": "My Project", "slug": "my-project", "description": "Project description", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_lV9Xe2AAK5CbMgGbpPYLskLRXyV", "name": "My Team", "slug": "my-team", "description": "My Team", "address": "123 Main St", "currency": {}, "status": "verified"}}}]}
+          application/vnd.api+json: {"data": [{"id": "bucket_6VE1Wd37dXnZJ", "type": "object_storages", "attributes": {"name": "my-bucket-storage", "size_in_gb": 500, "created_at": "2026-03-19T10:30:00.000Z", "bucket_name": "my-bucket", "endpoint": "https://s3.latitude.sh", "access_key": "AKIAIOSFODNN7EXAMPLE", "region": {"id": "SAO2", "city": "SAO2", "country": "Brazil"}, "project": {"id": "proj_6059EqYkOQj8p", "name": "My Project", "slug": "my-project", "description": "Project description", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_lV9Xe2AAK5CbMgGbpPYLskLRXyV", "name": "My Team", "slug": "my-team", "description": "My Team", "address": "123 Main St", "currency": {}, "status": "verified"}}}]}
     FeatureNotEnabled:
       responses:
         "403":
@@ -7738,7 +7788,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "objects", "attributes": {"project": "<value>", "name": "<value>", "region": "<value>", "scoped": false}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "bucket_6VE1Wd37dXnZJ", "type": "object_storages", "attributes": {"name": "my-bucket", "size_in_gb": 0, "created_at": "2026-03-19T15:30:00.000Z", "bucket_name": "my-bucket", "endpoint": "https://s3.latitude.sh", "access_key": ["AKIAIOSFODNN7EXAMPLE"], "region": {"id": "DAL", "city": "DAL", "country": "United States"}, "project": {"id": "proj_6059EqYkOQj8p", "name": "My Project", "slug": "my-project", "description": "Project description", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_lV9Xe2AAK5CbMgGbpPYLskLRXyV", "name": "My Team", "slug": "my-team", "description": "My Team", "address": "123 Main St", "currency": {}, "status": "verified"}}}}
+          application/vnd.api+json: {"data": {"id": "bucket_6VE1Wd37dXnZJ", "type": "object_storages", "attributes": {"name": "my-bucket", "size_in_gb": 0, "created_at": "2026-03-19T15:30:00.000Z", "bucket_name": "my-bucket", "endpoint": "https://s3.latitude.sh", "access_key": "AKIAIOSFODNN7EXAMPLE", "region": {"id": "DAL", "city": "DAL", "country": "United States"}, "project": {"id": "proj_6059EqYkOQj8p", "name": "My Project", "slug": "my-project", "description": "Project description", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_lV9Xe2AAK5CbMgGbpPYLskLRXyV", "name": "My Team", "slug": "my-team", "description": "My Team", "address": "123 Main St", "currency": {}, "status": "verified"}}}}
     FeatureNotEnabled:
       requestBody:
         application/vnd.api+json: {"data": {"type": "objects", "attributes": {"project": "<value>", "name": "<value>", "region": "<value>", "scoped": false}}}
@@ -7762,7 +7812,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "bucket_6VE1Wd37dXnZJ", "type": "object_storages", "attributes": {"name": "my-bucket-storage", "size_in_gb": 500, "created_at": "2026-03-19T10:30:00.000Z", "bucket_name": "my-bucket", "endpoint": "https://s3.latitude.sh", "access_key": ["AKIAIOSFODNN7EXAMPLE"], "region": {"id": "SAO2", "city": "SAO2", "country": "Brazil"}, "project": {"id": "proj_6059EqYkOQj8p", "name": "My Project", "slug": "my-project", "description": "Project description", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_lV9Xe2AAK5CbMgGbpPYLskLRXyV", "name": "My Team", "slug": "my-team", "description": "My Team", "address": "123 Main St", "currency": {}, "status": "verified"}}}}
+          application/vnd.api+json: {"data": {"id": "bucket_6VE1Wd37dXnZJ", "type": "object_storages", "attributes": {"name": "my-bucket-storage", "size_in_gb": 500, "created_at": "2026-03-19T10:30:00.000Z", "bucket_name": "my-bucket", "endpoint": "https://s3.latitude.sh", "access_key": "AKIAIOSFODNN7EXAMPLE", "region": {"id": "SAO2", "city": "SAO2", "country": "Brazil"}, "project": {"id": "proj_6059EqYkOQj8p", "name": "My Project", "slug": "my-project", "description": "Project description", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_lV9Xe2AAK5CbMgGbpPYLskLRXyV", "name": "My Team", "slug": "my-team", "description": "My Team", "address": "123 Main St", "currency": {}, "status": "verified"}}}}
     FeatureNotEnabled:
       parameters:
         path:
@@ -8070,12 +8120,13 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Go SDK Changes:
-  * `Latitudesh.Servers.List()`:  `response.Data[].Attributes.Interfaces[].MacAddress` **Changed** (Breaking ⚠️)
-  * `Latitudesh.Servers.Create()`:  `response.Data.Attributes.Interfaces[].MacAddress` **Changed** (Breaking ⚠️)
-  * `Latitudesh.Servers.Get()`:  `response.Data.Attributes.Interfaces[].MacAddress` **Changed** (Breaking ⚠️)
-  * `Latitudesh.Servers.Update()`:  `response.Data.Attributes.Interfaces[].MacAddress` **Changed** (Breaking ⚠️)
-  * `Latitudesh.Servers.Lock()`:  `response.Data.Attributes.Interfaces[].MacAddress` **Changed** (Breaking ⚠️)
-  * `Latitudesh.Servers.Unlock()`:  `response.Data.Attributes.Interfaces[].MacAddress` **Changed** (Breaking ⚠️)
+  * `Latitudesh.ElasticIps.CreateElasticIp()`:  `error.status[403]` **Removed** (Breaking ⚠️)
+  * `Latitudesh.ElasticIps.GetElasticIp()`:  `error.status[403]` **Removed** (Breaking ⚠️)
+  * `Latitudesh.ElasticIps.DeleteElasticIp()`:  `error.status[403]` **Removed** (Breaking ⚠️)
+  * `Latitudesh.ElasticIps.UpdateElasticIp()`:  `error.status[403]` **Removed** (Breaking ⚠️)
+  * `Latitudesh.Storage.GetStorageObjects()`:  `response.Data[].Attributes.AccessKey` **Changed** (Breaking ⚠️)
+  * `Latitudesh.Storage.PostStorageObjects()`:  `response.Data.Attributes.AccessKey` **Changed** (Breaking ⚠️)
+  * `Latitudesh.Storage.GetStorageObject()`:  `response.Data.Attributes.AccessKey` **Changed** (Breaking ⚠️)
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

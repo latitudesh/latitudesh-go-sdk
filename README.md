@@ -485,7 +485,7 @@ For example, the `CreateElasticIP` function may return the following errors:
 
 | Error Type             | Status Code | Content Type             |
 | ---------------------- | ----------- | ------------------------ |
-| components.ErrorObject | 403, 422    | application/vnd.api+json |
+| components.ErrorObject | 422         | application/vnd.api+json |
 | components.APIError    | 4XX, 5XX    | \*/\*                    |
 
 ### Example

@@ -14,8 +14,6 @@
 
 List all Elastic IPs for the authenticated team. Elastic IPs are static public IP addresses that can be assigned to servers and moved between servers within the same project.
 
-**Note:** This feature requires the `elastic_ips` feature flag to be enabled for your team. When the flag is disabled, the endpoint returns an empty list.
-
 
 ### Example Usage
 
@@ -80,9 +78,7 @@ func main() {
 
 ## CreateElasticIP
 
-Creates a new Elastic IP and assigns it to the specified server. The IP is provisioned asynchronously—the response will show status `configuring` and the `id` will be `null` until provisioning completes.
-
-**Note:** This feature requires the `elastic_ips` feature flag to be enabled for your team. Currently only IPv4 /32 addresses in routed mode are supported.
+Creates a new Elastic IP and assigns it to the specified server. The IP is provisioned asynchronously—the response will show status `configuring` and the `id` will be `null` until provisioning completes. Currently only IPv4 /32 addresses in routed mode are supported.
 
 
 ### Example Usage: Accepted
@@ -199,6 +195,158 @@ func main() {
     }
 }
 ```
+### Example Usage: IpAllocationFailed
+
+<!-- UsageSnippet language="go" operationID="create-elastic-ip" method="post" path="/elastic_ips" example="IpAllocationFailed" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.ElasticIps.CreateElasticIP(ctx, components.CreateElasticIP{
+        Data: components.CreateElasticIPData{
+            Type: components.CreateElasticIPTypeElasticIps,
+            Attributes: components.CreateElasticIPAttributes{
+                ProjectID: "<id>",
+                ServerID: "<id>",
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.ElasticIP != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: ServerNetworkIncompatible
+
+<!-- UsageSnippet language="go" operationID="create-elastic-ip" method="post" path="/elastic_ips" example="ServerNetworkIncompatible" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.ElasticIps.CreateElasticIP(ctx, components.CreateElasticIP{
+        Data: components.CreateElasticIPData{
+            Type: components.CreateElasticIPTypeElasticIps,
+            Attributes: components.CreateElasticIPAttributes{
+                ProjectID: "<id>",
+                ServerID: "<id>",
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.ElasticIP != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: ServerNotInProject
+
+<!-- UsageSnippet language="go" operationID="create-elastic-ip" method="post" path="/elastic_ips" example="ServerNotInProject" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.ElasticIps.CreateElasticIP(ctx, components.CreateElasticIP{
+        Data: components.CreateElasticIPData{
+            Type: components.CreateElasticIPTypeElasticIps,
+            Attributes: components.CreateElasticIPAttributes{
+                ProjectID: "<id>",
+                ServerID: "<id>",
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.ElasticIP != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: SiteNotSupported
+
+<!-- UsageSnippet language="go" operationID="create-elastic-ip" method="post" path="/elastic_ips" example="SiteNotSupported" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.ElasticIps.CreateElasticIP(ctx, components.CreateElasticIP{
+        Data: components.CreateElasticIPData{
+            Type: components.CreateElasticIPTypeElasticIps,
+            Attributes: components.CreateElasticIPAttributes{
+                ProjectID: "<id>",
+                ServerID: "<id>",
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.ElasticIP != nil {
+        // handle response
+    }
+}
+```
 
 ### Parameters
 
@@ -216,14 +364,12 @@ func main() {
 
 | Error Type               | Status Code              | Content Type             |
 | ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403, 422                 | application/vnd.api+json |
+| components.ErrorObject   | 422                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
 ## GetElasticIP
 
 Returns a single Elastic IP by its ID.
-
-**Note:** This feature requires the `elastic_ips` feature flag to be enabled for your team.
 
 
 ### Example Usage
@@ -272,14 +418,12 @@ func main() {
 
 | Error Type               | Status Code              | Content Type             |
 | ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403, 404                 | application/vnd.api+json |
+| components.ErrorObject   | 404                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
 ## DeleteElasticIP
 
-Releases an Elastic IP, returning it to the available pool. The IP will transition to `releasing` status before being fully removed.
-
-**Note:** This feature requires the `elastic_ips` feature flag to be enabled for your team. Only Elastic IPs with status `active` or `error` can be released.
+Releases an Elastic IP, returning it to the available pool. The IP will transition to `releasing` status before being fully removed. Only Elastic IPs with status `active` or `error` can be released.
 
 
 ### Example Usage
@@ -328,14 +472,12 @@ func main() {
 
 | Error Type               | Status Code              | Content Type             |
 | ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403, 404, 422            | application/vnd.api+json |
+| components.ErrorObject   | 404, 422                 | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
 ## UpdateElasticIP
 
-Moves an Elastic IP to a different server within the same project. The reassignment is performed asynchronously.
-
-**Note:** This feature requires the `elastic_ips` feature flag to be enabled for your team. The Elastic IP must be in `active` status and the target server must belong to the same project.
+Moves an Elastic IP to a different server within the same project. The reassignment is performed asynchronously. The Elastic IP must be in `active` status and the target server must belong to the same project.
 
 
 ### Example Usage: FeatureNotEnabled
@@ -467,5 +609,5 @@ func main() {
 
 | Error Type               | Status Code              | Content Type             |
 | ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403, 404, 422            | application/vnd.api+json |
+| components.ErrorObject   | 404, 422                 | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |

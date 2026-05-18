@@ -33,8 +33,6 @@ func newElasticIps(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks
 
 // ListElasticIps - List Elastic IPs
 // List all Elastic IPs for the authenticated team. Elastic IPs are static public IP addresses that can be assigned to servers and moved between servers within the same project.
-//
-// **Note:** This feature requires the `elastic_ips` feature flag to be enabled for your team. When the flag is disabled, the endpoint returns an empty list.
 func (s *ElasticIps) ListElasticIps(ctx context.Context, request operations.ListElasticIpsRequest, opts ...operations.Option) (*operations.ListElasticIpsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -289,9 +287,7 @@ func (s *ElasticIps) ListElasticIps(ctx context.Context, request operations.List
 }
 
 // CreateElasticIP - Create an Elastic IP
-// Creates a new Elastic IP and assigns it to the specified server. The IP is provisioned asynchronously—the response will show status `configuring` and the `id` will be `null` until provisioning completes.
-//
-// **Note:** This feature requires the `elastic_ips` feature flag to be enabled for your team. Currently only IPv4 /32 addresses in routed mode are supported.
+// Creates a new Elastic IP and assigns it to the specified server. The IP is provisioned asynchronously—the response will show status `configuring` and the `id` will be `null` until provisioning completes. Currently only IPv4 /32 addresses in routed mode are supported.
 func (s *ElasticIps) CreateElasticIP(ctx context.Context, request components.CreateElasticIP, opts ...operations.Option) (*operations.CreateElasticIPResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -479,8 +475,6 @@ func (s *ElasticIps) CreateElasticIP(ctx context.Context, request components.Cre
 			}
 			return nil, components.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
 		}
-	case httpRes.StatusCode == 403:
-		fallthrough
 	case httpRes.StatusCode == 422:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/vnd.api+json`):
@@ -528,8 +522,6 @@ func (s *ElasticIps) CreateElasticIP(ctx context.Context, request components.Cre
 
 // GetElasticIP - Retrieve an Elastic IP
 // Returns a single Elastic IP by its ID.
-//
-// **Note:** This feature requires the `elastic_ips` feature flag to be enabled for your team.
 func (s *ElasticIps) GetElasticIP(ctx context.Context, elasticIPID string, opts ...operations.Option) (*operations.GetElasticIPResponse, error) {
 	request := operations.GetElasticIPRequest{
 		ElasticIPID: elasticIPID,
@@ -714,8 +706,6 @@ func (s *ElasticIps) GetElasticIP(ctx context.Context, elasticIPID string, opts 
 			}
 			return nil, components.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
 		}
-	case httpRes.StatusCode == 403:
-		fallthrough
 	case httpRes.StatusCode == 404:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/vnd.api+json`):
@@ -762,9 +752,7 @@ func (s *ElasticIps) GetElasticIP(ctx context.Context, elasticIPID string, opts 
 }
 
 // DeleteElasticIP - Release an Elastic IP
-// Releases an Elastic IP, returning it to the available pool. The IP will transition to `releasing` status before being fully removed.
-//
-// **Note:** This feature requires the `elastic_ips` feature flag to be enabled for your team. Only Elastic IPs with status `active` or `error` can be released.
+// Releases an Elastic IP, returning it to the available pool. The IP will transition to `releasing` status before being fully removed. Only Elastic IPs with status `active` or `error` can be released.
 func (s *ElasticIps) DeleteElasticIP(ctx context.Context, elasticIPID string, opts ...operations.Option) (*operations.DeleteElasticIPResponse, error) {
 	request := operations.DeleteElasticIPRequest{
 		ElasticIPID: elasticIPID,
@@ -930,8 +918,6 @@ func (s *ElasticIps) DeleteElasticIP(ctx context.Context, elasticIPID string, op
 	switch {
 	case httpRes.StatusCode == 204:
 		utils.DrainBody(httpRes)
-	case httpRes.StatusCode == 403:
-		fallthrough
 	case httpRes.StatusCode == 404:
 		fallthrough
 	case httpRes.StatusCode == 422:
@@ -980,9 +966,7 @@ func (s *ElasticIps) DeleteElasticIP(ctx context.Context, elasticIPID string, op
 }
 
 // UpdateElasticIP - Move an Elastic IP
-// Moves an Elastic IP to a different server within the same project. The reassignment is performed asynchronously.
-//
-// **Note:** This feature requires the `elastic_ips` feature flag to be enabled for your team. The Elastic IP must be in `active` status and the target server must belong to the same project.
+// Moves an Elastic IP to a different server within the same project. The reassignment is performed asynchronously. The Elastic IP must be in `active` status and the target server must belong to the same project.
 func (s *ElasticIps) UpdateElasticIP(ctx context.Context, elasticIPID string, updateElasticIP components.UpdateElasticIP, opts ...operations.Option) (*operations.UpdateElasticIPResponse, error) {
 	request := operations.UpdateElasticIPRequest{
 		ElasticIPID:     elasticIPID,
@@ -1175,8 +1159,6 @@ func (s *ElasticIps) UpdateElasticIP(ctx context.Context, elasticIPID string, up
 			}
 			return nil, components.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
 		}
-	case httpRes.StatusCode == 403:
-		fallthrough
 	case httpRes.StatusCode == 404:
 		fallthrough
 	case httpRes.StatusCode == 422:
