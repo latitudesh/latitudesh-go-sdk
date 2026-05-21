@@ -132,6 +132,7 @@ func (i *IPAddressRegion) GetLocation() *IPAddressLocation {
 	return i.Location
 }
 
+// Assignment - Server assignment information. Returns an empty object when the IP is not assigned to an active server (e.g., when the server is decommissioning or deleted).
 type Assignment struct {
 	ServerID   *string `json:"server_id,omitempty"`
 	Hostname   *string `json:"hostname,omitempty"`
@@ -172,7 +173,8 @@ type IPAddressAttributes struct {
 	Project    *IPAddressProject `json:"project,omitempty"`
 	Region     *IPAddressRegion  `json:"region,omitempty"`
 	Available  *bool             `json:"available,omitempty"`
-	Assignment *Assignment       `json:"assignment,omitempty"`
+	// Server assignment information. Returns an empty object when the IP is not assigned to an active server (e.g., when the server is decommissioning or deleted).
+	Assignment *Assignment `json:"assignment,omitempty"`
 }
 
 func (i *IPAddressAttributes) GetAddress() *string {

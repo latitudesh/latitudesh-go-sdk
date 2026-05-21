@@ -179,7 +179,9 @@ func (v *VirtualMachineAttributesOperatingSystem) GetDistro() *VirtualMachineAtt
 	return v.Distro
 }
 
+// Credentials - SSH credentials for connecting to the virtual machine. Only available when the VM is running.
 type Credentials struct {
+	// The SSH username for the VM, determined by the operating system (e.g., ubuntu, centos, ec2-user). Defaults to ubuntu if not specified by the OS.
 	Username *string  `json:"username,omitempty"`
 	Host     *string  `json:"host,omitempty"`
 	Password *string  `json:"password,omitempty"`
@@ -283,11 +285,12 @@ type VirtualMachineAttributesAttributes struct {
 	PrimaryIpv4 *string                         `json:"primary_ipv4,omitempty"`
 	// The operating system installed on the virtual machine
 	OperatingSystem *VirtualMachineAttributesOperatingSystem `json:"operating_system,omitempty"`
-	Credentials     *Credentials                             `json:"credentials,omitempty"`
-	Plan            *VirtualMachineAttributesPlan            `json:"plan,omitempty"`
-	Specs           *VirtualMachineAttributesSpecs           `json:"specs,omitempty"`
-	Team            *TeamInclude                             `json:"team,omitempty"`
-	Project         *ProjectInclude                          `json:"project,omitempty"`
+	// SSH credentials for connecting to the virtual machine. Only available when the VM is running.
+	Credentials *Credentials                   `json:"credentials,omitempty"`
+	Plan        *VirtualMachineAttributesPlan  `json:"plan,omitempty"`
+	Specs       *VirtualMachineAttributesSpecs `json:"specs,omitempty"`
+	Team        *TeamInclude                   `json:"team,omitempty"`
+	Project     *ProjectInclude                `json:"project,omitempty"`
 }
 
 func (v *VirtualMachineAttributesAttributes) GetName() *string {

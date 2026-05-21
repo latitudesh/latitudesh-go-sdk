@@ -270,6 +270,8 @@ func (s *KubernetesClusters) ListKubernetesClusters(ctx context.Context, project
 // CreateKubernetesCluster - Create a Kubernetes Cluster
 // Creates a new managed Kubernetes cluster. Maximum of 1 cluster per project.
 //
+// **Note:** Only users with the `owner`, `administrator`, or `collaborator` role can create clusters. Users with the `billing` role cannot perform this action.
+//
 // Cluster names must follow Kubernetes naming rules: lowercase alphanumeric characters or hyphens, must start and end with an alphanumeric character, and be at most 63 characters long.
 func (s *KubernetesClusters) CreateKubernetesCluster(ctx context.Context, request components.CreateKubernetesCluster, opts ...operations.Option) (*operations.CreateKubernetesClusterResponse, error) {
 	o := operations.Options{}
@@ -459,6 +461,8 @@ func (s *KubernetesClusters) CreateKubernetesCluster(ctx context.Context, reques
 			return nil, components.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 400:
+		fallthrough
+	case httpRes.StatusCode == 403:
 		fallthrough
 	case httpRes.StatusCode == 422:
 		switch {
@@ -994,6 +998,8 @@ func (s *KubernetesClusters) GetKubernetesCluster(ctx context.Context, kubernete
 
 // DeleteKubernetesCluster - Delete a Kubernetes Cluster
 // Deletes a Kubernetes cluster. This action is irreversible and will destroy all cluster resources.
+//
+// **Note:** Only users with the `owner`, `administrator`, or `collaborator` role can delete clusters. Users with the `billing` role cannot perform this action.
 func (s *KubernetesClusters) DeleteKubernetesCluster(ctx context.Context, kubernetesClusterID string, opts ...operations.Option) (*operations.DeleteKubernetesClusterResponse, error) {
 	request := operations.DeleteKubernetesClusterRequest{
 		KubernetesClusterID: kubernetesClusterID,
@@ -1160,6 +1166,8 @@ func (s *KubernetesClusters) DeleteKubernetesCluster(ctx context.Context, kubern
 	case httpRes.StatusCode == 204:
 		utils.DrainBody(httpRes)
 	case httpRes.StatusCode == 401:
+		fallthrough
+	case httpRes.StatusCode == 403:
 		fallthrough
 	case httpRes.StatusCode == 404:
 		fallthrough
@@ -1499,6 +1507,8 @@ func (s *KubernetesClusters) UpdateKubernetesCluster(ctx context.Context, kubern
 
 // GetKubernetesClusterKubeconfig - Get Kubernetes Cluster Kubeconfig
 // Retrieves the kubeconfig file for a Kubernetes cluster. The kubeconfig is only available once the cluster is fully provisioned.
+//
+// **Note:** Only users with the `owner`, `administrator`, or `collaborator` role can access cluster credentials. Users with the `billing` role cannot perform this action.
 func (s *KubernetesClusters) GetKubernetesClusterKubeconfig(ctx context.Context, kubernetesClusterID string, opts ...operations.Option) (*operations.GetKubernetesClusterKubeconfigResponse, error) {
 	request := operations.GetKubernetesClusterKubeconfigRequest{
 		KubernetesClusterID: kubernetesClusterID,
@@ -1684,6 +1694,8 @@ func (s *KubernetesClusters) GetKubernetesClusterKubeconfig(ctx context.Context,
 			return nil, components.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 401:
+		fallthrough
+	case httpRes.StatusCode == 403:
 		fallthrough
 	case httpRes.StatusCode == 404:
 		switch {

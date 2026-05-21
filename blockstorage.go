@@ -12,28 +12,31 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
 	"github.com/latitudesh/latitudesh-go-sdk/retry"
-	"github.com/spyzhov/ajson"
 	"net/http"
 	"net/url"
 )
 
-type ElasticIps struct {
+type BlockStorage struct {
 	rootSDK          *Latitudesh
 	sdkConfiguration config.SDKConfiguration
 	hooks            *hooks.Hooks
 }
 
-func newElasticIps(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *hooks.Hooks) *ElasticIps {
-	return &ElasticIps{
+func newBlockStorage(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *hooks.Hooks) *BlockStorage {
+	return &BlockStorage{
 		rootSDK:          rootSDK,
 		sdkConfiguration: sdkConfig,
 		hooks:            hooks,
 	}
 }
 
-// ListElasticIps - List Elastic IPs
-// List all Elastic IPs for the authenticated team. Elastic IPs are static public IP addresses that can be assigned to servers and moved between servers within the same project.
-func (s *ElasticIps) ListElasticIps(ctx context.Context, request operations.ListElasticIpsRequest, opts ...operations.Option) (*operations.ListElasticIpsResponse, error) {
+// GetStorageVolumes - List volumes
+// Lists all the volumes from a team.
+func (s *BlockStorage) GetStorageVolumes(ctx context.Context, filterProject *string, opts ...operations.Option) (*operations.GetStorageVolumesResponse, error) {
+	request := operations.GetStorageVolumesRequest{
+		FilterProject: filterProject,
+	}
+
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -52,7 +55,7 @@ func (s *ElasticIps) ListElasticIps(ctx context.Context, request operations.List
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := url.JoinPath(baseURL, "/elastic_ips")
+	opURL, err := url.JoinPath(baseURL, "/storage/volumes")
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
@@ -62,7 +65,7 @@ func (s *ElasticIps) ListElasticIps(ctx context.Context, request operations.List
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "list-elastic-ips",
+		OperationID:      "get-storage-volumes",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
@@ -188,56 +191,11 @@ func (s *ElasticIps) ListElasticIps(ctx context.Context, request operations.List
 		}
 	}
 
-	res := &operations.ListElasticIpsResponse{
+	res := &operations.GetStorageVolumesResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
 		},
-	}
-	res.Next = func() (*operations.ListElasticIpsResponse, error) {
-		rawBody, err := utils.ConsumeRawBody(httpRes)
-		if err != nil {
-			return nil, err
-		}
-
-		b, err := ajson.Unmarshal(rawBody)
-		if err != nil {
-			return nil, err
-		}
-		var p int64 = 1
-		if request.PageNumber != nil {
-			p = *request.PageNumber
-		}
-		nP := int64(p + 1)
-		r, err := ajson.Eval(b, "$.data")
-		if err != nil {
-			return nil, err
-		}
-		if !r.IsArray() {
-			return nil, nil
-		}
-		arr, err := r.GetArray()
-		if err != nil {
-			return nil, err
-		}
-		if len(arr) == 0 {
-			return nil, nil
-		}
-
-		l := 0
-		if request.PageSize != nil {
-			l = int(*request.PageSize)
-		}
-		if len(arr) < l {
-			return nil, nil
-		}
-		request.PageNumber = &nP
-
-		return s.ListElasticIps(
-			ctx,
-			request,
-			opts...,
-		)
 	}
 
 	switch {
@@ -249,12 +207,12 @@ func (s *ElasticIps) ListElasticIps(ctx context.Context, request operations.List
 				return nil, err
 			}
 
-			var out components.ElasticIps
+			var out operations.GetStorageVolumesResponseBody
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.ElasticIps = &out
+			res.Object = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -286,9 +244,9 @@ func (s *ElasticIps) ListElasticIps(ctx context.Context, request operations.List
 
 }
 
-// CreateElasticIP - Create an Elastic IP
-// Creates a new Elastic IP and assigns it to the specified server. The IP is provisioned asynchronously—the response will show status `configuring` and the `id` will be `null` until provisioning completes. Currently only IPv4 /32 addresses in routed mode are supported.
-func (s *ElasticIps) CreateElasticIP(ctx context.Context, request components.CreateElasticIP, opts ...operations.Option) (*operations.CreateElasticIPResponse, error) {
+// PostStorageVolumes - Create volume
+// Allows you to add persistent storage to a project. These volumes can be used to store data across your servers.
+func (s *BlockStorage) PostStorageVolumes(ctx context.Context, request operations.PostStorageVolumesBlockStorageRequestBody, opts ...operations.Option) (*operations.PostStorageVolumesResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -307,7 +265,7 @@ func (s *ElasticIps) CreateElasticIP(ctx context.Context, request components.Cre
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := url.JoinPath(baseURL, "/elastic_ips")
+	opURL, err := url.JoinPath(baseURL, "/storage/volumes")
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
@@ -317,7 +275,7 @@ func (s *ElasticIps) CreateElasticIP(ctx context.Context, request components.Cre
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "create-elastic-ip",
+		OperationID:      "post-storage-volumes",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
@@ -446,7 +404,7 @@ func (s *ElasticIps) CreateElasticIP(ctx context.Context, request components.Cre
 		}
 	}
 
-	res := &operations.CreateElasticIPResponse{
+	res := &operations.PostStorageVolumesResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -454,7 +412,7 @@ func (s *ElasticIps) CreateElasticIP(ctx context.Context, request components.Cre
 	}
 
 	switch {
-	case httpRes.StatusCode == 202:
+	case httpRes.StatusCode == 201:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/vnd.api+json`):
 			rawBody, err := utils.ConsumeRawBody(httpRes)
@@ -462,12 +420,12 @@ func (s *ElasticIps) CreateElasticIP(ctx context.Context, request components.Cre
 				return nil, err
 			}
 
-			var out components.ElasticIP
+			var out operations.PostStorageVolumesResponseBody
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.ElasticIP = &out
+			res.Object = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -475,7 +433,7 @@ func (s *ElasticIps) CreateElasticIP(ctx context.Context, request components.Cre
 			}
 			return nil, components.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
 		}
-	case httpRes.StatusCode == 422:
+	case httpRes.StatusCode == 503:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/vnd.api+json`):
 			rawBody, err := utils.ConsumeRawBody(httpRes)
@@ -520,11 +478,11 @@ func (s *ElasticIps) CreateElasticIP(ctx context.Context, request components.Cre
 
 }
 
-// GetElasticIP - Retrieve an Elastic IP
-// Returns a single Elastic IP by its ID.
-func (s *ElasticIps) GetElasticIP(ctx context.Context, elasticIPID string, opts ...operations.Option) (*operations.GetElasticIPResponse, error) {
-	request := operations.GetElasticIPRequest{
-		ElasticIPID: elasticIPID,
+// GetStorageVolume - Retrieve volume
+// Shows details of a specific volume storage.
+func (s *BlockStorage) GetStorageVolume(ctx context.Context, id string, opts ...operations.Option) (*operations.GetStorageVolumeResponse, error) {
+	request := operations.GetStorageVolumeRequest{
+		ID: id,
 	}
 
 	o := operations.Options{}
@@ -545,7 +503,7 @@ func (s *ElasticIps) GetElasticIP(ctx context.Context, elasticIPID string, opts 
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := utils.GenerateURL(ctx, baseURL, "/elastic_ips/{elastic_ip_id}", request, nil)
+	opURL, err := utils.GenerateURL(ctx, baseURL, "/storage/volumes/{id}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
@@ -555,7 +513,7 @@ func (s *ElasticIps) GetElasticIP(ctx context.Context, elasticIPID string, opts 
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "get-elastic-ip",
+		OperationID:      "get-storage-volume",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
@@ -677,7 +635,7 @@ func (s *ElasticIps) GetElasticIP(ctx context.Context, elasticIPID string, opts 
 		}
 	}
 
-	res := &operations.GetElasticIPResponse{
+	res := &operations.GetStorageVolumeResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -693,33 +651,12 @@ func (s *ElasticIps) GetElasticIP(ctx context.Context, elasticIPID string, opts 
 				return nil, err
 			}
 
-			var out components.ElasticIP
+			var out operations.GetStorageVolumeResponseBody
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.ElasticIP = &out
-		default:
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
-			return nil, components.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 404:
-		switch {
-		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/vnd.api+json`):
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
-
-			var out components.ErrorObject
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-
-			return nil, &out
+			res.Object = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -751,11 +688,11 @@ func (s *ElasticIps) GetElasticIP(ctx context.Context, elasticIPID string, opts 
 
 }
 
-// DeleteElasticIP - Release an Elastic IP
-// Releases an Elastic IP, returning it to the available pool. The IP will transition to `releasing` status before being fully removed. Only Elastic IPs with status `active` or `error` can be released.
-func (s *ElasticIps) DeleteElasticIP(ctx context.Context, elasticIPID string, opts ...operations.Option) (*operations.DeleteElasticIPResponse, error) {
-	request := operations.DeleteElasticIPRequest{
-		ElasticIPID: elasticIPID,
+// DeleteStorageVolumes - Delete volume
+// Allows you to remove persistent storage from a project.
+func (s *BlockStorage) DeleteStorageVolumes(ctx context.Context, id string, opts ...operations.Option) (*operations.DeleteStorageVolumesResponse, error) {
+	request := operations.DeleteStorageVolumesRequest{
+		ID: id,
 	}
 
 	o := operations.Options{}
@@ -776,7 +713,7 @@ func (s *ElasticIps) DeleteElasticIP(ctx context.Context, elasticIPID string, op
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := utils.GenerateURL(ctx, baseURL, "/elastic_ips/{elastic_ip_id}", request, nil)
+	opURL, err := utils.GenerateURL(ctx, baseURL, "/storage/volumes/{id}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
@@ -786,7 +723,7 @@ func (s *ElasticIps) DeleteElasticIP(ctx context.Context, elasticIPID string, op
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "delete-elastic-ip",
+		OperationID:      "delete-storage-volumes",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
@@ -806,7 +743,7 @@ func (s *ElasticIps) DeleteElasticIP(ctx context.Context, elasticIPID string, op
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
-	req.Header.Set("Accept", "application/vnd.api+json")
+	req.Header.Set("Accept", "*/*")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
@@ -908,7 +845,7 @@ func (s *ElasticIps) DeleteElasticIP(ctx context.Context, elasticIPID string, op
 		}
 	}
 
-	res := &operations.DeleteElasticIPResponse{
+	res := &operations.DeleteStorageVolumesResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -918,29 +855,6 @@ func (s *ElasticIps) DeleteElasticIP(ctx context.Context, elasticIPID string, op
 	switch {
 	case httpRes.StatusCode == 204:
 		utils.DrainBody(httpRes)
-	case httpRes.StatusCode == 404:
-		fallthrough
-	case httpRes.StatusCode == 422:
-		switch {
-		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/vnd.api+json`):
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
-
-			var out components.ErrorObject
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-
-			return nil, &out
-		default:
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
-			return nil, components.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
-		}
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)
 		if err != nil {
@@ -965,12 +879,12 @@ func (s *ElasticIps) DeleteElasticIP(ctx context.Context, elasticIPID string, op
 
 }
 
-// UpdateElasticIP - Move an Elastic IP
-// Moves an Elastic IP to a different server within the same project and site. The reassignment is performed asynchronously. The Elastic IP must be in `active` status, the target server must belong to the same project, and the target server must be in the same site as the currently assigned server.
-func (s *ElasticIps) UpdateElasticIP(ctx context.Context, elasticIPID string, updateElasticIP components.UpdateElasticIP, opts ...operations.Option) (*operations.UpdateElasticIPResponse, error) {
-	request := operations.UpdateElasticIPRequest{
-		ElasticIPID:     elasticIPID,
-		UpdateElasticIP: updateElasticIP,
+// PostStorageVolumesMount - Mount volume
+// Mounts volume storage by adding the client to an allowed list
+func (s *BlockStorage) PostStorageVolumesMount(ctx context.Context, id string, requestBody operations.PostStorageVolumesMountRequestBody, opts ...operations.Option) (*operations.PostStorageVolumesMountResponse, error) {
+	request := operations.PostStorageVolumesMountRequest{
+		ID:          id,
+		RequestBody: requestBody,
 	}
 
 	o := operations.Options{}
@@ -991,7 +905,7 @@ func (s *ElasticIps) UpdateElasticIP(ctx context.Context, elasticIPID string, up
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := utils.GenerateURL(ctx, baseURL, "/elastic_ips/{elastic_ip_id}", request, nil)
+	opURL, err := utils.GenerateURL(ctx, baseURL, "/storage/volumes/{id}/mount", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
@@ -1001,11 +915,11 @@ func (s *ElasticIps) UpdateElasticIP(ctx context.Context, elasticIPID string, up
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "update-elastic-ip",
+		OperationID:      "post-storage-volumes-mount",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
-	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "UpdateElasticIP", "json", `request:"mediaType=application/json"`)
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "RequestBody", "json", `request:"mediaType=application/json"`)
 	if err != nil {
 		return nil, err
 	}
@@ -1021,11 +935,11 @@ func (s *ElasticIps) UpdateElasticIP(ctx context.Context, elasticIPID string, up
 		defer cancel()
 	}
 
-	req, err := http.NewRequestWithContext(ctx, "PATCH", opURL, bodyReader)
+	req, err := http.NewRequestWithContext(ctx, "POST", opURL, bodyReader)
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
-	req.Header.Set("Accept", "application/vnd.api+json")
+	req.Header.Set("Accept", "*/*")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	if reqContentType != "" {
 		req.Header.Set("Content-Type", reqContentType)
@@ -1130,7 +1044,7 @@ func (s *ElasticIps) UpdateElasticIP(ctx context.Context, elasticIPID string, up
 		}
 	}
 
-	res := &operations.UpdateElasticIPResponse{
+	res := &operations.PostStorageVolumesMountResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -1138,50 +1052,8 @@ func (s *ElasticIps) UpdateElasticIP(ctx context.Context, elasticIPID string, up
 	}
 
 	switch {
-	case httpRes.StatusCode == 202:
-		switch {
-		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/vnd.api+json`):
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
-
-			var out components.ElasticIP
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-
-			res.ElasticIP = &out
-		default:
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
-			return nil, components.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 404:
-		fallthrough
-	case httpRes.StatusCode == 422:
-		switch {
-		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/vnd.api+json`):
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
-
-			var out components.ErrorObject
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-
-			return nil, &out
-		default:
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
-			return nil, components.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
-		}
+	case httpRes.StatusCode == 204:
+		utils.DrainBody(httpRes)
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)
 		if err != nil {

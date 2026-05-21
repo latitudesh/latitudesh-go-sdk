@@ -277,6 +277,130 @@ func (e *CreateServerRaid) UnmarshalJSON(data []byte) error {
 	}
 }
 
+type CreateServerServersRole string
+
+const (
+	CreateServerServersRoleOs      CreateServerServersRole = "os"
+	CreateServerServersRoleStorage CreateServerServersRole = "storage"
+	CreateServerServersRoleRaw     CreateServerServersRole = "raw"
+)
+
+func (e CreateServerServersRole) ToPointer() *CreateServerServersRole {
+	return &e
+}
+func (e *CreateServerServersRole) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "os":
+		fallthrough
+	case "storage":
+		fallthrough
+	case "raw":
+		*e = CreateServerServersRole(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for CreateServerServersRole: %v", v)
+	}
+}
+
+type CreateServerRaidLevel string
+
+const (
+	CreateServerRaidLevelRaid0 CreateServerRaidLevel = "raid-0"
+	CreateServerRaidLevelRaid1 CreateServerRaidLevel = "raid-1"
+)
+
+func (e CreateServerRaidLevel) ToPointer() *CreateServerRaidLevel {
+	return &e
+}
+func (e *CreateServerRaidLevel) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "raid-0":
+		fallthrough
+	case "raid-1":
+		*e = CreateServerRaidLevel(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for CreateServerRaidLevel: %v", v)
+	}
+}
+
+type CreateServerFilesystem string
+
+const (
+	CreateServerFilesystemExt4 CreateServerFilesystem = "ext4"
+	CreateServerFilesystemXfs  CreateServerFilesystem = "xfs"
+)
+
+func (e CreateServerFilesystem) ToPointer() *CreateServerFilesystem {
+	return &e
+}
+func (e *CreateServerFilesystem) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "ext4":
+		fallthrough
+	case "xfs":
+		*e = CreateServerFilesystem(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for CreateServerFilesystem: %v", v)
+	}
+}
+
+type CreateServerDiskLayout struct {
+	Count      int64                   `json:"count"`
+	Role       CreateServerServersRole `json:"role"`
+	RaidLevel  *CreateServerRaidLevel  `json:"raid_level,omitempty"`
+	Filesystem *CreateServerFilesystem `json:"filesystem,omitempty"`
+	MountPoint *string                 `json:"mount_point,omitempty"`
+}
+
+func (c *CreateServerDiskLayout) GetCount() int64 {
+	if c == nil {
+		return 0
+	}
+	return c.Count
+}
+
+func (c *CreateServerDiskLayout) GetRole() CreateServerServersRole {
+	if c == nil {
+		return CreateServerServersRole("")
+	}
+	return c.Role
+}
+
+func (c *CreateServerDiskLayout) GetRaidLevel() *CreateServerRaidLevel {
+	if c == nil {
+		return nil
+	}
+	return c.RaidLevel
+}
+
+func (c *CreateServerDiskLayout) GetFilesystem() *CreateServerFilesystem {
+	if c == nil {
+		return nil
+	}
+	return c.Filesystem
+}
+
+func (c *CreateServerDiskLayout) GetMountPoint() *string {
+	if c == nil {
+		return nil
+	}
+	return c.MountPoint
+}
+
 // CreateServerBilling - The server billing type. Accepts `hourly` and `monthly` for on demand projects and `yearly` for reserved projects.
 type CreateServerBilling string
 
@@ -323,7 +447,8 @@ type CreateServerServersAttributes struct {
 	// User data ID to set on the server. This is a custom script that will run after the deploy
 	UserData *string `json:"user_data,omitempty"`
 	// RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, or omit/null for no RAID configuration
-	Raid *CreateServerRaid `json:"raid,omitempty"`
+	Raid       *CreateServerRaid        `json:"raid,omitempty"`
+	DiskLayout []CreateServerDiskLayout `json:"disk_layout,omitempty"`
 	// URL where iPXE script is stored on, OR the iPXE script encoded in base64. This attribute is required when iPXE is selected as operating system.
 	Ipxe *string `json:"ipxe,omitempty"`
 	// The server billing type. Accepts `hourly` and `monthly` for on demand projects and `yearly` for reserved projects.
@@ -384,6 +509,13 @@ func (c *CreateServerServersAttributes) GetRaid() *CreateServerRaid {
 		return nil
 	}
 	return c.Raid
+}
+
+func (c *CreateServerServersAttributes) GetDiskLayout() []CreateServerDiskLayout {
+	if c == nil {
+		return nil
+	}
+	return c.DiskLayout
 }
 
 func (c *CreateServerServersAttributes) GetIpxe() *string {

@@ -129,6 +129,14 @@ func main() {
 
 * [ListUsage](docs/sdks/billing/README.md#listusage) - Retrieve billing usage
 
+### [BlockStorage](docs/sdks/blockstorage/README.md)
+
+* [GetStorageVolumes](docs/sdks/blockstorage/README.md#getstoragevolumes) - List volumes
+* [PostStorageVolumes](docs/sdks/blockstorage/README.md#poststoragevolumes) - Create volume
+* [GetStorageVolume](docs/sdks/blockstorage/README.md#getstoragevolume) - Retrieve volume
+* [DeleteStorageVolumes](docs/sdks/blockstorage/README.md#deletestoragevolumes) - Delete volume
+* [PostStorageVolumesMount](docs/sdks/blockstorage/README.md#poststoragevolumesmount) - Mount volume
+
 ### [ElasticIps](docs/sdks/elasticips/README.md)
 
 * [ListElasticIps](docs/sdks/elasticips/README.md#listelasticips) - List Elastic IPs
@@ -140,6 +148,13 @@ func main() {
 ### [Events](docs/sdks/events/README.md)
 
 * [List](docs/sdks/events/README.md#list) - List events
+
+### [FilesystemStorage](docs/sdks/filesystemstorage/README.md)
+
+* [CreateFilesystem](docs/sdks/filesystemstorage/README.md#createfilesystem) - Create filesystem
+* [ListFilesystems](docs/sdks/filesystemstorage/README.md#listfilesystems) - List filesystems
+* [DeleteFilesystem](docs/sdks/filesystemstorage/README.md#deletefilesystem) - Delete filesystem
+* [UpdateFilesystem](docs/sdks/filesystemstorage/README.md#updatefilesystem) - Update filesystem
 
 ### [Firewalls](docs/sdks/firewalls/README.md)
 
@@ -170,6 +185,13 @@ func main() {
 * [DeleteKubernetesCluster](docs/sdks/kubernetesclusters/README.md#deletekubernetescluster) - Delete a Kubernetes Cluster
 * [UpdateKubernetesCluster](docs/sdks/kubernetesclusters/README.md#updatekubernetescluster) - Update Kubernetes Cluster
 * [GetKubernetesClusterKubeconfig](docs/sdks/kubernetesclusters/README.md#getkubernetesclusterkubeconfig) - Get Kubernetes Cluster Kubeconfig
+
+### [ObjectStorage](docs/sdks/objectstorage/README.md)
+
+* [GetStorageObjects](docs/sdks/objectstorage/README.md#getstorageobjects) - List object storages
+* [PostStorageObjects](docs/sdks/objectstorage/README.md#poststorageobjects) - Create object storage
+* [GetStorageObject](docs/sdks/objectstorage/README.md#getstorageobject) - Retrieve object storage
+* [DeleteStorageObjects](docs/sdks/objectstorage/README.md#deletestorageobjects) - Delete object storage
 
 ### [OperatingSystems](docs/sdks/operatingsystems/README.md)
 
@@ -250,22 +272,6 @@ func main() {
 * [Retrieve](docs/sdks/sshkeys/README.md#retrieve) - Retrieve SSH Key
 * [Update](docs/sdks/sshkeys/README.md#update) - Update SSH Key
 * [Delete](docs/sdks/sshkeys/README.md#delete) - Delete SSH Key
-
-### [Storage](docs/sdks/storage/README.md)
-
-* [CreateFilesystem](docs/sdks/storage/README.md#createfilesystem) - Create filesystem
-* [ListFilesystems](docs/sdks/storage/README.md#listfilesystems) - List filesystems
-* [DeleteFilesystem](docs/sdks/storage/README.md#deletefilesystem) - Delete filesystem
-* [UpdateFilesystem](docs/sdks/storage/README.md#updatefilesystem) - Update filesystem
-* [GetStorageVolumes](docs/sdks/storage/README.md#getstoragevolumes) - List volumes
-* [PostStorageVolumes](docs/sdks/storage/README.md#poststoragevolumes) - Create volume
-* [GetStorageVolume](docs/sdks/storage/README.md#getstoragevolume) - Retrieve volume
-* [DeleteStorageVolumes](docs/sdks/storage/README.md#deletestoragevolumes) - Delete volume
-* [PostStorageVolumesMount](docs/sdks/storage/README.md#poststoragevolumesmount) - Mount volume
-* [GetStorageObjects](docs/sdks/storage/README.md#getstorageobjects) - List object storages
-* [PostStorageObjects](docs/sdks/storage/README.md#poststorageobjects) - Create object storage
-* [GetStorageObject](docs/sdks/storage/README.md#getstorageobject) - Retrieve object storage
-* [DeleteStorageObjects](docs/sdks/storage/README.md#deletestorageobjects) - Delete object storage
 
 ### [Tags](docs/sdks/tags/README.md)
 

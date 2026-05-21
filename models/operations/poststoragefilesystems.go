@@ -9,30 +9,30 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
-type PostStorageFilesystemsStorageType string
+type PostStorageFilesystemsFilesystemStorageType string
 
 const (
-	PostStorageFilesystemsStorageTypeFilesystems PostStorageFilesystemsStorageType = "filesystems"
+	PostStorageFilesystemsFilesystemStorageTypeFilesystems PostStorageFilesystemsFilesystemStorageType = "filesystems"
 )
 
-func (e PostStorageFilesystemsStorageType) ToPointer() *PostStorageFilesystemsStorageType {
+func (e PostStorageFilesystemsFilesystemStorageType) ToPointer() *PostStorageFilesystemsFilesystemStorageType {
 	return &e
 }
-func (e *PostStorageFilesystemsStorageType) UnmarshalJSON(data []byte) error {
+func (e *PostStorageFilesystemsFilesystemStorageType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "filesystems":
-		*e = PostStorageFilesystemsStorageType(v)
+		*e = PostStorageFilesystemsFilesystemStorageType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PostStorageFilesystemsStorageType: %v", v)
+		return fmt.Errorf("invalid value for PostStorageFilesystemsFilesystemStorageType: %v", v)
 	}
 }
 
-type PostStorageFilesystemsStorageAttributes struct {
+type PostStorageFilesystemsFilesystemStorageAttributes struct {
 	// Project ID or slug
 	Project string `json:"project"`
 	// Storage name
@@ -41,64 +41,64 @@ type PostStorageFilesystemsStorageAttributes struct {
 	SizeInGb *int64 `default:"1500" json:"size_in_gb"`
 }
 
-func (p PostStorageFilesystemsStorageAttributes) MarshalJSON() ([]byte, error) {
+func (p PostStorageFilesystemsFilesystemStorageAttributes) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(p, "", false)
 }
 
-func (p *PostStorageFilesystemsStorageAttributes) UnmarshalJSON(data []byte) error {
+func (p *PostStorageFilesystemsFilesystemStorageAttributes) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (p *PostStorageFilesystemsStorageAttributes) GetProject() string {
+func (p *PostStorageFilesystemsFilesystemStorageAttributes) GetProject() string {
 	if p == nil {
 		return ""
 	}
 	return p.Project
 }
 
-func (p *PostStorageFilesystemsStorageAttributes) GetName() string {
+func (p *PostStorageFilesystemsFilesystemStorageAttributes) GetName() string {
 	if p == nil {
 		return ""
 	}
 	return p.Name
 }
 
-func (p *PostStorageFilesystemsStorageAttributes) GetSizeInGb() *int64 {
+func (p *PostStorageFilesystemsFilesystemStorageAttributes) GetSizeInGb() *int64 {
 	if p == nil {
 		return nil
 	}
 	return p.SizeInGb
 }
 
-type PostStorageFilesystemsStorageData struct {
-	Type       PostStorageFilesystemsStorageType       `json:"type"`
-	Attributes PostStorageFilesystemsStorageAttributes `json:"attributes"`
+type PostStorageFilesystemsFilesystemStorageData struct {
+	Type       PostStorageFilesystemsFilesystemStorageType       `json:"type"`
+	Attributes PostStorageFilesystemsFilesystemStorageAttributes `json:"attributes"`
 }
 
-func (p *PostStorageFilesystemsStorageData) GetType() PostStorageFilesystemsStorageType {
+func (p *PostStorageFilesystemsFilesystemStorageData) GetType() PostStorageFilesystemsFilesystemStorageType {
 	if p == nil {
-		return PostStorageFilesystemsStorageType("")
+		return PostStorageFilesystemsFilesystemStorageType("")
 	}
 	return p.Type
 }
 
-func (p *PostStorageFilesystemsStorageData) GetAttributes() PostStorageFilesystemsStorageAttributes {
+func (p *PostStorageFilesystemsFilesystemStorageData) GetAttributes() PostStorageFilesystemsFilesystemStorageAttributes {
 	if p == nil {
-		return PostStorageFilesystemsStorageAttributes{}
+		return PostStorageFilesystemsFilesystemStorageAttributes{}
 	}
 	return p.Attributes
 }
 
-type PostStorageFilesystemsStorageRequestBody struct {
-	Data PostStorageFilesystemsStorageData `json:"data"`
+type PostStorageFilesystemsFilesystemStorageRequestBody struct {
+	Data PostStorageFilesystemsFilesystemStorageData `json:"data"`
 }
 
-func (p *PostStorageFilesystemsStorageRequestBody) GetData() PostStorageFilesystemsStorageData {
+func (p *PostStorageFilesystemsFilesystemStorageRequestBody) GetData() PostStorageFilesystemsFilesystemStorageData {
 	if p == nil {
-		return PostStorageFilesystemsStorageData{}
+		return PostStorageFilesystemsFilesystemStorageData{}
 	}
 	return p.Data
 }

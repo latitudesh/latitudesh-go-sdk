@@ -9,30 +9,30 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
-type PostStorageVolumesStorageType string
+type PostStorageVolumesBlockStorageType string
 
 const (
-	PostStorageVolumesStorageTypeVolumes PostStorageVolumesStorageType = "volumes"
+	PostStorageVolumesBlockStorageTypeVolumes PostStorageVolumesBlockStorageType = "volumes"
 )
 
-func (e PostStorageVolumesStorageType) ToPointer() *PostStorageVolumesStorageType {
+func (e PostStorageVolumesBlockStorageType) ToPointer() *PostStorageVolumesBlockStorageType {
 	return &e
 }
-func (e *PostStorageVolumesStorageType) UnmarshalJSON(data []byte) error {
+func (e *PostStorageVolumesBlockStorageType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "volumes":
-		*e = PostStorageVolumesStorageType(v)
+		*e = PostStorageVolumesBlockStorageType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PostStorageVolumesStorageType: %v", v)
+		return fmt.Errorf("invalid value for PostStorageVolumesBlockStorageType: %v", v)
 	}
 }
 
-type PostStorageVolumesStorageAttributes struct {
+type PostStorageVolumesBlockStorageAttributes struct {
 	// Project ID or slug
 	Project string `json:"project"`
 	// Storage name
@@ -41,64 +41,64 @@ type PostStorageVolumesStorageAttributes struct {
 	SizeInGb *int64 `default:"1500" json:"size_in_gb"`
 }
 
-func (p PostStorageVolumesStorageAttributes) MarshalJSON() ([]byte, error) {
+func (p PostStorageVolumesBlockStorageAttributes) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(p, "", false)
 }
 
-func (p *PostStorageVolumesStorageAttributes) UnmarshalJSON(data []byte) error {
+func (p *PostStorageVolumesBlockStorageAttributes) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (p *PostStorageVolumesStorageAttributes) GetProject() string {
+func (p *PostStorageVolumesBlockStorageAttributes) GetProject() string {
 	if p == nil {
 		return ""
 	}
 	return p.Project
 }
 
-func (p *PostStorageVolumesStorageAttributes) GetName() string {
+func (p *PostStorageVolumesBlockStorageAttributes) GetName() string {
 	if p == nil {
 		return ""
 	}
 	return p.Name
 }
 
-func (p *PostStorageVolumesStorageAttributes) GetSizeInGb() *int64 {
+func (p *PostStorageVolumesBlockStorageAttributes) GetSizeInGb() *int64 {
 	if p == nil {
 		return nil
 	}
 	return p.SizeInGb
 }
 
-type PostStorageVolumesStorageData struct {
-	Type       PostStorageVolumesStorageType       `json:"type"`
-	Attributes PostStorageVolumesStorageAttributes `json:"attributes"`
+type PostStorageVolumesBlockStorageData struct {
+	Type       PostStorageVolumesBlockStorageType       `json:"type"`
+	Attributes PostStorageVolumesBlockStorageAttributes `json:"attributes"`
 }
 
-func (p *PostStorageVolumesStorageData) GetType() PostStorageVolumesStorageType {
+func (p *PostStorageVolumesBlockStorageData) GetType() PostStorageVolumesBlockStorageType {
 	if p == nil {
-		return PostStorageVolumesStorageType("")
+		return PostStorageVolumesBlockStorageType("")
 	}
 	return p.Type
 }
 
-func (p *PostStorageVolumesStorageData) GetAttributes() PostStorageVolumesStorageAttributes {
+func (p *PostStorageVolumesBlockStorageData) GetAttributes() PostStorageVolumesBlockStorageAttributes {
 	if p == nil {
-		return PostStorageVolumesStorageAttributes{}
+		return PostStorageVolumesBlockStorageAttributes{}
 	}
 	return p.Attributes
 }
 
-type PostStorageVolumesStorageRequestBody struct {
-	Data PostStorageVolumesStorageData `json:"data"`
+type PostStorageVolumesBlockStorageRequestBody struct {
+	Data PostStorageVolumesBlockStorageData `json:"data"`
 }
 
-func (p *PostStorageVolumesStorageRequestBody) GetData() PostStorageVolumesStorageData {
+func (p *PostStorageVolumesBlockStorageRequestBody) GetData() PostStorageVolumesBlockStorageData {
 	if p == nil {
-		return PostStorageVolumesStorageData{}
+		return PostStorageVolumesBlockStorageData{}
 	}
 	return p.Data
 }
