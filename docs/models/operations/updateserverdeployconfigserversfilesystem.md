@@ -1,4 +1,4 @@
-# PatchStorageFilesystemsStorageType
+# UpdateServerDeployConfigServersFilesystem
 
 ## Example Usage
 
@@ -7,7 +7,7 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
 )
 
-value := operations.PatchStorageFilesystemsStorageTypeFilesystems
+value := operations.UpdateServerDeployConfigServersFilesystemExt4
 ```
 
 
@@ -15,4 +15,5 @@ value := operations.PatchStorageFilesystemsStorageTypeFilesystems
 
 | Name                                            | Value                                           |
 | ----------------------------------------------- | ----------------------------------------------- |
-| `PatchStorageFilesystemsStorageTypeFilesystems` | filesystems                                     |
+| `UpdateServerDeployConfigServersFilesystemExt4` | ext4                                            |
+| `UpdateServerDeployConfigServersFilesystemXfs`  | xfs                                             |

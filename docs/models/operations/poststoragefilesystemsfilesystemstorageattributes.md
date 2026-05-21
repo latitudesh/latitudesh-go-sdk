@@ -1,4 +1,4 @@
-# PostStorageFilesystemsStorageAttributes
+# PostStorageFilesystemsFilesystemStorageAttributes
 
 
 ## Fields

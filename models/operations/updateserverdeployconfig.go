@@ -123,6 +123,130 @@ func (e *UpdateServerDeployConfigServersRaid) UnmarshalJSON(data []byte) error {
 	}
 }
 
+type UpdateServerDeployConfigServersRole string
+
+const (
+	UpdateServerDeployConfigServersRoleOs      UpdateServerDeployConfigServersRole = "os"
+	UpdateServerDeployConfigServersRoleStorage UpdateServerDeployConfigServersRole = "storage"
+	UpdateServerDeployConfigServersRoleRaw     UpdateServerDeployConfigServersRole = "raw"
+)
+
+func (e UpdateServerDeployConfigServersRole) ToPointer() *UpdateServerDeployConfigServersRole {
+	return &e
+}
+func (e *UpdateServerDeployConfigServersRole) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "os":
+		fallthrough
+	case "storage":
+		fallthrough
+	case "raw":
+		*e = UpdateServerDeployConfigServersRole(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for UpdateServerDeployConfigServersRole: %v", v)
+	}
+}
+
+type UpdateServerDeployConfigServersRaidLevel string
+
+const (
+	UpdateServerDeployConfigServersRaidLevelRaid0 UpdateServerDeployConfigServersRaidLevel = "raid-0"
+	UpdateServerDeployConfigServersRaidLevelRaid1 UpdateServerDeployConfigServersRaidLevel = "raid-1"
+)
+
+func (e UpdateServerDeployConfigServersRaidLevel) ToPointer() *UpdateServerDeployConfigServersRaidLevel {
+	return &e
+}
+func (e *UpdateServerDeployConfigServersRaidLevel) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "raid-0":
+		fallthrough
+	case "raid-1":
+		*e = UpdateServerDeployConfigServersRaidLevel(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for UpdateServerDeployConfigServersRaidLevel: %v", v)
+	}
+}
+
+type UpdateServerDeployConfigServersFilesystem string
+
+const (
+	UpdateServerDeployConfigServersFilesystemExt4 UpdateServerDeployConfigServersFilesystem = "ext4"
+	UpdateServerDeployConfigServersFilesystemXfs  UpdateServerDeployConfigServersFilesystem = "xfs"
+)
+
+func (e UpdateServerDeployConfigServersFilesystem) ToPointer() *UpdateServerDeployConfigServersFilesystem {
+	return &e
+}
+func (e *UpdateServerDeployConfigServersFilesystem) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "ext4":
+		fallthrough
+	case "xfs":
+		*e = UpdateServerDeployConfigServersFilesystem(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for UpdateServerDeployConfigServersFilesystem: %v", v)
+	}
+}
+
+type UpdateServerDeployConfigServersDiskLayout struct {
+	Count      int64                                      `json:"count"`
+	Role       UpdateServerDeployConfigServersRole        `json:"role"`
+	RaidLevel  *UpdateServerDeployConfigServersRaidLevel  `json:"raid_level,omitempty"`
+	Filesystem *UpdateServerDeployConfigServersFilesystem `json:"filesystem,omitempty"`
+	MountPoint *string                                    `json:"mount_point,omitempty"`
+}
+
+func (u *UpdateServerDeployConfigServersDiskLayout) GetCount() int64 {
+	if u == nil {
+		return 0
+	}
+	return u.Count
+}
+
+func (u *UpdateServerDeployConfigServersDiskLayout) GetRole() UpdateServerDeployConfigServersRole {
+	if u == nil {
+		return UpdateServerDeployConfigServersRole("")
+	}
+	return u.Role
+}
+
+func (u *UpdateServerDeployConfigServersDiskLayout) GetRaidLevel() *UpdateServerDeployConfigServersRaidLevel {
+	if u == nil {
+		return nil
+	}
+	return u.RaidLevel
+}
+
+func (u *UpdateServerDeployConfigServersDiskLayout) GetFilesystem() *UpdateServerDeployConfigServersFilesystem {
+	if u == nil {
+		return nil
+	}
+	return u.Filesystem
+}
+
+func (u *UpdateServerDeployConfigServersDiskLayout) GetMountPoint() *string {
+	if u == nil {
+		return nil
+	}
+	return u.MountPoint
+}
+
 type UpdateServerDeployConfigPartitions struct {
 	SizeInGb       *int64  `json:"size_in_gb,omitempty"`
 	Path           *string `json:"path,omitempty"`
@@ -154,7 +278,8 @@ type UpdateServerDeployConfigServersAttributes struct {
 	Hostname        *string                                         `json:"hostname,omitempty"`
 	OperatingSystem *UpdateServerDeployConfigServersOperatingSystem `json:"operating_system,omitempty"`
 	// RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, or omit/null for no RAID configuration
-	Raid *UpdateServerDeployConfigServersRaid `json:"raid,omitempty"`
+	Raid       *UpdateServerDeployConfigServersRaid        `json:"raid,omitempty"`
+	DiskLayout []UpdateServerDeployConfigServersDiskLayout `json:"disk_layout,omitempty"`
 	// User data to configure the server
 	UserData   *string                              `json:"user_data,omitempty"`
 	SSHKeys    []string                             `json:"ssh_keys,omitempty"`
@@ -182,6 +307,13 @@ func (u *UpdateServerDeployConfigServersAttributes) GetRaid() *UpdateServerDeplo
 		return nil
 	}
 	return u.Raid
+}
+
+func (u *UpdateServerDeployConfigServersAttributes) GetDiskLayout() []UpdateServerDeployConfigServersDiskLayout {
+	if u == nil {
+		return nil
+	}
+	return u.DiskLayout
 }
 
 func (u *UpdateServerDeployConfigServersAttributes) GetUserData() *string {

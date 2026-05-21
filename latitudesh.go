@@ -68,7 +68,9 @@ type Latitudesh struct {
 	Regions            *Regions
 	Roles              *Roles
 	Servers            *Servers
-	Storage            *Storage
+	FilesystemStorage  *FilesystemStorage
+	BlockStorage       *BlockStorage
+	ObjectStorage      *ObjectStorage
 	Tags               *Tags
 	Traffic            *Traffic
 	UserProfile        *UserProfile
@@ -165,9 +167,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Latitudesh {
 	sdk := &Latitudesh{
-		SDKVersion: "1.12.30",
+		SDKVersion: "1.13.0",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 1.12.30 2.884.4 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
+			UserAgent:  "speakeasy-sdk/go 1.13.0 2.884.4 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
 			ServerList: ServerList,
 			ServerVariables: []map[string]string{
 				{
@@ -220,7 +222,9 @@ func New(opts ...SDKOption) *Latitudesh {
 	sdk.Regions = newRegions(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Roles = newRoles(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Servers = newServers(sdk, sdk.sdkConfiguration, sdk.hooks)
-	sdk.Storage = newStorage(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.FilesystemStorage = newFilesystemStorage(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.BlockStorage = newBlockStorage(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.ObjectStorage = newObjectStorage(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Tags = newTags(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Traffic = newTraffic(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.UserProfile = newUserProfile(sdk, sdk.sdkConfiguration, sdk.hooks)

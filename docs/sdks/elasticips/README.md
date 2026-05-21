@@ -477,7 +477,7 @@ func main() {
 
 ## UpdateElasticIP
 
-Moves an Elastic IP to a different server within the same project. The reassignment is performed asynchronously. The Elastic IP must be in `active` status and the target server must belong to the same project.
+Moves an Elastic IP to a different server within the same project and site. The reassignment is performed asynchronously. The Elastic IP must be in `active` status, the target server must belong to the same project, and the target server must be in the same site as the currently assigned server.
 
 
 ### Example Usage: FeatureNotEnabled

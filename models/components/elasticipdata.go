@@ -116,7 +116,7 @@ func (e *Status) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// ElasticIPDataServer - The server this Elastic IP is assigned to
+// ElasticIPDataServer - The server this Elastic IP is assigned to. Returns null when the Elastic IP is not assigned to a server or when the assigned server is not active (e.g., decommissioning or deleted).
 type ElasticIPDataServer struct {
 	ID              *string `json:"id,omitempty"`
 	Hostname        *string `json:"hostname,omitempty"`
@@ -255,7 +255,7 @@ type ElasticIPDataAttributes struct {
 	Status *Status `json:"status,omitempty"`
 	// The timestamp when the Elastic IP was created
 	CreatedAt *time.Time `json:"created_at,omitempty"`
-	// The server this Elastic IP is assigned to
+	// The server this Elastic IP is assigned to. Returns null when the Elastic IP is not assigned to a server or when the assigned server is not active (e.g., decommissioning or deleted).
 	Server *ElasticIPDataServer `json:"server,omitempty"`
 	// The project this Elastic IP belongs to
 	Project *ElasticIPDataProject `json:"project,omitempty"`

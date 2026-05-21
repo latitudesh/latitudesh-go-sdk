@@ -151,6 +151,130 @@ func (e *CreateServerReinstallServersRaid) UnmarshalJSON(data []byte) error {
 	}
 }
 
+type CreateServerReinstallServersRole string
+
+const (
+	CreateServerReinstallServersRoleOs      CreateServerReinstallServersRole = "os"
+	CreateServerReinstallServersRoleStorage CreateServerReinstallServersRole = "storage"
+	CreateServerReinstallServersRoleRaw     CreateServerReinstallServersRole = "raw"
+)
+
+func (e CreateServerReinstallServersRole) ToPointer() *CreateServerReinstallServersRole {
+	return &e
+}
+func (e *CreateServerReinstallServersRole) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "os":
+		fallthrough
+	case "storage":
+		fallthrough
+	case "raw":
+		*e = CreateServerReinstallServersRole(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for CreateServerReinstallServersRole: %v", v)
+	}
+}
+
+type CreateServerReinstallServersRaidLevel string
+
+const (
+	CreateServerReinstallServersRaidLevelRaid0 CreateServerReinstallServersRaidLevel = "raid-0"
+	CreateServerReinstallServersRaidLevelRaid1 CreateServerReinstallServersRaidLevel = "raid-1"
+)
+
+func (e CreateServerReinstallServersRaidLevel) ToPointer() *CreateServerReinstallServersRaidLevel {
+	return &e
+}
+func (e *CreateServerReinstallServersRaidLevel) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "raid-0":
+		fallthrough
+	case "raid-1":
+		*e = CreateServerReinstallServersRaidLevel(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for CreateServerReinstallServersRaidLevel: %v", v)
+	}
+}
+
+type CreateServerReinstallServersFilesystem string
+
+const (
+	CreateServerReinstallServersFilesystemExt4 CreateServerReinstallServersFilesystem = "ext4"
+	CreateServerReinstallServersFilesystemXfs  CreateServerReinstallServersFilesystem = "xfs"
+)
+
+func (e CreateServerReinstallServersFilesystem) ToPointer() *CreateServerReinstallServersFilesystem {
+	return &e
+}
+func (e *CreateServerReinstallServersFilesystem) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "ext4":
+		fallthrough
+	case "xfs":
+		*e = CreateServerReinstallServersFilesystem(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for CreateServerReinstallServersFilesystem: %v", v)
+	}
+}
+
+type CreateServerReinstallServersDiskLayout struct {
+	Count      int64                                   `json:"count"`
+	Role       CreateServerReinstallServersRole        `json:"role"`
+	RaidLevel  *CreateServerReinstallServersRaidLevel  `json:"raid_level,omitempty"`
+	Filesystem *CreateServerReinstallServersFilesystem `json:"filesystem,omitempty"`
+	MountPoint *string                                 `json:"mount_point,omitempty"`
+}
+
+func (c *CreateServerReinstallServersDiskLayout) GetCount() int64 {
+	if c == nil {
+		return 0
+	}
+	return c.Count
+}
+
+func (c *CreateServerReinstallServersDiskLayout) GetRole() CreateServerReinstallServersRole {
+	if c == nil {
+		return CreateServerReinstallServersRole("")
+	}
+	return c.Role
+}
+
+func (c *CreateServerReinstallServersDiskLayout) GetRaidLevel() *CreateServerReinstallServersRaidLevel {
+	if c == nil {
+		return nil
+	}
+	return c.RaidLevel
+}
+
+func (c *CreateServerReinstallServersDiskLayout) GetFilesystem() *CreateServerReinstallServersFilesystem {
+	if c == nil {
+		return nil
+	}
+	return c.Filesystem
+}
+
+func (c *CreateServerReinstallServersDiskLayout) GetMountPoint() *string {
+	if c == nil {
+		return nil
+	}
+	return c.MountPoint
+}
+
 type CreateServerReinstallServersAttributes struct {
 	// The OS selected for the reinstall process
 	OperatingSystem *CreateServerReinstallServersOperatingSystem `json:"operating_system,omitempty"`
@@ -162,7 +286,8 @@ type CreateServerReinstallServersAttributes struct {
 	// User data ID to set upon reinstall
 	UserData *string `json:"user_data,omitempty"`
 	// RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, or omit/null for no RAID configuration
-	Raid *CreateServerReinstallServersRaid `json:"raid,omitempty"`
+	Raid       *CreateServerReinstallServersRaid        `json:"raid,omitempty"`
+	DiskLayout []CreateServerReinstallServersDiskLayout `json:"disk_layout,omitempty"`
 	// URL where iPXE script is stored on, OR the iPXE script encoded in base64. This attribute is required when operating system iPXE is selected.
 	Ipxe *string `json:"ipxe,omitempty"`
 }
@@ -207,6 +332,13 @@ func (c *CreateServerReinstallServersAttributes) GetRaid() *CreateServerReinstal
 		return nil
 	}
 	return c.Raid
+}
+
+func (c *CreateServerReinstallServersAttributes) GetDiskLayout() []CreateServerReinstallServersDiskLayout {
+	if c == nil {
+		return nil
+	}
+	return c.DiskLayout
 }
 
 func (c *CreateServerReinstallServersAttributes) GetIpxe() *string {

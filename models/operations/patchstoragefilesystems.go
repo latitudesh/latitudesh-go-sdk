@@ -9,94 +9,94 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
-type PatchStorageFilesystemsStorageType string
+type PatchStorageFilesystemsFilesystemStorageType string
 
 const (
-	PatchStorageFilesystemsStorageTypeFilesystems PatchStorageFilesystemsStorageType = "filesystems"
+	PatchStorageFilesystemsFilesystemStorageTypeFilesystems PatchStorageFilesystemsFilesystemStorageType = "filesystems"
 )
 
-func (e PatchStorageFilesystemsStorageType) ToPointer() *PatchStorageFilesystemsStorageType {
+func (e PatchStorageFilesystemsFilesystemStorageType) ToPointer() *PatchStorageFilesystemsFilesystemStorageType {
 	return &e
 }
-func (e *PatchStorageFilesystemsStorageType) UnmarshalJSON(data []byte) error {
+func (e *PatchStorageFilesystemsFilesystemStorageType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "filesystems":
-		*e = PatchStorageFilesystemsStorageType(v)
+		*e = PatchStorageFilesystemsFilesystemStorageType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PatchStorageFilesystemsStorageType: %v", v)
+		return fmt.Errorf("invalid value for PatchStorageFilesystemsFilesystemStorageType: %v", v)
 	}
 }
 
-type PatchStorageFilesystemsStorageAttributes struct {
+type PatchStorageFilesystemsFilesystemStorageAttributes struct {
 	// Size in GB (not required, default is 1500)
 	SizeInGb *int64 `default:"1500" json:"size_in_gb"`
 }
 
-func (p PatchStorageFilesystemsStorageAttributes) MarshalJSON() ([]byte, error) {
+func (p PatchStorageFilesystemsFilesystemStorageAttributes) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(p, "", false)
 }
 
-func (p *PatchStorageFilesystemsStorageAttributes) UnmarshalJSON(data []byte) error {
+func (p *PatchStorageFilesystemsFilesystemStorageAttributes) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (p *PatchStorageFilesystemsStorageAttributes) GetSizeInGb() *int64 {
+func (p *PatchStorageFilesystemsFilesystemStorageAttributes) GetSizeInGb() *int64 {
 	if p == nil {
 		return nil
 	}
 	return p.SizeInGb
 }
 
-type PatchStorageFilesystemsStorageData struct {
+type PatchStorageFilesystemsFilesystemStorageData struct {
 	// Filesystem ID
-	ID         string                                   `json:"id"`
-	Type       PatchStorageFilesystemsStorageType       `json:"type"`
-	Attributes PatchStorageFilesystemsStorageAttributes `json:"attributes"`
+	ID         string                                             `json:"id"`
+	Type       PatchStorageFilesystemsFilesystemStorageType       `json:"type"`
+	Attributes PatchStorageFilesystemsFilesystemStorageAttributes `json:"attributes"`
 }
 
-func (p *PatchStorageFilesystemsStorageData) GetID() string {
+func (p *PatchStorageFilesystemsFilesystemStorageData) GetID() string {
 	if p == nil {
 		return ""
 	}
 	return p.ID
 }
 
-func (p *PatchStorageFilesystemsStorageData) GetType() PatchStorageFilesystemsStorageType {
+func (p *PatchStorageFilesystemsFilesystemStorageData) GetType() PatchStorageFilesystemsFilesystemStorageType {
 	if p == nil {
-		return PatchStorageFilesystemsStorageType("")
+		return PatchStorageFilesystemsFilesystemStorageType("")
 	}
 	return p.Type
 }
 
-func (p *PatchStorageFilesystemsStorageData) GetAttributes() PatchStorageFilesystemsStorageAttributes {
+func (p *PatchStorageFilesystemsFilesystemStorageData) GetAttributes() PatchStorageFilesystemsFilesystemStorageAttributes {
 	if p == nil {
-		return PatchStorageFilesystemsStorageAttributes{}
+		return PatchStorageFilesystemsFilesystemStorageAttributes{}
 	}
 	return p.Attributes
 }
 
-type PatchStorageFilesystemsStorageRequestBody struct {
-	Data PatchStorageFilesystemsStorageData `json:"data"`
+type PatchStorageFilesystemsFilesystemStorageRequestBody struct {
+	Data PatchStorageFilesystemsFilesystemStorageData `json:"data"`
 }
 
-func (p *PatchStorageFilesystemsStorageRequestBody) GetData() PatchStorageFilesystemsStorageData {
+func (p *PatchStorageFilesystemsFilesystemStorageRequestBody) GetData() PatchStorageFilesystemsFilesystemStorageData {
 	if p == nil {
-		return PatchStorageFilesystemsStorageData{}
+		return PatchStorageFilesystemsFilesystemStorageData{}
 	}
 	return p.Data
 }
 
 type PatchStorageFilesystemsRequest struct {
-	FilesystemID string                                    `pathParam:"style=simple,explode=false,name=filesystem_id"`
-	RequestBody  PatchStorageFilesystemsStorageRequestBody `request:"mediaType=application/json"`
+	FilesystemID string                                              `pathParam:"style=simple,explode=false,name=filesystem_id"`
+	RequestBody  PatchStorageFilesystemsFilesystemStorageRequestBody `request:"mediaType=application/json"`
 }
 
 func (p *PatchStorageFilesystemsRequest) GetFilesystemID() string {
@@ -106,9 +106,9 @@ func (p *PatchStorageFilesystemsRequest) GetFilesystemID() string {
 	return p.FilesystemID
 }
 
-func (p *PatchStorageFilesystemsRequest) GetRequestBody() PatchStorageFilesystemsStorageRequestBody {
+func (p *PatchStorageFilesystemsRequest) GetRequestBody() PatchStorageFilesystemsFilesystemStorageRequestBody {
 	if p == nil {
-		return PatchStorageFilesystemsStorageRequestBody{}
+		return PatchStorageFilesystemsFilesystemStorageRequestBody{}
 	}
 	return p.RequestBody
 }
