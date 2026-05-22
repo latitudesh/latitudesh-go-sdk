@@ -30,10 +30,10 @@ func newObjectStorage(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, ho
 	}
 }
 
-// GetStorageObjects - List object storages
+// GetStorageBuckets - List object storages
 // Lists all object storages from a team.
-func (s *ObjectStorage) GetStorageObjects(ctx context.Context, filterProject *string, opts ...operations.Option) (*operations.GetStorageObjectsResponse, error) {
-	request := operations.GetStorageObjectsRequest{
+func (s *ObjectStorage) GetStorageBuckets(ctx context.Context, filterProject *string, opts ...operations.Option) (*operations.GetStorageBucketsResponse, error) {
+	request := operations.GetStorageBucketsRequest{
 		FilterProject: filterProject,
 	}
 
@@ -55,7 +55,7 @@ func (s *ObjectStorage) GetStorageObjects(ctx context.Context, filterProject *st
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := url.JoinPath(baseURL, "/storage/objects")
+	opURL, err := url.JoinPath(baseURL, "/storage/buckets")
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
@@ -65,7 +65,7 @@ func (s *ObjectStorage) GetStorageObjects(ctx context.Context, filterProject *st
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "get-storage-objects",
+		OperationID:      "get-storage-buckets",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
@@ -191,7 +191,7 @@ func (s *ObjectStorage) GetStorageObjects(ctx context.Context, filterProject *st
 		}
 	}
 
-	res := &operations.GetStorageObjectsResponse{
+	res := &operations.GetStorageBucketsResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -265,9 +265,9 @@ func (s *ObjectStorage) GetStorageObjects(ctx context.Context, filterProject *st
 
 }
 
-// PostStorageObjects - Create object storage
+// PostStorageBuckets - Create object storage
 // Creates a new object storage bucket for a project.
-func (s *ObjectStorage) PostStorageObjects(ctx context.Context, request operations.PostStorageObjectsRequestBody, opts ...operations.Option) (*operations.PostStorageObjectsResponse, error) {
+func (s *ObjectStorage) PostStorageBuckets(ctx context.Context, request operations.PostStorageBucketsRequestBody, opts ...operations.Option) (*operations.PostStorageBucketsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -286,7 +286,7 @@ func (s *ObjectStorage) PostStorageObjects(ctx context.Context, request operatio
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := url.JoinPath(baseURL, "/storage/objects")
+	opURL, err := url.JoinPath(baseURL, "/storage/buckets")
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
@@ -296,7 +296,7 @@ func (s *ObjectStorage) PostStorageObjects(ctx context.Context, request operatio
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "post-storage-objects",
+		OperationID:      "post-storage-buckets",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
@@ -425,7 +425,7 @@ func (s *ObjectStorage) PostStorageObjects(ctx context.Context, request operatio
 		}
 	}
 
-	res := &operations.PostStorageObjectsResponse{
+	res := &operations.PostStorageBucketsResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -441,7 +441,7 @@ func (s *ObjectStorage) PostStorageObjects(ctx context.Context, request operatio
 				return nil, err
 			}
 
-			var out operations.PostStorageObjectsResponseBody
+			var out operations.PostStorageBucketsResponseBody
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -526,10 +526,10 @@ func (s *ObjectStorage) PostStorageObjects(ctx context.Context, request operatio
 
 }
 
-// GetStorageObject - Retrieve object storage
+// GetStorageBucket - Retrieve object storage
 // Shows details of a specific object storage.
-func (s *ObjectStorage) GetStorageObject(ctx context.Context, id string, opts ...operations.Option) (*operations.GetStorageObjectResponse, error) {
-	request := operations.GetStorageObjectRequest{
+func (s *ObjectStorage) GetStorageBucket(ctx context.Context, id string, opts ...operations.Option) (*operations.GetStorageBucketResponse, error) {
+	request := operations.GetStorageBucketRequest{
 		ID: id,
 	}
 
@@ -551,7 +551,7 @@ func (s *ObjectStorage) GetStorageObject(ctx context.Context, id string, opts ..
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := utils.GenerateURL(ctx, baseURL, "/storage/objects/{id}", request, nil)
+	opURL, err := utils.GenerateURL(ctx, baseURL, "/storage/buckets/{id}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
@@ -561,7 +561,7 @@ func (s *ObjectStorage) GetStorageObject(ctx context.Context, id string, opts ..
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "get-storage-object",
+		OperationID:      "get-storage-bucket",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
@@ -683,7 +683,7 @@ func (s *ObjectStorage) GetStorageObject(ctx context.Context, id string, opts ..
 		}
 	}
 
-	res := &operations.GetStorageObjectResponse{
+	res := &operations.GetStorageBucketResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -699,7 +699,7 @@ func (s *ObjectStorage) GetStorageObject(ctx context.Context, id string, opts ..
 				return nil, err
 			}
 
-			var out operations.GetStorageObjectResponseBody
+			var out operations.GetStorageBucketResponseBody
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -759,10 +759,10 @@ func (s *ObjectStorage) GetStorageObject(ctx context.Context, id string, opts ..
 
 }
 
-// DeleteStorageObjects - Delete object storage
+// DeleteStorageBuckets - Delete object storage
 // Allows you to remove an object storage from a project.
-func (s *ObjectStorage) DeleteStorageObjects(ctx context.Context, id string, opts ...operations.Option) (*operations.DeleteStorageObjectsResponse, error) {
-	request := operations.DeleteStorageObjectsRequest{
+func (s *ObjectStorage) DeleteStorageBuckets(ctx context.Context, id string, opts ...operations.Option) (*operations.DeleteStorageBucketsResponse, error) {
+	request := operations.DeleteStorageBucketsRequest{
 		ID: id,
 	}
 
@@ -784,7 +784,7 @@ func (s *ObjectStorage) DeleteStorageObjects(ctx context.Context, id string, opt
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := utils.GenerateURL(ctx, baseURL, "/storage/objects/{id}", request, nil)
+	opURL, err := utils.GenerateURL(ctx, baseURL, "/storage/buckets/{id}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
@@ -794,7 +794,7 @@ func (s *ObjectStorage) DeleteStorageObjects(ctx context.Context, id string, opt
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "delete-storage-objects",
+		OperationID:      "delete-storage-buckets",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
@@ -916,7 +916,7 @@ func (s *ObjectStorage) DeleteStorageObjects(ctx context.Context, id string, opt
 		}
 	}
 
-	res := &operations.DeleteStorageObjectsResponse{
+	res := &operations.DeleteStorageBucketsResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,

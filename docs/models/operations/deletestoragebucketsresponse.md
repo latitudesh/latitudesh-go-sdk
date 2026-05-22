@@ -1,4 +1,4 @@
-# DeleteStorageObjectsResponse
+# DeleteStorageBucketsResponse
 
 
 ## Fields

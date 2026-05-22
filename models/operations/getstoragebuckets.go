@@ -6,32 +6,32 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
-type GetStorageObjectsRequest struct {
+type GetStorageBucketsRequest struct {
 	// The project ID or Slug to filter by
 	FilterProject *string `queryParam:"style=form,explode=true,name=filter[project]"`
 }
 
-func (g *GetStorageObjectsRequest) GetFilterProject() *string {
+func (g *GetStorageBucketsRequest) GetFilterProject() *string {
 	if g == nil {
 		return nil
 	}
 	return g.FilterProject
 }
 
-type GetStorageObjectsResponse struct {
+type GetStorageBucketsResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Success
 	ObjectStorages *components.ObjectStorages
 }
 
-func (g *GetStorageObjectsResponse) GetHTTPMeta() components.HTTPMetadata {
+func (g *GetStorageBucketsResponse) GetHTTPMeta() components.HTTPMetadata {
 	if g == nil {
 		return components.HTTPMetadata{}
 	}
 	return g.HTTPMeta
 }
 
-func (g *GetStorageObjectsResponse) GetObjectStorages() *components.ObjectStorages {
+func (g *GetStorageBucketsResponse) GetObjectStorages() *components.ObjectStorages {
 	if g == nil {
 		return nil
 	}

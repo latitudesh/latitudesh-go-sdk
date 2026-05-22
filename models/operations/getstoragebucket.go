@@ -6,44 +6,44 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
-type GetStorageObjectRequest struct {
+type GetStorageBucketRequest struct {
 	// The object storage ID
 	ID string `pathParam:"style=simple,explode=false,name=id"`
 }
 
-func (g *GetStorageObjectRequest) GetID() string {
+func (g *GetStorageBucketRequest) GetID() string {
 	if g == nil {
 		return ""
 	}
 	return g.ID
 }
 
-// GetStorageObjectResponseBody - Success
-type GetStorageObjectResponseBody struct {
+// GetStorageBucketResponseBody - Success
+type GetStorageBucketResponseBody struct {
 	Data *components.ObjectStorageData `json:"data,omitempty"`
 }
 
-func (g *GetStorageObjectResponseBody) GetData() *components.ObjectStorageData {
+func (g *GetStorageBucketResponseBody) GetData() *components.ObjectStorageData {
 	if g == nil {
 		return nil
 	}
 	return g.Data
 }
 
-type GetStorageObjectResponse struct {
+type GetStorageBucketResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Success
-	Object *GetStorageObjectResponseBody
+	Object *GetStorageBucketResponseBody
 }
 
-func (g *GetStorageObjectResponse) GetHTTPMeta() components.HTTPMetadata {
+func (g *GetStorageBucketResponse) GetHTTPMeta() components.HTTPMetadata {
 	if g == nil {
 		return components.HTTPMetadata{}
 	}
 	return g.HTTPMeta
 }
 
-func (g *GetStorageObjectResponse) GetObject() *GetStorageObjectResponseBody {
+func (g *GetStorageBucketResponse) GetObject() *GetStorageBucketResponseBody {
 	if g == nil {
 		return nil
 	}

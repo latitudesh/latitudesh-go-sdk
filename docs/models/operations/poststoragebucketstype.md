@@ -1,4 +1,4 @@
-# PostStorageObjectsType
+# PostStorageBucketsType
 
 ## Example Usage
 
@@ -7,7 +7,7 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
 )
 
-value := operations.PostStorageObjectsTypeObjects
+value := operations.PostStorageBucketsTypeObjects
 ```
 
 
@@ -15,4 +15,4 @@ value := operations.PostStorageObjectsTypeObjects
 
 | Name                            | Value                           |
 | ------------------------------- | ------------------------------- |
-| `PostStorageObjectsTypeObjects` | objects                         |
+| `PostStorageBucketsTypeObjects` | objects                         |

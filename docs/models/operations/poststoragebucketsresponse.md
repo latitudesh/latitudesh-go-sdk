@@ -1,4 +1,4 @@
-# PostStorageObjectsResponse
+# PostStorageBucketsResponse
 
 
 ## Fields
@@ -6,4 +6,4 @@
 | Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | `HTTPMeta`                                                                                              | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                      | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `Object`                                                                                                | [*operations.PostStorageObjectsResponseBody](../../models/operations/poststorageobjectsresponsebody.md) | :heavy_minus_sign:                                                                                      | Created                                                                                                 |
+| `Object`                                                                                                | [*operations.PostStorageBucketsResponseBody](../../models/operations/poststoragebucketsresponsebody.md) | :heavy_minus_sign:                                                                                      | Created                                                                                                 |
