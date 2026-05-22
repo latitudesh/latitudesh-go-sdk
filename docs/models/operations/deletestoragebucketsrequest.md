@@ -1,4 +1,4 @@
-# DeleteStorageObjectsRequest
+# DeleteStorageBucketsRequest
 
 
 ## Fields

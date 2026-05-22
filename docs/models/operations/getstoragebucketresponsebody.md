@@ -1,4 +1,4 @@
-# GetStorageObjectResponseBody
+# GetStorageBucketResponseBody
 
 Success
 

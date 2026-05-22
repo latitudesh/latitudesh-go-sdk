@@ -1,4 +1,4 @@
-# GetStorageObjectsResponse
+# GetStorageBucketsResponse
 
 
 ## Fields

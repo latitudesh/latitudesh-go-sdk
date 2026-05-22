@@ -4,18 +4,18 @@
 
 ### Available Operations
 
-* [GetStorageObjects](#getstorageobjects) - List object storages
-* [PostStorageObjects](#poststorageobjects) - Create object storage
-* [GetStorageObject](#getstorageobject) - Retrieve object storage
-* [DeleteStorageObjects](#deletestorageobjects) - Delete object storage
+* [GetStorageBuckets](#getstoragebuckets) - List object storages
+* [PostStorageBuckets](#poststoragebuckets) - Create object storage
+* [GetStorageBucket](#getstoragebucket) - Retrieve object storage
+* [DeleteStorageBuckets](#deletestoragebuckets) - Delete object storage
 
-## GetStorageObjects
+## GetStorageBuckets
 
 Lists all object storages from a team.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="get-storage-objects" method="get" path="/storage/objects" example="Success" -->
+<!-- UsageSnippet language="go" operationID="get-storage-buckets" method="get" path="/storage/buckets" example="Success" -->
 ```go
 package main
 
@@ -33,7 +33,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.ObjectStorage.GetStorageObjects(ctx, nil)
+    res, err := s.ObjectStorage.GetStorageBuckets(ctx, nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -53,7 +53,7 @@ func main() {
 
 ### Response
 
-**[*operations.GetStorageObjectsResponse](../../models/operations/getstorageobjectsresponse.md), error**
+**[*operations.GetStorageBucketsResponse](../../models/operations/getstoragebucketsresponse.md), error**
 
 ### Errors
 
@@ -62,13 +62,13 @@ func main() {
 | components.ErrorObject   | 403                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## PostStorageObjects
+## PostStorageBuckets
 
 Creates a new object storage bucket for a project.
 
 ### Example Usage: Create
 
-<!-- UsageSnippet language="go" operationID="post-storage-objects" method="post" path="/storage/objects" example="Create" -->
+<!-- UsageSnippet language="go" operationID="post-storage-buckets" method="post" path="/storage/buckets" example="Create" -->
 ```go
 package main
 
@@ -87,10 +87,10 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.ObjectStorage.PostStorageObjects(ctx, operations.PostStorageObjectsRequestBody{
-        Data: operations.PostStorageObjectsData{
-            Type: operations.PostStorageObjectsTypeObjects,
-            Attributes: operations.PostStorageObjectsAttributes{
+    res, err := s.ObjectStorage.PostStorageBuckets(ctx, operations.PostStorageBucketsRequestBody{
+        Data: operations.PostStorageBucketsData{
+            Type: operations.PostStorageBucketsTypeObjects,
+            Attributes: operations.PostStorageBucketsAttributes{
                 Project: "proj_6059EqYkOQj8p",
                 Name: "my-bucket",
                 Region: "DAL",
@@ -107,7 +107,7 @@ func main() {
 ```
 ### Example Usage: CreateScoped
 
-<!-- UsageSnippet language="go" operationID="post-storage-objects" method="post" path="/storage/objects" example="CreateScoped" -->
+<!-- UsageSnippet language="go" operationID="post-storage-buckets" method="post" path="/storage/buckets" example="CreateScoped" -->
 ```go
 package main
 
@@ -126,10 +126,10 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.ObjectStorage.PostStorageObjects(ctx, operations.PostStorageObjectsRequestBody{
-        Data: operations.PostStorageObjectsData{
-            Type: operations.PostStorageObjectsTypeObjects,
-            Attributes: operations.PostStorageObjectsAttributes{
+    res, err := s.ObjectStorage.PostStorageBuckets(ctx, operations.PostStorageBucketsRequestBody{
+        Data: operations.PostStorageBucketsData{
+            Type: operations.PostStorageBucketsTypeObjects,
+            Attributes: operations.PostStorageBucketsAttributes{
                 Project: "proj_6059EqYkOQj8p",
                 Name: "customer-bucket",
                 Region: "DAL",
@@ -148,7 +148,7 @@ func main() {
 ```
 ### Example Usage: Created
 
-<!-- UsageSnippet language="go" operationID="post-storage-objects" method="post" path="/storage/objects" example="Created" -->
+<!-- UsageSnippet language="go" operationID="post-storage-buckets" method="post" path="/storage/buckets" example="Created" -->
 ```go
 package main
 
@@ -167,10 +167,10 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.ObjectStorage.PostStorageObjects(ctx, operations.PostStorageObjectsRequestBody{
-        Data: operations.PostStorageObjectsData{
-            Type: operations.PostStorageObjectsTypeObjects,
-            Attributes: operations.PostStorageObjectsAttributes{
+    res, err := s.ObjectStorage.PostStorageBuckets(ctx, operations.PostStorageBucketsRequestBody{
+        Data: operations.PostStorageBucketsData{
+            Type: operations.PostStorageBucketsTypeObjects,
+            Attributes: operations.PostStorageBucketsAttributes{
                 Project: "<value>",
                 Name: "<value>",
                 Region: "<value>",
@@ -187,7 +187,7 @@ func main() {
 ```
 ### Example Usage: FeatureNotEnabled
 
-<!-- UsageSnippet language="go" operationID="post-storage-objects" method="post" path="/storage/objects" example="FeatureNotEnabled" -->
+<!-- UsageSnippet language="go" operationID="post-storage-buckets" method="post" path="/storage/buckets" example="FeatureNotEnabled" -->
 ```go
 package main
 
@@ -206,10 +206,10 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.ObjectStorage.PostStorageObjects(ctx, operations.PostStorageObjectsRequestBody{
-        Data: operations.PostStorageObjectsData{
-            Type: operations.PostStorageObjectsTypeObjects,
-            Attributes: operations.PostStorageObjectsAttributes{
+    res, err := s.ObjectStorage.PostStorageBuckets(ctx, operations.PostStorageBucketsRequestBody{
+        Data: operations.PostStorageBucketsData{
+            Type: operations.PostStorageBucketsTypeObjects,
+            Attributes: operations.PostStorageBucketsAttributes{
                 Project: "<value>",
                 Name: "<value>",
                 Region: "<value>",
@@ -226,7 +226,7 @@ func main() {
 ```
 ### Example Usage: InsufficientPermissions
 
-<!-- UsageSnippet language="go" operationID="post-storage-objects" method="post" path="/storage/objects" example="InsufficientPermissions" -->
+<!-- UsageSnippet language="go" operationID="post-storage-buckets" method="post" path="/storage/buckets" example="InsufficientPermissions" -->
 ```go
 package main
 
@@ -245,10 +245,10 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.ObjectStorage.PostStorageObjects(ctx, operations.PostStorageObjectsRequestBody{
-        Data: operations.PostStorageObjectsData{
-            Type: operations.PostStorageObjectsTypeObjects,
-            Attributes: operations.PostStorageObjectsAttributes{
+    res, err := s.ObjectStorage.PostStorageBuckets(ctx, operations.PostStorageBucketsRequestBody{
+        Data: operations.PostStorageBucketsData{
+            Type: operations.PostStorageBucketsTypeObjects,
+            Attributes: operations.PostStorageBucketsAttributes{
                 Project: "<value>",
                 Name: "<value>",
                 Region: "<value>",
@@ -269,12 +269,12 @@ func main() {
 | Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
 | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | `ctx`                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                | :heavy_check_mark:                                                                                   | The context to use for the request.                                                                  |
-| `request`                                                                                            | [operations.PostStorageObjectsRequestBody](../../models/operations/poststorageobjectsrequestbody.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
+| `request`                                                                                            | [operations.PostStorageBucketsRequestBody](../../models/operations/poststoragebucketsrequestbody.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
 | `opts`                                                                                               | [][operations.Option](../../models/operations/option.md)                                             | :heavy_minus_sign:                                                                                   | The options for this request.                                                                        |
 
 ### Response
 
-**[*operations.PostStorageObjectsResponse](../../models/operations/poststorageobjectsresponse.md), error**
+**[*operations.PostStorageBucketsResponse](../../models/operations/poststoragebucketsresponse.md), error**
 
 ### Errors
 
@@ -284,13 +284,13 @@ func main() {
 | components.ErrorObject   | 500                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## GetStorageObject
+## GetStorageBucket
 
 Shows details of a specific object storage.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="get-storage-object" method="get" path="/storage/objects/{id}" example="Success" -->
+<!-- UsageSnippet language="go" operationID="get-storage-bucket" method="get" path="/storage/buckets/{id}" example="Success" -->
 ```go
 package main
 
@@ -308,7 +308,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.ObjectStorage.GetStorageObject(ctx, "<id>")
+    res, err := s.ObjectStorage.GetStorageBucket(ctx, "<id>")
     if err != nil {
         log.Fatal(err)
     }
@@ -328,7 +328,7 @@ func main() {
 
 ### Response
 
-**[*operations.GetStorageObjectResponse](../../models/operations/getstorageobjectresponse.md), error**
+**[*operations.GetStorageBucketResponse](../../models/operations/getstoragebucketresponse.md), error**
 
 ### Errors
 
@@ -337,13 +337,13 @@ func main() {
 | components.ErrorObject   | 403, 404                 | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## DeleteStorageObjects
+## DeleteStorageBuckets
 
 Allows you to remove an object storage from a project.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="delete-storage-objects" method="delete" path="/storage/objects/{id}" -->
+<!-- UsageSnippet language="go" operationID="delete-storage-buckets" method="delete" path="/storage/buckets/{id}" -->
 ```go
 package main
 
@@ -361,7 +361,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.ObjectStorage.DeleteStorageObjects(ctx, "<id>")
+    res, err := s.ObjectStorage.DeleteStorageBuckets(ctx, "<id>")
     if err != nil {
         log.Fatal(err)
     }
@@ -381,7 +381,7 @@ func main() {
 
 ### Response
 
-**[*operations.DeleteStorageObjectsResponse](../../models/operations/deletestorageobjectsresponse.md), error**
+**[*operations.DeleteStorageBucketsResponse](../../models/operations/deletestoragebucketsresponse.md), error**
 
 ### Errors
 

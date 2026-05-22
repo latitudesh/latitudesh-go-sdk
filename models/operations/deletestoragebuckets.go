@@ -6,23 +6,23 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
-type DeleteStorageObjectsRequest struct {
+type DeleteStorageBucketsRequest struct {
 	// The object storage ID
 	ID string `pathParam:"style=simple,explode=false,name=id"`
 }
 
-func (d *DeleteStorageObjectsRequest) GetID() string {
+func (d *DeleteStorageBucketsRequest) GetID() string {
 	if d == nil {
 		return ""
 	}
 	return d.ID
 }
 
-type DeleteStorageObjectsResponse struct {
+type DeleteStorageBucketsResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (d *DeleteStorageObjectsResponse) GetHTTPMeta() components.HTTPMetadata {
+func (d *DeleteStorageBucketsResponse) GetHTTPMeta() components.HTTPMetadata {
 	if d == nil {
 		return components.HTTPMetadata{}
 	}

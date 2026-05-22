@@ -1,4 +1,4 @@
-# PostStorageObjectsResponseBody
+# PostStorageBucketsResponseBody
 
 Created
 

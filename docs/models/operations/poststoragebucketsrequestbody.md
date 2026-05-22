@@ -1,8 +1,8 @@
-# PostStorageObjectsRequestBody
+# PostStorageBucketsRequestBody
 
 
 ## Fields
 
 | Field                                                                                  | Type                                                                                   | Required                                                                               | Description                                                                            |
 | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `Data`                                                                                 | [operations.PostStorageObjectsData](../../models/operations/poststorageobjectsdata.md) | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `Data`                                                                                 | [operations.PostStorageBucketsData](../../models/operations/poststoragebucketsdata.md) | :heavy_check_mark:                                                                     | N/A                                                                                    |

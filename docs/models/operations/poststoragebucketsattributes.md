@@ -1,4 +1,4 @@
-# PostStorageObjectsAttributes
+# PostStorageBucketsAttributes
 
 
 ## Fields

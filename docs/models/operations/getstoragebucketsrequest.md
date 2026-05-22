@@ -1,4 +1,4 @@
-# GetStorageObjectsRequest
+# GetStorageBucketsRequest
 
 
 ## Fields

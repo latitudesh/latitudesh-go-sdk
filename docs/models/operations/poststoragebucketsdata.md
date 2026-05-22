@@ -1,0 +1,9 @@
+# PostStorageBucketsData
+
+
+## Fields
+
+| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `Type`                                                                                             | [operations.PostStorageBucketsType](../../models/operations/poststoragebucketstype.md)             | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `Attributes`                                                                                       | [operations.PostStorageBucketsAttributes](../../models/operations/poststoragebucketsattributes.md) | :heavy_check_mark:                                                                                 | N/A                                                                                                |
