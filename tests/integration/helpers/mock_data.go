@@ -338,6 +338,36 @@ func MockServerList() map[string]interface{} {
 	}
 }
 
+// MockObjectStorage returns a mock object storage bucket
+func MockObjectStorage() map[string]interface{} {
+	return map[string]interface{}{
+		"id":   "bucket_test123",
+		"type": "object_storages",
+		"attributes": map[string]interface{}{
+			"name":        "my-bucket",
+			"size_in_gb":  0,
+			"bucket_name": "my-bucket-abc123",
+			"endpoint":    "https://s3.dal.latitude.sh",
+			"access_key":  "AKIAEXAMPLE1234567890",
+			"region": map[string]interface{}{
+				"id":      "DAL",
+				"city":    "Dallas",
+				"country": "US",
+			},
+			"created_at": "2024-01-20T10:30:00Z",
+		},
+	}
+}
+
+// MockObjectStorageList returns a mock list of object storage buckets
+func MockObjectStorageList() map[string]interface{} {
+	return map[string]interface{}{
+		"data": []interface{}{
+			MockObjectStorage(),
+		},
+	}
+}
+
 // MockError returns a mock error response
 func MockError() map[string]interface{} {
 	return map[string]interface{}{
