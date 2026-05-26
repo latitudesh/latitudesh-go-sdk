@@ -32,6 +32,63 @@ func (e *PostStorageBucketsType) UnmarshalJSON(data []byte) error {
 	}
 }
 
+// StorageClass - Storage class tier for the bucket.
+type StorageClass string
+
+const (
+	StorageClassStandard        StorageClass = "standard"
+	StorageClassHighPerformance StorageClass = "high_performance"
+)
+
+func (e StorageClass) ToPointer() *StorageClass {
+	return &e
+}
+func (e *StorageClass) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "standard":
+		fallthrough
+	case "high_performance":
+		*e = StorageClass(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for StorageClass: %v", v)
+	}
+}
+
+// RetentionMode - Object lock retention mode. Requires `locking` to be true when not `NONE`.
+type RetentionMode string
+
+const (
+	RetentionModeNone       RetentionMode = "NONE"
+	RetentionModeCompliance RetentionMode = "COMPLIANCE"
+	RetentionModeGovernance RetentionMode = "GOVERNANCE"
+)
+
+func (e RetentionMode) ToPointer() *RetentionMode {
+	return &e
+}
+func (e *RetentionMode) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "NONE":
+		fallthrough
+	case "COMPLIANCE":
+		fallthrough
+	case "GOVERNANCE":
+		*e = RetentionMode(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for RetentionMode: %v", v)
+	}
+}
+
 type PostStorageBucketsAttributes struct {
 	// Project ID or slug
 	Project string `json:"project"`
@@ -43,6 +100,16 @@ type PostStorageBucketsAttributes struct {
 	Scoped *bool `default:"false" json:"scoped"`
 	// Customer identifier for scoped storage. Used when `scoped` is true to create customer-specific bucket isolation.
 	Customer *string `json:"customer,omitempty"`
+	// Storage class tier for the bucket.
+	StorageClass *StorageClass `default:"standard" json:"storage_class"`
+	// Enable bucket versioning.
+	Versioning *bool `default:"false" json:"versioning"`
+	// Enable object lock on the bucket.
+	Locking *bool `default:"false" json:"locking"`
+	// Object lock retention mode. Requires `locking` to be true when not `NONE`.
+	RetentionMode *RetentionMode `default:"NONE" json:"retention_mode"`
+	// Default retention period in days when object lock is enabled.
+	RetentionPeriod *int64 `json:"retention_period,omitempty"`
 }
 
 func (p PostStorageBucketsAttributes) MarshalJSON() ([]byte, error) {
@@ -89,6 +156,41 @@ func (p *PostStorageBucketsAttributes) GetCustomer() *string {
 		return nil
 	}
 	return p.Customer
+}
+
+func (p *PostStorageBucketsAttributes) GetStorageClass() *StorageClass {
+	if p == nil {
+		return nil
+	}
+	return p.StorageClass
+}
+
+func (p *PostStorageBucketsAttributes) GetVersioning() *bool {
+	if p == nil {
+		return nil
+	}
+	return p.Versioning
+}
+
+func (p *PostStorageBucketsAttributes) GetLocking() *bool {
+	if p == nil {
+		return nil
+	}
+	return p.Locking
+}
+
+func (p *PostStorageBucketsAttributes) GetRetentionMode() *RetentionMode {
+	if p == nil {
+		return nil
+	}
+	return p.RetentionMode
+}
+
+func (p *PostStorageBucketsAttributes) GetRetentionPeriod() *int64 {
+	if p == nil {
+		return nil
+	}
+	return p.RetentionPeriod
 }
 
 type PostStorageBucketsData struct {

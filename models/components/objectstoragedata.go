@@ -32,6 +32,63 @@ func (e *ObjectStorageDataType) UnmarshalJSON(data []byte) error {
 	}
 }
 
+// StorageClass - Storage class tier
+type StorageClass string
+
+const (
+	StorageClassStandard        StorageClass = "standard"
+	StorageClassHighPerformance StorageClass = "high_performance"
+)
+
+func (e StorageClass) ToPointer() *StorageClass {
+	return &e
+}
+func (e *StorageClass) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "standard":
+		fallthrough
+	case "high_performance":
+		*e = StorageClass(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for StorageClass: %v", v)
+	}
+}
+
+// RetentionMode - Object lock retention mode
+type RetentionMode string
+
+const (
+	RetentionModeNone       RetentionMode = "NONE"
+	RetentionModeCompliance RetentionMode = "COMPLIANCE"
+	RetentionModeGovernance RetentionMode = "GOVERNANCE"
+)
+
+func (e RetentionMode) ToPointer() *RetentionMode {
+	return &e
+}
+func (e *RetentionMode) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "NONE":
+		fallthrough
+	case "COMPLIANCE":
+		fallthrough
+	case "GOVERNANCE":
+		*e = RetentionMode(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for RetentionMode: %v", v)
+	}
+}
+
 // ObjectStorageDataRegion - Region information where the object storage is located
 type ObjectStorageDataRegion struct {
 	// Region identifier
@@ -66,8 +123,10 @@ func (o *ObjectStorageDataRegion) GetCountry() *string {
 type ObjectStorageDataAttributes struct {
 	// Display name of the object storage
 	Name *string `json:"name,omitempty"`
-	// Storage capacity in gigabytes
-	SizeInGb *int64 `json:"size_in_gb,omitempty"`
+	// Type of storage (e.g., `object`)
+	StorageType *string `json:"storage_type,omitempty"`
+	// Storage class tier
+	StorageClass *StorageClass `json:"storage_class,omitempty"`
 	// Timestamp when the object storage was created
 	CreatedAt *time.Time `json:"created_at,omitempty"`
 	// S3-compatible bucket name
@@ -76,6 +135,16 @@ type ObjectStorageDataAttributes struct {
 	Endpoint *string `json:"endpoint,omitempty"`
 	// S3 access key for authentication
 	AccessKey *string `json:"access_key,omitempty"`
+	// S3 secret key for authentication
+	SecretKey *string `json:"secret_key,omitempty"`
+	// Whether bucket versioning is enabled
+	Versioning *bool `json:"versioning,omitempty"`
+	// Whether object lock is enabled on the bucket
+	Locking *bool `json:"locking,omitempty"`
+	// Object lock retention mode
+	RetentionMode *RetentionMode `json:"retention_mode,omitempty"`
+	// Default retention period in days when object lock is enabled
+	RetentionPeriod *int64 `json:"retention_period,omitempty"`
 	// Region information where the object storage is located
 	Region  *ObjectStorageDataRegion `json:"region,omitempty"`
 	Project *ProjectInclude          `json:"project,omitempty"`
@@ -100,11 +169,18 @@ func (o *ObjectStorageDataAttributes) GetName() *string {
 	return o.Name
 }
 
-func (o *ObjectStorageDataAttributes) GetSizeInGb() *int64 {
+func (o *ObjectStorageDataAttributes) GetStorageType() *string {
 	if o == nil {
 		return nil
 	}
-	return o.SizeInGb
+	return o.StorageType
+}
+
+func (o *ObjectStorageDataAttributes) GetStorageClass() *StorageClass {
+	if o == nil {
+		return nil
+	}
+	return o.StorageClass
 }
 
 func (o *ObjectStorageDataAttributes) GetCreatedAt() *time.Time {
@@ -133,6 +209,41 @@ func (o *ObjectStorageDataAttributes) GetAccessKey() *string {
 		return nil
 	}
 	return o.AccessKey
+}
+
+func (o *ObjectStorageDataAttributes) GetSecretKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SecretKey
+}
+
+func (o *ObjectStorageDataAttributes) GetVersioning() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Versioning
+}
+
+func (o *ObjectStorageDataAttributes) GetLocking() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Locking
+}
+
+func (o *ObjectStorageDataAttributes) GetRetentionMode() *RetentionMode {
+	if o == nil {
+		return nil
+	}
+	return o.RetentionMode
+}
+
+func (o *ObjectStorageDataAttributes) GetRetentionPeriod() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RetentionPeriod
 }
 
 func (o *ObjectStorageDataAttributes) GetRegion() *ObjectStorageDataRegion {
