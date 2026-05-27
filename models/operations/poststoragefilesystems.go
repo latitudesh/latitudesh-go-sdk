@@ -35,7 +35,7 @@ func (e *PostStorageFilesystemsFilesystemStorageType) UnmarshalJSON(data []byte)
 type PostStorageFilesystemsFilesystemStorageAttributes struct {
 	// Project ID or slug
 	Project string `json:"project"`
-	// Storage name
+	// Filesystem name
 	Name string `json:"name"`
 	// Size in GB (not required, default is 1500)
 	SizeInGb *int64 `default:"1500" json:"size_in_gb"`

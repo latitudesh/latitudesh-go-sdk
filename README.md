@@ -188,10 +188,10 @@ func main() {
 
 ### [ObjectStorage](docs/sdks/objectstorage/README.md)
 
-* [GetStorageBuckets](docs/sdks/objectstorage/README.md#getstoragebuckets) - List object storages
-* [PostStorageBuckets](docs/sdks/objectstorage/README.md#poststoragebuckets) - Create object storage
-* [GetStorageBucket](docs/sdks/objectstorage/README.md#getstoragebucket) - Retrieve object storage
-* [DeleteStorageBuckets](docs/sdks/objectstorage/README.md#deletestoragebuckets) - Delete object storage
+* [GetStorageBuckets](docs/sdks/objectstorage/README.md#getstoragebuckets) - List buckets
+* [PostStorageBuckets](docs/sdks/objectstorage/README.md#poststoragebuckets) - Create bucket
+* [GetStorageBucket](docs/sdks/objectstorage/README.md#getstoragebucket) - Retrieve bucket
+* [DeleteStorageBuckets](docs/sdks/objectstorage/README.md#deletestoragebuckets) - Delete bucket
 
 ### [OperatingSystems](docs/sdks/operatingsystems/README.md)
 

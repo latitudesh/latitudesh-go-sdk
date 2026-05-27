@@ -479,7 +479,7 @@ func (s *BlockStorage) PostStorageVolumes(ctx context.Context, request operation
 }
 
 // GetStorageVolume - Retrieve volume
-// Shows details of a specific volume storage.
+// Shows details of a specific volume.
 func (s *BlockStorage) GetStorageVolume(ctx context.Context, id string, opts ...operations.Option) (*operations.GetStorageVolumeResponse, error) {
 	request := operations.GetStorageVolumeRequest{
 		ID: id,
@@ -689,7 +689,7 @@ func (s *BlockStorage) GetStorageVolume(ctx context.Context, id string, opts ...
 }
 
 // DeleteStorageVolumes - Delete volume
-// Allows you to remove persistent storage from a project.
+// Allows you to remove a volume from a project.
 func (s *BlockStorage) DeleteStorageVolumes(ctx context.Context, id string, opts ...operations.Option) (*operations.DeleteStorageVolumesResponse, error) {
 	request := operations.DeleteStorageVolumesRequest{
 		ID: id,
@@ -880,7 +880,7 @@ func (s *BlockStorage) DeleteStorageVolumes(ctx context.Context, id string, opts
 }
 
 // PostStorageVolumesMount - Mount volume
-// Mounts volume storage by adding the client to an allowed list
+// Mounts a volume by adding the client to an allowed list
 func (s *BlockStorage) PostStorageVolumesMount(ctx context.Context, id string, requestBody operations.PostStorageVolumesMountRequestBody, opts ...operations.Option) (*operations.PostStorageVolumesMountResponse, error) {
 	request := operations.PostStorageVolumesMountRequest{
 		ID:          id,

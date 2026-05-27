@@ -460,7 +460,7 @@ func (s *FilesystemStorage) ListFilesystems(ctx context.Context, filterProject *
 }
 
 // DeleteFilesystem - Delete filesystem
-// Allows you to remove persistent storage from a project.
+// Allows you to remove a filesystem from a project.
 func (s *FilesystemStorage) DeleteFilesystem(ctx context.Context, filesystemID string, opts ...operations.Option) (*operations.DeleteStorageFilesystemsResponse, error) {
 	request := operations.DeleteStorageFilesystemsRequest{
 		FilesystemID: filesystemID,
