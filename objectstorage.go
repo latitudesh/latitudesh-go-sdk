@@ -30,7 +30,7 @@ func newObjectStorage(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, ho
 	}
 }
 
-// GetStorageBuckets - List object storages
+// GetStorageBuckets - List buckets
 // Lists all object storages from a team.
 func (s *ObjectStorage) GetStorageBuckets(ctx context.Context, filterProject *string, opts ...operations.Option) (*operations.GetStorageBucketsResponse, error) {
 	request := operations.GetStorageBucketsRequest{
@@ -265,7 +265,7 @@ func (s *ObjectStorage) GetStorageBuckets(ctx context.Context, filterProject *st
 
 }
 
-// PostStorageBuckets - Create object storage
+// PostStorageBuckets - Create bucket
 // Creates a new object storage bucket for a project.
 func (s *ObjectStorage) PostStorageBuckets(ctx context.Context, request operations.PostStorageBucketsRequestBody, opts ...operations.Option) (*operations.PostStorageBucketsResponse, error) {
 	o := operations.Options{}
@@ -526,7 +526,7 @@ func (s *ObjectStorage) PostStorageBuckets(ctx context.Context, request operatio
 
 }
 
-// GetStorageBucket - Retrieve object storage
+// GetStorageBucket - Retrieve bucket
 // Shows details of a specific object storage.
 func (s *ObjectStorage) GetStorageBucket(ctx context.Context, id string, opts ...operations.Option) (*operations.GetStorageBucketResponse, error) {
 	request := operations.GetStorageBucketRequest{
@@ -759,7 +759,7 @@ func (s *ObjectStorage) GetStorageBucket(ctx context.Context, id string, opts ..
 
 }
 
-// DeleteStorageBuckets - Delete object storage
+// DeleteStorageBuckets - Delete bucket
 // Allows you to remove an object storage from a project.
 func (s *ObjectStorage) DeleteStorageBuckets(ctx context.Context, id string, opts ...operations.Option) (*operations.DeleteStorageBucketsResponse, error) {
 	request := operations.DeleteStorageBucketsRequest{

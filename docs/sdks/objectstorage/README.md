@@ -4,10 +4,10 @@
 
 ### Available Operations
 
-* [GetStorageBuckets](#getstoragebuckets) - List object storages
-* [PostStorageBuckets](#poststoragebuckets) - Create object storage
-* [GetStorageBucket](#getstoragebucket) - Retrieve object storage
-* [DeleteStorageBuckets](#deletestoragebuckets) - Delete object storage
+* [GetStorageBuckets](#getstoragebuckets) - List buckets
+* [PostStorageBuckets](#poststoragebuckets) - Create bucket
+* [GetStorageBucket](#getstoragebucket) - Retrieve bucket
+* [DeleteStorageBuckets](#deletestoragebuckets) - Delete bucket
 
 ## GetStorageBuckets
 

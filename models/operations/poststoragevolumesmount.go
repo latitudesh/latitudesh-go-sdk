@@ -32,7 +32,7 @@ func (e *PostStorageVolumesMountType) UnmarshalJSON(data []byte) error {
 }
 
 type PostStorageVolumesMountAttributes struct {
-	// NVMe Qualified Name (NQN) of the client/server that will access the volume storage. Format: nqn.YYYY-MM.domain:identifier (e.g., "nqn.2024-01.com.example:server01"). This uniquely identifies the NVMe client and must be configured on the client server.
+	// NVMe Qualified Name (NQN) of the client/server that will access the volume. Format: nqn.YYYY-MM.domain:identifier (e.g., "nqn.2024-01.com.example:server01"). This uniquely identifies the NVMe client and must be configured on the client server.
 	Nqn string `json:"nqn"`
 }
 
@@ -74,7 +74,7 @@ func (p *PostStorageVolumesMountRequestBody) GetData() PostStorageVolumesMountDa
 }
 
 type PostStorageVolumesMountRequest struct {
-	// Volume storage ID
+	// Volume ID
 	ID          string                             `pathParam:"style=simple,explode=false,name=id"`
 	RequestBody PostStorageVolumesMountRequestBody `request:"mediaType=application/json"`
 }

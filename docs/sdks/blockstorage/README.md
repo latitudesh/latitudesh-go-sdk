@@ -164,7 +164,7 @@ func main() {
 
 ## GetStorageVolume
 
-Shows details of a specific volume storage.
+Shows details of a specific volume.
 
 ### Example Usage
 
@@ -201,7 +201,7 @@ func main() {
 | Parameter                                                | Type                                                     | Required                                                 | Description                                              |
 | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
 | `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `id`                                                     | `string`                                                 | :heavy_check_mark:                                       | The volume storage ID                                    |
+| `id`                                                     | `string`                                                 | :heavy_check_mark:                                       | The volume ID                                            |
 | `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
 
 ### Response
@@ -216,7 +216,7 @@ func main() {
 
 ## DeleteStorageVolumes
 
-Allows you to remove persistent storage from a project.
+Allows you to remove a volume from a project.
 
 ### Example Usage
 
@@ -268,7 +268,7 @@ func main() {
 
 ## PostStorageVolumesMount
 
-Mounts volume storage by adding the client to an allowed list
+Mounts a volume by adding the client to an allowed list
 
 ### Example Usage
 
@@ -313,7 +313,7 @@ func main() {
 | Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
 | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
 | `ctx`                                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                                          | :heavy_check_mark:                                                                                             | The context to use for the request.                                                                            |
-| `id`                                                                                                           | `string`                                                                                                       | :heavy_check_mark:                                                                                             | Volume storage ID                                                                                              |
+| `id`                                                                                                           | `string`                                                                                                       | :heavy_check_mark:                                                                                             | Volume ID                                                                                                      |
 | `requestBody`                                                                                                  | [operations.PostStorageVolumesMountRequestBody](../../models/operations/poststoragevolumesmountrequestbody.md) | :heavy_check_mark:                                                                                             | N/A                                                                                                            |
 | `opts`                                                                                                         | [][operations.Option](../../models/operations/option.md)                                                       | :heavy_minus_sign:                                                                                             | The options for this request.                                                                                  |
 

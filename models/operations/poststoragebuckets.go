@@ -32,7 +32,7 @@ func (e *PostStorageBucketsType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// StorageClass - Storage class tier for the bucket.
+// StorageClass - Backend storage tier. `standard` is the default S3-compatible tier. `high_performance` is a lower-latency, higher-throughput tier available in select regions only.
 type StorageClass string
 
 const (
@@ -59,7 +59,7 @@ func (e *StorageClass) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// RetentionMode - Object lock retention mode. Requires `locking` to be true when not `NONE`.
+// RetentionMode - Object Lock retention mode applied to new objects. `GOVERNANCE` allows privileged users to override the retention; `COMPLIANCE` cannot be overridden by anyone. Only applies when `locking` is `true`.
 type RetentionMode string
 
 const (
@@ -100,15 +100,15 @@ type PostStorageBucketsAttributes struct {
 	Scoped *bool `default:"false" json:"scoped"`
 	// Customer identifier for scoped storage. Used when `scoped` is true to create customer-specific bucket isolation.
 	Customer *string `json:"customer,omitempty"`
-	// Storage class tier for the bucket.
+	// Backend storage tier. `standard` is the default S3-compatible tier. `high_performance` is a lower-latency, higher-throughput tier available in select regions only.
 	StorageClass *StorageClass `default:"standard" json:"storage_class"`
-	// Enable bucket versioning.
+	// Enable S3 object versioning. Once enabled, versioning cannot be disabled.
 	Versioning *bool `default:"false" json:"versioning"`
-	// Enable object lock on the bucket.
+	// Enable S3 Object Lock (WORM). Must be enabled at bucket creation; cannot be added to an existing bucket. When `locking` is `true`, `versioning` is automatically enabled.
 	Locking *bool `default:"false" json:"locking"`
-	// Object lock retention mode. Requires `locking` to be true when not `NONE`.
+	// Object Lock retention mode applied to new objects. `GOVERNANCE` allows privileged users to override the retention; `COMPLIANCE` cannot be overridden by anyone. Only applies when `locking` is `true`.
 	RetentionMode *RetentionMode `default:"NONE" json:"retention_mode"`
-	// Default retention period in days when object lock is enabled.
+	// Default retention period, in days, applied to new objects when Object Lock is enabled. Only applies when `locking` is `true`.
 	RetentionPeriod *int64 `json:"retention_period,omitempty"`
 }
 

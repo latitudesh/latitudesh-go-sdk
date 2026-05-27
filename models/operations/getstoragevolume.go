@@ -7,7 +7,7 @@ import (
 )
 
 type GetStorageVolumeRequest struct {
-	// The volume storage ID
+	// The volume ID
 	ID string `pathParam:"style=simple,explode=false,name=id"`
 }
 
