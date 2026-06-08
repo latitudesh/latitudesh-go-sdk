@@ -254,12 +254,12 @@ func (s *OperatingSystems) ListPlans(ctx context.Context, pageSize *int64, pageN
 				return nil, err
 			}
 
-			var out operations.GetPlansOperatingSystemResponseBody
+			var out components.OperatingSystems
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.Object = &out
+			res.OperatingSystems = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {

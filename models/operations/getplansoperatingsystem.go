@@ -39,22 +39,10 @@ func (g *GetPlansOperatingSystemRequest) GetPageNumber() *int64 {
 	return g.PageNumber
 }
 
-// GetPlansOperatingSystemResponseBody - Success
-type GetPlansOperatingSystemResponseBody struct {
-	Data []components.OperatingSystems `json:"data,omitempty"`
-}
-
-func (g *GetPlansOperatingSystemResponseBody) GetData() []components.OperatingSystems {
-	if g == nil {
-		return nil
-	}
-	return g.Data
-}
-
 type GetPlansOperatingSystemResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Success
-	Object *GetPlansOperatingSystemResponseBody
+	OperatingSystems *components.OperatingSystems
 
 	Next func() (*GetPlansOperatingSystemResponse, error)
 }
@@ -66,9 +54,9 @@ func (g *GetPlansOperatingSystemResponse) GetHTTPMeta() components.HTTPMetadata 
 	return g.HTTPMeta
 }
 
-func (g *GetPlansOperatingSystemResponse) GetObject() *GetPlansOperatingSystemResponseBody {
+func (g *GetPlansOperatingSystemResponse) GetOperatingSystems() *components.OperatingSystems {
 	if g == nil {
 		return nil
 	}
-	return g.Object
+	return g.OperatingSystems
 }

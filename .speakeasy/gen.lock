@@ -1,23 +1,23 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: f8655a00c821aebf84b1ffcfd70d2cab
+  docChecksum: 38ad26a30e92658a1635dd79ab1e87c9
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.763.1
-  generationVersion: 2.884.4
-  releaseVersion: 1.13.3
-  configChecksum: b4d7b8ca849199daac8bbc5931bb8379
+  speakeasyVersion: 1.772.0
+  generationVersion: 2.896.0
+  releaseVersion: 1.13.4
+  configChecksum: ccdd9132c9aecdfea6814b7e57836154
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 13288834-4370-4c9d-ab05-4f199ca982a3
-  pristine_commit_hash: 3869311347dc1c1852b7e04cb3ac65cd60baf3ac
-  pristine_tree_hash: 35e9e80513869555b5a932c6c186c876ccc26f9d
+  generation_id: d1cd361d-57cb-4a60-9807-0c9abd5da087
+  pristine_commit_hash: c7631cdb017aee9cf6848ac36477deee4cd42f00
+  pristine_tree_hash: 4c77660bac6673996d926fead2694605fec06af3
 features:
   go:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.14
-    core: 3.13.40
+    core: 3.13.46
     defaultEnabledRetries: 0.2.0
     deprecations: 2.81.3
     devContainers: 2.90.0
@@ -43,8 +43,8 @@ trackedFiles:
     pristine_git_object: 920bf2c76e75248202e18895b82c307f09618bfb
   .devcontainer/devcontainer.json:
     id: b34062a34eb1
-    last_write_checksum: sha1:a518b2fc2f92e998593a1dcb935db4ca1eb2e2f1
-    pristine_git_object: 92f5ba5b54156225322fb4b09d2acf4abde9abc9
+    last_write_checksum: sha1:00c39389eee01217e51057762bde7339d9e56114
+    pristine_git_object: 8f01e56e2f8476fb2a7c79ec6326b3b0d5be8123
   .devcontainer/setup.sh:
     id: 5f1dfbfeb8eb
     last_write_checksum: sha1:12de15b15bc191260177468963ac1ce6ef7a21b4
@@ -2239,12 +2239,8 @@ trackedFiles:
     pristine_git_object: 96aad952b0f2d6381463eb1238cc34fecba22c9a
   docs/models/operations/getplansoperatingsystemresponse.md:
     id: 38cc141ffcfa
-    last_write_checksum: sha1:1a3859d12633ca5ba4fd6030bdc07e203c592dbd
-    pristine_git_object: 1df2ec914a6c1b4e3e452b507c9c936dafd00a92
-  docs/models/operations/getplansoperatingsystemresponsebody.md:
-    id: c8d9455d2efd
-    last_write_checksum: sha1:973deca24cc1526db3229e3b8ff0b1196098766f
-    pristine_git_object: 8520ca045b30da780e0efc5910c49dd1fe144b69
+    last_write_checksum: sha1:be4c2af976d395aea6b9f21714a71f0806e778fb
+    pristine_git_object: 0ef5a5dadb5c6bbc779d05374370a55859b67548
   docs/models/operations/getplansrequest.md:
     id: 8591895d3a35
     last_write_checksum: sha1:63d421632defe2a64d5f17cecf7dc6b83d01574b
@@ -3447,8 +3443,8 @@ trackedFiles:
     pristine_git_object: e9e5c81649e812d62f9d0e6ae60b032305c8c405
   docs/sdks/operatingsystems/README.md:
     id: 54bceca06ee8
-    last_write_checksum: sha1:8df8ad4c02431b21e53c364963af5ad430b36087
-    pristine_git_object: 8628348dc3ed9eb4e506a6bfc9cbce28f47e9024
+    last_write_checksum: sha1:46a2b82505834677854928f4e3db4ba6670a3640
+    pristine_git_object: 90c81ab9312e9f1a5771b40347d8ef6ed91f0c9c
   docs/sdks/plans/README.md:
     id: 2d8c741fff57
     last_write_checksum: sha1:4f6b50b0188c13a912ce20e957c524a03c2c6d89
@@ -3535,8 +3531,8 @@ trackedFiles:
     pristine_git_object: 1c292a09c189cdf354606d8918857415c15b0c12
   go.mod:
     id: c47645c391ad
-    last_write_checksum: sha1:75331be88ecf29790f14383f2a8b8bcbdc495b1d
-    pristine_git_object: caee37ad53a24aabd793ec64d20209a30ef7857d
+    last_write_checksum: sha1:b64afae1bdde87786529a22b69cb46f9ed7c784f
+    pristine_git_object: 2f8ba1d07b2b07e724fd14313412ddd4c37e18db
   internal/config/sdkconfiguration.go:
     id: 33b8bfac5265
     last_write_checksum: sha1:f4e1faee557d09868490d8099caab4fcd3684c27
@@ -3563,8 +3559,8 @@ trackedFiles:
     pristine_git_object: 43591c1349c3f19ac9f703df6cc5265743f19f93
   internal/utils/json.go:
     id: ad03e3c502d8
-    last_write_checksum: sha1:e9d53b694edc8752a15d60ae5963571a54d46e9c
-    pristine_git_object: 67f1a8c09e29ef375778c241440eb5ce32f0e335
+    last_write_checksum: sha1:c6c1dcaf4e2c4474ce6d39af85859508e10bec93
+    pristine_git_object: 28383aa872d9097b5753cae1dbc04aafc2c8d99f
   internal/utils/pathparams.go:
     id: 1f3e0c30fd90
     last_write_checksum: sha1:61f1c094b2b59aa6d36e94fec7314e677e8bba31
@@ -3607,8 +3603,8 @@ trackedFiles:
     pristine_git_object: f055c7135bd9df9511999b5a8af285cf62b279a1
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:75d65c4e05859a172bc2fb3d27c3bcfd144776a0
-    pristine_git_object: bcb3606dbfca8d5c716c629b5aee64e1417ed3e9
+    last_write_checksum: sha1:2a37655184a066d2e355c4833f11edffa6e434e0
+    pristine_git_object: c2281b7819b183e79f80a6829a7df4bbb4062a2c
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -4211,8 +4207,8 @@ trackedFiles:
     pristine_git_object: 01bf5d52801b12cef39304fd822f0ebc1826916b
   models/operations/getplansoperatingsystem.go:
     id: 277243c766df
-    last_write_checksum: sha1:6559ee06ec2db58c202cbded978a47c3aa9a8442
-    pristine_git_object: f322083f2fae346de739b73f3498ae9cfc1ec4b0
+    last_write_checksum: sha1:4afee6a0cdbfaa5cbfbca6071179daa8efaf6ce7
+    pristine_git_object: d0a3ffe11c9c2279004337d3dcacd822a9eed18f
   models/operations/getprojects.go:
     id: 25041936dd5a
     last_write_checksum: sha1:55ae0b54bbec0652fe634608f6c71025f04d2470
@@ -4539,8 +4535,8 @@ trackedFiles:
     pristine_git_object: 3598ab8954516df0b730496cb9258802a3451694
   operatingsystems.go:
     id: ab95e545bca5
-    last_write_checksum: sha1:83f6160b9ff2fe6afda77909106fbf10c1a239e2
-    pristine_git_object: 25882f4ac21489ee9ffc6aeef467e5bb7237cc24
+    last_write_checksum: sha1:e7d0c201eb749f3bf4ef7ee3a115ff407d1a5ac1
+    pristine_git_object: 9917c076d82a24d800dd0553f82a30b2adc79c97
   optionalnullable/optionalnullable.go:
     id: ce60f259ead3
     last_write_checksum: sha1:d6aff1a420c31e025ea21d46cf056e305ae76fe8
@@ -5277,7 +5273,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{}]}
+          application/vnd.api+json: {"data": [{"id": "os_mw49QDB5qagKb", "type": "operating_systems", "attributes": {"features": {}, "name": "windows_server_2012_r2_std_v281 11.77", "slug": "debian_121", "distro": "CentOS 1", "user": "Rosalinda", "version": "11.77", "provisionable_on": ["g3.a100.medium-39", "c2.medium.x86-40"]}}], "meta": {}}
   get-plans:
     Success:
       responses:
@@ -8294,6 +8290,9 @@ examples:
           application/vnd.api+json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## Go SDK Changes:
+  * `Latitudesh.OperatingSystems.ListPlans()`:  `response` **Changed** (Breaking ⚠️)
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
