@@ -125,18 +125,18 @@ func (d *Discounts) GetValue() float32 {
 	return d.Value
 }
 
-type Unit string
+type BillingUsageUnit string
 
 const (
-	UnitQuantity Unit = "quantity"
-	UnitHour     Unit = "hour"
-	UnitMinute   Unit = "minute"
+	BillingUsageUnitQuantity BillingUsageUnit = "quantity"
+	BillingUsageUnitHour     BillingUsageUnit = "hour"
+	BillingUsageUnitMinute   BillingUsageUnit = "minute"
 )
 
-func (e Unit) ToPointer() *Unit {
+func (e BillingUsageUnit) ToPointer() *BillingUsageUnit {
 	return &e
 }
-func (e *Unit) UnmarshalJSON(data []byte) error {
+func (e *BillingUsageUnit) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -147,10 +147,10 @@ func (e *Unit) UnmarshalJSON(data []byte) error {
 	case "hour":
 		fallthrough
 	case "minute":
-		*e = Unit(v)
+		*e = BillingUsageUnit(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for Unit: %v", v)
+		return fmt.Errorf("invalid value for BillingUsageUnit: %v", v)
 	}
 }
 
@@ -216,17 +216,17 @@ func (m *Metadata) GetTags() []string {
 }
 
 type Products struct {
-	ID                    *string     `json:"id,omitempty"`
-	Resource              *string     `json:"resource,omitempty"`
-	Name                  *string     `json:"name,omitempty"`
-	Proration             *bool       `json:"proration,omitempty"`
-	Discounts             []Discounts `json:"discounts,omitempty"`
-	Discountable          *bool       `json:"discountable,omitempty"`
-	Description           *string     `json:"description,omitempty"`
-	AmountWithoutDiscount *int64      `json:"amount_without_discount,omitempty"`
-	Start                 *time.Time  `json:"start,omitempty"`
-	End                   *time.Time  `json:"end,omitempty"`
-	Unit                  *Unit       `json:"unit,omitempty"`
+	ID                    *string           `json:"id,omitempty"`
+	Resource              *string           `json:"resource,omitempty"`
+	Name                  *string           `json:"name,omitempty"`
+	Proration             *bool             `json:"proration,omitempty"`
+	Discounts             []Discounts       `json:"discounts,omitempty"`
+	Discountable          *bool             `json:"discountable,omitempty"`
+	Description           *string           `json:"description,omitempty"`
+	AmountWithoutDiscount *int64            `json:"amount_without_discount,omitempty"`
+	Start                 *time.Time        `json:"start,omitempty"`
+	End                   *time.Time        `json:"end,omitempty"`
+	Unit                  *BillingUsageUnit `json:"unit,omitempty"`
 	// The unit price of the product in cents
 	UnitPrice *float64   `json:"unit_price,omitempty"`
 	UsageType *UsageType `json:"usage_type,omitempty"`
@@ -317,7 +317,7 @@ func (p *Products) GetEnd() *time.Time {
 	return p.End
 }
 
-func (p *Products) GetUnit() *Unit {
+func (p *Products) GetUnit() *BillingUsageUnit {
 	if p == nil {
 		return nil
 	}

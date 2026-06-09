@@ -10,7 +10,7 @@ import (
 type OperatingSystemDataType string
 
 const (
-	OperatingSystemDataTypeOperatingSystems OperatingSystemDataType = "operating_systems"
+	OperatingSystemDataTypeOperatingSystem OperatingSystemDataType = "operating_system"
 )
 
 func (e OperatingSystemDataType) ToPointer() *OperatingSystemDataType {
@@ -22,7 +22,7 @@ func (e *OperatingSystemDataType) UnmarshalJSON(data []byte) error {
 		return err
 	}
 	switch v {
-	case "operating_systems":
+	case "operating_system":
 		*e = OperatingSystemDataType(v)
 		return nil
 	default:

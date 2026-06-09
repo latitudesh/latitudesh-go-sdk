@@ -93,13 +93,13 @@ func (g *GetVpnSessionsRequest) GetFilterLocation() *FilterLocation {
 	return g.FilterLocation
 }
 
-type Meta struct {
+type GetVpnSessionsMeta struct {
 }
 
 // GetVpnSessionsResponseBody - Success
 type GetVpnSessionsResponseBody struct {
 	Data []components.VpnSessionDataWithPassword `json:"data,omitempty"`
-	Meta *Meta                                   `json:"meta,omitempty"`
+	Meta *GetVpnSessionsMeta                     `json:"meta,omitempty"`
 }
 
 func (g *GetVpnSessionsResponseBody) GetData() []components.VpnSessionDataWithPassword {
@@ -109,7 +109,7 @@ func (g *GetVpnSessionsResponseBody) GetData() []components.VpnSessionDataWithPa
 	return g.Data
 }
 
-func (g *GetVpnSessionsResponseBody) GetMeta() *Meta {
+func (g *GetVpnSessionsResponseBody) GetMeta() *GetVpnSessionsMeta {
 	if g == nil {
 		return nil
 	}

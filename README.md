@@ -327,6 +327,10 @@ func main() {
 * [Delete](docs/sdks/virtualmachines/README.md#delete) - Destroy VM
 * [UpdateVirtualMachine](docs/sdks/virtualmachines/README.md#updatevirtualmachine) - Update VM
 * [CreateVirtualMachineAction](docs/sdks/virtualmachines/README.md#createvirtualmachineaction) - Run VM power action
+* [ShowVirtualMachineMetrics](docs/sdks/virtualmachines/README.md#showvirtualmachinemetrics) - Retrieve VM metrics
+* [ListVirtualMachineNetworkAttachments](docs/sdks/virtualmachines/README.md#listvirtualmachinenetworkattachments) - List VM network attachments
+* [CreateVirtualMachineNetworkAttachment](docs/sdks/virtualmachines/README.md#createvirtualmachinenetworkattachment) - Attach a network to a VM
+* [DestroyVirtualMachineNetworkAttachment](docs/sdks/virtualmachines/README.md#destroyvirtualmachinenetworkattachment) - Detach a network from a VM
 
 ### [VirtualNetworks](docs/sdks/virtualnetworks/README.md)
 

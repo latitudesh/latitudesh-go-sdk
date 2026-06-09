@@ -278,6 +278,41 @@ func (v *VirtualMachineAttributesSpecs) GetGpu() *string {
 	return v.Gpu
 }
 
+type Tags struct {
+	ID          *string `json:"id,omitempty"`
+	Name        *string `json:"name,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Color       *string `json:"color,omitempty"`
+}
+
+func (t *Tags) GetID() *string {
+	if t == nil {
+		return nil
+	}
+	return t.ID
+}
+
+func (t *Tags) GetName() *string {
+	if t == nil {
+		return nil
+	}
+	return t.Name
+}
+
+func (t *Tags) GetDescription() *string {
+	if t == nil {
+		return nil
+	}
+	return t.Description
+}
+
+func (t *Tags) GetColor() *string {
+	if t == nil {
+		return nil
+	}
+	return t.Color
+}
+
 type VirtualMachineAttributesAttributes struct {
 	Name        *string                         `json:"name,omitempty"`
 	CreatedAt   *string                         `json:"created_at,omitempty"`
@@ -286,11 +321,18 @@ type VirtualMachineAttributesAttributes struct {
 	// The operating system installed on the virtual machine
 	OperatingSystem *VirtualMachineAttributesOperatingSystem `json:"operating_system,omitempty"`
 	// SSH credentials for connecting to the virtual machine. Only available when the VM is running.
-	Credentials *Credentials                   `json:"credentials,omitempty"`
-	Plan        *VirtualMachineAttributesPlan  `json:"plan,omitempty"`
-	Specs       *VirtualMachineAttributesSpecs `json:"specs,omitempty"`
-	Team        *TeamInclude                   `json:"team,omitempty"`
-	Project     *ProjectInclude                `json:"project,omitempty"`
+	Credentials *Credentials `json:"credentials,omitempty"`
+	Site        *string      `json:"site,omitempty"`
+	Billing     *string      `json:"billing,omitempty"`
+	// Encoded ID of the user data record applied to this VM, if any
+	UserData *string                        `json:"user_data,omitempty"`
+	Plan     *VirtualMachineAttributesPlan  `json:"plan,omitempty"`
+	Specs    *VirtualMachineAttributesSpecs `json:"specs,omitempty"`
+	Tags     []Tags                         `json:"tags,omitempty"`
+	Team     *TeamInclude                   `json:"team,omitempty"`
+	Project  *ProjectInclude                `json:"project,omitempty"`
+	// Opt-in extra field. Request via `extra_fields[virtual_machines]=pending_restart`.
+	PendingRestart *bool `json:"pending_restart,omitempty"`
 }
 
 func (v *VirtualMachineAttributesAttributes) GetName() *string {
@@ -335,6 +377,27 @@ func (v *VirtualMachineAttributesAttributes) GetCredentials() *Credentials {
 	return v.Credentials
 }
 
+func (v *VirtualMachineAttributesAttributes) GetSite() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Site
+}
+
+func (v *VirtualMachineAttributesAttributes) GetBilling() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Billing
+}
+
+func (v *VirtualMachineAttributesAttributes) GetUserData() *string {
+	if v == nil {
+		return nil
+	}
+	return v.UserData
+}
+
 func (v *VirtualMachineAttributesAttributes) GetPlan() *VirtualMachineAttributesPlan {
 	if v == nil {
 		return nil
@@ -349,6 +412,13 @@ func (v *VirtualMachineAttributesAttributes) GetSpecs() *VirtualMachineAttribute
 	return v.Specs
 }
 
+func (v *VirtualMachineAttributesAttributes) GetTags() []Tags {
+	if v == nil {
+		return nil
+	}
+	return v.Tags
+}
+
 func (v *VirtualMachineAttributesAttributes) GetTeam() *TeamInclude {
 	if v == nil {
 		return nil
@@ -361,6 +431,13 @@ func (v *VirtualMachineAttributesAttributes) GetProject() *ProjectInclude {
 		return nil
 	}
 	return v.Project
+}
+
+func (v *VirtualMachineAttributesAttributes) GetPendingRestart() *bool {
+	if v == nil {
+		return nil
+	}
+	return v.PendingRestart
 }
 
 type VirtualMachineAttributes struct {

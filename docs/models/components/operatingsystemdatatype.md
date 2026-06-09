@@ -7,12 +7,12 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
-value := components.OperatingSystemDataTypeOperatingSystems
+value := components.OperatingSystemDataTypeOperatingSystem
 ```
 
 
 ## Values
 
-| Name                                      | Value                                     |
-| ----------------------------------------- | ----------------------------------------- |
-| `OperatingSystemDataTypeOperatingSystems` | operating_systems                         |
+| Name                                     | Value                                    |
+| ---------------------------------------- | ---------------------------------------- |
+| `OperatingSystemDataTypeOperatingSystem` | operating_system                         |

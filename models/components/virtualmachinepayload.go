@@ -4,6 +4,7 @@ package components
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
 )
@@ -31,6 +32,70 @@ func (e *VirtualMachinePayloadType) UnmarshalJSON(data []byte) error {
 	}
 }
 
+type VirtualMachinePayloadUserDataType string
+
+const (
+	VirtualMachinePayloadUserDataTypeInteger VirtualMachinePayloadUserDataType = "integer"
+	VirtualMachinePayloadUserDataTypeStr     VirtualMachinePayloadUserDataType = "str"
+)
+
+// VirtualMachinePayloadUserData - A user data record reference (encoded id_hash, e.g. 'ud_xxx', or raw integer id) to apply as cloud-init configuration
+type VirtualMachinePayloadUserData struct {
+	Integer *int64  `queryParam:"inline" union:"member"`
+	Str     *string `queryParam:"inline" union:"member"`
+
+	Type VirtualMachinePayloadUserDataType
+}
+
+func CreateVirtualMachinePayloadUserDataInteger(integer int64) VirtualMachinePayloadUserData {
+	typ := VirtualMachinePayloadUserDataTypeInteger
+
+	return VirtualMachinePayloadUserData{
+		Integer: &integer,
+		Type:    typ,
+	}
+}
+
+func CreateVirtualMachinePayloadUserDataStr(str string) VirtualMachinePayloadUserData {
+	typ := VirtualMachinePayloadUserDataTypeStr
+
+	return VirtualMachinePayloadUserData{
+		Str:  &str,
+		Type: typ,
+	}
+}
+
+func (u *VirtualMachinePayloadUserData) UnmarshalJSON(data []byte) error {
+
+	var integer int64 = int64(0)
+	if err := utils.UnmarshalJSON(data, &integer, "", true, nil); err == nil {
+		u.Integer = &integer
+		u.Type = VirtualMachinePayloadUserDataTypeInteger
+		return nil
+	}
+
+	var str string = ""
+	if err := utils.UnmarshalJSON(data, &str, "", true, nil); err == nil {
+		u.Str = &str
+		u.Type = VirtualMachinePayloadUserDataTypeStr
+		return nil
+	}
+
+	return fmt.Errorf("could not unmarshal `%s` into any supported union types for VirtualMachinePayloadUserData", string(data))
+}
+
+func (u VirtualMachinePayloadUserData) MarshalJSON() ([]byte, error) {
+	if u.Integer != nil {
+		return utils.MarshalJSON(u.Integer, "", true)
+	}
+
+	if u.Str != nil {
+		return utils.MarshalJSON(u.Str, "", true)
+	}
+
+	return nil, errors.New("could not marshal union type VirtualMachinePayloadUserData: all fields are null")
+}
+
 type VirtualMachinePayloadAttributes struct {
 	Name *string `default:"my-vm" json:"name"`
 	// The plan ID or Slug for the Virtual Machine
@@ -39,6 +104,10 @@ type VirtualMachinePayloadAttributes struct {
 	Project *string  `default:"my-project" json:"project"`
 	// The operating system slug for the Virtual Machine. If not specified, defaults to ubuntu-24-04 for CPU plans or ubuntu24_ml_in_a_box for GPU plans.
 	OperatingSystem *string `json:"operating_system,omitempty"`
+	// A user data record reference (encoded id_hash, e.g. 'ud_xxx', or raw integer id) to apply as cloud-init configuration
+	UserData *VirtualMachinePayloadUserData `json:"user_data,omitempty"`
+	// Array of tag IDs to assign to the VM.
+	Tags []string `json:"tags,omitempty"`
 }
 
 func (v VirtualMachinePayloadAttributes) MarshalJSON() ([]byte, error) {
@@ -85,6 +154,20 @@ func (v *VirtualMachinePayloadAttributes) GetOperatingSystem() *string {
 		return nil
 	}
 	return v.OperatingSystem
+}
+
+func (v *VirtualMachinePayloadAttributes) GetUserData() *VirtualMachinePayloadUserData {
+	if v == nil {
+		return nil
+	}
+	return v.UserData
+}
+
+func (v *VirtualMachinePayloadAttributes) GetTags() []string {
+	if v == nil {
+		return nil
+	}
+	return v.Tags
 }
 
 type VirtualMachinePayloadData struct {
