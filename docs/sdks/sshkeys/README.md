@@ -31,6 +31,7 @@ import(
 	"context"
 	"os"
 	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
 	"log"
 )
 
@@ -41,7 +42,10 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.List(ctx, "proj_yQrJdNemO30gv", latitudeshgosdk.Pointer("tag_N88P7WK0w5u4PKevRB5ahVeLaPW,tag_Wal9mQPJzJI7jWRreANNcblXGRP"))
+    res, err := s.SSHKeys.List(ctx, operations.GetProjectSSHKeysRequest{
+        ProjectID: "proj_yQrJdNemO30gv",
+        FilterTags: latitudeshgosdk.Pointer("tag_N88P7WK0w5u4PKevRB5ahVeLaPW,tag_Wal9mQPJzJI7jWRreANNcblXGRP"),
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -60,6 +64,7 @@ import(
 	"context"
 	"os"
 	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
 	"log"
 )
 
@@ -70,7 +75,10 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.List(ctx, "proj_5AEmq7wMqBkWX", latitudeshgosdk.Pointer("tag_5wKQ2Y9eoAi5plr4zlQ6tjl6rEw,tag_8GKKZ6B9MbtYl4K09gj4fXy9Nneg"))
+    res, err := s.SSHKeys.List(ctx, operations.GetProjectSSHKeysRequest{
+        ProjectID: "proj_5AEmq7wMqBkWX",
+        FilterTags: latitudeshgosdk.Pointer("tag_5wKQ2Y9eoAi5plr4zlQ6tjl6rEw,tag_8GKKZ6B9MbtYl4K09gj4fXy9Nneg"),
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -89,6 +97,7 @@ import(
 	"context"
 	"os"
 	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
 	"log"
 )
 
@@ -99,7 +108,10 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.List(ctx, "proj_695BdKggdevVo", latitudeshgosdk.Pointer("tag_JzoXbwJ7KgFM2J4wALjXHbVrjX4"))
+    res, err := s.SSHKeys.List(ctx, operations.GetProjectSSHKeysRequest{
+        ProjectID: "proj_695BdKggdevVo",
+        FilterTags: latitudeshgosdk.Pointer("tag_JzoXbwJ7KgFM2J4wALjXHbVrjX4"),
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -111,12 +123,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                                       | [context.Context](https://pkg.go.dev/context#Context)                                                                       | :heavy_check_mark:                                                                                                          | The context to use for the request.                                                                                         |
-| `projectID`                                                                                                                 | `string`                                                                                                                    | :heavy_check_mark:                                                                                                          | Project ID or Slug                                                                                                          |
-| `filterTags`                                                                                                                | `*string`                                                                                                                   | :heavy_minus_sign:                                                                                                          | The tags ids to filter by, separated by comma, e.g. `filter[tags]=tag_1,tag_2`will return ssh keys with `tag_1` AND `tag_2` |
-| `opts`                                                                                                                      | [][operations.Option](../../models/operations/option.md)                                                                    | :heavy_minus_sign:                                                                                                          | The options for this request.                                                                                               |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.GetProjectSSHKeysRequest](../../models/operations/getprojectsshkeysrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `opts`                                                                                     | [][operations.Option](../../models/operations/option.md)                                   | :heavy_minus_sign:                                                                         | The options for this request.                                                              |
 
 ### Response
 
@@ -436,6 +447,7 @@ import(
 	"context"
 	"os"
 	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
 	"log"
 )
 
@@ -446,7 +458,9 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.SSHKeys.ListAll(ctx, nil, nil, latitudeshgosdk.Pointer("tag_A06EMPEmKXhKBNKgWrv0CRZMN5a,tag_P7xlGZzYNZF4w3YXRrYMU7AjQEAX"))
+    res, err := s.SSHKeys.ListAll(ctx, operations.GetSSHKeysRequest{
+        FilterTags: latitudeshgosdk.Pointer("tag_A06EMPEmKXhKBNKgWrv0CRZMN5a,tag_P7xlGZzYNZF4w3YXRrYMU7AjQEAX"),
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -458,13 +472,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                                       | [context.Context](https://pkg.go.dev/context#Context)                                                                       | :heavy_check_mark:                                                                                                          | The context to use for the request.                                                                                         |
-| `filterProject`                                                                                                             | `*string`                                                                                                                   | :heavy_minus_sign:                                                                                                          | Project ID or slug                                                                                                          |
-| `filterScope`                                                                                                               | `*string`                                                                                                                   | :heavy_minus_sign:                                                                                                          | Filter by scope: `project` (has projects), `team` (no projects), or empty (all)                                             |
-| `filterTags`                                                                                                                | `*string`                                                                                                                   | :heavy_minus_sign:                                                                                                          | The tags ids to filter by, separated by comma, e.g. `filter[tags]=tag_1,tag_2`will return ssh keys with `tag_1` AND `tag_2` |
-| `opts`                                                                                                                      | [][operations.Option](../../models/operations/option.md)                                                                    | :heavy_minus_sign:                                                                                                          | The options for this request.                                                                                               |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `ctx`                                                                        | [context.Context](https://pkg.go.dev/context#Context)                        | :heavy_check_mark:                                                           | The context to use for the request.                                          |
+| `request`                                                                    | [operations.GetSSHKeysRequest](../../models/operations/getsshkeysrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `opts`                                                                       | [][operations.Option](../../models/operations/option.md)                     | :heavy_minus_sign:                                                           | The options for this request.                                                |
 
 ### Response
 

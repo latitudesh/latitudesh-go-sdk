@@ -278,39 +278,39 @@ func (v *VirtualMachineAttributesSpecs) GetGpu() *string {
 	return v.Gpu
 }
 
-type Tags struct {
+type VirtualMachineAttributesTags struct {
 	ID          *string `json:"id,omitempty"`
 	Name        *string `json:"name,omitempty"`
 	Description *string `json:"description,omitempty"`
 	Color       *string `json:"color,omitempty"`
 }
 
-func (t *Tags) GetID() *string {
-	if t == nil {
+func (v *VirtualMachineAttributesTags) GetID() *string {
+	if v == nil {
 		return nil
 	}
-	return t.ID
+	return v.ID
 }
 
-func (t *Tags) GetName() *string {
-	if t == nil {
+func (v *VirtualMachineAttributesTags) GetName() *string {
+	if v == nil {
 		return nil
 	}
-	return t.Name
+	return v.Name
 }
 
-func (t *Tags) GetDescription() *string {
-	if t == nil {
+func (v *VirtualMachineAttributesTags) GetDescription() *string {
+	if v == nil {
 		return nil
 	}
-	return t.Description
+	return v.Description
 }
 
-func (t *Tags) GetColor() *string {
-	if t == nil {
+func (v *VirtualMachineAttributesTags) GetColor() *string {
+	if v == nil {
 		return nil
 	}
-	return t.Color
+	return v.Color
 }
 
 type VirtualMachineAttributesAttributes struct {
@@ -328,7 +328,7 @@ type VirtualMachineAttributesAttributes struct {
 	UserData *string                        `json:"user_data,omitempty"`
 	Plan     *VirtualMachineAttributesPlan  `json:"plan,omitempty"`
 	Specs    *VirtualMachineAttributesSpecs `json:"specs,omitempty"`
-	Tags     []Tags                         `json:"tags,omitempty"`
+	Tags     []VirtualMachineAttributesTags `json:"tags,omitempty"`
 	Team     *TeamInclude                   `json:"team,omitempty"`
 	Project  *ProjectInclude                `json:"project,omitempty"`
 	// Opt-in extra field. Request via `extra_fields[virtual_machines]=pending_restart`.
@@ -412,7 +412,7 @@ func (v *VirtualMachineAttributesAttributes) GetSpecs() *VirtualMachineAttribute
 	return v.Specs
 }
 
-func (v *VirtualMachineAttributesAttributes) GetTags() []Tags {
+func (v *VirtualMachineAttributesAttributes) GetTags() []VirtualMachineAttributesTags {
 	if v == nil {
 		return nil
 	}

@@ -13,6 +13,12 @@ type GetSSHKeysRequest struct {
 	FilterScope *string `queryParam:"style=form,explode=true,name=filter[scope]"`
 	// The tags ids to filter by, separated by comma, e.g. `filter[tags]=tag_1,tag_2`will return ssh keys with `tag_1` AND `tag_2`
 	FilterTags *string `queryParam:"style=form,explode=true,name=filter[tags]"`
+	// Request aggregate stats in the response `meta`. Use `count` to get the total number of records, returned as `meta.stats.total.count`.
+	StatsTotal *string `queryParam:"style=form,explode=true,name=stats[total]"`
+	// Page number for pagination
+	PageNumber *int64 `queryParam:"style=form,explode=true,name=page[number]"`
+	// Number of items per page
+	PageSize *int64 `queryParam:"style=form,explode=true,name=page[size]"`
 }
 
 func (g *GetSSHKeysRequest) GetFilterProject() *string {
@@ -34,6 +40,27 @@ func (g *GetSSHKeysRequest) GetFilterTags() *string {
 		return nil
 	}
 	return g.FilterTags
+}
+
+func (g *GetSSHKeysRequest) GetStatsTotal() *string {
+	if g == nil {
+		return nil
+	}
+	return g.StatsTotal
+}
+
+func (g *GetSSHKeysRequest) GetPageNumber() *int64 {
+	if g == nil {
+		return nil
+	}
+	return g.PageNumber
+}
+
+func (g *GetSSHKeysRequest) GetPageSize() *int64 {
+	if g == nil {
+		return nil
+	}
+	return g.PageSize
 }
 
 type GetSSHKeysResponse struct {
