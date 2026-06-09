@@ -9,7 +9,9 @@ import (
 type IndexVirtualMachineRequest struct {
 	// The project ID or Slug to filter by
 	FilterProject *string `queryParam:"style=form,explode=true,name=filter[project]"`
-	// The `credentials` are provided as extra attributes that are lazy loaded. To request it, just set `extra_fields[virtual_machines]=credentials` in the query string.
+	// The tag IDs to filter by, separated by comma, e.g. `filter[tags]=tag_1,tag_2` will return VMs with `tag_1` AND `tag_2`.
+	FilterTags *string `queryParam:"style=form,explode=true,name=filter[tags]"`
+	// Comma-separated extra attributes that are lazy-loaded. Supported values: `credentials`, `pending_restart`. Example: `extra_fields[virtual_machines]=credentials,pending_restart`.
 	ExtraFieldsVirtualMachines *string `queryParam:"style=form,explode=true,name=extra_fields[virtual_machines]"`
 }
 
@@ -18,6 +20,13 @@ func (i *IndexVirtualMachineRequest) GetFilterProject() *string {
 		return nil
 	}
 	return i.FilterProject
+}
+
+func (i *IndexVirtualMachineRequest) GetFilterTags() *string {
+	if i == nil {
+		return nil
+	}
+	return i.FilterTags
 }
 
 func (i *IndexVirtualMachineRequest) GetExtraFieldsVirtualMachines() *string {

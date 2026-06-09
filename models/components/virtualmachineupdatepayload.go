@@ -32,14 +32,23 @@ func (e *VirtualMachineUpdatePayloadType) UnmarshalJSON(data []byte) error {
 
 type VirtualMachineUpdatePayloadAttributes struct {
 	// The new display name (hostname) for the Virtual Machine
-	Name string `json:"name"`
+	Name *string `json:"name,omitempty"`
+	// Array of tag IDs to assign to the VM. Replaces all existing tags.
+	Tags []string `json:"tags,omitempty"`
 }
 
-func (v *VirtualMachineUpdatePayloadAttributes) GetName() string {
+func (v *VirtualMachineUpdatePayloadAttributes) GetName() *string {
 	if v == nil {
-		return ""
+		return nil
 	}
 	return v.Name
+}
+
+func (v *VirtualMachineUpdatePayloadAttributes) GetTags() []string {
+	if v == nil {
+		return nil
+	}
+	return v.Tags
 }
 
 type VirtualMachineUpdatePayloadData struct {

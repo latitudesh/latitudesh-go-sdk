@@ -10,6 +10,10 @@
 * [Delete](#delete) - Destroy VM
 * [UpdateVirtualMachine](#updatevirtualmachine) - Update VM
 * [CreateVirtualMachineAction](#createvirtualmachineaction) - Run VM power action
+* [ShowVirtualMachineMetrics](#showvirtualmachinemetrics) - Retrieve VM metrics
+* [ListVirtualMachineNetworkAttachments](#listvirtualmachinenetworkattachments) - List VM network attachments
+* [CreateVirtualMachineNetworkAttachment](#createvirtualmachinenetworkattachment) - Attach a network to a VM
+* [DestroyVirtualMachineNetworkAttachment](#destroyvirtualmachinenetworkattachment) - Detach a network from a VM
 
 ## Create
 
@@ -131,6 +135,47 @@ func main() {
     }
 }
 ```
+### Example Usage: CreatedWithUserData
+
+<!-- UsageSnippet language="go" operationID="create-virtual-machine" method="post" path="/virtual_machines" example="CreatedWithUserData" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.VirtualMachines.Create(ctx, components.VirtualMachinePayload{
+        Data: &components.VirtualMachinePayloadData{
+            Type: components.VirtualMachinePayloadTypeVirtualMachines.ToPointer(),
+            Attributes: &components.VirtualMachinePayloadAttributes{
+                Name: latitudeshgosdk.Pointer("my-new-vm"),
+                Project: latitudeshgosdk.Pointer("lightweight-leather-lamp"),
+                UserData: latitudeshgosdk.Pointer(components.CreateVirtualMachinePayloadUserDataStr(
+                    "ud_abc123",
+                )),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.VirtualMachine != nil {
+        // handle response
+    }
+}
+```
 ### Example Usage: Unprocessable Entity
 
 <!-- UsageSnippet language="go" operationID="create-virtual-machine" method="post" path="/virtual_machines" example="Unprocessable Entity" -->
@@ -213,7 +258,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VirtualMachines.List(ctx, nil, latitudeshgosdk.Pointer("credentials"))
+    res, err := s.VirtualMachines.List(ctx, nil, nil, latitudeshgosdk.Pointer("credentials"))
     if err != nil {
         log.Fatal(err)
     }
@@ -225,12 +270,13 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                                                                          | Type                                                                                                                                                               | Required                                                                                                                                                           | Description                                                                                                                                                        |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                                                                                              | :heavy_check_mark:                                                                                                                                                 | The context to use for the request.                                                                                                                                |
-| `filterProject`                                                                                                                                                    | `*string`                                                                                                                                                          | :heavy_minus_sign:                                                                                                                                                 | The project ID or Slug to filter by                                                                                                                                |
-| `extraFieldsVirtualMachines`                                                                                                                                       | `*string`                                                                                                                                                          | :heavy_minus_sign:                                                                                                                                                 | The `credentials` are provided as extra attributes that are lazy loaded. To request it, just set `extra_fields[virtual_machines]=credentials` in the query string. |
-| `opts`                                                                                                                                                             | [][operations.Option](../../models/operations/option.md)                                                                                                           | :heavy_minus_sign:                                                                                                                                                 | The options for this request.                                                                                                                                      |
+| Parameter                                                                                                                                                                         | Type                                                                                                                                                                              | Required                                                                                                                                                                          | Description                                                                                                                                                                       |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                                                                                             | [context.Context](https://pkg.go.dev/context#Context)                                                                                                                             | :heavy_check_mark:                                                                                                                                                                | The context to use for the request.                                                                                                                                               |
+| `filterProject`                                                                                                                                                                   | `*string`                                                                                                                                                                         | :heavy_minus_sign:                                                                                                                                                                | The project ID or Slug to filter by                                                                                                                                               |
+| `filterTags`                                                                                                                                                                      | `*string`                                                                                                                                                                         | :heavy_minus_sign:                                                                                                                                                                | The tag IDs to filter by, separated by comma, e.g. `filter[tags]=tag_1,tag_2` will return VMs with `tag_1` AND `tag_2`.                                                           |
+| `extraFieldsVirtualMachines`                                                                                                                                                      | `*string`                                                                                                                                                                         | :heavy_minus_sign:                                                                                                                                                                | Comma-separated extra attributes that are lazy-loaded. Supported values: `credentials`, `pending_restart`. Example: `extra_fields[virtual_machines]=credentials,pending_restart`. |
+| `opts`                                                                                                                                                                            | [][operations.Option](../../models/operations/option.md)                                                                                                                          | :heavy_minus_sign:                                                                                                                                                                | The options for this request.                                                                                                                                                     |
 
 ### Response
 
@@ -379,7 +425,7 @@ func main() {
             Type: components.VirtualMachineUpdatePayloadTypeVirtualMachines,
             ID: latitudeshgosdk.Pointer("vm_7vYAZqGBdMQ94"),
             Attributes: components.VirtualMachineUpdatePayloadAttributes{
-                Name: "my-updated-vm",
+                Name: latitudeshgosdk.Pointer("my-updated-vm"),
             },
         },
     })
@@ -468,6 +514,231 @@ func main() {
 ### Response
 
 **[*operations.CreateVirtualMachineActionResponse](../../models/operations/createvirtualmachineactionresponse.md), error**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
+
+## ShowVirtualMachineMetrics
+
+Retrieve a time series for a single metric of a Virtual Machine.
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="show-virtual-machine-metrics" method="get" path="/virtual_machines/{virtual_machine_id}/metrics" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.VirtualMachines.ShowVirtualMachineMetrics(ctx, "<id>", operations.MetricMemory, nil, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.VirtualMachineMetrics != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `virtualMachineID`                                       | `string`                                                 | :heavy_check_mark:                                       | N/A                                                      |
+| `metric`                                                 | [operations.Metric](../../models/operations/metric.md)   | :heavy_check_mark:                                       | N/A                                                      |
+| `range_`                                                 | [*operations.Range](../../models/operations/range.md)    | :heavy_minus_sign:                                       | N/A                                                      |
+| `forceRefresh`                                           | `*bool`                                                  | :heavy_minus_sign:                                       | N/A                                                      |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+
+### Response
+
+**[*operations.ShowVirtualMachineMetricsResponse](../../models/operations/showvirtualmachinemetricsresponse.md), error**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
+
+## ListVirtualMachineNetworkAttachments
+
+Lists the secondary network attachments currently configured for a Virtual Machine.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="list-virtual-machine-network-attachments" method="get" path="/virtual_machines/{virtual_machine_id}/network_attachments" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.VirtualMachines.ListVirtualMachineNetworkAttachments(ctx, "<id>")
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.VirtualMachineNetworkAttachments != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `virtualMachineID`                                       | `string`                                                 | :heavy_check_mark:                                       | N/A                                                      |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+
+### Response
+
+**[*operations.ListVirtualMachineNetworkAttachmentsResponse](../../models/operations/listvirtualmachinenetworkattachmentsresponse.md), error**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
+
+## CreateVirtualMachineNetworkAttachment
+
+Attaches a virtual network (VLAN) to a Virtual Machine. Work runs asynchronously and returns 202 Accepted.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="create-virtual-machine-network-attachment" method="post" path="/virtual_machines/{virtual_machine_id}/network_attachments" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.VirtualMachines.CreateVirtualMachineNetworkAttachment(ctx, "<id>", components.VirtualMachineNetworkAttachmentCreatePayload{
+        Data: components.VirtualMachineNetworkAttachmentCreatePayloadData{
+            Type: components.VirtualMachineNetworkAttachmentCreatePayloadTypeVirtualMachineNetworkAttachments,
+            Attributes: components.VirtualMachineNetworkAttachmentCreatePayloadAttributes{
+                VirtualNetworkID: "<id>",
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                          | Type                                                                                                                               | Required                                                                                                                           | Description                                                                                                                        |
+| ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                                                              | :heavy_check_mark:                                                                                                                 | The context to use for the request.                                                                                                |
+| `virtualMachineID`                                                                                                                 | `string`                                                                                                                           | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |
+| `virtualMachineNetworkAttachmentCreatePayload`                                                                                     | [components.VirtualMachineNetworkAttachmentCreatePayload](../../models/components/virtualmachinenetworkattachmentcreatepayload.md) | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |
+| `opts`                                                                                                                             | [][operations.Option](../../models/operations/option.md)                                                                           | :heavy_minus_sign:                                                                                                                 | The options for this request.                                                                                                      |
+
+### Response
+
+**[*operations.CreateVirtualMachineNetworkAttachmentResponse](../../models/operations/createvirtualmachinenetworkattachmentresponse.md), error**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
+
+## DestroyVirtualMachineNetworkAttachment
+
+Detaches a virtual network (VLAN) from a Virtual Machine. Work runs asynchronously and returns 202 Accepted.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="destroy-virtual-machine-network-attachment" method="delete" path="/virtual_machines/{virtual_machine_id}/network_attachments/{id}" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.VirtualMachines.DestroyVirtualMachineNetworkAttachment(ctx, "<id>", "<id>")
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `virtualMachineID`                                       | `string`                                                 | :heavy_check_mark:                                       | N/A                                                      |
+| `id`                                                     | `string`                                                 | :heavy_check_mark:                                       | The VLAN id_hash to detach                               |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+
+### Response
+
+**[*operations.DestroyVirtualMachineNetworkAttachmentResponse](../../models/operations/destroyvirtualmachinenetworkattachmentresponse.md), error**
 
 ### Errors
 
