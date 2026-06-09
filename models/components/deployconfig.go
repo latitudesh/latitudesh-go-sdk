@@ -2,6 +2,135 @@
 
 package components
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
+type DeployConfigRole string
+
+const (
+	DeployConfigRoleOs      DeployConfigRole = "os"
+	DeployConfigRoleStorage DeployConfigRole = "storage"
+	DeployConfigRoleRaw     DeployConfigRole = "raw"
+)
+
+func (e DeployConfigRole) ToPointer() *DeployConfigRole {
+	return &e
+}
+func (e *DeployConfigRole) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "os":
+		fallthrough
+	case "storage":
+		fallthrough
+	case "raw":
+		*e = DeployConfigRole(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for DeployConfigRole: %v", v)
+	}
+}
+
+type RaidLevel string
+
+const (
+	RaidLevelRaid0 RaidLevel = "raid-0"
+	RaidLevelRaid1 RaidLevel = "raid-1"
+)
+
+func (e RaidLevel) ToPointer() *RaidLevel {
+	return &e
+}
+func (e *RaidLevel) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "raid-0":
+		fallthrough
+	case "raid-1":
+		*e = RaidLevel(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for RaidLevel: %v", v)
+	}
+}
+
+type Filesystem string
+
+const (
+	FilesystemExt4 Filesystem = "ext4"
+	FilesystemXfs  Filesystem = "xfs"
+)
+
+func (e Filesystem) ToPointer() *Filesystem {
+	return &e
+}
+func (e *Filesystem) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "ext4":
+		fallthrough
+	case "xfs":
+		*e = Filesystem(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for Filesystem: %v", v)
+	}
+}
+
+type DiskLayout struct {
+	Count      int64            `json:"count"`
+	Role       DeployConfigRole `json:"role"`
+	RaidLevel  *RaidLevel       `json:"raid_level,omitempty"`
+	Filesystem *Filesystem      `json:"filesystem,omitempty"`
+	MountPoint *string          `json:"mount_point,omitempty"`
+}
+
+func (d *DiskLayout) GetCount() int64 {
+	if d == nil {
+		return 0
+	}
+	return d.Count
+}
+
+func (d *DiskLayout) GetRole() DeployConfigRole {
+	if d == nil {
+		return DeployConfigRole("")
+	}
+	return d.Role
+}
+
+func (d *DiskLayout) GetRaidLevel() *RaidLevel {
+	if d == nil {
+		return nil
+	}
+	return d.RaidLevel
+}
+
+func (d *DiskLayout) GetFilesystem() *Filesystem {
+	if d == nil {
+		return nil
+	}
+	return d.Filesystem
+}
+
+func (d *DiskLayout) GetMountPoint() *string {
+	if d == nil {
+		return nil
+	}
+	return d.MountPoint
+}
+
 type Partitions struct {
 	Path           *string `json:"path,omitempty"`
 	SizeInGb       *int64  `json:"size_in_gb,omitempty"`
@@ -33,6 +162,7 @@ type DeployConfigAttributes struct {
 	OperatingSystem *string      `json:"operating_system,omitempty"`
 	Hostname        *string      `json:"hostname,omitempty"`
 	Raid            *string      `json:"raid,omitempty"`
+	DiskLayout      []DiskLayout `json:"disk_layout,omitempty"`
 	UserData        *string      `json:"user_data,omitempty"`
 	SSHKeys         []string     `json:"ssh_keys,omitempty"`
 	Partitions      []Partitions `json:"partitions,omitempty"`
@@ -57,6 +187,13 @@ func (d *DeployConfigAttributes) GetRaid() *string {
 		return nil
 	}
 	return d.Raid
+}
+
+func (d *DeployConfigAttributes) GetDiskLayout() []DiskLayout {
+	if d == nil {
+		return nil
+	}
+	return d.DiskLayout
 }
 
 func (d *DeployConfigAttributes) GetUserData() *string {

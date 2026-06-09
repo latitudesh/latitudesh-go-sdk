@@ -2,12 +2,9 @@
 
 package components
 
-type SSHKeysMeta struct {
-}
-
 type SSHKeys struct {
-	Data []SSHKeyData `json:"data,omitempty"`
-	Meta *SSHKeysMeta `json:"meta,omitempty"`
+	Data []SSHKeyData    `json:"data,omitempty"`
+	Meta *PaginationMeta `json:"meta,omitempty"`
 }
 
 func (s *SSHKeys) GetData() []SSHKeyData {
@@ -17,7 +14,7 @@ func (s *SSHKeys) GetData() []SSHKeyData {
 	return s.Data
 }
 
-func (s *SSHKeys) GetMeta() *SSHKeysMeta {
+func (s *SSHKeys) GetMeta() *PaginationMeta {
 	if s == nil {
 		return nil
 	}

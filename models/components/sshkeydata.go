@@ -30,7 +30,43 @@ func (e *SSHKeyDataType) UnmarshalJSON(data []byte) error {
 	}
 }
 
+type Tags struct {
+	ID          *string `json:"id,omitempty"`
+	Name        *string `json:"name,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Color       *string `json:"color,omitempty"`
+}
+
+func (t *Tags) GetID() *string {
+	if t == nil {
+		return nil
+	}
+	return t.ID
+}
+
+func (t *Tags) GetName() *string {
+	if t == nil {
+		return nil
+	}
+	return t.Name
+}
+
+func (t *Tags) GetDescription() *string {
+	if t == nil {
+		return nil
+	}
+	return t.Description
+}
+
+func (t *Tags) GetColor() *string {
+	if t == nil {
+		return nil
+	}
+	return t.Color
+}
+
 type SSHKeyDataAttributes struct {
+	Tags []Tags `json:"tags,omitempty"`
 	// Name of the SSH Key
 	Name *string `json:"name,omitempty"`
 	// SSH Public Key
@@ -41,6 +77,13 @@ type SSHKeyDataAttributes struct {
 	Project     *ProjectInclude `json:"project,omitempty"`
 	CreatedAt   *string         `json:"created_at,omitempty"`
 	UpdatedAt   *string         `json:"updated_at,omitempty"`
+}
+
+func (s *SSHKeyDataAttributes) GetTags() []Tags {
+	if s == nil {
+		return nil
+	}
+	return s.Tags
 }
 
 func (s *SSHKeyDataAttributes) GetName() *string {
