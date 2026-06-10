@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: f7833c3694a6facc69e427927bbc8f31
+  docChecksum: 19cf080f5518f5ced3e0dd16e26efcc4
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.773.1
-  generationVersion: 2.897.1
-  releaseVersion: 1.15.0
-  configChecksum: 1cc5ff8ec01aadc9ebc3508091ed0014
+  speakeasyVersion: 1.776.0
+  generationVersion: 2.900.1
+  releaseVersion: 1.15.1
+  configChecksum: fa92d0c5870700e0504f9a89e99b5eac
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: a66ad6c8-a294-489b-a416-9cb7b6bca6bf
-  pristine_commit_hash: 67e83c75976b41eefbee3cb458a55ae639607183
-  pristine_tree_hash: 267e48bd178a19ee3aa2dd5feb6e834e3495840c
+  generation_id: b34ae182-0ddc-4334-bd64-d4a6423380ed
+  pristine_commit_hash: 5058371d9c204dc34f8fb2ee559fc69a16c1bac1
+  pristine_tree_hash: a30f6ca9146c85a82ea061caf97a35c1b3b2fce0
 features:
   go:
     additionalDependencies: 0.1.0
@@ -309,6 +309,10 @@ trackedFiles:
     id: 0d80d7422575
     last_write_checksum: sha1:87000d8e68acbed64013da2f7b099addf34b13a4
     pristine_git_object: 9b7b04d46801f8a4c394e36de1050736a764ab61
+  docs/models/components/elastic.md:
+    id: adae21e666fa
+    last_write_checksum: sha1:ccf33bd62494c6cefda5dbdf7e32a978baffc583
+    pristine_git_object: de45f597dfb32cec8c103351a9fafa35d04f92f8
   docs/models/components/elasticip.md:
     id: d44291de5149
     last_write_checksum: sha1:9130196b9bd98e8135c1e61819a06250189ebe1d
@@ -507,36 +511,52 @@ trackedFiles:
     pristine_git_object: d8aa47fc0a17db17e5896eaf8062f21a750e1ace
   docs/models/components/ipaddress.md:
     id: 60ffc1ad84e2
-    last_write_checksum: sha1:66d38d8d84d77ad2ab0527b6efe5873f259c02bd
-    pristine_git_object: 884269a9dadf51c0502ab3077cf546242f225ccd
-  docs/models/components/ipaddressattributes.md:
-    id: 15d3f3dbdef8
-    last_write_checksum: sha1:52106284510abe861fc6f052a25d68f6e9e3d17a
-    pristine_git_object: 799288cb335df6a8da96e80fea94ca27cdf03cfe
+    last_write_checksum: sha1:f2f9ebe42d57872cf0d9ecff480debb748563cfc
+    pristine_git_object: db040197b9755b5d447e064ee95f90e5416b33fd
+  docs/models/components/ipaddressdata.md:
+    id: 5f548f3e4164
+    last_write_checksum: sha1:85b9a0a0355fa828b1054507c8dbbd5ada6db902
+    pristine_git_object: 7aebdde7f788dc5be48255fe740d4a8707c3343a
+  docs/models/components/ipaddressdataattributes.md:
+    id: 26cfe7f52a9c
+    last_write_checksum: sha1:a32904f54f988b3b531c3e135f90467283c36917
+    pristine_git_object: 52d34f7d7e24353ff81ce19a3610afd31563602e
+  docs/models/components/ipaddressdataattributestype.md:
+    id: fd1550ec8daa
+    last_write_checksum: sha1:6bd02b53dc199097480fb84999cfc92616ceecd3
+    pristine_git_object: bd5133b4d1d0efd7d5408ebacdb8b0eb9455a9b7
+  docs/models/components/ipaddressdatafamily.md:
+    id: f1b487a320f9
+    last_write_checksum: sha1:81d6bd04b19e238803f9c3bb842fddcc71d9d0ad
+    pristine_git_object: 347a431cc4cfb95fcd88ad0d59b6849fbb994473
+  docs/models/components/ipaddressdatalocation.md:
+    id: 7b23b2149c8a
+    last_write_checksum: sha1:8ecb87a738b310380185a78d2f63b205595ebf7f
+    pristine_git_object: 06ebad9da60fe9fbee5b4053c9cb3c80c87755dc
+  docs/models/components/ipaddressdataproject.md:
+    id: 03be1416c968
+    last_write_checksum: sha1:02b02023375927e2847f5f7b345b7425951f3c59
+    pristine_git_object: 4c0a009b7f33ccc289b0a36fb020a4b8158f0df9
+  docs/models/components/ipaddressdataregion.md:
+    id: b57f2090f3fd
+    last_write_checksum: sha1:099202299329f24609d10858bc04979d228ef742
+    pristine_git_object: 8ee1bb4027168af7c645d96dc36d319294b0db6d
+  docs/models/components/ipaddressdatatype.md:
+    id: 7893034b7f59
+    last_write_checksum: sha1:2688983b94ec4e5479079eb78d7f79e38f9c96d1
+    pristine_git_object: dd8cbcb77891b620abd18addd5b1b500a645e8e9
   docs/models/components/ipaddresses.md:
     id: 1a4efba49e5a
-    last_write_checksum: sha1:6f1355e89c12f9575dde294032d8ceba4b36852a
-    pristine_git_object: de21913608b6d6431d358d0ded16903161da0d28
-  docs/models/components/ipaddressfamily.md:
-    id: d4b8895b1eda
-    last_write_checksum: sha1:3c813bd3f387b14695a6b9e5ec4c8579f0f2c3cd
-    pristine_git_object: a9277a8ad5a1a604149ba2c737a4de2ea3a9f078
-  docs/models/components/ipaddresslocation.md:
-    id: d0cc2fc83f08
-    last_write_checksum: sha1:8822acf5beabe23bb78ef695c6fbd2a0d72185a4
-    pristine_git_object: cc699fa9c5e9ff1fb1a67779ebb0179b33aa8593
-  docs/models/components/ipaddressproject.md:
-    id: 7291d96f4e57
-    last_write_checksum: sha1:f33500fdaafab5a196d4324464f9d82ecfbdff19
-    pristine_git_object: d26745e948271ad395d00112544cec143572acc1
-  docs/models/components/ipaddressregion.md:
-    id: 5b7057f6a8d4
-    last_write_checksum: sha1:c47c379c83b479019a0476244bcc76ab61e5aa2f
-    pristine_git_object: 4161e8703b649e3720863c05300e1cf3c43b8604
-  docs/models/components/ipaddresstype.md:
-    id: dc3116ac30f2
-    last_write_checksum: sha1:8d11222655f48bc10eceaaff87715c8461e568b1
-    pristine_git_object: 5695afbe5ea6957412b9a5f8b2666344fafacf99
+    last_write_checksum: sha1:0f1a5a4c7f270dacb813678f232d9b5cba8b616b
+    pristine_git_object: a5dae837d319a415ce2acb1f2973a91bc1bdc8ce
+  docs/models/components/ipaddressesmeta.md:
+    id: 6ed336ba24f9
+    last_write_checksum: sha1:4ab8882cad64632c42466d1ef4e22f4cf187de6e
+    pristine_git_object: 2e902ea58aa320f982ff207b7783b276359e93f9
+  docs/models/components/ipaddressmeta.md:
+    id: ff38312bd08e
+    last_write_checksum: sha1:faac86a03aa3772b4c77811f9a7c405f1845cf3e
+    pristine_git_object: 3476354e9b93834ac8cb651268d750d3f77d3ad0
   docs/models/components/ipmisession.md:
     id: eeee06123ad6
     last_write_checksum: sha1:ee8fbab793067ec5fed1203918e30f91951abdf4
@@ -3747,8 +3767,8 @@ trackedFiles:
     pristine_git_object: f055c7135bd9df9511999b5a8af285cf62b279a1
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:3826203c9c0443039562f417cd86c4970a00abc9
-    pristine_git_object: 4c2c8100a340bd8ac481881895080f0a0b5882c8
+    last_write_checksum: sha1:25fd473ef52d19851e9ee69c2d7db8138032699f
+    pristine_git_object: 370cbe137a13418634f34d0945f40f554f4a08db
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -3871,12 +3891,16 @@ trackedFiles:
     pristine_git_object: 148ec47fb2dea6c188ec68eb3532d93169608168
   models/components/ipaddress.go:
     id: cde212846d48
-    last_write_checksum: sha1:e55e81441a86da1d43ad0a1762f4795067a1d6b9
-    pristine_git_object: 44d8a9d91678fdf7169d3e1348533602ad8d4500
+    last_write_checksum: sha1:cb6a3aa56d8f85e8f3de79148391949eb42bef5c
+    pristine_git_object: 810ae78c11c6d43fe49349a10ac13257537f3b32
+  models/components/ipaddressdata.go:
+    id: 116f4440f61f
+    last_write_checksum: sha1:8c7e66e6f07d0f4af82532e33c27039bef0fd234
+    pristine_git_object: a226834e49f3f61f199861a5f227bcee8dd3cba0
   models/components/ipaddresses.go:
     id: 294eb5dd3785
-    last_write_checksum: sha1:cb765f8109bab8f74ed4c2b973cfbb01605c3ffb
-    pristine_git_object: 8b3a91160685e0757ab209fce579f7149f672b3b
+    last_write_checksum: sha1:f65019a7d1013ad791487c00b488e59d6f811e8c
+    pristine_git_object: 3defd89731b3387bd58987e9fa50293a88260269
   models/components/ipmisession.go:
     id: b892f97a2439
     last_write_checksum: sha1:25ace2c8460aaf682bec2061a58348d13d756bbb
@@ -5285,7 +5309,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "ip_5AEmq7wXqBkWX", "attributes": {"address": "110.190.5.254", "cidr": null, "family": "IPv4", "gateway": null, "netmask": "255.255.255.255", "type": "Public", "public": true, "management": true, "additional": false, "project": {"id": "proj_lkg1DeVgOvZE5", "name": "Incredible Silk Keyboard"}, "region": {}, "available": true, "assignment": {}}}, {"id": "ip_Gr47qleMDAg0m", "attributes": {"address": "180.228.210.136", "cidr": null, "family": "IPv4", "gateway": null, "netmask": "255.255.255.255", "type": "Public", "public": true, "management": true, "additional": false, "project": {"id": "proj_lkg1DeVgOvZE5", "name": "Incredible Silk Keyboard"}, "region": {}, "available": true, "assignment": {}}}]}
+          application/vnd.api+json: {"data": [{"id": "ip_5AEmq7wXqBkWX", "type": "ip_addresses", "attributes": {"address": "110.190.5.254", "cidr": null, "family": "IPv4", "gateway": null, "netmask": "255.255.255.255", "type": "Public", "public": true, "management": true, "additional": false, "project": {"id": "proj_lkg1DeVgOvZE5", "name": "Incredible Silk Keyboard"}, "region": {}, "available": true, "assignment": {}}}, {"id": "ip_Gr47qleMDAg0m", "type": "ip_addresses", "attributes": {"address": "180.228.210.136", "cidr": null, "family": "IPv4", "gateway": null, "netmask": "255.255.255.255", "type": "Public", "public": true, "management": true, "additional": false, "project": {"id": "proj_lkg1DeVgOvZE5", "name": "Incredible Silk Keyboard"}, "region": {}, "available": true, "assignment": {}}}], "meta": {}}
   get-ip:
     when basic GET:
       parameters:
@@ -8515,7 +8539,10 @@ examples:
           application/vnd.api+json: {"meta": {"status": "accepted"}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes:\n* `Latitudesh.SshKeys.List()`: \n  *  `request` **Changed** (Breaking ⚠️)\n  *  `response` **Changed**\n* `Latitudesh.SshKeys.ListAll()`: \n  *  `request` **Changed** (Breaking ⚠️)\n  *  `response` **Changed**\n* `Latitudesh.Projects.SshKeys.PostProjectSshKey()`:  `response.Data.Attributes.Tags` **Added**\n* `Latitudesh.SshKeys.Get()`:  `response.Data.Attributes.Tags` **Added**\n* `Latitudesh.SshKeys.ModifyProjectKey()`:  `response.Data.Attributes.Tags` **Added**\n* `Latitudesh.SshKeys.Create()`:  `response.Data.Attributes.Tags` **Added**\n* `Latitudesh.SshKeys.Retrieve()`:  `response.Data.Attributes.Tags` **Added**\n* `Latitudesh.SshKeys.Update()`:  `response.Data.Attributes.Tags` **Added**\n* `Latitudesh.Servers.GetDeployConfig()`:  `response.Data.Attributes.DiskLayout` **Added**\n* `Latitudesh.Servers.UpdateDeployConfig()`:  `response.Data.Attributes.DiskLayout` **Added**\n"
+releaseNotes: |
+  ## Go SDK Changes:
+  * `Latitudesh.IpAddresses.List()`:  `response` **Changed** (Breaking ⚠️)
+  * `Latitudesh.IpAddresses.Get()`:  `response` **Changed** (Breaking ⚠️)
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

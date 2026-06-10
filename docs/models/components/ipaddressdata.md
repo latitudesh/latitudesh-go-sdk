@@ -1,0 +1,10 @@
+# IPAddressData
+
+
+## Fields
+
+| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `ID`                                                                                      | `*string`                                                                                 | :heavy_minus_sign:                                                                        | N/A                                                                                       |
+| `Type`                                                                                    | [*components.IPAddressDataType](../../models/components/ipaddressdatatype.md)             | :heavy_minus_sign:                                                                        | N/A                                                                                       |
+| `Attributes`                                                                              | [*components.IPAddressDataAttributes](../../models/components/ipaddressdataattributes.md) | :heavy_minus_sign:                                                                        | N/A                                                                                       |
