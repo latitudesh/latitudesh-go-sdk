@@ -111,22 +111,10 @@ func (g *GetEventsRequest) GetPageNumber() *int64 {
 	return g.PageNumber
 }
 
-// GetEventsResponseBody - Success
-type GetEventsResponseBody struct {
-	Data []components.Events `json:"data,omitempty"`
-}
-
-func (g *GetEventsResponseBody) GetData() []components.Events {
-	if g == nil {
-		return nil
-	}
-	return g.Data
-}
-
 type GetEventsResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Success
-	Object *GetEventsResponseBody
+	Events *components.Events
 
 	Next func() (*GetEventsResponse, error)
 }
@@ -138,9 +126,9 @@ func (g *GetEventsResponse) GetHTTPMeta() components.HTTPMetadata {
 	return g.HTTPMeta
 }
 
-func (g *GetEventsResponse) GetObject() *GetEventsResponseBody {
+func (g *GetEventsResponse) GetEvents() *components.Events {
 	if g == nil {
 		return nil
 	}
-	return g.Object
+	return g.Events
 }

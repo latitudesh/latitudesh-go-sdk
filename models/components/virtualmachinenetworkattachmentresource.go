@@ -35,8 +35,6 @@ type VirtualMachineNetworkAttachmentResourceAttributes struct {
 	VirtualNetworkID *string `json:"virtual_network_id,omitempty"`
 	// The 802.1Q VLAN ID
 	Vid *int64 `json:"vid,omitempty"`
-	// The underlying NetworkAttachmentDefinition name
-	NadName *string `json:"nad_name,omitempty"`
 	// True if the attachment requires a VM restart to take effect
 	PendingRestart *bool `json:"pending_restart,omitempty"`
 }
@@ -53,13 +51,6 @@ func (v *VirtualMachineNetworkAttachmentResourceAttributes) GetVid() *int64 {
 		return nil
 	}
 	return v.Vid
-}
-
-func (v *VirtualMachineNetworkAttachmentResourceAttributes) GetNadName() *string {
-	if v == nil {
-		return nil
-	}
-	return v.NadName
 }
 
 func (v *VirtualMachineNetworkAttachmentResourceAttributes) GetPendingRestart() *bool {

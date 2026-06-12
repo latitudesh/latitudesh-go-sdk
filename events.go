@@ -249,12 +249,12 @@ func (s *Events) List(ctx context.Context, request operations.GetEventsRequest, 
 				return nil, err
 			}
 
-			var out operations.GetEventsResponseBody
+			var out components.Events
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.Object = &out
+			res.Events = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
