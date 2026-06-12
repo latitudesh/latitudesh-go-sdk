@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 19cf080f5518f5ced3e0dd16e26efcc4
+  docChecksum: 4ed6ef875d83b67bef075421d0705e8a
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.776.0
-  generationVersion: 2.900.1
-  releaseVersion: 1.15.1
-  configChecksum: fa92d0c5870700e0504f9a89e99b5eac
+  speakeasyVersion: 1.777.1
+  generationVersion: 2.903.2
+  releaseVersion: 1.15.2
+  configChecksum: a407ef192ae3bbab2383f8e571cfe397
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: b34ae182-0ddc-4334-bd64-d4a6423380ed
-  pristine_commit_hash: 5058371d9c204dc34f8fb2ee559fc69a16c1bac1
-  pristine_tree_hash: a30f6ca9146c85a82ea061caf97a35c1b3b2fce0
+  generation_id: 5b16b874-0edd-4c88-b478-f414d4ffbaa4
+  pristine_commit_hash: de625181a8e3378fd1b5f1554b25c5d066933575
+  pristine_tree_hash: 18c328158d493d7d65cbe5bb13de438165f0a555
 features:
   go:
     additionalDependencies: 0.1.0
@@ -1195,8 +1195,8 @@ trackedFiles:
     pristine_git_object: 0b4adfaeeb90706588a8fb97672bf8bd392c8040
   docs/models/components/teammembers.md:
     id: 5af5e2ae3723
-    last_write_checksum: sha1:23bb092b5f8d267d56bd8cafe001338ae38c03de
-    pristine_git_object: 8ea42ae06df0b213fccfbbf00cf219481ff5583c
+    last_write_checksum: sha1:e39362122f9bb27b4f768c4ebe66748c7149b248
+    pristine_git_object: 31a981d26f8ee19b379d39664fe16f4a47f0114e
   docs/models/components/teammembersattributes.md:
     id: ad48f086136e
     last_write_checksum: sha1:0159c0d47666ccf34b72b5ee7be51695dc6071d2
@@ -1205,10 +1205,14 @@ trackedFiles:
     id: c1b76b5b8404
     last_write_checksum: sha1:1fe74bfc946b5b7edb8e111692bf954261fc4279
     pristine_git_object: a99f59781684a1cc1bc76fc1b8174f404325a4bb
+  docs/models/components/teammembersmeta.md:
+    id: 0541a04b9b01
+    last_write_checksum: sha1:1765d3f2e9d9649d2d86451ca2421b3924cc2f91
+    pristine_git_object: 324594af56012dca2374444b01b28124501069eb
   docs/models/components/teammembersrole.md:
     id: 0008e4e987ec
-    last_write_checksum: sha1:b344354268fce9abc8bfbd1da67f1e7d439c2aad
-    pristine_git_object: 09b6fe88dbea01fd05d624a8eb2d2927af098ead
+    last_write_checksum: sha1:f8a1da64a86923fce65d86f9c94b2855ee02f826
+    pristine_git_object: 30486fd415f5746b44d8ba5aa1838bb3a4f915f2
   docs/models/components/teams.md:
     id: 470bc07d1a44
     last_write_checksum: sha1:bd93e0106b4b473986b4e044b7bffc42f432765f
@@ -2755,12 +2759,8 @@ trackedFiles:
     pristine_git_object: 320defc3a8bf9464cf34237c3ed38f7915195aff
   docs/models/operations/patchcurrentteamteamsattributes.md:
     id: c46070d71549
-    last_write_checksum: sha1:ff3128a7015b4e31b84078cf7ce46a4cb07d3324
-    pristine_git_object: 038d2e6475ceecd5562b25df4a19fef04c3e28e2
-  docs/models/operations/patchcurrentteamteamscurrency.md:
-    id: a5ac31711f58
-    last_write_checksum: sha1:da0329837a1325ca92be5e31db381c33be4ec3f7
-    pristine_git_object: ec3cafff0e96fb545cd9e033634b025e5265fad8
+    last_write_checksum: sha1:a6cc296ae01485dc84e97c8ff460fa32bb096e8e
+    pristine_git_object: a122f9f38e1fac18ed747af0e9f3f0fe5c25c210
   docs/models/operations/patchcurrentteamteamsdata.md:
     id: 43b2d02eff12
     last_write_checksum: sha1:429ef3eeff124d277963bd7495a304e554443a25
@@ -3075,8 +3075,8 @@ trackedFiles:
     pristine_git_object: d577ddb79ca93e2f640fe19c334c03359d03ee0f
   docs/models/operations/postteamteamsattributes.md:
     id: abc0bfd26dfc
-    last_write_checksum: sha1:ba5c8504ca7d14a3924f88ac5bf598bd2fb65697
-    pristine_git_object: 0bd99b9c79da410f9bac8004d4bf8836903916df
+    last_write_checksum: sha1:76040581cedf5efaaae25a0b5fed641da34d1925
+    pristine_git_object: a457330864f272da6350e6a02192a7d4481744b4
   docs/models/operations/postteamteamsdata.md:
     id: eb82fe993107
     last_write_checksum: sha1:1053bd8bcd6f97cd4e7edfbb577792aaf44cd011
@@ -3767,8 +3767,8 @@ trackedFiles:
     pristine_git_object: f055c7135bd9df9511999b5a8af285cf62b279a1
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:25fd473ef52d19851e9ee69c2d7db8138032699f
-    pristine_git_object: 370cbe137a13418634f34d0945f40f554f4a08db
+    last_write_checksum: sha1:1bf8c6de32a7c59faf87fdd9f934a0986271abdb
+    pristine_git_object: 71f590c8485c2f06e22fafc8d9bc37792f8888b8
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -4063,8 +4063,8 @@ trackedFiles:
     pristine_git_object: 207f6af8189665aa3b994af964921a9ba3ba1306
   models/components/teammembers.go:
     id: ae7f0aee830b
-    last_write_checksum: sha1:27dd436511c4c2ca6e04e37856151522d20b55ef
-    pristine_git_object: 278ddfe4e6c23a772c5944788cbdd810fc480288
+    last_write_checksum: sha1:397be14387ecd7cf09f95588eae7317a248ebc27
+    pristine_git_object: d703df7663d9fa8814bcd7bff52d903bfc78f146
   models/components/teams.go:
     id: abe3e33a008a
     last_write_checksum: sha1:af8e0979f7f30499902fbda113c201baabf1d398
@@ -4575,8 +4575,8 @@ trackedFiles:
     pristine_git_object: 4815e47441dbfa73074239c0ce91300645dca38d
   models/operations/patchcurrentteam.go:
     id: 7f1a7a91e131
-    last_write_checksum: sha1:f1cde164f7f05d5bd6bf492badfebc9c6f31bfc9
-    pristine_git_object: cf0200c7cd77f0eb6d57f40adc05def662b47e49
+    last_write_checksum: sha1:312c6ebd431af9dd394ee045ae8cfe6e549b5fdd
+    pristine_git_object: c6f32459d8f5705e9780df482f44e961e5698fb9
   models/operations/patchstoragefilesystems.go:
     id: c665ce87073b
     last_write_checksum: sha1:0b856542bbee242bd4014c3153486058aba0db78
@@ -4623,8 +4623,8 @@ trackedFiles:
     pristine_git_object: 40b6737f007765f75ff4037866fe621ed261f091
   models/operations/postteam.go:
     id: 5d90f199e0d0
-    last_write_checksum: sha1:4b3affb70984dfe9df9b666bb4c9a4a31531571e
-    pristine_git_object: bb982734c5b8d40101e2f08bb33878b70d9e18f5
+    last_write_checksum: sha1:9c0f12fec6d42a82f921d7c13902f7ce725bfaa1
+    pristine_git_object: a2e0cd37b282581b8a9f94d7c548a301faad4c40
   models/operations/postteammembers.go:
     id: b2531f841ed2
     last_write_checksum: sha1:ed37934bc90ef50bb93e3920959d284112a642df
@@ -5383,8 +5383,8 @@ examples:
         path:
           team_id: "team_bVJM4y6m4VCyy101JzA3szlVGRb"
       requestBody:
-        application/json: {"data": {"id": "team_bVJM4y6m4VCyy101JzA3szlVGRb", "type": "teams", "attributes": {"address": "Address", "name": "Name", "currency": "USD"}}}
-        application/vnd.api+json: {"data": {"id": "team_bVJM4y6m4VCyy101JzA3szlVGRb", "type": "teams", "attributes": {"address": "Address", "name": "Name", "currency": "USD"}}}
+        application/json: {"data": {"id": "team_bVJM4y6m4VCyy101JzA3szlVGRb", "type": "teams", "attributes": {"address": "Address", "name": "Name"}}}
+        application/vnd.api+json: {"data": {"id": "team_bVJM4y6m4VCyy101JzA3szlVGRb", "type": "teams", "attributes": {"address": "Address", "name": "Name"}}}
       responses:
         "200":
           application/vnd.api+json: {"data": {"id": "team_bVJM4y6m4VCyy101JzA3szlVGRb", "attributes": {"name": "Langworth-Langosh", "slug": "langworth-langosh", "address": "2746 Joe Stream", "currency": "WST", "enforce_mfa": false}}}
@@ -5418,7 +5418,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "user_4V815bRpPLCKKQnvA2yESr5Q8Px", "type": "users", "attributes": {"first_name": "Arron", "last_name": "Flatley", "email": "gabrielle@carter.example", "mfa_enabled": false, "created_at": "2025-10-31T00:00:00+00:00", "updated_at": "2026-11-15T00:00:00+00:00", "last_login_at": null, "role": {"id": "role_0W0Q8EJMrViyEkP5KBzzHNP4v48", "name": "billing"}}}, {"id": "user_YLNGPAYPAotoo2mZRv59SGLKQW7n", "type": "users", "attributes": {"first_name": "Kathryne", "last_name": "Purdy", "email": "hilaria.rutherford@lowe.test", "mfa_enabled": false, "created_at": "2025-05-31T00:00:00+00:00", "updated_at": "2026-10-22T00:00:00+00:00", "last_login_at": null, "role": {"id": "role_o41aor9xVMSzmNM5eQN4TkJbv42", "name": "owner"}}}, {"id": "user_LxZl44k6rJtLBAYg67L7F5o3AkJP", "type": "users", "attributes": {"first_name": "Myles", "last_name": "Lesch", "email": "manual@marquardt-lueilwitz.example", "mfa_enabled": false, "created_at": "2025-02-22T00:00:00+00:00", "updated_at": "2026-09-20T00:00:00+00:00", "last_login_at": "2025-08-05T00:00:00+00:00", "role": {"id": "role_o41aor9xVMSzmNM5eQN4TkJbv42", "name": "owner"}}}]}
+          application/vnd.api+json: {"data": [{"id": "user_4V815bRpPLCKKQnvA2yESr5Q8Px", "type": "users", "attributes": {"first_name": "Arron", "last_name": "Flatley", "email": "gabrielle@carter.example", "mfa_enabled": false, "created_at": "2025-10-31T00:00:00+00:00", "updated_at": "2026-11-15T00:00:00+00:00", "last_login_at": null, "role": {"id": "role_0W0Q8EJMrViyEkP5KBzzHNP4v48", "name": "billing"}}}, {"id": "user_YLNGPAYPAotoo2mZRv59SGLKQW7n", "type": "users", "attributes": {"first_name": "Kathryne", "last_name": "Purdy", "email": "hilaria.rutherford@lowe.test", "mfa_enabled": false, "created_at": "2025-05-31T00:00:00+00:00", "updated_at": "2026-10-22T00:00:00+00:00", "last_login_at": null, "role": {"id": "role_o41aor9xVMSzmNM5eQN4TkJbv42", "name": "owner"}}}, {"id": "user_LxZl44k6rJtLBAYg67L7F5o3AkJP", "type": "users", "attributes": {"first_name": "Myles", "last_name": "Lesch", "email": "manual@marquardt-lueilwitz.example", "mfa_enabled": false, "created_at": "2025-02-22T00:00:00+00:00", "updated_at": "2026-09-20T00:00:00+00:00", "last_login_at": "2025-08-05T00:00:00+00:00", "role": {"id": "role_o41aor9xVMSzmNM5eQN4TkJbv42", "name": "owner"}}}], "meta": {}}
   post-team-members:
     Created:
       requestBody:
@@ -8539,10 +8539,7 @@ examples:
           application/vnd.api+json: {"meta": {"status": "accepted"}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Go SDK Changes:
-  * `Latitudesh.IpAddresses.List()`:  `response` **Changed** (Breaking ⚠️)
-  * `Latitudesh.IpAddresses.Get()`:  `response` **Changed** (Breaking ⚠️)
+releaseNotes: "## Go SDK Changes:\n* `Latitudesh.Teams.Update()`: \n  *  `request.RequestBody.Data.Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.Teams.Members.GetTeamMembers()`:  `response` **Changed** (Breaking ⚠️)\n* `Latitudesh.Teams.Create()`: \n  *  `request.Request.Data.Attributes.EnforceMfa` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

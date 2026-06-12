@@ -8,10 +8,8 @@ import (
 )
 
 type TeamMembersRole struct {
-	ID        *string `json:"id,omitempty"`
-	Name      *string `json:"name,omitempty"`
-	CreatedAt *string `json:"created_at,omitempty"`
-	UpdatedAt *string `json:"updated_at,omitempty"`
+	ID   *string `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
 }
 
 func (t *TeamMembersRole) GetID() *string {
@@ -26,20 +24,6 @@ func (t *TeamMembersRole) GetName() *string {
 		return nil
 	}
 	return t.Name
-}
-
-func (t *TeamMembersRole) GetCreatedAt() *string {
-	if t == nil {
-		return nil
-	}
-	return t.CreatedAt
-}
-
-func (t *TeamMembersRole) GetUpdatedAt() *string {
-	if t == nil {
-		return nil
-	}
-	return t.UpdatedAt
 }
 
 type TeamMembersAttributes struct {
@@ -147,8 +131,12 @@ func (t *TeamMembersData) GetAttributes() *TeamMembersAttributes {
 	return t.Attributes
 }
 
+type TeamMembersMeta struct {
+}
+
 type TeamMembers struct {
 	Data []TeamMembersData `json:"data,omitempty"`
+	Meta *TeamMembersMeta  `json:"meta,omitempty"`
 }
 
 func (t *TeamMembers) GetData() []TeamMembersData {
@@ -156,4 +144,11 @@ func (t *TeamMembers) GetData() []TeamMembersData {
 		return nil
 	}
 	return t.Data
+}
+
+func (t *TeamMembers) GetMeta() *TeamMembersMeta {
+	if t == nil {
+		return nil
+	}
+	return t.Meta
 }

@@ -3,9 +3,8 @@
 
 ## Fields
 
-| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `Address`                                                                                             | `*string`                                                                                             | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
-| `Name`                                                                                                | `*string`                                                                                             | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
-| `Currency`                                                                                            | [*operations.PatchCurrentTeamTeamsCurrency](../../models/operations/patchcurrentteamteamscurrency.md) | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
-| `ReferredCode`                                                                                        | `*string`                                                                                             | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `Address`          | `*string`          | :heavy_minus_sign: | N/A                |
+| `Name`             | `*string`          | :heavy_minus_sign: | N/A                |
+| `EnforceMfa`       | `*bool`            | :heavy_minus_sign: | N/A                |
