@@ -36,7 +36,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.Object != nil {
+    if res.Events != nil {
         for {
             // handle items
 
@@ -78,7 +78,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.Object != nil {
+    if res.Events != nil {
         for {
             // handle items
 
@@ -120,7 +120,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.Object != nil {
+    if res.Events != nil {
         for {
             // handle items
 
@@ -162,7 +162,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.Object != nil {
+    if res.Events != nil {
         for {
             // handle items
 
@@ -204,7 +204,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.Object != nil {
+    if res.Events != nil {
         for {
             // handle items
 
@@ -246,7 +246,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.Object != nil {
+    if res.Events != nil {
         for {
             // handle items
 
@@ -288,7 +288,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.Object != nil {
+    if res.Events != nil {
         for {
             // handle items
 

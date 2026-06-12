@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 4ed6ef875d83b67bef075421d0705e8a
+  docChecksum: 5a08c936e23fd46eea4fcfd3beee767a
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.777.1
-  generationVersion: 2.903.2
-  releaseVersion: 1.15.2
-  configChecksum: a407ef192ae3bbab2383f8e571cfe397
+  speakeasyVersion: 1.778.0
+  generationVersion: 2.904.2
+  releaseVersion: 1.15.3
+  configChecksum: cd9e1cd99ae21a1e9519d4740a61f464
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 5b16b874-0edd-4c88-b478-f414d4ffbaa4
-  pristine_commit_hash: de625181a8e3378fd1b5f1554b25c5d066933575
-  pristine_tree_hash: 18c328158d493d7d65cbe5bb13de438165f0a555
+  generation_id: 65c0d464-ef3d-45c4-8bf4-f49343f89471
+  pristine_commit_hash: 3c168fefc3cc0b0eb21780d467dd6888a0f0e612
+  pristine_tree_hash: 797cf973e7d2b6edf1d4a1d7449c8de384003d50
 features:
   go:
     additionalDependencies: 0.1.0
@@ -1487,8 +1487,8 @@ trackedFiles:
     pristine_git_object: 86420882e75768a28db97afb0788d04512564d0d
   docs/models/components/virtualmachinenetworkattachmentresourceattributes.md:
     id: b5d9b88142d8
-    last_write_checksum: sha1:2b25f9d4a209bc404870536170ad4d53dbdf1996
-    pristine_git_object: 11fb7e070eaa27d404df47bfb38d03c5ae684ed8
+    last_write_checksum: sha1:adac9a090bccbef1cbe975041a0dcdf56b0f682e
+    pristine_git_object: 9de68056a5d90e314fd4c4e08b10552dbff888a9
   docs/models/components/virtualmachinenetworkattachmentresourcetype.md:
     id: 0633689c98e7
     last_write_checksum: sha1:f848fb0fdd37a91aef2875024820d525ab08d137
@@ -2311,12 +2311,8 @@ trackedFiles:
     pristine_git_object: 891fba650730d2aa9447f27191dcee191b131db1
   docs/models/operations/geteventsresponse.md:
     id: b7211819d380
-    last_write_checksum: sha1:cc61243a7144fdb3f87671ae61cc3a03f11efafa
-    pristine_git_object: 7d19cf5c7ad94c21601f8c3ef855b9404c35c986
-  docs/models/operations/geteventsresponsebody.md:
-    id: b9a14c6c2eba
-    last_write_checksum: sha1:d4ff0394086d5ebc9adb0e4cd79546968b4cf825
-    pristine_git_object: 26d1773b96673cf42d036790e37357cf606a7a9c
+    last_write_checksum: sha1:ab986b0014c7ef548311945793b239180ade10bc
+    pristine_git_object: cfadbda99ee008638b46a32192843b54a6f14fea
   docs/models/operations/getfirewallassignmentsrequest.md:
     id: 06b7ba19c208
     last_write_checksum: sha1:9e5a01240e0034c4b151c2ba060385ec75416309
@@ -3575,8 +3571,8 @@ trackedFiles:
     pristine_git_object: 98d427a3f5a21dbfbba237b1b67b257024fb9731
   docs/sdks/events/README.md:
     id: cf45a4390b9b
-    last_write_checksum: sha1:e84f620a4598cf34242d3489a979a7bdf05ab6a5
-    pristine_git_object: a19535a37c18069589ef52693f3bb1913e72399b
+    last_write_checksum: sha1:eca9c17e3f8b9f96f9e55df1fbc97b61de56961f
+    pristine_git_object: 0409da69980d1a0f2ebc4dd2e9ba965dd807f3c3
   docs/sdks/filesystemstorage/README.md:
     id: e6e06efe7516
     last_write_checksum: sha1:5f171a314f495e1edf7d669f8eb9f5d058d42090
@@ -3683,8 +3679,8 @@ trackedFiles:
     pristine_git_object: aea09ee332190dfac684982c9b95e5ea6cd9391d
   events.go:
     id: fe26b3f87ab7
-    last_write_checksum: sha1:d4d8ba854f64d74faa9af03e66e08c1391148ef8
-    pristine_git_object: fb458528f538f5c09af7faf0235e4fe57fac359e
+    last_write_checksum: sha1:00c2115d8c25b8fc209aca14bb8f9a9aa52463c8
+    pristine_git_object: bc26b9993bbf3808a08184b3384268a2b88a1da7
   filesystemstorage.go:
     id: 2c868b5071de
     last_write_checksum: sha1:fc1dfbb95e07386844e72963bb8cd6c86417c005
@@ -3767,8 +3763,8 @@ trackedFiles:
     pristine_git_object: f055c7135bd9df9511999b5a8af285cf62b279a1
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:1bf8c6de32a7c59faf87fdd9f934a0986271abdb
-    pristine_git_object: 71f590c8485c2f06e22fafc8d9bc37792f8888b8
+    last_write_checksum: sha1:98b22d21da16224d8ac065b27b08649e9affd2e4
+    pristine_git_object: 1579ef1d345f6931b39a5f6e11690ae8af780f32
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -4139,8 +4135,8 @@ trackedFiles:
     pristine_git_object: 8911abccfd09184a2609f3899880023aa93c15a1
   models/components/virtualmachinenetworkattachmentresource.go:
     id: 7a9470c65a5a
-    last_write_checksum: sha1:a5967738a3fb5363bd2cbfd1bbff39ddd032d948
-    pristine_git_object: 19be2294a1352c85866fdb098b2753caa6e953c1
+    last_write_checksum: sha1:ef7491c038e5fd6099ebec5a6792e5eb7884abbf
+    pristine_git_object: 06c458cd32f53449220411573d6784a27bfff80c
   models/components/virtualmachinenetworkattachments.go:
     id: 6c25dbf8c6a9
     last_write_checksum: sha1:470d0b70a20e35418038bf01636359ccc970ad66
@@ -4367,8 +4363,8 @@ trackedFiles:
     pristine_git_object: 2a721eda58f6992f81aed795a01732cec2f44572
   models/operations/getevents.go:
     id: dbc8b87959d5
-    last_write_checksum: sha1:ea38736ceb9e121e863385c0b0a0396225f3f100
-    pristine_git_object: 22bccec4e68ea182999f8ab9a2ad6bd9bbe017b9
+    last_write_checksum: sha1:44efcc20fe685b2a52a8c23eedd98bb8b59f6954
+    pristine_git_object: dda04a07ee9366a91e9d652274db3f784800aaa8
   models/operations/getfirewall.go:
     id: 4c4b4301b674
     last_write_checksum: sha1:8f96feb7a6c2a0e36b15a222c0ac91a016caca86
@@ -4989,7 +4985,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{}]}
+          application/vnd.api+json: {"data": [{"id": "evt_r0MK4O4kDa95w", "type": "events", "attributes": {"action": "user_data.create", "created_at": "2026-01-14T15:56:32+00:00", "author": {"id": "user_1P7kNv94QNtKXLZWMe42hNJ5x6V", "name": "Julian Kuvalis", "email": "aleshia@stiedemann.test"}, "project": {"id": "proj_Av9BVDavORm1W", "name": "Enormous Rubber Car", "slug": "enormous-rubber-car"}, "team": {"id": "team_5EkwwB3BV5Uzo9EpPom8T6Zk6MjG", "name": "55 Team"}, "target": {"id": "ud_QraYDPm5OpjwW", "name": "user_data"}}}], "meta": {}}
     ServerDestroy:
       parameters:
         query:
@@ -4997,7 +4993,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{}]}
+          application/vnd.api+json: {"data": [{"id": "evt_8nKmP2qX9LzRy", "type": "events", "attributes": {"action": "servers.destroy", "created_at": "2026-01-07T15:42:15+00:00", "author": {"id": "user_NYNl38rzNzs4KXL96apwU3WJ5oX8", "name": "Jane Smith", "email": "jane.smith@example.com"}, "project": {"id": "proj_6059EqYkOQj8p", "name": "Production Infrastructure", "slug": "production-infrastructure"}, "team": {"id": "team_XmP9n3K5wVH2LbjQbx8YDl5oB", "name": "Engineering Team"}, "target": {"id": "sv_RLYV8DZ2D5QoE", "name": "server"}, "properties": {}}}], "meta": {}}
     ServerLock:
       parameters:
         query:
@@ -5005,7 +5001,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{}]}
+          application/vnd.api+json: {"data": [{"id": "evt_6pWnQ8sY4MzPx", "type": "events", "attributes": {"action": "servers.lock", "created_at": "2026-01-07T11:30:22+00:00", "author": {"id": "user_NYNl38rzNzs4KXL96apwU3WJ5oX8", "name": "Jane Smith", "email": "jane.smith@example.com"}, "project": {"id": "proj_6059EqYkOQj8p", "name": "Production Infrastructure", "slug": "production-infrastructure"}, "team": {"id": "team_XmP9n3K5wVH2LbjQbx8YDl5oB", "name": "Engineering Team"}, "target": {"id": "sv_RLYV8DZ2D5QoE", "name": "server"}, "properties": {}}}], "meta": {}}
     ServerUnlock:
       parameters:
         query:
@@ -5013,7 +5009,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{}]}
+          application/vnd.api+json: {"data": [{"id": "evt_3vTpN7qM5KzWx", "type": "events", "attributes": {"action": "servers.unlock", "created_at": "2026-01-07T14:28:33+00:00", "author": {"id": "user_NYNl38rzNzs4KXL96apwU3WJ5oX8", "name": "Jane Smith", "email": "jane.smith@example.com"}, "project": {"id": "proj_6059EqYkOQj8p", "name": "Production Infrastructure", "slug": "production-infrastructure"}, "team": {"id": "team_XmP9n3K5wVH2LbjQbx8YDl5oB", "name": "Engineering Team"}, "target": {"id": "sv_RLYV8DZ2D5QoE", "name": "server"}, "properties": {}}}], "meta": {}}
     DeploymentFailed:
       parameters:
         query:
@@ -5021,7 +5017,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{}]}
+          application/vnd.api+json: {"data": [{"id": "evt_9mXpL4rK8NzTv", "type": "events", "attributes": {"action": "deployment.failed", "created_at": "2026-01-07T13:15:42+00:00", "author": {"id": "user_NYNl38rzNzs4KXL96apwU3WJ5oX8", "name": "Jane Smith", "email": "jane.smith@example.com"}, "project": {"id": "proj_6059EqYkOQj8p", "name": "Production Infrastructure", "slug": "production-infrastructure"}, "team": {"id": "team_XmP9n3K5wVH2LbjQbx8YDl5oB", "name": "Engineering Team"}, "target": {"id": "sv_RLYV8DZ2D5QoE", "name": "server"}, "properties": {}}}], "meta": {}}
     ReinstallFailed:
       parameters:
         query:
@@ -5029,7 +5025,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{}]}
+          application/vnd.api+json: {"data": [{"id": "evt_5kQpN9rX3LzMy", "type": "events", "attributes": {"action": "reinstall.failed", "created_at": "2026-01-07T12:05:18+00:00", "author": {"id": "user_NYNl38rzNzs4KXL96apwU3WJ5oX8", "name": "Jane Smith", "email": "jane.smith@example.com"}, "project": {"id": "proj_6059EqYkOQj8p", "name": "Production Infrastructure", "slug": "production-infrastructure"}, "team": {"id": "team_XmP9n3K5wVH2LbjQbx8YDl5oB", "name": "Engineering Team"}, "target": {"id": "sv_RLYV8DZ2D5QoE", "name": "server"}, "properties": {}}}], "meta": {}}
     ScheduleDeletion:
       parameters:
         query:
@@ -5037,7 +5033,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{}]}
+          application/vnd.api+json: {"data": [{"id": "evt_7rXpM5tN2KzVw", "type": "events", "attributes": {"action": "schedule_deletion.create", "created_at": "2026-01-07T10:15:08+00:00", "author": {"id": "user_NYNl38rzNzs4KXL96apwU3WJ5oX8", "name": "Jane Smith", "email": "jane.smith@example.com"}, "project": {"id": "proj_6059EqYkOQj8p", "name": "Production Infrastructure", "slug": "production-infrastructure"}, "team": {"id": "team_XmP9n3K5wVH2LbjQbx8YDl5oB", "name": "Engineering Team"}, "target": {"id": "sv_RLYV8DZ2D5QoE", "name": "server"}, "properties": {}}}], "meta": {}}
   create-firewall:
     with valid parameters:
       requestBody:
@@ -8539,7 +8535,10 @@ examples:
           application/vnd.api+json: {"meta": {"status": "accepted"}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes:\n* `Latitudesh.Teams.Update()`: \n  *  `request.RequestBody.Data.Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.Teams.Members.GetTeamMembers()`:  `response` **Changed** (Breaking ⚠️)\n* `Latitudesh.Teams.Create()`: \n  *  `request.Request.Data.Attributes.EnforceMfa` **Added**\n"
+releaseNotes: |
+  ## Go SDK Changes:
+  * `Latitudesh.Events.List()`:  `response` **Changed** (Breaking ⚠️)
+  * `Latitudesh.VirtualMachines.ListVirtualMachineNetworkAttachments()`:  `response.Data[].Attributes.NadName` **Removed** (Breaking ⚠️)
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
