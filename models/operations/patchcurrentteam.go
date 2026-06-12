@@ -5,7 +5,6 @@ package operations
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
@@ -32,48 +31,10 @@ func (e *PatchCurrentTeamTeamsType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-type PatchCurrentTeamTeamsCurrency string
-
-const (
-	PatchCurrentTeamTeamsCurrencyUsd PatchCurrentTeamTeamsCurrency = "USD"
-	PatchCurrentTeamTeamsCurrencyBrl PatchCurrentTeamTeamsCurrency = "BRL"
-)
-
-func (e PatchCurrentTeamTeamsCurrency) ToPointer() *PatchCurrentTeamTeamsCurrency {
-	return &e
-}
-func (e *PatchCurrentTeamTeamsCurrency) UnmarshalJSON(data []byte) error {
-	var v string
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-	switch v {
-	case "USD":
-		fallthrough
-	case "BRL":
-		*e = PatchCurrentTeamTeamsCurrency(v)
-		return nil
-	default:
-		return fmt.Errorf("invalid value for PatchCurrentTeamTeamsCurrency: %v", v)
-	}
-}
-
 type PatchCurrentTeamTeamsAttributes struct {
-	Address      *string                        `json:"address,omitempty"`
-	Name         *string                        `json:"name,omitempty"`
-	Currency     *PatchCurrentTeamTeamsCurrency `default:"USD" json:"currency"`
-	ReferredCode *string                        `json:"referred_code,omitempty"`
-}
-
-func (p PatchCurrentTeamTeamsAttributes) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(p, "", false)
-}
-
-func (p *PatchCurrentTeamTeamsAttributes) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
-		return err
-	}
-	return nil
+	Address    *string `json:"address,omitempty"`
+	Name       *string `json:"name,omitempty"`
+	EnforceMfa *bool   `json:"enforce_mfa,omitempty"`
 }
 
 func (p *PatchCurrentTeamTeamsAttributes) GetAddress() *string {
@@ -90,18 +51,11 @@ func (p *PatchCurrentTeamTeamsAttributes) GetName() *string {
 	return p.Name
 }
 
-func (p *PatchCurrentTeamTeamsAttributes) GetCurrency() *PatchCurrentTeamTeamsCurrency {
+func (p *PatchCurrentTeamTeamsAttributes) GetEnforceMfa() *bool {
 	if p == nil {
 		return nil
 	}
-	return p.Currency
-}
-
-func (p *PatchCurrentTeamTeamsAttributes) GetReferredCode() *string {
-	if p == nil {
-		return nil
-	}
-	return p.ReferredCode
+	return p.EnforceMfa
 }
 
 type PatchCurrentTeamTeamsData struct {

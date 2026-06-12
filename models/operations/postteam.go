@@ -58,9 +58,10 @@ func (e *PostTeamCurrency) UnmarshalJSON(data []byte) error {
 }
 
 type PostTeamTeamsAttributes struct {
-	Name     string           `json:"name"`
-	Currency PostTeamCurrency `json:"currency"`
-	Address  *string          `json:"address,omitempty"`
+	Name       string           `json:"name"`
+	Currency   PostTeamCurrency `json:"currency"`
+	Address    *string          `json:"address,omitempty"`
+	EnforceMfa *bool            `json:"enforce_mfa,omitempty"`
 	// Supported only for first team creation
 	ReferredCode *string `json:"referred_code,omitempty"`
 }
@@ -84,6 +85,13 @@ func (p *PostTeamTeamsAttributes) GetAddress() *string {
 		return nil
 	}
 	return p.Address
+}
+
+func (p *PostTeamTeamsAttributes) GetEnforceMfa() *bool {
+	if p == nil {
+		return nil
+	}
+	return p.EnforceMfa
 }
 
 func (p *PostTeamTeamsAttributes) GetReferredCode() *string {
