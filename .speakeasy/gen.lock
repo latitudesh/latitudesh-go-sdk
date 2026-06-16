@@ -5,7 +5,7 @@ management:
   docVersion: "2023-06-01"
   speakeasyVersion: 1.779.0
   generationVersion: 2.905.0
-  releaseVersion: 1.15.4
+  releaseVersion: 1.16.0
   configChecksum: 77c6d4782364000e1005ca1fa7804d2e
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk

@@ -646,6 +646,6 @@ Based on:
 - OpenAPI Doc  
 - Speakeasy CLI 1.779.0 (2.905.0) https://github.com/speakeasy-api/speakeasy
 ### Generated
-- [go v1.15.4] .
+- [go v1.16.0] .
 ### Releases
-- [Go v1.15.4] https://github.com/latitudesh/latitudesh-go-sdk/releases/tag/v1.15.4 - .
+- [Go v1.16.0] https://github.com/latitudesh/latitudesh-go-sdk/releases/tag/v1.16.0 - .
