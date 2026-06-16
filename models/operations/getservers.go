@@ -32,11 +32,12 @@ type GetServersRequest struct {
 	FilterRAMGte *int64 `queryParam:"style=form,explode=true,name=filter[ram][gte]"`
 	// Filter servers with RAM size (in GB) less than or equal the provided value.
 	FilterRAMLte *int64 `queryParam:"style=form,explode=true,name=filter[ram][lte]"`
-	// The disk size in Gigabytes to filter by, should be used with the following options:
-	//                               [eql] to filter for values equal to the provided value.
-	//                               [gte] to filter for values greater than or equal to the provided value.
-	//                               [lte] to filter by values lower than or equal to the provided value.
-	FilterDisk *int64 `queryParam:"style=form,explode=true,name=filter[disk]"`
+	// Filter servers with disk size (in GB) equal to the provided value.
+	FilterDiskEql *int64 `queryParam:"style=form,explode=true,name=filter[disk][eql]"`
+	// Filter servers with disk size (in GB) greater than or equal to the provided value.
+	FilterDiskGte *int64 `queryParam:"style=form,explode=true,name=filter[disk][gte]"`
+	// Filter servers with disk size (in GB) less than or equal to the provided value.
+	FilterDiskLte *int64 `queryParam:"style=form,explode=true,name=filter[disk][lte]"`
 	// The tags IDs to filter by, separated by comma, e.g. `filter[tags]=tag_1,tag_2`will return servers with `tag_1` AND `tag_2`
 	FilterTags *string `queryParam:"style=form,explode=true,name=filter[tags]"`
 	// The `credentials` are provided as extra attributes that are lazy loaded. To request it, just set `extra_fields[servers]=credentials` in the query string.
@@ -142,11 +143,25 @@ func (g *GetServersRequest) GetFilterRAMLte() *int64 {
 	return g.FilterRAMLte
 }
 
-func (g *GetServersRequest) GetFilterDisk() *int64 {
+func (g *GetServersRequest) GetFilterDiskEql() *int64 {
 	if g == nil {
 		return nil
 	}
-	return g.FilterDisk
+	return g.FilterDiskEql
+}
+
+func (g *GetServersRequest) GetFilterDiskGte() *int64 {
+	if g == nil {
+		return nil
+	}
+	return g.FilterDiskGte
+}
+
+func (g *GetServersRequest) GetFilterDiskLte() *int64 {
+	if g == nil {
+		return nil
+	}
+	return g.FilterDiskLte
 }
 
 func (g *GetServersRequest) GetFilterTags() *string {
