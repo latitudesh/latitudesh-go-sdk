@@ -12,8 +12,14 @@ type GetUsersDataRequest struct {
 	FilterProject *string `queryParam:"style=form,explode=true,name=filter[project]"`
 	// Filter by scope: `project` (has project), `team` (no project), or empty (all)
 	FilterScope *string `queryParam:"style=form,explode=true,name=filter[scope]"`
+	// Request aggregate stats in the response `meta`. Use `count` to get the total number of records, returned as `meta.stats.total.count`.
+	StatsTotal *string `queryParam:"style=form,explode=true,name=stats[total]"`
 	// The `decoded_content` is provided as an extra attribute that shows content in decoded form.
 	ExtraFieldsUserData *string `default:"decoded_content" queryParam:"style=form,explode=true,name=extra_fields[user_data]"`
+	// Number of items to return per page
+	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
+	// Page number to return (starts at 1)
+	PageNumber *int64 `default:"1" queryParam:"style=form,explode=true,name=page[number]"`
 }
 
 func (g GetUsersDataRequest) MarshalJSON() ([]byte, error) {
@@ -41,6 +47,13 @@ func (g *GetUsersDataRequest) GetFilterScope() *string {
 	return g.FilterScope
 }
 
+func (g *GetUsersDataRequest) GetStatsTotal() *string {
+	if g == nil {
+		return nil
+	}
+	return g.StatsTotal
+}
+
 func (g *GetUsersDataRequest) GetExtraFieldsUserData() *string {
 	if g == nil {
 		return nil
@@ -48,10 +61,26 @@ func (g *GetUsersDataRequest) GetExtraFieldsUserData() *string {
 	return g.ExtraFieldsUserData
 }
 
+func (g *GetUsersDataRequest) GetPageSize() *int64 {
+	if g == nil {
+		return nil
+	}
+	return g.PageSize
+}
+
+func (g *GetUsersDataRequest) GetPageNumber() *int64 {
+	if g == nil {
+		return nil
+	}
+	return g.PageNumber
+}
+
 type GetUsersDataResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Success
 	UserData *components.UserData
+
+	Next func() (*GetUsersDataResponse, error)
 }
 
 func (g *GetUsersDataResponse) GetHTTPMeta() components.HTTPMetadata {
