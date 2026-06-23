@@ -12,6 +12,7 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
 	"github.com/latitudesh/latitudesh-go-sdk/retry"
+	"github.com/spyzhov/ajson"
 	"net/http"
 	"net/url"
 )
@@ -1102,13 +1103,7 @@ func (s *UserData) UpdateForProject(ctx context.Context, projectID string, userD
 
 // List user data
 // List all Users Data in the project. These scripts can be used to configure servers with user data.
-func (s *UserData) List(ctx context.Context, filterProject *string, filterScope *string, extraFieldsUserData *string, opts ...operations.Option) (*operations.GetUsersDataResponse, error) {
-	request := operations.GetUsersDataRequest{
-		FilterProject:       filterProject,
-		FilterScope:         filterScope,
-		ExtraFieldsUserData: extraFieldsUserData,
-	}
-
+func (s *UserData) List(ctx context.Context, request operations.GetUsersDataRequest, opts ...operations.Option) (*operations.GetUsersDataResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -1268,6 +1263,51 @@ func (s *UserData) List(ctx context.Context, filterProject *string, filterScope 
 			Request:  req,
 			Response: httpRes,
 		},
+	}
+	res.Next = func() (*operations.GetUsersDataResponse, error) {
+		rawBody, err := utils.ConsumeRawBody(httpRes)
+		if err != nil {
+			return nil, err
+		}
+
+		b, err := ajson.Unmarshal(rawBody)
+		if err != nil {
+			return nil, err
+		}
+		var p int64 = 1
+		if request.PageNumber != nil {
+			p = *request.PageNumber
+		}
+		nP := int64(p + 1)
+		r, err := ajson.Eval(b, "$.data")
+		if err != nil {
+			return nil, err
+		}
+		if !r.IsArray() {
+			return nil, nil
+		}
+		arr, err := r.GetArray()
+		if err != nil {
+			return nil, err
+		}
+		if len(arr) == 0 {
+			return nil, nil
+		}
+
+		l := 0
+		if request.PageSize != nil {
+			l = int(*request.PageSize)
+		}
+		if len(arr) < l {
+			return nil, nil
+		}
+		request.PageNumber = &nP
+
+		return s.List(
+			ctx,
+			request,
+			opts...,
+		)
 	}
 
 	switch {

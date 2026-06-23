@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: c8a14206d5a9f86c43ec4ff0c0f5040d
+  docChecksum: 53c5d61e3617484716fd24ba9494cf7a
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.779.0
-  generationVersion: 2.905.0
-  releaseVersion: 1.16.0
-  configChecksum: 77c6d4782364000e1005ca1fa7804d2e
+  speakeasyVersion: 1.784.1
+  generationVersion: 2.911.3
+  releaseVersion: 1.16.1
+  configChecksum: 16dcee6fcf66c36a715f99e2f06236cd
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 14a6f8d4-8406-4ed8-95ef-535172c1058a
-  pristine_commit_hash: 5bf75c6c05eb361aad5775238f2c29bd68e45412
-  pristine_tree_hash: c0d5d7e0ea4ca023614c01ebd86f19eaab5e592a
+  generation_id: faee3139-107a-4f6e-8ce6-d80f065beaff
+  pristine_commit_hash: 94406c9ea954892b8d808b9b395c1d41ba9e33d7
+  pristine_tree_hash: 46712b31f5c8f7c86bd2a3fc4992b7e174bd5963
 features:
   go:
     additionalDependencies: 0.1.0
@@ -1339,12 +1339,8 @@ trackedFiles:
     pristine_git_object: 12e99d22aabcb5ded71d14a2e3a339ba02eced5e
   docs/models/components/userdata.md:
     id: 3cc9b43118c6
-    last_write_checksum: sha1:c77067388a6f7d22214d1cfb9eeb9c676ea508cc
-    pristine_git_object: ba6e209adf3f35a895757be0bed2ac715f4aef59
-  docs/models/components/userdatameta.md:
-    id: 80c9cf64e019
-    last_write_checksum: sha1:55dfdd22bd99c4272f8b527f6737d9c68704022b
-    pristine_git_object: d610fe755d16090c700d3a2a9a4f695f95558591
+    last_write_checksum: sha1:94e99a07d1ffdfb587fc799c7680650b8dc42b61
+    pristine_git_object: 1c7248edddd76cc27e676144bd54a01a1f8fda31
   docs/models/components/userdataobject.md:
     id: d7939a639036
     last_write_checksum: sha1:838599873588f0a738be3a8779af53a17dc5e5a9
@@ -2627,8 +2623,8 @@ trackedFiles:
     pristine_git_object: 7969d91c5d2204c48d46ac8296922b9c62c24746
   docs/models/operations/getusersdatarequest.md:
     id: 927e3670548d
-    last_write_checksum: sha1:2661b22b7a3947db9729225b5c5b628401ed8d4c
-    pristine_git_object: 93b754a050da0ca27eece5736109f7fc3fa87db9
+    last_write_checksum: sha1:34f0561cf532a68a19227893babc82b12121b35d
+    pristine_git_object: c9c395cd4892a0828c491662c0a688f296310db5
   docs/models/operations/getusersdataresponse.md:
     id: 244c33f7d7f9
     last_write_checksum: sha1:7dc0c70a6e83375a1593994605c0210e2e8d24fd
@@ -3651,8 +3647,8 @@ trackedFiles:
     pristine_git_object: f72d7ef7c546cb67a3ab898492ca0fe932992cc9
   docs/sdks/userdata/README.md:
     id: cb44a5227361
-    last_write_checksum: sha1:9618f3edb880720b3d177c4949fa51947860c18e
-    pristine_git_object: d263053d9adb5a1352149bcfc4dbcb540a4857bb
+    last_write_checksum: sha1:2292dc76de4b0ca959bf441f05a5af5590dc80ce
+    pristine_git_object: e62b5a7d171f436fb61450149acdd5a37bde6950
   docs/sdks/userprofile/README.md:
     id: e89a7f3efcd6
     last_write_checksum: sha1:23db7c3a814e6f17296dad4c40fd1d9a49f133ef
@@ -3763,8 +3759,8 @@ trackedFiles:
     pristine_git_object: f055c7135bd9df9511999b5a8af285cf62b279a1
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:4d78fc060202b0758ee9f68551b352eee8031965
-    pristine_git_object: 48365b82dd323b0e8d51c0130f82999b61c5603b
+    last_write_checksum: sha1:02c6f231a26778ece2a15e798a7375f3a90b3be8
+    pristine_git_object: a6cbd124178ea5bc80c6482d809e81b093d8bfd4
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -4091,8 +4087,8 @@ trackedFiles:
     pristine_git_object: 25c23a51abc1f6a1503a7e548d93c40e3bc88e08
   models/components/userdata.go:
     id: f8b1151deedc
-    last_write_checksum: sha1:79244d39eef6efe6d1d8e063ff60d26a286d13a3
-    pristine_git_object: c8d389c3f09e5252bffabc6f40d1c6cffb541695
+    last_write_checksum: sha1:fa317715132f47bfe0615b9dddc03fcff9d9bb0d
+    pristine_git_object: 00844ae6bf02ca38208d4b78f2c6b19eef9f47b1
   models/components/userdataobject.go:
     id: 31dec5b9eeb9
     last_write_checksum: sha1:ddf14bf71d72287e3652cf1bd43b1788849441b5
@@ -4515,8 +4511,8 @@ trackedFiles:
     pristine_git_object: 0bef44af65e2d5c37fe00a7060b0b50a14fbb9d7
   models/operations/getusersdata.go:
     id: 2fa25d74cf68
-    last_write_checksum: sha1:9497e447f3179fed045ffb74d28728732d9f5577
-    pristine_git_object: b97507b8e7b9c8fbb757976cbbb63369f0830ba6
+    last_write_checksum: sha1:91173c036221dbd31250db472c2d45998910b8bb
+    pristine_git_object: 0a5303f9560fd54817e74c23416bf376362f00b0
   models/operations/getuserteams.go:
     id: 682449e004f8
     last_write_checksum: sha1:8d3b0db53ecadde999fd7a3a06afa7d42c8cb0e6
@@ -4811,8 +4807,8 @@ trackedFiles:
     pristine_git_object: 35c439d2661e08fcb6a854096fd7b9a8561b3938
   userdata.go:
     id: aefa63a61dd1
-    last_write_checksum: sha1:7bffa3c5170d3662f111faaf242f4d97c75c30da
-    pristine_git_object: f261747573ecaa4de66d9ccf35ace068915833ec
+    last_write_checksum: sha1:b2818d6d5702da2d2dcb0df32440cdff82ec7300
+    pristine_git_object: f45e5b2a9722232876dbfc780cafe83d670ba8da
   userprofile.go:
     id: 1e4afe168e18
     last_write_checksum: sha1:6654a3118c943e896a61ce40f7df21aea6d3cee6
@@ -7568,6 +7564,8 @@ examples:
       parameters:
         query:
           extra_fields[user_data]: "decoded_content"
+          page[size]: 20
+          page[number]: 1
       responses:
         "200":
           application/vnd.api+json: {"data": [{}], "meta": {}}
@@ -8535,9 +8533,7 @@ examples:
           application/vnd.api+json: {"meta": {"status": "accepted"}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Go SDK Changes:
-  * `Latitudesh.Servers.List()`:  `request.Request` **Changed** (Breaking ⚠️)
+releaseNotes: "## Go SDK Changes:\n* `Latitudesh.UserData.List()`: \n  *  `request` **Changed** (Breaking ⚠️)\n  *  `response.Meta.Stats` **Added**\n* `Latitudesh.UserData.GetProjectUsersData()`:  `response.Meta.Stats` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
