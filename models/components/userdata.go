@@ -3,11 +3,11 @@
 package components
 
 type UserData struct {
-	Data []UserDataObject `json:"data,omitempty"`
-	Meta *PaginationMeta  `json:"meta,omitempty"`
+	Data []UserDataProperties `json:"data,omitempty"`
+	Meta *PaginationMeta      `json:"meta,omitempty"`
 }
 
-func (u *UserData) GetData() []UserDataObject {
+func (u *UserData) GetData() []UserDataProperties {
 	if u == nil {
 		return nil
 	}

@@ -34,10 +34,12 @@ type UserDataPropertiesAttributes struct {
 	// description of the User Data
 	Description *string `json:"description,omitempty"`
 	// content of the User Data
-	Content   *string         `json:"content,omitempty"`
-	Project   *ProjectInclude `json:"project,omitempty"`
-	CreatedAt *string         `json:"created_at,omitempty"`
-	UpdatedAt *string         `json:"updated_at,omitempty"`
+	Content *string `json:"content,omitempty"`
+	// decoded content of the User Data
+	DecodedContent *string         `json:"decoded_content,omitempty"`
+	Project        *ProjectInclude `json:"project,omitempty"`
+	CreatedAt      *string         `json:"created_at,omitempty"`
+	UpdatedAt      *string         `json:"updated_at,omitempty"`
 }
 
 func (u *UserDataPropertiesAttributes) GetDescription() *string {
@@ -52,6 +54,13 @@ func (u *UserDataPropertiesAttributes) GetContent() *string {
 		return nil
 	}
 	return u.Content
+}
+
+func (u *UserDataPropertiesAttributes) GetDecodedContent() *string {
+	if u == nil {
+		return nil
+	}
+	return u.DecodedContent
 }
 
 func (u *UserDataPropertiesAttributes) GetProject() *ProjectInclude {
