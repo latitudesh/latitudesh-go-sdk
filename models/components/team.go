@@ -21,6 +21,81 @@ func (t *TeamBilling) GetCustomerBillingID() *string {
 	return t.CustomerBillingID
 }
 
+type TeamLimits struct {
+	BareMetal         *int64 `json:"bare_metal,omitempty"`
+	BareMetalGpu      *int64 `json:"bare_metal_gpu,omitempty"`
+	VirtualMachine    *int64 `json:"virtual_machine,omitempty"`
+	VirtualMachineGpu *int64 `json:"virtual_machine_gpu,omitempty"`
+	ElasticIP         *int64 `json:"elastic_ip,omitempty"`
+	VirtualNetwork    *int64 `json:"virtual_network,omitempty"`
+	Database          *int64 `json:"database,omitempty"`
+	Filesystem        *int64 `json:"filesystem,omitempty"`
+	BlockStorage      *int64 `json:"block_storage,omitempty"`
+}
+
+func (t *TeamLimits) GetBareMetal() *int64 {
+	if t == nil {
+		return nil
+	}
+	return t.BareMetal
+}
+
+func (t *TeamLimits) GetBareMetalGpu() *int64 {
+	if t == nil {
+		return nil
+	}
+	return t.BareMetalGpu
+}
+
+func (t *TeamLimits) GetVirtualMachine() *int64 {
+	if t == nil {
+		return nil
+	}
+	return t.VirtualMachine
+}
+
+func (t *TeamLimits) GetVirtualMachineGpu() *int64 {
+	if t == nil {
+		return nil
+	}
+	return t.VirtualMachineGpu
+}
+
+func (t *TeamLimits) GetElasticIP() *int64 {
+	if t == nil {
+		return nil
+	}
+	return t.ElasticIP
+}
+
+func (t *TeamLimits) GetVirtualNetwork() *int64 {
+	if t == nil {
+		return nil
+	}
+	return t.VirtualNetwork
+}
+
+func (t *TeamLimits) GetDatabase() *int64 {
+	if t == nil {
+		return nil
+	}
+	return t.Database
+}
+
+func (t *TeamLimits) GetFilesystem() *int64 {
+	if t == nil {
+		return nil
+	}
+	return t.Filesystem
+}
+
+func (t *TeamLimits) GetBlockStorage() *int64 {
+	if t == nil {
+		return nil
+	}
+	return t.BlockStorage
+}
+
 type TeamAttributes struct {
 	Name         *string          `json:"name,omitempty"`
 	Slug         *string          `json:"slug,omitempty"`
@@ -35,6 +110,7 @@ type TeamAttributes struct {
 	Owner        *UserInclude     `json:"owner,omitempty"`
 	Billing      *TeamBilling     `json:"billing,omitempty"`
 	FeatureFlags []string         `json:"feature_flags,omitempty"`
+	Limits       *TeamLimits      `json:"limits,omitempty"`
 }
 
 func (t *TeamAttributes) GetName() *string {
@@ -126,6 +202,13 @@ func (t *TeamAttributes) GetFeatureFlags() []string {
 		return nil
 	}
 	return t.FeatureFlags
+}
+
+func (t *TeamAttributes) GetLimits() *TeamLimits {
+	if t == nil {
+		return nil
+	}
+	return t.Limits
 }
 
 type Team struct {
