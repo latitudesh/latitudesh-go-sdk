@@ -32,17 +32,17 @@ func (e *FilesystemDataType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-type StorageClass string
+type FilesystemStorageClass string
 
 const (
-	StorageClassStandard        StorageClass = "standard"
-	StorageClassHighPerformance StorageClass = "high_performance"
+	FilesystemStorageClassStandard        FilesystemStorageClass = "standard"
+	FilesystemStorageClassHighPerformance FilesystemStorageClass = "high_performance"
 )
 
-func (e StorageClass) ToPointer() *StorageClass {
+func (e FilesystemStorageClass) ToPointer() *FilesystemStorageClass {
 	return &e
 }
-func (e *StorageClass) UnmarshalJSON(data []byte) error {
+func (e *FilesystemStorageClass) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -51,20 +51,20 @@ func (e *StorageClass) UnmarshalJSON(data []byte) error {
 	case "standard":
 		fallthrough
 	case "high_performance":
-		*e = StorageClass(v)
+		*e = FilesystemStorageClass(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for StorageClass: %v", v)
+		return fmt.Errorf("invalid value for FilesystemStorageClass: %v", v)
 	}
 }
 
 type FilesystemDataAttributes struct {
-	Name         *string         `json:"name,omitempty"`
-	SizeInGb     *int64          `json:"size_in_gb,omitempty"`
-	StorageClass *StorageClass   `json:"storage_class,omitempty"`
-	CreatedAt    *time.Time      `json:"created_at,omitempty"`
-	Project      *ProjectInclude `json:"project,omitempty"`
-	Team         *TeamInclude    `json:"team,omitempty"`
+	Name                   *string                 `json:"name,omitempty"`
+	SizeInGb               *int64                  `json:"size_in_gb,omitempty"`
+	FilesystemStorageClass *FilesystemStorageClass `json:"storage_class,omitempty"`
+	CreatedAt              *time.Time              `json:"created_at,omitempty"`
+	Project                *ProjectInclude         `json:"project,omitempty"`
+	Team                   *TeamInclude            `json:"team,omitempty"`
 }
 
 func (f FilesystemDataAttributes) MarshalJSON() ([]byte, error) {
@@ -92,11 +92,11 @@ func (f *FilesystemDataAttributes) GetSizeInGb() *int64 {
 	return f.SizeInGb
 }
 
-func (f *FilesystemDataAttributes) GetStorageClass() *StorageClass {
+func (f *FilesystemDataAttributes) GetFilesystemStorageClass() *FilesystemStorageClass {
 	if f == nil {
 		return nil
 	}
-	return f.StorageClass
+	return f.FilesystemStorageClass
 }
 
 func (f *FilesystemDataAttributes) GetCreatedAt() *time.Time {

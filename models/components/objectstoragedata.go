@@ -32,18 +32,18 @@ func (e *ObjectStorageDataType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// ObjectStorageDataStorageClass - Storage class tier
-type ObjectStorageDataStorageClass string
+// StorageClass - Storage class tier
+type StorageClass string
 
 const (
-	ObjectStorageDataStorageClassStandard        ObjectStorageDataStorageClass = "standard"
-	ObjectStorageDataStorageClassHighPerformance ObjectStorageDataStorageClass = "high_performance"
+	StorageClassStandard        StorageClass = "standard"
+	StorageClassHighPerformance StorageClass = "high_performance"
 )
 
-func (e ObjectStorageDataStorageClass) ToPointer() *ObjectStorageDataStorageClass {
+func (e StorageClass) ToPointer() *StorageClass {
 	return &e
 }
-func (e *ObjectStorageDataStorageClass) UnmarshalJSON(data []byte) error {
+func (e *StorageClass) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -52,10 +52,10 @@ func (e *ObjectStorageDataStorageClass) UnmarshalJSON(data []byte) error {
 	case "standard":
 		fallthrough
 	case "high_performance":
-		*e = ObjectStorageDataStorageClass(v)
+		*e = StorageClass(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for ObjectStorageDataStorageClass: %v", v)
+		return fmt.Errorf("invalid value for StorageClass: %v", v)
 	}
 }
 
@@ -126,7 +126,7 @@ type ObjectStorageDataAttributes struct {
 	// Type of storage (e.g., `object`)
 	StorageType *string `json:"storage_type,omitempty"`
 	// Storage class tier
-	StorageClass *ObjectStorageDataStorageClass `json:"storage_class,omitempty"`
+	StorageClass *StorageClass `json:"storage_class,omitempty"`
 	// Timestamp when the object storage was created
 	CreatedAt *time.Time `json:"created_at,omitempty"`
 	// S3-compatible bucket name
@@ -176,7 +176,7 @@ func (o *ObjectStorageDataAttributes) GetStorageType() *string {
 	return o.StorageType
 }
 
-func (o *ObjectStorageDataAttributes) GetStorageClass() *ObjectStorageDataStorageClass {
+func (o *ObjectStorageDataAttributes) GetStorageClass() *StorageClass {
 	if o == nil {
 		return nil
 	}

@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 05b012753fa0888460953fce1e7caba1
+  docChecksum: ad4b5d989a918722a54665c995aba6ff
   docVersion: "2023-06-01"
   speakeasyVersion: 1.787.0
   generationVersion: 2.914.0
-  releaseVersion: 1.16.4
-  configChecksum: 2b50bf4cf12b7192678d7023466d6c74
+  releaseVersion: 1.16.5
+  configChecksum: e9df605be557849e6d9e1c1935784539
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 9fc73ce2-b8bf-4ac9-a858-f2b60e9d7415
-  pristine_commit_hash: 8c07ec2bfc1a0c97b225d869217d9c14d9ab5484
-  pristine_tree_hash: 46eab659b93474b3cc8c3cab37ea0afed6c04d78
+  generation_id: 8da8d7e2-6c4c-4816-b699-57a708f1652f
+  pristine_commit_hash: de54a56ea4808542c2b2705df5253f8077a87f25
+  pristine_tree_hash: a1155acdd8aec19c2ee3371f422e8714da3cb201
 features:
   go:
     additionalDependencies: 0.1.0
@@ -415,8 +415,8 @@ trackedFiles:
     pristine_git_object: 17b0a05b11630aadcf0925c76ccf678e1475d786
   docs/models/components/filesystemdataattributes.md:
     id: 0399f3e0f454
-    last_write_checksum: sha1:8b4111aceab23db671e0a0ac328c89dd38603b1f
-    pristine_git_object: f7f057fe9cab08c9d08660434b7690812135dc91
+    last_write_checksum: sha1:b8b3e6c94e192218963d6019cb0db41c801a207d
+    pristine_git_object: b284341801fc88a1cc890b7211abb9f827b96a03
   docs/models/components/filesystemdatatype.md:
     id: 0b5cb21d377f
     last_write_checksum: sha1:3ef2de71f0abe9b5c1bcd66d4300935fb543e691
@@ -429,6 +429,10 @@ trackedFiles:
     id: eaea71a53044
     last_write_checksum: sha1:f5ca9c31fd68a03e9bdc2fea32e3a67ba4da58b7
     pristine_git_object: 1e93d4a2ec51266762f1b61aba8f4293ac671bd2
+  docs/models/components/filesystemstorageclass.md:
+    id: 305bbe955b24
+    last_write_checksum: sha1:3c9fd1088ca0108e3ef4aecc2514b5bd2cced6b0
+    pristine_git_object: cd429f640c6c45fd96227cd88032a64c855fa588
   docs/models/components/firewall.md:
     id: f4e3756187ff
     last_write_checksum: sha1:adad7f6e8277c99c99259860f4f83e60de99fe43
@@ -759,16 +763,12 @@ trackedFiles:
     pristine_git_object: 1e3344c03bf4253fc258a073f717bb7b7f9abd27
   docs/models/components/objectstoragedataattributes.md:
     id: 12875e1646b9
-    last_write_checksum: sha1:246043a1889f4150a4658095fce55abfe43e4e5e
-    pristine_git_object: 82ad0a123f6a4f2addce21410aa9c0131ceb232d
+    last_write_checksum: sha1:f567fe82392097875646612a3bf17ee09dab58fa
+    pristine_git_object: e651a744c9fcd632500054a09bb5e223d99beb9a
   docs/models/components/objectstoragedataregion.md:
     id: 35cd60c86dc4
     last_write_checksum: sha1:7327197e58d67868d885d68622ca3e5d05de07df
     pristine_git_object: a726751a08839d03c99a4b5892d6e20ae38f563d
-  docs/models/components/objectstoragedatastorageclass.md:
-    id: d09aef876852
-    last_write_checksum: sha1:de6285c4f49f89c35724829dd0e59f1c5df6b4bf
-    pristine_git_object: e135fe91223155adaee08dc2a56a5b6d234cbbab
   docs/models/components/objectstoragedatatype.md:
     id: b8528dda9354
     last_write_checksum: sha1:7984e5a23e6ed72ccb1dfad92217a6414841091f
@@ -1159,8 +1159,8 @@ trackedFiles:
     pristine_git_object: 08daa56f63cecc15d73cc4099edc90eda6bd18bc
   docs/models/components/storageclass.md:
     id: 454d8ded89d4
-    last_write_checksum: sha1:ab37759a1a57c3db457a6b5f4bd1d9a9ac494350
-    pristine_git_object: 40164b8707a2952175a5f96598447ce12e04afbb
+    last_write_checksum: sha1:3027a275cfdadd959c67117e54a5618303875b32
+    pristine_git_object: d7c41f8ee1d48c7b083083d21ad010ab401bd315
   docs/models/components/storageplandata.md:
     id: d904eb0707e5
     last_write_checksum: sha1:b364542e39b7fe107bbda52517d16be0c37660ad
@@ -3779,8 +3779,8 @@ trackedFiles:
     pristine_git_object: f055c7135bd9df9511999b5a8af285cf62b279a1
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:89c75dd9a4e2a87fd4579f622938525e042ec0c1
-    pristine_git_object: de472ce8c654d199fe2b450b0b18d378516ea377
+    last_write_checksum: sha1:6541dd1a22eebe4f20567212c59a17bc2238bd08
+    pristine_git_object: c9c4f132afca87c4991c0ccb0813ef001826c7f6
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -3871,8 +3871,8 @@ trackedFiles:
     pristine_git_object: c24e77cc1dfd54770843934ccfd6dd42c4d6bdb7
   models/components/filesystemdata.go:
     id: e2b0942c9cb4
-    last_write_checksum: sha1:7000e365a1bc57fbdc27a71f213d2ee745b4e028
-    pristine_git_object: 5ce77ab7ae3026d205dd577df6ac874247f627c4
+    last_write_checksum: sha1:31ed8d1d781240a1cd7dc3bf8f35de257482a675
+    pristine_git_object: a1e54bd3abb7345e2c7b949a32f884102e5f7499
   models/components/filesystems.go:
     id: 9e3ef99a72d6
     last_write_checksum: sha1:46e57f0fb81fff2646936ec6637871d09fb71d0c
@@ -3959,8 +3959,8 @@ trackedFiles:
     pristine_git_object: 2a55f3482cc054ae23a60e64f7f1f7c0abe5198b
   models/components/objectstoragedata.go:
     id: 6f2b8c483e94
-    last_write_checksum: sha1:5f3bbbccb7b9ca53cd98f35f65eb134c912750f8
-    pristine_git_object: dce0def4b765338fa6fc6ac1cec89550ea1de24a
+    last_write_checksum: sha1:36c82c4e16513356d5dc0fe5d716065cb8e27b05
+    pristine_git_object: 969a9c41fabfe9264633035afb679a5c07a9c43b
   models/components/objectstorages.go:
     id: 98260401f4e7
     last_write_checksum: sha1:27d7b125a4e869141e39208df2001ab091367e38
@@ -8560,7 +8560,6 @@ examples:
           application/vnd.api+json: {"meta": {"status": "accepted"}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes:\n* `Latitudesh.Firewalls.GetAllFirewallAssignments()`:  `response.Data[].Attributes.Firewall` **Added**\n* `Latitudesh.Firewalls.Create()`:  `response.Data.Attributes.Rules[].Default` **Added**\n* `Latitudesh.Firewalls.List()`:  `response.Data[].Attributes.Rules[].Default` **Added**\n* `Latitudesh.Firewalls.Get()`:  `response.Data.Attributes.Rules[].Default` **Added**\n* `Latitudesh.Firewalls.Update()`:  `response.Data.Attributes.Rules[].Default` **Added**\n* `Latitudesh.Firewalls.ListAssignments()`:  `response.Data[].Attributes.Firewall` **Added**\n* `Latitudesh.FilesystemStorage.CreateFilesystem()`:  `response.Data.Attributes` **Changed**\n* `Latitudesh.FilesystemStorage.ListFilesystems()`:  `response.status[200].content[application/vnd.api+json` **Added**\n* `Latitudesh.FilesystemStorage.UpdateFilesystem()`:  `response.Data.Attributes` **Changed**\n* `Latitudesh.VirtualMachines.Create()`: \n  *  `request.Request.Data.Attributes.Site` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
