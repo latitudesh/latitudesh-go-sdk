@@ -57,9 +57,29 @@ func (f *FirewallAssignmentDataServer) GetHostname() *string {
 	return f.Hostname
 }
 
+type FirewallAssignmentDataFirewall struct {
+	ID   *string `json:"id,omitempty"`
+	Name *string `json:"name,omitempty"`
+}
+
+func (f *FirewallAssignmentDataFirewall) GetID() *string {
+	if f == nil {
+		return nil
+	}
+	return f.ID
+}
+
+func (f *FirewallAssignmentDataFirewall) GetName() *string {
+	if f == nil {
+		return nil
+	}
+	return f.Name
+}
+
 type FirewallAssignmentDataAttributes struct {
-	Server     *FirewallAssignmentDataServer `json:"server,omitempty"`
-	FirewallID *string                       `json:"firewall_id,omitempty"`
+	Server     *FirewallAssignmentDataServer   `json:"server,omitempty"`
+	Firewall   *FirewallAssignmentDataFirewall `json:"firewall,omitempty"`
+	FirewallID *string                         `json:"firewall_id,omitempty"`
 }
 
 func (f *FirewallAssignmentDataAttributes) GetServer() *FirewallAssignmentDataServer {
@@ -67,6 +87,13 @@ func (f *FirewallAssignmentDataAttributes) GetServer() *FirewallAssignmentDataSe
 		return nil
 	}
 	return f.Server
+}
+
+func (f *FirewallAssignmentDataAttributes) GetFirewall() *FirewallAssignmentDataFirewall {
+	if f == nil {
+		return nil
+	}
+	return f.Firewall
 }
 
 func (f *FirewallAssignmentDataAttributes) GetFirewallID() *string {
