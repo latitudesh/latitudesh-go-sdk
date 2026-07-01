@@ -32,38 +32,39 @@ func (e *FilesystemDataType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-type FilesystemDataProject struct {
-	ID   *string `json:"id,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Slug *string `json:"slug,omitempty"`
-}
+type FilesystemStorageClass string
 
-func (f *FilesystemDataProject) GetID() *string {
-	if f == nil {
-		return nil
-	}
-	return f.ID
-}
+const (
+	FilesystemStorageClassStandard        FilesystemStorageClass = "standard"
+	FilesystemStorageClassHighPerformance FilesystemStorageClass = "high_performance"
+)
 
-func (f *FilesystemDataProject) GetName() *string {
-	if f == nil {
-		return nil
-	}
-	return f.Name
+func (e FilesystemStorageClass) ToPointer() *FilesystemStorageClass {
+	return &e
 }
-
-func (f *FilesystemDataProject) GetSlug() *string {
-	if f == nil {
-		return nil
+func (e *FilesystemStorageClass) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
 	}
-	return f.Slug
+	switch v {
+	case "standard":
+		fallthrough
+	case "high_performance":
+		*e = FilesystemStorageClass(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for FilesystemStorageClass: %v", v)
+	}
 }
 
 type FilesystemDataAttributes struct {
-	Name      *string                `json:"name,omitempty"`
-	SizeInGb  *int64                 `json:"size_in_gb,omitempty"`
-	CreatedAt *time.Time             `json:"created_at,omitempty"`
-	Project   *FilesystemDataProject `json:"project,omitempty"`
+	Name                   *string                 `json:"name,omitempty"`
+	SizeInGb               *int64                  `json:"size_in_gb,omitempty"`
+	FilesystemStorageClass *FilesystemStorageClass `json:"storage_class,omitempty"`
+	CreatedAt              *time.Time              `json:"created_at,omitempty"`
+	Project                *ProjectInclude         `json:"project,omitempty"`
+	Team                   *TeamInclude            `json:"team,omitempty"`
 }
 
 func (f FilesystemDataAttributes) MarshalJSON() ([]byte, error) {
@@ -91,6 +92,13 @@ func (f *FilesystemDataAttributes) GetSizeInGb() *int64 {
 	return f.SizeInGb
 }
 
+func (f *FilesystemDataAttributes) GetFilesystemStorageClass() *FilesystemStorageClass {
+	if f == nil {
+		return nil
+	}
+	return f.FilesystemStorageClass
+}
+
 func (f *FilesystemDataAttributes) GetCreatedAt() *time.Time {
 	if f == nil {
 		return nil
@@ -98,11 +106,18 @@ func (f *FilesystemDataAttributes) GetCreatedAt() *time.Time {
 	return f.CreatedAt
 }
 
-func (f *FilesystemDataAttributes) GetProject() *FilesystemDataProject {
+func (f *FilesystemDataAttributes) GetProject() *ProjectInclude {
 	if f == nil {
 		return nil
 	}
 	return f.Project
+}
+
+func (f *FilesystemDataAttributes) GetTeam() *TeamInclude {
+	if f == nil {
+		return nil
+	}
+	return f.Team
 }
 
 type FilesystemData struct {

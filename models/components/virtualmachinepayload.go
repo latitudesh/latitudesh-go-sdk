@@ -108,6 +108,8 @@ type VirtualMachinePayloadAttributes struct {
 	UserData *VirtualMachinePayloadUserData `json:"user_data,omitempty"`
 	// Array of tag IDs to assign to the VM.
 	Tags []string `json:"tags,omitempty"`
+	// Site/region slug where the VM is provisioned (e.g. DAL, SAO). Defaults to DAL when omitted.
+	Site *string `default:"DAL" json:"site"`
 }
 
 func (v VirtualMachinePayloadAttributes) MarshalJSON() ([]byte, error) {
@@ -168,6 +170,13 @@ func (v *VirtualMachinePayloadAttributes) GetTags() []string {
 		return nil
 	}
 	return v.Tags
+}
+
+func (v *VirtualMachinePayloadAttributes) GetSite() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Site
 }
 
 type VirtualMachinePayloadData struct {

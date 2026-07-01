@@ -868,3 +868,10 @@ actions:
       before: sdk.User Data.patch-user-data()
       created_at: 1749582530845
       type: method-name
+  - target: $["components"]["schemas"]["filesystem_data"]["properties"]["attributes"]["properties"]["storage_class"]
+    update:
+      x-speakeasy-name-override: FilesystemStorageClass
+    x-speakeasy-metadata:
+      after: components.FilesystemStorageClass
+      before: components.StorageClass (collided with object_storage_data, forcing ObjectStorageDataStorageClass)
+      type: type-name

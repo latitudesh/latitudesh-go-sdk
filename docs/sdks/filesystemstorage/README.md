@@ -229,7 +229,7 @@ Lists all the filesystems from a team.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="get-storage-filesystems" method="get" path="/storage/filesystems" -->
+<!-- UsageSnippet language="go" operationID="get-storage-filesystems" method="get" path="/storage/filesystems" example="Success" -->
 ```go
 package main
 
@@ -251,7 +251,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res != nil {
+    if res.Filesystems != nil {
         // handle response
     }
 }

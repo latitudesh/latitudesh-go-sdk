@@ -20,6 +20,8 @@ func (g *GetStorageFilesystemsRequest) GetFilterProject() *string {
 
 type GetStorageFilesystemsResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
+	// Success
+	Filesystems *components.Filesystems
 }
 
 func (g *GetStorageFilesystemsResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -27,4 +29,11 @@ func (g *GetStorageFilesystemsResponse) GetHTTPMeta() components.HTTPMetadata {
 		return components.HTTPMetadata{}
 	}
 	return g.HTTPMeta
+}
+
+func (g *GetStorageFilesystemsResponse) GetFilesystems() *components.Filesystems {
+	if g == nil {
+		return nil
+	}
+	return g.Filesystems
 }
