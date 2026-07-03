@@ -4,14 +4,14 @@
 
 ### Available Operations
 
-* [ListVirtualMachineScopedBackups](#listvirtualmachinescopedbackups) - List a VM's backups
-* [CreateVirtualMachineBackup](#createvirtualmachinebackup) - Create VM backup
-* [ListVirtualMachineBackups](#listvirtualmachinebackups) - List all VM backups
-* [CreateVirtualMachineBackupTopLevel](#createvirtualmachinebackuptoplevel) - Create VM backup (top-level)
-* [GetVirtualMachineBackup](#getvirtualmachinebackup) - Get VM backup
-* [DeleteVirtualMachineBackup](#deletevirtualmachinebackup) - Delete VM backup
+* [ListForVirtualMachine](#listforvirtualmachine) - List a VM's backups
+* [CreateForVirtualMachine](#createforvirtualmachine) - Create VM backup
+* [List](#list) - List all VM backups
+* [Create](#create) - Create VM backup (top-level)
+* [Get](#get) - Get VM backup
+* [Delete](#delete) - Delete VM backup
 
-## ListVirtualMachineScopedBackups
+## ListForVirtualMachine
 
 Lists the backups of the given Virtual Machine.
 
@@ -36,7 +36,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VirtualMachineBackups.ListVirtualMachineScopedBackups(ctx, "<id>")
+    res, err := s.VirtualMachineBackups.ListForVirtualMachine(ctx, "<id>")
     if err != nil {
         log.Fatal(err)
     }
@@ -65,7 +65,7 @@ func main() {
 | components.ErrorObject   | 403                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## CreateVirtualMachineBackup
+## CreateForVirtualMachine
 
 Triggers a backup of the given Virtual Machine.
 
@@ -90,7 +90,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VirtualMachineBackups.CreateVirtualMachineBackup(ctx, "<id>")
+    res, err := s.VirtualMachineBackups.CreateForVirtualMachine(ctx, "<id>")
     if err != nil {
         log.Fatal(err)
     }
@@ -119,7 +119,7 @@ func main() {
 | components.ErrorObject   | 403                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## ListVirtualMachineBackups
+## List
 
 Lists every backup that belongs to the authenticated team.
 
@@ -144,7 +144,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VirtualMachineBackups.ListVirtualMachineBackups(ctx)
+    res, err := s.VirtualMachineBackups.List(ctx)
     if err != nil {
         log.Fatal(err)
     }
@@ -172,7 +172,7 @@ func main() {
 | components.ErrorObject   | 403                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## CreateVirtualMachineBackupTopLevel
+## Create
 
 Triggers a backup of the Virtual Machine referenced in the body.
 
@@ -198,7 +198,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VirtualMachineBackups.CreateVirtualMachineBackupTopLevel(ctx, components.VirtualMachineBackupPayload{})
+    res, err := s.VirtualMachineBackups.Create(ctx, components.VirtualMachineBackupPayload{})
     if err != nil {
         log.Fatal(err)
     }
@@ -227,7 +227,7 @@ func main() {
 | components.ErrorObject   | 403                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## GetVirtualMachineBackup
+## Get
 
 Get VM backup
 
@@ -251,7 +251,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VirtualMachineBackups.GetVirtualMachineBackup(ctx, "<id>")
+    res, err := s.VirtualMachineBackups.Get(ctx, "<id>")
     if err != nil {
         log.Fatal(err)
     }
@@ -280,7 +280,7 @@ func main() {
 | components.ErrorObject   | 403                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## DeleteVirtualMachineBackup
+## Delete
 
 Archives and deletes a Virtual Machine backup. Work runs asynchronously and returns 202 Accepted. Only `Ready` or `Failed` backups can be deleted, and not while a restore from the backup is in progress.
 
@@ -305,7 +305,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VirtualMachineBackups.DeleteVirtualMachineBackup(ctx, "<id>")
+    res, err := s.VirtualMachineBackups.Delete(ctx, "<id>")
     if err != nil {
         log.Fatal(err)
     }

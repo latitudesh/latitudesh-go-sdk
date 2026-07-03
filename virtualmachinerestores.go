@@ -30,9 +30,9 @@ func newVirtualMachineRestores(rootSDK *Latitudesh, sdkConfig config.SDKConfigur
 	}
 }
 
-// ListVirtualMachineScopedRestores - List a backup's restores
+// ListForVirtualMachineBackup - List a backup's restores
 // Lists the restores created from the given backup.
-func (s *VirtualMachineRestores) ListVirtualMachineScopedRestores(ctx context.Context, virtualMachineID string, backupID string, opts ...operations.Option) (*operations.ListVirtualMachineScopedRestoresResponse, error) {
+func (s *VirtualMachineRestores) ListForVirtualMachineBackup(ctx context.Context, virtualMachineID string, backupID string, opts ...operations.Option) (*operations.ListVirtualMachineScopedRestoresResponse, error) {
 	request := operations.ListVirtualMachineScopedRestoresRequest{
 		VirtualMachineID: virtualMachineID,
 		BackupID:         backupID,
@@ -264,9 +264,9 @@ func (s *VirtualMachineRestores) ListVirtualMachineScopedRestores(ctx context.Co
 
 }
 
-// CreateVirtualMachineRestore - Create VM restore
+// CreateForVirtualMachineBackup - Create VM restore
 // Restores a backup into a new Virtual Machine. Optionally accepts a `name` for the restored VM and a target `site` slug to restore into another region.
-func (s *VirtualMachineRestores) CreateVirtualMachineRestore(ctx context.Context, virtualMachineID string, backupID string, virtualMachineRestorePayload *components.VirtualMachineRestorePayload, opts ...operations.Option) (*operations.CreateVirtualMachineRestoreResponse, error) {
+func (s *VirtualMachineRestores) CreateForVirtualMachineBackup(ctx context.Context, virtualMachineID string, backupID string, virtualMachineRestorePayload *components.VirtualMachineRestorePayload, opts ...operations.Option) (*operations.CreateVirtualMachineRestoreResponse, error) {
 	request := operations.CreateVirtualMachineRestoreRequest{
 		VirtualMachineID:             virtualMachineID,
 		BackupID:                     backupID,
@@ -510,9 +510,9 @@ func (s *VirtualMachineRestores) CreateVirtualMachineRestore(ctx context.Context
 
 }
 
-// ListBackupRestores - List a backup's restores (top-level backup path)
+// ListForBackup - List a backup's restores (top-level backup path)
 // Lists the restores created from the given backup, reached via the top-level backup path.
-func (s *VirtualMachineRestores) ListBackupRestores(ctx context.Context, backupID string, opts ...operations.Option) (*operations.ListBackupRestoresResponse, error) {
+func (s *VirtualMachineRestores) ListForBackup(ctx context.Context, backupID string, opts ...operations.Option) (*operations.ListBackupRestoresResponse, error) {
 	request := operations.ListBackupRestoresRequest{
 		BackupID: backupID,
 	}
@@ -743,9 +743,9 @@ func (s *VirtualMachineRestores) ListBackupRestores(ctx context.Context, backupI
 
 }
 
-// ListVirtualMachineRestores - List all VM restores
+// List all VM restores
 // Lists every restore that belongs to the authenticated team.
-func (s *VirtualMachineRestores) ListVirtualMachineRestores(ctx context.Context, opts ...operations.Option) (*operations.ListVirtualMachineRestoresResponse, error) {
+func (s *VirtualMachineRestores) List(ctx context.Context, opts ...operations.Option) (*operations.ListVirtualMachineRestoresResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -970,9 +970,9 @@ func (s *VirtualMachineRestores) ListVirtualMachineRestores(ctx context.Context,
 
 }
 
-// CreateVirtualMachineRestoreFlat - Create VM restore (flat)
+// Create VM restore (flat)
 // Restores the backup referenced in the body into a new Virtual Machine. Optionally accepts a `name` for the restored VM and a target `site` slug to restore into another region.
-func (s *VirtualMachineRestores) CreateVirtualMachineRestoreFlat(ctx context.Context, request components.VirtualMachineRestorePayload, opts ...operations.Option) (*operations.CreateVirtualMachineRestoreFlatResponse, error) {
+func (s *VirtualMachineRestores) Create(ctx context.Context, request components.VirtualMachineRestorePayload, opts ...operations.Option) (*operations.CreateVirtualMachineRestoreFlatResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -1210,8 +1210,8 @@ func (s *VirtualMachineRestores) CreateVirtualMachineRestoreFlat(ctx context.Con
 
 }
 
-// GetVirtualMachineRestore - Get VM restore
-func (s *VirtualMachineRestores) GetVirtualMachineRestore(ctx context.Context, id string, opts ...operations.Option) (*operations.GetVirtualMachineRestoreResponse, error) {
+// Get VM restore
+func (s *VirtualMachineRestores) Get(ctx context.Context, id string, opts ...operations.Option) (*operations.GetVirtualMachineRestoreResponse, error) {
 	request := operations.GetVirtualMachineRestoreRequest{
 		ID: id,
 	}

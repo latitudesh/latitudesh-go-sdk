@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 498ff3130af1f372c8ab1cd30b539d46
+  docChecksum: 0ece34745cb5dc69ae48f52221624a47
   docVersion: "2023-06-01"
   speakeasyVersion: 1.788.0
   generationVersion: 2.915.0
-  releaseVersion: 1.16.6
-  configChecksum: ab425e52c2030bbb0f740c3e213f5e75
+  releaseVersion: 1.16.7
+  configChecksum: 1396ef318fd5b9bb9269c828684bbbea
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 6e538db6-1edd-466f-9d26-c5d4a206c786
-  pristine_commit_hash: 0e60ca45b65da916de9097143a13e2c59d5f43e4
-  pristine_tree_hash: e036537bd7704b3f1095244defebe09dc41aadf7
+  generation_id: 08634d82-ea40-4360-aa60-d480543969f7
+  pristine_commit_hash: 6b892fa523e6f9ba1a5e5e2f6997c3eadf9215cc
+  pristine_tree_hash: 717508ffe6a3b5869d80d2a7ec50d1f43baced7a
 features:
   go:
     additionalDependencies: 0.1.0
@@ -3867,12 +3867,12 @@ trackedFiles:
     pristine_git_object: ad2b8438a2c4f1dd84933ea811206e453f915cb6
   docs/sdks/virtualmachinebackups/README.md:
     id: a4dfa848ab23
-    last_write_checksum: sha1:dbdee5682cb8d6c4592710714131125cc05d072d
-    pristine_git_object: 233d02ff4b033a007c3c5d220fa1b3bd29a49ac5
+    last_write_checksum: sha1:b9b21241b0f14e525889a77d12d9808b72029fd1
+    pristine_git_object: 08cb7ca8193e28ee611e1d69684b4841fd702186
   docs/sdks/virtualmachinerestores/README.md:
     id: bee518b15f28
-    last_write_checksum: sha1:dc0088910b5ebcb9c5949294bd0a58eb708e6a4b
-    pristine_git_object: 222235935c4696ed6f2fa77cccdc1d03d688eff4
+    last_write_checksum: sha1:e83df8da4d5016d9455288b6af514ccd02c0d3f9
+    pristine_git_object: 58bc980691b44f39d0a767e9d5836cfda4676d20
   docs/sdks/virtualmachines/README.md:
     id: 9a444616366b
     last_write_checksum: sha1:52067d7824984b585baf4aa3dc8ccb30f520e1b8
@@ -3979,8 +3979,8 @@ trackedFiles:
     pristine_git_object: f055c7135bd9df9511999b5a8af285cf62b279a1
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:608efed2123baa7b40eb71f594eb3c013a24a7aa
-    pristine_git_object: 23449a21a2bd2ee3dd58c7fe47b9c230e826720e
+    last_write_checksum: sha1:11362dbc3c5bfefee6dba7ed26c58455eda8d184
+    pristine_git_object: 9708d8b143d0b1a5d274d7a8020a370e03ad0f11
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -5119,12 +5119,12 @@ trackedFiles:
     pristine_git_object: 80579a568a607841621d2dbf188bf44c087d6d70
   virtualmachinebackups.go:
     id: 046fce9264b2
-    last_write_checksum: sha1:733c9c87fb36700c6051c9534441b69cee48cf97
-    pristine_git_object: a49e641ddaaf154458cc4b76f0643d92ca118437
+    last_write_checksum: sha1:a10489a90fde5caecdcc1de304710a2aad7ee7b7
+    pristine_git_object: d9d42938eb61e2ad88aab7f0ba2f61d5d6ee3359
   virtualmachinerestores.go:
     id: 0c9cafc07960
-    last_write_checksum: sha1:6c1f56b39e9fefbf4866ea80ac6f76ed9398a0f9
-    pristine_git_object: f8f69f91b2b716f7ae43be28e597c94d7bba9fe9
+    last_write_checksum: sha1:69bd8a56e664c06f770d2c9d024e48749bb9fbb6
+    pristine_git_object: 6fb2cbed99c045daf254fb825262a05a0386a9ec
   virtualmachines.go:
     id: 30cb88c4969c
     last_write_checksum: sha1:c6541033e0be2dec26ed80c0097c4dccd001f064
@@ -9044,7 +9044,6 @@ examples:
           application/vnd.api+json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes:\n* `Latitudesh.Tags.List()`:  `response.Data[].Attributes.Description` **Changed** (Breaking ⚠️)\n* `Latitudesh.PrivateNetworks.Get()`:  `response.Data.Attributes.Tags[]` **Changed** (Breaking ⚠️)\n* `Latitudesh.PrivateNetworks.Update()`:  `response.Data.Attributes.Tags[]` **Changed** (Breaking ⚠️)\n* `Latitudesh.PrivateNetworks.Create()`:  `response.Data.Attributes.Tags[]` **Changed** (Breaking ⚠️)\n* `Latitudesh.PrivateNetworks.List()`:  `response.Data[].Attributes.Tags[]` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachines.UpdateVirtualMachine()`: \n  *  `request.VirtualMachineUpdatePayload.Data.Attributes` **Changed**\n  *  `response.status[202]` **Added** (Breaking ⚠️)\n  *  `error.status[409]` **Added**\n* `Latitudesh.Tags.Update()`:  `response.Data.Attributes.Description` **Changed** (Breaking ⚠️)\n* `Latitudesh.Tags.Create()`:  `response.Data.Attributes.Description` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachineBackups.DeleteVirtualMachineBackup()`: **Added**\n* `Latitudesh.VirtualMachineRestores.ListVirtualMachineRestores()`: **Added**\n* `Latitudesh.VirtualMachineRestores.CreateVirtualMachineRestoreFlat()`: **Added**\n* `Latitudesh.VirtualMachineRestores.GetVirtualMachineRestore()`: **Added**\n* `Latitudesh.VirtualMachineRestores.ListBackupRestores()`: **Added**\n* `Latitudesh.VirtualMachineRestores.CreateVirtualMachineRestore()`: **Added**\n* `Latitudesh.VirtualMachineRestores.ListVirtualMachineScopedRestores()`: **Added**\n* `Latitudesh.VirtualMachineBackups.ListVirtualMachineScopedBackups()`: **Added**\n* `Latitudesh.VirtualMachineBackups.GetVirtualMachineBackup()`: **Added**\n* `Latitudesh.VirtualMachineBackups.CreateVirtualMachineBackupTopLevel()`: **Added**\n* `Latitudesh.VirtualMachineBackups.ListVirtualMachineBackups()`: **Added**\n* `Latitudesh.VirtualMachineBackups.CreateVirtualMachineBackup()`: **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

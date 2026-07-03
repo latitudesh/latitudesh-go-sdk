@@ -4,14 +4,14 @@
 
 ### Available Operations
 
-* [ListVirtualMachineScopedRestores](#listvirtualmachinescopedrestores) - List a backup's restores
-* [CreateVirtualMachineRestore](#createvirtualmachinerestore) - Create VM restore
-* [ListBackupRestores](#listbackuprestores) - List a backup's restores (top-level backup path)
-* [ListVirtualMachineRestores](#listvirtualmachinerestores) - List all VM restores
-* [CreateVirtualMachineRestoreFlat](#createvirtualmachinerestoreflat) - Create VM restore (flat)
-* [GetVirtualMachineRestore](#getvirtualmachinerestore) - Get VM restore
+* [ListForVirtualMachineBackup](#listforvirtualmachinebackup) - List a backup's restores
+* [CreateForVirtualMachineBackup](#createforvirtualmachinebackup) - Create VM restore
+* [ListForBackup](#listforbackup) - List a backup's restores (top-level backup path)
+* [List](#list) - List all VM restores
+* [Create](#create) - Create VM restore (flat)
+* [Get](#get) - Get VM restore
 
-## ListVirtualMachineScopedRestores
+## ListForVirtualMachineBackup
 
 Lists the restores created from the given backup.
 
@@ -36,7 +36,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VirtualMachineRestores.ListVirtualMachineScopedRestores(ctx, "<id>", "<id>")
+    res, err := s.VirtualMachineRestores.ListForVirtualMachineBackup(ctx, "<id>", "<id>")
     if err != nil {
         log.Fatal(err)
     }
@@ -66,7 +66,7 @@ func main() {
 | components.ErrorObject   | 403                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## CreateVirtualMachineRestore
+## CreateForVirtualMachineBackup
 
 Restores a backup into a new Virtual Machine. Optionally accepts a `name` for the restored VM and a target `site` slug to restore into another region.
 
@@ -91,7 +91,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VirtualMachineRestores.CreateVirtualMachineRestore(ctx, "<id>", "<id>", nil)
+    res, err := s.VirtualMachineRestores.CreateForVirtualMachineBackup(ctx, "<id>", "<id>", nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -122,7 +122,7 @@ func main() {
 | components.ErrorObject   | 403                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## ListBackupRestores
+## ListForBackup
 
 Lists the restores created from the given backup, reached via the top-level backup path.
 
@@ -147,7 +147,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VirtualMachineRestores.ListBackupRestores(ctx, "<id>")
+    res, err := s.VirtualMachineRestores.ListForBackup(ctx, "<id>")
     if err != nil {
         log.Fatal(err)
     }
@@ -176,7 +176,7 @@ func main() {
 | components.ErrorObject   | 403                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## ListVirtualMachineRestores
+## List
 
 Lists every restore that belongs to the authenticated team.
 
@@ -201,7 +201,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VirtualMachineRestores.ListVirtualMachineRestores(ctx)
+    res, err := s.VirtualMachineRestores.List(ctx)
     if err != nil {
         log.Fatal(err)
     }
@@ -229,7 +229,7 @@ func main() {
 | components.ErrorObject   | 403                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## CreateVirtualMachineRestoreFlat
+## Create
 
 Restores the backup referenced in the body into a new Virtual Machine. Optionally accepts a `name` for the restored VM and a target `site` slug to restore into another region.
 
@@ -255,7 +255,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VirtualMachineRestores.CreateVirtualMachineRestoreFlat(ctx, components.VirtualMachineRestorePayload{})
+    res, err := s.VirtualMachineRestores.Create(ctx, components.VirtualMachineRestorePayload{})
     if err != nil {
         log.Fatal(err)
     }
@@ -284,7 +284,7 @@ func main() {
 | components.ErrorObject   | 403                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## GetVirtualMachineRestore
+## Get
 
 Get VM restore
 
@@ -308,7 +308,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VirtualMachineRestores.GetVirtualMachineRestore(ctx, "<id>")
+    res, err := s.VirtualMachineRestores.Get(ctx, "<id>")
     if err != nil {
         log.Fatal(err)
     }

@@ -30,9 +30,9 @@ func newVirtualMachineBackups(rootSDK *Latitudesh, sdkConfig config.SDKConfigura
 	}
 }
 
-// ListVirtualMachineScopedBackups - List a VM's backups
+// ListForVirtualMachine - List a VM's backups
 // Lists the backups of the given Virtual Machine.
-func (s *VirtualMachineBackups) ListVirtualMachineScopedBackups(ctx context.Context, virtualMachineID string, opts ...operations.Option) (*operations.ListVirtualMachineScopedBackupsResponse, error) {
+func (s *VirtualMachineBackups) ListForVirtualMachine(ctx context.Context, virtualMachineID string, opts ...operations.Option) (*operations.ListVirtualMachineScopedBackupsResponse, error) {
 	request := operations.ListVirtualMachineScopedBackupsRequest{
 		VirtualMachineID: virtualMachineID,
 	}
@@ -263,9 +263,9 @@ func (s *VirtualMachineBackups) ListVirtualMachineScopedBackups(ctx context.Cont
 
 }
 
-// CreateVirtualMachineBackup - Create VM backup
+// CreateForVirtualMachine - Create VM backup
 // Triggers a backup of the given Virtual Machine.
-func (s *VirtualMachineBackups) CreateVirtualMachineBackup(ctx context.Context, virtualMachineID string, opts ...operations.Option) (*operations.CreateVirtualMachineBackupResponse, error) {
+func (s *VirtualMachineBackups) CreateForVirtualMachine(ctx context.Context, virtualMachineID string, opts ...operations.Option) (*operations.CreateVirtualMachineBackupResponse, error) {
 	request := operations.CreateVirtualMachineBackupRequest{
 		VirtualMachineID: virtualMachineID,
 	}
@@ -496,9 +496,9 @@ func (s *VirtualMachineBackups) CreateVirtualMachineBackup(ctx context.Context, 
 
 }
 
-// ListVirtualMachineBackups - List all VM backups
+// List all VM backups
 // Lists every backup that belongs to the authenticated team.
-func (s *VirtualMachineBackups) ListVirtualMachineBackups(ctx context.Context, opts ...operations.Option) (*operations.ListVirtualMachineBackupsResponse, error) {
+func (s *VirtualMachineBackups) List(ctx context.Context, opts ...operations.Option) (*operations.ListVirtualMachineBackupsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -723,9 +723,9 @@ func (s *VirtualMachineBackups) ListVirtualMachineBackups(ctx context.Context, o
 
 }
 
-// CreateVirtualMachineBackupTopLevel - Create VM backup (top-level)
+// Create VM backup (top-level)
 // Triggers a backup of the Virtual Machine referenced in the body.
-func (s *VirtualMachineBackups) CreateVirtualMachineBackupTopLevel(ctx context.Context, request components.VirtualMachineBackupPayload, opts ...operations.Option) (*operations.CreateVirtualMachineBackupTopLevelResponse, error) {
+func (s *VirtualMachineBackups) Create(ctx context.Context, request components.VirtualMachineBackupPayload, opts ...operations.Option) (*operations.CreateVirtualMachineBackupTopLevelResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -959,8 +959,8 @@ func (s *VirtualMachineBackups) CreateVirtualMachineBackupTopLevel(ctx context.C
 
 }
 
-// GetVirtualMachineBackup - Get VM backup
-func (s *VirtualMachineBackups) GetVirtualMachineBackup(ctx context.Context, id string, opts ...operations.Option) (*operations.GetVirtualMachineBackupResponse, error) {
+// Get VM backup
+func (s *VirtualMachineBackups) Get(ctx context.Context, id string, opts ...operations.Option) (*operations.GetVirtualMachineBackupResponse, error) {
 	request := operations.GetVirtualMachineBackupRequest{
 		ID: id,
 	}
@@ -1191,9 +1191,9 @@ func (s *VirtualMachineBackups) GetVirtualMachineBackup(ctx context.Context, id 
 
 }
 
-// DeleteVirtualMachineBackup - Delete VM backup
+// Delete VM backup
 // Archives and deletes a Virtual Machine backup. Work runs asynchronously and returns 202 Accepted. Only `Ready` or `Failed` backups can be deleted, and not while a restore from the backup is in progress.
-func (s *VirtualMachineBackups) DeleteVirtualMachineBackup(ctx context.Context, id string, opts ...operations.Option) (*operations.DeleteVirtualMachineBackupResponse, error) {
+func (s *VirtualMachineBackups) Delete(ctx context.Context, id string, opts ...operations.Option) (*operations.DeleteVirtualMachineBackupResponse, error) {
 	request := operations.DeleteVirtualMachineBackupRequest{
 		ID: id,
 	}
