@@ -14,6 +14,8 @@ type GetVirtualNetworksAssignmentsRequest struct {
 	FilterVid *string `queryParam:"style=form,explode=true,name=filter[vid]"`
 	// The virtual network ID to filter by
 	FilterVirtualNetworkID *string `queryParam:"style=form,explode=true,name=filter[virtual_network_id]"`
+	// Request aggregate stats in the response `meta`. Use `count` to get the total number of records, returned as `meta.stats.total.count`.
+	StatsTotal *string `queryParam:"style=form,explode=true,name=stats[total]"`
 	// Number of items to return per page
 	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
 	// Page number to return (starts at 1)
@@ -50,6 +52,13 @@ func (g *GetVirtualNetworksAssignmentsRequest) GetFilterVirtualNetworkID() *stri
 		return nil
 	}
 	return g.FilterVirtualNetworkID
+}
+
+func (g *GetVirtualNetworksAssignmentsRequest) GetStatsTotal() *string {
+	if g == nil {
+		return nil
+	}
+	return g.StatsTotal
 }
 
 func (g *GetVirtualNetworksAssignmentsRequest) GetPageSize() *int64 {

@@ -2,12 +2,9 @@
 
 package components
 
-type ServersMeta struct {
-}
-
 type Servers struct {
-	Data []ServerData `json:"data,omitempty"`
-	Meta *ServersMeta `json:"meta,omitempty"`
+	Data []ServerData    `json:"data,omitempty"`
+	Meta *PaginationMeta `json:"meta,omitempty"`
 }
 
 func (s *Servers) GetData() []ServerData {
@@ -17,7 +14,7 @@ func (s *Servers) GetData() []ServerData {
 	return s.Data
 }
 
-func (s *Servers) GetMeta() *ServersMeta {
+func (s *Servers) GetMeta() *PaginationMeta {
 	if s == nil {
 		return nil
 	}

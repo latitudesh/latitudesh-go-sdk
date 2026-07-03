@@ -14,6 +14,8 @@ type GetVirtualNetworksRequest struct {
 	FilterProject *string `queryParam:"style=form,explode=true,name=filter[project]"`
 	// The tags ids to filter by, separated by comma, e.g. `filter[tags]=tag_1,tag_2`will return ssh keys with `tag_1` AND `tag_2`
 	FilterTags *string `queryParam:"style=form,explode=true,name=filter[tags]"`
+	// Request aggregate stats in the response `meta`. Use `count` to get the total number of records, returned as `meta.stats.total.count`.
+	StatsTotal *string `queryParam:"style=form,explode=true,name=stats[total]"`
 	// Number of items to return per page
 	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
 	// Page number to return (starts at 1)
@@ -50,6 +52,13 @@ func (g *GetVirtualNetworksRequest) GetFilterTags() *string {
 		return nil
 	}
 	return g.FilterTags
+}
+
+func (g *GetVirtualNetworksRequest) GetStatsTotal() *string {
+	if g == nil {
+		return nil
+	}
+	return g.StatsTotal
 }
 
 func (g *GetVirtualNetworksRequest) GetPageSize() *int64 {

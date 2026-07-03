@@ -2,12 +2,9 @@
 
 package components
 
-type VirtualNetworkAssignmentsMeta struct {
-}
-
 type VirtualNetworkAssignments struct {
 	Data []VirtualNetworkAssignmentData `json:"data,omitempty"`
-	Meta *VirtualNetworkAssignmentsMeta `json:"meta,omitempty"`
+	Meta *PaginationMeta                `json:"meta,omitempty"`
 }
 
 func (v *VirtualNetworkAssignments) GetData() []VirtualNetworkAssignmentData {
@@ -17,7 +14,7 @@ func (v *VirtualNetworkAssignments) GetData() []VirtualNetworkAssignmentData {
 	return v.Data
 }
 
-func (v *VirtualNetworkAssignments) GetMeta() *VirtualNetworkAssignmentsMeta {
+func (v *VirtualNetworkAssignments) GetMeta() *PaginationMeta {
 	if v == nil {
 		return nil
 	}
