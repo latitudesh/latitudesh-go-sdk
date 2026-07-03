@@ -1,0 +1,9 @@
+# VirtualMachineBackupPayloadData
+
+
+## Fields
+
+| Field                                                                                                                 | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `Type`                                                                                                                | [*components.VirtualMachineBackupPayloadType](../../models/components/virtualmachinebackuppayloadtype.md)             | :heavy_minus_sign:                                                                                                    | N/A                                                                                                                   |
+| `Attributes`                                                                                                          | [*components.VirtualMachineBackupPayloadAttributes](../../models/components/virtualmachinebackuppayloadattributes.md) | :heavy_minus_sign:                                                                                                    | N/A                                                                                                                   |

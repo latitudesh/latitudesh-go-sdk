@@ -1,0 +1,9 @@
+# VirtualMachineRestore
+
+
+## Fields
+
+| Field                                                                                                     | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `Data`                                                                                                    | [*components.VirtualMachineRestoreAttributes](../../models/components/virtualmachinerestoreattributes.md) | :heavy_minus_sign:                                                                                        | N/A                                                                                                       |
+| `Meta`                                                                                                    | [*components.VirtualMachineRestoreMeta](../../models/components/virtualmachinerestoremeta.md)             | :heavy_minus_sign:                                                                                        | N/A                                                                                                       |

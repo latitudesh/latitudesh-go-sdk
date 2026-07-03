@@ -30,11 +30,45 @@ func (e *VirtualMachineUpdatePayloadType) UnmarshalJSON(data []byte) error {
 	}
 }
 
+// VirtualMachineUpdatePayloadBilling - Target billing cycle. Upgrades only (hourly → monthly → yearly); downgrades and reserved-project changes return 422.
+type VirtualMachineUpdatePayloadBilling string
+
+const (
+	VirtualMachineUpdatePayloadBillingHourly  VirtualMachineUpdatePayloadBilling = "hourly"
+	VirtualMachineUpdatePayloadBillingMonthly VirtualMachineUpdatePayloadBilling = "monthly"
+	VirtualMachineUpdatePayloadBillingYearly  VirtualMachineUpdatePayloadBilling = "yearly"
+)
+
+func (e VirtualMachineUpdatePayloadBilling) ToPointer() *VirtualMachineUpdatePayloadBilling {
+	return &e
+}
+func (e *VirtualMachineUpdatePayloadBilling) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "hourly":
+		fallthrough
+	case "monthly":
+		fallthrough
+	case "yearly":
+		*e = VirtualMachineUpdatePayloadBilling(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for VirtualMachineUpdatePayloadBilling: %v", v)
+	}
+}
+
 type VirtualMachineUpdatePayloadAttributes struct {
 	// The new display name (hostname) for the Virtual Machine
 	Name *string `json:"name,omitempty"`
 	// Array of tag IDs to assign to the VM. Replaces all existing tags.
 	Tags []string `json:"tags,omitempty"`
+	// Target billing cycle. Upgrades only (hourly → monthly → yearly); downgrades and reserved-project changes return 422.
+	Billing *VirtualMachineUpdatePayloadBilling `json:"billing,omitempty"`
+	// Target plan slug for a vertical upgrade. Upgrades only (cpu, memory, and/or storage must scale up; nothing may shrink). The VM is powered off to apply the new resources and powered back on. Must be sent on its own (cannot be combined with name, tags, or billing). Returns 202 Accepted.
+	Plan *string `json:"plan,omitempty"`
 }
 
 func (v *VirtualMachineUpdatePayloadAttributes) GetName() *string {
@@ -49,6 +83,20 @@ func (v *VirtualMachineUpdatePayloadAttributes) GetTags() []string {
 		return nil
 	}
 	return v.Tags
+}
+
+func (v *VirtualMachineUpdatePayloadAttributes) GetBilling() *VirtualMachineUpdatePayloadBilling {
+	if v == nil {
+		return nil
+	}
+	return v.Billing
+}
+
+func (v *VirtualMachineUpdatePayloadAttributes) GetPlan() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Plan
 }
 
 type VirtualMachineUpdatePayloadData struct {

@@ -2,7 +2,7 @@ overlay: 1.0.0
 x-speakeasy-jsonpath: rfc9535
 info:
   title: Speakeasy Modifications
-  version: 0.0.3
+  version: 0.0.4
   x-speakeasy-metadata:
     after: ""
     before: ""
@@ -875,3 +875,99 @@ actions:
       after: components.FilesystemStorageClass
       before: components.StorageClass (collided with object_storage_data, forcing ObjectStorageDataStorageClass)
       type: type-name
+  - target: $["paths"]["/virtual_machines/{virtual_machine_id}/backups"]["get"]
+    update:
+      x-speakeasy-group: virtualMachineBackups
+      x-speakeasy-name-override: listForVirtualMachine
+    x-speakeasy-metadata:
+      after: sdk.virtualMachineBackups.listForVirtualMachine()
+      before: sdk.virtualMachineBackups.listVirtualMachineScopedBackups()
+      type: method-name
+  - target: $["paths"]["/virtual_machines/{virtual_machine_id}/backups"]["post"]
+    update:
+      x-speakeasy-group: virtualMachineBackups
+      x-speakeasy-name-override: createForVirtualMachine
+    x-speakeasy-metadata:
+      after: sdk.virtualMachineBackups.createForVirtualMachine()
+      before: sdk.virtualMachineBackups.createVirtualMachineBackup()
+      type: method-name
+  - target: $["paths"]["/virtual_machine_backups"]["get"]
+    update:
+      x-speakeasy-group: virtualMachineBackups
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.virtualMachineBackups.list()
+      before: sdk.virtualMachineBackups.listVirtualMachineBackups()
+      type: method-name
+  - target: $["paths"]["/virtual_machine_backups"]["post"]
+    update:
+      x-speakeasy-group: virtualMachineBackups
+      x-speakeasy-name-override: create
+    x-speakeasy-metadata:
+      after: sdk.virtualMachineBackups.create()
+      before: sdk.virtualMachineBackups.createVirtualMachineBackupTopLevel()
+      type: method-name
+  - target: $["paths"]["/virtual_machine_backups/{id}"]["get"]
+    update:
+      x-speakeasy-group: virtualMachineBackups
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      after: sdk.virtualMachineBackups.get()
+      before: sdk.virtualMachineBackups.getVirtualMachineBackup()
+      type: method-name
+  - target: $["paths"]["/virtual_machine_backups/{id}"]["delete"]
+    update:
+      x-speakeasy-group: virtualMachineBackups
+      x-speakeasy-name-override: delete
+    x-speakeasy-metadata:
+      after: sdk.virtualMachineBackups.delete()
+      before: sdk.virtualMachineBackups.deleteVirtualMachineBackup()
+      type: method-name
+  - target: $["paths"]["/virtual_machines/{virtual_machine_id}/backups/{backup_id}/restores"]["get"]
+    update:
+      x-speakeasy-group: virtualMachineRestores
+      x-speakeasy-name-override: listForVirtualMachineBackup
+    x-speakeasy-metadata:
+      after: sdk.virtualMachineRestores.listForVirtualMachineBackup()
+      before: sdk.virtualMachineRestores.listVirtualMachineScopedRestores()
+      type: method-name
+  - target: $["paths"]["/virtual_machines/{virtual_machine_id}/backups/{backup_id}/restores"]["post"]
+    update:
+      x-speakeasy-group: virtualMachineRestores
+      x-speakeasy-name-override: createForVirtualMachineBackup
+    x-speakeasy-metadata:
+      after: sdk.virtualMachineRestores.createForVirtualMachineBackup()
+      before: sdk.virtualMachineRestores.createVirtualMachineRestore()
+      type: method-name
+  - target: $["paths"]["/virtual_machine_backups/{backup_id}/restores"]["get"]
+    update:
+      x-speakeasy-group: virtualMachineRestores
+      x-speakeasy-name-override: listForBackup
+    x-speakeasy-metadata:
+      after: sdk.virtualMachineRestores.listForBackup()
+      before: sdk.virtualMachineRestores.listBackupRestores()
+      type: method-name
+  - target: $["paths"]["/virtual_machine_restores"]["get"]
+    update:
+      x-speakeasy-group: virtualMachineRestores
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.virtualMachineRestores.list()
+      before: sdk.virtualMachineRestores.listVirtualMachineRestores()
+      type: method-name
+  - target: $["paths"]["/virtual_machine_restores"]["post"]
+    update:
+      x-speakeasy-group: virtualMachineRestores
+      x-speakeasy-name-override: create
+    x-speakeasy-metadata:
+      after: sdk.virtualMachineRestores.create()
+      before: sdk.virtualMachineRestores.createVirtualMachineRestoreFlat()
+      type: method-name
+  - target: $["paths"]["/virtual_machine_restores/{id}"]["get"]
+    update:
+      x-speakeasy-group: virtualMachineRestores
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      after: sdk.virtualMachineRestores.get()
+      before: sdk.virtualMachineRestores.getVirtualMachineRestore()
+      type: method-name

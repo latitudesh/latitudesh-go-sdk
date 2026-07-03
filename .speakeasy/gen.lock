@@ -1,23 +1,23 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: ad4b5d989a918722a54665c995aba6ff
+  docChecksum: 0ece34745cb5dc69ae48f52221624a47
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.787.0
-  generationVersion: 2.914.0
-  releaseVersion: 1.16.5
-  configChecksum: e9df605be557849e6d9e1c1935784539
+  speakeasyVersion: 1.788.0
+  generationVersion: 2.915.0
+  releaseVersion: 1.16.7
+  configChecksum: 1396ef318fd5b9bb9269c828684bbbea
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 8da8d7e2-6c4c-4816-b699-57a708f1652f
-  pristine_commit_hash: de54a56ea4808542c2b2705df5253f8077a87f25
-  pristine_tree_hash: a1155acdd8aec19c2ee3371f422e8714da3cb201
+  generation_id: 08634d82-ea40-4360-aa60-d480543969f7
+  pristine_commit_hash: 6b892fa523e6f9ba1a5e5e2f6997c3eadf9215cc
+  pristine_tree_hash: 717508ffe6a3b5869d80d2a7ec50d1f43baced7a
 features:
   go:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.14
-    core: 3.13.46
+    core: 3.13.47
     defaultEnabledRetries: 0.2.0
     deprecations: 2.81.3
     devContainers: 2.90.0
@@ -97,6 +97,10 @@ trackedFiles:
     id: 11fd94ac06ba
     last_write_checksum: sha1:f5d24a8db9d3508e242f76eecaa392613a4539df
     pristine_git_object: 7a2721f8ef748ae60c93c8f4af95d30f116de323
+  docs/models/components/backup.md:
+    id: 94269d2fd42e
+    last_write_checksum: sha1:ae300ac27c96244f2d0411fdfcf6815a6d7ce1f1
+    pristine_git_object: 9d0939643792030455d92582fab9a8d6c607650d
   docs/models/components/bandwidthpackages.md:
     id: fa41ed65f5fb
     last_write_checksum: sha1:b4acee38bb73f685d60fe6520c8ded1b343c41bf
@@ -1473,6 +1477,58 @@ trackedFiles:
     id: bfd3f197d6b1
     last_write_checksum: sha1:c7841490d15ec2d1db15634f156a0ce4619317d3
     pristine_git_object: 4b2940c70c71bc750f794c8ae6d062d62e7afd3b
+  docs/models/components/virtualmachinebackup.md:
+    id: 7f01d6dfbd27
+    last_write_checksum: sha1:ef9139e41ff3ee9c32d744e7c868b988928b9166
+    pristine_git_object: 6a22b75629a0117bd680b812065ca39617f005dd
+  docs/models/components/virtualmachinebackupattributes.md:
+    id: 5c3f553c227d
+    last_write_checksum: sha1:c26be55f90b79777598b009b9504a9af8183f590
+    pristine_git_object: 943b7111ef17301655ad216c5b43af6128a26290
+  docs/models/components/virtualmachinebackupattributesattributes.md:
+    id: 339c65e2976e
+    last_write_checksum: sha1:aa39865f09638a4247d5043a49214fcbe0cb5758
+    pristine_git_object: 46bc65717caef263028ed19cffbb949c260bad19
+  docs/models/components/virtualmachinebackupattributesstatus.md:
+    id: e2b67613d343
+    last_write_checksum: sha1:0fda2503b9e5d7e8f6fa34ced5c2c78a77c28747
+    pristine_git_object: edb4430e7087ba15b3508c8af82fcdfbca5c9bbc
+  docs/models/components/virtualmachinebackupattributestype.md:
+    id: ee925b3d221e
+    last_write_checksum: sha1:432ee17f325b522cf416fe5d56151f188468f6da
+    pristine_git_object: 4bca2c210b363a0be0d087d747e23fe43599df8b
+  docs/models/components/virtualmachinebackupattributesvirtualmachine.md:
+    id: 7e4f016a7835
+    last_write_checksum: sha1:d4c472d788d77e5d755a4b09abbf64d286e15e10
+    pristine_git_object: 0adc7b9efe2fe4668d9ec53a9fea873c09d93fd4
+  docs/models/components/virtualmachinebackupmeta.md:
+    id: be022b29ea7c
+    last_write_checksum: sha1:c01428461a3c27e106c1479ed100cae8eca7c21f
+    pristine_git_object: 8836b0dc4dc7b223673c2cc5f86b3da4320feb94
+  docs/models/components/virtualmachinebackuppayload.md:
+    id: f4433d559aed
+    last_write_checksum: sha1:f6a0aad6f5a0e7768edc0b036a9a88d1ce2c2851
+    pristine_git_object: a0e3a8ef00f4b2976fa50b43684c93ea2c33a9af
+  docs/models/components/virtualmachinebackuppayloadattributes.md:
+    id: 6e51d61baa88
+    last_write_checksum: sha1:f9dd368073529ca0c9064725960fe84d720e0849
+    pristine_git_object: 3635c064d39124a83e608a129bbd16ee35f225eb
+  docs/models/components/virtualmachinebackuppayloaddata.md:
+    id: 4d3d69af6aa0
+    last_write_checksum: sha1:4bd3e69a867203e1384c7e2ee1c8ffcbbb908169
+    pristine_git_object: be3865a5734f9fc42b6829efa9ecc0a137e7d3d4
+  docs/models/components/virtualmachinebackuppayloadtype.md:
+    id: 0668224bad5f
+    last_write_checksum: sha1:cdeca85f5a9b870da2517683d648f58e14a747ec
+    pristine_git_object: be491b8a7f33a22fc28c73cca1d8192af4cadaa7
+  docs/models/components/virtualmachinebackups.md:
+    id: 304e86f0dbcf
+    last_write_checksum: sha1:6b2755d65ed5a7c874482042cfd0c6fb86494d5b
+    pristine_git_object: 1c966cb5205a8044cc4706b998ff15540fe8ef90
+  docs/models/components/virtualmachinebackupsmeta.md:
+    id: e7eea6032242
+    last_write_checksum: sha1:66480189f438ab891eb24a634511690a62bada36
+    pristine_git_object: a114c28e27af85d930061bd66294b0aec2c41bb4
   docs/models/components/virtualmachinemeta.md:
     id: 06134248e24f
     last_write_checksum: sha1:88cfb671b6cd5c10958fec139275fc61ae5ba764
@@ -1519,8 +1575,8 @@ trackedFiles:
     pristine_git_object: 63d722ed45cc31de5861a719c4e2dac1387e6278
   docs/models/components/virtualmachinepayloadattributes.md:
     id: 08d0e3fb2a5e
-    last_write_checksum: sha1:f17ece1c416dc85f23992dd5e4f19ab40a4c05be
-    pristine_git_object: 7da7c2f75274b94bd9d766a61a57884c1284b130
+    last_write_checksum: sha1:291c683e635d69e91256e668aa4b3c24a3a75447
+    pristine_git_object: 92b05202291bc734533e16cea9b9d079f9a09237
   docs/models/components/virtualmachinepayloaddata.md:
     id: b49e41e9266c
     last_write_checksum: sha1:9d8f05ec56d4c70fa34a5bf285465a437c17f3c2
@@ -1589,6 +1645,58 @@ trackedFiles:
     id: 347fa80d83c1
     last_write_checksum: sha1:ffb5f51332dc871f2396ee8d71d5c273a5f0f0e9
     pristine_git_object: e30b00796d3b6f417c28ec8e577c50456c4f0c23
+  docs/models/components/virtualmachinerestore.md:
+    id: 8f2fe124b3ec
+    last_write_checksum: sha1:baf891e237086dc2b53eba67713e8a683cb6911c
+    pristine_git_object: c293e9201f08145bccd74da0b282bc7e4fdeed1f
+  docs/models/components/virtualmachinerestoreattributes.md:
+    id: 761f33faf368
+    last_write_checksum: sha1:ef5ec6ae9f039eeeeff23041fdcf8d998a045f62
+    pristine_git_object: 84f5bdcb6d223ba0a63215ccb1c5f36dc1d6be44
+  docs/models/components/virtualmachinerestoreattributesattributes.md:
+    id: dcf4988c0c9f
+    last_write_checksum: sha1:b37b09440f1181b19e443db522fbb288a36aa578
+    pristine_git_object: 8aeae1ad9f328583b6e5680901d264f9f192ba0d
+  docs/models/components/virtualmachinerestoreattributesstatus.md:
+    id: 26f17f7ab224
+    last_write_checksum: sha1:d4cc295ca575dddf82dcd529361684b88e6b2029
+    pristine_git_object: df97ff8082e02ccc0ac85a398a7ef502b0e966b1
+  docs/models/components/virtualmachinerestoreattributestype.md:
+    id: 1d9050b880ee
+    last_write_checksum: sha1:bde74bdd26f77546b22634412c6eebd8535db1d0
+    pristine_git_object: 4042782ce17cb799796e8e66cb64af3b858b85bb
+  docs/models/components/virtualmachinerestoreattributesvirtualmachine.md:
+    id: 22c0a4f80aba
+    last_write_checksum: sha1:1b840e0847132918da6fda23d75ae2a593732804
+    pristine_git_object: 791280cdf2f65ed2c6903697ed3fb4979b4f877c
+  docs/models/components/virtualmachinerestoremeta.md:
+    id: 48a1160952ce
+    last_write_checksum: sha1:e5861a153cd0221787371aa438dd91b098ccbc19
+    pristine_git_object: f0116839723a31568366f19aab10a8264df7b986
+  docs/models/components/virtualmachinerestorepayload.md:
+    id: 6483300b32b6
+    last_write_checksum: sha1:25a0e468930a189a76665e38c0c5e02c82a2b00e
+    pristine_git_object: 169a2f45a074406f038f92c27f2a87c413c05225
+  docs/models/components/virtualmachinerestorepayloadattributes.md:
+    id: 053819ff218d
+    last_write_checksum: sha1:897bdc6f43bd13433c2c09191c278cf0c0e694d3
+    pristine_git_object: bb9560c5314beff8c6d84fd0f950bc24e0cdde8f
+  docs/models/components/virtualmachinerestorepayloaddata.md:
+    id: 99d599dce9a1
+    last_write_checksum: sha1:5551d95c484ce33f0f91c18f274bbfc4dedb998b
+    pristine_git_object: 5dc0754969721c46f19147b00b78872fc9d6c302
+  docs/models/components/virtualmachinerestorepayloadtype.md:
+    id: e28e46b76776
+    last_write_checksum: sha1:c0958b5b47f744cfc7226b02f1e7eb070b3be8d3
+    pristine_git_object: 6d89d9cd35374d80a9e53ee168cc0f20d0e589d6
+  docs/models/components/virtualmachinerestores.md:
+    id: c52e188b82ab
+    last_write_checksum: sha1:08a8e245b8571fa85f52252c428a6edf39a46025
+    pristine_git_object: 15ac78d37dd68676580509e2aadaaf9306b53663
+  docs/models/components/virtualmachinerestoresmeta.md:
+    id: cd7b20898cc7
+    last_write_checksum: sha1:607861a52eaee174455567be0e7834ab7162a564
+    pristine_git_object: 0d45c99e30d865ddb47d4e60fb42888f4162b403
   docs/models/components/virtualmachines.md:
     id: 4b53d32b55ea
     last_write_checksum: sha1:996abdc319b171d4cec72fcc6a7150fcc6d85cd2
@@ -1603,8 +1711,12 @@ trackedFiles:
     pristine_git_object: bf79449848ca339a7edca90eecbead660676d6a5
   docs/models/components/virtualmachineupdatepayloadattributes.md:
     id: c037ff40da1f
-    last_write_checksum: sha1:b1921480ee27d472c1266cb8fbf2a5ccabb504eb
-    pristine_git_object: d87614fb7c0cb7be1819ed91ca6fb74845ca5e2f
+    last_write_checksum: sha1:aaed73860b7996401f01f44e9cb54c619acaa2c1
+    pristine_git_object: 96e01db1b71fa73d0b7c91c81162974db6d42e3e
+  docs/models/components/virtualmachineupdatepayloadbilling.md:
+    id: 06f64c43a697
+    last_write_checksum: sha1:55fba3549a374540fe20569745a0cd01a4339b2b
+    pristine_git_object: 37ac318f1b1e7a1cefb4f57dac755062f2e51727
   docs/models/components/virtualmachineupdatepayloaddata.md:
     id: 8d601c0aada2
     last_write_checksum: sha1:52814a8cca0c99f0655f3ee1a6fe13382ffdda7f
@@ -2049,6 +2161,18 @@ trackedFiles:
     id: 0fbd92eaf8c7
     last_write_checksum: sha1:7210056a6adc9915b4b682f490786e3bf1ce3869
     pristine_git_object: a47b8b80de261c30650007ff918fd3131ca8b7fe
+  docs/models/operations/createvirtualmachinebackuprequest.md:
+    id: fb559aa4a213
+    last_write_checksum: sha1:743595c518d60184cf094ba3846911494b026b8d
+    pristine_git_object: 53628754a911f02ab99ba40009741cda7ff0eeed
+  docs/models/operations/createvirtualmachinebackupresponse.md:
+    id: 9d68c31948f2
+    last_write_checksum: sha1:d335c4bf1189937a883c17c0e2b78cfc05794cc8
+    pristine_git_object: 530c6728b3c1f52d332903bf8224a1a7b1c59987
+  docs/models/operations/createvirtualmachinebackuptoplevelresponse.md:
+    id: 70edaee99d58
+    last_write_checksum: sha1:09590b6fd831f80e5df4a3e3130a3d70116aed52
+    pristine_git_object: 675b577fdaaa72a29a4f0eeaeb3ce66e4bffeca8
   docs/models/operations/createvirtualmachinenetworkattachmentrequest.md:
     id: 83a852ebcaf2
     last_write_checksum: sha1:2e845730fda2fe1e7b82fa6de56d7d95c83a9af9
@@ -2065,6 +2189,18 @@ trackedFiles:
     id: d502017d95b1
     last_write_checksum: sha1:b04da525476681dd266da922674b3fa51c007f99
     pristine_git_object: b2156cf233ebdf1dc3ae6c0cf8f19d0099794382
+  docs/models/operations/createvirtualmachinerestoreflatresponse.md:
+    id: 5c4d1f7d0ef4
+    last_write_checksum: sha1:fb4077cea34167e55da69c1502b7b97446f348a6
+    pristine_git_object: 39bd52286d73d05561219b146a557a0017b02368
+  docs/models/operations/createvirtualmachinerestorerequest.md:
+    id: ed7d07eb5012
+    last_write_checksum: sha1:1b831c5432438795caa1ea3dc6ac5f059f99066c
+    pristine_git_object: 94eb4f80928f3bba7103c19fde40c4c57d6886a7
+  docs/models/operations/createvirtualmachinerestoreresponse.md:
+    id: 523ada6fc238
+    last_write_checksum: sha1:ef1498c1d44a115c995e61859f3b13f162d49f5c
+    pristine_git_object: 229bcb283aed3c72dcb80be1b1e525b7f873b895
   docs/models/operations/createvirtualnetworkprivatenetworksattributes.md:
     id: bff0097d0af9
     last_write_checksum: sha1:af1698c8c36212cae2e964722e45227c895ce05d
@@ -2193,6 +2329,14 @@ trackedFiles:
     id: 59046dec8884
     last_write_checksum: sha1:942339f011953f361c4601349ce68c933268cc79
     pristine_git_object: 60313d2efea7a19d9ae1a497a2223218c875070c
+  docs/models/operations/deletevirtualmachinebackuprequest.md:
+    id: c7448a6a6edd
+    last_write_checksum: sha1:5f219c8eb0e166cc6d7e24e580884d4bae06d41f
+    pristine_git_object: 9207d8f2688bc0ff81a1b4e026115ebbcd6e22a7
+  docs/models/operations/deletevirtualmachinebackupresponse.md:
+    id: 6e2c4c4e8a0b
+    last_write_checksum: sha1:ac05411443de8d4db3bd671690611c6a3bda2ace
+    pristine_git_object: 7eb02b28928bc224e50afae02d7f298f3d9e70f1
   docs/models/operations/deletevirtualnetworksassignmentsrequest.md:
     id: df4bf793668d
     last_write_checksum: sha1:d80fefe4d7ddc5901e03298f1808e22942b085a6
@@ -2653,6 +2797,22 @@ trackedFiles:
     id: dcd7021df6e7
     last_write_checksum: sha1:ecdabcd04bb76825d8ad7289f2d2a0dfcd85b238
     pristine_git_object: bc6ac5a458cb82b24d33889c25a42951dc423e10
+  docs/models/operations/getvirtualmachinebackuprequest.md:
+    id: 9978c8924e91
+    last_write_checksum: sha1:677b4fa0fb968502b21fa97559645b8c90d1aeac
+    pristine_git_object: f318e3e0e8c8c5526b772058891da2480be238c3
+  docs/models/operations/getvirtualmachinebackupresponse.md:
+    id: 7b07e225f531
+    last_write_checksum: sha1:08b1fc7f435cc4cc06a9ac482fe3215f466c0aeb
+    pristine_git_object: 5bce2033e418a07ecf1a1d8e4e544ad6e072c668
+  docs/models/operations/getvirtualmachinerestorerequest.md:
+    id: aab6749b4314
+    last_write_checksum: sha1:27c29813a0221a1d14b29e860e4e7c94c7d2c76b
+    pristine_git_object: 4955415e520827ca9eb054a659a9021d5edcda82
+  docs/models/operations/getvirtualmachinerestoreresponse.md:
+    id: 786644cc42be
+    last_write_checksum: sha1:138cc2b49c7e6f781f22dc7f72fb6e38a63fd484
+    pristine_git_object: 9d88dc98471e27a34cdc6f022054a0c00a8cc599
   docs/models/operations/getvirtualnetworkrequest.md:
     id: e838fe88696b
     last_write_checksum: sha1:3ac1e980c24b8f3564ed034a7031ed3da91013a2
@@ -2709,6 +2869,14 @@ trackedFiles:
     id: 2d6f3d163674
     last_write_checksum: sha1:093adcc4d60113a9f5cf381d4f654048845ef478
     pristine_git_object: 8293ddc3851dc85117c21e8696475a51a5db3f8c
+  docs/models/operations/listbackuprestoresrequest.md:
+    id: ca1b17bf898e
+    last_write_checksum: sha1:14e5252c00c49a9279a87daa48b717a77dc8b967
+    pristine_git_object: e9b230c45f2a4152affbaeca50384f98fd28553b
+  docs/models/operations/listbackuprestoresresponse.md:
+    id: 23791112d107
+    last_write_checksum: sha1:e97a68f6baf19af99c48d402388422f7ed715917
+    pristine_git_object: e105492099a45e0f7afccda58c0539c722836e6b
   docs/models/operations/listelasticipsrequest.md:
     id: 04dc873fc768
     last_write_checksum: sha1:f4fea16ac33239cc706e6a47ab6a9e85866b2648
@@ -2737,6 +2905,10 @@ trackedFiles:
     id: 4f29630f9685
     last_write_checksum: sha1:99c783b79b03c49308d6e3f1726515ea82036369
     pristine_git_object: c5c8f59f8630f16bbd1e0c817de675aa713ea9de
+  docs/models/operations/listvirtualmachinebackupsresponse.md:
+    id: 5702dabf8c57
+    last_write_checksum: sha1:60951a152adfd06a88a9ae0afdda67a188be851d
+    pristine_git_object: 21089328b04c1fda4dfd660154a6d669517dfc41
   docs/models/operations/listvirtualmachinenetworkattachmentsrequest.md:
     id: a3660089ff7e
     last_write_checksum: sha1:bee277d2b6f9693cfdf6df1d8ddd77cb855db0d2
@@ -2745,6 +2917,26 @@ trackedFiles:
     id: 7aa9ba45fc12
     last_write_checksum: sha1:20ea963d0cb5858200b8ab7bc1a98f6dd5f0680a
     pristine_git_object: f118620f5742900888af2b702e35ef2127ba569a
+  docs/models/operations/listvirtualmachinerestoresresponse.md:
+    id: 476a50fccd75
+    last_write_checksum: sha1:b890afacb78bd9bc5edd3380fcf3c71785e5a634
+    pristine_git_object: 1389fabe30598486ffe94cde692e97035d07a82e
+  docs/models/operations/listvirtualmachinescopedbackupsrequest.md:
+    id: e6df2816ce11
+    last_write_checksum: sha1:41f2a0ebac3ff74b003b4d63f6db0f9b813fcc39
+    pristine_git_object: 1fde00f61c3a85e47e4b39c4599aa3c56db0d55c
+  docs/models/operations/listvirtualmachinescopedbackupsresponse.md:
+    id: 156ac0e132de
+    last_write_checksum: sha1:bd9b7f024972be666bccf109ea1e9f43e22ae1a3
+    pristine_git_object: 23cf54821b7d340b894b83e7fe6bb506f1104df5
+  docs/models/operations/listvirtualmachinescopedrestoresrequest.md:
+    id: e38772870660
+    last_write_checksum: sha1:5fab08bf4ef212856f69c9563371c9a35d97f44c
+    pristine_git_object: 79c4eebe39f66fd5d9c9f3155e98b65f59354a4a
+  docs/models/operations/listvirtualmachinescopedrestoresresponse.md:
+    id: 795fe018b996
+    last_write_checksum: sha1:cd914ffe79408a44ac0bf5010d3bcf8ca3706479
+    pristine_git_object: 9c062b2af9d48002b4bb22057e07f47421bcbafc
   docs/models/operations/meta.md:
     id: 5f01dbe7247f
     last_write_checksum: sha1:4b5cb758ada6f936b21b006caa104a0666994628
@@ -3673,6 +3865,14 @@ trackedFiles:
     id: e89a7f3efcd6
     last_write_checksum: sha1:23db7c3a814e6f17296dad4c40fd1d9a49f133ef
     pristine_git_object: ad2b8438a2c4f1dd84933ea811206e453f915cb6
+  docs/sdks/virtualmachinebackups/README.md:
+    id: a4dfa848ab23
+    last_write_checksum: sha1:b9b21241b0f14e525889a77d12d9808b72029fd1
+    pristine_git_object: 08cb7ca8193e28ee611e1d69684b4841fd702186
+  docs/sdks/virtualmachinerestores/README.md:
+    id: bee518b15f28
+    last_write_checksum: sha1:e83df8da4d5016d9455288b6af514ccd02c0d3f9
+    pristine_git_object: 58bc980691b44f39d0a767e9d5836cfda4676d20
   docs/sdks/virtualmachines/README.md:
     id: 9a444616366b
     last_write_checksum: sha1:52067d7824984b585baf4aa3dc8ccb30f520e1b8
@@ -3779,8 +3979,8 @@ trackedFiles:
     pristine_git_object: f055c7135bd9df9511999b5a8af285cf62b279a1
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:6541dd1a22eebe4f20567212c59a17bc2238bd08
-    pristine_git_object: c9c4f132afca87c4991c0ccb0813ef001826c7f6
+    last_write_checksum: sha1:11362dbc3c5bfefee6dba7ed26c58455eda8d184
+    pristine_git_object: 9708d8b143d0b1a5d274d7a8020a370e03ad0f11
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -4145,6 +4345,22 @@ trackedFiles:
     id: c01da1db9c5a
     last_write_checksum: sha1:1566a4b0a5265dfa7b266be666b344d087af0d09
     pristine_git_object: 570f8427cfcc858ef886cd00e8082ca5adf29215
+  models/components/virtualmachinebackup.go:
+    id: d1a3c86773a1
+    last_write_checksum: sha1:4ca89342b44b4850fb493f0be3885efd91bcc712
+    pristine_git_object: 662b5c92f2e5a592db7efd71f6319baeb0804ec3
+  models/components/virtualmachinebackupattributes.go:
+    id: c31b5fe11341
+    last_write_checksum: sha1:d5655a6e26b898895da4dc0382f2e3e580b2ce0f
+    pristine_git_object: 93b553013e4ebd599d0e2a633e35378c0a325844
+  models/components/virtualmachinebackuppayload.go:
+    id: 131d825f7072
+    last_write_checksum: sha1:6c08a2389e31a37f63eeb27676ab3f3f650cdf61
+    pristine_git_object: f851ade7707213bdb6be1d1a96f9411c7d01560b
+  models/components/virtualmachinebackups.go:
+    id: b60ff381d683
+    last_write_checksum: sha1:51f0f672b84325e5562f8250c37aea3b75e92cb9
+    pristine_git_object: 18c15699b7a0426836d8a75c724ecd38a164447c
   models/components/virtualmachinemetrics.go:
     id: 7fedb77f2120
     last_write_checksum: sha1:f117ad1cc196b2296ae3a1432e45e4b9e31c1aa9
@@ -4163,20 +4379,36 @@ trackedFiles:
     pristine_git_object: 878185470a0e8df6170193fbb6ec3a8b58dc8d1b
   models/components/virtualmachinepayload.go:
     id: a59f10f93ffe
-    last_write_checksum: sha1:668dfbbb6c18231716eb2aa3c4e3c71b8c66bcd0
-    pristine_git_object: 01737410d6d42bbdebec8dabe2cba4d316921fa7
+    last_write_checksum: sha1:44efbc27929ec83ac4a5787bfc0efa10bfafacfb
+    pristine_git_object: 62e2aaec47224fc0d8a6d167b15d666461731541
   models/components/virtualmachineplans.go:
     id: 1607b9634af6
     last_write_checksum: sha1:dd0a77e17fca5a931f7dd44243ed7d49cafab1a2
     pristine_git_object: 152db83d67b1ad1f4d741adb1bbcfbaa8c0b2180
+  models/components/virtualmachinerestore.go:
+    id: 38e5b15f7e4f
+    last_write_checksum: sha1:6cefd75a83ccd7693b57cc36d043fb597a6888ba
+    pristine_git_object: d0505bde4d1c266675002a186564dc661a1eefb0
+  models/components/virtualmachinerestoreattributes.go:
+    id: 76f709e2d993
+    last_write_checksum: sha1:2f55cd7a4cf7446414e409e2b0a630216f324791
+    pristine_git_object: 071ca9b3a611cc9236a32ad481c93bb2ea5b0a48
+  models/components/virtualmachinerestorepayload.go:
+    id: 45c1c4e6366f
+    last_write_checksum: sha1:efaf34d995d4d170facfd4c509e384daea7f0979
+    pristine_git_object: 227f220b42a22cd74c8678556d1c4c0bc4ecc8db
+  models/components/virtualmachinerestores.go:
+    id: dc4fb460eb31
+    last_write_checksum: sha1:ec45f7425c145fea8bfc3dd50eb89fdc97596604
+    pristine_git_object: 9d8ad1f12acc2bd8748e776bfecc7acc4a419b5a
   models/components/virtualmachines.go:
     id: b6bb44410eba
     last_write_checksum: sha1:a9d0ed3d9cddc8a666d07b4469366153a880d7ff
     pristine_git_object: 33e922f69788fa867ca5b2f1d8f2f36c063d1633
   models/components/virtualmachineupdatepayload.go:
     id: e47b379d3482
-    last_write_checksum: sha1:ce67c6805f2ede33617bea31e1435691d30525a7
-    pristine_git_object: 2cd5e309944941969521e53df03a373ce9964ce0
+    last_write_checksum: sha1:9549464f2ebacaf60eb58adbf3f9d78d1238376d
+    pristine_git_object: a04e4c5be80fc21c4628c933fe4a9a84464b00e4
   models/components/virtualnetwork.go:
     id: 8f1acccc8179
     last_write_checksum: sha1:d3613b449c1626bc49501d728c4f12ba150bd5bf
@@ -4269,10 +4501,26 @@ trackedFiles:
     id: b2db8794ae0f
     last_write_checksum: sha1:e69182f17e774c3e355b0fbe7d8d777377afff2f
     pristine_git_object: 782f1a5698cfcbc663f8eaf47b8610ee9a43adc5
+  models/operations/createvirtualmachinebackup.go:
+    id: f93167c689b9
+    last_write_checksum: sha1:bcdedca496f9b7ab3a164e2a15c786b580c163bb
+    pristine_git_object: f846768a31b158578d4c188909eca62f0a467fc7
+  models/operations/createvirtualmachinebackuptoplevel.go:
+    id: f18a9d2f847e
+    last_write_checksum: sha1:25a9cda58fd0fa3553b7a85980cdc2b6ca0f6134
+    pristine_git_object: 5887dac41d354f0c0c015bc7a4776948e02dd54c
   models/operations/createvirtualmachinenetworkattachment.go:
     id: 09415cdf6074
     last_write_checksum: sha1:a2414e6355137799e166150d80bdbad167157048
     pristine_git_object: c598924f2d853e0a7888b3eb11f33b187a4346bf
+  models/operations/createvirtualmachinerestore.go:
+    id: a7567a9537de
+    last_write_checksum: sha1:8cd364e6ab63edc734ad2db34b22077d2e8690aa
+    pristine_git_object: a5312592b8fc0af7f61e6a97391ccafcf52161d2
+  models/operations/createvirtualmachinerestoreflat.go:
+    id: a4ac631aa34b
+    last_write_checksum: sha1:794f691b2608c4040f5d588a7c82a845ca59d3fc
+    pristine_git_object: c9f862b3ada699bed7ac4d0d60b4a0d887b20f99
   models/operations/createvirtualnetwork.go:
     id: 74648f29de4f
     last_write_checksum: sha1:21e58825be35bdd05343e7c4bb54f38acb63e6bd
@@ -4329,6 +4577,10 @@ trackedFiles:
     id: 2acde41ca55e
     last_write_checksum: sha1:0991fafccbee203df21a6794ebae2da27681a5dd
     pristine_git_object: 3de42c18df88a53e1d0b77dfd702fc2d667b8383
+  models/operations/deletevirtualmachinebackup.go:
+    id: 9d5bd3893372
+    last_write_checksum: sha1:ab431450675db1576d16caf195b2992a0d535153
+    pristine_git_object: f75672950e42b4e1dd1d8129cc01e539f0e5e10a
   models/operations/deletevirtualnetworksassignments.go:
     id: e2ca8c22b120
     last_write_checksum: sha1:8cc6c4500679e06aabd1c2902308a2a610dd5cb7
@@ -4541,6 +4793,14 @@ trackedFiles:
     id: 682449e004f8
     last_write_checksum: sha1:8d3b0db53ecadde999fd7a3a06afa7d42c8cb0e6
     pristine_git_object: b31f724e8e1b3530c07e4d337861c65269a3db9b
+  models/operations/getvirtualmachinebackup.go:
+    id: 370b93a94ad0
+    last_write_checksum: sha1:8a8a743afdb9b5c02de3f779e436e58dab98a83e
+    pristine_git_object: 89abc0f162b45b1e77db9fb3f322bfc492033bc4
+  models/operations/getvirtualmachinerestore.go:
+    id: 5f20e50d1c9d
+    last_write_checksum: sha1:f821411476a2fd060e728352bfd46dc4eb4cb433
+    pristine_git_object: 5f5636c759145bff425130bc2a9632d015a5596b
   models/operations/getvirtualnetwork.go:
     id: 558825927e2b
     last_write_checksum: sha1:4d0a089a207bdb24fdca1333e1a628ece0c92fa1
@@ -4565,6 +4825,10 @@ trackedFiles:
     id: 5bbcea4b064b
     last_write_checksum: sha1:bdb9cb502df1d3a193243a1fcf132c40874f63d2
     pristine_git_object: 03c00197a85d546c15feb6554eaf7cd992429053
+  models/operations/listbackuprestores.go:
+    id: a22fb643ee8f
+    last_write_checksum: sha1:766152812c606dc34def66aeb3ae9808dadf4cd4
+    pristine_git_object: 97963ad4e8b99e4457724ed1b926a84d36e7bdfd
   models/operations/listelasticips.go:
     id: a2dc7b3f60e2
     last_write_checksum: sha1:d49f80f29becc0cca96cd95219ff1a5fd22036ed
@@ -4581,10 +4845,26 @@ trackedFiles:
     id: 06b4f925f61e
     last_write_checksum: sha1:e2c16fa9b06075e5bc0d15464bc0d54593c7fcdd
     pristine_git_object: 5d779fbcf8defa5436794e4f46b29212eb4c40ba
+  models/operations/listvirtualmachinebackups.go:
+    id: 5ca8bd5dd75d
+    last_write_checksum: sha1:bcf768da0ad5b580a6b242455c53a43cfdd40cdf
+    pristine_git_object: b44d0b72d9f2b190ac163861ed0842db1cc00686
   models/operations/listvirtualmachinenetworkattachments.go:
     id: 53df5c48ffd4
     last_write_checksum: sha1:59ccd5a65b745aa2049da083ed560f1bcf4ed8e9
     pristine_git_object: 0ceb9de44912812e6ed7b498b540ec8565d79f66
+  models/operations/listvirtualmachinerestores.go:
+    id: 676a0ee04c26
+    last_write_checksum: sha1:9f0fa0305eedc8117c32664b39e4e19c32b42a58
+    pristine_git_object: a967386596274b33ef4e08984b942b8de36267f2
+  models/operations/listvirtualmachinescopedbackups.go:
+    id: 4f1a15478c71
+    last_write_checksum: sha1:376016644fd89b52b6bda813bdfb3d9ad54d63d8
+    pristine_git_object: caee895dd1a726eefb5409b8c7c22be894a461dc
+  models/operations/listvirtualmachinescopedrestores.go:
+    id: 5604e0d6fd1b
+    last_write_checksum: sha1:12d238ab9e527c5337a4278cd0e55b1420c283d0
+    pristine_git_object: e0f9ccfcb3421be51e7d04c85c2682e30d8523bb
   models/operations/options.go:
     id: d20dd4db9865
     last_write_checksum: sha1:95ffc9e2e9fdab9495686d211ea4f7105766240e
@@ -4837,10 +5117,18 @@ trackedFiles:
     id: 1e4afe168e18
     last_write_checksum: sha1:6654a3118c943e896a61ce40f7df21aea6d3cee6
     pristine_git_object: 80579a568a607841621d2dbf188bf44c087d6d70
+  virtualmachinebackups.go:
+    id: 046fce9264b2
+    last_write_checksum: sha1:a10489a90fde5caecdcc1de304710a2aad7ee7b7
+    pristine_git_object: d9d42938eb61e2ad88aab7f0ba2f61d5d6ee3359
+  virtualmachinerestores.go:
+    id: 0c9cafc07960
+    last_write_checksum: sha1:69bd8a56e664c06f770d2c9d024e48749bb9fbb6
+    pristine_git_object: 6fb2cbed99c045daf254fb825262a05a0386a9ec
   virtualmachines.go:
     id: 30cb88c4969c
-    last_write_checksum: sha1:c45cb2372c5e8cda7aa67d8cdf263586c8c2d941
-    pristine_git_object: e1b9269ddadf32b04f608c57a9b878444fedfd87
+    last_write_checksum: sha1:c6541033e0be2dec26ed80c0097c4dccd001f064
+    pristine_git_object: dcf6980979eef4af405a54689f62e82af2602b72
   virtualnetworks.go:
     id: 3816b5f92080
     last_write_checksum: sha1:bbcd1e22df503f04659433c61ce44937baff816e
@@ -8558,6 +8846,202 @@ examples:
       responses:
         "202":
           application/vnd.api+json: {"meta": {"status": "accepted"}}
+  list-virtual-machine-scoped-backups:
+    FeatureNotEnabled:
+      parameters:
+        path:
+          virtual_machine_id: "<id>"
+      responses:
+        "403":
+          application/vnd.api+json: {"errors": [{"code": "FEATURE_NOT_ENABLED"}]}
+    speakeasy-default-list-virtual-machine-scoped-backups:
+      parameters:
+        path:
+          virtual_machine_id: "<id>"
+      responses:
+        "200":
+          application/vnd.api+json: {}
+        "403":
+          application/vnd.api+json: {}
+  create-virtual-machine-backup:
+    FeatureNotEnabled:
+      parameters:
+        path:
+          virtual_machine_id: "<id>"
+      responses:
+        "403":
+          application/vnd.api+json: {"errors": [{"code": "FEATURE_NOT_ENABLED"}]}
+    speakeasy-default-create-virtual-machine-backup:
+      parameters:
+        path:
+          virtual_machine_id: "<id>"
+      responses:
+        "201":
+          application/vnd.api+json: {}
+        "403":
+          application/vnd.api+json: {}
+  list-virtual-machine-backups:
+    FeatureNotEnabled:
+      responses:
+        "403":
+          application/vnd.api+json: {"errors": [{"code": "FEATURE_NOT_ENABLED"}]}
+    speakeasy-default-list-virtual-machine-backups:
+      responses:
+        "200":
+          application/vnd.api+json: {}
+        "403":
+          application/vnd.api+json: {}
+  create-virtual-machine-backup-top-level:
+    FeatureNotEnabled:
+      requestBody:
+        application/json: {}
+        application/vnd.api+json: {}
+      responses:
+        "403":
+          application/vnd.api+json: {"errors": [{"code": "FEATURE_NOT_ENABLED"}]}
+    speakeasy-default-create-virtual-machine-backup-top-level:
+      requestBody:
+        application/json: {}
+        application/vnd.api+json: {}
+      responses:
+        "201":
+          application/vnd.api+json: {}
+        "403":
+          application/vnd.api+json: {}
+  get-virtual-machine-backup:
+    FeatureNotEnabled:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "403":
+          application/vnd.api+json: {"errors": [{"code": "FEATURE_NOT_ENABLED"}]}
+    speakeasy-default-get-virtual-machine-backup:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/vnd.api+json: {}
+        "403":
+          application/vnd.api+json: {}
+  delete-virtual-machine-backup:
+    FeatureNotEnabled:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "403":
+          application/vnd.api+json: {"errors": [{"code": "FEATURE_NOT_ENABLED"}]}
+    speakeasy-default-delete-virtual-machine-backup:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "202":
+          application/vnd.api+json: {}
+        "403":
+          application/vnd.api+json: {}
+  list-virtual-machine-scoped-restores:
+    FeatureNotEnabled:
+      parameters:
+        path:
+          virtual_machine_id: "<id>"
+          backup_id: "<id>"
+      responses:
+        "403":
+          application/vnd.api+json: {"errors": [{"code": "FEATURE_NOT_ENABLED"}]}
+    speakeasy-default-list-virtual-machine-scoped-restores:
+      parameters:
+        path:
+          virtual_machine_id: "<id>"
+          backup_id: "<id>"
+      responses:
+        "200":
+          application/vnd.api+json: {}
+        "403":
+          application/vnd.api+json: {}
+  create-virtual-machine-restore:
+    FeatureNotEnabled:
+      parameters:
+        path:
+          virtual_machine_id: "<id>"
+          backup_id: "<id>"
+      responses:
+        "403":
+          application/vnd.api+json: {"errors": [{"code": "FEATURE_NOT_ENABLED"}]}
+    speakeasy-default-create-virtual-machine-restore:
+      parameters:
+        path:
+          virtual_machine_id: "<id>"
+          backup_id: "<id>"
+      responses:
+        "201":
+          application/vnd.api+json: {}
+        "403":
+          application/vnd.api+json: {}
+  list-backup-restores:
+    FeatureNotEnabled:
+      parameters:
+        path:
+          backup_id: "<id>"
+      responses:
+        "403":
+          application/vnd.api+json: {"errors": [{"code": "FEATURE_NOT_ENABLED"}]}
+    speakeasy-default-list-backup-restores:
+      parameters:
+        path:
+          backup_id: "<id>"
+      responses:
+        "200":
+          application/vnd.api+json: {}
+        "403":
+          application/vnd.api+json: {}
+  list-virtual-machine-restores:
+    FeatureNotEnabled:
+      responses:
+        "403":
+          application/vnd.api+json: {"errors": [{"code": "FEATURE_NOT_ENABLED"}]}
+    speakeasy-default-list-virtual-machine-restores:
+      responses:
+        "200":
+          application/vnd.api+json: {}
+        "403":
+          application/vnd.api+json: {}
+  create-virtual-machine-restore-flat:
+    FeatureNotEnabled:
+      requestBody:
+        application/json: {}
+        application/vnd.api+json: {}
+      responses:
+        "403":
+          application/vnd.api+json: {"errors": [{"code": "FEATURE_NOT_ENABLED"}]}
+    speakeasy-default-create-virtual-machine-restore-flat:
+      requestBody:
+        application/json: {}
+        application/vnd.api+json: {}
+      responses:
+        "201":
+          application/vnd.api+json: {}
+        "403":
+          application/vnd.api+json: {}
+  get-virtual-machine-restore:
+    FeatureNotEnabled:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "403":
+          application/vnd.api+json: {"errors": [{"code": "FEATURE_NOT_ENABLED"}]}
+    speakeasy-default-get-virtual-machine-restore:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/vnd.api+json: {}
+        "403":
+          application/vnd.api+json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
 generatedFiles:

@@ -1,0 +1,9 @@
+# VirtualMachineBackup
+
+
+## Fields
+
+| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `Data`                                                                                                  | [*components.VirtualMachineBackupAttributes](../../models/components/virtualmachinebackupattributes.md) | :heavy_minus_sign:                                                                                      | N/A                                                                                                     |
+| `Meta`                                                                                                  | [*components.VirtualMachineBackupMeta](../../models/components/virtualmachinebackupmeta.md)             | :heavy_minus_sign:                                                                                      | N/A                                                                                                     |
