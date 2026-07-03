@@ -1,6 +1,6 @@
 # Credentials
 
-SSH credentials for connecting to the virtual machine. Only available when the VM is running.
+SSH credentials for connecting to the virtual machine. Only available when the VM is running. Opt-in extra field: request via `extra_fields[virtual_machines]=credentials`.
 
 
 ## Fields

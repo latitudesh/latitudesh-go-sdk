@@ -204,6 +204,7 @@ func main() {
 * [GetBandwidth](docs/sdks/plans/README.md#getbandwidth) - List bandwidth plans
 * [UpdateBandwidth](docs/sdks/plans/README.md#updatebandwidth) - Update bandwidth packages
 * [ListStorage](docs/sdks/plans/README.md#liststorage) - List storage plans
+* [GetManagedDatabasePlans](docs/sdks/plans/README.md#getmanageddatabaseplans) - List managed database plans
 
 ### [Plans.Vm](docs/sdks/vm/README.md)
 

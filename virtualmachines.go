@@ -461,9 +461,10 @@ func (s *VirtualMachines) List(ctx context.Context, filterProject *string, filte
 
 // Get - Retrieve VM
 // Show a Virtual Machine.
-func (s *VirtualMachines) Get(ctx context.Context, virtualMachineID string, opts ...operations.Option) (*operations.ShowVirtualMachineResponse, error) {
+func (s *VirtualMachines) Get(ctx context.Context, virtualMachineID string, extraFieldsVirtualMachines *string, opts ...operations.Option) (*operations.ShowVirtualMachineResponse, error) {
 	request := operations.ShowVirtualMachineRequest{
-		VirtualMachineID: virtualMachineID,
+		VirtualMachineID:           virtualMachineID,
+		ExtraFieldsVirtualMachines: extraFieldsVirtualMachines,
 	}
 
 	o := operations.Options{}
@@ -516,6 +517,10 @@ func (s *VirtualMachines) Get(ctx context.Context, virtualMachineID string, opts
 	}
 	req.Header.Set("Accept", "application/vnd.api+json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
+
+	if err := utils.PopulateQueryParams(ctx, req, request, nil, nil); err != nil {
+		return nil, fmt.Errorf("error populating query params: %w", err)
+	}
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
