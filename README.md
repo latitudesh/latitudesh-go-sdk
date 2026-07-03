@@ -319,6 +319,24 @@ func main() {
 * [Update](docs/sdks/userprofile/README.md#update) - Update profile
 * [ListTeams](docs/sdks/userprofile/README.md#listteams) - List user teams
 
+### [VirtualMachineBackups](docs/sdks/virtualmachinebackups/README.md)
+
+* [ListVirtualMachineScopedBackups](docs/sdks/virtualmachinebackups/README.md#listvirtualmachinescopedbackups) - List a VM's backups
+* [CreateVirtualMachineBackup](docs/sdks/virtualmachinebackups/README.md#createvirtualmachinebackup) - Create VM backup
+* [ListVirtualMachineBackups](docs/sdks/virtualmachinebackups/README.md#listvirtualmachinebackups) - List all VM backups
+* [CreateVirtualMachineBackupTopLevel](docs/sdks/virtualmachinebackups/README.md#createvirtualmachinebackuptoplevel) - Create VM backup (top-level)
+* [GetVirtualMachineBackup](docs/sdks/virtualmachinebackups/README.md#getvirtualmachinebackup) - Get VM backup
+* [DeleteVirtualMachineBackup](docs/sdks/virtualmachinebackups/README.md#deletevirtualmachinebackup) - Delete VM backup
+
+### [VirtualMachineRestores](docs/sdks/virtualmachinerestores/README.md)
+
+* [ListVirtualMachineScopedRestores](docs/sdks/virtualmachinerestores/README.md#listvirtualmachinescopedrestores) - List a backup's restores
+* [CreateVirtualMachineRestore](docs/sdks/virtualmachinerestores/README.md#createvirtualmachinerestore) - Create VM restore
+* [ListBackupRestores](docs/sdks/virtualmachinerestores/README.md#listbackuprestores) - List a backup's restores (top-level backup path)
+* [ListVirtualMachineRestores](docs/sdks/virtualmachinerestores/README.md#listvirtualmachinerestores) - List all VM restores
+* [CreateVirtualMachineRestoreFlat](docs/sdks/virtualmachinerestores/README.md#createvirtualmachinerestoreflat) - Create VM restore (flat)
+* [GetVirtualMachineRestore](docs/sdks/virtualmachinerestores/README.md#getvirtualmachinerestore) - Get VM restore
+
 ### [VirtualMachines](docs/sdks/virtualmachines/README.md)
 
 * [Create](docs/sdks/virtualmachines/README.md#create) - Create VM

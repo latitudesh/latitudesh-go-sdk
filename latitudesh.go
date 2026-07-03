@@ -2,7 +2,7 @@
 
 package latitudeshgosdk
 
-// Generated from OpenAPI doc version 2023-06-01 and generator version 2.914.0
+// Generated from OpenAPI doc version 2023-06-01 and generator version 2.915.0
 
 import (
 	"context"
@@ -50,34 +50,36 @@ func Pointer[T any](v T) *T { return &v }
 
 // Latitudesh - Latitude.sh API: The Latitude.sh API is a RESTful API to manage your Latitude.sh account. It allows you to perform the same actions as the Latitude.sh dashboard.
 type Latitudesh struct {
-	SDKVersion         string
-	APIKeys            *APIKeys
-	Billing            *Billing
-	Events             *Events
-	Firewalls          *Firewalls
-	ElasticIps         *ElasticIps
-	IPAddresses        *IPAddresses
-	Teams              *Teams
-	TeamMembers        *TeamMembers
-	OperatingSystems   *OperatingSystems
-	KubernetesClusters *KubernetesClusters
-	Plans              *Plans
-	Projects           *Projects
-	SSHKeys            *SSHKeys
-	UserData           *UserData
-	Regions            *Regions
-	Roles              *Roles
-	Servers            *Servers
-	FilesystemStorage  *FilesystemStorage
-	BlockStorage       *BlockStorage
-	ObjectStorage      *ObjectStorage
-	Tags               *Tags
-	Traffic            *Traffic
-	UserProfile        *UserProfile
-	VirtualMachines    *VirtualMachines
-	PrivateNetworks    *PrivateNetworks
-	VirtualNetworks    *VirtualNetworks
-	VpnSessions        *VpnSessions
+	SDKVersion             string
+	APIKeys                *APIKeys
+	Billing                *Billing
+	Events                 *Events
+	Firewalls              *Firewalls
+	ElasticIps             *ElasticIps
+	IPAddresses            *IPAddresses
+	Teams                  *Teams
+	TeamMembers            *TeamMembers
+	OperatingSystems       *OperatingSystems
+	KubernetesClusters     *KubernetesClusters
+	Plans                  *Plans
+	Projects               *Projects
+	SSHKeys                *SSHKeys
+	UserData               *UserData
+	Regions                *Regions
+	Roles                  *Roles
+	Servers                *Servers
+	FilesystemStorage      *FilesystemStorage
+	BlockStorage           *BlockStorage
+	ObjectStorage          *ObjectStorage
+	Tags                   *Tags
+	Traffic                *Traffic
+	UserProfile            *UserProfile
+	VirtualMachines        *VirtualMachines
+	VirtualMachineBackups  *VirtualMachineBackups
+	VirtualMachineRestores *VirtualMachineRestores
+	PrivateNetworks        *PrivateNetworks
+	VirtualNetworks        *VirtualNetworks
+	VpnSessions            *VpnSessions
 
 	sdkConfiguration config.SDKConfiguration
 	hooks            *hooks.Hooks
@@ -167,9 +169,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Latitudesh {
 	sdk := &Latitudesh{
-		SDKVersion: "1.16.5",
+		SDKVersion: "1.16.6",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 1.16.5 2.914.0 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
+			UserAgent:  "speakeasy-sdk/go 1.16.6 2.915.0 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
 			ServerList: ServerList,
 			ServerVariables: []map[string]string{
 				{
@@ -229,6 +231,8 @@ func New(opts ...SDKOption) *Latitudesh {
 	sdk.Traffic = newTraffic(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.UserProfile = newUserProfile(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.VirtualMachines = newVirtualMachines(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.VirtualMachineBackups = newVirtualMachineBackups(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.VirtualMachineRestores = newVirtualMachineRestores(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.PrivateNetworks = newPrivateNetworks(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.VirtualNetworks = newVirtualNetworks(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.VpnSessions = newVpnSessions(sdk, sdk.sdkConfiguration, sdk.hooks)

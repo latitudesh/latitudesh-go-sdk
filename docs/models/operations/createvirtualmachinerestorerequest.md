@@ -1,0 +1,10 @@
+# CreateVirtualMachineRestoreRequest
+
+
+## Fields
+
+| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `VirtualMachineID`                                                                                  | `string`                                                                                            | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `BackupID`                                                                                          | `string`                                                                                            | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `VirtualMachineRestorePayload`                                                                      | [*components.VirtualMachineRestorePayload](../../models/components/virtualmachinerestorepayload.md) | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
