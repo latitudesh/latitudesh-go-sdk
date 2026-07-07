@@ -552,6 +552,7 @@ func main() {
                 Tags: []string{
                     "invalid-tag",
                 },
+                Description: latitudeshgosdk.Pointer("Test virtual network update"),
             },
         },
     })
@@ -588,7 +589,9 @@ func main() {
         Data: operations.UpdateVirtualNetworkPrivateNetworksData{
             ID: "<id>",
             Type: operations.UpdateVirtualNetworkPrivateNetworksTypeVirtualNetworks,
-            Attributes: &operations.UpdateVirtualNetworkPrivateNetworksAttributes{},
+            Attributes: &operations.UpdateVirtualNetworkPrivateNetworksAttributes{
+                Description: latitudeshgosdk.Pointer("Test virtual network update"),
+            },
         },
     })
     if err != nil {
@@ -624,7 +627,9 @@ func main() {
         Data: operations.UpdateVirtualNetworkPrivateNetworksData{
             ID: "<id>",
             Type: operations.UpdateVirtualNetworkPrivateNetworksTypeVirtualNetworks,
-            Attributes: &operations.UpdateVirtualNetworkPrivateNetworksAttributes{},
+            Attributes: &operations.UpdateVirtualNetworkPrivateNetworksAttributes{
+                Description: latitudeshgosdk.Pointer("Test virtual network update"),
+            },
         },
     })
     if err != nil {

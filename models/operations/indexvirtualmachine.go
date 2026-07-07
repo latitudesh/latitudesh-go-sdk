@@ -13,6 +13,8 @@ type IndexVirtualMachineRequest struct {
 	FilterTags *string `queryParam:"style=form,explode=true,name=filter[tags]"`
 	// Comma-separated extra attributes that are lazy-loaded. Supported values: `credentials`, `pending_restart`. Example: `extra_fields[virtual_machines]=credentials,pending_restart`.
 	ExtraFieldsVirtualMachines *string `queryParam:"style=form,explode=true,name=extra_fields[virtual_machines]"`
+	// Comma-separated sort fields. Prefix a field with `-` for descending order. Supported fields: created_at, name, hostname, status. Example: `sort=status,-created_at` sorts by status ascending, then by creation date descending.
+	Sort *string `queryParam:"style=form,explode=true,name=sort"`
 }
 
 func (i *IndexVirtualMachineRequest) GetFilterProject() *string {
@@ -34,6 +36,13 @@ func (i *IndexVirtualMachineRequest) GetExtraFieldsVirtualMachines() *string {
 		return nil
 	}
 	return i.ExtraFieldsVirtualMachines
+}
+
+func (i *IndexVirtualMachineRequest) GetSort() *string {
+	if i == nil {
+		return nil
+	}
+	return i.Sort
 }
 
 type IndexVirtualMachineResponse struct {

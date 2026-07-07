@@ -5,7 +5,6 @@ package operations
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
@@ -34,18 +33,7 @@ func (e *UpdateVirtualNetworkPrivateNetworksType) UnmarshalJSON(data []byte) err
 
 type UpdateVirtualNetworkPrivateNetworksAttributes struct {
 	Tags        []string `json:"tags,omitempty"`
-	Description *string  `default:"Test virtual network update" json:"description"`
-}
-
-func (u UpdateVirtualNetworkPrivateNetworksAttributes) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(u, "", false)
-}
-
-func (u *UpdateVirtualNetworkPrivateNetworksAttributes) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &u, "", false, nil); err != nil {
-		return err
-	}
-	return nil
+	Description *string  `json:"description,omitempty"`
 }
 
 func (u *UpdateVirtualNetworkPrivateNetworksAttributes) GetTags() []string {
