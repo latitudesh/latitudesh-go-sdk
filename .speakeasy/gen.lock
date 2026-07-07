@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: e153b22500392bf1c325083e58e76d4b
+  docChecksum: eb3fead886731824b5e163a9f81c90ee
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.788.0
-  generationVersion: 2.915.0
-  releaseVersion: 1.16.8
-  configChecksum: 786d0f755250de7c4e70a6cdfc2109bc
+  speakeasyVersion: 1.789.0
+  generationVersion: 2.916.2
+  releaseVersion: 1.16.9
+  configChecksum: 43eba875d2677f9528210faaecf885a6
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 4bafe531-8978-4344-97d1-1300b130cc9f
-  pristine_commit_hash: 41c724fccd772be589a384de6ee0019693840c44
-  pristine_tree_hash: 5a68ed9a3971881f7046da8940ff0a480d55a5ab
+  generation_id: 5eba8339-34e5-4da4-a7e4-db62f6eda155
+  pristine_commit_hash: 978f01b8c4ae1c51cc16f63d5cc9389f5453f562
+  pristine_tree_hash: 56a762036bea745d2d80c67320faaf0df28ef18e
 features:
   go:
     additionalDependencies: 0.1.0
@@ -2887,8 +2887,8 @@ trackedFiles:
     pristine_git_object: afc17c69cfef53233ca974ae28743a27ba063e48
   docs/models/operations/indexvirtualmachinerequest.md:
     id: 2bc7285a85dc
-    last_write_checksum: sha1:5d8e9cd9ceeec2d6804837880cc1358af67b3eea
-    pristine_git_object: 2fdb12bc8355fbc7279c8262edfb1fd46a2c5427
+    last_write_checksum: sha1:c8b48ab157c012b98a46cb2a0996552a45ded63b
+    pristine_git_object: 38b080eeab8c7b6e4c525b071253f8f3d67839d4
   docs/models/operations/indexvirtualmachineresponse.md:
     id: 2d6f3d163674
     last_write_checksum: sha1:093adcc4d60113a9f5cf381d4f654048845ef478
@@ -3843,8 +3843,8 @@ trackedFiles:
     pristine_git_object: 912a89cb3fc009c8d666442f73bf8c4e9b80bcde
   docs/sdks/privatenetworks/README.md:
     id: bf926505cbe0
-    last_write_checksum: sha1:439b667e219a61753252d4ada50c84feadbfa079
-    pristine_git_object: 4c9e6177a0574db41343ea010c84acd9b37c22e8
+    last_write_checksum: sha1:f76238adf63e0f5bda9cdff80faaca9892a88d7d
+    pristine_git_object: 9fc11dc831596c6ae6652d8eb3fe1c592d615f61
   docs/sdks/projects/README.md:
     id: 1c5f71754e17
     last_write_checksum: sha1:745e3ff47ce93b34f3b5579e2366b3e6df54ee80
@@ -3899,8 +3899,8 @@ trackedFiles:
     pristine_git_object: 58bc980691b44f39d0a767e9d5836cfda4676d20
   docs/sdks/virtualmachines/README.md:
     id: 9a444616366b
-    last_write_checksum: sha1:e43bb57eff0398cfd269df81716df8b60cee5485
-    pristine_git_object: 62efa182676e150980cfc0adceb3a456b8c3ede6
+    last_write_checksum: sha1:a59d3a6f1e48d0a5769a2c6d6ee0d3a6a695cf65
+    pristine_git_object: f8629f1af74ecafde7c7bd1f9c0acd121f55cba7
   docs/sdks/virtualnetworks/README.md:
     id: 523cffefb080
     last_write_checksum: sha1:8b68f053c8a41185bbf92c501a89d4bff133f603
@@ -4003,8 +4003,8 @@ trackedFiles:
     pristine_git_object: f055c7135bd9df9511999b5a8af285cf62b279a1
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:87fccc53bbf322378411a0d0f12c6aefa2c3d39d
-    pristine_git_object: 2f59e93084a2631ad1e469dd35dc3059f249d257
+    last_write_checksum: sha1:f210ea396b3d5d99d2512f5a8501daa341e99627
+    pristine_git_object: 73e370e0da589521b509d2b67a421ba9461d0a40
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -4859,8 +4859,8 @@ trackedFiles:
     pristine_git_object: 02de87456b948b5d8a0509032f06a24fb10ab4cc
   models/operations/indexvirtualmachine.go:
     id: 5bbcea4b064b
-    last_write_checksum: sha1:bdb9cb502df1d3a193243a1fcf132c40874f63d2
-    pristine_git_object: 03c00197a85d546c15feb6554eaf7cd992429053
+    last_write_checksum: sha1:5b85e8ea3076bcf349ba5e230eb8d77d6fd865cb
+    pristine_git_object: 03c54cbbb2b50e13941d81892f55cdc81e340276
   models/operations/listbackuprestores.go:
     id: a22fb643ee8f
     last_write_checksum: sha1:766152812c606dc34def66aeb3ae9808dadf4cd4
@@ -5063,8 +5063,8 @@ trackedFiles:
     pristine_git_object: e045e090972105cbb0d379a81dd7e6d3943d606a
   models/operations/updatevirtualnetwork.go:
     id: 7966cfb198d6
-    last_write_checksum: sha1:c58d4071172902df2a7ceff573ca59d8bb3e4a65
-    pristine_git_object: b41ae7d2e4553f0d6dd0bb0ca648808a91e2f883
+    last_write_checksum: sha1:08f6101cbdf367a2b3db4eeca0adb58e5d64973f
+    pristine_git_object: 383c22338d92c0dbdad09ca9f151026e80312ba7
   objectstorage.go:
     id: 18258b860496
     last_write_checksum: sha1:ba4717f6f917047970e99f7157e91878a5f8ba91
@@ -5163,8 +5163,8 @@ trackedFiles:
     pristine_git_object: 6fb2cbed99c045daf254fb825262a05a0386a9ec
   virtualmachines.go:
     id: 30cb88c4969c
-    last_write_checksum: sha1:c3f502bd37d6cc7b2391c413b8b20ab425209cdb
-    pristine_git_object: 68f1b70c4c98f0f099b082e7fa1859eddd6ac80d
+    last_write_checksum: sha1:9b82e3f6441e643004f76b9cbc826da382c7c05a
+    pristine_git_object: ab8959e406394706a8629e6e230977b5f8044c18
   virtualnetworks.go:
     id: 3816b5f92080
     last_write_checksum: sha1:bbcd1e22df503f04659433c61ce44937baff816e
@@ -7489,6 +7489,10 @@ examples:
       responses:
         "200":
           application/vnd.api+json: {"data": [{"id": "vm_zlkg1DegdvZE5", "type": "virtual_machines", "attributes": {"name": "my-new-vm", "created_at": "2026-01-14T15:57:14+00:00", "status": "Running", "primary_ipv4": "192.168.1.100", "operating_system": null, "credentials": {"username": "ubuntu", "host": "192.168.1.100", "password": "secure_password", "ssh_keys": []}, "site": "MEX192", "billing": "hourly", "plan": {"id": "plan_059EqYVjDQj8p", "name": "g3.l40s.medium-142"}, "specs": {"vcpu": null, "ram": null, "storage": null, "nic": "1 x 1 Gbps", "gpu": "1 x NVIDIA H100 Tensor Core GPU"}, "team": {"id": "team_1ejNe2b5gQiKpxYNxz0bFm2yY38", "name": "701 Team", "slug": "701-team", "description": "701 Team", "address": "29825 Klocko Trafficway, Wunschhaven, KS 74888", "currency": {}, "status": "verified"}, "project": {"id": "proj_w49QDB2WDagKb", "name": "Intelligent Granite Pants", "slug": "intelligent-granite-pants", "description": "Aerodynamic Copper Bottle", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}}}]}
+    UnsupportedSortField:
+      responses:
+        "400":
+          application/vnd.api+json: {"errors": [{"code": "VALIDATION_ERROR", "status": "400", "title": "Validation Error", "detail": "contains unsupported field: region", "source": {"parameter": "sort"}, "meta": {}}]}
   show-virtual-machine:
     Ok:
       parameters:
@@ -7625,8 +7629,8 @@ examples:
         path:
           vlan_id: "vlan_VaNmodjeObE8W"
       requestBody:
-        application/json: {"data": {"id": "vlan_VaNmodjeObE8W", "type": "virtual_networks", "attributes": {"tags": ["tag_RjLvG6oe84IAw7BxxEGaFAXK4l4", "tag_lpPQ21kXEYfb9az3jRoVIVw4RBk"], "description": "Test virtual network update"}}}
-        application/vnd.api+json: {"data": {"id": "vlan_VaNmodjeObE8W", "type": "virtual_networks", "attributes": {"tags": ["tag_RjLvG6oe84IAw7BxxEGaFAXK4l4", "tag_lpPQ21kXEYfb9az3jRoVIVw4RBk"], "description": "Test virtual network update"}}}
+        application/json: {"data": {"id": "vlan_VaNmodjeObE8W", "type": "virtual_networks", "attributes": {"tags": ["tag_RjLvG6oe84IAw7BxxEGaFAXK4l4", "tag_lpPQ21kXEYfb9az3jRoVIVw4RBk"]}}}
+        application/vnd.api+json: {"data": {"id": "vlan_VaNmodjeObE8W", "type": "virtual_networks", "attributes": {"tags": ["tag_RjLvG6oe84IAw7BxxEGaFAXK4l4", "tag_lpPQ21kXEYfb9az3jRoVIVw4RBk"]}}}
       responses:
         "200":
           application/vnd.api+json: {"data": {"id": "vlan_VaNmodjeObE8W", "type": "virtual_networks", "attributes": {"vid": 2040, "name": "cupiditate", "description": "Perspiciatis molestiae laborum quae.", "created_at": null, "tags": [{"id": "tag_RjLvG6oe84IAw7BxxEGaFAXK4l4", "name": "Tal-Elmar", "description": "Placeat non sit velit.", "color": "#e5e53e"}, {"id": "tag_lpPQ21kXEYfb9az3jRoVIVw4RBk", "name": "Great Eagle", "description": "Voluptatem aut in corrupti.", "color": "#502f50"}]}}, "meta": {}}
@@ -9087,7 +9091,7 @@ examples:
           application/vnd.api+json: {"data": [{"id": "plan_a1b2c3d4", "type": "managed_database_plans", "attributes": {"name": "db.clickhouse.dev", "slug": "db-clickhouse-dev", "engine": "clickhouse", "specs": {"cpu": "1", "memory": "2Gi", "storage": "5Gi", "shards": 1, "replicas": 1, "iops": null}, "regions": [{"region": "ASH", "city": "Ashburn", "country": "United States", "site": {"id": "loc_ashburn", "name": "Ashburn", "slug": "ASH", "facility": "DC1"}, "pricing": {"USD": {"month": 10, "year": 100}, "BRL": {"month": 57, "year": 570}}}]}}]}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes:\n* `Latitudesh.Plans.GetManagedDatabasePlans()`: **Added**\n* `Latitudesh.Servers.List()`: \n  *  `request.Request.Stats[total]` **Added**\n  *  `response.Meta.Stats` **Added**\n* `Latitudesh.VirtualMachines.Get()`:  `request.ExtraFields[virtualMachines]` **Added**\n* `Latitudesh.PrivateNetworks.List()`: \n  *  `request.Request.Stats[total]` **Added**\n  *  `response.Meta.Stats` **Added**\n* `Latitudesh.PrivateNetworks.ListAssignments()`: \n  *  `request.Request.Stats[total]` **Added**\n  *  `response.Meta.Stats` **Added**\n"
+releaseNotes: "## Go SDK Changes:\n* `Latitudesh.VirtualMachines.List()`: \n  *  `request.Sort` **Added**\n  *  `error.status[400]` **Added**\n* `Latitudesh.PrivateNetworks.Update()`: \n  *  `request.RequestBody.Data.Attributes.Description` **Changed**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

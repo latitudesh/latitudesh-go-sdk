@@ -245,11 +245,12 @@ func (s *VirtualMachines) Create(ctx context.Context, request components.Virtual
 
 // List VMs
 // Show all Team's Virtual Machines.
-func (s *VirtualMachines) List(ctx context.Context, filterProject *string, filterTags *string, extraFieldsVirtualMachines *string, opts ...operations.Option) (*operations.IndexVirtualMachineResponse, error) {
+func (s *VirtualMachines) List(ctx context.Context, filterProject *string, filterTags *string, extraFieldsVirtualMachines *string, sort *string, opts ...operations.Option) (*operations.IndexVirtualMachineResponse, error) {
 	request := operations.IndexVirtualMachineRequest{
 		FilterProject:              filterProject,
 		FilterTags:                 filterTags,
 		ExtraFieldsVirtualMachines: extraFieldsVirtualMachines,
+		Sort:                       sort,
 	}
 
 	o := operations.Options{}
@@ -428,6 +429,27 @@ func (s *VirtualMachines) List(ctx context.Context, filterProject *string, filte
 			}
 
 			res.VirtualMachines = &out
+		default:
+			rawBody, err := utils.ConsumeRawBody(httpRes)
+			if err != nil {
+				return nil, err
+			}
+			return nil, components.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
+		}
+	case httpRes.StatusCode == 400:
+		switch {
+		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/vnd.api+json`):
+			rawBody, err := utils.ConsumeRawBody(httpRes)
+			if err != nil {
+				return nil, err
+			}
+
+			var out components.ErrorObject
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
+				return nil, err
+			}
+
+			return nil, &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
