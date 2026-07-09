@@ -68,7 +68,8 @@ func (r *RegionsData) GetAttributes() *RegionsAttributes {
 }
 
 type Regions struct {
-	Data []RegionsData `json:"data,omitempty"`
+	Data []RegionsData   `json:"data,omitempty"`
+	Meta *PaginationMeta `json:"meta,omitempty"`
 }
 
 func (r *Regions) GetData() []RegionsData {
@@ -76,4 +77,11 @@ func (r *Regions) GetData() []RegionsData {
 		return nil
 	}
 	return r.Data
+}
+
+func (r *Regions) GetMeta() *PaginationMeta {
+	if r == nil {
+		return nil
+	}
+	return r.Meta
 }

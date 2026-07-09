@@ -33,10 +33,11 @@ func newOperatingSystems(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration,
 
 // ListPlans - List operating systems
 // Lists all operating systems available to deploy and reinstall.
-func (s *OperatingSystems) ListPlans(ctx context.Context, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetPlansOperatingSystemResponse, error) {
+func (s *OperatingSystems) ListPlans(ctx context.Context, pageSize *int64, pageNumber *int64, statsTotal *string, opts ...operations.Option) (*operations.GetPlansOperatingSystemResponse, error) {
 	request := operations.GetPlansOperatingSystemRequest{
 		PageSize:   pageSize,
 		PageNumber: pageNumber,
+		StatsTotal: statsTotal,
 	}
 
 	o := operations.Options{}
@@ -241,6 +242,7 @@ func (s *OperatingSystems) ListPlans(ctx context.Context, pageSize *int64, pageN
 			ctx,
 			pageSize,
 			&nP,
+			statsTotal,
 			opts...,
 		)
 	}

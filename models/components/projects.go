@@ -3,7 +3,8 @@
 package components
 
 type Projects struct {
-	Data []Project `json:"data,omitempty"`
+	Data []Project       `json:"data,omitempty"`
+	Meta *PaginationMeta `json:"meta,omitempty"`
 }
 
 func (p *Projects) GetData() []Project {
@@ -11,4 +12,11 @@ func (p *Projects) GetData() []Project {
 		return nil
 	}
 	return p.Data
+}
+
+func (p *Projects) GetMeta() *PaginationMeta {
+	if p == nil {
+		return nil
+	}
+	return p.Meta
 }

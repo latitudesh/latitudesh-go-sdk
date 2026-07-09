@@ -14,12 +14,12 @@ type GetVirtualNetworksAssignmentsRequest struct {
 	FilterVid *string `queryParam:"style=form,explode=true,name=filter[vid]"`
 	// The virtual network ID to filter by
 	FilterVirtualNetworkID *string `queryParam:"style=form,explode=true,name=filter[virtual_network_id]"`
-	// Request aggregate stats in the response `meta`. Use `count` to get the total number of records, returned as `meta.stats.total.count`.
-	StatsTotal *string `queryParam:"style=form,explode=true,name=stats[total]"`
 	// Number of items to return per page
 	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
 	// Page number to return (starts at 1)
 	PageNumber *int64 `default:"1" queryParam:"style=form,explode=true,name=page[number]"`
+	// Request aggregate stats in the response `meta`. Use `count` to get the total number of records, returned as `meta.stats.total.count`.
+	StatsTotal *string `queryParam:"style=form,explode=true,name=stats[total]"`
 }
 
 func (g GetVirtualNetworksAssignmentsRequest) MarshalJSON() ([]byte, error) {
@@ -54,13 +54,6 @@ func (g *GetVirtualNetworksAssignmentsRequest) GetFilterVirtualNetworkID() *stri
 	return g.FilterVirtualNetworkID
 }
 
-func (g *GetVirtualNetworksAssignmentsRequest) GetStatsTotal() *string {
-	if g == nil {
-		return nil
-	}
-	return g.StatsTotal
-}
-
 func (g *GetVirtualNetworksAssignmentsRequest) GetPageSize() *int64 {
 	if g == nil {
 		return nil
@@ -73,6 +66,13 @@ func (g *GetVirtualNetworksAssignmentsRequest) GetPageNumber() *int64 {
 		return nil
 	}
 	return g.PageNumber
+}
+
+func (g *GetVirtualNetworksAssignmentsRequest) GetStatsTotal() *string {
+	if g == nil {
+		return nil
+	}
+	return g.StatsTotal
 }
 
 type GetVirtualNetworksAssignmentsResponse struct {

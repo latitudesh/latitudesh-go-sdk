@@ -2,12 +2,9 @@
 
 package components
 
-type EventsMeta struct {
-}
-
 type Events struct {
-	Data []EventData `json:"data,omitempty"`
-	Meta *EventsMeta `json:"meta,omitempty"`
+	Data []EventData     `json:"data,omitempty"`
+	Meta *PaginationMeta `json:"meta,omitempty"`
 }
 
 func (e *Events) GetData() []EventData {
@@ -17,7 +14,7 @@ func (e *Events) GetData() []EventData {
 	return e.Data
 }
 
-func (e *Events) GetMeta() *EventsMeta {
+func (e *Events) GetMeta() *PaginationMeta {
 	if e == nil {
 		return nil
 	}

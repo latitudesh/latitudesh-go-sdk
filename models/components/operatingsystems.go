@@ -2,12 +2,9 @@
 
 package components
 
-type OperatingSystemsMeta struct {
-}
-
 type OperatingSystems struct {
 	Data []OperatingSystemData `json:"data,omitempty"`
-	Meta *OperatingSystemsMeta `json:"meta,omitempty"`
+	Meta *PaginationMeta       `json:"meta,omitempty"`
 }
 
 func (o *OperatingSystems) GetData() []OperatingSystemData {
@@ -17,7 +14,7 @@ func (o *OperatingSystems) GetData() []OperatingSystemData {
 	return o.Data
 }
 
-func (o *OperatingSystems) GetMeta() *OperatingSystemsMeta {
+func (o *OperatingSystems) GetMeta() *PaginationMeta {
 	if o == nil {
 		return nil
 	}

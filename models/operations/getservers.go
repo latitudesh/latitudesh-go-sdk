@@ -42,12 +42,12 @@ type GetServersRequest struct {
 	FilterTags *string `queryParam:"style=form,explode=true,name=filter[tags]"`
 	// The `credentials` are provided as extra attributes that are lazy loaded. To request it, just set `extra_fields[servers]=credentials` in the query string.
 	ExtraFieldsServers *string `queryParam:"style=form,explode=true,name=extra_fields[servers]"`
-	// Request aggregate stats in the response `meta`. Use `count` to get the total number of records, returned as `meta.stats.total.count`.
-	StatsTotal *string `queryParam:"style=form,explode=true,name=stats[total]"`
 	// Number of items to return per page
 	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
 	// Page number to return (starts at 1)
 	PageNumber *int64 `default:"1" queryParam:"style=form,explode=true,name=page[number]"`
+	// Request aggregate stats in the response `meta`. Use `count` to get the total number of records, returned as `meta.stats.total.count`.
+	StatsTotal *string `queryParam:"style=form,explode=true,name=stats[total]"`
 }
 
 func (g GetServersRequest) MarshalJSON() ([]byte, error) {
@@ -180,13 +180,6 @@ func (g *GetServersRequest) GetExtraFieldsServers() *string {
 	return g.ExtraFieldsServers
 }
 
-func (g *GetServersRequest) GetStatsTotal() *string {
-	if g == nil {
-		return nil
-	}
-	return g.StatsTotal
-}
-
 func (g *GetServersRequest) GetPageSize() *int64 {
 	if g == nil {
 		return nil
@@ -199,6 +192,13 @@ func (g *GetServersRequest) GetPageNumber() *int64 {
 		return nil
 	}
 	return g.PageNumber
+}
+
+func (g *GetServersRequest) GetStatsTotal() *string {
+	if g == nil {
+		return nil
+	}
+	return g.StatsTotal
 }
 
 type GetServersResponse struct {

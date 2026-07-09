@@ -33,10 +33,11 @@ func newRoles(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *hoo
 
 // List roles
 // Returns a list of all roles that can be assigned to users
-func (s *Roles) List(ctx context.Context, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetRolesResponse, error) {
+func (s *Roles) List(ctx context.Context, pageSize *int64, pageNumber *int64, statsTotal *string, opts ...operations.Option) (*operations.GetRolesResponse, error) {
 	request := operations.GetRolesRequest{
 		PageSize:   pageSize,
 		PageNumber: pageNumber,
+		StatsTotal: statsTotal,
 	}
 
 	o := operations.Options{}
@@ -241,6 +242,7 @@ func (s *Roles) List(ctx context.Context, pageSize *int64, pageNumber *int64, op
 			ctx,
 			pageSize,
 			&nP,
+			statsTotal,
 			opts...,
 		)
 	}

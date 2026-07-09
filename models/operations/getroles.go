@@ -12,6 +12,8 @@ type GetRolesRequest struct {
 	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
 	// Page number to return (starts at 1)
 	PageNumber *int64 `default:"1" queryParam:"style=form,explode=true,name=page[number]"`
+	// Request aggregate stats in the response `meta`. Use `count` to get the total number of records, returned as `meta.stats.total.count`.
+	StatsTotal *string `queryParam:"style=form,explode=true,name=stats[total]"`
 }
 
 func (g GetRolesRequest) MarshalJSON() ([]byte, error) {
@@ -39,9 +41,17 @@ func (g *GetRolesRequest) GetPageNumber() *int64 {
 	return g.PageNumber
 }
 
+func (g *GetRolesRequest) GetStatsTotal() *string {
+	if g == nil {
+		return nil
+	}
+	return g.StatsTotal
+}
+
 // GetRolesResponseBody - Success
 type GetRolesResponseBody struct {
-	Data []components.RoleData `json:"data,omitempty"`
+	Data []components.RoleData      `json:"data,omitempty"`
+	Meta *components.PaginationMeta `json:"meta,omitempty"`
 }
 
 func (g *GetRolesResponseBody) GetData() []components.RoleData {
@@ -49,6 +59,13 @@ func (g *GetRolesResponseBody) GetData() []components.RoleData {
 		return nil
 	}
 	return g.Data
+}
+
+func (g *GetRolesResponseBody) GetMeta() *components.PaginationMeta {
+	if g == nil {
+		return nil
+	}
+	return g.Meta
 }
 
 type GetRolesResponse struct {

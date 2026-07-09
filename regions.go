@@ -33,10 +33,11 @@ func newRegions(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *h
 
 // Get - List regions
 // Lists all [available locations](https://latitude.sh/locations). For server availability by location, please see the [Plans API](/reference/get-plans).
-func (s *Regions) Get(ctx context.Context, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetRegionsResponse, error) {
+func (s *Regions) Get(ctx context.Context, pageSize *int64, pageNumber *int64, statsTotal *string, opts ...operations.Option) (*operations.GetRegionsResponse, error) {
 	request := operations.GetRegionsRequest{
 		PageSize:   pageSize,
 		PageNumber: pageNumber,
+		StatsTotal: statsTotal,
 	}
 
 	o := operations.Options{}
@@ -241,6 +242,7 @@ func (s *Regions) Get(ctx context.Context, pageSize *int64, pageNumber *int64, o
 			ctx,
 			pageSize,
 			&nP,
+			statsTotal,
 			opts...,
 		)
 	}

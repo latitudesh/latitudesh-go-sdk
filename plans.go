@@ -455,14 +455,7 @@ func (s *Plans) Get(ctx context.Context, planID string, opts ...operations.Optio
 
 // GetBandwidth - List bandwidth plans
 // Lists all bandwidth plans.
-func (s *Plans) GetBandwidth(ctx context.Context, apiVersion *string, filterID *string, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetBandwidthPlansResponse, error) {
-	request := operations.GetBandwidthPlansRequest{
-		APIVersion: apiVersion,
-		FilterID:   filterID,
-		PageSize:   pageSize,
-		PageNumber: pageNumber,
-	}
-
+func (s *Plans) GetBandwidth(ctx context.Context, request operations.GetBandwidthPlansRequest, opts ...operations.Option) (*operations.GetBandwidthPlansResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -636,8 +629,8 @@ func (s *Plans) GetBandwidth(ctx context.Context, apiVersion *string, filterID *
 			return nil, err
 		}
 		var p int64 = 1
-		if pageNumber != nil {
-			p = *pageNumber
+		if request.PageNumber != nil {
+			p = *request.PageNumber
 		}
 		nP := int64(p + 1)
 		r, err := ajson.Eval(b, "$.data")
@@ -656,19 +649,17 @@ func (s *Plans) GetBandwidth(ctx context.Context, apiVersion *string, filterID *
 		}
 
 		l := 0
-		if pageSize != nil {
-			l = int(*pageSize)
+		if request.PageSize != nil {
+			l = int(*request.PageSize)
 		}
 		if len(arr) < l {
 			return nil, nil
 		}
+		request.PageNumber = &nP
 
 		return s.GetBandwidth(
 			ctx,
-			apiVersion,
-			filterID,
-			pageSize,
-			&nP,
+			request,
 			opts...,
 		)
 	}
