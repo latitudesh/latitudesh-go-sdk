@@ -2,12 +2,9 @@
 
 package components
 
-type IPAddressesMeta struct {
-}
-
 type IPAddresses struct {
-	Data []IPAddressData  `json:"data,omitempty"`
-	Meta *IPAddressesMeta `json:"meta,omitempty"`
+	Data []IPAddressData `json:"data,omitempty"`
+	Meta *PaginationMeta `json:"meta,omitempty"`
 }
 
 func (i *IPAddresses) GetData() []IPAddressData {
@@ -17,7 +14,7 @@ func (i *IPAddresses) GetData() []IPAddressData {
 	return i.Data
 }
 
-func (i *IPAddresses) GetMeta() *IPAddressesMeta {
+func (i *IPAddresses) GetMeta() *PaginationMeta {
 	if i == nil {
 		return nil
 	}

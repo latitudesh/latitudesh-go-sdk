@@ -30,7 +30,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Teams.Members.GetTeamMembers(ctx, latitudeshgosdk.Pointer[int64](20), latitudeshgosdk.Pointer[int64](1))
+    res, err := s.Teams.Members.GetTeamMembers(ctx, latitudeshgosdk.Pointer[int64](20), latitudeshgosdk.Pointer[int64](1), nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -54,12 +54,13 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `pageSize`                                               | `*int64`                                                 | :heavy_minus_sign:                                       | Number of items to return per page                       |
-| `pageNumber`                                             | `*int64`                                                 | :heavy_minus_sign:                                       | Page number to return (starts at 1)                      |
-| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+| Parameter                                                                                                                             | Type                                                                                                                                  | Required                                                                                                                              | Description                                                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                                                 | [context.Context](https://pkg.go.dev/context#Context)                                                                                 | :heavy_check_mark:                                                                                                                    | The context to use for the request.                                                                                                   |
+| `pageSize`                                                                                                                            | `*int64`                                                                                                                              | :heavy_minus_sign:                                                                                                                    | Number of items to return per page                                                                                                    |
+| `pageNumber`                                                                                                                          | `*int64`                                                                                                                              | :heavy_minus_sign:                                                                                                                    | Page number to return (starts at 1)                                                                                                   |
+| `statsTotal`                                                                                                                          | `*string`                                                                                                                             | :heavy_minus_sign:                                                                                                                    | Request aggregate stats in the response `meta`. Use `count` to get the total number of records, returned as `meta.stats.total.count`. |
+| `opts`                                                                                                                                | [][operations.Option](../../models/operations/option.md)                                                                              | :heavy_minus_sign:                                                                                                                    | The options for this request.                                                                                                         |
 
 ### Response
 

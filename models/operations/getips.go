@@ -84,6 +84,10 @@ type GetIpsRequest struct {
 	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
 	// Page number to return (starts at 1)
 	PageNumber *int64 `default:"1" queryParam:"style=form,explode=true,name=page[number]"`
+	// Request aggregate stats in the response `meta`. Use `count` to get the total number of records, returned as `meta.stats.total.count`.
+	StatsTotal *string `queryParam:"style=form,explode=true,name=stats[total]"`
+	// Comma-separated sort fields. Prefix a field with `-` for descending order. Supported fields: address, family, type, created_at. Example: `sort=type,-created_at` sorts by type ascending, then by creation date descending.
+	Sort *string `queryParam:"style=form,explode=true,name=sort"`
 }
 
 func (g GetIpsRequest) MarshalJSON() ([]byte, error) {
@@ -165,6 +169,20 @@ func (g *GetIpsRequest) GetPageNumber() *int64 {
 		return nil
 	}
 	return g.PageNumber
+}
+
+func (g *GetIpsRequest) GetStatsTotal() *string {
+	if g == nil {
+		return nil
+	}
+	return g.StatsTotal
+}
+
+func (g *GetIpsRequest) GetSort() *string {
+	if g == nil {
+		return nil
+	}
+	return g.Sort
 }
 
 type GetIpsResponse struct {

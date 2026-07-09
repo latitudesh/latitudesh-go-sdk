@@ -28,6 +28,8 @@ type GetEventsRequest struct {
 	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
 	// Page number to return (starts at 1)
 	PageNumber *int64 `default:"1" queryParam:"style=form,explode=true,name=page[number]"`
+	// Request aggregate stats in the response `meta`. Use `count` to get the total number of records, returned as `meta.stats.total.count`.
+	StatsTotal *string `queryParam:"style=form,explode=true,name=stats[total]"`
 }
 
 func (g GetEventsRequest) MarshalJSON() ([]byte, error) {
@@ -109,6 +111,13 @@ func (g *GetEventsRequest) GetPageNumber() *int64 {
 		return nil
 	}
 	return g.PageNumber
+}
+
+func (g *GetEventsRequest) GetStatsTotal() *string {
+	if g == nil {
+		return nil
+	}
+	return g.StatsTotal
 }
 
 type GetEventsResponse struct {

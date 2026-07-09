@@ -32,10 +32,11 @@ func newMembers(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *h
 }
 
 // GetTeamMembers - List members
-func (s *Members) GetTeamMembers(ctx context.Context, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetTeamMembersResponse, error) {
+func (s *Members) GetTeamMembers(ctx context.Context, pageSize *int64, pageNumber *int64, statsTotal *string, opts ...operations.Option) (*operations.GetTeamMembersResponse, error) {
 	request := operations.GetTeamMembersRequest{
 		PageSize:   pageSize,
 		PageNumber: pageNumber,
+		StatsTotal: statsTotal,
 	}
 
 	o := operations.Options{}
@@ -240,6 +241,7 @@ func (s *Members) GetTeamMembers(ctx context.Context, pageSize *int64, pageNumbe
 			ctx,
 			pageSize,
 			&nP,
+			statsTotal,
 			opts...,
 		)
 	}

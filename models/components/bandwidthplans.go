@@ -2,12 +2,9 @@
 
 package components
 
-type BandwidthPlansMeta struct {
-}
-
 type BandwidthPlans struct {
 	Data []BandwidthPlanData `json:"data,omitempty"`
-	Meta *BandwidthPlansMeta `json:"meta,omitempty"`
+	Meta *PaginationMeta     `json:"meta,omitempty"`
 }
 
 func (b *BandwidthPlans) GetData() []BandwidthPlanData {
@@ -17,7 +14,7 @@ func (b *BandwidthPlans) GetData() []BandwidthPlanData {
 	return b.Data
 }
 
-func (b *BandwidthPlans) GetMeta() *BandwidthPlansMeta {
+func (b *BandwidthPlans) GetMeta() *PaginationMeta {
 	if b == nil {
 		return nil
 	}

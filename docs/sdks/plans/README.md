@@ -131,6 +131,7 @@ import(
 	"context"
 	"os"
 	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
 	"log"
 )
 
@@ -141,7 +142,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Plans.GetBandwidth(ctx, latitudeshgosdk.Pointer("2023-06-01"), nil, latitudeshgosdk.Pointer[int64](20), latitudeshgosdk.Pointer[int64](1))
+    res, err := s.Plans.GetBandwidth(ctx, operations.GetBandwidthPlansRequest{})
     if err != nil {
         log.Fatal(err)
     }
@@ -165,14 +166,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `apiVersion`                                             | `*string`                                                | :heavy_minus_sign:                                       | N/A                                                      |
-| `filterID`                                               | `*string`                                                | :heavy_minus_sign:                                       | The plan ID to filter by                                 |
-| `pageSize`                                               | `*int64`                                                 | :heavy_minus_sign:                                       | Number of items to return per page                       |
-| `pageNumber`                                             | `*int64`                                                 | :heavy_minus_sign:                                       | Page number to return (starts at 1)                      |
-| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.GetBandwidthPlansRequest](../../models/operations/getbandwidthplansrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `opts`                                                                                     | [][operations.Option](../../models/operations/option.md)                                   | :heavy_minus_sign:                                                                         | The options for this request.                                                              |
 
 ### Response
 

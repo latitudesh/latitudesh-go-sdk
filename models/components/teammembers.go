@@ -131,12 +131,9 @@ func (t *TeamMembersData) GetAttributes() *TeamMembersAttributes {
 	return t.Attributes
 }
 
-type TeamMembersMeta struct {
-}
-
 type TeamMembers struct {
 	Data []TeamMembersData `json:"data,omitempty"`
-	Meta *TeamMembersMeta  `json:"meta,omitempty"`
+	Meta *PaginationMeta   `json:"meta,omitempty"`
 }
 
 func (t *TeamMembers) GetData() []TeamMembersData {
@@ -146,7 +143,7 @@ func (t *TeamMembers) GetData() []TeamMembersData {
 	return t.Data
 }
 
-func (t *TeamMembers) GetMeta() *TeamMembersMeta {
+func (t *TeamMembers) GetMeta() *PaginationMeta {
 	if t == nil {
 		return nil
 	}

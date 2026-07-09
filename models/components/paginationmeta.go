@@ -14,22 +14,22 @@ func (t *Total) GetCount() *int64 {
 	return t.Count
 }
 
-type PaginationMetaStats struct {
+type Stats struct {
 	Total *Total `json:"total,omitempty"`
 }
 
-func (p *PaginationMetaStats) GetTotal() *Total {
-	if p == nil {
+func (s *Stats) GetTotal() *Total {
+	if s == nil {
 		return nil
 	}
-	return p.Total
+	return s.Total
 }
 
 type PaginationMeta struct {
-	Stats *PaginationMetaStats `json:"stats,omitempty"`
+	Stats *Stats `json:"stats,omitempty"`
 }
 
-func (p *PaginationMeta) GetStats() *PaginationMetaStats {
+func (p *PaginationMeta) GetStats() *Stats {
 	if p == nil {
 		return nil
 	}
