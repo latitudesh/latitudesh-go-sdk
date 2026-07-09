@@ -3,6 +3,38 @@
 package components
 
 type Currency struct {
+	ID         *string `json:"id,omitempty"`
+	Code       *string `json:"code,omitempty"`
+	Name       *string `json:"name,omitempty"`
+	CurrencyID *int64  `json:"currency_id,omitempty"`
+}
+
+func (c *Currency) GetID() *string {
+	if c == nil {
+		return nil
+	}
+	return c.ID
+}
+
+func (c *Currency) GetCode() *string {
+	if c == nil {
+		return nil
+	}
+	return c.Code
+}
+
+func (c *Currency) GetName() *string {
+	if c == nil {
+		return nil
+	}
+	return c.Name
+}
+
+func (c *Currency) GetCurrencyID() *int64 {
+	if c == nil {
+		return nil
+	}
+	return c.CurrencyID
 }
 
 type Limits struct {
