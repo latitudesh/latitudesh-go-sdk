@@ -29,53 +29,53 @@ func (b *Billing) GetMethod() *string {
 	return b.Method
 }
 
-type Stats struct {
+type ProjectIncludeStats struct {
 	IPAddresses *int64 `json:"ip_addresses,omitempty"`
 	Prefixes    *int64 `json:"prefixes,omitempty"`
 	Servers     *int64 `json:"servers,omitempty"`
 	Vlans       *int64 `json:"vlans,omitempty"`
 }
 
-func (s *Stats) GetIPAddresses() *int64 {
-	if s == nil {
+func (p *ProjectIncludeStats) GetIPAddresses() *int64 {
+	if p == nil {
 		return nil
 	}
-	return s.IPAddresses
+	return p.IPAddresses
 }
 
-func (s *Stats) GetPrefixes() *int64 {
-	if s == nil {
+func (p *ProjectIncludeStats) GetPrefixes() *int64 {
+	if p == nil {
 		return nil
 	}
-	return s.Prefixes
+	return p.Prefixes
 }
 
-func (s *Stats) GetServers() *int64 {
-	if s == nil {
+func (p *ProjectIncludeStats) GetServers() *int64 {
+	if p == nil {
 		return nil
 	}
-	return s.Servers
+	return p.Servers
 }
 
-func (s *Stats) GetVlans() *int64 {
-	if s == nil {
+func (p *ProjectIncludeStats) GetVlans() *int64 {
+	if p == nil {
 		return nil
 	}
-	return s.Vlans
+	return p.Vlans
 }
 
 type ProjectInclude struct {
-	ID               *string  `json:"id,omitempty"`
-	Name             *string  `json:"name,omitempty"`
-	Slug             *string  `json:"slug,omitempty"`
-	Description      *string  `json:"description,omitempty"`
-	BillingType      *string  `json:"billing_type,omitempty"`
-	ProvisioningType *string  `json:"provisioning_type,omitempty"`
-	BillingMethod    *string  `json:"billing_method,omitempty"`
-	BandwidthAlert   *bool    `json:"bandwidth_alert,omitempty"`
-	Environment      *string  `json:"environment,omitempty"`
-	Billing          *Billing `json:"billing,omitempty"`
-	Stats            *Stats   `json:"stats,omitempty"`
+	ID               *string              `json:"id,omitempty"`
+	Name             *string              `json:"name,omitempty"`
+	Slug             *string              `json:"slug,omitempty"`
+	Description      *string              `json:"description,omitempty"`
+	BillingType      *string              `json:"billing_type,omitempty"`
+	ProvisioningType *string              `json:"provisioning_type,omitempty"`
+	BillingMethod    *string              `json:"billing_method,omitempty"`
+	BandwidthAlert   *bool                `json:"bandwidth_alert,omitempty"`
+	Environment      *string              `json:"environment,omitempty"`
+	Billing          *Billing             `json:"billing,omitempty"`
+	Stats            *ProjectIncludeStats `json:"stats,omitempty"`
 }
 
 func (p *ProjectInclude) GetID() *string {
@@ -148,7 +148,7 @@ func (p *ProjectInclude) GetBilling() *Billing {
 	return p.Billing
 }
 
-func (p *ProjectInclude) GetStats() *Stats {
+func (p *ProjectInclude) GetStats() *ProjectIncludeStats {
 	if p == nil {
 		return nil
 	}

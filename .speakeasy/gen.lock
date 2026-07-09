@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 0c40138ea904f91b119d902c965eab10
+  docChecksum: f187d1652e4ed8b465751eea5118e0c6
   docVersion: "2023-06-01"
   speakeasyVersion: 1.789.0
   generationVersion: 2.916.2
-  releaseVersion: 1.16.10
-  configChecksum: 8b6add16a7fbd0b30737a0055a3da36d
+  releaseVersion: 1.16.11
+  configChecksum: 188be3d4ac95cf847deb463704f89336
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: b932934b-fba2-4af0-b70b-a0912f5ceb91
-  pristine_commit_hash: fdc38d6c72acc07c3d87612593324f1191f73696
-  pristine_tree_hash: 20216d20bbf83a1e6668721ca9a7fd73404eecd3
+  generation_id: 1feb0a73-7fee-4897-8335-82ce34c7729a
+  pristine_commit_hash: 204443fbe67bccfc10118caf4fb277438786a514
+  pristine_tree_hash: 818373a331f144e2a564f1ffbd736d1b6a752bf2
 features:
   go:
     additionalDependencies: 0.1.0
@@ -563,12 +563,8 @@ trackedFiles:
     pristine_git_object: dd8cbcb77891b620abd18addd5b1b500a645e8e9
   docs/models/components/ipaddresses.md:
     id: 1a4efba49e5a
-    last_write_checksum: sha1:0f1a5a4c7f270dacb813678f232d9b5cba8b616b
-    pristine_git_object: a5dae837d319a415ce2acb1f2973a91bc1bdc8ce
-  docs/models/components/ipaddressesmeta.md:
-    id: 6ed336ba24f9
-    last_write_checksum: sha1:4ab8882cad64632c42466d1ef4e22f4cf187de6e
-    pristine_git_object: 2e902ea58aa320f982ff207b7783b276359e93f9
+    last_write_checksum: sha1:709b572ca777b27b5adbc7df82afe3d38d031b43
+    pristine_git_object: 2844f1490d5897a388bbea637f3efbdbcd34c4a8
   docs/models/components/ipaddressmeta.md:
     id: ff38312bd08e
     last_write_checksum: sha1:faac86a03aa3772b4c77811f9a7c405f1845cf3e
@@ -859,12 +855,8 @@ trackedFiles:
     pristine_git_object: 551a2dc90f342528fa0c5b1fd8508e0128a7e873
   docs/models/components/paginationmeta.md:
     id: 316660b3167a
-    last_write_checksum: sha1:4578574d8899a20a98727d00fb7ae8dadffec73e
-    pristine_git_object: 8d3722e498642d60077192e9f34ecc6e180888a6
-  docs/models/components/paginationmetastats.md:
-    id: 17142f98fb7b
-    last_write_checksum: sha1:9443472f81de66411a19a23f67d9b4026390e791
-    pristine_git_object: 54baeeaff90f0a0fcb4c6420b32bb3d9b43ae4e9
+    last_write_checksum: sha1:7d15136006bff370069ac4cec1e39f87e8e56799
+    pristine_git_object: 581734a6272ab0df522505658647d9872ff27e9c
   docs/models/components/partitions.md:
     id: 8874a87bc332
     last_write_checksum: sha1:30d8509ac94ef12b0671f486413eb482c0e521cb
@@ -943,8 +935,12 @@ trackedFiles:
     pristine_git_object: d4cb680805b2cb6e70aecc8bc9e36fa2fd29e45b
   docs/models/components/projectinclude.md:
     id: f755e628f2be
-    last_write_checksum: sha1:248ac4365a4c6f626eb1c4013c1737ce9e6b6119
-    pristine_git_object: fa6be02e6b37eb216ae70d98b43a1725df6d4637
+    last_write_checksum: sha1:61ea9a8618aa5d9a91dd3e74fa6e7b61158e4456
+    pristine_git_object: ade4ccd58a093376a70b08a8d8cd8d6b00a19c5e
+  docs/models/components/projectincludestats.md:
+    id: f7c5ca1f5171
+    last_write_checksum: sha1:4a7d902753d0063101c5fb166a61792883b57ae3
+    pristine_git_object: 28172014af556b6297ec07c5bb5f904513d2374b
   docs/models/components/projects.md:
     id: f5112c1179e0
     last_write_checksum: sha1:74fac6ce47bd23b89f57586e0ffaa2fb23d4df5f
@@ -1175,8 +1171,8 @@ trackedFiles:
     pristine_git_object: dd54e830147e30878bcc47a211ea63c52ac65e9c
   docs/models/components/stats.md:
     id: 366dd6081a29
-    last_write_checksum: sha1:736908a6365d2aab11f84bb98d5f698206cd494a
-    pristine_git_object: f46e24c7e80433ab73ec2aa0cd18df8a5b541e01
+    last_write_checksum: sha1:14c272f6045941cc592467b9573b148b1232d885
+    pristine_git_object: 0b6a7ff0dcdffe335c02880eb24f3f8255491c9f
   docs/models/components/status.md:
     id: e26b2fe7f53e
     last_write_checksum: sha1:5249cadbf45015beb0a76fe2bc81147d888d037e
@@ -2519,8 +2515,8 @@ trackedFiles:
     pristine_git_object: 935bd254232a5825e7782088cd53f649bec3535e
   docs/models/operations/getipsrequest.md:
     id: c967b67ba989
-    last_write_checksum: sha1:79a916b233e688c8cccc30439a76fa3c7819178d
-    pristine_git_object: 48cf5a8bfaf3e5533e8063c488fb27225bcbbf50
+    last_write_checksum: sha1:f472abb9df1b7a42b3b118f59837f1ba59910d16
+    pristine_git_object: 5c551ae4ba368427694fad19f71636876a6aa346
   docs/models/operations/getipsresponse.md:
     id: 8ca61ba3f1cf
     last_write_checksum: sha1:cb17257064184910df3c9450fe1662d9f73fe971
@@ -4003,8 +3999,8 @@ trackedFiles:
     pristine_git_object: f055c7135bd9df9511999b5a8af285cf62b279a1
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:e738611f3e1a7f3ee19dbe1188c52644f043623e
-    pristine_git_object: cee6bacaffeebe2698d15bb276c84bb144ea762b
+    last_write_checksum: sha1:8b7f2339505c34ec2806ede43ad87897ec3dfd33
+    pristine_git_object: 8f45595e148774cc9bbe58afae1935b4ac2665fa
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -4139,8 +4135,8 @@ trackedFiles:
     pristine_git_object: a226834e49f3f61f199861a5f227bcee8dd3cba0
   models/components/ipaddresses.go:
     id: 294eb5dd3785
-    last_write_checksum: sha1:f65019a7d1013ad791487c00b488e59d6f811e8c
-    pristine_git_object: 3defd89731b3387bd58987e9fa50293a88260269
+    last_write_checksum: sha1:f6e785705dd4df85249fca916db316e1cc17cc85
+    pristine_git_object: f643f3d2730aef04a53e2f7c2858d7ae44c3c1ff
   models/components/ipmisession.go:
     id: b892f97a2439
     last_write_checksum: sha1:25ace2c8460aaf682bec2061a58348d13d756bbb
@@ -4211,8 +4207,8 @@ trackedFiles:
     pristine_git_object: 9fa6b06fc027e8f5d8c42ae6c22e20e36a9e417d
   models/components/paginationmeta.go:
     id: f583f9bdf286
-    last_write_checksum: sha1:b9b1eeecfc6d4ba0ccc525351827619b750202e9
-    pristine_git_object: 3217f1a2729357063673c26e58021920d32925fe
+    last_write_checksum: sha1:4dcb77a677ce91760d822a7efe8802406e2c4aa0
+    pristine_git_object: c2bd0a2201f28eedbf80942d572ae59d17c66f82
   models/components/plan.go:
     id: d3b8674720c0
     last_write_checksum: sha1:61b485c0aee34ac4c739ff33d4414e539a00c722
@@ -4227,8 +4223,8 @@ trackedFiles:
     pristine_git_object: c9f9a6807a85f0b1d1b9659dbebf5a9c6a24913d
   models/components/projectinclude.go:
     id: 511bf8d130cb
-    last_write_checksum: sha1:4e317f715fe5fb88954f684c5d2eacd1c22c2c0e
-    pristine_git_object: 2ef94619447139fdfc7e5bc06bb5a5de7bc142dc
+    last_write_checksum: sha1:0dd88f467b983c1cf0a2e897f572012c66f56158
+    pristine_git_object: 9f5045ea30094bcbaf496f41de471d3afa2cf8b3
   models/components/projects.go:
     id: 8c725a95c711
     last_write_checksum: sha1:93c814b7b21d0a1674db9e21bfa80d9691567cf5
@@ -4683,8 +4679,8 @@ trackedFiles:
     pristine_git_object: d5ab145f218ab56093b999b2bfe03f1949ee89f6
   models/operations/getips.go:
     id: 9a253fff5e79
-    last_write_checksum: sha1:93922217e401232155cb82da337e0a87a7917fac
-    pristine_git_object: 0d450aafa722f507bf6f9c18cc1a8d53d90af3c5
+    last_write_checksum: sha1:7c1cbf14faac6ce8633845d60bd33aaeb71e6f41
+    pristine_git_object: 25b2cd657be7b7add40463ab6003c6b55f483923
   models/operations/getkubernetescluster.go:
     id: f260ac8dacf8
     last_write_checksum: sha1:39f79c5f1dae2b62d91e30cb8e92177e264604aa
@@ -9091,46 +9087,7 @@ examples:
           application/vnd.api+json: {"data": [{"id": "plan_a1b2c3d4", "type": "managed_database_plans", "attributes": {"name": "db.clickhouse.dev", "slug": "db-clickhouse-dev", "engine": "clickhouse", "specs": {"cpu": "1", "memory": "2Gi", "storage": "5Gi", "shards": 1, "replicas": 1, "iops": null}, "regions": [{"region": "ASH", "city": "Ashburn", "country": "United States", "site": {"id": "loc_ashburn", "name": "Ashburn", "slug": "ASH", "facility": "DC1"}, "pricing": {"USD": {"month": 10, "year": 100}, "BRL": {"month": 57, "year": 570}}}]}}]}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Go SDK Changes:
-  * `Latitudesh.Projects.List()`:  `response.Data[].Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.Projects.Create()`:  `response.Data.Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.Projects.Update()`:  `response.Data.Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.Servers.List()`:  `response.Data[].Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.Servers.Create()`:  `response.Data.Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.Servers.Get()`:  `response.Data.Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.Servers.Update()`:  `response.Data.Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.Servers.Lock()`:  `response.Data.Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.Servers.Unlock()`:  `response.Data.Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.FilesystemStorage.CreateFilesystem()`:  `response.Data.Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.FilesystemStorage.ListFilesystems()`:  `response.Data[].Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.FilesystemStorage.UpdateFilesystem()`:  `response.Data.Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.BlockStorage.GetStorageVolumes()`:  `response.Data[].Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.BlockStorage.PostStorageVolumes()`:  `response.Data.Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.BlockStorage.GetStorageVolume()`:  `response.Data.Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.ObjectStorage.GetStorageBuckets()`:  `response.Data[].Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.ObjectStorage.PostStorageBuckets()`:  `response.Data.Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.ObjectStorage.GetStorageBucket()`:  `response.Data.Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.Tags.List()`:  `response.Data[].Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.Tags.Create()`:  `response.Data.Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.Tags.Update()`:  `response.Data.Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.UserProfile.Get()`:  `response.Data.Attributes.Teams[]` **Changed** (Breaking ⚠️)
-  * `Latitudesh.VirtualMachines.Create()`:  `response.Data.Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.VirtualMachines.List()`:  `response.Data[].Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.VirtualMachines.Get()`:  `response.Data.Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.VirtualMachines.UpdateVirtualMachine()`:  `response.Data.Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.VirtualMachineBackups.ListForVirtualMachine()`:  `response.Data[].Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.VirtualMachineBackups.CreateForVirtualMachine()`:  `response.Data.Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.VirtualMachineBackups.List()`:  `response.Data[].Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.VirtualMachineBackups.Create()`:  `response.Data.Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.VirtualMachineBackups.Get()`:  `response.Data.Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.VirtualMachineBackups.Delete()`:  `response.Data.Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.VirtualMachineRestores.ListForVirtualMachineBackup()`:  `response.Data[].Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.VirtualMachineRestores.CreateForVirtualMachineBackup()`:  `response.Data.Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.VirtualMachineRestores.ListForBackup()`:  `response.Data[].Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.VirtualMachineRestores.List()`:  `response.Data[].Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.VirtualMachineRestores.Create()`:  `response.Data.Attributes.Team` **Changed** (Breaking ⚠️)
-  * `Latitudesh.VirtualMachineRestores.Get()`:  `response.Data.Attributes.Team` **Changed** (Breaking ⚠️)
+releaseNotes: "## Go SDK Changes:\n* `Latitudesh.IpAddresses.List()`: \n  *  `request.Request` **Changed**\n  *  `response.Meta.Stats` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
