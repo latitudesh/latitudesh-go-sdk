@@ -42,6 +42,7 @@ type FilterType string
 const (
 	FilterTypePrivate FilterType = "private"
 	FilterTypePublic  FilterType = "public"
+	FilterTypeElastic FilterType = "elastic"
 )
 
 func (e FilterType) ToPointer() *FilterType {
@@ -56,6 +57,8 @@ func (e *FilterType) UnmarshalJSON(data []byte) error {
 	case "private":
 		fallthrough
 	case "public":
+		fallthrough
+	case "elastic":
 		*e = FilterType(v)
 		return nil
 	default:
@@ -78,6 +81,10 @@ type GetIpsRequest struct {
 	FilterAddress *string `queryParam:"style=form,explode=true,name=filter[address]"`
 	// Filter by additional IPs (true) or management IPs (false)
 	FilterAdditional *bool `queryParam:"style=form,explode=true,name=filter[additional]"`
+	// Filter by unassigned IPs (true) or assigned IPs (false)
+	FilterAvailable *bool `queryParam:"style=form,explode=true,name=filter[available]"`
+	// Filter by management IPs (true) or additional/elastic IPs (false)
+	FilterManagement *bool `queryParam:"style=form,explode=true,name=filter[management]"`
 	// The `region` and `server` are provided as extra attributes that are lazy loaded. To request it, just set `extra_fields[ip_addresses]=region,server` in the query string.
 	ExtraFieldsIPAddresses *string `queryParam:"style=form,explode=true,name=extra_fields[ip_addresses]"`
 	// Number of items to return per page
@@ -148,6 +155,20 @@ func (g *GetIpsRequest) GetFilterAdditional() *bool {
 		return nil
 	}
 	return g.FilterAdditional
+}
+
+func (g *GetIpsRequest) GetFilterAvailable() *bool {
+	if g == nil {
+		return nil
+	}
+	return g.FilterAvailable
+}
+
+func (g *GetIpsRequest) GetFilterManagement() *bool {
+	if g == nil {
+		return nil
+	}
+	return g.FilterManagement
 }
 
 func (g *GetIpsRequest) GetExtraFieldsIPAddresses() *string {

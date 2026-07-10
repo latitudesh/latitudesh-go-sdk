@@ -19,3 +19,4 @@ value := operations.FilterTypePrivate
 | ------------------- | ------------------- |
 | `FilterTypePrivate` | private             |
 | `FilterTypePublic`  | public              |
+| `FilterTypeElastic` | elastic             |
