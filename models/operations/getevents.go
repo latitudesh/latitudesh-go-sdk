@@ -30,6 +30,8 @@ type GetEventsRequest struct {
 	PageNumber *int64 `default:"1" queryParam:"style=form,explode=true,name=page[number]"`
 	// Request aggregate stats in the response `meta`. Use `count` to get the total number of records, returned as `meta.stats.total.count`.
 	StatsTotal *string `queryParam:"style=form,explode=true,name=stats[total]"`
+	// Comma-separated sort fields. Prefix a field with `-` for descending order. Supported fields: created_at. Example: `sort=-created_at` sorts by creation date descending.
+	Sort *string `queryParam:"style=form,explode=true,name=sort"`
 }
 
 func (g GetEventsRequest) MarshalJSON() ([]byte, error) {
@@ -118,6 +120,13 @@ func (g *GetEventsRequest) GetStatsTotal() *string {
 		return nil
 	}
 	return g.StatsTotal
+}
+
+func (g *GetEventsRequest) GetSort() *string {
+	if g == nil {
+		return nil
+	}
+	return g.Sort
 }
 
 type GetEventsResponse struct {

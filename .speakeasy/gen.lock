@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 9f2d8a6e1b2eb357e44fec384542ad01
+  docChecksum: 24eead0c704f3c44e875c9a2c9a03077
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.789.1
+  speakeasyVersion: 1.789.2
   generationVersion: 2.916.4
-  releaseVersion: 1.16.12
-  configChecksum: 78f7b0c2de959c4bf85bb9a8fafac804
+  releaseVersion: 1.16.13
+  configChecksum: b32b9ee5ad0d7aff266d903c126273cd
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 5e7afb78-e1ce-409b-ae59-75038bab314d
-  pristine_commit_hash: 2d0cbf4c4b02bd59a24bcd838456c953d767db51
-  pristine_tree_hash: eddc942c785fc379a8cba9703df95b290a6af8e0
+  generation_id: cee079ba-a027-41f0-8300-30ab4dea8600
+  pristine_commit_hash: 3a2c3d63ec5959e29213e21489e6a1c3d8b1f312
+  pristine_tree_hash: 863e89fa8f71227986415efe620c10e5e78fca05
 features:
   go:
     additionalDependencies: 0.1.0
@@ -2467,8 +2467,8 @@ trackedFiles:
     pristine_git_object: 70da991e7f09075196e315ee56ba41114ce8a000
   docs/models/operations/geteventsrequest.md:
     id: 7696f948c1a1
-    last_write_checksum: sha1:77e1c99f371dc0b55d5d10ac7d75681f8da2d641
-    pristine_git_object: 133d570e2bc569501099f5c7ab5b57918b8cc592
+    last_write_checksum: sha1:6a17a5545721415848c04bc2611495426d8dba48
+    pristine_git_object: 19ed7378e117710a44b5585ea0d26de4d88e6c5d
   docs/models/operations/geteventsresponse.md:
     id: b7211819d380
     last_write_checksum: sha1:ab986b0014c7ef548311945793b239180ade10bc
@@ -3983,8 +3983,8 @@ trackedFiles:
     pristine_git_object: f055c7135bd9df9511999b5a8af285cf62b279a1
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:a6c72d81f185cf3e0cf0c8025aefd27c24f18e17
-    pristine_git_object: 5254d2d6186deff8039f765f6cd6c26422b5d7d9
+    last_write_checksum: sha1:5f88f6a4ebb0dba0fa2f0fcbab471b86a3c50f91
+    pristine_git_object: 32049ebf5d9032f60383407056203d44bdfdb975
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -4647,8 +4647,8 @@ trackedFiles:
     pristine_git_object: 2a721eda58f6992f81aed795a01732cec2f44572
   models/operations/getevents.go:
     id: dbc8b87959d5
-    last_write_checksum: sha1:ebf25e6add9c69c821bda8e2525244d7f331622d
-    pristine_git_object: 4b61e7f683c01119c451e09cdde785dbb49b0564
+    last_write_checksum: sha1:077a2a352d61ced5f9079aa09aa08456349da118
+    pristine_git_object: 40d2a126d30e79617c1ca5d5d491bd97946324fe
   models/operations/getfirewall.go:
     id: 4c4b4301b674
     last_write_checksum: sha1:8f96feb7a6c2a0e36b15a222c0ac91a016caca86
@@ -9071,9 +9071,7 @@ examples:
           application/vnd.api+json: {"data": [{"id": "plan_a1b2c3d4", "type": "managed_database_plans", "attributes": {"name": "db.clickhouse.dev", "slug": "db-clickhouse-dev", "engine": "clickhouse", "specs": {"cpu": "1", "memory": "2Gi", "storage": "5Gi", "shards": 1, "replicas": 1, "iops": null}, "regions": [{"region": "ASH", "city": "Ashburn", "country": "United States", "site": {"id": "loc_ashburn", "name": "Ashburn", "slug": "ASH", "facility": "DC1"}, "pricing": {"USD": {"month": 10, "year": 100}, "BRL": {"month": 57, "year": 570}}}]}}]}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Go SDK Changes:
-  * `Latitudesh.IpAddresses.List()`:  `request.Request` **Changed**
+releaseNotes: "## Go SDK Changes:\n* `Latitudesh.Events.List()`: \n  *  `request.Request.Sort` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
