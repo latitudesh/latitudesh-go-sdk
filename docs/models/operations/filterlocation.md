@@ -8,6 +8,9 @@ import (
 )
 
 value := operations.FilterLocationAsh
+
+// Open enum: custom values can be created with a direct type cast
+custom := operations.FilterLocation("custom_value")
 ```
 
 

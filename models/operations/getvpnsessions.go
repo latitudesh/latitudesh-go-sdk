@@ -3,8 +3,6 @@
 package operations
 
 import (
-	"encoding/json"
-	"fmt"
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
@@ -34,52 +32,16 @@ const (
 func (e FilterLocation) ToPointer() *FilterLocation {
 	return &e
 }
-func (e *FilterLocation) UnmarshalJSON(data []byte) error {
-	var v string
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
+
+// IsExact returns true if the value matches a known enum value, false otherwise.
+func (e *FilterLocation) IsExact() bool {
+	if e != nil {
+		switch *e {
+		case "ASH", "BUE", "CHI", "DAL", "FRA", "LAX", "LON", "MEX", "MEX2", "MIA", "MIA2", "NYC", "SAO", "SAO2", "SGP", "SYD", "TYO", "TYO2":
+			return true
+		}
 	}
-	switch v {
-	case "ASH":
-		fallthrough
-	case "BUE":
-		fallthrough
-	case "CHI":
-		fallthrough
-	case "DAL":
-		fallthrough
-	case "FRA":
-		fallthrough
-	case "LAX":
-		fallthrough
-	case "LON":
-		fallthrough
-	case "MEX":
-		fallthrough
-	case "MEX2":
-		fallthrough
-	case "MIA":
-		fallthrough
-	case "MIA2":
-		fallthrough
-	case "NYC":
-		fallthrough
-	case "SAO":
-		fallthrough
-	case "SAO2":
-		fallthrough
-	case "SGP":
-		fallthrough
-	case "SYD":
-		fallthrough
-	case "TYO":
-		fallthrough
-	case "TYO2":
-		*e = FilterLocation(v)
-		return nil
-	default:
-		return fmt.Errorf("invalid value for FilterLocation: %v", v)
-	}
+	return false
 }
 
 type GetVpnSessionsRequest struct {

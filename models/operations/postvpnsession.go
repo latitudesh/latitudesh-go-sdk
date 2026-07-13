@@ -57,52 +57,16 @@ const (
 func (e PostVpnSessionVpnSessionsSite) ToPointer() *PostVpnSessionVpnSessionsSite {
 	return &e
 }
-func (e *PostVpnSessionVpnSessionsSite) UnmarshalJSON(data []byte) error {
-	var v string
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
+
+// IsExact returns true if the value matches a known enum value, false otherwise.
+func (e *PostVpnSessionVpnSessionsSite) IsExact() bool {
+	if e != nil {
+		switch *e {
+		case "ASH", "BUE", "CHI", "DAL", "FRA", "LAX", "LON", "MEX", "MEX2", "MIA", "MIA2", "NYC", "SAO", "SAO2", "SGP", "SYD", "TYO", "TYO2":
+			return true
+		}
 	}
-	switch v {
-	case "ASH":
-		fallthrough
-	case "BUE":
-		fallthrough
-	case "CHI":
-		fallthrough
-	case "DAL":
-		fallthrough
-	case "FRA":
-		fallthrough
-	case "LAX":
-		fallthrough
-	case "LON":
-		fallthrough
-	case "MEX":
-		fallthrough
-	case "MEX2":
-		fallthrough
-	case "MIA":
-		fallthrough
-	case "MIA2":
-		fallthrough
-	case "NYC":
-		fallthrough
-	case "SAO":
-		fallthrough
-	case "SAO2":
-		fallthrough
-	case "SGP":
-		fallthrough
-	case "SYD":
-		fallthrough
-	case "TYO":
-		fallthrough
-	case "TYO2":
-		*e = PostVpnSessionVpnSessionsSite(v)
-		return nil
-	default:
-		return fmt.Errorf("invalid value for PostVpnSessionVpnSessionsSite: %v", v)
-	}
+	return false
 }
 
 type PostVpnSessionVpnSessionsAttributes struct {

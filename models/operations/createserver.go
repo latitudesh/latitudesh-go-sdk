@@ -59,54 +59,16 @@ const (
 func (e CreateServerPlan) ToPointer() *CreateServerPlan {
 	return &e
 }
-func (e *CreateServerPlan) UnmarshalJSON(data []byte) error {
-	var v string
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
+
+// IsExact returns true if the value matches a known enum value, false otherwise.
+func (e *CreateServerPlan) IsExact() bool {
+	if e != nil {
+		switch *e {
+		case "c2-large-x86", "c2-medium-x86", "c2-small-x86", "c3-large-x86", "c3-medium-x86", "c3-small-x86", "c3-xlarge-x86", "g3-gh200", "g3-large-x86", "g3-medium-x86", "g3-small-x86", "g3-xlarge-x86", "g4-rtx6kpro-large", "m3-large-x86", "m4-metal-large", "m4-metal-small", "rs4-metal-xlarge", "s2-small-x86", "s3-large-x86":
+			return true
+		}
 	}
-	switch v {
-	case "c2-large-x86":
-		fallthrough
-	case "c2-medium-x86":
-		fallthrough
-	case "c2-small-x86":
-		fallthrough
-	case "c3-large-x86":
-		fallthrough
-	case "c3-medium-x86":
-		fallthrough
-	case "c3-small-x86":
-		fallthrough
-	case "c3-xlarge-x86":
-		fallthrough
-	case "g3-gh200":
-		fallthrough
-	case "g3-large-x86":
-		fallthrough
-	case "g3-medium-x86":
-		fallthrough
-	case "g3-small-x86":
-		fallthrough
-	case "g3-xlarge-x86":
-		fallthrough
-	case "g4-rtx6kpro-large":
-		fallthrough
-	case "m3-large-x86":
-		fallthrough
-	case "m4-metal-large":
-		fallthrough
-	case "m4-metal-small":
-		fallthrough
-	case "rs4-metal-xlarge":
-		fallthrough
-	case "s2-small-x86":
-		fallthrough
-	case "s3-large-x86":
-		*e = CreateServerPlan(v)
-		return nil
-	default:
-		return fmt.Errorf("invalid value for CreateServerPlan: %v", v)
-	}
+	return false
 }
 
 // CreateServerSite - The site slug to deploy the server
@@ -136,52 +98,16 @@ const (
 func (e CreateServerSite) ToPointer() *CreateServerSite {
 	return &e
 }
-func (e *CreateServerSite) UnmarshalJSON(data []byte) error {
-	var v string
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
+
+// IsExact returns true if the value matches a known enum value, false otherwise.
+func (e *CreateServerSite) IsExact() bool {
+	if e != nil {
+		switch *e {
+		case "ASH", "BUE", "CHI", "DAL", "FRA", "LAX", "LON", "MEX", "MEX2", "MIA", "MIA2", "NYC", "SAO", "SAO2", "SGP", "SYD", "TYO", "TYO2":
+			return true
+		}
 	}
-	switch v {
-	case "ASH":
-		fallthrough
-	case "BUE":
-		fallthrough
-	case "CHI":
-		fallthrough
-	case "DAL":
-		fallthrough
-	case "FRA":
-		fallthrough
-	case "LAX":
-		fallthrough
-	case "LON":
-		fallthrough
-	case "MEX":
-		fallthrough
-	case "MEX2":
-		fallthrough
-	case "MIA":
-		fallthrough
-	case "MIA2":
-		fallthrough
-	case "NYC":
-		fallthrough
-	case "SAO":
-		fallthrough
-	case "SAO2":
-		fallthrough
-	case "SGP":
-		fallthrough
-	case "SYD":
-		fallthrough
-	case "TYO":
-		fallthrough
-	case "TYO2":
-		*e = CreateServerSite(v)
-		return nil
-	default:
-		return fmt.Errorf("invalid value for CreateServerSite: %v", v)
-	}
+	return false
 }
 
 // CreateServerOperatingSystem - The operating system slug for the new server
