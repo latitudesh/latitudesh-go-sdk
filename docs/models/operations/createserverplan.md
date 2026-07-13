@@ -10,6 +10,9 @@ import (
 )
 
 value := operations.CreateServerPlanC2LargeX86
+
+// Open enum: custom values can be created with a direct type cast
+custom := operations.CreateServerPlan("custom_value")
 ```
 
 

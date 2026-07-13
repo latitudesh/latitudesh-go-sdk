@@ -1,6 +1,6 @@
 # CreateVirtualNetworkPrivateNetworksSite
 
-Site ID or slug
+Site slug
 
 ## Example Usage
 
@@ -10,6 +10,9 @@ import (
 )
 
 value := operations.CreateVirtualNetworkPrivateNetworksSiteAsh
+
+// Open enum: custom values can be created with a direct type cast
+custom := operations.CreateVirtualNetworkPrivateNetworksSite("custom_value")
 ```
 
 

@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 24eead0c704f3c44e875c9a2c9a03077
+  docChecksum: e3ca581464fc47e88f06eafbe937b1e9
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.789.2
+  speakeasyVersion: 1.789.3
   generationVersion: 2.916.4
-  releaseVersion: 1.16.13
-  configChecksum: b32b9ee5ad0d7aff266d903c126273cd
+  releaseVersion: 1.17.0
+  configChecksum: 06479facb5f482bf16713d08020834be
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: cee079ba-a027-41f0-8300-30ab4dea8600
-  pristine_commit_hash: 3a2c3d63ec5959e29213e21489e6a1c3d8b1f312
-  pristine_tree_hash: 863e89fa8f71227986415efe620c10e5e78fca05
+  generation_id: 7e7766c9-3bbd-4a3b-aad0-751ba0ac34dd
+  pristine_commit_hash: 658f1a65d73e578b19fa098e627c836f1c871867
+  pristine_tree_hash: 3e86727dd5e9ab05caf2f9d8d7f8c5ebf6496abd
 features:
   go:
     additionalDependencies: 0.1.0
@@ -31,6 +31,7 @@ features:
     intellisenseMarkdownSupport: 0.1.0
     nameOverrides: 2.81.4
     nullables: 0.2.1
+    openEnums: 0.1.0
     pagination: 2.82.7
     responseFormat: 0.1.2
     retries: 2.84.3
@@ -2027,8 +2028,8 @@ trackedFiles:
     pristine_git_object: 2779ea4058d4031fcf47dc32e693dcd0d8f74c61
   docs/models/operations/createserverplan.md:
     id: bca332ea2631
-    last_write_checksum: sha1:6e96e5894b912822f26c83de784e1aeda6fe8877
-    pristine_git_object: 0fd798b3303f85c68dea8a7ec0111436e152eeb2
+    last_write_checksum: sha1:56d1363040303a358b5125a8adebb8e28656a7c5
+    pristine_git_object: 379d8738ec6c3a7276d9933a2f7fe48957b5cc06
   docs/models/operations/createserverraid.md:
     id: 55c3e564805a
     last_write_checksum: sha1:a4b7c934737589cbec76b3e6a120248e1b0f13ec
@@ -2115,8 +2116,8 @@ trackedFiles:
     pristine_git_object: 306f7da0fc4d87ae06afe208f2771124699390ba
   docs/models/operations/createserversite.md:
     id: 39576adb5abf
-    last_write_checksum: sha1:1077bb31f4a354d64210eb98818cbfafa0ff99e4
-    pristine_git_object: ba18eeb9b38c21ada7e1a62eff2ccae781e7a05b
+    last_write_checksum: sha1:04747c4b873d601afc3056ce0dabaa6946937f88
+    pristine_git_object: ab493de1d5642a8b8b4b113e0321205329df21ba
   docs/models/operations/createtagresponse.md:
     id: 1fea76cc4c55
     last_write_checksum: sha1:63a34b9af4692f16d068822d982c8ada39ae0a4e
@@ -2203,8 +2204,8 @@ trackedFiles:
     pristine_git_object: 229bcb283aed3c72dcb80be1b1e525b7f873b895
   docs/models/operations/createvirtualnetworkprivatenetworksattributes.md:
     id: bff0097d0af9
-    last_write_checksum: sha1:af1698c8c36212cae2e964722e45227c895ce05d
-    pristine_git_object: 8245c9444ab7b98453c5d409752af3d1a3a1ac5b
+    last_write_checksum: sha1:0380fb285defaa40ae8d49f7a5698dd5d6f06583
+    pristine_git_object: 2ca34fbaa346339857812ee498fd928e4f43af5c
   docs/models/operations/createvirtualnetworkprivatenetworksdata.md:
     id: 10d9593b7491
     last_write_checksum: sha1:e6eb503c7dbbf653804595a5a78f1c0484806b1c
@@ -2215,8 +2216,8 @@ trackedFiles:
     pristine_git_object: 2481e64c1bedcf52b0adb67e8cf3f83c1c4d341f
   docs/models/operations/createvirtualnetworkprivatenetworkssite.md:
     id: d1e4e5c4ba0f
-    last_write_checksum: sha1:714319fbe2a69c96756b1b32d8a6cc8492ba27b9
-    pristine_git_object: 5cb6b93c13a8835ad7fb7ecaa0b6950583bfae78
+    last_write_checksum: sha1:577d7eeb60b53f7021db495c1ed4fd1defa027a4
+    pristine_git_object: b6b6a6f3864c69c79315cbf6cf7e40972ee08137
   docs/models/operations/createvirtualnetworkprivatenetworkstype.md:
     id: 075c8fa58055
     last_write_checksum: sha1:b9d363f22503d1388c8025068f69bb33c2976eb7
@@ -2415,8 +2416,8 @@ trackedFiles:
     pristine_git_object: 404f41bfda9dc7f5b2bc345ab9a54dc234e31358
   docs/models/operations/filterlocation.md:
     id: 5733280c69b9
-    last_write_checksum: sha1:7f439050bb5f57b703f46743ceeb0cdcc00f5a30
-    pristine_git_object: 600483cf5a5245b8778fe5583e0e2830e0affad4
+    last_write_checksum: sha1:f7eea64965368f1b110bd242f9658c9aad13dfd2
+    pristine_git_object: 6711a92f8d73ea227e4c2b154136d07bad94fbf4
   docs/models/operations/filterstatus.md:
     id: 1e8979e4d90a
     last_write_checksum: sha1:09af44e5fb875eb75ffa3763d15d866b9afea8bc
@@ -3335,8 +3336,8 @@ trackedFiles:
     pristine_git_object: 3aa78bfe651a4585a8aa1c3d0255aba1afab850e
   docs/models/operations/postvpnsessionvpnsessionssite.md:
     id: 6381d33c6365
-    last_write_checksum: sha1:6ed10d6246f89c6930b8e44903fae35f1a330149
-    pristine_git_object: a326bbc66eb01a93d00973c4436a426e0c6b26d6
+    last_write_checksum: sha1:5d64d19c3f26756859722560eaa7996923096a5d
+    pristine_git_object: 5ca135ec86e719809d5cf28b39db478f597a516e
   docs/models/operations/postvpnsessionvpnsessionstype.md:
     id: be6975282dcc
     last_write_checksum: sha1:d20eab5519dde1f6f69191737a7ce6ff7e0e0309
@@ -3983,8 +3984,8 @@ trackedFiles:
     pristine_git_object: f055c7135bd9df9511999b5a8af285cf62b279a1
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:5f88f6a4ebb0dba0fa2f0fcbab471b86a3c50f91
-    pristine_git_object: 32049ebf5d9032f60383407056203d44bdfdb975
+    last_write_checksum: sha1:d69deb6fb437236b826f5fabebc8031a78d325fb
+    pristine_git_object: 25af09b4b34cfc02d4978297e127a9cf3486cd1c
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -4487,8 +4488,8 @@ trackedFiles:
     pristine_git_object: bde7320cb5d8b3a58f7b48bd1d54e36152212909
   models/operations/createserver.go:
     id: 8ad2ecc6a3e3
-    last_write_checksum: sha1:773696ede104618cdcd419c5ff3679a29422eacc
-    pristine_git_object: b4bb834d8adf1398fd3af5079bb70f2c904421c7
+    last_write_checksum: sha1:e94859b56ab178d7bae40f01119bcb2411f61915
+    pristine_git_object: 972d48dcbc6bd7773650dd9350ba195ad3154a1d
   models/operations/createserveraction.go:
     id: ee7580f72478
     last_write_checksum: sha1:8838260324d0e1a1895824f431c06c0f0f120887
@@ -4535,8 +4536,8 @@ trackedFiles:
     pristine_git_object: c9f862b3ada699bed7ac4d0d60b4a0d887b20f99
   models/operations/createvirtualnetwork.go:
     id: 74648f29de4f
-    last_write_checksum: sha1:21e58825be35bdd05343e7c4bb54f38acb63e6bd
-    pristine_git_object: 1c86b0677518ec8207c97ac191fb59834cbe9df3
+    last_write_checksum: sha1:274a27dd3937328df4acd519ceb3e2488f036480
+    pristine_git_object: e744499b9b14834c0eb52916724993c274318398
   models/operations/deleteapikey.go:
     id: 93acd37bb612
     last_write_checksum: sha1:5e31e9d25001b311278f3aed5fbe820020fac80f
@@ -4835,8 +4836,8 @@ trackedFiles:
     pristine_git_object: f311ae44bd6853312e0086c1c76c9a938763c566
   models/operations/getvpnsessions.go:
     id: a20bad364249
-    last_write_checksum: sha1:9e2dab539ff9c4143f1207664631a455d97b55f2
-    pristine_git_object: 02de87456b948b5d8a0509032f06a24fb10ab4cc
+    last_write_checksum: sha1:b0d1bd76b7371b7bfd8f16464da4651a10a61eab
+    pristine_git_object: c21de57cd30b7a1c2cd0be9515f2ecbfd44e74f6
   models/operations/indexvirtualmachine.go:
     id: 5bbcea4b064b
     last_write_checksum: sha1:5b85e8ea3076bcf349ba5e230eb8d77d6fd865cb
@@ -4947,8 +4948,8 @@ trackedFiles:
     pristine_git_object: e75255db0fcb9c36466795a8cb9174ac6b3cf303
   models/operations/postvpnsession.go:
     id: 0cd1b7505595
-    last_write_checksum: sha1:49ec9953980fcf166f0628e35285c8d1536f4d3a
-    pristine_git_object: b52bcd5f3e3591eece0d79749b5661ad27717662
+    last_write_checksum: sha1:fa3600208e7b77d10b69f6396147b4ceba4f3bc3
+    pristine_git_object: 0969b47199794bc942004709418cf0b8d82be9eb
   models/operations/putprojectsshkey.go:
     id: 51b8901ec525
     last_write_checksum: sha1:16626dce5b02db6eb97599e296a7acee8d6f65b1
@@ -9071,7 +9072,6 @@ examples:
           application/vnd.api+json: {"data": [{"id": "plan_a1b2c3d4", "type": "managed_database_plans", "attributes": {"name": "db.clickhouse.dev", "slug": "db-clickhouse-dev", "engine": "clickhouse", "specs": {"cpu": "1", "memory": "2Gi", "storage": "5Gi", "shards": 1, "replicas": 1, "iops": null}, "regions": [{"region": "ASH", "city": "Ashburn", "country": "United States", "site": {"id": "loc_ashburn", "name": "Ashburn", "slug": "ASH", "facility": "DC1"}, "pricing": {"USD": {"month": 10, "year": 100}, "BRL": {"month": 57, "year": 570}}}]}}]}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes:\n* `Latitudesh.Events.List()`: \n  *  `request.Request.Sort` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
