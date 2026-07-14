@@ -7,6 +7,32 @@ import (
 	"fmt"
 )
 
+type ProjectType string
+
+const (
+	ProjectTypeProjects ProjectType = "projects"
+)
+
+func (e ProjectType) ToPointer() *ProjectType {
+	return &e
+}
+func (e *ProjectType) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "projects":
+		*e = ProjectType(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for ProjectType: %v", v)
+	}
+}
+
+type Tags struct {
+}
+
 type BillingType string
 
 const (
@@ -20,26 +46,16 @@ const (
 func (e BillingType) ToPointer() *BillingType {
 	return &e
 }
-func (e *BillingType) UnmarshalJSON(data []byte) error {
-	var v string
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
+
+// IsExact returns true if the value matches a known enum value, false otherwise.
+func (e *BillingType) IsExact() bool {
+	if e != nil {
+		switch *e {
+		case "Yearly", "Monthly", "Hourly", "Normal", "Custom":
+			return true
+		}
 	}
-	switch v {
-	case "Yearly":
-		fallthrough
-	case "Monthly":
-		fallthrough
-	case "Hourly":
-		fallthrough
-	case "Normal":
-		fallthrough
-	case "Custom":
-		*e = BillingType(v)
-		return nil
-	default:
-		return fmt.Errorf("invalid value for BillingType: %v", v)
-	}
+	return false
 }
 
 type BillingMethod string
@@ -52,20 +68,16 @@ const (
 func (e BillingMethod) ToPointer() *BillingMethod {
 	return &e
 }
-func (e *BillingMethod) UnmarshalJSON(data []byte) error {
-	var v string
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
+
+// IsExact returns true if the value matches a known enum value, false otherwise.
+func (e *BillingMethod) IsExact() bool {
+	if e != nil {
+		switch *e {
+		case "Normal", "95th percentile":
+			return true
+		}
 	}
-	switch v {
-	case "Normal":
-		fallthrough
-	case "95th percentile":
-		*e = BillingMethod(v)
-		return nil
-	default:
-		return fmt.Errorf("invalid value for BillingMethod: %v", v)
-	}
+	return false
 }
 
 type Environment string
@@ -79,35 +91,40 @@ const (
 func (e Environment) ToPointer() *Environment {
 	return &e
 }
-func (e *Environment) UnmarshalJSON(data []byte) error {
-	var v string
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
+
+// IsExact returns true if the value matches a known enum value, false otherwise.
+func (e *Environment) IsExact() bool {
+	if e != nil {
+		switch *e {
+		case "Development", "Staging", "Production":
+			return true
+		}
 	}
-	switch v {
-	case "Development":
-		fallthrough
-	case "Staging":
-		fallthrough
-	case "Production":
-		*e = Environment(v)
-		return nil
-	default:
-		return fmt.Errorf("invalid value for Environment: %v", v)
-	}
+	return false
 }
 
 type ProjectStats struct {
+	// The number of database servers assigned to the project
+	Databases *float64 `json:"databases,omitempty"`
 	// The number of IP addresses assigned to the project
 	IPAddresses *float64 `json:"ip_addresses,omitempty"`
 	// The IP address prefixes in the project
 	Prefixes *float64 `json:"prefixes,omitempty"`
 	// The number of servers assigned to the project
 	Servers *float64 `json:"servers,omitempty"`
-	// The number of containers assigned to the project
-	Containers *float64 `json:"containers,omitempty"`
+	// The number of storages assigned to the project
+	Storages *float64 `json:"storages,omitempty"`
+	// The number of active virtual machines assigned to the project
+	VirtualMachines *float64 `json:"virtual_machines,omitempty"`
 	// The number of VLANs assigned to the project
 	Vlans *float64 `json:"vlans,omitempty"`
+}
+
+func (p *ProjectStats) GetDatabases() *float64 {
+	if p == nil {
+		return nil
+	}
+	return p.Databases
 }
 
 func (p *ProjectStats) GetIPAddresses() *float64 {
@@ -131,11 +148,18 @@ func (p *ProjectStats) GetServers() *float64 {
 	return p.Servers
 }
 
-func (p *ProjectStats) GetContainers() *float64 {
+func (p *ProjectStats) GetStorages() *float64 {
 	if p == nil {
 		return nil
 	}
-	return p.Containers
+	return p.Storages
+}
+
+func (p *ProjectStats) GetVirtualMachines() *float64 {
+	if p == nil {
+		return nil
+	}
+	return p.VirtualMachines
 }
 
 func (p *ProjectStats) GetVlans() *float64 {
@@ -173,21 +197,34 @@ func (p *ProjectBilling) GetMethod() *string {
 }
 
 type ProjectAttributes struct {
+	// The tags assigned to the project
+	Tags []Tags `json:"tags,omitempty"`
 	// The project name
 	Name *string `json:"name,omitempty"`
 	// A unique project identifier
 	Slug *string `json:"slug,omitempty"`
 	// The project description
-	Description   *string         `json:"description,omitempty"`
-	BillingType   *BillingType    `json:"billing_type,omitempty"`
-	BillingMethod *BillingMethod  `json:"billing_method,omitempty"`
-	Cost          *string         `json:"cost,omitempty"`
-	Environment   *Environment    `json:"environment,omitempty"`
-	Stats         *ProjectStats   `json:"stats,omitempty"`
-	Billing       *ProjectBilling `json:"billing,omitempty"`
-	Team          *TeamInclude    `json:"team,omitempty"`
-	CreatedAt     *string         `json:"created_at,omitempty"`
-	UpdatedAt     *string         `json:"updated_at,omitempty"`
+	Description   *string        `json:"description,omitempty"`
+	BillingType   *BillingType   `json:"billing_type,omitempty"`
+	BillingMethod *BillingMethod `json:"billing_method,omitempty"`
+	Cost          *string        `json:"cost,omitempty"`
+	// Whether bandwidth quota alerts are enabled for the project
+	BandwidthAlert *bool        `json:"bandwidth_alert,omitempty"`
+	Environment    *Environment `json:"environment,omitempty"`
+	// The project provisioning model, either on_demand (pay-as-you-go, hourly or monthly billing) or reserved (annual contract with yearly billing). Defaults to on_demand.
+	ProvisioningType *string         `json:"provisioning_type,omitempty"`
+	Stats            *ProjectStats   `json:"stats,omitempty"`
+	Billing          *ProjectBilling `json:"billing,omitempty"`
+	Team             *TeamInclude    `json:"team,omitempty"`
+	CreatedAt        *string         `json:"created_at,omitempty"`
+	UpdatedAt        *string         `json:"updated_at,omitempty"`
+}
+
+func (p *ProjectAttributes) GetTags() []Tags {
+	if p == nil {
+		return nil
+	}
+	return p.Tags
 }
 
 func (p *ProjectAttributes) GetName() *string {
@@ -232,11 +269,25 @@ func (p *ProjectAttributes) GetCost() *string {
 	return p.Cost
 }
 
+func (p *ProjectAttributes) GetBandwidthAlert() *bool {
+	if p == nil {
+		return nil
+	}
+	return p.BandwidthAlert
+}
+
 func (p *ProjectAttributes) GetEnvironment() *Environment {
 	if p == nil {
 		return nil
 	}
 	return p.Environment
+}
+
+func (p *ProjectAttributes) GetProvisioningType() *string {
+	if p == nil {
+		return nil
+	}
+	return p.ProvisioningType
 }
 
 func (p *ProjectAttributes) GetStats() *ProjectStats {
@@ -277,6 +328,7 @@ func (p *ProjectAttributes) GetUpdatedAt() *string {
 type Project struct {
 	// The project ID
 	ID         *string            `json:"id,omitempty"`
+	Type       *ProjectType       `json:"type,omitempty"`
 	Attributes *ProjectAttributes `json:"attributes,omitempty"`
 }
 
@@ -285,6 +337,13 @@ func (p *Project) GetID() *string {
 		return nil
 	}
 	return p.ID
+}
+
+func (p *Project) GetType() *ProjectType {
+	if p == nil {
+		return nil
+	}
+	return p.Type
 }
 
 func (p *Project) GetAttributes() *ProjectAttributes {

@@ -18,3 +18,4 @@ value := components.BillingUsageUnitQuantity
 | `BillingUsageUnitQuantity` | quantity                   |
 | `BillingUsageUnitHour`     | hour                       |
 | `BillingUsageUnitMinute`   | minute                     |
+| `BillingUsageUnitGb`       | GB                         |

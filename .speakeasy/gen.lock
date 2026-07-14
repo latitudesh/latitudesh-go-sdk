@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: e3ca581464fc47e88f06eafbe937b1e9
+  docChecksum: 24351fb8739a3cf63ca23a1e8219285a
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.789.3
-  generationVersion: 2.916.4
-  releaseVersion: 1.17.0
-  configChecksum: 06479facb5f482bf16713d08020834be
+  speakeasyVersion: 1.790.0
+  generationVersion: 2.917.0
+  releaseVersion: 1.17.1
+  configChecksum: 9965051359a205b551cf86d3b3ae8691
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 7e7766c9-3bbd-4a3b-aad0-751ba0ac34dd
-  pristine_commit_hash: 658f1a65d73e578b19fa098e627c836f1c871867
-  pristine_tree_hash: 3e86727dd5e9ab05caf2f9d8d7f8c5ebf6496abd
+  generation_id: 613b7415-4fc3-4cbd-980f-26719ee81241
+  pristine_commit_hash: c78abd0f3b3a7762d9928217b5667f675c6a1eef
+  pristine_tree_hash: 976bea7a68441a42f87fd04dea11dfd9179ab9b1
 features:
   go:
     additionalDependencies: 0.1.0
@@ -140,40 +140,52 @@ trackedFiles:
     pristine_git_object: ae61e3ddbec3a9253a9b32cd946602a91dbc3cb2
   docs/models/components/billingmethod.md:
     id: a807f2d73c94
-    last_write_checksum: sha1:1f919ab40dfed55e972035c571553829f1d33ad7
-    pristine_git_object: c866b5bc97d05c987e519fd112f494ed6397fc17
+    last_write_checksum: sha1:f04a038a8f1eadf7fdf4677f727f1bc25da2afd1
+    pristine_git_object: 124fae761f518773f36cb2fe3d8a8edbe6a406f9
   docs/models/components/billingtype.md:
     id: 106b0fdf9cdb
-    last_write_checksum: sha1:5d5ba43c748f52db7465844371f0cc2bbe7c4214
-    pristine_git_object: e86640178cbb3550bc3d47470966aa905cd5d750
+    last_write_checksum: sha1:0b80f4865a0967c7d913cba018e7a828d4cec387
+    pristine_git_object: e9cd30483fe02119c80f96578bc0c72b7594a2b8
   docs/models/components/billingusage.md:
     id: b11d3b3c434a
-    last_write_checksum: sha1:2371e6519b3426fa6906b1c6977bf3f237ae1fd9
-    pristine_git_object: 5abedd1827eb5ed13bf24d2fc2ee1025f3faf3cb
+    last_write_checksum: sha1:746704adc408484602fec94382aba52217a41fec
+    pristine_git_object: 2da810006e3bcce2046f14e5fbdd29597dd92f54
   docs/models/components/billingusageattributes.md:
     id: 73897dc898bb
-    last_write_checksum: sha1:730e5421e887824e36e0a60a2b02235c48bd746a
-    pristine_git_object: 32ca694395a7c4ca5600fe2e085e7f4604138ded
+    last_write_checksum: sha1:0c6ae74a81f76ce4475dd88bce0fa3cf6b13f9cb
+    pristine_git_object: c41a3c2dfa6de58077a73ed94bce29e0d04a1968
   docs/models/components/billingusagedata.md:
     id: ee648b4f7ad1
-    last_write_checksum: sha1:82d1f841886bfdd803f4fafcd923dc8142921b7b
-    pristine_git_object: 6cf9760012e6b8eea78769015cbe43ed845b2dd1
+    last_write_checksum: sha1:57d8d94fcbf93048db3e713ab4159bb234b37b69
+    pristine_git_object: 7f9e363b5b65843c775efcae735c66059bda0214
+  docs/models/components/billingusagemeta.md:
+    id: e0c14ef981d5
+    last_write_checksum: sha1:24ac3958cad3f07777097ab948d3f93e692374a9
+    pristine_git_object: e84c9b77dc0ea31ae5a8ddd417541f7165fe7233
   docs/models/components/billingusageproject.md:
     id: 854069c9ca73
     last_write_checksum: sha1:4b5bd3fbfe296826c4a7709526ff11c47b226d7d
     pristine_git_object: 6cf8d5ee292e0eaaf06417de065b12e4cc38f30a
+  docs/models/components/billingusageservers.md:
+    id: 7810c9b7971a
+    last_write_checksum: sha1:7447b0757c7376abc1a5ec755f84d1f7a9a416d9
+    pristine_git_object: 5a468089af0c618509183afb0dfcf0be63b1f504
   docs/models/components/billingusagetype.md:
     id: cd248c2783c5
     last_write_checksum: sha1:a8b673b2940a0aec2bd1caf8bf15debf506ba9f5
     pristine_git_object: 98c5ee829205383c663ef01352bb52758a46d41e
   docs/models/components/billingusageunit.md:
     id: 7fdd73771757
-    last_write_checksum: sha1:663b10341693c690fb78de5763bb212ec17393f0
-    pristine_git_object: 5085ca2f7d29c8964d23ca1ca1438ec1aa16f311
+    last_write_checksum: sha1:8c3a8566a98b74f488a83c903aedef74274b7fd8
+    pristine_git_object: 729c741c22ef22f9d1d99e41d4e392a0b51c0944
   docs/models/components/brl.md:
     id: ffdbd1d72dd9
     last_write_checksum: sha1:ae60b8db12473442f2ac96ba48ae2aba94cf91f7
     pristine_git_object: c597a033daa12edf7dd40f1e660c5ca3c60bb6d1
+  docs/models/components/bucket.md:
+    id: 86ab4b5c99e8
+    last_write_checksum: sha1:e5bd05e27b357bb9810a04e039dd9f8ca1f3c630
+    pristine_git_object: 148aaa89934f0f3de2c91f1f587ce571b86850e3
   docs/models/components/controlplane.md:
     id: 6503d4b7b062
     last_write_checksum: sha1:231af206e071f8fcb7484da4517e69500f837712
@@ -356,8 +368,8 @@ trackedFiles:
     pristine_git_object: bd225a1f5e9b0a0e33db9586565c83f4de8c5a89
   docs/models/components/environment.md:
     id: 2bbd505fcb39
-    last_write_checksum: sha1:da26ea900d14e09cb7bfbb76eb415406e9a89e02
-    pristine_git_object: 9ef12407a8192f03ce6f48b2c4f32d75b78577ff
+    last_write_checksum: sha1:84d959009938df6e945c71075b7567e3e03e88f2
+    pristine_git_object: b452e4ff41341a5f85e6de149e38564a40f27a69
   docs/models/components/errorobject.md:
     id: 4be1f4e76f40
     last_write_checksum: sha1:a764f5e4eab3b08a7bcbf4f068fe879451868597
@@ -760,8 +772,8 @@ trackedFiles:
     pristine_git_object: 93f98d6ad4d1504e6a3849971be592f31f4eea76
   docs/models/components/metadata.md:
     id: 06867fa888c8
-    last_write_checksum: sha1:a4adb6af06b405ffc4f5514b8b91088b0ac3b576
-    pristine_git_object: 6c6d1cbf5b770ade7f4e05928cd0b083dedd927f
+    last_write_checksum: sha1:475f52327af9862a4b8b3c6500034aee0616bb8b
+    pristine_git_object: d73b170e8a4f6591c2b66b8573cf7f34c15002b7
   docs/models/components/metric.md:
     id: 1ff3d68b7005
     last_write_checksum: sha1:a1c7460af966da7f3af61a808d9dddb31762fe8d
@@ -908,16 +920,16 @@ trackedFiles:
     pristine_git_object: 2c9cd16358494a7867cf9ee942ebf9a275a48912
   docs/models/components/products.md:
     id: 95e3ddef05c8
-    last_write_checksum: sha1:a441d65d09c3c95ccc76f834ba265d137ddd4f5e
-    pristine_git_object: addd01c669c0244754bb82e66a2fb87d1ab1ba0c
+    last_write_checksum: sha1:0ba219c6c90b46e4f64c3bca486aff79a83f9f92
+    pristine_git_object: f84462203c8183b7614c323233fb4982ed7b92e3
   docs/models/components/project.md:
     id: e6f9abcd3eff
-    last_write_checksum: sha1:a02e28fbd4917d9176f3ebe0004f9ab36f2cb319
-    pristine_git_object: f4c544930ea7d778fb121a30e74530a90d62d432
+    last_write_checksum: sha1:40624258a10ef6d590fb1081470b54b4720f2c58
+    pristine_git_object: 8a66b8518fbab4af9999b4ca5a9c2885bdabc924
   docs/models/components/projectattributes.md:
     id: 9c991f089881
-    last_write_checksum: sha1:a025e716fe84f5fec2c776300617de94b7eea4b9
-    pristine_git_object: 5678ff1c65ad9bb890aed5d68ef5f4b7553f9710
+    last_write_checksum: sha1:37040beddb00197390702a45249d9e29e1921410
+    pristine_git_object: 12184ad304be201c4587d1454a71650da776be54
   docs/models/components/projectbilling.md:
     id: f3506bfa0be4
     last_write_checksum: sha1:e333ddcfd67b834f225319dda5075a4bf3a4ade9
@@ -928,16 +940,20 @@ trackedFiles:
     pristine_git_object: ade4ccd58a093376a70b08a8d8cd8d6b00a19c5e
   docs/models/components/projectincludestats.md:
     id: f7c5ca1f5171
-    last_write_checksum: sha1:4a7d902753d0063101c5fb166a61792883b57ae3
-    pristine_git_object: 28172014af556b6297ec07c5bb5f904513d2374b
+    last_write_checksum: sha1:b20d045667fba91c3598ba630e72f619fde30457
+    pristine_git_object: 62740c5d7e136845cba92dd7b3f9cd83a2b3b04d
   docs/models/components/projects.md:
     id: f5112c1179e0
     last_write_checksum: sha1:7f3544cec2ddd4ed4a2ab4f477e18ecb91fdbe6c
     pristine_git_object: 09ce43c1857baa4d35871a37677422a593f43007
   docs/models/components/projectstats.md:
     id: dac67ee138ce
-    last_write_checksum: sha1:8969fa248bcddeb21cc3e098b9794d22a329a83c
-    pristine_git_object: b5e221f37d5112fa36f97e335681e3fba49360c8
+    last_write_checksum: sha1:7c0e01211517ae55d396b6571ea65a8261c3b9fc
+    pristine_git_object: 68a1dcd638d4703b070db6ddb2d2219a7157487a
+  docs/models/components/projecttype.md:
+    id: 728d9fc7a40d
+    last_write_checksum: sha1:7580d6f2468e7261fb1f5e700a65e106e50f4ae3
+    pristine_git_object: f1bfacd3db7b3a555e0969c4237bce7dfb683e98
   docs/models/components/properties.md:
     id: 7f09f8f32a70
     last_write_checksum: sha1:6c94017c74a6cdf25a0d7cee89e7cc032697aba9
@@ -1148,8 +1164,12 @@ trackedFiles:
     pristine_git_object: f0e84b1ea4422b31aa444557a87a73058a6594ac
   docs/models/components/sshkeydataattributes.md:
     id: 0cab08f07659
-    last_write_checksum: sha1:6773ce690de8b891b08eb9a6e864562f2f580c81
-    pristine_git_object: 7483b286c9b4e8dde59798f0f8562c4b81c63eee
+    last_write_checksum: sha1:1fa8db374652fba01db30bf1b19314fe7e911b4c
+    pristine_git_object: 2cb96852c7db0095430af6a533875248a21bfd7b
+  docs/models/components/sshkeydatatags.md:
+    id: c1c85aab0625
+    last_write_checksum: sha1:3eb3194dff0e7a9807fea96bb69de579136f35f8
+    pristine_git_object: 6086b2012488645621ff3b476ba5253d8dd05741
   docs/models/components/sshkeydatatype.md:
     id: 8c10be84b28a
     last_write_checksum: sha1:a56744131c77d46fccedd20b08fda3cf4b147215
@@ -1204,8 +1224,8 @@ trackedFiles:
     pristine_git_object: a257301c5a851c1ff454b90ee58f0a446af47eeb
   docs/models/components/tags.md:
     id: b81c2153553c
-    last_write_checksum: sha1:da74fb826879b0b820886a2aa18fd2099707ebb0
-    pristine_git_object: 17c75ec7f0690ff8de8f940d18027dff3d068c65
+    last_write_checksum: sha1:a21ae33b79fe880cab57936cf187d1559a10fe69
+    pristine_git_object: 2d1130421675128599c59295f9027949e3de05ef
   docs/models/components/target.md:
     id: 6b01d6776a4e
     last_write_checksum: sha1:2e1e30f845ca147065582788a073a030b01a19ed
@@ -1452,16 +1472,16 @@ trackedFiles:
     pristine_git_object: 432b355b52ee060de1b35d5c8a39ab968708458b
   docs/models/components/virtualmachineattributesattributes.md:
     id: a12ad77c4868
-    last_write_checksum: sha1:0e7097fca666155ef300cafada1e49146529d62d
-    pristine_git_object: 42eb6a92c17ab2885031014abf69b569db4f4e1a
+    last_write_checksum: sha1:63ee62a67218a5d084c2275d8fd0fcedffba929d
+    pristine_git_object: 3bb351e66bea0578ccd6fb65d525c9ad0592ca93
   docs/models/components/virtualmachineattributesdistro.md:
     id: 47450c3d89f4
     last_write_checksum: sha1:a58a7c9e770a6dd6f39ce535b5a6989c7cb65451
     pristine_git_object: cb92294413d0b96342bf572903f8cdbab74f68d9
   docs/models/components/virtualmachineattributesfeatures.md:
     id: 57e3263c8ee1
-    last_write_checksum: sha1:4db9b62d65c0bf9d0b2f03609ef28c207328be72
-    pristine_git_object: 9611333eadc220ec61ce3c5ba29ad15dab5f18dc
+    last_write_checksum: sha1:7201c51f833edc850198cf0f479f6ea6bd5efd35
+    pristine_git_object: 9c56ea0c48cec1be441f19c368ac2ccdfb6e8657
   docs/models/components/virtualmachineattributesoperatingsystem.md:
     id: ad288dcca0b8
     last_write_checksum: sha1:c35ce6f4b991426465adb77c01fc448b642cc3e5
@@ -1474,10 +1494,6 @@ trackedFiles:
     id: 8507e60917c2
     last_write_checksum: sha1:19b09880267d630de58242249d73f781cfa5e952
     pristine_git_object: 60ae2c27e7ca70fd13fe3f07c8a53ea8f6ae7bfa
-  docs/models/components/virtualmachineattributesstatus.md:
-    id: 76743e2a6445
-    last_write_checksum: sha1:2311420134e2402046269f0e6b92ae1fbd72d6fd
-    pristine_git_object: bdbde1b6b533bb26bc0c9512b2e807afde3c7170
   docs/models/components/virtualmachineattributestags.md:
     id: e63fc12b4057
     last_write_checksum: sha1:0da297df9223829af4f2afaf609a7d8e6d5bda10
@@ -1708,12 +1724,8 @@ trackedFiles:
     pristine_git_object: 0d45c99e30d865ddb47d4e60fb42888f4162b403
   docs/models/components/virtualmachines.md:
     id: 4b53d32b55ea
-    last_write_checksum: sha1:996abdc319b171d4cec72fcc6a7150fcc6d85cd2
-    pristine_git_object: c18923eb3d84c4fa31b4133105ee797d9dc7a41e
-  docs/models/components/virtualmachinesmeta.md:
-    id: c121815dc114
-    last_write_checksum: sha1:686961630788dbcd0216c61121491aadfd93d507
-    pristine_git_object: d29294dd7e50c4d0e12e61466a5167a5ffd85779
+    last_write_checksum: sha1:941fe143f68e8220926dcb995985bb1fd72ff3bd
+    pristine_git_object: ef533f9a055d3454ccbd51dbce79f750f4167db8
   docs/models/components/virtualmachineupdatepayload.md:
     id: 57b8a34ead54
     last_write_checksum: sha1:9839cd0dbecc9e276fdfcb7be069f6fd83aaeea0
@@ -2868,8 +2880,8 @@ trackedFiles:
     pristine_git_object: afc17c69cfef53233ca974ae28743a27ba063e48
   docs/models/operations/indexvirtualmachinerequest.md:
     id: 2bc7285a85dc
-    last_write_checksum: sha1:c8b48ab157c012b98a46cb2a0996552a45ded63b
-    pristine_git_object: 38b080eeab8c7b6e4c525b071253f8f3d67839d4
+    last_write_checksum: sha1:755adb003afb48849622993aec8c3933ff2d5962
+    pristine_git_object: 559d1c946d880e6f20b7b31d1596c1c3e8bde761
   docs/models/operations/indexvirtualmachineresponse.md:
     id: 2d6f3d163674
     last_write_checksum: sha1:093adcc4d60113a9f5cf381d4f654048845ef478
@@ -3880,8 +3892,8 @@ trackedFiles:
     pristine_git_object: 58bc980691b44f39d0a767e9d5836cfda4676d20
   docs/sdks/virtualmachines/README.md:
     id: 9a444616366b
-    last_write_checksum: sha1:a59d3a6f1e48d0a5769a2c6d6ee0d3a6a695cf65
-    pristine_git_object: f8629f1af74ecafde7c7bd1f9c0acd121f55cba7
+    last_write_checksum: sha1:10673874f6e9b233a29a8409c19401ef027f7fd4
+    pristine_git_object: 5a867851e033b828d9f57ec4b29f8abc21b5337f
   docs/sdks/virtualnetworks/README.md:
     id: 523cffefb080
     last_write_checksum: sha1:8b68f053c8a41185bbf92c501a89d4bff133f603
@@ -3984,8 +3996,8 @@ trackedFiles:
     pristine_git_object: f055c7135bd9df9511999b5a8af285cf62b279a1
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:d69deb6fb437236b826f5fabebc8031a78d325fb
-    pristine_git_object: 25af09b4b34cfc02d4978297e127a9cf3486cd1c
+    last_write_checksum: sha1:ff309ebad0ec9112340a46cea1c1870c1886fb83
+    pristine_git_object: d45d6828a4d1554d26cf2c20bca9f8a8030493d1
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -4020,8 +4032,8 @@ trackedFiles:
     pristine_git_object: 8fcd67681885ddf71196fb08243ad5fb105d2bb7
   models/components/billingusage.go:
     id: 07a96ca11422
-    last_write_checksum: sha1:4a0029b3e403cf577dc9c36e6a35ff1a9df63042
-    pristine_git_object: c23a7abba90b038a31a5433bb68a29e27e5058c8
+    last_write_checksum: sha1:1570558ec09272ff5fa86b14c52b5d403ec2546a
+    pristine_git_object: 7f6716734735101919e75bab0b5ae7643161ff79
   models/components/createapikey.go:
     id: 9800fc9156fa
     last_write_checksum: sha1:c1486aa00c2c5810fcbb082868b52e4019a0b56c
@@ -4204,12 +4216,12 @@ trackedFiles:
     pristine_git_object: 170fd0cc449a490c3c17b1f126d52ec4ed4eea3e
   models/components/project.go:
     id: fcb91e7ca3c4
-    last_write_checksum: sha1:175ceb74a5cfb15c7c7b4619597a182549585531
-    pristine_git_object: c9f9a6807a85f0b1d1b9659dbebf5a9c6a24913d
+    last_write_checksum: sha1:869c4148bf2635ebf2e3e60d1ef765340321b9b8
+    pristine_git_object: a59a591b6bd5cd25855528b4989096a40a1cd1cb
   models/components/projectinclude.go:
     id: 511bf8d130cb
-    last_write_checksum: sha1:0dd88f467b983c1cf0a2e897f572012c66f56158
-    pristine_git_object: 9f5045ea30094bcbaf496f41de471d3afa2cf8b3
+    last_write_checksum: sha1:9b63d0e567021f7eb90562ce0f2d4a8b9bc4ead1
+    pristine_git_object: de9e255c6860dc287e9dd407039ca91e4eae6069
   models/components/projects.go:
     id: 8c725a95c711
     last_write_checksum: sha1:c3a3157255f777dd7e6402e1f5d2e5d6c3e6120b
@@ -4268,8 +4280,8 @@ trackedFiles:
     pristine_git_object: 11e0b64cd9a670ced544e62006dd2df483f7732c
   models/components/sshkeydata.go:
     id: 26d9b41cfa8e
-    last_write_checksum: sha1:b2d1711e1e1577c23f6abcdc7c1c2b11fe42395a
-    pristine_git_object: 3457dc2871cb70cfe53df37a4e5924c3e2a3dee9
+    last_write_checksum: sha1:bea8de9559623ed83331ad386620e179d98e5074
+    pristine_git_object: a02ee6155aab60a633baf252bdef5a913dae3208
   models/components/sshkeys.go:
     id: 8fdc091d71a1
     last_write_checksum: sha1:c408f89da39f951a1f64edfb2555eba75028c242
@@ -4356,8 +4368,8 @@ trackedFiles:
     pristine_git_object: c231b17d8704cec79f5cce513891751bb99ddb1c
   models/components/virtualmachineattributes.go:
     id: c01da1db9c5a
-    last_write_checksum: sha1:c9e4c50c83fe55ea786e909aea5412c91a272a9a
-    pristine_git_object: 7d0927fbd44fdce38d593274b3f8d8db936e2de3
+    last_write_checksum: sha1:15fdb5b5b46fc18b1b0223b3e395cbe4f2f38527
+    pristine_git_object: 8331ba1141354d8a3817c13fd5bd4899b8ee139b
   models/components/virtualmachinebackup.go:
     id: d1a3c86773a1
     last_write_checksum: sha1:4ca89342b44b4850fb493f0be3885efd91bcc712
@@ -4416,8 +4428,8 @@ trackedFiles:
     pristine_git_object: 9d8ad1f12acc2bd8748e776bfecc7acc4a419b5a
   models/components/virtualmachines.go:
     id: b6bb44410eba
-    last_write_checksum: sha1:a9d0ed3d9cddc8a666d07b4469366153a880d7ff
-    pristine_git_object: 33e922f69788fa867ca5b2f1d8f2f36c063d1633
+    last_write_checksum: sha1:e5f2335215de4b1a2f6b3e8994207c506ef5d539
+    pristine_git_object: e26a314f06ed4b6ec004c15dd6b57134d73b4f68
   models/components/virtualmachineupdatepayload.go:
     id: e47b379d3482
     last_write_checksum: sha1:9549464f2ebacaf60eb58adbf3f9d78d1238376d
@@ -4840,8 +4852,8 @@ trackedFiles:
     pristine_git_object: c21de57cd30b7a1c2cd0be9515f2ecbfd44e74f6
   models/operations/indexvirtualmachine.go:
     id: 5bbcea4b064b
-    last_write_checksum: sha1:5b85e8ea3076bcf349ba5e230eb8d77d6fd865cb
-    pristine_git_object: 03c54cbbb2b50e13941d81892f55cdc81e340276
+    last_write_checksum: sha1:cb9421bcc085b1ad875415d25e355fa4aaffaedb
+    pristine_git_object: f3f4b6e6e7f953611dc55dabbd7632e5e7a92b61
   models/operations/listbackuprestores.go:
     id: a22fb643ee8f
     last_write_checksum: sha1:766152812c606dc34def66aeb3ae9808dadf4cd4
@@ -5144,8 +5156,8 @@ trackedFiles:
     pristine_git_object: 6fb2cbed99c045daf254fb825262a05a0386a9ec
   virtualmachines.go:
     id: 30cb88c4969c
-    last_write_checksum: sha1:9b82e3f6441e643004f76b9cbc826da382c7c05a
-    pristine_git_object: ab8959e406394706a8629e6e230977b5f8044c18
+    last_write_checksum: sha1:cfd4efa8e211fac52bc501062ed7dedddffddaf8
+    pristine_git_object: 395c35e8ccced1fb202d44233b7edba28a5b8fcc
   virtualnetworks.go:
     id: 3816b5f92080
     last_write_checksum: sha1:bbcd1e22df503f04659433c61ce44937baff816e
@@ -5301,7 +5313,7 @@ examples:
           filter[project]: "proj_r0MK4O4kDa95w"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "", "attributes": {"project": {"id": "proj_r0MK4O4kDa95w", "slug": "fantastic-iron-clock", "name": "Fantastic Iron Clock"}, "period": {"start": "2025-12-24T15:56:32+00:00", "end": "2026-01-24T15:56:32+00:00"}, "available_credit_balance": 123, "price": 0, "threshold": 10000, "products": []}}}
+          application/vnd.api+json: {"meta": {}, "data": {"id": "", "type": "billing_usage", "attributes": {"project": {"id": "proj_r0MK4O4kDa95w", "slug": "fantastic-iron-clock", "name": "Fantastic Iron Clock"}, "period": {"start": "2025-12-24T15:56:32+00:00", "end": "2026-01-24T15:56:32+00:00"}, "available_credit_balance": 123, "amount": 0, "price": 0, "threshold": 10000, "products": []}}}
   get-events:
     Success:
       parameters:
@@ -5882,7 +5894,7 @@ examples:
           filter[tags]: "tag_GXeww714mRF2gZ05lnKgU8emo5RE,tag_QQkaK9JnV6tWwPG3pmLviXveVK0Y"
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "proj_WeGoqAanqP7nz", "attributes": {"name": "Durable Iron Gloves", "slug": "durable-iron-gloves", "description": "Heavy Duty Steel Computer", "billing_type": "Hourly", "billing_method": "Normal", "cost": null, "environment": null, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}, "billing": {}, "team": {"id": "team_w03a5zVl9XsXVybw2gz7SNr1el2", "name": "176 Team", "slug": "176-team", "description": "176 Team", "address": "3253 VonRueden Creek, Jcbury, NV 21576", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified", "feature_flags": [], "limits": {"bare_metal": null, "bare_metal_gpu": 1, "virtual_machine": 5, "virtual_machine_gpu": 3, "elastic_ip": 5, "virtual_network": 5, "database": null, "filesystem": null, "block_storage": null}}, "created_at": "2026-01-14T15:56:39+00:00", "updated_at": "2026-01-14T15:56:39+00:00"}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "proj_WeGoqAanqP7nz", "type": "projects", "attributes": {"tags": [{}, {}], "name": "Durable Iron Gloves", "slug": "durable-iron-gloves", "description": "Heavy Duty Steel Computer", "billing_type": "Hourly", "billing_method": "Normal", "cost": null, "bandwidth_alert": false, "environment": null, "provisioning_type": "on_demand", "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 0, "virtual_machines": 0, "vlans": 0}, "billing": {}, "team": {"id": "team_w03a5zVl9XsXVybw2gz7SNr1el2", "name": "176 Team", "slug": "176-team", "description": "176 Team", "address": "3253 VonRueden Creek, Jcbury, NV 21576", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified", "feature_flags": [], "limits": {"bare_metal": null, "bare_metal_gpu": 1, "virtual_machine": 5, "virtual_machine_gpu": 3, "elastic_ip": 5, "virtual_network": 5, "database": null, "filesystem": null, "block_storage": null}}, "created_at": "2026-01-14T15:56:39+00:00", "updated_at": "2026-01-14T15:56:39+00:00"}}], "meta": {}}
   create-project:
     Success:
       requestBody:
@@ -5922,7 +5934,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "projects", "attributes": {"name": "Bailey and Sons", "provisioning_type": "on_demand", "description": "Thick slices of French toast bread, brown sugar, half-and-half and vanilla, topped with powdered sugar. With two eggs served any style, and your choice of smoked bacon or smoked ham.", "environment": "Development"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "proj_0L6WO156OPlXy", "attributes": {"name": "Bailey and Sons", "slug": "bailey-and-sons", "description": "Thick slices of French toast bread, brown sugar, half-and-half and vanilla, topped with powdered sugar. With two eggs served any style, and your choice of smoked bacon or smoked ham.", "billing_type": "Normal", "billing_method": "Normal", "environment": "Development", "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}, "billing": {"subscription_id": "sub_wj7zk7mu35c2yq", "type": "Normal", "method": "Normal"}, "team": {"id": "team_72lL07N6leClEozwoxe9UVap9Aw", "name": "179 Team", "slug": "179-team", "description": "179 Team", "address": "Suite 460 74321 Nana Locks, Crystalport, TN 35908", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified", "feature_flags": [], "limits": {"bare_metal": 5, "bare_metal_gpu": 1, "virtual_machine": 5, "virtual_machine_gpu": 3, "elastic_ip": 5, "virtual_network": 5, "database": null, "filesystem": null, "block_storage": null}}, "created_at": "2026-01-14T15:56:39+00:00", "updated_at": "2026-01-14T15:56:39+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "proj_0L6WO156OPlXy", "type": "projects", "attributes": {"tags": [], "name": "Bailey and Sons", "slug": "bailey-and-sons", "description": "Thick slices of French toast bread, brown sugar, half-and-half and vanilla, topped with powdered sugar. With two eggs served any style, and your choice of smoked bacon or smoked ham.", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": null, "environment": "Development", "provisioning_type": "on_demand", "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 0, "virtual_machines": 0, "vlans": 0}, "billing": {"subscription_id": "sub_wj7zk7mu35c2yq", "type": "Normal", "method": "Normal"}, "team": {"id": "team_72lL07N6leClEozwoxe9UVap9Aw", "name": "179 Team", "slug": "179-team", "description": "179 Team", "address": "Suite 460 74321 Nana Locks, Crystalport, TN 35908", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified", "feature_flags": [], "limits": {"bare_metal": 5, "bare_metal_gpu": 1, "virtual_machine": 5, "virtual_machine_gpu": 3, "elastic_ip": 5, "virtual_network": 5, "database": null, "filesystem": null, "block_storage": null}}, "created_at": "2026-01-14T15:56:39+00:00", "updated_at": "2026-01-14T15:56:39+00:00"}}}
   update-project:
     Success:
       parameters:
@@ -5933,7 +5945,7 @@ examples:
         application/vnd.api+json: {"data": {"id": "proj_Gr47qleMDAg0m", "type": "projects", "attributes": {"name": "A brand new name for the virtual network", "description": "A brand new description for the virtual network", "bandwidth_alert": false, "tags": ["tag_VgrmvzlEGJhbGYv0z8YzHLa9PKV", "tag_PEAMyKnQZEHpGAWKMpB6F7EVYyYj"]}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "proj_Gr47qleMDAg0m", "attributes": {"name": "Moore-Durgan", "slug": "moore-durgan", "description": "Sequi occaecati eaque exercitationem.", "billing_type": "Normal", "billing_method": "Normal", "environment": "Production", "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}, "billing": {"subscription_id": "sub_5sst6soyu2lzm0", "type": "Normal", "method": "Normal"}, "team": {"id": "team_mygwarnav0hG97b9393biKZxall", "name": "198 Team", "slug": "198-team", "description": "198 Team", "address": "Apt. 401 9373 Gregg Islands, Cassinmouth, NC 33577-6685", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified", "feature_flags": [], "limits": {"bare_metal": 5, "bare_metal_gpu": 1, "virtual_machine": 5, "virtual_machine_gpu": 3, "elastic_ip": 5, "virtual_network": 5, "database": null, "filesystem": null, "block_storage": null}}, "created_at": "2026-01-14T15:56:40+00:00", "updated_at": "2026-01-14T15:56:40+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "proj_Gr47qleMDAg0m", "type": "projects", "attributes": {"tags": [{}, {}], "name": "Moore-Durgan", "slug": "moore-durgan", "description": "Sequi occaecati eaque exercitationem.", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": true, "environment": "Production", "provisioning_type": "on_demand", "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 0, "virtual_machines": 0, "vlans": 0}, "billing": {"subscription_id": "sub_5sst6soyu2lzm0", "type": "Normal", "method": "Normal"}, "team": {"id": "team_mygwarnav0hG97b9393biKZxall", "name": "198 Team", "slug": "198-team", "description": "198 Team", "address": "Apt. 401 9373 Gregg Islands, Cassinmouth, NC 33577-6685", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified", "feature_flags": [], "limits": {"bare_metal": 5, "bare_metal_gpu": 1, "virtual_machine": 5, "virtual_machine_gpu": 3, "elastic_ip": 5, "virtual_network": 5, "database": null, "filesystem": null, "block_storage": null}}, "created_at": "2026-01-14T15:56:40+00:00", "updated_at": "2026-01-14T15:56:40+00:00"}}}
     Forbidden:
       parameters:
         path:
@@ -6014,7 +6026,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "ssh_keys", "attributes": {"name": "SSH Key", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "ssh_w5AEmq7XDBkWX", "type": "ssh_keys", "attributes": {"tags": [], "name": "SSH Key", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx", "fingerprint": "0a:00:34:53:51:0e:a5:4e:06:2c:d7:16:88:96:82:f3", "user": {"id": "user_geJbN1G962iVzBrra7R9TkaXw28", "first_name": "Fletcher", "last_name": "Thompson", "email": "shawn@klein.example", "created_at": "2025-12-31T00:00:00.000Z", "updated_at": "2025-05-16T00:00:00.000Z", "role": {"id": "role_QJ5olj6Jk7uWz0ybo0XkcXYZegPo", "name": "owner", "created_at": "2025-12-23T00:00:00.000Z", "updated_at": "2026-03-20T00:00:00.000Z"}}, "project": {"id": "proj_059EqYE2qQj8p", "name": "Incredible Silk Pants", "slug": "incredible-silk-pants", "description": "Lightweight Iron Bench", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "created_at": "2026-01-14T15:56:41+00:00", "updated_at": "2026-01-14T15:56:41+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ssh_w5AEmq7XDBkWX", "type": "ssh_keys", "attributes": {"tags": [], "name": "SSH Key", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx", "fingerprint": "0a:00:34:53:51:0e:a5:4e:06:2c:d7:16:88:96:82:f3", "user": {"id": "user_geJbN1G962iVzBrra7R9TkaXw28", "first_name": "Fletcher", "last_name": "Thompson", "email": "shawn@klein.example", "created_at": "2025-12-31T00:00:00.000Z", "updated_at": "2025-05-16T00:00:00.000Z", "role": {"id": "role_QJ5olj6Jk7uWz0ybo0XkcXYZegPo", "name": "owner", "created_at": "2025-12-23T00:00:00.000Z", "updated_at": "2026-03-20T00:00:00.000Z"}}, "project": {"id": "proj_059EqYE2qQj8p", "name": "Incredible Silk Pants", "slug": "incredible-silk-pants", "description": "Lightweight Iron Bench", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 0, "virtual_machines": 0, "vlans": 0}}, "created_at": "2026-01-14T15:56:41+00:00", "updated_at": "2026-01-14T15:56:41+00:00"}}}
     Bad Request:
       parameters:
         path:
@@ -6163,7 +6175,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "sv_WeGoqAanqP7nz", "type": "servers", "attributes": {"hostname": "Hostname", "label": "832845NODEKG", "status": "on", "ipmi_status": "Normal", "role": "Bare Metal", "locked": false, "rescue_allowed": false, "primary_ipv4": "19.98.98.65", "primary_ipv6": "49e5:fef3:7891:16df:ccf6:93bb:a930:4dc0", "created_at": null, "scheduled_deletion_at": null, "plan": {"id": "plan_pbV0Dg1Rd4AWz", "name": "g3.h100.small-51", "slug": "plan-slug", "billing": "hourly"}, "operating_system": {"name": "Ubuntu (18.04 x64 LTS)", "slug": "ubuntu_18_04_x64_lts", "version": "18.04 x64 LTS", "features": {"raid": true, "ssh_keys": true}, "distro": {"name": "Ubuntu", "slug": "ubuntu", "series": "bionic"}}, "region": {"city": "São Paulo 74", "country": "Singapore 66", "site": {"id": "loc_695BdKjrOevVo", "name": "São Paulo 74", "slug": "SAO", "facility": "São Paulo 74", "rack_id": "rack_VLMmAD8EOwop2"}}, "specs": {"cpu": "Xeon E-2186G CPU @ 3.80GHz (6 cores)", "disk": "500 GB SSD", "ram": "32 GB", "nic": "", "gpu": null}, "interfaces": [{"role": "ipmi", "name": "IPMI", "mac_address": "00:11:22:33:44:55", "description": "IPMI Interface"}, {"role": "internal", "name": "PXE", "mac_address": "66:77:88:99:aa:bb", "description": "PXE Interface"}, {"role": "unknown", "name": "PO1", "mac_address": null, "description": "LAG interface (no associated MAC record)"}], "project": {"id": "proj_Z8rodmnGq1jLB", "name": "Incredible Linen Car", "slug": "incredible-linen-car", "description": "Lightweight Iron Chair", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"ip_addresses": 8, "prefixes": 0, "servers": 3, "vlans": 0}}, "team": {"id": "team_Ygapr2KkrMur4QneZ00yUEGl4W2", "name": "292 Team", "slug": "292-team", "description": "292 Team", "address": "Apt. 180 27016 Chi Prairie, Kenyaport, CA 12866", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified", "feature_flags": [], "limits": {"bare_metal": null, "bare_metal_gpu": 1, "virtual_machine": 5, "virtual_machine_gpu": 3, "elastic_ip": 5, "virtual_network": 5, "database": null, "filesystem": null, "block_storage": null}}}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "sv_WeGoqAanqP7nz", "type": "servers", "attributes": {"hostname": "Hostname", "label": "832845NODEKG", "status": "on", "ipmi_status": "Normal", "role": "Bare Metal", "locked": false, "rescue_allowed": false, "primary_ipv4": "19.98.98.65", "primary_ipv6": "49e5:fef3:7891:16df:ccf6:93bb:a930:4dc0", "created_at": null, "scheduled_deletion_at": null, "plan": {"id": "plan_pbV0Dg1Rd4AWz", "name": "g3.h100.small-51", "slug": "plan-slug", "billing": "hourly"}, "operating_system": {"name": "Ubuntu (18.04 x64 LTS)", "slug": "ubuntu_18_04_x64_lts", "version": "18.04 x64 LTS", "features": {"raid": true, "ssh_keys": true}, "distro": {"name": "Ubuntu", "slug": "ubuntu", "series": "bionic"}}, "region": {"city": "São Paulo 74", "country": "Singapore 66", "site": {"id": "loc_695BdKjrOevVo", "name": "São Paulo 74", "slug": "SAO", "facility": "São Paulo 74", "rack_id": "rack_VLMmAD8EOwop2"}}, "specs": {"cpu": "Xeon E-2186G CPU @ 3.80GHz (6 cores)", "disk": "500 GB SSD", "ram": "32 GB", "nic": "", "gpu": null}, "interfaces": [{"role": "ipmi", "name": "IPMI", "mac_address": "00:11:22:33:44:55", "description": "IPMI Interface"}, {"role": "internal", "name": "PXE", "mac_address": "66:77:88:99:aa:bb", "description": "PXE Interface"}, {"role": "unknown", "name": "PO1", "mac_address": null, "description": "LAG interface (no associated MAC record)"}], "project": {"id": "proj_Z8rodmnGq1jLB", "name": "Incredible Linen Car", "slug": "incredible-linen-car", "description": "Lightweight Iron Chair", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"databases": 1, "ip_addresses": 8, "prefixes": 0, "servers": 3, "storages": 0, "virtual_machines": 0, "vlans": 0}}, "team": {"id": "team_Ygapr2KkrMur4QneZ00yUEGl4W2", "name": "292 Team", "slug": "292-team", "description": "292 Team", "address": "Apt. 180 27016 Chi Prairie, Kenyaport, CA 12866", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified", "feature_flags": [], "limits": {"bare_metal": null, "bare_metal_gpu": 1, "virtual_machine": 5, "virtual_machine_gpu": 3, "elastic_ip": 5, "virtual_network": 5, "database": null, "filesystem": null, "block_storage": null}}}}], "meta": {}}
     SuccessWithCredentials:
       parameters:
         query:
@@ -6212,7 +6224,7 @@ examples:
           server_id: "sv_VE1Wd3aXDXnZJ"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "sv_VE1Wd3aXDXnZJ", "type": "servers", "attributes": {"hostname": "Hostname", "label": "327106NODEQI", "status": "on", "ipmi_status": "Normal", "role": "Bare Metal", "locked": false, "rescue_allowed": false, "primary_ipv4": "9.120.132.45", "primary_ipv6": "889e:8540:973b:5c04:abce:2551:47ae:a67e", "created_at": null, "scheduled_deletion_at": null, "plan": {"id": "plan_yQrJdN9JO30gv", "name": "c2.large.arm", "slug": "c2-large-arm", "billing": "hourly"}, "operating_system": {"name": "Ubuntu (18.04 x64 LTS)", "slug": "ubuntu_18_04_x64_lts", "version": "18.04 x64 LTS", "features": {"raid": true, "ssh_keys": true}, "distro": {"name": "Ubuntu", "slug": "ubuntu", "series": "bionic"}}, "region": {"city": "São Paulo 81", "country": "Mexico 73", "site": {"id": "loc_GMy1DbNgDN50m", "name": "São Paulo 81", "slug": "SAO", "facility": "São Paulo 81", "rack_id": "rack_6VE1Wd37dXnZJ"}}, "specs": {"cpu": "", "disk": "", "ram": "", "nic": "", "gpu": null}, "interfaces": [{"role": "ipmi", "name": "IPMI", "mac_address": "00:11:22:33:44:55", "description": "IPMI Interface"}, {"role": "internal", "name": "PXE", "mac_address": "66:77:88:99:aa:bb", "description": "PXE Interface"}, {"role": "unknown", "name": "PO1", "mac_address": null, "description": "LAG interface (no associated MAC record)"}], "project": {"id": "proj_LMmAD8E4Owop2", "name": "Awesome Granite Chair", "slug": "awesome-granite-chair", "description": "Mediocre Paper Wallet", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"ip_addresses": 2, "prefixes": 0, "servers": 1, "vlans": 0}}, "team": {"id": "team_M2WyX3zpQMf5Wvaw6zkotLZx0Ne", "name": "308 Team", "slug": "308-team", "description": "308 Team", "address": "Suite 667 299 Enoch Lights, Lake Lilli, MT 24573-1532", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified", "feature_flags": [], "limits": {"bare_metal": null, "bare_metal_gpu": 1, "virtual_machine": 5, "virtual_machine_gpu": 3, "elastic_ip": 5, "virtual_network": 5, "database": null, "filesystem": null, "block_storage": null}}}}, "meta": {}}
+          application/vnd.api+json: {"data": {"id": "sv_VE1Wd3aXDXnZJ", "type": "servers", "attributes": {"hostname": "Hostname", "label": "327106NODEQI", "status": "on", "ipmi_status": "Normal", "role": "Bare Metal", "locked": false, "rescue_allowed": false, "primary_ipv4": "9.120.132.45", "primary_ipv6": "889e:8540:973b:5c04:abce:2551:47ae:a67e", "created_at": null, "scheduled_deletion_at": null, "plan": {"id": "plan_yQrJdN9JO30gv", "name": "c2.large.arm", "slug": "c2-large-arm", "billing": "hourly"}, "operating_system": {"name": "Ubuntu (18.04 x64 LTS)", "slug": "ubuntu_18_04_x64_lts", "version": "18.04 x64 LTS", "features": {"raid": true, "ssh_keys": true}, "distro": {"name": "Ubuntu", "slug": "ubuntu", "series": "bionic"}}, "region": {"city": "São Paulo 81", "country": "Mexico 73", "site": {"id": "loc_GMy1DbNgDN50m", "name": "São Paulo 81", "slug": "SAO", "facility": "São Paulo 81", "rack_id": "rack_6VE1Wd37dXnZJ"}}, "specs": {"cpu": "", "disk": "", "ram": "", "nic": "", "gpu": null}, "interfaces": [{"role": "ipmi", "name": "IPMI", "mac_address": "00:11:22:33:44:55", "description": "IPMI Interface"}, {"role": "internal", "name": "PXE", "mac_address": "66:77:88:99:aa:bb", "description": "PXE Interface"}, {"role": "unknown", "name": "PO1", "mac_address": null, "description": "LAG interface (no associated MAC record)"}], "project": {"id": "proj_LMmAD8E4Owop2", "name": "Awesome Granite Chair", "slug": "awesome-granite-chair", "description": "Mediocre Paper Wallet", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"databases": 0, "ip_addresses": 2, "prefixes": 0, "servers": 1, "storages": 0, "virtual_machines": 0, "vlans": 0}}, "team": {"id": "team_M2WyX3zpQMf5Wvaw6zkotLZx0Ne", "name": "308 Team", "slug": "308-team", "description": "308 Team", "address": "Suite 667 299 Enoch Lights, Lake Lilli, MT 24573-1532", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified", "feature_flags": [], "limits": {"bare_metal": null, "bare_metal_gpu": 1, "virtual_machine": 5, "virtual_machine_gpu": 3, "elastic_ip": 5, "virtual_network": 5, "database": null, "filesystem": null, "block_storage": null}}}}, "meta": {}}
     SuccessWithCredentials:
       parameters:
         path:
@@ -6292,7 +6304,7 @@ examples:
         "402":
           application/vnd.api+json: {}
         "200":
-          application/vnd.api+json: {"data": {"id": "sv_yQrJdNAGO30gv", "type": "servers", "attributes": {"hostname": "Lightweight Wooden Knife", "label": "136877NODEKM", "status": "unknown", "ipmi_status": "Normal", "role": "Bare Metal", "locked": false, "rescue_allowed": false, "primary_ipv4": "214.249.69.62", "primary_ipv6": "b0c8:139:6f83:7f0c:6e2:33a3:78e4:e03f", "created_at": null, "scheduled_deletion_at": null, "plan": {"id": "plan_3YjJOLLyOvZ87", "name": "c2.large.arm", "slug": "c2-large-arm", "billing": "hourly"}, "operating_system": {}, "region": {"city": "Frankfurt 115", "country": "Germany 107", "site": {"id": "loc_aNmodjGyqbE8W", "name": "Frankfurt 115", "slug": "FRA96", "facility": "Frankfurt 115", "rack_id": "rack_byQrJdNJd30gv"}}, "specs": {"cpu": "", "disk": "", "ram": "", "nic": "", "gpu": null}, "interfaces": [], "project": {"id": "proj_yQrJdNMGO30gv", "name": "Awesome Wool Computer", "slug": "awesome-wool-computer", "description": "Practical Rubber Shirt", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 1, "vlans": 0}}, "team": {"id": "team_YQZmYB34Nxso86ZgyKj2UEPEnyA", "name": "348 Team", "slug": "348-team", "description": "348 Team", "address": "51588 Goodwin Mission, Port Oswaldo, KS 14871-0638", "currency": {"id": "cur_GnzRD5xAqM5yw", "code": "agd", "name": "daznioxpdspfbdbvvikg", "currency_id": null}, "status": "verified", "feature_flags": [], "limits": {"bare_metal": 5, "bare_metal_gpu": 1, "virtual_machine": 5, "virtual_machine_gpu": 3, "elastic_ip": 5, "virtual_network": 5, "database": null, "filesystem": null, "block_storage": null}}}}, "meta": {}}
+          application/vnd.api+json: {"data": {"id": "sv_yQrJdNAGO30gv", "type": "servers", "attributes": {"hostname": "Lightweight Wooden Knife", "label": "136877NODEKM", "status": "unknown", "ipmi_status": "Normal", "role": "Bare Metal", "locked": false, "rescue_allowed": false, "primary_ipv4": "214.249.69.62", "primary_ipv6": "b0c8:139:6f83:7f0c:6e2:33a3:78e4:e03f", "created_at": null, "scheduled_deletion_at": null, "plan": {"id": "plan_3YjJOLLyOvZ87", "name": "c2.large.arm", "slug": "c2-large-arm", "billing": "hourly"}, "operating_system": {}, "region": {"city": "Frankfurt 115", "country": "Germany 107", "site": {"id": "loc_aNmodjGyqbE8W", "name": "Frankfurt 115", "slug": "FRA96", "facility": "Frankfurt 115", "rack_id": "rack_byQrJdNJd30gv"}}, "specs": {"cpu": "", "disk": "", "ram": "", "nic": "", "gpu": null}, "interfaces": [], "project": {"id": "proj_yQrJdNMGO30gv", "name": "Awesome Wool Computer", "slug": "awesome-wool-computer", "description": "Practical Rubber Shirt", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 1, "storages": 0, "virtual_machines": 0, "vlans": 0}}, "team": {"id": "team_YQZmYB34Nxso86ZgyKj2UEPEnyA", "name": "348 Team", "slug": "348-team", "description": "348 Team", "address": "51588 Goodwin Mission, Port Oswaldo, KS 14871-0638", "currency": {"id": "cur_GnzRD5xAqM5yw", "code": "agd", "name": "daznioxpdspfbdbvvikg", "currency_id": null}, "status": "verified", "feature_flags": [], "limits": {"bare_metal": 5, "bare_metal_gpu": 1, "virtual_machine": 5, "virtual_machine_gpu": 3, "elastic_ip": 5, "virtual_network": 5, "database": null, "filesystem": null, "block_storage": null}}}}, "meta": {}}
     Unprocessable Entity:
       parameters:
         path:
@@ -6444,7 +6456,7 @@ examples:
           server_id: "sv_pbV0DgjKq4AWz"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "sv_pbV0DgjKq4AWz", "type": "servers", "attributes": {"hostname": "Heavy Duty Concrete Chair", "label": "946654NODEUT", "status": "unknown", "ipmi_status": "Normal", "role": "Enclosure", "locked": true, "primary_ipv4": "150.158.19.54", "created_at": null, "scheduled_deletion_at": null, "region": {"city": "Frankfurt 132", "country": "Germany 147", "site": {"id": "loc_Gr47ql4vqAg0m", "name": "Frankfurt 132", "slug": "FRA113", "facility": "Frankfurt 132"}}, "project": {"id": "proj_Gr47qloZdAg0m", "name": "Heavy Duty Linen Bottle", "slug": "heavy-duty-linen-bottle", "description": "Awesome Copper Lamp", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": "sub_6rq7u7562p9hap", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 1, "vlans": 0}}, "team": {"id": "team_zAoElw92Z1c36A13Vx9EF71RlMl", "name": "467 Team", "slug": "467-team", "description": "467 Team", "address": "Suite 277 939 Hermann Mall, Hongshire, NH 77247-8873", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}}}}
+          application/vnd.api+json: {"data": {"id": "sv_pbV0DgjKq4AWz", "type": "servers", "attributes": {"hostname": "Heavy Duty Concrete Chair", "label": "946654NODEUT", "status": "unknown", "ipmi_status": "Normal", "role": "Enclosure", "locked": true, "primary_ipv4": "150.158.19.54", "created_at": null, "scheduled_deletion_at": null, "region": {"city": "Frankfurt 132", "country": "Germany 147", "site": {"id": "loc_Gr47ql4vqAg0m", "name": "Frankfurt 132", "slug": "FRA113", "facility": "Frankfurt 132"}}, "project": {"id": "proj_Gr47qloZdAg0m", "name": "Heavy Duty Linen Bottle", "slug": "heavy-duty-linen-bottle", "description": "Awesome Copper Lamp", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": "sub_6rq7u7562p9hap", "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 1, "storages": 0, "virtual_machines": 0, "vlans": 0}}, "team": {"id": "team_zAoElw92Z1c36A13Vx9EF71RlMl", "name": "467 Team", "slug": "467-team", "description": "467 Team", "address": "Suite 277 939 Hermann Mall, Hongshire, NH 77247-8873", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}}}}
   server-unlock:
     Ok:
       parameters:
@@ -6473,7 +6485,7 @@ examples:
           server_id: "sv_e8pKq0xYqWAob"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "sv_e8pKq0xYqWAob", "type": "servers", "attributes": {"hostname": "Fantastic Copper Shirt", "label": "275299NODEZB", "status": "unknown", "ipmi_status": "Normal", "role": "Storage", "locked": false, "primary_ipv4": "95.231.106.4", "created_at": null, "scheduled_deletion_at": null, "region": {"city": "Sydney 134", "country": "Australia 149", "site": {"id": "loc_kjQwdEmXdYNVP", "name": "Sydney 134", "slug": "SYD115", "facility": "Sydney 134"}}, "project": {"id": "proj_aNmodjQZObE8W", "name": "Enormous Marble Clock", "slug": "enormous-marble-clock", "description": "Synergistic Granite Gloves", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": "sub_qmelg7r2lao5z3", "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 1, "vlans": 0}}, "team": {"id": "team_L8E8kyLxxotB4WNL0Pnrhbla8NW", "name": "472 Team", "slug": "472-team", "description": "472 Team", "address": "992 Noe Neck, Lake Germanberg, FL 06343", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}}}}
+          application/vnd.api+json: {"data": {"id": "sv_e8pKq0xYqWAob", "type": "servers", "attributes": {"hostname": "Fantastic Copper Shirt", "label": "275299NODEZB", "status": "unknown", "ipmi_status": "Normal", "role": "Storage", "locked": false, "primary_ipv4": "95.231.106.4", "created_at": null, "scheduled_deletion_at": null, "region": {"city": "Sydney 134", "country": "Australia 149", "site": {"id": "loc_kjQwdEmXdYNVP", "name": "Sydney 134", "slug": "SYD115", "facility": "Sydney 134"}}, "project": {"id": "proj_aNmodjQZObE8W", "name": "Enormous Marble Clock", "slug": "enormous-marble-clock", "description": "Synergistic Granite Gloves", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": "sub_qmelg7r2lao5z3", "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 1, "storages": 0, "virtual_machines": 0, "vlans": 0}}, "team": {"id": "team_L8E8kyLxxotB4WNL0Pnrhbla8NW", "name": "472 Team", "slug": "472-team", "description": "472 Team", "address": "992 Noe Neck, Lake Germanberg, FL 06343", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}}}}
   create-server-out-of-band:
     Created:
       parameters:
@@ -6776,7 +6788,7 @@ examples:
           filter[tags]: "tag_5wKQ2Y9eoAi5plr4zlQ6tjl6rEw,tag_8GKKZ6B9MbtYl4K09gj4fXy9Nneg"
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "ssh_mw49QDB5qagKb", "type": "ssh_keys", "attributes": {"tags": [], "name": "hirthe-ankunding.example", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCmmIH/Esj4Cpz6utdAJN+syqnQ9xBHMGXKEKTecy2Qn2F7riuCDe7ICRDmpVnUhWJtvWGwrnGZgJkt3/q72lRGeMfBXF68cdvrzHMl+vDpQbmd6WAyCl4ufhGJyVrsw9N5eTMm9DOALWnd6SBldR6aubGUhhITI/ODh3N/l/0YPP2Nqif0lVrBCyxFBs894uNgbG2SR1hS6g7ZA8IfrUtQE3OPXMaVyIpfbdDVSVerOB9xZu2A8J+Dx/8hV7RPeed+R8D8wt9zLul03kaC/mrwXYrQDtEjqfgzLr/DtskKu02jyL3o2aXY0PmUtUX0QVDBOD9QImXOPLJGtagDfYER", "fingerprint": "59:4a:b2:bf:13:8c:e4:18:dc:49:24:4b:37:f1:5d:2e", "user": {"id": "user_Gz4meW9wlVc2Q36vbgXgu05XYgo", "first_name": "Tracy", "last_name": "Corkery", "email": "bennett@johnson-beatty.example", "created_at": "2025-11-29T00:00:00.000Z", "updated_at": "2025-12-07T00:00:00.000Z", "role": {"id": "role_Jp9VwYlWgbTMl0Po7RpYteZX4pj", "name": "owner", "created_at": "2025-10-11T00:00:00.000Z", "updated_at": "2026-08-03T00:00:00.000Z"}}, "project": {"id": "proj_RMLydp7XOQKr1", "name": "Lightweight Silk Wallet", "slug": "lightweight-silk-wallet", "description": "Synergistic Copper Coat", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "created_at": "2026-01-14T15:56:40+00:00", "updated_at": "2026-01-14T15:56:40+00:00"}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "ssh_mw49QDB5qagKb", "type": "ssh_keys", "attributes": {"tags": [], "name": "hirthe-ankunding.example", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCmmIH/Esj4Cpz6utdAJN+syqnQ9xBHMGXKEKTecy2Qn2F7riuCDe7ICRDmpVnUhWJtvWGwrnGZgJkt3/q72lRGeMfBXF68cdvrzHMl+vDpQbmd6WAyCl4ufhGJyVrsw9N5eTMm9DOALWnd6SBldR6aubGUhhITI/ODh3N/l/0YPP2Nqif0lVrBCyxFBs894uNgbG2SR1hS6g7ZA8IfrUtQE3OPXMaVyIpfbdDVSVerOB9xZu2A8J+Dx/8hV7RPeed+R8D8wt9zLul03kaC/mrwXYrQDtEjqfgzLr/DtskKu02jyL3o2aXY0PmUtUX0QVDBOD9QImXOPLJGtagDfYER", "fingerprint": "59:4a:b2:bf:13:8c:e4:18:dc:49:24:4b:37:f1:5d:2e", "user": {"id": "user_Gz4meW9wlVc2Q36vbgXgu05XYgo", "first_name": "Tracy", "last_name": "Corkery", "email": "bennett@johnson-beatty.example", "created_at": "2025-11-29T00:00:00.000Z", "updated_at": "2025-12-07T00:00:00.000Z", "role": {"id": "role_Jp9VwYlWgbTMl0Po7RpYteZX4pj", "name": "owner", "created_at": "2025-10-11T00:00:00.000Z", "updated_at": "2026-08-03T00:00:00.000Z"}}, "project": {"id": "proj_RMLydp7XOQKr1", "name": "Lightweight Silk Wallet", "slug": "lightweight-silk-wallet", "description": "Synergistic Copper Coat", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 0, "virtual_machines": 0, "vlans": 0}}, "created_at": "2026-01-14T15:56:40+00:00", "updated_at": "2026-01-14T15:56:40+00:00"}}], "meta": {}}
     when trying to filter by tag:
       parameters:
         path:
@@ -6803,7 +6815,7 @@ examples:
           ssh_key_id: "ssh_zGr47qlMDAg0m"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "ssh_zGr47qlMDAg0m", "type": "ssh_keys", "attributes": {"tags": [], "name": "breitenberg-blick.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCUO+zsQdGJJGFIJT6R9PRgnfpA1NiIMBmfZK13pmAsC/aEr4TvJT+q60U2DZVeQi2AxdPwk3JrGpOgDUOKA9M6FlCXjCMWS5VINwbt6+P7ZCSThqdPPETrcDNd2wgNs+Q5kxRHqlknDu4KszIf14cXNnWCYjCly2+wV/Y17XuHGhHnzRSCf30mNtqQngKqkOHOB+G2P8RaZ6g70wOOoSlDRo3mxQ0vA62U25FeTbFdhkIrFDYsPX+4JL1bXYkRD3KIbfvH99RHtd/wtcqwpUuHoKdyiUNyJFBvtj912zVh+0n8zfe58Rmz0J9wGCTir3Qh/FwAVKB2kLpRHde7kZlv", "fingerprint": "47:0f:68:b5:e7:4c:5c:32:b6:97:3d:e9:17:df:6d:93", "user": {"id": "user_0VVWJmQwmzUyMYL0Zv37FwW0aWVP", "first_name": "Margarete", "last_name": "Huels", "email": "charlie@okeefe.example", "created_at": "2025-09-01T00:00:00.000Z", "updated_at": "2025-12-20T00:00:00.000Z", "role": {"id": "role_jZxLKXzGNXt0PYgaW4QbfKMPEgM", "name": "owner", "created_at": "2025-03-24T00:00:00.000Z", "updated_at": "2026-06-05T00:00:00.000Z"}}, "project": {"id": "proj_kjQwdE0XOYNVP", "name": "Intelligent Rubber Bench", "slug": "intelligent-rubber-bench", "description": "Rustic Linen Clock", "billing_type": "Hourly", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "created_at": "2026-01-14T15:56:41+00:00", "updated_at": "2026-01-14T15:56:41+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ssh_zGr47qlMDAg0m", "type": "ssh_keys", "attributes": {"tags": [], "name": "breitenberg-blick.test", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCUO+zsQdGJJGFIJT6R9PRgnfpA1NiIMBmfZK13pmAsC/aEr4TvJT+q60U2DZVeQi2AxdPwk3JrGpOgDUOKA9M6FlCXjCMWS5VINwbt6+P7ZCSThqdPPETrcDNd2wgNs+Q5kxRHqlknDu4KszIf14cXNnWCYjCly2+wV/Y17XuHGhHnzRSCf30mNtqQngKqkOHOB+G2P8RaZ6g70wOOoSlDRo3mxQ0vA62U25FeTbFdhkIrFDYsPX+4JL1bXYkRD3KIbfvH99RHtd/wtcqwpUuHoKdyiUNyJFBvtj912zVh+0n8zfe58Rmz0J9wGCTir3Qh/FwAVKB2kLpRHde7kZlv", "fingerprint": "47:0f:68:b5:e7:4c:5c:32:b6:97:3d:e9:17:df:6d:93", "user": {"id": "user_0VVWJmQwmzUyMYL0Zv37FwW0aWVP", "first_name": "Margarete", "last_name": "Huels", "email": "charlie@okeefe.example", "created_at": "2025-09-01T00:00:00.000Z", "updated_at": "2025-12-20T00:00:00.000Z", "role": {"id": "role_jZxLKXzGNXt0PYgaW4QbfKMPEgM", "name": "owner", "created_at": "2025-03-24T00:00:00.000Z", "updated_at": "2026-06-05T00:00:00.000Z"}}, "project": {"id": "proj_kjQwdE0XOYNVP", "name": "Intelligent Rubber Bench", "slug": "intelligent-rubber-bench", "description": "Rustic Linen Clock", "billing_type": "Hourly", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 0, "virtual_machines": 0, "vlans": 0}}, "created_at": "2026-01-14T15:56:41+00:00", "updated_at": "2026-01-14T15:56:41+00:00"}}}
   put-project-ssh-key:
     Success:
       parameters:
@@ -6815,7 +6827,7 @@ examples:
         application/vnd.api+json: {"data": {"id": "ssh_zlkg1DegdvZE5", "type": "ssh_keys", "attributes": {"tags": ["tag_rB7B21L1QbiJ6yWYxQLmHWJE3GmR", "tag_57nzyG0Bn3c5wooyYyeLH1w9kmN"], "name": "New SSH Key Name"}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "ssh_zlkg1DegdvZE5", "type": "ssh_keys", "attributes": {"tags": [{"id": "tag_rB7B21L1QbiJ6yWYxQLmHWJE3GmR", "name": "Dáin Ironfoot", "description": "Non quos voluptatem voluptatem.", "color": "#254646"}, {"id": "tag_57nzyG0Bn3c5wooyYyeLH1w9kmN", "name": "Almiel", "description": "Repellendus quae velit rerum.", "color": "#2121e8"}], "name": "ruecker.example", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDbDuCsEBno4lL6+lLXiBuziWK+go4/TQ2xXWNkyO9PEQSwp8t7fu5USARgUl5HxRK2K+enzTOGVYG+IGWTh8GsNQ68D+6VQZDafStcAoRX7/drrIbkMho3Fv5o5mfjIeMB9A6yT7FxsWFx4VkV8wlCLn3HSq/Q2fvuKh3j10B/ZKCG14K2Que9xrGhCbAGVzxrCozWc4yCdpXSL0CFUOOQDpOa44VzcMVkXqxyaJYDjlxMklfGQ/81YjtM5hne0kFPajeVmHZGQ7QsZZEww/P7c0pL44n9b/sYmzHOuZYFCM3MuU2pfonEJBOVfFVeXh5pPvUmis8mxxCAQhtzJE4D", "fingerprint": "17:c4:55:c4:1b:a3:1f:fd:89:70:2d:c3:55:7a:4c:6e", "user": {"id": "user_Rzg2JEoZNASA1bznzWJBI6GXJ0v", "first_name": "Meghann", "last_name": "Windler", "email": "jonah_bartoletti@mueller.example", "created_at": "2026-01-10T00:00:00.000Z", "updated_at": "2025-03-26T00:00:00.000Z", "role": {"id": "role_6noZ5alPanUpr0yoVygMCL6mK88", "name": "owner", "created_at": "2025-07-29T00:00:00.000Z", "updated_at": "2026-05-30T00:00:00.000Z"}}, "project": {"id": "proj_v9BVDaR3ORm1W", "name": "Sleek Linen Lamp", "slug": "sleek-linen-lamp", "description": "Ergonomic Rubber Gloves", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "created_at": "2026-01-14T15:56:42+00:00", "updated_at": "2026-01-14T15:56:42+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ssh_zlkg1DegdvZE5", "type": "ssh_keys", "attributes": {"tags": [{"id": "tag_rB7B21L1QbiJ6yWYxQLmHWJE3GmR", "name": "Dáin Ironfoot", "description": "Non quos voluptatem voluptatem.", "color": "#254646"}, {"id": "tag_57nzyG0Bn3c5wooyYyeLH1w9kmN", "name": "Almiel", "description": "Repellendus quae velit rerum.", "color": "#2121e8"}], "name": "ruecker.example", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDbDuCsEBno4lL6+lLXiBuziWK+go4/TQ2xXWNkyO9PEQSwp8t7fu5USARgUl5HxRK2K+enzTOGVYG+IGWTh8GsNQ68D+6VQZDafStcAoRX7/drrIbkMho3Fv5o5mfjIeMB9A6yT7FxsWFx4VkV8wlCLn3HSq/Q2fvuKh3j10B/ZKCG14K2Que9xrGhCbAGVzxrCozWc4yCdpXSL0CFUOOQDpOa44VzcMVkXqxyaJYDjlxMklfGQ/81YjtM5hne0kFPajeVmHZGQ7QsZZEww/P7c0pL44n9b/sYmzHOuZYFCM3MuU2pfonEJBOVfFVeXh5pPvUmis8mxxCAQhtzJE4D", "fingerprint": "17:c4:55:c4:1b:a3:1f:fd:89:70:2d:c3:55:7a:4c:6e", "user": {"id": "user_Rzg2JEoZNASA1bznzWJBI6GXJ0v", "first_name": "Meghann", "last_name": "Windler", "email": "jonah_bartoletti@mueller.example", "created_at": "2026-01-10T00:00:00.000Z", "updated_at": "2025-03-26T00:00:00.000Z", "role": {"id": "role_6noZ5alPanUpr0yoVygMCL6mK88", "name": "owner", "created_at": "2025-07-29T00:00:00.000Z", "updated_at": "2026-05-30T00:00:00.000Z"}}, "project": {"id": "proj_v9BVDaR3ORm1W", "name": "Sleek Linen Lamp", "slug": "sleek-linen-lamp", "description": "Ergonomic Rubber Gloves", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 0, "virtual_machines": 0, "vlans": 0}}, "created_at": "2026-01-14T15:56:42+00:00", "updated_at": "2026-01-14T15:56:42+00:00"}}}
     Bad Request:
       parameters:
         path:
@@ -6872,7 +6884,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "filesystems", "attributes": {"project": "proj_lkg1De6ROvZE5", "name": "my-data", "size_in_gb": 1500}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "fs_AW6Q2D9lqKLpr", "type": "filesystems", "attributes": {"name": "my-data", "size_in_gb": 1500, "created_at": "2026-01-14T15:57:07.000Z", "project": {"id": "proj_lkg1De6ROvZE5", "name": "Small Leather Plate", "slug": "small-leather-plate", "description": "Awesome Marble Table", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_13ljzVvQY2c2YN4lnMexSm79WgA", "name": "592 Team", "slug": "592-team", "description": "592 Team", "address": "247 Russ Station, New Freddy, OK 97400-4162", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}}}}
+          application/vnd.api+json: {"data": {"id": "fs_AW6Q2D9lqKLpr", "type": "filesystems", "attributes": {"name": "my-data", "size_in_gb": 1500, "created_at": "2026-01-14T15:57:07.000Z", "project": {"id": "proj_lkg1De6ROvZE5", "name": "Small Leather Plate", "slug": "small-leather-plate", "description": "Awesome Marble Table", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 1, "virtual_machines": 0, "vlans": 0}}, "team": {"id": "team_13ljzVvQY2c2YN4lnMexSm79WgA", "name": "592 Team", "slug": "592-team", "description": "592 Team", "address": "247 Russ Station, New Freddy, OK 97400-4162", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}}}}
     Conflict:
       requestBody:
         application/json: {"data": {"type": "filesystems", "attributes": {"project": "proj_0L6WO19lOPlXy", "name": "my-data", "size_in_gb": 1500}}}
@@ -6908,7 +6920,7 @@ examples:
           filter[project]: "small-rubber-shirt"
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "fs_6059EqYkOQj8p", "type": "filesystems", "attributes": {"name": "Intelligent Bronze Bench", "size_in_gb": 1500, "created_at": "2026-01-14T15:57:07.743Z", "project": {"id": "proj_695BdKNeOevVo", "name": "Synergistic Bronze Wallet", "slug": "synergistic-bronze-wallet", "description": "Mediocre Bronze Computer", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_lV9Xe2AAK5CbMgGbpPYLskLRXyV", "name": "601 Team", "slug": "601-team", "description": "601 Team", "address": "20590 Deckow Divide, Lake Boris, NC 87947", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}}}, {"id": "fs_6VE1Wd37dXnZJ", "type": "filesystems", "attributes": {"name": "Gorgeous Rubber Bench", "size_in_gb": 1500, "created_at": "2026-01-14T15:57:07.758Z", "project": {"id": "proj_yQrJdNm5O30gv", "name": "Heavy Duty Copper Clock", "slug": "heavy-duty-copper-clock", "description": "Small Aluminum Shoes", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_lV9Xe2AAK5CbMgGbpPYLskLRXyV", "name": "601 Team", "slug": "601-team", "description": "601 Team", "address": "20590 Deckow Divide, Lake Boris, NC 87947", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}}}]}
+          application/vnd.api+json: {"data": [{"id": "fs_6059EqYkOQj8p", "type": "filesystems", "attributes": {"name": "Intelligent Bronze Bench", "size_in_gb": 1500, "created_at": "2026-01-14T15:57:07.743Z", "project": {"id": "proj_695BdKNeOevVo", "name": "Synergistic Bronze Wallet", "slug": "synergistic-bronze-wallet", "description": "Mediocre Bronze Computer", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 1, "virtual_machines": 0, "vlans": 0}}, "team": {"id": "team_lV9Xe2AAK5CbMgGbpPYLskLRXyV", "name": "601 Team", "slug": "601-team", "description": "601 Team", "address": "20590 Deckow Divide, Lake Boris, NC 87947", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}}}, {"id": "fs_6VE1Wd37dXnZJ", "type": "filesystems", "attributes": {"name": "Gorgeous Rubber Bench", "size_in_gb": 1500, "created_at": "2026-01-14T15:57:07.758Z", "project": {"id": "proj_yQrJdNm5O30gv", "name": "Heavy Duty Copper Clock", "slug": "heavy-duty-copper-clock", "description": "Small Aluminum Shoes", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 1, "virtual_machines": 0, "vlans": 0}}, "team": {"id": "team_lV9Xe2AAK5CbMgGbpPYLskLRXyV", "name": "601 Team", "slug": "601-team", "description": "601 Team", "address": "20590 Deckow Divide, Lake Boris, NC 87947", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}}}]}
   delete-storage-filesystems:
     Not Found:
       parameters:
@@ -6932,7 +6944,7 @@ examples:
         application/vnd.api+json: {"data": {"id": "fs_7vYAZqGBdMQ94", "type": "filesystems", "attributes": {"size_in_gb": 1501}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "fs_7vYAZqGBdMQ94", "type": "filesystems", "attributes": {"name": "Lightweight Aluminum Computer", "size_in_gb": 1501, "created_at": "2026-01-14T15:57:08.000Z", "project": {"id": "proj_1R3zq2VvqWxyn", "name": "Enormous Iron Plate", "slug": "enormous-iron-plate", "description": "Durable Wooden Shoes", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_6RZQo811RrT97mgazl8wf1Ryxxo", "name": "606 Team", "slug": "606-team", "description": "606 Team", "address": "Apt. 122 58068 Bibi Prairie, Ardithport, NH 77015-2685", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}}}}
+          application/vnd.api+json: {"data": {"id": "fs_7vYAZqGBdMQ94", "type": "filesystems", "attributes": {"name": "Lightweight Aluminum Computer", "size_in_gb": 1501, "created_at": "2026-01-14T15:57:08.000Z", "project": {"id": "proj_1R3zq2VvqWxyn", "name": "Enormous Iron Plate", "slug": "enormous-iron-plate", "description": "Durable Wooden Shoes", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 1, "virtual_machines": 0, "vlans": 0}}, "team": {"id": "team_6RZQo811RrT97mgazl8wf1Ryxxo", "name": "606 Team", "slug": "606-team", "description": "606 Team", "address": "Apt. 122 58068 Bibi Prairie, Ardithport, NH 77015-2685", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}}}}
     Validation Error:
       parameters:
         path:
@@ -7178,7 +7190,7 @@ examples:
           extra_fields[user_data]: "decoded_content"
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "ud_AW6Q2D9lqKLpr", "type": "user_data", "attributes": {"description": "Three eggs with cilantro, tomatoes, onions, avocados and melted Emmental cheese. With a side of roasted potatoes, and your choice of toast or croissant.", "content": "QnJlYWRlZCBmcmllZCBjaGlja2VuIHdpdGggd2FmZmxlcywgYW5kIGEgc2lkZSBvZiBtYXBsZSBzeXJ1cC4=", "decoded_content": "Breaded fried chicken with waffles, and a side of maple syrup.", "project": {"id": "proj_LYV8DZYQq5QoE", "name": "Sleek Cotton Bottle", "slug": "sleek-cotton-bottle", "description": "Intelligent Aluminum Watch", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "created_at": "2026-01-14T15:56:43+00:00", "updated_at": "2026-01-14T15:56:43+00:00"}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "ud_AW6Q2D9lqKLpr", "type": "user_data", "attributes": {"description": "Three eggs with cilantro, tomatoes, onions, avocados and melted Emmental cheese. With a side of roasted potatoes, and your choice of toast or croissant.", "content": "QnJlYWRlZCBmcmllZCBjaGlja2VuIHdpdGggd2FmZmxlcywgYW5kIGEgc2lkZSBvZiBtYXBsZSBzeXJ1cC4=", "decoded_content": "Breaded fried chicken with waffles, and a side of maple syrup.", "project": {"id": "proj_LYV8DZYQq5QoE", "name": "Sleek Cotton Bottle", "slug": "sleek-cotton-bottle", "description": "Intelligent Aluminum Watch", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 0, "virtual_machines": 0, "vlans": 0}}, "created_at": "2026-01-14T15:56:43+00:00", "updated_at": "2026-01-14T15:56:43+00:00"}}], "meta": {}}
     Not Found:
       parameters:
         path:
@@ -7198,7 +7210,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "ud_pRMLydp0dQKr1", "type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "decoded_content": "#cloud-config\nruncmd:\n - [ touch,  /home/ubuntu/test ]", "project": {"id": "proj_8NkvdyMKdeLpx", "name": "Intelligent Bronze Car", "slug": "intelligent-bronze-car", "description": "Small Iron Shoes", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "created_at": "2026-01-14T15:56:43+00:00", "updated_at": "2026-01-14T15:56:43+00:00"}}, "meta": {}}
+          application/vnd.api+json: {"data": {"id": "ud_pRMLydp0dQKr1", "type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "decoded_content": "#cloud-config\nruncmd:\n - [ touch,  /home/ubuntu/test ]", "project": {"id": "proj_8NkvdyMKdeLpx", "name": "Intelligent Bronze Car", "slug": "intelligent-bronze-car", "description": "Small Iron Shoes", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 0, "virtual_machines": 0, "vlans": 0}}, "created_at": "2026-01-14T15:56:43+00:00", "updated_at": "2026-01-14T15:56:43+00:00"}}, "meta": {}}
     Bad Request:
       parameters:
         path:
@@ -7259,7 +7271,7 @@ examples:
           extra_fields[user_data]: "decoded_content"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "ud_VLMmAD8EOwop2", "type": "user_data", "attributes": {"description": "Three egg omelet with Roquefort cheese, chives, and ham. With a side of roasted potatoes, and your choice of toast or croissant.", "content": "Q3JlYW15IG1hc2NhcnBvbmUgY2hlZXNlIGFuZCBjdXN0YXJkIGxheWVyZWQgYmV0d2VlbiBlc3ByZXNzbyBhbmQgcnVtIHNvYWtlZCBob3VzZS1tYWRlIGxhZHlmaW5nZXJzLCB0b3BwZWQgd2l0aCBWYWxyaG9uYSBjb2NvYSBwb3dkZXIu", "decoded_content": "Creamy mascarpone cheese and custard layered between espresso and rum soaked house-made ladyfingers, topped with Valrhona cocoa powder.", "project": {"id": "proj_e8pKq0GYdWAob", "name": "Enormous Silk Car", "slug": "enormous-silk-car", "description": "Aerodynamic Granite Bag", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "created_at": "2026-01-14T15:56:43+00:00", "updated_at": "2026-01-14T15:56:43+00:00"}}, "meta": {}}
+          application/vnd.api+json: {"data": {"id": "ud_VLMmAD8EOwop2", "type": "user_data", "attributes": {"description": "Three egg omelet with Roquefort cheese, chives, and ham. With a side of roasted potatoes, and your choice of toast or croissant.", "content": "Q3JlYW15IG1hc2NhcnBvbmUgY2hlZXNlIGFuZCBjdXN0YXJkIGxheWVyZWQgYmV0d2VlbiBlc3ByZXNzbyBhbmQgcnVtIHNvYWtlZCBob3VzZS1tYWRlIGxhZHlmaW5nZXJzLCB0b3BwZWQgd2l0aCBWYWxyaG9uYSBjb2NvYSBwb3dkZXIu", "decoded_content": "Creamy mascarpone cheese and custard layered between espresso and rum soaked house-made ladyfingers, topped with Valrhona cocoa powder.", "project": {"id": "proj_e8pKq0GYdWAob", "name": "Enormous Silk Car", "slug": "enormous-silk-car", "description": "Aerodynamic Granite Bag", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 0, "virtual_machines": 0, "vlans": 0}}, "created_at": "2026-01-14T15:56:43+00:00", "updated_at": "2026-01-14T15:56:43+00:00"}}, "meta": {}}
     Not Found:
       parameters:
         path:
@@ -7433,7 +7445,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "project": "lightweight-leather-lamp", "site": "DAL"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "vm_mw49QDB5qagKb", "type": "virtual_machines", "attributes": {"name": "my-new-vm", "created_at": "2026-01-14T15:57:13+00:00", "status": "Starting", "primary_ipv4": "192.168.1.50", "operating_system": {"name": "Ubuntu 24.04 LTS", "slug": "ubuntu_24_04_x64_lts", "version": "24.04 x64 LTS", "features": {"raid": true, "ssh_keys": true, "user_data": true}, "distro": {"name": "Ubuntu", "slug": "ubuntu", "series": "noble"}}, "site": "FRA181", "billing": "monthly", "plan": {"id": "plan_VE1Wd3VXOXnZJ", "name": "g3.h100.large-131"}, "specs": {"vcpu": 16, "ram": "128 GB", "storage": "100 GB", "nic": "1 x 1 Gbps", "gpu": "1 x NVIDIA H100 Tensor Core GPU"}, "team": {"id": "team_zAbb72Zm3VS3N0o89Y48sGXv3mZ", "name": "690 Team", "slug": "690-team", "description": "690 Team", "address": "Apt. 922 405 Ondricka Lights, Lake Jennineview, SC 58925-4625", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}, "project": {"id": "proj_GMy1Dbk1ON50m", "name": "Lightweight Leather Lamp", "slug": "lightweight-leather-lamp", "description": "Sleek Wool Plate", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}}}}
+          application/vnd.api+json: {"data": {"id": "vm_mw49QDB5qagKb", "type": "virtual_machines", "attributes": {"name": "my-new-vm", "created_at": "2026-01-14T15:57:13+00:00", "status": "Starting", "primary_ipv4": "192.168.1.50", "operating_system": {"name": "Ubuntu 24.04 LTS", "slug": "ubuntu_24_04_x64_lts", "version": "24.04 x64 LTS", "features": {"raid": true, "ssh_keys": true, "user_data": true}, "distro": {"name": "Ubuntu", "slug": "ubuntu", "series": "noble"}}, "site": "FRA181", "billing": "monthly", "plan": {"id": "plan_VE1Wd3VXOXnZJ", "name": "g3.h100.large-131"}, "specs": {"vcpu": 16, "ram": "128 GB", "storage": "100 GB", "nic": "1 x 1 Gbps", "gpu": "1 x NVIDIA H100 Tensor Core GPU"}, "team": {"id": "team_zAbb72Zm3VS3N0o89Y48sGXv3mZ", "name": "690 Team", "slug": "690-team", "description": "690 Team", "address": "Apt. 922 405 Ondricka Lights, Lake Jennineview, SC 58925-4625", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}, "project": {"id": "proj_GMy1Dbk1ON50m", "name": "Lightweight Leather Lamp", "slug": "lightweight-leather-lamp", "description": "Sleek Wool Plate", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 0, "virtual_machines": 1, "vlans": 0}}}}}
     Unprocessable Entity:
       requestBody:
         application/json: {"data": {"type": "virtual_machines", "attributes": {"name": "My new-vm", "project": "mediocre-wool-knife"}}}
@@ -7467,10 +7479,16 @@ examples:
       parameters:
         query:
           extra_fields[virtual_machines]: "credentials"
+          page[size]: 20
+          page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "vm_zlkg1DegdvZE5", "type": "virtual_machines", "attributes": {"name": "my-new-vm", "created_at": "2026-01-14T15:57:14+00:00", "status": "Running", "primary_ipv4": "192.168.1.100", "operating_system": null, "credentials": {"username": "ubuntu", "host": "192.168.1.100", "password": "secure_password", "ssh_keys": []}, "site": "MEX192", "billing": "hourly", "plan": {"id": "plan_059EqYVjDQj8p", "name": "g3.l40s.medium-142"}, "specs": {"vcpu": null, "ram": null, "storage": null, "nic": "1 x 1 Gbps", "gpu": "1 x NVIDIA H100 Tensor Core GPU"}, "team": {"id": "team_1ejNe2b5gQiKpxYNxz0bFm2yY38", "name": "701 Team", "slug": "701-team", "description": "701 Team", "address": "29825 Klocko Trafficway, Wunschhaven, KS 74888", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}, "project": {"id": "proj_w49QDB2WDagKb", "name": "Intelligent Granite Pants", "slug": "intelligent-granite-pants", "description": "Aerodynamic Copper Bottle", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}}}]}
+          application/vnd.api+json: {"data": [{"id": "vm_zlkg1DegdvZE5", "type": "virtual_machines", "attributes": {"name": "my-new-vm", "created_at": "2026-01-14T15:57:14+00:00", "status": "Running", "primary_ipv4": "192.168.1.100", "operating_system": null, "credentials": {"username": "ubuntu", "host": "192.168.1.100", "password": "secure_password", "ssh_keys": []}, "site": "MEX192", "billing": "hourly", "plan": {"id": "plan_059EqYVjDQj8p", "name": "g3.l40s.medium-142"}, "specs": {"vcpu": null, "ram": null, "storage": null, "nic": "1 x 1 Gbps", "gpu": "1 x NVIDIA H100 Tensor Core GPU"}, "team": {"id": "team_1ejNe2b5gQiKpxYNxz0bFm2yY38", "name": "701 Team", "slug": "701-team", "description": "701 Team", "address": "29825 Klocko Trafficway, Wunschhaven, KS 74888", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}, "project": {"id": "proj_w49QDB2WDagKb", "name": "Intelligent Granite Pants", "slug": "intelligent-granite-pants", "description": "Aerodynamic Copper Bottle", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 0, "virtual_machines": 1, "vlans": 0}}}}]}
     UnsupportedSortField:
+      parameters:
+        query:
+          page[size]: 20
+          page[number]: 1
       responses:
         "400":
           application/vnd.api+json: {"errors": [{"code": "VALIDATION_ERROR", "status": "400", "title": "Validation Error", "detail": "contains unsupported field: region", "source": {"parameter": "sort"}, "meta": {}}]}
@@ -7487,7 +7505,7 @@ examples:
           extra_fields[virtual_machines]: "credentials"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "vm_7vYAZqGBdMQ94", "type": "virtual_machines", "attributes": {"name": "my-new-vm", "created_at": "2026-01-14T15:57:15+00:00", "status": "Starting", "primary_ipv4": "10.0.0.25", "operating_system": null, "site": "london-2193", "billing": "hourly", "plan": {"id": "plan_VE1Wd3VQOXnZJ", "name": "c3.small.x86-143"}, "specs": {"vcpu": 16, "ram": "128 GB", "storage": "100 GB", "nic": "1 x 1 Gbps", "gpu": "1 x NVIDIA H100 Tensor Core GPU"}, "team": {"id": "team_GpZboxNev1U2pxpmKwWAc8e01vpp", "name": "702 Team", "slug": "702-team", "description": "702 Team", "address": "Suite 729 8171 Albina Forges, Eldridgeberg, CA 26345-3293", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}, "project": {"id": "proj_W6Q2D9ZQOKLpr", "name": "Aerodynamic Wool Watch", "slug": "aerodynamic-wool-watch", "description": "Intelligent Paper Shirt", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}}}}
+          application/vnd.api+json: {"data": {"id": "vm_7vYAZqGBdMQ94", "type": "virtual_machines", "attributes": {"name": "my-new-vm", "created_at": "2026-01-14T15:57:15+00:00", "status": "Starting", "primary_ipv4": "10.0.0.25", "operating_system": null, "site": "london-2193", "billing": "hourly", "plan": {"id": "plan_VE1Wd3VQOXnZJ", "name": "c3.small.x86-143"}, "specs": {"vcpu": 16, "ram": "128 GB", "storage": "100 GB", "nic": "1 x 1 Gbps", "gpu": "1 x NVIDIA H100 Tensor Core GPU"}, "team": {"id": "team_GpZboxNev1U2pxpmKwWAc8e01vpp", "name": "702 Team", "slug": "702-team", "description": "702 Team", "address": "Suite 729 8171 Albina Forges, Eldridgeberg, CA 26345-3293", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}, "project": {"id": "proj_W6Q2D9ZQOKLpr", "name": "Aerodynamic Wool Watch", "slug": "aerodynamic-wool-watch", "description": "Intelligent Paper Shirt", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 0, "virtual_machines": 1, "vlans": 0}}}}}
     speakeasy-default-show-virtual-machine:
       parameters:
         path:
@@ -7550,7 +7568,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "vlan_AW6Q2D9lqKLpr", "type": "virtual_networks", "attributes": {"vid": 2040, "description": "Consequatur quo aut quia.", "project": {"id": "proj_W6Q2D9ordKLpr", "name": "Sleek Leather Hat", "slug": "sleek-leather-hat", "description": "Enormous Copper Lamp", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 2, "prefixes": 0, "servers": 1, "vlans": 2}}, "region": {"city": "Sydney 243", "country": "Australia 253", "site": {"id": "loc_1ZJrdxnWDg4LV", "facility": "Sydney 243", "name": "Sydney 243", "slug": "SYD204"}}, "created_at": null, "assignments_count": 1, "tags": [{"id": "tag_rNk62XV5ewSV52K5oAv5FbENl1R", "name": "tag1", "description": "Quia quia natus numquam.", "color": "#ead6ea"}]}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "vlan_AW6Q2D9lqKLpr", "type": "virtual_networks", "attributes": {"vid": 2040, "description": "Consequatur quo aut quia.", "project": {"id": "proj_W6Q2D9ordKLpr", "name": "Sleek Leather Hat", "slug": "sleek-leather-hat", "description": "Enormous Copper Lamp", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 2, "prefixes": 0, "servers": 1, "storages": 0, "virtual_machines": 0, "vlans": 2}}, "region": {"city": "Sydney 243", "country": "Australia 253", "site": {"id": "loc_1ZJrdxnWDg4LV", "facility": "Sydney 243", "name": "Sydney 243", "slug": "SYD204"}}, "created_at": null, "assignments_count": 1, "tags": [{"id": "tag_rNk62XV5ewSV52K5oAv5FbENl1R", "name": "tag1", "description": "Quia quia natus numquam.", "color": "#ead6ea"}]}}], "meta": {}}
   create-virtual-network:
     when the user is allowed to create:
       requestBody:
@@ -7643,7 +7661,7 @@ examples:
           vlan_id: "vlan_W6Q2D9ordKLpr"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "vlan_W6Q2D9ordKLpr", "type": "virtual_networks", "attributes": {"vid": 2040, "description": "Testing vlans", "project": {"id": "proj_LA73qkknqaJ2o", "name": "Incredible Wool Plate", "slug": "incredible-wool-plate", "description": "Heavy Duty Wooden Coat", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 2, "prefixes": 0, "servers": 1, "vlans": 0}}, "region": {"city": "São Paulo 255", "country": "Mexico 268", "site": {"id": "loc_1R3zq28EOWxyn", "facility": "São Paulo 255", "name": "São Paulo 255", "slug": "SAO"}}, "created_at": null, "assignments_count": 1, "tags": []}}, "meta": {}}
+          application/vnd.api+json: {"data": {"id": "vlan_W6Q2D9ordKLpr", "type": "virtual_networks", "attributes": {"vid": 2040, "description": "Testing vlans", "project": {"id": "proj_LA73qkknqaJ2o", "name": "Incredible Wool Plate", "slug": "incredible-wool-plate", "description": "Heavy Duty Wooden Coat", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 2, "prefixes": 0, "servers": 1, "storages": 0, "virtual_machines": 0, "vlans": 0}}, "region": {"city": "São Paulo 255", "country": "Mexico 268", "site": {"id": "loc_1R3zq28EOWxyn", "facility": "São Paulo 255", "name": "São Paulo 255", "slug": "SAO"}}, "created_at": null, "assignments_count": 1, "tags": []}}, "meta": {}}
   get-virtual-networks-assignments:
     when filtering by server_id:
       parameters:
@@ -7820,7 +7838,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "ssh_keys", "attributes": {"name": "SSH Key", "project": "proj_z2A3DV4wdnawP", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "ssh_QraYDPweqpjwW", "type": "ssh_keys", "attributes": {"tags": [], "name": "SSH Key", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx", "fingerprint": "0a:00:34:53:51:0e:a5:4e:06:2c:d7:16:88:96:82:f3", "user": {"id": "user_RJK9eae5KlTAKQoBReVKFGQRVJ7", "first_name": "Meda", "last_name": "Schowalter", "email": "dana.lind@mayert-kreiger.test", "created_at": "2025-04-25T00:00:00.000Z", "updated_at": "2025-07-21T00:00:00.000Z", "role": {"id": "role_AzG5AagWN1fKg1okmoG9uWWoN5my", "name": "owner", "created_at": "2025-05-15T00:00:00.000Z", "updated_at": "2026-12-02T00:00:00.000Z"}}, "project": {"id": "proj_z2A3DV4wdnawP", "name": "Ergonomic Cotton Gloves", "slug": "ergonomic-cotton-gloves", "description": "Small Concrete Bottle", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "created_at": "2026-01-14T15:57:05+00:00", "updated_at": "2026-01-14T15:57:05+00:00"}}}
+          application/vnd.api+json: {"data": {"id": "ssh_QraYDPweqpjwW", "type": "ssh_keys", "attributes": {"tags": [], "name": "SSH Key", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx", "fingerprint": "0a:00:34:53:51:0e:a5:4e:06:2c:d7:16:88:96:82:f3", "user": {"id": "user_RJK9eae5KlTAKQoBReVKFGQRVJ7", "first_name": "Meda", "last_name": "Schowalter", "email": "dana.lind@mayert-kreiger.test", "created_at": "2025-04-25T00:00:00.000Z", "updated_at": "2025-07-21T00:00:00.000Z", "role": {"id": "role_AzG5AagWN1fKg1okmoG9uWWoN5my", "name": "owner", "created_at": "2025-05-15T00:00:00.000Z", "updated_at": "2026-12-02T00:00:00.000Z"}}, "project": {"id": "proj_z2A3DV4wdnawP", "name": "Ergonomic Cotton Gloves", "slug": "ergonomic-cotton-gloves", "description": "Small Concrete Bottle", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 0, "virtual_machines": 0, "vlans": 0}}, "created_at": "2026-01-14T15:57:05+00:00", "updated_at": "2026-01-14T15:57:05+00:00"}}}
     Bad Request:
       requestBody:
         application/json: {"data": {"type": "ssh_keys", "attributes": {"name": "SSH Key", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOLFnjGP3Jsh1usHNS2EILgfqZNC9pOvNqBZqxH+qNAdZdQCzy2csMuiq+ZwLA8Mm4Vo5CvSgBHs/kuZRUKyTl+79YUMZIj8PhHzL4XbdqX1ZnAIklHWcJaveB0+UXLEPKGzFIFq+FkuwtiXQsVe5NnSpIDYgpzhqEs38NsnXvsubKphGUdARDhaxvMdUUl4YsAtLHKMzSyIvE6xwfTtIVwA9bZt/8GoBzrn9px9PEcf25Rgd2NhOYs3WYcZuwvRmfcFdi2vGhVqTPqL9n16R/n5jknxHYrTyqWNxJdpdvg2YqXpN7vnFNoOjYFD6EahJ0pF/+WL4tPCIkLfoaVaSx"}}}
@@ -7906,7 +7924,7 @@ examples:
           page[number]: 1
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "ud_1Qkm7dXzD8nZV", "type": "user_data", "attributes": {"description": "Thick slices of French toast bread, brown sugar, half-and-half and vanilla, topped with powdered sugar. With two eggs served any style, and your choice of smoked bacon or smoked ham.", "content": "VHdvIGJ1dHRlcm1pbGsgd2FmZmxlcywgdG9wcGVkIHdpdGggd2hpcHBlZCBjcmVhbSBhbmQgbWFwbGUgc3lydXAsIGEgc2lkZSBvZiB0d28gZWdncyBzZXJ2ZWQgYW55IHN0eWxlLCBhbmQgeW91ciBjaG9pY2Ugb2Ygc21va2VkIGJhY29uIG9yIHNtb2tlZCBoYW0u", "decoded_content": "Two buttermilk waffles, topped with whipped cream and maple syrup, a side of two eggs served any style, and your choice of smoked bacon or smoked ham.", "project": {"id": "proj_1ZJrdxoyOg4LV", "name": "Heavy Duty Aluminum Coat", "slug": "heavy-duty-aluminum-coat", "description": "Enormous Bronze Bag", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "created_at": "2026-01-14T15:57:11+00:00", "updated_at": "2026-01-14T15:57:11+00:00"}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "ud_1Qkm7dXzD8nZV", "type": "user_data", "attributes": {"description": "Thick slices of French toast bread, brown sugar, half-and-half and vanilla, topped with powdered sugar. With two eggs served any style, and your choice of smoked bacon or smoked ham.", "content": "VHdvIGJ1dHRlcm1pbGsgd2FmZmxlcywgdG9wcGVkIHdpdGggd2hpcHBlZCBjcmVhbSBhbmQgbWFwbGUgc3lydXAsIGEgc2lkZSBvZiB0d28gZWdncyBzZXJ2ZWQgYW55IHN0eWxlLCBhbmQgeW91ciBjaG9pY2Ugb2Ygc21va2VkIGJhY29uIG9yIHNtb2tlZCBoYW0u", "decoded_content": "Two buttermilk waffles, topped with whipped cream and maple syrup, a side of two eggs served any style, and your choice of smoked bacon or smoked ham.", "project": {"id": "proj_1ZJrdxoyOg4LV", "name": "Heavy Duty Aluminum Coat", "slug": "heavy-duty-aluminum-coat", "description": "Enormous Bronze Bag", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 0, "virtual_machines": 0, "vlans": 0}}, "created_at": "2026-01-14T15:57:11+00:00", "updated_at": "2026-01-14T15:57:11+00:00"}}], "meta": {}}
   post-user-data:
     Created:
       requestBody:
@@ -7914,7 +7932,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "user_data", "attributes": {"description": "User Data description", "project": "proj_QraYDPW3qpjwW", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "ud_w49QDB55qagKb", "type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "decoded_content": "#cloud-config\nruncmd:\n - [ touch,  /home/ubuntu/test ]", "project": {"id": "proj_QraYDPW3qpjwW", "name": "Rustic Granite Gloves", "slug": "rustic-granite-gloves", "description": "Heavy Duty Leather Wallet", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "created_at": "2026-01-14T15:57:11+00:00", "updated_at": "2026-01-14T15:57:11+00:00"}}, "meta": {}}
+          application/vnd.api+json: {"data": {"id": "ud_w49QDB55qagKb", "type": "user_data", "attributes": {"description": "User Data description", "content": "I2Nsb3VkLWNvbmZpZwpydW5jbWQ6CiAtIFsgdG91Y2gsICAvaG9tZS91YnVudHUvdGVzdCBd", "decoded_content": "#cloud-config\nruncmd:\n - [ touch,  /home/ubuntu/test ]", "project": {"id": "proj_QraYDPW3qpjwW", "name": "Rustic Granite Gloves", "slug": "rustic-granite-gloves", "description": "Heavy Duty Leather Wallet", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 0, "virtual_machines": 0, "vlans": 0}}, "created_at": "2026-01-14T15:57:11+00:00", "updated_at": "2026-01-14T15:57:11+00:00"}}, "meta": {}}
   get-user-data:
     Success:
       parameters:
@@ -7924,7 +7942,7 @@ examples:
           extra_fields[user_data]: "decoded_content"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "ud_MLGXPdWgdnNWk", "type": "user_data", "attributes": {"description": "Three egg whites with spinach, mushrooms, caramelized onions, tomatoes and low-fat feta cheese. With herbed quinoa, and your choice of rye or whole-grain toast.", "content": "VHdvIGJ1dHRlcm1pbGsgd2FmZmxlcywgdG9wcGVkIHdpdGggd2hpcHBlZCBjcmVhbSBhbmQgbWFwbGUgc3lydXAsIGEgc2lkZSBvZiB0d28gZWdncyBzZXJ2ZWQgYW55IHN0eWxlLCBhbmQgeW91ciBjaG9pY2Ugb2Ygc21va2VkIGJhY29uIG9yIHNtb2tlZCBoYW0u", "decoded_content": "Two buttermilk waffles, topped with whipped cream and maple syrup, a side of two eggs served any style, and your choice of smoked bacon or smoked ham.", "project": {"id": "proj_pbV0DgkzD4AWz", "name": "Sleek Iron Wallet", "slug": "sleek-iron-wallet", "description": "Small Silk Shoes", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "created_at": "2026-01-14T15:57:11+00:00", "updated_at": "2026-01-14T15:57:11+00:00"}}, "meta": {}}
+          application/vnd.api+json: {"data": {"id": "ud_MLGXPdWgdnNWk", "type": "user_data", "attributes": {"description": "Three egg whites with spinach, mushrooms, caramelized onions, tomatoes and low-fat feta cheese. With herbed quinoa, and your choice of rye or whole-grain toast.", "content": "VHdvIGJ1dHRlcm1pbGsgd2FmZmxlcywgdG9wcGVkIHdpdGggd2hpcHBlZCBjcmVhbSBhbmQgbWFwbGUgc3lydXAsIGEgc2lkZSBvZiB0d28gZWdncyBzZXJ2ZWQgYW55IHN0eWxlLCBhbmQgeW91ciBjaG9pY2Ugb2Ygc21va2VkIGJhY29uIG9yIHNtb2tlZCBoYW0u", "decoded_content": "Two buttermilk waffles, topped with whipped cream and maple syrup, a side of two eggs served any style, and your choice of smoked bacon or smoked ham.", "project": {"id": "proj_pbV0DgkzD4AWz", "name": "Sleek Iron Wallet", "slug": "sleek-iron-wallet", "description": "Small Silk Shoes", "billing_type": "Normal", "provisioning_type": "on_demand", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 0, "virtual_machines": 0, "vlans": 0}}, "created_at": "2026-01-14T15:57:11+00:00", "updated_at": "2026-01-14T15:57:11+00:00"}}, "meta": {}}
     Not Found:
       parameters:
         path:
@@ -8056,7 +8074,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "volumes", "attributes": {"project": "proj_enPbqoZ6dA2MQ", "name": "my-data", "size_in_gb": 1500}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "vol_Av9BVDavORm1W", "type": "volumes", "attributes": {"name": "Rustic Aluminum Shoes", "size_in_gb": 1500, "created_at": "2026-01-14T15:57:08.000Z", "namespace_id": null, "connector_id": null, "initiators": null, "project": {"id": "proj_enPbqoZ6dA2MQ", "name": "Mediocre Aluminum Car", "slug": "mediocre-aluminum-car", "description": "Rustic Linen Shoes", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_geEQyBL2bJiVpXJgmw1YTgneKVb", "name": "609 Team", "slug": "609-team", "description": "609 Team", "address": "Apt. 590 415 Kirlin Pass, South Trenton, MT 96944", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}}}}
+          application/vnd.api+json: {"data": {"id": "vol_Av9BVDavORm1W", "type": "volumes", "attributes": {"name": "Rustic Aluminum Shoes", "size_in_gb": 1500, "created_at": "2026-01-14T15:57:08.000Z", "namespace_id": null, "connector_id": null, "initiators": null, "project": {"id": "proj_enPbqoZ6dA2MQ", "name": "Mediocre Aluminum Car", "slug": "mediocre-aluminum-car", "description": "Rustic Linen Shoes", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 1, "virtual_machines": 0, "vlans": 0}}, "team": {"id": "team_geEQyBL2bJiVpXJgmw1YTgneKVb", "name": "609 Team", "slug": "609-team", "description": "609 Team", "address": "Apt. 590 415 Kirlin Pass, South Trenton, MT 96944", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}}}}
     Storage creation frozen:
       requestBody:
         application/json: {"data": {"type": "volumes", "attributes": {"project": "<value>", "name": "<value>", "size_in_gb": 1500}}}
@@ -8071,7 +8089,7 @@ examples:
           filter[project]: "proj_WeGoqA5AqP7nz"
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "vol_RLYV8DZ2D5QoE", "type": "volumes", "attributes": {"name": "Incredible Paper Computer", "size_in_gb": 1500, "created_at": "2026-01-14T14:57:08.628Z", "namespace_id": "1", "connector_id": "nqn.2001-07.com.ceph:1757602476548", "initiators": [{"nqn": "nqn.2014-08.org.nvmexpress:uuid:ae717767-c0fa-56f7-ab4b-5c426b0c553f"}], "project": {"id": "proj_WeGoqA5AqP7nz", "name": "Gorgeous Concrete Clock", "slug": "gorgeous-concrete-clock", "description": "Small Wooden Shirt", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_nYRYZR4lwzSJpMxzmrnKSe8P79E", "name": "614 Team", "slug": "614-team", "description": "614 Team", "address": "Suite 444 21815 Angel Falls, North Jarvis, LA 68902", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}}}]}
+          application/vnd.api+json: {"data": [{"id": "vol_RLYV8DZ2D5QoE", "type": "volumes", "attributes": {"name": "Incredible Paper Computer", "size_in_gb": 1500, "created_at": "2026-01-14T14:57:08.628Z", "namespace_id": "1", "connector_id": "nqn.2001-07.com.ceph:1757602476548", "initiators": [{"nqn": "nqn.2014-08.org.nvmexpress:uuid:ae717767-c0fa-56f7-ab4b-5c426b0c553f"}], "project": {"id": "proj_WeGoqA5AqP7nz", "name": "Gorgeous Concrete Clock", "slug": "gorgeous-concrete-clock", "description": "Small Wooden Shirt", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 1, "virtual_machines": 0, "vlans": 0}}, "team": {"id": "team_nYRYZR4lwzSJpMxzmrnKSe8P79E", "name": "614 Team", "slug": "614-team", "description": "614 Team", "address": "Suite 444 21815 Angel Falls, North Jarvis, LA 68902", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}}}]}
   post-storage-volumes-mount:
     speakeasy-default-post-storage-volumes-mount:
       parameters:
@@ -8086,7 +8104,7 @@ examples:
           id: "vol_aKXgRdR3qv9k5"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "vol_aKXgRdR3qv9k5", "type": "volumes", "attributes": {"name": "Synergistic Concrete Shoes", "size_in_gb": 1500, "created_at": "2026-01-14T14:57:09.251Z", "namespace_id": "1", "connector_id": "nqn.2001-07.com.ceph:1757602476548", "initiators": [{"nqn": "nqn.2014-08.org.nvmexpress:uuid:ae717767-c0fa-56f7-ab4b-5c426b0c553f"}], "project": {"id": "proj_5AEmq7XyDBkWX", "name": "Sleek Wool Computer", "slug": "sleek-wool-computer", "description": "Awesome Marble Wallet", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_2KyxrrLkeRtKVLNKv5yNhMWXPnyw", "name": "623 Team", "slug": "623-team", "description": "623 Team", "address": "Apt. 955 6672 Otto Mountain, Phillipfurt, CA 84225", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}}}}
+          application/vnd.api+json: {"data": {"id": "vol_aKXgRdR3qv9k5", "type": "volumes", "attributes": {"name": "Synergistic Concrete Shoes", "size_in_gb": 1500, "created_at": "2026-01-14T14:57:09.251Z", "namespace_id": "1", "connector_id": "nqn.2001-07.com.ceph:1757602476548", "initiators": [{"nqn": "nqn.2014-08.org.nvmexpress:uuid:ae717767-c0fa-56f7-ab4b-5c426b0c553f"}], "project": {"id": "proj_5AEmq7XyDBkWX", "name": "Sleek Wool Computer", "slug": "sleek-wool-computer", "description": "Awesome Marble Wallet", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 1, "virtual_machines": 0, "vlans": 0}}, "team": {"id": "team_2KyxrrLkeRtKVLNKv5yNhMWXPnyw", "name": "623 Team", "slug": "623-team", "description": "623 Team", "address": "Apt. 955 6672 Otto Mountain, Phillipfurt, CA 84225", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}}}}
   delete-storage-volumes:
     speakeasy-default-delete-storage-volumes:
       parameters:
@@ -8141,7 +8159,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "virtual_machines", "id": "vm_7vYAZqGBdMQ94", "attributes": {"name": "my-updated-vm"}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "vm_7vYAZqGBdMQ94", "type": "virtual_machines", "attributes": {"name": "my-updated-vm", "created_at": "2026-01-14T15:57:15+00:00", "status": "Running", "primary_ipv4": "10.0.0.25", "operating_system": null, "site": "london-2193", "billing": "hourly", "plan": {"id": "plan_VE1Wd3VQOXnZJ", "name": "c3.small.x86-143"}, "specs": {"vcpu": 16, "ram": "128 GB", "storage": "100 GB", "nic": "1 x 1 Gbps", "gpu": "1 x NVIDIA H100 Tensor Core GPU"}, "team": {"id": "team_GpZboxNev1U2pxpmKwWAc8e01vpp", "name": "702 Team", "slug": "702-team", "description": "702 Team", "address": "Suite 729 8171 Albina Forges, Eldridgeberg, CA 26345-3293", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}, "project": {"id": "proj_W6Q2D9ZQOKLpr", "name": "Aerodynamic Wool Watch", "slug": "aerodynamic-wool-watch", "description": "Intelligent Paper Shirt", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}}}}
+          application/vnd.api+json: {"data": {"id": "vm_7vYAZqGBdMQ94", "type": "virtual_machines", "attributes": {"name": "my-updated-vm", "created_at": "2026-01-14T15:57:15+00:00", "status": "Running", "primary_ipv4": "10.0.0.25", "operating_system": null, "site": "london-2193", "billing": "hourly", "plan": {"id": "plan_VE1Wd3VQOXnZJ", "name": "c3.small.x86-143"}, "specs": {"vcpu": 16, "ram": "128 GB", "storage": "100 GB", "nic": "1 x 1 Gbps", "gpu": "1 x NVIDIA H100 Tensor Core GPU"}, "team": {"id": "team_GpZboxNev1U2pxpmKwWAc8e01vpp", "name": "702 Team", "slug": "702-team", "description": "702 Team", "address": "Suite 729 8171 Albina Forges, Eldridgeberg, CA 26345-3293", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}, "project": {"id": "proj_W6Q2D9ZQOKLpr", "name": "Aerodynamic Wool Watch", "slug": "aerodynamic-wool-watch", "description": "Intelligent Paper Shirt", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 0, "virtual_machines": 1, "vlans": 0}}}}}
   list-elastic-ips:
     Success:
       parameters:
@@ -8740,7 +8758,7 @@ examples:
     Success:
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "bucket_6VE1Wd37dXnZJ", "type": "object_storages", "attributes": {"name": "my-bucket-storage", "storage_type": "object", "storage_class": "standard", "created_at": "2026-03-19T10:30:00.000Z", "bucket_name": "my-bucket", "endpoint": "https://objects.us-east-1.storage.sh", "access_key": "<your-access-key>", "secret_key": "<your-secret-key>", "versioning": false, "locking": false, "retention_mode": "NONE", "retention_period": null, "region": {"id": "SAO2", "city": "SAO2", "country": "Brazil"}, "project": {"id": "proj_6059EqYkOQj8p", "name": "My Project", "slug": "my-project", "description": "Project description", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_lV9Xe2AAK5CbMgGbpPYLskLRXyV", "name": "My Team", "slug": "my-team", "description": "My Team", "address": "123 Main St", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "USD", "name": "US Dollar", "currency_id": null}, "status": "verified"}}}]}
+          application/vnd.api+json: {"data": [{"id": "bucket_6VE1Wd37dXnZJ", "type": "object_storages", "attributes": {"name": "my-bucket-storage", "storage_type": "object", "storage_class": "standard", "created_at": "2026-03-19T10:30:00.000Z", "bucket_name": "my-bucket", "endpoint": "https://objects.us-east-1.storage.sh", "access_key": "<your-access-key>", "secret_key": "<your-secret-key>", "versioning": false, "locking": false, "retention_mode": "NONE", "retention_period": null, "region": {"id": "SAO2", "city": "SAO2", "country": "Brazil"}, "project": {"id": "proj_6059EqYkOQj8p", "name": "My Project", "slug": "my-project", "description": "Project description", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 1, "virtual_machines": 0, "vlans": 0}}, "team": {"id": "team_lV9Xe2AAK5CbMgGbpPYLskLRXyV", "name": "My Team", "slug": "my-team", "description": "My Team", "address": "123 Main St", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "USD", "name": "US Dollar", "currency_id": null}, "status": "verified"}}}]}
     FeatureNotEnabled:
       responses:
         "403":
@@ -8771,7 +8789,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "objects", "attributes": {"project": "<value>", "name": "<value>", "region": "<value>", "scoped": false, "storage_class": "standard", "versioning": false, "locking": false, "retention_mode": "NONE"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "bucket_6VE1Wd37dXnZJ", "type": "object_storages", "attributes": {"name": "my-bucket", "storage_type": "object", "storage_class": "standard", "created_at": "2026-03-19T15:30:00.000Z", "bucket_name": "my-bucket", "endpoint": "https://objects.us-east-1.storage.sh", "access_key": "<your-access-key>", "secret_key": "<your-secret-key>", "versioning": false, "locking": false, "retention_mode": "NONE", "retention_period": null, "region": {"id": "DAL", "city": "DAL", "country": "United States"}, "project": {"id": "proj_6059EqYkOQj8p", "name": "My Project", "slug": "my-project", "description": "Project description", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_lV9Xe2AAK5CbMgGbpPYLskLRXyV", "name": "My Team", "slug": "my-team", "description": "My Team", "address": "123 Main St", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "USD", "name": "US Dollar", "currency_id": null}, "status": "verified"}}}}
+          application/vnd.api+json: {"data": {"id": "bucket_6VE1Wd37dXnZJ", "type": "object_storages", "attributes": {"name": "my-bucket", "storage_type": "object", "storage_class": "standard", "created_at": "2026-03-19T15:30:00.000Z", "bucket_name": "my-bucket", "endpoint": "https://objects.us-east-1.storage.sh", "access_key": "<your-access-key>", "secret_key": "<your-secret-key>", "versioning": false, "locking": false, "retention_mode": "NONE", "retention_period": null, "region": {"id": "DAL", "city": "DAL", "country": "United States"}, "project": {"id": "proj_6059EqYkOQj8p", "name": "My Project", "slug": "my-project", "description": "Project description", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 1, "virtual_machines": 0, "vlans": 0}}, "team": {"id": "team_lV9Xe2AAK5CbMgGbpPYLskLRXyV", "name": "My Team", "slug": "my-team", "description": "My Team", "address": "123 Main St", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "USD", "name": "US Dollar", "currency_id": null}, "status": "verified"}}}}
     FeatureNotEnabled:
       requestBody:
         application/vnd.api+json: {"data": {"type": "objects", "attributes": {"project": "<value>", "name": "<value>", "region": "<value>", "scoped": false, "storage_class": "standard", "versioning": false, "locking": false, "retention_mode": "NONE"}}}
@@ -8795,7 +8813,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "bucket_6VE1Wd37dXnZJ", "type": "object_storages", "attributes": {"name": "my-bucket-storage", "storage_type": "object", "storage_class": "standard", "created_at": "2026-03-19T10:30:00.000Z", "bucket_name": "my-bucket", "endpoint": "https://objects.us-east-1.storage.sh", "access_key": "<your-access-key>", "secret_key": "<your-secret-key>", "versioning": false, "locking": false, "retention_mode": "NONE", "retention_period": null, "region": {"id": "SAO2", "city": "SAO2", "country": "Brazil"}, "project": {"id": "proj_6059EqYkOQj8p", "name": "My Project", "slug": "my-project", "description": "Project description", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"ip_addresses": 0, "prefixes": 0, "servers": 0, "vlans": 0}}, "team": {"id": "team_lV9Xe2AAK5CbMgGbpPYLskLRXyV", "name": "My Team", "slug": "my-team", "description": "My Team", "address": "123 Main St", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "USD", "name": "US Dollar", "currency_id": null}, "status": "verified"}}}}
+          application/vnd.api+json: {"data": {"id": "bucket_6VE1Wd37dXnZJ", "type": "object_storages", "attributes": {"name": "my-bucket-storage", "storage_type": "object", "storage_class": "standard", "created_at": "2026-03-19T10:30:00.000Z", "bucket_name": "my-bucket", "endpoint": "https://objects.us-east-1.storage.sh", "access_key": "<your-access-key>", "secret_key": "<your-secret-key>", "versioning": false, "locking": false, "retention_mode": "NONE", "retention_period": null, "region": {"id": "SAO2", "city": "SAO2", "country": "Brazil"}, "project": {"id": "proj_6059EqYkOQj8p", "name": "My Project", "slug": "my-project", "description": "Project description", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 1, "virtual_machines": 0, "vlans": 0}}, "team": {"id": "team_lV9Xe2AAK5CbMgGbpPYLskLRXyV", "name": "My Team", "slug": "my-team", "description": "My Team", "address": "123 Main St", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "USD", "name": "US Dollar", "currency_id": null}, "status": "verified"}}}}
     FeatureNotEnabled:
       parameters:
         path:
@@ -9072,6 +9090,7 @@ examples:
           application/vnd.api+json: {"data": [{"id": "plan_a1b2c3d4", "type": "managed_database_plans", "attributes": {"name": "db.clickhouse.dev", "slug": "db-clickhouse-dev", "engine": "clickhouse", "specs": {"cpu": "1", "memory": "2Gi", "storage": "5Gi", "shards": 1, "replicas": 1, "iops": null}, "regions": [{"region": "ASH", "city": "Ashburn", "country": "United States", "site": {"id": "loc_ashburn", "name": "Ashburn", "slug": "ASH", "facility": "DC1"}, "pricing": {"USD": {"month": 10, "year": 100}, "BRL": {"month": 57, "year": 570}}}]}}]}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Go SDK Changes:\n* `Latitudesh.Billing.ListUsage()`:  `response` **Changed** (Breaking ⚠️)\n* `Latitudesh.Events.List()`:  `response.Data[].Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachines.UpdateVirtualMachine()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachines.Get()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachines.List()`: \n  *  `request` **Changed** (Breaking ⚠️)\n  *  `response` **Changed** (Breaking ⚠️)\n* `Latitudesh.Projects.List()`:  `response.Data[]` **Changed** (Breaking ⚠️)\n* `Latitudesh.Projects.Create()`:  `response.Data` **Changed** (Breaking ⚠️)\n* `Latitudesh.Projects.Update()`:  `response.Data` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachines.Create()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.SshKeys.Retrieve()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.BlockStorage.PostStorageVolumes()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.SshKeys.ModifyProjectKey()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.SshKeys.ListAll()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.SshKeys.Create()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.SshKeys.List()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.SshKeys.Update()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.UserData.GetProjectUsersData()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.UserData.GetProjectUserData()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.UserData.Create()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.UserData.UpdateForProject()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.UserData.List()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.UserData.CreateNew()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.UserData.Retrieve()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.UserData.Update()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.Servers.List()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.Servers.Create()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.Servers.Get()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.Servers.Update()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.Servers.Lock()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.Servers.Unlock()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.FilesystemStorage.CreateFilesystem()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.FilesystemStorage.ListFilesystems()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.FilesystemStorage.UpdateFilesystem()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.BlockStorage.GetStorageVolumes()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.SshKeys.Get()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.BlockStorage.GetStorageVolume()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.ObjectStorage.GetStorageBuckets()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.ObjectStorage.PostStorageBuckets()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.ObjectStorage.GetStorageBucket()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.Projects.SshKeys.PostProjectSshKey()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.Teams.Update()`:  `response.Data.Attributes.Projects[].Stats` **Changed**\n* `Latitudesh.Teams.Create()`:  `response.Data.Attributes.Projects[].Stats` **Changed**\n* `Latitudesh.Teams.Get()`:  `response.Data[].Attributes.Projects[].Stats` **Changed**\n* `Latitudesh.VirtualMachineBackups.ListForVirtualMachine()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.VirtualMachineBackups.CreateForVirtualMachine()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.VirtualMachineBackups.List()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.VirtualMachineBackups.Create()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.VirtualMachineBackups.Get()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.VirtualMachineBackups.Delete()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.VirtualMachineRestores.ListForVirtualMachineBackup()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.VirtualMachineRestores.CreateForVirtualMachineBackup()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.VirtualMachineRestores.ListForBackup()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.VirtualMachineRestores.List()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.VirtualMachineRestores.Create()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.VirtualMachineRestores.Get()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.PrivateNetworks.List()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.PrivateNetworks.Create()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.PrivateNetworks.Update()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.PrivateNetworks.Get()`:  `response.Data.Attributes.Project.Stats` **Changed**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

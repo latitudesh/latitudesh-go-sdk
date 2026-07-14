@@ -2,12 +2,9 @@
 
 package components
 
-type VirtualMachinesMeta struct {
-}
-
 type VirtualMachines struct {
 	Data []VirtualMachineAttributes `json:"data,omitempty"`
-	Meta *VirtualMachinesMeta       `json:"meta,omitempty"`
+	Meta *PaginationMeta            `json:"meta,omitempty"`
 }
 
 func (v *VirtualMachines) GetData() []VirtualMachineAttributes {
@@ -17,7 +14,7 @@ func (v *VirtualMachines) GetData() []VirtualMachineAttributes {
 	return v.Data
 }
 
-func (v *VirtualMachines) GetMeta() *VirtualMachinesMeta {
+func (v *VirtualMachines) GetMeta() *PaginationMeta {
 	if v == nil {
 		return nil
 	}

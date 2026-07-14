@@ -9,6 +9,9 @@ import (
 	"time"
 )
 
+type BillingUsageMeta struct {
+}
+
 // BillingUsageProject - The project in which the returned usage belongs to
 type BillingUsageProject struct {
 	ID   *string `json:"id,omitempty"`
@@ -131,6 +134,7 @@ const (
 	BillingUsageUnitQuantity BillingUsageUnit = "quantity"
 	BillingUsageUnitHour     BillingUsageUnit = "hour"
 	BillingUsageUnitMinute   BillingUsageUnit = "minute"
+	BillingUsageUnitGb       BillingUsageUnit = "GB"
 )
 
 func (e BillingUsageUnit) ToPointer() *BillingUsageUnit {
@@ -147,6 +151,8 @@ func (e *BillingUsageUnit) UnmarshalJSON(data []byte) error {
 	case "hour":
 		fallthrough
 	case "minute":
+		fallthrough
+	case "GB":
 		*e = BillingUsageUnit(v)
 		return nil
 	default:
@@ -180,39 +186,94 @@ func (e *UsageType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-type Metadata struct {
+type BillingUsageServers struct {
 	ID       *string  `json:"id,omitempty"`
 	Hostname *string  `json:"hostname,omitempty"`
 	Plan     *string  `json:"plan,omitempty"`
 	Tags     []string `json:"tags,omitempty"`
 }
 
-func (m *Metadata) GetID() *string {
-	if m == nil {
+func (b *BillingUsageServers) GetID() *string {
+	if b == nil {
 		return nil
 	}
-	return m.ID
+	return b.ID
 }
 
-func (m *Metadata) GetHostname() *string {
-	if m == nil {
+func (b *BillingUsageServers) GetHostname() *string {
+	if b == nil {
 		return nil
 	}
-	return m.Hostname
+	return b.Hostname
 }
 
-func (m *Metadata) GetPlan() *string {
-	if m == nil {
+func (b *BillingUsageServers) GetPlan() *string {
+	if b == nil {
 		return nil
 	}
-	return m.Plan
+	return b.Plan
 }
 
-func (m *Metadata) GetTags() []string {
+func (b *BillingUsageServers) GetTags() []string {
+	if b == nil {
+		return nil
+	}
+	return b.Tags
+}
+
+type Bucket struct {
+	ID       *string `json:"id,omitempty"`
+	Name     *string `json:"name,omitempty"`
+	Location *string `json:"location,omitempty"`
+}
+
+func (b *Bucket) GetID() *string {
+	if b == nil {
+		return nil
+	}
+	return b.ID
+}
+
+func (b *Bucket) GetName() *string {
+	if b == nil {
+		return nil
+	}
+	return b.Name
+}
+
+func (b *Bucket) GetLocation() *string {
+	if b == nil {
+		return nil
+	}
+	return b.Location
+}
+
+type Metadata struct {
+	Servers []BillingUsageServers `json:"servers,omitempty"`
+	Bucket  *Bucket               `json:"bucket,omitempty"`
+	// For products priced per divided unit (e.g. $0.01 per 1000 API calls), the divisor applied to the quantity before pricing. Omitted for products that are not priced by divided units.
+	BillingUnitDivisor *int64 `json:"billing_unit_divisor,omitempty"`
+}
+
+func (m *Metadata) GetServers() []BillingUsageServers {
 	if m == nil {
 		return nil
 	}
-	return m.Tags
+	return m.Servers
+}
+
+func (m *Metadata) GetBucket() *Bucket {
+	if m == nil {
+		return nil
+	}
+	return m.Bucket
+}
+
+func (m *Metadata) GetBillingUnitDivisor() *int64 {
+	if m == nil {
+		return nil
+	}
+	return m.BillingUnitDivisor
 }
 
 type Products struct {
@@ -227,10 +288,14 @@ type Products struct {
 	Start                 *time.Time        `json:"start,omitempty"`
 	End                   *time.Time        `json:"end,omitempty"`
 	Unit                  *BillingUsageUnit `json:"unit,omitempty"`
+	// The unit amount of the product in cents
+	UnitAmount *float64 `json:"unit_amount,omitempty"`
 	// The unit price of the product in cents
 	UnitPrice *float64   `json:"unit_price,omitempty"`
 	UsageType *UsageType `json:"usage_type,omitempty"`
 	Quantity  *float64   `json:"quantity,omitempty"`
+	// The total usage amount of the product in cents
+	Amount *float64 `json:"amount,omitempty"`
 	// The total usage price of the product in cents
 	Price    *float64  `json:"price,omitempty"`
 	Metadata *Metadata `json:"metadata,omitempty"`
@@ -324,6 +389,13 @@ func (p *Products) GetUnit() *BillingUsageUnit {
 	return p.Unit
 }
 
+func (p *Products) GetUnitAmount() *float64 {
+	if p == nil {
+		return nil
+	}
+	return p.UnitAmount
+}
+
 func (p *Products) GetUnitPrice() *float64 {
 	if p == nil {
 		return nil
@@ -343,6 +415,13 @@ func (p *Products) GetQuantity() *float64 {
 		return nil
 	}
 	return p.Quantity
+}
+
+func (p *Products) GetAmount() *float64 {
+	if p == nil {
+		return nil
+	}
+	return p.Amount
 }
 
 func (p *Products) GetPrice() *float64 {
@@ -366,6 +445,8 @@ type BillingUsageAttributes struct {
 	Period *Period `json:"period,omitempty"`
 	// The available credit balance in cents
 	AvailableCreditBalance *int64 `json:"available_credit_balance,omitempty"`
+	// The total usage amount in cents
+	Amount *float64 `json:"amount,omitempty"`
 	// The total usage price in cents
 	Price *float64 `json:"price,omitempty"`
 	// The threshold which we use to charge your usage, in cents
@@ -394,6 +475,13 @@ func (b *BillingUsageAttributes) GetAvailableCreditBalance() *int64 {
 	return b.AvailableCreditBalance
 }
 
+func (b *BillingUsageAttributes) GetAmount() *float64 {
+	if b == nil {
+		return nil
+	}
+	return b.Amount
+}
+
 func (b *BillingUsageAttributes) GetPrice() *float64 {
 	if b == nil {
 		return nil
@@ -417,6 +505,7 @@ func (b *BillingUsageAttributes) GetProducts() []Products {
 
 type BillingUsageData struct {
 	ID         *string                 `json:"id,omitempty"`
+	Type       *string                 `json:"type,omitempty"`
 	Attributes *BillingUsageAttributes `json:"attributes,omitempty"`
 }
 
@@ -427,6 +516,13 @@ func (b *BillingUsageData) GetID() *string {
 	return b.ID
 }
 
+func (b *BillingUsageData) GetType() *string {
+	if b == nil {
+		return nil
+	}
+	return b.Type
+}
+
 func (b *BillingUsageData) GetAttributes() *BillingUsageAttributes {
 	if b == nil {
 		return nil
@@ -435,7 +531,15 @@ func (b *BillingUsageData) GetAttributes() *BillingUsageAttributes {
 }
 
 type BillingUsage struct {
+	Meta *BillingUsageMeta `json:"meta,omitempty"`
 	Data *BillingUsageData `json:"data,omitempty"`
+}
+
+func (b *BillingUsage) GetMeta() *BillingUsageMeta {
+	if b == nil {
+		return nil
+	}
+	return b.Meta
 }
 
 func (b *BillingUsage) GetData() *BillingUsageData {

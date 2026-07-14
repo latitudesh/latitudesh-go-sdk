@@ -8,6 +8,9 @@ import (
 )
 
 value := components.BillingTypeYearly
+
+// Open enum: custom values can be created with a direct type cast
+custom := components.BillingType("custom_value")
 ```
 
 

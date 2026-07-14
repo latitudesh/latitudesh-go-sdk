@@ -30,44 +30,6 @@ func (e *VirtualMachineAttributesType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-type VirtualMachineAttributesStatus string
-
-const (
-	VirtualMachineAttributesStatusRunning            VirtualMachineAttributesStatus = "Running"
-	VirtualMachineAttributesStatusConfiguringNetwork VirtualMachineAttributesStatus = "Configuring network"
-	VirtualMachineAttributesStatusStarting           VirtualMachineAttributesStatus = "Starting"
-	VirtualMachineAttributesStatusScheduling         VirtualMachineAttributesStatus = "Scheduling"
-	VirtualMachineAttributesStatusScheduled          VirtualMachineAttributesStatus = "Scheduled"
-	VirtualMachineAttributesStatusDestroying         VirtualMachineAttributesStatus = "Destroying"
-)
-
-func (e VirtualMachineAttributesStatus) ToPointer() *VirtualMachineAttributesStatus {
-	return &e
-}
-func (e *VirtualMachineAttributesStatus) UnmarshalJSON(data []byte) error {
-	var v string
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-	switch v {
-	case "Running":
-		fallthrough
-	case "Configuring network":
-		fallthrough
-	case "Starting":
-		fallthrough
-	case "Scheduling":
-		fallthrough
-	case "Scheduled":
-		fallthrough
-	case "Destroying":
-		*e = VirtualMachineAttributesStatus(v)
-		return nil
-	default:
-		return fmt.Errorf("invalid value for VirtualMachineAttributesStatus: %v", v)
-	}
-}
-
 // VirtualMachineAttributesFeatures - Features supported by this operating system
 type VirtualMachineAttributesFeatures struct {
 	// Whether RAID is supported
@@ -76,6 +38,10 @@ type VirtualMachineAttributesFeatures struct {
 	SSHKeys *bool `json:"ssh_keys,omitempty"`
 	// Whether user data is supported
 	UserData *bool `json:"user_data,omitempty"`
+	// Whether rescue mode is supported
+	Rescue *bool `json:"rescue,omitempty"`
+	// Whether workflow is supported
+	Workflow *bool `json:"workflow,omitempty"`
 }
 
 func (v *VirtualMachineAttributesFeatures) GetRaid() *bool {
@@ -97,6 +63,20 @@ func (v *VirtualMachineAttributesFeatures) GetUserData() *bool {
 		return nil
 	}
 	return v.UserData
+}
+
+func (v *VirtualMachineAttributesFeatures) GetRescue() *bool {
+	if v == nil {
+		return nil
+	}
+	return v.Rescue
+}
+
+func (v *VirtualMachineAttributesFeatures) GetWorkflow() *bool {
+	if v == nil {
+		return nil
+	}
+	return v.Workflow
 }
 
 // VirtualMachineAttributesDistro - Distribution information
@@ -314,10 +294,11 @@ func (v *VirtualMachineAttributesTags) GetColor() *string {
 }
 
 type VirtualMachineAttributesAttributes struct {
-	Name        *string                         `json:"name,omitempty"`
-	CreatedAt   *string                         `json:"created_at,omitempty"`
-	Status      *VirtualMachineAttributesStatus `json:"status,omitempty"`
-	PrimaryIpv4 *string                         `json:"primary_ipv4,omitempty"`
+	Name      *string `json:"name,omitempty"`
+	CreatedAt *string `json:"created_at,omitempty"`
+	// Current lifecycle status of the VM, derived from the underlying KubeVirt phase/printable status and capitalized. This is an open set that may grow over time — do not treat it as a closed enum. Known values include: Running, Starting, Stopped, Stopping, Failed, Off, Error, Rebooting, Deleting, Destroying, Configuring network, Scheduling, Scheduled, Provisioning.
+	Status      *string `json:"status,omitempty"`
+	PrimaryIpv4 *string `json:"primary_ipv4,omitempty"`
 	// The operating system installed on the virtual machine
 	OperatingSystem *VirtualMachineAttributesOperatingSystem `json:"operating_system,omitempty"`
 	// SSH credentials for connecting to the virtual machine. Only available when the VM is running. Opt-in extra field: request via `extra_fields[virtual_machines]=credentials`.
@@ -349,7 +330,7 @@ func (v *VirtualMachineAttributesAttributes) GetCreatedAt() *string {
 	return v.CreatedAt
 }
 
-func (v *VirtualMachineAttributesAttributes) GetStatus() *VirtualMachineAttributesStatus {
+func (v *VirtualMachineAttributesAttributes) GetStatus() *string {
 	if v == nil {
 		return nil
 	}

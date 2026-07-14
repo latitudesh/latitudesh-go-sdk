@@ -30,10 +30,20 @@ func (b *Billing) GetMethod() *string {
 }
 
 type ProjectIncludeStats struct {
-	IPAddresses *int64 `json:"ip_addresses,omitempty"`
-	Prefixes    *int64 `json:"prefixes,omitempty"`
-	Servers     *int64 `json:"servers,omitempty"`
-	Vlans       *int64 `json:"vlans,omitempty"`
+	Databases       *int64 `json:"databases,omitempty"`
+	IPAddresses     *int64 `json:"ip_addresses,omitempty"`
+	Prefixes        *int64 `json:"prefixes,omitempty"`
+	Servers         *int64 `json:"servers,omitempty"`
+	Storages        *int64 `json:"storages,omitempty"`
+	VirtualMachines *int64 `json:"virtual_machines,omitempty"`
+	Vlans           *int64 `json:"vlans,omitempty"`
+}
+
+func (p *ProjectIncludeStats) GetDatabases() *int64 {
+	if p == nil {
+		return nil
+	}
+	return p.Databases
 }
 
 func (p *ProjectIncludeStats) GetIPAddresses() *int64 {
@@ -55,6 +65,20 @@ func (p *ProjectIncludeStats) GetServers() *int64 {
 		return nil
 	}
 	return p.Servers
+}
+
+func (p *ProjectIncludeStats) GetStorages() *int64 {
+	if p == nil {
+		return nil
+	}
+	return p.Storages
+}
+
+func (p *ProjectIncludeStats) GetVirtualMachines() *int64 {
+	if p == nil {
+		return nil
+	}
+	return p.VirtualMachines
 }
 
 func (p *ProjectIncludeStats) GetVlans() *int64 {

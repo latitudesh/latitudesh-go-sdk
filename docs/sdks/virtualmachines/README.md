@@ -248,6 +248,7 @@ import(
 	"context"
 	"os"
 	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
 	"log"
 )
 
@@ -258,26 +259,37 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.VirtualMachines.List(ctx, nil, nil, latitudeshgosdk.Pointer("credentials"), nil)
+    res, err := s.VirtualMachines.List(ctx, operations.IndexVirtualMachineRequest{
+        ExtraFieldsVirtualMachines: latitudeshgosdk.Pointer("credentials"),
+    })
     if err != nil {
         log.Fatal(err)
     }
     if res.VirtualMachines != nil {
-        // handle response
+        for {
+            // handle items
+
+            res, err = res.Next()
+
+            if err != nil {
+                // handle error
+            }
+
+            if res == nil {
+                break
+            }
+        }
     }
 }
 ```
 
 ### Parameters
 
-| Parameter                                                                                                                                                                                                                        | Type                                                                                                                                                                                                                             | Required                                                                                                                                                                                                                         | Description                                                                                                                                                                                                                      |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                                                                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                                                                               | The context to use for the request.                                                                                                                                                                                              |
-| `filterProject`                                                                                                                                                                                                                  | `*string`                                                                                                                                                                                                                        | :heavy_minus_sign:                                                                                                                                                                                                               | The project ID or Slug to filter by                                                                                                                                                                                              |
-| `filterTags`                                                                                                                                                                                                                     | `*string`                                                                                                                                                                                                                        | :heavy_minus_sign:                                                                                                                                                                                                               | The tag IDs to filter by, separated by comma, e.g. `filter[tags]=tag_1,tag_2` will return VMs with `tag_1` AND `tag_2`.                                                                                                          |
-| `extraFieldsVirtualMachines`                                                                                                                                                                                                     | `*string`                                                                                                                                                                                                                        | :heavy_minus_sign:                                                                                                                                                                                                               | Comma-separated extra attributes that are lazy-loaded. Supported values: `credentials`, `pending_restart`. Example: `extra_fields[virtual_machines]=credentials,pending_restart`.                                                |
-| `sort`                                                                                                                                                                                                                           | `*string`                                                                                                                                                                                                                        | :heavy_minus_sign:                                                                                                                                                                                                               | Comma-separated sort fields. Prefix a field with `-` for descending order. Supported fields: created_at, name, hostname, status. Example: `sort=status,-created_at` sorts by status ascending, then by creation date descending. |
-| `opts`                                                                                                                                                                                                                           | [][operations.Option](../../models/operations/option.md)                                                                                                                                                                         | :heavy_minus_sign:                                                                                                                                                                                                               | The options for this request.                                                                                                                                                                                                    |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.IndexVirtualMachineRequest](../../models/operations/indexvirtualmachinerequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `opts`                                                                                         | [][operations.Option](../../models/operations/option.md)                                       | :heavy_minus_sign:                                                                             | The options for this request.                                                                  |
 
 ### Response
 
