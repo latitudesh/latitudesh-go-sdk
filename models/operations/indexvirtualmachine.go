@@ -3,6 +3,7 @@
 package operations
 
 import (
+	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
@@ -15,6 +16,23 @@ type IndexVirtualMachineRequest struct {
 	ExtraFieldsVirtualMachines *string `queryParam:"style=form,explode=true,name=extra_fields[virtual_machines]"`
 	// Comma-separated sort fields. Prefix a field with `-` for descending order. Supported fields: created_at, name, hostname, status. Example: `sort=status,-created_at` sorts by status ascending, then by creation date descending.
 	Sort *string `queryParam:"style=form,explode=true,name=sort"`
+	// Number of items to return per page
+	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
+	// Page number to return (starts at 1)
+	PageNumber *int64 `default:"1" queryParam:"style=form,explode=true,name=page[number]"`
+	// Request aggregate stats in the response `meta`. Use `count` to get the total number of records, returned as `meta.stats.total.count`.
+	StatsTotal *string `queryParam:"style=form,explode=true,name=stats[total]"`
+}
+
+func (i IndexVirtualMachineRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(i, "", false)
+}
+
+func (i *IndexVirtualMachineRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &i, "", false, nil); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (i *IndexVirtualMachineRequest) GetFilterProject() *string {
@@ -45,10 +63,33 @@ func (i *IndexVirtualMachineRequest) GetSort() *string {
 	return i.Sort
 }
 
+func (i *IndexVirtualMachineRequest) GetPageSize() *int64 {
+	if i == nil {
+		return nil
+	}
+	return i.PageSize
+}
+
+func (i *IndexVirtualMachineRequest) GetPageNumber() *int64 {
+	if i == nil {
+		return nil
+	}
+	return i.PageNumber
+}
+
+func (i *IndexVirtualMachineRequest) GetStatsTotal() *string {
+	if i == nil {
+		return nil
+	}
+	return i.StatsTotal
+}
+
 type IndexVirtualMachineResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Success
 	VirtualMachines *components.VirtualMachines
+
+	Next func() (*IndexVirtualMachineResponse, error)
 }
 
 func (i *IndexVirtualMachineResponse) GetHTTPMeta() components.HTTPMetadata {

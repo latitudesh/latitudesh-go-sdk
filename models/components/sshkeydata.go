@@ -30,43 +30,43 @@ func (e *SSHKeyDataType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-type Tags struct {
+type SSHKeyDataTags struct {
 	ID          *string `json:"id,omitempty"`
 	Name        *string `json:"name,omitempty"`
 	Description *string `json:"description,omitempty"`
 	Color       *string `json:"color,omitempty"`
 }
 
-func (t *Tags) GetID() *string {
-	if t == nil {
+func (s *SSHKeyDataTags) GetID() *string {
+	if s == nil {
 		return nil
 	}
-	return t.ID
+	return s.ID
 }
 
-func (t *Tags) GetName() *string {
-	if t == nil {
+func (s *SSHKeyDataTags) GetName() *string {
+	if s == nil {
 		return nil
 	}
-	return t.Name
+	return s.Name
 }
 
-func (t *Tags) GetDescription() *string {
-	if t == nil {
+func (s *SSHKeyDataTags) GetDescription() *string {
+	if s == nil {
 		return nil
 	}
-	return t.Description
+	return s.Description
 }
 
-func (t *Tags) GetColor() *string {
-	if t == nil {
+func (s *SSHKeyDataTags) GetColor() *string {
+	if s == nil {
 		return nil
 	}
-	return t.Color
+	return s.Color
 }
 
 type SSHKeyDataAttributes struct {
-	Tags []Tags `json:"tags,omitempty"`
+	Tags []SSHKeyDataTags `json:"tags,omitempty"`
 	// Name of the SSH Key
 	Name *string `json:"name,omitempty"`
 	// SSH Public Key
@@ -79,7 +79,7 @@ type SSHKeyDataAttributes struct {
 	UpdatedAt   *string         `json:"updated_at,omitempty"`
 }
 
-func (s *SSHKeyDataAttributes) GetTags() []Tags {
+func (s *SSHKeyDataAttributes) GetTags() []SSHKeyDataTags {
 	if s == nil {
 		return nil
 	}
