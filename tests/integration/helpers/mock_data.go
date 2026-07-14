@@ -194,16 +194,13 @@ func MockProject() map[string]interface{} {
 		"id":   "project_test123",
 		"type": "projects",
 		"attributes": map[string]interface{}{
-			"name":        "Test Project",
-			"slug":        "test-project",
-			"description": "A test project",
-			"bandwidth_alert": map[string]interface{}{
-				"enabled":   true,
-				"threshold": 80,
-			},
-			"environment": "Development",
-			"created_at":  "2024-01-10T00:00:00Z",
-			"updated_at":  "2024-01-15T00:00:00Z",
+			"name":            "Test Project",
+			"slug":            "test-project",
+			"description":     "A test project",
+			"bandwidth_alert": false,
+			"environment":     "Development",
+			"created_at":      "2024-01-10T00:00:00Z",
+			"updated_at":      "2024-01-15T00:00:00Z",
 		},
 	}
 }
