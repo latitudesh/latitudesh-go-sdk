@@ -32,6 +32,36 @@ func (e *VirtualMachinePayloadType) UnmarshalJSON(data []byte) error {
 	}
 }
 
+// VirtualMachinePayloadBilling - Billing cycle for the VM. The supported set is validated per-project (on_demand vs reserved). Defaults to the project's default billing when omitted.
+type VirtualMachinePayloadBilling string
+
+const (
+	VirtualMachinePayloadBillingHourly  VirtualMachinePayloadBilling = "hourly"
+	VirtualMachinePayloadBillingMonthly VirtualMachinePayloadBilling = "monthly"
+	VirtualMachinePayloadBillingYearly  VirtualMachinePayloadBilling = "yearly"
+)
+
+func (e VirtualMachinePayloadBilling) ToPointer() *VirtualMachinePayloadBilling {
+	return &e
+}
+func (e *VirtualMachinePayloadBilling) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "hourly":
+		fallthrough
+	case "monthly":
+		fallthrough
+	case "yearly":
+		*e = VirtualMachinePayloadBilling(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for VirtualMachinePayloadBilling: %v", v)
+	}
+}
+
 type VirtualMachinePayloadUserDataType string
 
 const (
@@ -98,6 +128,8 @@ func (u VirtualMachinePayloadUserData) MarshalJSON() ([]byte, error) {
 
 type VirtualMachinePayloadAttributes struct {
 	Name *string `default:"my-vm" json:"name"`
+	// Billing cycle for the VM. The supported set is validated per-project (on_demand vs reserved). Defaults to the project's default billing when omitted.
+	Billing *VirtualMachinePayloadBilling `json:"billing,omitempty"`
 	// The plan ID or Slug for the Virtual Machine
 	Plan    *string  `json:"plan,omitempty"`
 	SSHKeys []string `json:"ssh_keys,omitempty"`
@@ -128,6 +160,13 @@ func (v *VirtualMachinePayloadAttributes) GetName() *string {
 		return nil
 	}
 	return v.Name
+}
+
+func (v *VirtualMachinePayloadAttributes) GetBilling() *VirtualMachinePayloadBilling {
+	if v == nil {
+		return nil
+	}
+	return v.Billing
 }
 
 func (v *VirtualMachinePayloadAttributes) GetPlan() *string {

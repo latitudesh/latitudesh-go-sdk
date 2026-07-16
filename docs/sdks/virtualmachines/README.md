@@ -84,6 +84,7 @@ func main() {
             Type: components.VirtualMachinePayloadTypeVirtualMachines.ToPointer(),
             Attributes: &components.VirtualMachinePayloadAttributes{
                 Name: latitudeshgosdk.Pointer("my-new-vm"),
+                Billing: components.VirtualMachinePayloadBillingMonthly.ToPointer(),
                 Project: latitudeshgosdk.Pointer("lightweight-leather-lamp"),
             },
         },
@@ -122,6 +123,7 @@ func main() {
             Type: components.VirtualMachinePayloadTypeVirtualMachines.ToPointer(),
             Attributes: &components.VirtualMachinePayloadAttributes{
                 Name: latitudeshgosdk.Pointer("my-new-vm"),
+                Billing: components.VirtualMachinePayloadBillingMonthly.ToPointer(),
                 Project: latitudeshgosdk.Pointer("lightweight-leather-lamp"),
                 OperatingSystem: latitudeshgosdk.Pointer("ubuntu_24_04_x64_lts"),
             },
@@ -161,6 +163,7 @@ func main() {
             Type: components.VirtualMachinePayloadTypeVirtualMachines.ToPointer(),
             Attributes: &components.VirtualMachinePayloadAttributes{
                 Name: latitudeshgosdk.Pointer("my-new-vm"),
+                Billing: components.VirtualMachinePayloadBillingMonthly.ToPointer(),
                 Project: latitudeshgosdk.Pointer("lightweight-leather-lamp"),
                 UserData: latitudeshgosdk.Pointer(components.CreateVirtualMachinePayloadUserDataStr(
                     "ud_abc123",
