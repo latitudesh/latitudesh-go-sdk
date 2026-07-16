@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 24351fb8739a3cf63ca23a1e8219285a
+  docChecksum: b0b60d256ce0f866931c5aa508386f48
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.790.0
-  generationVersion: 2.917.0
-  releaseVersion: 1.17.1
-  configChecksum: 9965051359a205b551cf86d3b3ae8691
+  speakeasyVersion: 1.790.2
+  generationVersion: 2.918.3
+  releaseVersion: 1.17.2
+  configChecksum: e67fa235d3379c7b73fd7e42d5634374
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 613b7415-4fc3-4cbd-980f-26719ee81241
-  pristine_commit_hash: c78abd0f3b3a7762d9928217b5667f675c6a1eef
-  pristine_tree_hash: 976bea7a68441a42f87fd04dea11dfd9179ab9b1
+  generation_id: bb4bef45-1518-451a-9850-2764c53dd982
+  pristine_commit_hash: 38a0e332cc387300fb746bd7c3413a4524892a15
+  pristine_tree_hash: 59e78c9a95c89f929ae6e4e8b87999725d4b6a4f
 features:
   go:
     additionalDependencies: 0.1.0
@@ -1600,8 +1600,12 @@ trackedFiles:
     pristine_git_object: 63d722ed45cc31de5861a719c4e2dac1387e6278
   docs/models/components/virtualmachinepayloadattributes.md:
     id: 08d0e3fb2a5e
-    last_write_checksum: sha1:291c683e635d69e91256e668aa4b3c24a3a75447
-    pristine_git_object: 92b05202291bc734533e16cea9b9d079f9a09237
+    last_write_checksum: sha1:4616ef43cf3b560b1ce5b25111c6a96f034a2f16
+    pristine_git_object: c3c400f13666f75605793c9c7c20337d01683599
+  docs/models/components/virtualmachinepayloadbilling.md:
+    id: 3e42afdc4cc0
+    last_write_checksum: sha1:ec07c370f45869099aa1db1adc56157f758b8555
+    pristine_git_object: 29d26f11b9e21bb73b4d66b1f4f741a3b68d56ae
   docs/models/components/virtualmachinepayloaddata.md:
     id: b49e41e9266c
     last_write_checksum: sha1:9d8f05ec56d4c70fa34a5bf285465a437c17f3c2
@@ -3892,8 +3896,8 @@ trackedFiles:
     pristine_git_object: 58bc980691b44f39d0a767e9d5836cfda4676d20
   docs/sdks/virtualmachines/README.md:
     id: 9a444616366b
-    last_write_checksum: sha1:10673874f6e9b233a29a8409c19401ef027f7fd4
-    pristine_git_object: 5a867851e033b828d9f57ec4b29f8abc21b5337f
+    last_write_checksum: sha1:70ab4cfd5cd3c296ebbe2186e5e9f7bcbdf9d6a0
+    pristine_git_object: 3c83a857326f0b5ee0eb8e47fbd5e4b475e4a72f
   docs/sdks/virtualnetworks/README.md:
     id: 523cffefb080
     last_write_checksum: sha1:8b68f053c8a41185bbf92c501a89d4bff133f603
@@ -3996,8 +4000,8 @@ trackedFiles:
     pristine_git_object: f055c7135bd9df9511999b5a8af285cf62b279a1
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:ff309ebad0ec9112340a46cea1c1870c1886fb83
-    pristine_git_object: d45d6828a4d1554d26cf2c20bca9f8a8030493d1
+    last_write_checksum: sha1:fb954e941327736b3d85debe1980c4a3f8d9336b
+    pristine_git_object: 87ec8fc748c64a545a0450fbb521142e3db6d5f4
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -4404,8 +4408,8 @@ trackedFiles:
     pristine_git_object: 878185470a0e8df6170193fbb6ec3a8b58dc8d1b
   models/components/virtualmachinepayload.go:
     id: a59f10f93ffe
-    last_write_checksum: sha1:44efbc27929ec83ac4a5787bfc0efa10bfafacfb
-    pristine_git_object: 62e2aaec47224fc0d8a6d167b15d666461731541
+    last_write_checksum: sha1:6c69b100d516eeff98c4201d8d65f006adeb9217
+    pristine_git_object: 60a10b269da26e085ab4e3417b34113e0ed887ea
   models/components/virtualmachineplans.go:
     id: 1607b9634af6
     last_write_checksum: sha1:dd0a77e17fca5a931f7dd44243ed7d49cafab1a2
@@ -7441,8 +7445,8 @@ examples:
   create-virtual-machine:
     Created:
       requestBody:
-        application/json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "project": "lightweight-leather-lamp", "site": "DAL"}}}
-        application/vnd.api+json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "project": "lightweight-leather-lamp", "site": "DAL"}}}
+        application/json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "billing": "monthly", "project": "lightweight-leather-lamp", "site": "DAL"}}}
+        application/vnd.api+json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "billing": "monthly", "project": "lightweight-leather-lamp", "site": "DAL"}}}
       responses:
         "201":
           application/vnd.api+json: {"data": {"id": "vm_mw49QDB5qagKb", "type": "virtual_machines", "attributes": {"name": "my-new-vm", "created_at": "2026-01-14T15:57:13+00:00", "status": "Starting", "primary_ipv4": "192.168.1.50", "operating_system": {"name": "Ubuntu 24.04 LTS", "slug": "ubuntu_24_04_x64_lts", "version": "24.04 x64 LTS", "features": {"raid": true, "ssh_keys": true, "user_data": true}, "distro": {"name": "Ubuntu", "slug": "ubuntu", "series": "noble"}}, "site": "FRA181", "billing": "monthly", "plan": {"id": "plan_VE1Wd3VXOXnZJ", "name": "g3.h100.large-131"}, "specs": {"vcpu": 16, "ram": "128 GB", "storage": "100 GB", "nic": "1 x 1 Gbps", "gpu": "1 x NVIDIA H100 Tensor Core GPU"}, "team": {"id": "team_zAbb72Zm3VS3N0o89Y48sGXv3mZ", "name": "690 Team", "slug": "690-team", "description": "690 Team", "address": "Apt. 922 405 Ondricka Lights, Lake Jennineview, SC 58925-4625", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}, "project": {"id": "proj_GMy1Dbk1ON50m", "name": "Lightweight Leather Lamp", "slug": "lightweight-leather-lamp", "description": "Sleek Wool Plate", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 0, "virtual_machines": 1, "vlans": 0}}}}}
@@ -7462,15 +7466,15 @@ examples:
           application/vnd.api+json: {}
     CreatedWithOS:
       requestBody:
-        application/json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "project": "lightweight-leather-lamp", "operating_system": "ubuntu_24_04_x64_lts", "site": "DAL"}}}
-        application/vnd.api+json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "project": "lightweight-leather-lamp", "operating_system": "ubuntu_24_04_x64_lts", "site": "DAL"}}}
+        application/json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "billing": "monthly", "project": "lightweight-leather-lamp", "operating_system": "ubuntu_24_04_x64_lts", "site": "DAL"}}}
+        application/vnd.api+json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "billing": "monthly", "project": "lightweight-leather-lamp", "operating_system": "ubuntu_24_04_x64_lts", "site": "DAL"}}}
       responses:
         "201":
           application/vnd.api+json: {}
     CreatedWithUserData:
       requestBody:
-        application/json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "project": "lightweight-leather-lamp", "user_data": "ud_abc123", "site": "DAL"}}}
-        application/vnd.api+json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "project": "lightweight-leather-lamp", "user_data": "ud_abc123", "site": "DAL"}}}
+        application/json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "billing": "monthly", "project": "lightweight-leather-lamp", "user_data": "ud_abc123", "site": "DAL"}}}
+        application/vnd.api+json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "billing": "monthly", "project": "lightweight-leather-lamp", "user_data": "ud_abc123", "site": "DAL"}}}
       responses:
         "201":
           application/vnd.api+json: {}
@@ -9090,7 +9094,7 @@ examples:
           application/vnd.api+json: {"data": [{"id": "plan_a1b2c3d4", "type": "managed_database_plans", "attributes": {"name": "db.clickhouse.dev", "slug": "db-clickhouse-dev", "engine": "clickhouse", "specs": {"cpu": "1", "memory": "2Gi", "storage": "5Gi", "shards": 1, "replicas": 1, "iops": null}, "regions": [{"region": "ASH", "city": "Ashburn", "country": "United States", "site": {"id": "loc_ashburn", "name": "Ashburn", "slug": "ASH", "facility": "DC1"}, "pricing": {"USD": {"month": 10, "year": 100}, "BRL": {"month": 57, "year": 570}}}]}}]}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes:\n* `Latitudesh.Billing.ListUsage()`:  `response` **Changed** (Breaking ⚠️)\n* `Latitudesh.Events.List()`:  `response.Data[].Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachines.UpdateVirtualMachine()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachines.Get()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachines.List()`: \n  *  `request` **Changed** (Breaking ⚠️)\n  *  `response` **Changed** (Breaking ⚠️)\n* `Latitudesh.Projects.List()`:  `response.Data[]` **Changed** (Breaking ⚠️)\n* `Latitudesh.Projects.Create()`:  `response.Data` **Changed** (Breaking ⚠️)\n* `Latitudesh.Projects.Update()`:  `response.Data` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachines.Create()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.SshKeys.Retrieve()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.BlockStorage.PostStorageVolumes()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.SshKeys.ModifyProjectKey()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.SshKeys.ListAll()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.SshKeys.Create()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.SshKeys.List()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.SshKeys.Update()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.UserData.GetProjectUsersData()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.UserData.GetProjectUserData()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.UserData.Create()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.UserData.UpdateForProject()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.UserData.List()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.UserData.CreateNew()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.UserData.Retrieve()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.UserData.Update()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.Servers.List()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.Servers.Create()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.Servers.Get()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.Servers.Update()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.Servers.Lock()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.Servers.Unlock()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.FilesystemStorage.CreateFilesystem()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.FilesystemStorage.ListFilesystems()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.FilesystemStorage.UpdateFilesystem()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.BlockStorage.GetStorageVolumes()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.SshKeys.Get()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.BlockStorage.GetStorageVolume()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.ObjectStorage.GetStorageBuckets()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.ObjectStorage.PostStorageBuckets()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.ObjectStorage.GetStorageBucket()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.Projects.SshKeys.PostProjectSshKey()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.Teams.Update()`:  `response.Data.Attributes.Projects[].Stats` **Changed**\n* `Latitudesh.Teams.Create()`:  `response.Data.Attributes.Projects[].Stats` **Changed**\n* `Latitudesh.Teams.Get()`:  `response.Data[].Attributes.Projects[].Stats` **Changed**\n* `Latitudesh.VirtualMachineBackups.ListForVirtualMachine()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.VirtualMachineBackups.CreateForVirtualMachine()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.VirtualMachineBackups.List()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.VirtualMachineBackups.Create()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.VirtualMachineBackups.Get()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.VirtualMachineBackups.Delete()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.VirtualMachineRestores.ListForVirtualMachineBackup()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.VirtualMachineRestores.CreateForVirtualMachineBackup()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.VirtualMachineRestores.ListForBackup()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.VirtualMachineRestores.List()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.VirtualMachineRestores.Create()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.VirtualMachineRestores.Get()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.PrivateNetworks.List()`:  `response.Data[].Attributes.Project.Stats` **Changed**\n* `Latitudesh.PrivateNetworks.Create()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.PrivateNetworks.Update()`:  `response.Data.Attributes.Project.Stats` **Changed**\n* `Latitudesh.PrivateNetworks.Get()`:  `response.Data.Attributes.Project.Stats` **Changed**\n"
+releaseNotes: "## Go SDK Changes:\n* `Latitudesh.Events.List()`:  `response.Data[].Attributes.Target.Id` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachines.Create()`: \n  *  `request.Request.Data.Attributes.Billing` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
