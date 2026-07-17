@@ -44,14 +44,20 @@ func (i *Initiators) GetNqn() *string {
 }
 
 type VolumeDataAttributes struct {
-	Name        *string         `json:"name,omitempty"`
-	SizeInGb    *int64          `json:"size_in_gb,omitempty"`
-	CreatedAt   *time.Time      `json:"created_at,omitempty"`
-	NamespaceID *string         `json:"namespace_id,omitempty"`
-	ConnectorID *string         `json:"connector_id,omitempty"`
-	Initiators  []Initiators    `json:"initiators,omitempty"`
-	Project     *ProjectInclude `json:"project,omitempty"`
-	Team        *TeamInclude    `json:"team,omitempty"`
+	Name        *string      `json:"name,omitempty"`
+	SizeInGb    *int64       `json:"size_in_gb,omitempty"`
+	CreatedAt   *time.Time   `json:"created_at,omitempty"`
+	NamespaceID *string      `json:"namespace_id,omitempty"`
+	ConnectorID *string      `json:"connector_id,omitempty"`
+	Initiators  []Initiators `json:"initiators,omitempty"`
+	// Cephx keyring secret used to connect to the volume. Returned only for dashboard-origin requests; null until the volume is provisioned.
+	Keyring *string `json:"keyring,omitempty"`
+	// Ceph cluster user used to connect to the volume. Returned only for dashboard-origin requests; null until the volume is provisioned.
+	ClusterUser *string `json:"cluster_user,omitempty"`
+	// Path of the volume inside the cluster. Returned only for dashboard-origin requests; null until the volume is provisioned.
+	VolumePath *string         `json:"volume_path,omitempty"`
+	Project    *ProjectInclude `json:"project,omitempty"`
+	Team       *TeamInclude    `json:"team,omitempty"`
 }
 
 func (v VolumeDataAttributes) MarshalJSON() ([]byte, error) {
@@ -105,6 +111,27 @@ func (v *VolumeDataAttributes) GetInitiators() []Initiators {
 		return nil
 	}
 	return v.Initiators
+}
+
+func (v *VolumeDataAttributes) GetKeyring() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Keyring
+}
+
+func (v *VolumeDataAttributes) GetClusterUser() *string {
+	if v == nil {
+		return nil
+	}
+	return v.ClusterUser
+}
+
+func (v *VolumeDataAttributes) GetVolumePath() *string {
+	if v == nil {
+		return nil
+	}
+	return v.VolumePath
 }
 
 func (v *VolumeDataAttributes) GetProject() *ProjectInclude {

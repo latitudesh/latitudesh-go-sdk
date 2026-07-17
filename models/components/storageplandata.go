@@ -30,21 +30,131 @@ func (e *StoragePlanDataType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-type StoragePlanDataPricing struct {
+type StorageType string
+
+const (
+	StorageTypeFilesystem StorageType = "filesystem"
+	StorageTypeObject     StorageType = "object"
+)
+
+func (e StorageType) ToPointer() *StorageType {
+	return &e
+}
+func (e *StorageType) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "filesystem":
+		fallthrough
+	case "object":
+		*e = StorageType(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for StorageType: %v", v)
+	}
+}
+
+type StorageClass string
+
+const (
+	StorageClassStandard        StorageClass = "standard"
+	StorageClassHighPerformance StorageClass = "high_performance"
+)
+
+func (e StorageClass) ToPointer() *StorageClass {
+	return &e
+}
+func (e *StorageClass) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "standard":
+		fallthrough
+	case "high_performance":
+		*e = StorageClass(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for StorageClass: %v", v)
+	}
+}
+
+type StoragePlanDataUSD struct {
 	Month *float64 `json:"month,omitempty"`
 }
 
-func (s *StoragePlanDataPricing) GetMonth() *float64 {
+func (s *StoragePlanDataUSD) GetMonth() *float64 {
 	if s == nil {
 		return nil
 	}
 	return s.Month
 }
 
-type StoragePlanDataAttributes struct {
+type StoragePlanDataBRL struct {
+	Month *float64 `json:"month,omitempty"`
+}
+
+func (s *StoragePlanDataBRL) GetMonth() *float64 {
+	if s == nil {
+		return nil
+	}
+	return s.Month
+}
+
+type StoragePlanDataPricing struct {
+	Usd *StoragePlanDataUSD `json:"USD,omitempty"`
+	Brl *StoragePlanDataBRL `json:"BRL,omitempty"`
+}
+
+func (s *StoragePlanDataPricing) GetUsd() *StoragePlanDataUSD {
+	if s == nil {
+		return nil
+	}
+	return s.Usd
+}
+
+func (s *StoragePlanDataPricing) GetBrl() *StoragePlanDataBRL {
+	if s == nil {
+		return nil
+	}
+	return s.Brl
+}
+
+type StoragePlanDataRegions struct {
 	Name      *string                 `json:"name,omitempty"`
 	Locations []string                `json:"locations,omitempty"`
 	Pricing   *StoragePlanDataPricing `json:"pricing,omitempty"`
+}
+
+func (s *StoragePlanDataRegions) GetName() *string {
+	if s == nil {
+		return nil
+	}
+	return s.Name
+}
+
+func (s *StoragePlanDataRegions) GetLocations() []string {
+	if s == nil {
+		return nil
+	}
+	return s.Locations
+}
+
+func (s *StoragePlanDataRegions) GetPricing() *StoragePlanDataPricing {
+	if s == nil {
+		return nil
+	}
+	return s.Pricing
+}
+
+type StoragePlanDataAttributes struct {
+	Name         *string                  `json:"name,omitempty"`
+	StorageType  *StorageType             `json:"storage_type,omitempty"`
+	StorageClass *StorageClass            `json:"storage_class,omitempty"`
+	Regions      []StoragePlanDataRegions `json:"regions,omitempty"`
 }
 
 func (s *StoragePlanDataAttributes) GetName() *string {
@@ -54,18 +164,25 @@ func (s *StoragePlanDataAttributes) GetName() *string {
 	return s.Name
 }
 
-func (s *StoragePlanDataAttributes) GetLocations() []string {
+func (s *StoragePlanDataAttributes) GetStorageType() *StorageType {
 	if s == nil {
 		return nil
 	}
-	return s.Locations
+	return s.StorageType
 }
 
-func (s *StoragePlanDataAttributes) GetPricing() *StoragePlanDataPricing {
+func (s *StoragePlanDataAttributes) GetStorageClass() *StorageClass {
 	if s == nil {
 		return nil
 	}
-	return s.Pricing
+	return s.StorageClass
+}
+
+func (s *StoragePlanDataAttributes) GetRegions() []StoragePlanDataRegions {
+	if s == nil {
+		return nil
+	}
+	return s.Regions
 }
 
 type StoragePlanData struct {

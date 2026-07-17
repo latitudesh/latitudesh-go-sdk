@@ -5,7 +5,6 @@ package operations
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
@@ -62,22 +61,11 @@ func (e *UpdateProjectProjectsEnvironment) UnmarshalJSON(data []byte) error {
 }
 
 type UpdateProjectProjectsAttributes struct {
-	Name           *string                           `default:"A brand new name for the virtual network" json:"name"`
-	Description    *string                           `default:"A brand new description for the virtual network" json:"description"`
+	Name           *string                           `json:"name,omitempty"`
+	Description    *string                           `json:"description,omitempty"`
 	Environment    *UpdateProjectProjectsEnvironment `json:"environment,omitempty"`
-	BandwidthAlert *bool                             `default:"false" json:"bandwidth_alert"`
+	BandwidthAlert *bool                             `json:"bandwidth_alert,omitempty"`
 	Tags           []string                          `json:"tags,omitempty"`
-}
-
-func (u UpdateProjectProjectsAttributes) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(u, "", false)
-}
-
-func (u *UpdateProjectProjectsAttributes) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &u, "", false, nil); err != nil {
-		return err
-	}
-	return nil
 }
 
 func (u *UpdateProjectProjectsAttributes) GetName() *string {
@@ -116,25 +104,14 @@ func (u *UpdateProjectProjectsAttributes) GetTags() []string {
 }
 
 type UpdateProjectProjectsData struct {
-	ID         *string                          `default:"proj_81EVOtR1N4J2Z" json:"id"`
+	ID         string                           `json:"id"`
 	Type       UpdateProjectProjectsType        `json:"type"`
 	Attributes *UpdateProjectProjectsAttributes `json:"attributes,omitempty"`
 }
 
-func (u UpdateProjectProjectsData) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(u, "", false)
-}
-
-func (u *UpdateProjectProjectsData) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &u, "", false, nil); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (u *UpdateProjectProjectsData) GetID() *string {
+func (u *UpdateProjectProjectsData) GetID() string {
 	if u == nil {
-		return nil
+		return ""
 	}
 	return u.ID
 }

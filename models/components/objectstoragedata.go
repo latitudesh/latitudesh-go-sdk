@@ -32,18 +32,18 @@ func (e *ObjectStorageDataType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// StorageClass - Storage class tier
-type StorageClass string
+// ObjectStorageDataStorageClass - Storage class tier
+type ObjectStorageDataStorageClass string
 
 const (
-	StorageClassStandard        StorageClass = "standard"
-	StorageClassHighPerformance StorageClass = "high_performance"
+	ObjectStorageDataStorageClassStandard        ObjectStorageDataStorageClass = "standard"
+	ObjectStorageDataStorageClassHighPerformance ObjectStorageDataStorageClass = "high_performance"
 )
 
-func (e StorageClass) ToPointer() *StorageClass {
+func (e ObjectStorageDataStorageClass) ToPointer() *ObjectStorageDataStorageClass {
 	return &e
 }
-func (e *StorageClass) UnmarshalJSON(data []byte) error {
+func (e *ObjectStorageDataStorageClass) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -52,10 +52,10 @@ func (e *StorageClass) UnmarshalJSON(data []byte) error {
 	case "standard":
 		fallthrough
 	case "high_performance":
-		*e = StorageClass(v)
+		*e = ObjectStorageDataStorageClass(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for StorageClass: %v", v)
+		return fmt.Errorf("invalid value for ObjectStorageDataStorageClass: %v", v)
 	}
 }
 
@@ -126,7 +126,7 @@ type ObjectStorageDataAttributes struct {
 	// Type of storage (e.g., `object`)
 	StorageType *string `json:"storage_type,omitempty"`
 	// Storage class tier
-	StorageClass *StorageClass `json:"storage_class,omitempty"`
+	StorageClass *ObjectStorageDataStorageClass `json:"storage_class,omitempty"`
 	// Timestamp when the object storage was created
 	CreatedAt *time.Time `json:"created_at,omitempty"`
 	// S3-compatible bucket name
@@ -176,7 +176,7 @@ func (o *ObjectStorageDataAttributes) GetStorageType() *string {
 	return o.StorageType
 }
 
-func (o *ObjectStorageDataAttributes) GetStorageClass() *StorageClass {
+func (o *ObjectStorageDataAttributes) GetStorageClass() *ObjectStorageDataStorageClass {
 	if o == nil {
 		return nil
 	}

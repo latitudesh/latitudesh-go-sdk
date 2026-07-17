@@ -1,7 +1,5 @@
 # StorageClass
 
-Storage class tier
-
 ## Example Usage
 
 ```go

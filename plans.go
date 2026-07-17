@@ -924,7 +924,12 @@ func (s *Plans) UpdateBandwidth(ctx context.Context, request operations.UpdatePl
 }
 
 // ListStorage - List storage plans
-func (s *Plans) ListStorage(ctx context.Context, opts ...operations.Option) (*operations.GetStoragePlansResponse, error) {
+func (s *Plans) ListStorage(ctx context.Context, filterStorageType *string, filterStorageClass *string, opts ...operations.Option) (*operations.GetStoragePlansResponse, error) {
+	request := operations.GetStoragePlansRequest{
+		FilterStorageType:  filterStorageType,
+		FilterStorageClass: filterStorageClass,
+	}
+
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -975,6 +980,10 @@ func (s *Plans) ListStorage(ctx context.Context, opts ...operations.Option) (*op
 	}
 	req.Header.Set("Accept", "application/vnd.api+json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
+
+	if err := utils.PopulateQueryParams(ctx, req, request, nil, nil); err != nil {
+		return nil, fmt.Errorf("error populating query params: %w", err)
+	}
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
