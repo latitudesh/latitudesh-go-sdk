@@ -2,6 +2,34 @@
 
 package components
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
+type UserTeamType string
+
+const (
+	UserTeamTypeTeams UserTeamType = "teams"
+)
+
+func (e UserTeamType) ToPointer() *UserTeamType {
+	return &e
+}
+func (e *UserTeamType) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "teams":
+		*e = UserTeamType(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for UserTeamType: %v", v)
+	}
+}
+
 type UserTeamBilling struct {
 	ID                *string `json:"id,omitempty"`
 	CustomerBillingID *string `json:"customer_billing_id,omitempty"`
@@ -21,16 +49,97 @@ func (u *UserTeamBilling) GetCustomerBillingID() *string {
 	return u.CustomerBillingID
 }
 
+type UserTeamLimits struct {
+	BareMetal         *int64 `json:"bare_metal,omitempty"`
+	BareMetalGpu      *int64 `json:"bare_metal_gpu,omitempty"`
+	VirtualMachine    *int64 `json:"virtual_machine,omitempty"`
+	VirtualMachineGpu *int64 `json:"virtual_machine_gpu,omitempty"`
+	ElasticIP         *int64 `json:"elastic_ip,omitempty"`
+	VirtualNetwork    *int64 `json:"virtual_network,omitempty"`
+	Database          *int64 `json:"database,omitempty"`
+	Filesystem        *int64 `json:"filesystem,omitempty"`
+	BlockStorage      *int64 `json:"block_storage,omitempty"`
+}
+
+func (u *UserTeamLimits) GetBareMetal() *int64 {
+	if u == nil {
+		return nil
+	}
+	return u.BareMetal
+}
+
+func (u *UserTeamLimits) GetBareMetalGpu() *int64 {
+	if u == nil {
+		return nil
+	}
+	return u.BareMetalGpu
+}
+
+func (u *UserTeamLimits) GetVirtualMachine() *int64 {
+	if u == nil {
+		return nil
+	}
+	return u.VirtualMachine
+}
+
+func (u *UserTeamLimits) GetVirtualMachineGpu() *int64 {
+	if u == nil {
+		return nil
+	}
+	return u.VirtualMachineGpu
+}
+
+func (u *UserTeamLimits) GetElasticIP() *int64 {
+	if u == nil {
+		return nil
+	}
+	return u.ElasticIP
+}
+
+func (u *UserTeamLimits) GetVirtualNetwork() *int64 {
+	if u == nil {
+		return nil
+	}
+	return u.VirtualNetwork
+}
+
+func (u *UserTeamLimits) GetDatabase() *int64 {
+	if u == nil {
+		return nil
+	}
+	return u.Database
+}
+
+func (u *UserTeamLimits) GetFilesystem() *int64 {
+	if u == nil {
+		return nil
+	}
+	return u.Filesystem
+}
+
+func (u *UserTeamLimits) GetBlockStorage() *int64 {
+	if u == nil {
+		return nil
+	}
+	return u.BlockStorage
+}
+
 type UserTeamAttributes struct {
-	Name        *string          `json:"name,omitempty"`
-	Slug        *string          `json:"slug,omitempty"`
-	Description *string          `json:"description,omitempty"`
-	Address     *string          `json:"address,omitempty"`
-	Currency    *string          `json:"currency,omitempty"`
-	CreatedAt   *string          `json:"created_at,omitempty"`
-	UpdatedAt   *string          `json:"updated_at,omitempty"`
-	Owner       *UserInclude     `json:"owner,omitempty"`
-	Billing     *UserTeamBilling `json:"billing,omitempty"`
+	Name         *string          `json:"name,omitempty"`
+	Slug         *string          `json:"slug,omitempty"`
+	Description  *string          `json:"description,omitempty"`
+	Address      *string          `json:"address,omitempty"`
+	Currency     *string          `json:"currency,omitempty"`
+	CreatedAt    *string          `json:"created_at,omitempty"`
+	UpdatedAt    *string          `json:"updated_at,omitempty"`
+	Status       *string          `json:"status,omitempty"`
+	EnforceMfa   *bool            `json:"enforce_mfa,omitempty"`
+	Users        []UserInclude    `json:"users,omitempty"`
+	Projects     []ProjectInclude `json:"projects,omitempty"`
+	Owner        *UserInclude     `json:"owner,omitempty"`
+	Billing      *UserTeamBilling `json:"billing,omitempty"`
+	FeatureFlags []string         `json:"feature_flags,omitempty"`
+	Limits       *UserTeamLimits  `json:"limits,omitempty"`
 }
 
 func (u *UserTeamAttributes) GetName() *string {
@@ -82,6 +191,34 @@ func (u *UserTeamAttributes) GetUpdatedAt() *string {
 	return u.UpdatedAt
 }
 
+func (u *UserTeamAttributes) GetStatus() *string {
+	if u == nil {
+		return nil
+	}
+	return u.Status
+}
+
+func (u *UserTeamAttributes) GetEnforceMfa() *bool {
+	if u == nil {
+		return nil
+	}
+	return u.EnforceMfa
+}
+
+func (u *UserTeamAttributes) GetUsers() []UserInclude {
+	if u == nil {
+		return nil
+	}
+	return u.Users
+}
+
+func (u *UserTeamAttributes) GetProjects() []ProjectInclude {
+	if u == nil {
+		return nil
+	}
+	return u.Projects
+}
+
 func (u *UserTeamAttributes) GetOwner() *UserInclude {
 	if u == nil {
 		return nil
@@ -96,8 +233,23 @@ func (u *UserTeamAttributes) GetBilling() *UserTeamBilling {
 	return u.Billing
 }
 
+func (u *UserTeamAttributes) GetFeatureFlags() []string {
+	if u == nil {
+		return nil
+	}
+	return u.FeatureFlags
+}
+
+func (u *UserTeamAttributes) GetLimits() *UserTeamLimits {
+	if u == nil {
+		return nil
+	}
+	return u.Limits
+}
+
 type UserTeam struct {
 	ID         *string             `json:"id,omitempty"`
+	Type       *UserTeamType       `json:"type,omitempty"`
 	Attributes *UserTeamAttributes `json:"attributes,omitempty"`
 }
 
@@ -106,6 +258,13 @@ func (u *UserTeam) GetID() *string {
 		return nil
 	}
 	return u.ID
+}
+
+func (u *UserTeam) GetType() *UserTeamType {
+	if u == nil {
+		return nil
+	}
+	return u.Type
 }
 
 func (u *UserTeam) GetAttributes() *UserTeamAttributes {

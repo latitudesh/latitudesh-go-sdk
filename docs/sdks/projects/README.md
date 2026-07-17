@@ -413,7 +413,7 @@ func main() {
 
     res, err := s.Projects.Update(ctx, "proj_0MoLqJmGd57pY", &operations.UpdateProjectProjectsRequestBody{
         Data: operations.UpdateProjectProjectsData{
-            ID: latitudeshgosdk.Pointer("proj_0MoLqJmGd57pY"),
+            ID: "proj_0MoLqJmGd57pY",
             Type: operations.UpdateProjectProjectsTypeProjects,
             Attributes: &operations.UpdateProjectProjectsAttributes{
                 Name: latitudeshgosdk.Pointer("Moore-Durgan"),
@@ -454,7 +454,7 @@ func main() {
 
     res, err := s.Projects.Update(ctx, "invalid-id", &operations.UpdateProjectProjectsRequestBody{
         Data: operations.UpdateProjectProjectsData{
-            ID: latitudeshgosdk.Pointer("invalid-id"),
+            ID: "invalid-id",
             Type: operations.UpdateProjectProjectsTypeProjects,
             Attributes: &operations.UpdateProjectProjectsAttributes{
                 Name: latitudeshgosdk.Pointer("Moore-Durgan"),
@@ -495,7 +495,7 @@ func main() {
 
     res, err := s.Projects.Update(ctx, "proj_Gr47qleMDAg0m", &operations.UpdateProjectProjectsRequestBody{
         Data: operations.UpdateProjectProjectsData{
-            ID: latitudeshgosdk.Pointer("proj_Gr47qleMDAg0m"),
+            ID: "proj_Gr47qleMDAg0m",
             Type: operations.UpdateProjectProjectsTypeProjects,
             Attributes: &operations.UpdateProjectProjectsAttributes{
                 Tags: []string{
@@ -536,9 +536,12 @@ func main() {
 
     res, err := s.Projects.Update(ctx, "proj_Z8rodm2Yq1jLB", &operations.UpdateProjectProjectsRequestBody{
         Data: operations.UpdateProjectProjectsData{
-            ID: latitudeshgosdk.Pointer("proj_Z8rodm2Yq1jLB"),
+            ID: "proj_Z8rodm2Yq1jLB",
             Type: operations.UpdateProjectProjectsTypeProjects,
             Attributes: &operations.UpdateProjectProjectsAttributes{
+                Name: latitudeshgosdk.Pointer("A brand new name for the virtual network"),
+                Description: latitudeshgosdk.Pointer("A brand new description for the virtual network"),
+                BandwidthAlert: latitudeshgosdk.Pointer(false),
                 Tags: []string{
                     "invalid-tag",
                 },
@@ -576,10 +579,12 @@ func main() {
 
     res, err := s.Projects.Update(ctx, "proj_5xyZOnoNdWM0l", &operations.UpdateProjectProjectsRequestBody{
         Data: operations.UpdateProjectProjectsData{
-            ID: latitudeshgosdk.Pointer("proj_5xyZOnoNdWM0l"),
+            ID: "proj_5xyZOnoNdWM0l",
             Type: operations.UpdateProjectProjectsTypeProjects,
             Attributes: &operations.UpdateProjectProjectsAttributes{
                 Name: latitudeshgosdk.Pointer("123"),
+                Description: latitudeshgosdk.Pointer("A brand new description for the virtual network"),
+                BandwidthAlert: latitudeshgosdk.Pointer(false),
             },
         },
     })

@@ -159,13 +159,64 @@ func (v *VirtualMachineAttributesOperatingSystem) GetDistro() *VirtualMachineAtt
 	return v.Distro
 }
 
+type VirtualMachineAttributesSSHKeys struct {
+	ID          *string `json:"id,omitempty"`
+	Name        *string `json:"name,omitempty"`
+	Fingerprint *string `json:"fingerprint,omitempty"`
+	PublicKey   *string `json:"public_key,omitempty"`
+	CreatedAt   *string `json:"created_at,omitempty"`
+	UpdatedAt   *string `json:"updated_at,omitempty"`
+}
+
+func (v *VirtualMachineAttributesSSHKeys) GetID() *string {
+	if v == nil {
+		return nil
+	}
+	return v.ID
+}
+
+func (v *VirtualMachineAttributesSSHKeys) GetName() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Name
+}
+
+func (v *VirtualMachineAttributesSSHKeys) GetFingerprint() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Fingerprint
+}
+
+func (v *VirtualMachineAttributesSSHKeys) GetPublicKey() *string {
+	if v == nil {
+		return nil
+	}
+	return v.PublicKey
+}
+
+func (v *VirtualMachineAttributesSSHKeys) GetCreatedAt() *string {
+	if v == nil {
+		return nil
+	}
+	return v.CreatedAt
+}
+
+func (v *VirtualMachineAttributesSSHKeys) GetUpdatedAt() *string {
+	if v == nil {
+		return nil
+	}
+	return v.UpdatedAt
+}
+
 // Credentials - SSH credentials for connecting to the virtual machine. Only available when the VM is running. Opt-in extra field: request via `extra_fields[virtual_machines]=credentials`.
 type Credentials struct {
-	// The SSH username for the VM, determined by the operating system (e.g., ubuntu, centos, ec2-user). Defaults to ubuntu if not specified by the OS.
-	Username *string  `json:"username,omitempty"`
-	Host     *string  `json:"host,omitempty"`
-	Password *string  `json:"password,omitempty"`
-	SSHKeys  []string `json:"ssh_keys,omitempty"`
+	// The SSH username for the VM, determined by the operating system (e.g., ubuntu, centos, ec2-user). Defaults to ubuntu if not specified by the OS. Returns null when the VM is not running.
+	Username *string                           `json:"username,omitempty"`
+	Host     *string                           `json:"host,omitempty"`
+	Password *string                           `json:"password,omitempty"`
+	SSHKeys  []VirtualMachineAttributesSSHKeys `json:"ssh_keys,omitempty"`
 }
 
 func (c *Credentials) GetUsername() *string {
@@ -189,7 +240,7 @@ func (c *Credentials) GetPassword() *string {
 	return c.Password
 }
 
-func (c *Credentials) GetSSHKeys() []string {
+func (c *Credentials) GetSSHKeys() []VirtualMachineAttributesSSHKeys {
 	if c == nil {
 		return nil
 	}

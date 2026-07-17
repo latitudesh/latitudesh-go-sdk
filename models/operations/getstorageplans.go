@@ -6,6 +6,27 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
+type GetStoragePlansRequest struct {
+	// Filter by storage type (filesystem or object)
+	FilterStorageType *string `queryParam:"style=form,explode=true,name=filter[storage_type]"`
+	// Filter by storage class (standard or high_performance)
+	FilterStorageClass *string `queryParam:"style=form,explode=true,name=filter[storage_class]"`
+}
+
+func (g *GetStoragePlansRequest) GetFilterStorageType() *string {
+	if g == nil {
+		return nil
+	}
+	return g.FilterStorageType
+}
+
+func (g *GetStoragePlansRequest) GetFilterStorageClass() *string {
+	if g == nil {
+		return nil
+	}
+	return g.FilterStorageClass
+}
+
 type GetStoragePlansResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Success

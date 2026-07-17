@@ -308,7 +308,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Plans.ListStorage(ctx)
+    res, err := s.Plans.ListStorage(ctx, nil, nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -323,6 +323,8 @@ func main() {
 | Parameter                                                | Type                                                     | Required                                                 | Description                                              |
 | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
 | `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `filterStorageType`                                      | `*string`                                                | :heavy_minus_sign:                                       | Filter by storage type (filesystem or object)            |
+| `filterStorageClass`                                     | `*string`                                                | :heavy_minus_sign:                                       | Filter by storage class (standard or high_performance)   |
 | `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
 
 ### Response
