@@ -30,17 +30,17 @@ func (e *StoragePlanDataType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-type StorageType string
+type StoragePlanStorageType string
 
 const (
-	StorageTypeFilesystem StorageType = "filesystem"
-	StorageTypeObject     StorageType = "object"
+	StoragePlanStorageTypeFilesystem StoragePlanStorageType = "filesystem"
+	StoragePlanStorageTypeObject     StoragePlanStorageType = "object"
 )
 
-func (e StorageType) ToPointer() *StorageType {
+func (e StoragePlanStorageType) ToPointer() *StoragePlanStorageType {
 	return &e
 }
-func (e *StorageType) UnmarshalJSON(data []byte) error {
+func (e *StoragePlanStorageType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -49,24 +49,24 @@ func (e *StorageType) UnmarshalJSON(data []byte) error {
 	case "filesystem":
 		fallthrough
 	case "object":
-		*e = StorageType(v)
+		*e = StoragePlanStorageType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for StorageType: %v", v)
+		return fmt.Errorf("invalid value for StoragePlanStorageType: %v", v)
 	}
 }
 
-type StorageClass string
+type StoragePlanStorageClass string
 
 const (
-	StorageClassStandard        StorageClass = "standard"
-	StorageClassHighPerformance StorageClass = "high_performance"
+	StoragePlanStorageClassStandard        StoragePlanStorageClass = "standard"
+	StoragePlanStorageClassHighPerformance StoragePlanStorageClass = "high_performance"
 )
 
-func (e StorageClass) ToPointer() *StorageClass {
+func (e StoragePlanStorageClass) ToPointer() *StoragePlanStorageClass {
 	return &e
 }
-func (e *StorageClass) UnmarshalJSON(data []byte) error {
+func (e *StoragePlanStorageClass) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -75,10 +75,10 @@ func (e *StorageClass) UnmarshalJSON(data []byte) error {
 	case "standard":
 		fallthrough
 	case "high_performance":
-		*e = StorageClass(v)
+		*e = StoragePlanStorageClass(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for StorageClass: %v", v)
+		return fmt.Errorf("invalid value for StoragePlanStorageClass: %v", v)
 	}
 }
 
@@ -151,10 +151,10 @@ func (s *StoragePlanDataRegions) GetPricing() *StoragePlanDataPricing {
 }
 
 type StoragePlanDataAttributes struct {
-	Name         *string                  `json:"name,omitempty"`
-	StorageType  *StorageType             `json:"storage_type,omitempty"`
-	StorageClass *StorageClass            `json:"storage_class,omitempty"`
-	Regions      []StoragePlanDataRegions `json:"regions,omitempty"`
+	Name                    *string                  `json:"name,omitempty"`
+	StoragePlanStorageType  *StoragePlanStorageType  `json:"storage_type,omitempty"`
+	StoragePlanStorageClass *StoragePlanStorageClass `json:"storage_class,omitempty"`
+	Regions                 []StoragePlanDataRegions `json:"regions,omitempty"`
 }
 
 func (s *StoragePlanDataAttributes) GetName() *string {
@@ -164,18 +164,18 @@ func (s *StoragePlanDataAttributes) GetName() *string {
 	return s.Name
 }
 
-func (s *StoragePlanDataAttributes) GetStorageType() *StorageType {
+func (s *StoragePlanDataAttributes) GetStoragePlanStorageType() *StoragePlanStorageType {
 	if s == nil {
 		return nil
 	}
-	return s.StorageType
+	return s.StoragePlanStorageType
 }
 
-func (s *StoragePlanDataAttributes) GetStorageClass() *StorageClass {
+func (s *StoragePlanDataAttributes) GetStoragePlanStorageClass() *StoragePlanStorageClass {
 	if s == nil {
 		return nil
 	}
-	return s.StorageClass
+	return s.StoragePlanStorageClass
 }
 
 func (s *StoragePlanDataAttributes) GetRegions() []StoragePlanDataRegions {

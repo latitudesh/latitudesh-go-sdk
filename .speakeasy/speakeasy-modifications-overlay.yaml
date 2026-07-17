@@ -2,7 +2,7 @@ overlay: 1.0.0
 x-speakeasy-jsonpath: rfc9535
 info:
   title: Speakeasy Modifications
-  version: 0.0.4
+  version: 0.0.5
   x-speakeasy-metadata:
     after: ""
     before: ""
@@ -874,6 +874,20 @@ actions:
     x-speakeasy-metadata:
       after: components.FilesystemStorageClass
       before: components.StorageClass (collided with object_storage_data, forcing ObjectStorageDataStorageClass)
+      type: type-name
+  - target: $["components"]["schemas"]["storage_plan_data"]["properties"]["attributes"]["properties"]["storage_class"]
+    update:
+      x-speakeasy-name-override: StoragePlanStorageClass
+    x-speakeasy-metadata:
+      after: components.StoragePlanStorageClass
+      before: components.StorageClass (collided with object_storage_data, forcing ObjectStorageDataStorageClass)
+      type: type-name
+  - target: $["components"]["schemas"]["storage_plan_data"]["properties"]["attributes"]["properties"]["storage_type"]
+    update:
+      x-speakeasy-name-override: StoragePlanStorageType
+    x-speakeasy-metadata:
+      after: components.StoragePlanStorageType
+      before: components.StorageType (generic global name, prone to future collisions)
       type: type-name
   - target: $["paths"]["/virtual_machines/{virtual_machine_id}/backups"]["get"]
     update:
