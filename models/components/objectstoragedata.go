@@ -145,6 +145,8 @@ type ObjectStorageDataAttributes struct {
 	RetentionMode *RetentionMode `json:"retention_mode,omitempty"`
 	// Default retention period in days when object lock is enabled
 	RetentionPeriod *int64 `json:"retention_period,omitempty"`
+	// How the bucket originated: `default` for buckets created through the API, or `synchronized` for buckets imported from the storage provider.
+	Source *string `json:"source,omitempty"`
 	// Region information where the object storage is located
 	Region  *ObjectStorageDataRegion `json:"region,omitempty"`
 	Project *ProjectInclude          `json:"project,omitempty"`
@@ -244,6 +246,13 @@ func (o *ObjectStorageDataAttributes) GetRetentionPeriod() *int64 {
 		return nil
 	}
 	return o.RetentionPeriod
+}
+
+func (o *ObjectStorageDataAttributes) GetSource() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Source
 }
 
 func (o *ObjectStorageDataAttributes) GetRegion() *ObjectStorageDataRegion {

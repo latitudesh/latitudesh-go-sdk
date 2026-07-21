@@ -33,6 +33,8 @@ func (e *IpmiSessionType) UnmarshalJSON(data []byte) error {
 type IpmiSessionAttributes struct {
 	// The IPMI IP Address
 	IpmiAddress *string `json:"ipmi_address,omitempty"`
+	// The IPMI URL for direct access
+	IpmiURL *string `json:"ipmi_url,omitempty"`
 	// The IPMI username
 	IpmiUsername *string `json:"ipmi_username,omitempty"`
 	// The IPMI password
@@ -44,6 +46,13 @@ func (i *IpmiSessionAttributes) GetIpmiAddress() *string {
 		return nil
 	}
 	return i.IpmiAddress
+}
+
+func (i *IpmiSessionAttributes) GetIpmiURL() *string {
+	if i == nil {
+		return nil
+	}
+	return i.IpmiURL
 }
 
 func (i *IpmiSessionAttributes) GetIpmiUsername() *string {

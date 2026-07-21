@@ -10,3 +10,5 @@
 | `Email`                  | `*string`                | :heavy_minus_sign:       | N/A                      |
 | `AuthenticationFactorID` | `*string`                | :heavy_minus_sign:       | N/A                      |
 | `Role`                   | `*string`                | :heavy_minus_sign:       | N/A                      |
+| `CreatedAt`              | `*string`                | :heavy_minus_sign:       | N/A                      |
+| `UpdatedAt`              | `*string`                | :heavy_minus_sign:       | N/A                      |

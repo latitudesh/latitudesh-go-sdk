@@ -25,23 +25,23 @@ func (c *CreateVirtualMachineNetworkAttachmentRequest) GetVirtualMachineNetworkA
 	return c.VirtualMachineNetworkAttachmentCreatePayload
 }
 
-type Meta struct {
+type CreateVirtualMachineNetworkAttachmentMeta struct {
 	Status *string `json:"status,omitempty"`
 }
 
-func (m *Meta) GetStatus() *string {
-	if m == nil {
+func (c *CreateVirtualMachineNetworkAttachmentMeta) GetStatus() *string {
+	if c == nil {
 		return nil
 	}
-	return m.Status
+	return c.Status
 }
 
 // CreateVirtualMachineNetworkAttachmentResponseBody - Accepted
 type CreateVirtualMachineNetworkAttachmentResponseBody struct {
-	Meta *Meta `json:"meta,omitempty"`
+	Meta *CreateVirtualMachineNetworkAttachmentMeta `json:"meta,omitempty"`
 }
 
-func (c *CreateVirtualMachineNetworkAttachmentResponseBody) GetMeta() *Meta {
+func (c *CreateVirtualMachineNetworkAttachmentResponseBody) GetMeta() *CreateVirtualMachineNetworkAttachmentMeta {
 	if c == nil {
 		return nil
 	}

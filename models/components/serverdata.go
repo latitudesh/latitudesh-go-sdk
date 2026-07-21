@@ -7,6 +7,41 @@ import (
 	"fmt"
 )
 
+type ServerDataTags struct {
+	ID          *string `json:"id,omitempty"`
+	Name        *string `json:"name,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Color       *string `json:"color,omitempty"`
+}
+
+func (s *ServerDataTags) GetID() *string {
+	if s == nil {
+		return nil
+	}
+	return s.ID
+}
+
+func (s *ServerDataTags) GetName() *string {
+	if s == nil {
+		return nil
+	}
+	return s.Name
+}
+
+func (s *ServerDataTags) GetDescription() *string {
+	if s == nil {
+		return nil
+	}
+	return s.Description
+}
+
+func (s *ServerDataTags) GetColor() *string {
+	if s == nil {
+		return nil
+	}
+	return s.Color
+}
+
 // ServerDataStatus - `on` - The server is powered ON
 // `off` - The server is powered OFF
 // `unknown` - The server power status is unknown
@@ -342,9 +377,11 @@ func (i *Interfaces) GetDescription() *string {
 }
 
 type ServerDataAttributes struct {
-	Hostname *string `json:"hostname,omitempty"`
+	Tags     []ServerDataTags `json:"tags,omitempty"`
+	Hostname *string          `json:"hostname,omitempty"`
 	// The server label
-	Label *string `json:"label,omitempty"`
+	Label *string  `json:"label,omitempty"`
+	Price *float64 `json:"price,omitempty"`
 	// `on` - The server is powered ON
 	// `off` - The server is powered OFF
 	// `unknown` - The server power status is unknown
@@ -373,6 +410,13 @@ type ServerDataAttributes struct {
 	Team                *TeamInclude              `json:"team,omitempty"`
 }
 
+func (s *ServerDataAttributes) GetTags() []ServerDataTags {
+	if s == nil {
+		return nil
+	}
+	return s.Tags
+}
+
 func (s *ServerDataAttributes) GetHostname() *string {
 	if s == nil {
 		return nil
@@ -385,6 +429,13 @@ func (s *ServerDataAttributes) GetLabel() *string {
 		return nil
 	}
 	return s.Label
+}
+
+func (s *ServerDataAttributes) GetPrice() *float64 {
+	if s == nil {
+		return nil
+	}
+	return s.Price
 }
 
 func (s *ServerDataAttributes) GetStatus() *ServerDataStatus {

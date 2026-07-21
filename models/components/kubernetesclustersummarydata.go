@@ -9,40 +9,32 @@ import (
 	"time"
 )
 
-// Phase - The current phase of the cluster lifecycle
+// Phase - The current phase of the cluster lifecycle.
 type Phase string
 
 const (
 	PhasePending      Phase = "Pending"
 	PhaseProvisioning Phase = "Provisioning"
 	PhaseProvisioned  Phase = "Provisioned"
+	PhaseUpgrading    Phase = "Upgrading"
 	PhaseDeleting     Phase = "Deleting"
 	PhaseFailed       Phase = "Failed"
+	PhaseUnknown      Phase = "Unknown"
 )
 
 func (e Phase) ToPointer() *Phase {
 	return &e
 }
-func (e *Phase) UnmarshalJSON(data []byte) error {
-	var v string
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
+
+// IsExact returns true if the value matches a known enum value, false otherwise.
+func (e *Phase) IsExact() bool {
+	if e != nil {
+		switch *e {
+		case "Pending", "Provisioning", "Provisioned", "Upgrading", "Deleting", "Failed", "Unknown":
+			return true
+		}
 	}
-	switch v {
-	case "Pending":
-		fallthrough
-	case "Provisioning":
-		fallthrough
-	case "Provisioned":
-		fallthrough
-	case "Deleting":
-		fallthrough
-	case "Failed":
-		*e = Phase(v)
-		return nil
-	default:
-		return fmt.Errorf("invalid value for Phase: %v", v)
-	}
+	return false
 }
 
 // Name - Step identifier
@@ -129,7 +121,7 @@ func (s *Steps) GetStatus() *KubernetesClusterSummaryDataStatus {
 type KubernetesClusterSummaryDataAttributes struct {
 	// The cluster name
 	Name *string `json:"name,omitempty"`
-	// The current phase of the cluster lifecycle
+	// The current phase of the cluster lifecycle.
 	Phase *Phase `json:"phase,omitempty"`
 	// Whether the cluster is ready to accept workloads
 	Ready *bool `json:"ready,omitempty"`
