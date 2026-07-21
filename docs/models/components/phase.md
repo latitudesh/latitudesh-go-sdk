@@ -1,6 +1,6 @@
 # Phase
 
-The current phase of the cluster lifecycle
+The current phase of the cluster lifecycle.
 
 ## Example Usage
 
@@ -10,6 +10,9 @@ import (
 )
 
 value := components.PhasePending
+
+// Open enum: custom values can be created with a direct type cast
+custom := components.Phase("custom_value")
 ```
 
 
@@ -20,5 +23,7 @@ value := components.PhasePending
 | `PhasePending`      | Pending             |
 | `PhaseProvisioning` | Provisioning        |
 | `PhaseProvisioned`  | Provisioned         |
+| `PhaseUpgrading`    | Upgrading           |
 | `PhaseDeleting`     | Deleting            |
 | `PhaseFailed`       | Failed              |
+| `PhaseUnknown`      | Unknown             |

@@ -3,9 +3,34 @@
 package components
 
 import (
+	"encoding/json"
+	"fmt"
 	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
 	"time"
 )
+
+type UserType string
+
+const (
+	UserTypeUsers UserType = "users"
+)
+
+func (e UserType) ToPointer() *UserType {
+	return &e
+}
+func (e *UserType) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "users":
+		*e = UserType(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for UserType: %v", v)
+	}
+}
 
 type UserRole struct {
 	ID        *string    `json:"id,omitempty"`
@@ -58,6 +83,8 @@ type UserAttributes struct {
 	LastName               *string       `json:"last_name,omitempty"`
 	Email                  *string       `json:"email,omitempty"`
 	AuthenticationFactorID *string       `json:"authentication_factor_id,omitempty"`
+	CreatedAt              *string       `json:"created_at,omitempty"`
+	UpdatedAt              *string       `json:"updated_at,omitempty"`
 	Role                   *UserRole     `json:"role,omitempty"`
 	Teams                  []TeamInclude `json:"teams,omitempty"`
 }
@@ -90,6 +117,20 @@ func (u *UserAttributes) GetAuthenticationFactorID() *string {
 	return u.AuthenticationFactorID
 }
 
+func (u *UserAttributes) GetCreatedAt() *string {
+	if u == nil {
+		return nil
+	}
+	return u.CreatedAt
+}
+
+func (u *UserAttributes) GetUpdatedAt() *string {
+	if u == nil {
+		return nil
+	}
+	return u.UpdatedAt
+}
+
 func (u *UserAttributes) GetRole() *UserRole {
 	if u == nil {
 		return nil
@@ -106,6 +147,7 @@ func (u *UserAttributes) GetTeams() []TeamInclude {
 
 type User struct {
 	ID         *string         `json:"id,omitempty"`
+	Type       *UserType       `json:"type,omitempty"`
 	Attributes *UserAttributes `json:"attributes,omitempty"`
 }
 
@@ -114,6 +156,13 @@ func (u *User) GetID() *string {
 		return nil
 	}
 	return u.ID
+}
+
+func (u *User) GetType() *UserType {
+	if u == nil {
+		return nil
+	}
+	return u.Type
 }
 
 func (u *User) GetAttributes() *UserAttributes {

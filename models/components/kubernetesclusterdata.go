@@ -9,40 +9,32 @@ import (
 	"time"
 )
 
-// KubernetesClusterDataPhase - The current phase of the cluster lifecycle
+// KubernetesClusterDataPhase - The current phase of the cluster lifecycle. 'Upgrading' is reported while a Kubernetes version upgrade is rolling through the cluster.
 type KubernetesClusterDataPhase string
 
 const (
 	KubernetesClusterDataPhasePending      KubernetesClusterDataPhase = "Pending"
 	KubernetesClusterDataPhaseProvisioning KubernetesClusterDataPhase = "Provisioning"
 	KubernetesClusterDataPhaseProvisioned  KubernetesClusterDataPhase = "Provisioned"
+	KubernetesClusterDataPhaseUpgrading    KubernetesClusterDataPhase = "Upgrading"
 	KubernetesClusterDataPhaseDeleting     KubernetesClusterDataPhase = "Deleting"
 	KubernetesClusterDataPhaseFailed       KubernetesClusterDataPhase = "Failed"
+	KubernetesClusterDataPhaseUnknown      KubernetesClusterDataPhase = "Unknown"
 )
 
 func (e KubernetesClusterDataPhase) ToPointer() *KubernetesClusterDataPhase {
 	return &e
 }
-func (e *KubernetesClusterDataPhase) UnmarshalJSON(data []byte) error {
-	var v string
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
+
+// IsExact returns true if the value matches a known enum value, false otherwise.
+func (e *KubernetesClusterDataPhase) IsExact() bool {
+	if e != nil {
+		switch *e {
+		case "Pending", "Provisioning", "Provisioned", "Upgrading", "Deleting", "Failed", "Unknown":
+			return true
+		}
 	}
-	switch v {
-	case "Pending":
-		fallthrough
-	case "Provisioning":
-		fallthrough
-	case "Provisioned":
-		fallthrough
-	case "Deleting":
-		fallthrough
-	case "Failed":
-		*e = KubernetesClusterDataPhase(v)
-		return nil
-	default:
-		return fmt.Errorf("invalid value for KubernetesClusterDataPhase: %v", v)
-	}
+	return false
 }
 
 // VersionStatus - The cluster's version status relative to available upgrades
@@ -134,67 +126,55 @@ func (w *Workers) GetAvailableReplicas() *int64 {
 	return w.AvailableReplicas
 }
 
-// WorkerStatus - Current status of worker nodes. 'idle' when 0 workers, 'ready' when all workers are ready, 'scaling' when workers are being provisioned/removed, 'error' when a worker has failed.
+// WorkerStatus - Current status of worker nodes. 'idle' when 0 workers, 'ready' when all workers are ready, 'scaling' when workers are being provisioned/removed, 'upgrading' while a Kubernetes version upgrade is rolling through the workers, 'error' when a worker has failed.
 type WorkerStatus string
 
 const (
-	WorkerStatusIdle    WorkerStatus = "idle"
-	WorkerStatusReady   WorkerStatus = "ready"
-	WorkerStatusScaling WorkerStatus = "scaling"
-	WorkerStatusError   WorkerStatus = "error"
+	WorkerStatusIdle      WorkerStatus = "idle"
+	WorkerStatusReady     WorkerStatus = "ready"
+	WorkerStatusScaling   WorkerStatus = "scaling"
+	WorkerStatusUpgrading WorkerStatus = "upgrading"
+	WorkerStatusError     WorkerStatus = "error"
 )
 
 func (e WorkerStatus) ToPointer() *WorkerStatus {
 	return &e
 }
-func (e *WorkerStatus) UnmarshalJSON(data []byte) error {
-	var v string
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
+
+// IsExact returns true if the value matches a known enum value, false otherwise.
+func (e *WorkerStatus) IsExact() bool {
+	if e != nil {
+		switch *e {
+		case "idle", "ready", "scaling", "upgrading", "error":
+			return true
+		}
 	}
-	switch v {
-	case "idle":
-		fallthrough
-	case "ready":
-		fallthrough
-	case "scaling":
-		fallthrough
-	case "error":
-		*e = WorkerStatus(v)
-		return nil
-	default:
-		return fmt.Errorf("invalid value for WorkerStatus: %v", v)
-	}
+	return false
 }
 
-// ControlPlaneStatus - Current status of control plane nodes. 'ready' when control plane is operational, 'scaling' when nodes are being provisioned/removed, 'error' when a control plane node has failed.
+// ControlPlaneStatus - Current status of control plane nodes. 'ready' when control plane is operational, 'scaling' when nodes are being provisioned/removed, 'upgrading' while a Kubernetes version upgrade is rolling through the control plane, 'error' when a control plane node has failed.
 type ControlPlaneStatus string
 
 const (
-	ControlPlaneStatusReady   ControlPlaneStatus = "ready"
-	ControlPlaneStatusScaling ControlPlaneStatus = "scaling"
-	ControlPlaneStatusError   ControlPlaneStatus = "error"
+	ControlPlaneStatusReady     ControlPlaneStatus = "ready"
+	ControlPlaneStatusScaling   ControlPlaneStatus = "scaling"
+	ControlPlaneStatusUpgrading ControlPlaneStatus = "upgrading"
+	ControlPlaneStatusError     ControlPlaneStatus = "error"
 )
 
 func (e ControlPlaneStatus) ToPointer() *ControlPlaneStatus {
 	return &e
 }
-func (e *ControlPlaneStatus) UnmarshalJSON(data []byte) error {
-	var v string
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
+
+// IsExact returns true if the value matches a known enum value, false otherwise.
+func (e *ControlPlaneStatus) IsExact() bool {
+	if e != nil {
+		switch *e {
+		case "ready", "scaling", "upgrading", "error":
+			return true
+		}
 	}
-	switch v {
-	case "ready":
-		fallthrough
-	case "scaling":
-		fallthrough
-	case "error":
-		*e = ControlPlaneStatus(v)
-		return nil
-	default:
-		return fmt.Errorf("invalid value for ControlPlaneStatus: %v", v)
-	}
+	return false
 }
 
 // KubernetesClusterDataName - Step identifier
@@ -456,7 +436,7 @@ func (k *KubernetesClusterDataProject) GetSlug() *string {
 type KubernetesClusterDataAttributes struct {
 	// The cluster name
 	Name *string `json:"name,omitempty"`
-	// The current phase of the cluster lifecycle
+	// The current phase of the cluster lifecycle. 'Upgrading' is reported while a Kubernetes version upgrade is rolling through the cluster.
 	Phase *KubernetesClusterDataPhase `json:"phase,omitempty"`
 	// Whether the cluster is ready to accept workloads
 	Ready *bool `json:"ready,omitempty"`
@@ -464,11 +444,11 @@ type KubernetesClusterDataAttributes struct {
 	ControlPlaneEndpoint *string `json:"control_plane_endpoint,omitempty"`
 	// The URL to retrieve the kubeconfig file
 	KubeconfigURL *string `json:"kubeconfig_url,omitempty"`
-	// The site/region where the cluster is deployed
+	// The site/region where the cluster is deployed. May be null when the cluster's resources are not fully available (e.g., incomplete provisioning or deletion in progress).
 	Location *string `json:"location,omitempty"`
 	// IP addresses assigned to the cluster's load balancer
 	LoadBalancerIps []string `json:"load_balancer_ips,omitempty"`
-	// The Kubernetes version running on the cluster
+	// The Kubernetes version running on the cluster. May be null when the control plane resource is not fully available (e.g., incomplete provisioning or deletion in progress).
 	KubernetesVersion *string `json:"kubernetes_version,omitempty"`
 	// The cluster's version status relative to available upgrades
 	VersionStatus *VersionStatus `json:"version_status,omitempty"`
@@ -476,7 +456,7 @@ type KubernetesClusterDataAttributes struct {
 	AvailableUpgrade *string `json:"available_upgrade,omitempty"`
 	// When the cluster was created
 	CreatedAt *time.Time `json:"created_at,omitempty"`
-	// The machine plan slug for control plane nodes
+	// The machine plan slug for control plane nodes. May be null when the control plane machine template is not available (e.g., incomplete provisioning or deletion in progress).
 	Plan *string `json:"plan,omitempty"`
 	// The machine plan slug for worker nodes. Null if no workers exist.
 	WorkerPlan *string `json:"worker_plan,omitempty"`
@@ -488,9 +468,9 @@ type KubernetesClusterDataAttributes struct {
 	ControlPlane *ControlPlane `json:"control_plane,omitempty"`
 	// Worker nodes status information
 	Workers *Workers `json:"workers,omitempty"`
-	// Current status of worker nodes. 'idle' when 0 workers, 'ready' when all workers are ready, 'scaling' when workers are being provisioned/removed, 'error' when a worker has failed.
+	// Current status of worker nodes. 'idle' when 0 workers, 'ready' when all workers are ready, 'scaling' when workers are being provisioned/removed, 'upgrading' while a Kubernetes version upgrade is rolling through the workers, 'error' when a worker has failed.
 	WorkerStatus *WorkerStatus `json:"worker_status,omitempty"`
-	// Current status of control plane nodes. 'ready' when control plane is operational, 'scaling' when nodes are being provisioned/removed, 'error' when a control plane node has failed.
+	// Current status of control plane nodes. 'ready' when control plane is operational, 'scaling' when nodes are being provisioned/removed, 'upgrading' while a Kubernetes version upgrade is rolling through the control plane, 'error' when a control plane node has failed.
 	ControlPlaneStatus *ControlPlaneStatus `json:"control_plane_status,omitempty"`
 	// Whether the underlying infrastructure is ready
 	InfrastructureReady *bool `json:"infrastructure_ready,omitempty"`

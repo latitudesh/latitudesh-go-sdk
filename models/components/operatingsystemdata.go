@@ -31,9 +31,12 @@ func (e *OperatingSystemDataType) UnmarshalJSON(data []byte) error {
 }
 
 type Features struct {
-	Raid     *bool `json:"raid,omitempty"`
-	SSHKeys  *bool `json:"ssh_keys,omitempty"`
-	UserData *bool `json:"user_data,omitempty"`
+	Raid       *bool `json:"raid,omitempty"`
+	SSHKeys    *bool `json:"ssh_keys,omitempty"`
+	UserData   *bool `json:"user_data,omitempty"`
+	Accelerate *bool `json:"accelerate,omitempty"`
+	Rescue     *bool `json:"rescue,omitempty"`
+	Workflow   *bool `json:"workflow,omitempty"`
 }
 
 func (f *Features) GetRaid() *bool {
@@ -55,6 +58,27 @@ func (f *Features) GetUserData() *bool {
 		return nil
 	}
 	return f.UserData
+}
+
+func (f *Features) GetAccelerate() *bool {
+	if f == nil {
+		return nil
+	}
+	return f.Accelerate
+}
+
+func (f *Features) GetRescue() *bool {
+	if f == nil {
+		return nil
+	}
+	return f.Rescue
+}
+
+func (f *Features) GetWorkflow() *bool {
+	if f == nil {
+		return nil
+	}
+	return f.Workflow
 }
 
 type OperatingSystemDataAttributes struct {

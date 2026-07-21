@@ -1,6 +1,6 @@
 # KubernetesClusterDataPhase
 
-The current phase of the cluster lifecycle
+The current phase of the cluster lifecycle. 'Upgrading' is reported while a Kubernetes version upgrade is rolling through the cluster.
 
 ## Example Usage
 
@@ -10,6 +10,9 @@ import (
 )
 
 value := components.KubernetesClusterDataPhasePending
+
+// Open enum: custom values can be created with a direct type cast
+custom := components.KubernetesClusterDataPhase("custom_value")
 ```
 
 
@@ -20,5 +23,7 @@ value := components.KubernetesClusterDataPhasePending
 | `KubernetesClusterDataPhasePending`      | Pending                                  |
 | `KubernetesClusterDataPhaseProvisioning` | Provisioning                             |
 | `KubernetesClusterDataPhaseProvisioned`  | Provisioned                              |
+| `KubernetesClusterDataPhaseUpgrading`    | Upgrading                                |
 | `KubernetesClusterDataPhaseDeleting`     | Deleting                                 |
 | `KubernetesClusterDataPhaseFailed`       | Failed                                   |
+| `KubernetesClusterDataPhaseUnknown`      | Unknown                                  |

@@ -2,12 +2,42 @@
 
 package components
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
+type UserUpdateType string
+
+const (
+	UserUpdateTypeUsers UserUpdateType = "users"
+)
+
+func (e UserUpdateType) ToPointer() *UserUpdateType {
+	return &e
+}
+func (e *UserUpdateType) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "users":
+		*e = UserUpdateType(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for UserUpdateType: %v", v)
+	}
+}
+
 type UserUpdateAttributes struct {
 	FirstName              *string `json:"first_name,omitempty"`
 	LastName               *string `json:"last_name,omitempty"`
 	Email                  *string `json:"email,omitempty"`
 	AuthenticationFactorID *string `json:"authentication_factor_id,omitempty"`
 	Role                   *string `json:"role,omitempty"`
+	CreatedAt              *string `json:"created_at,omitempty"`
+	UpdatedAt              *string `json:"updated_at,omitempty"`
 }
 
 func (u *UserUpdateAttributes) GetFirstName() *string {
@@ -45,8 +75,23 @@ func (u *UserUpdateAttributes) GetRole() *string {
 	return u.Role
 }
 
+func (u *UserUpdateAttributes) GetCreatedAt() *string {
+	if u == nil {
+		return nil
+	}
+	return u.CreatedAt
+}
+
+func (u *UserUpdateAttributes) GetUpdatedAt() *string {
+	if u == nil {
+		return nil
+	}
+	return u.UpdatedAt
+}
+
 type UserUpdate struct {
 	ID         *string               `json:"id,omitempty"`
+	Type       *UserUpdateType       `json:"type,omitempty"`
 	Attributes *UserUpdateAttributes `json:"attributes,omitempty"`
 }
 
@@ -55,6 +100,13 @@ func (u *UserUpdate) GetID() *string {
 		return nil
 	}
 	return u.ID
+}
+
+func (u *UserUpdate) GetType() *UserUpdateType {
+	if u == nil {
+		return nil
+	}
+	return u.Type
 }
 
 func (u *UserUpdate) GetAttributes() *UserUpdateAttributes {
