@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 8ce49db6597b569feae4bf80c1558333
+  docChecksum: 4ae6415150d2f724e85019f7bea6e6f5
   docVersion: "2023-06-01"
   speakeasyVersion: 1.790.3
   generationVersion: 2.918.4
-  releaseVersion: 1.18.1
-  configChecksum: 9946ba653831fad22f4995539ffba485
+  releaseVersion: 1.18.2
+  configChecksum: 8e453d65e4e4e4f9be77d3b8028f390d
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: af7aeac0-a3ed-418c-8a94-f37610b7859e
-  pristine_commit_hash: 5c1c19d4fe51dc14c73c174b9065fa5bb08ed6ec
-  pristine_tree_hash: ef6572ce1cfe692cbc50b4753061a4c17cd83e20
+  generation_id: 2ba0ad8b-e432-4718-af9b-1f343ebd6882
+  pristine_commit_hash: 53f7697e269e487911c57200dcd9e023d32ef2ab
+  pristine_tree_hash: 5e44807f0a5a894105a8989ec4c3b4d356fa7859
 features:
   go:
     additionalDependencies: 0.1.0
@@ -424,8 +424,8 @@ trackedFiles:
     pristine_git_object: 17b0a05b11630aadcf0925c76ccf678e1475d786
   docs/models/components/filesystemdataattributes.md:
     id: 0399f3e0f454
-    last_write_checksum: sha1:b8b3e6c94e192218963d6019cb0db41c801a207d
-    pristine_git_object: b284341801fc88a1cc890b7211abb9f827b96a03
+    last_write_checksum: sha1:028d04d142441ff818f741c13becc8442738b82f
+    pristine_git_object: 2ec66b03dd61953483866d7a1519529b961f760c
   docs/models/components/filesystemdatatype.md:
     id: 0b5cb21d377f
     last_write_checksum: sha1:3ef2de71f0abe9b5c1bcd66d4300935fb543e691
@@ -4052,8 +4052,8 @@ trackedFiles:
     pristine_git_object: f055c7135bd9df9511999b5a8af285cf62b279a1
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:f9232c9648998f59098dba1abab0b17ab57ed299
-    pristine_git_object: ec7a4377593836dcbd3a0fbe79dc0bf4bc13b18a
+    last_write_checksum: sha1:f87a7af71d739db47314d37fc1cae04e9f66dcea
+    pristine_git_object: 6d22f5d5a50912d2c8a74050a879aa64411488b0
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -4144,8 +4144,8 @@ trackedFiles:
     pristine_git_object: d7d728090690566bb1c4581f0c7604ef84d4d370
   models/components/filesystemdata.go:
     id: e2b0942c9cb4
-    last_write_checksum: sha1:31ed8d1d781240a1cd7dc3bf8f35de257482a675
-    pristine_git_object: a1e54bd3abb7345e2c7b949a32f884102e5f7499
+    last_write_checksum: sha1:1c2e4743ba88c856bd130e81962724588108d289
+    pristine_git_object: 1ad7acd6675e26100dc9d3a3a4cbf3800d2a27eb
   models/components/filesystems.go:
     id: 9e3ef99a72d6
     last_write_checksum: sha1:46e57f0fb81fff2646936ec6637871d09fb71d0c
@@ -9148,22 +9148,10 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Go SDK Changes:
-  * `Latitudesh.Servers.Lock()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)
-  * `Latitudesh.Servers.Unlock()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)
-  * `Latitudesh.KubernetesClusters.ListKubernetesClusters()`:  `response.Data[].Attributes.Phase` **Changed** (Breaking ⚠️)
-  * `Latitudesh.KubernetesClusters.GetKubernetesCluster()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)
-  * `Latitudesh.Servers.List()`:  `response.Data[].Attributes` **Changed** (Breaking ⚠️)
-  * `Latitudesh.Servers.Create()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)
-  * `Latitudesh.UserProfile.Update()`:  `response` **Changed** (Breaking ⚠️)
-  * `Latitudesh.Servers.Get()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)
-  * `Latitudesh.Billing.ListUsage()`:  `response.Data.Attributes.Products[].Metadata.Servers[].Plan` **Changed** (Breaking ⚠️)
-  * `Latitudesh.Servers.Update()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)
-  * `Latitudesh.Servers.CreateIpmiSession()`:  `response.Data.Attributes.IpmiUrl` **Added**
-  * `Latitudesh.ObjectStorage.GetStorageBuckets()`:  `response.Data[].Attributes.Source` **Added**
-  * `Latitudesh.ObjectStorage.PostStorageBuckets()`:  `response.Data.Attributes.Source` **Added**
-  * `Latitudesh.ObjectStorage.GetStorageBucket()`:  `response.Data.Attributes.Source` **Added**
-  * `Latitudesh.UserProfile.Get()`:  `response.Data` **Changed**
-  * `Latitudesh.OperatingSystems.ListPlans()`:  `response.Data[].Attributes.Features` **Changed**
+  * `Latitudesh.Plans.Vm.List()`:  `response.Data[].Attributes.Specs.Gpu` **Changed** (Breaking ⚠️)
+  * `Latitudesh.FilesystemStorage.CreateFilesystem()`:  `response.Data.Attributes` **Changed**
+  * `Latitudesh.FilesystemStorage.ListFilesystems()`:  `response.Data[].Attributes` **Changed**
+  * `Latitudesh.FilesystemStorage.UpdateFilesystem()`:  `response.Data.Attributes` **Changed**
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
