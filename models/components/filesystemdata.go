@@ -63,8 +63,14 @@ type FilesystemDataAttributes struct {
 	SizeInGb               *int64                  `json:"size_in_gb,omitempty"`
 	FilesystemStorageClass *FilesystemStorageClass `json:"storage_class,omitempty"`
 	CreatedAt              *time.Time              `json:"created_at,omitempty"`
-	Project                *ProjectInclude         `json:"project,omitempty"`
-	Team                   *TeamInclude            `json:"team,omitempty"`
+	// Cephx keyring secret used to mount the filesystem. Returned only for dashboard-origin requests; null until the filesystem is provisioned.
+	Keyring *string `json:"keyring,omitempty"`
+	// Ceph cluster user used to mount the filesystem. Returned only for dashboard-origin requests; null until the filesystem is provisioned.
+	ClusterUser *string `json:"cluster_user,omitempty"`
+	// Path of the filesystem volume inside the cluster. Returned only for dashboard-origin requests; null until the filesystem is provisioned.
+	VolumePath *string         `json:"volume_path,omitempty"`
+	Project    *ProjectInclude `json:"project,omitempty"`
+	Team       *TeamInclude    `json:"team,omitempty"`
 }
 
 func (f FilesystemDataAttributes) MarshalJSON() ([]byte, error) {
@@ -104,6 +110,27 @@ func (f *FilesystemDataAttributes) GetCreatedAt() *time.Time {
 		return nil
 	}
 	return f.CreatedAt
+}
+
+func (f *FilesystemDataAttributes) GetKeyring() *string {
+	if f == nil {
+		return nil
+	}
+	return f.Keyring
+}
+
+func (f *FilesystemDataAttributes) GetClusterUser() *string {
+	if f == nil {
+		return nil
+	}
+	return f.ClusterUser
+}
+
+func (f *FilesystemDataAttributes) GetVolumePath() *string {
+	if f == nil {
+		return nil
+	}
+	return f.VolumePath
 }
 
 func (f *FilesystemDataAttributes) GetProject() *ProjectInclude {
