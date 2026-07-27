@@ -66,7 +66,7 @@ type VirtualMachinePlansNics struct {
 	// NIC speed/type
 	Type *string `json:"type,omitempty"`
 	// Number of NICs
-	Count *string `json:"count,omitempty"`
+	Count *int64 `json:"count,omitempty"`
 }
 
 func (v *VirtualMachinePlansNics) GetType() *string {
@@ -76,7 +76,7 @@ func (v *VirtualMachinePlansNics) GetType() *string {
 	return v.Type
 }
 
-func (v *VirtualMachinePlansNics) GetCount() *string {
+func (v *VirtualMachinePlansNics) GetCount() *int64 {
 	if v == nil {
 		return nil
 	}
@@ -419,7 +419,9 @@ func (e *VirtualMachinePlansStockLevel) UnmarshalJSON(data []byte) error {
 
 type VirtualMachinePlansAttributes struct {
 	// The name of the plan
-	Name    *string                      `json:"name,omitempty"`
+	Name *string `json:"name,omitempty"`
+	// The slug of the plan, used to create virtual machines
+	Slug    *string                      `json:"slug,omitempty"`
 	Specs   *VirtualMachinePlansSpecs    `json:"specs,omitempty"`
 	Regions []VirtualMachinePlansRegions `json:"regions,omitempty"`
 	// The stock level of the plan
@@ -433,6 +435,13 @@ func (v *VirtualMachinePlansAttributes) GetName() *string {
 		return nil
 	}
 	return v.Name
+}
+
+func (v *VirtualMachinePlansAttributes) GetSlug() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Slug
 }
 
 func (v *VirtualMachinePlansAttributes) GetSpecs() *VirtualMachinePlansSpecs {
