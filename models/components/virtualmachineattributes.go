@@ -250,6 +250,7 @@ func (c *Credentials) GetSSHKeys() []VirtualMachineAttributesSSHKeys {
 type VirtualMachineAttributesPlan struct {
 	ID   *string `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
+	Slug *string `json:"slug,omitempty"`
 }
 
 func (v *VirtualMachineAttributesPlan) GetID() *string {
@@ -264,6 +265,13 @@ func (v *VirtualMachineAttributesPlan) GetName() *string {
 		return nil
 	}
 	return v.Name
+}
+
+func (v *VirtualMachineAttributesPlan) GetSlug() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Slug
 }
 
 type VirtualMachineAttributesSpecs struct {

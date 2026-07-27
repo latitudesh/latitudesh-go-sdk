@@ -1,0 +1,9 @@
+# PostStorageAccessKeysData
+
+
+## Fields
+
+| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `Type`                                                                                                   | [operations.PostStorageAccessKeysType](../../models/operations/poststorageaccesskeystype.md)             | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| `Attributes`                                                                                             | [operations.PostStorageAccessKeysAttributes](../../models/operations/poststorageaccesskeysattributes.md) | :heavy_check_mark:                                                                                       | N/A                                                                                                      |

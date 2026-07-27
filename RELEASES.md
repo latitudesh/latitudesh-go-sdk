@@ -809,3 +809,13 @@ Based on:
 - [go v1.18.1] .
 ### Releases
 - [Go v1.18.1] https://github.com/latitudesh/latitudesh-go-sdk/releases/tag/v1.18.1 - .
+
+## 2026-07-27 15:09:06
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.791.0 (2.924.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [go v1.18.2] .
+### Releases
+- [Go v1.18.2] https://github.com/latitudesh/latitudesh-go-sdk/releases/tag/v1.18.2 - .

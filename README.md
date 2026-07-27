@@ -188,6 +188,10 @@ func main() {
 
 ### [ObjectStorage](docs/sdks/objectstorage/README.md)
 
+* [PostStorageAccessKeys](docs/sdks/objectstorage/README.md#poststorageaccesskeys) - Create access key
+* [GetStorageAccessKeys](docs/sdks/objectstorage/README.md#getstorageaccesskeys) - List access keys
+* [DeleteStorageAccessKeysUsername](docs/sdks/objectstorage/README.md#deletestorageaccesskeysusername) - Delete access key
+* [GetStorageBucketAccessKeys](docs/sdks/objectstorage/README.md#getstoragebucketaccesskeys) - List bucket access keys
 * [GetStorageBuckets](docs/sdks/objectstorage/README.md#getstoragebuckets) - List buckets
 * [PostStorageBuckets](docs/sdks/objectstorage/README.md#poststoragebuckets) - Create bucket
 * [GetStorageBucket](docs/sdks/objectstorage/README.md#getstoragebucket) - Retrieve bucket
