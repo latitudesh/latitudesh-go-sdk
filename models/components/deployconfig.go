@@ -166,6 +166,8 @@ type DeployConfigAttributes struct {
 	UserData        *string      `json:"user_data,omitempty"`
 	SSHKeys         []string     `json:"ssh_keys,omitempty"`
 	Partitions      []Partitions `json:"partitions,omitempty"`
+	// Keep network boot enabled so the server iPXE-boots on every reboot instead of booting from disk. Only supported with the 'ipxe' operating system.
+	PersistentNetboot *bool `json:"persistent_netboot,omitempty"`
 }
 
 func (d *DeployConfigAttributes) GetOperatingSystem() *string {
@@ -215,6 +217,13 @@ func (d *DeployConfigAttributes) GetPartitions() []Partitions {
 		return nil
 	}
 	return d.Partitions
+}
+
+func (d *DeployConfigAttributes) GetPersistentNetboot() *bool {
+	if d == nil {
+		return nil
+	}
+	return d.PersistentNetboot
 }
 
 type DeployConfigData struct {

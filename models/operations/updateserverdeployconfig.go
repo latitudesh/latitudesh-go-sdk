@@ -286,6 +286,8 @@ type UpdateServerDeployConfigServersAttributes struct {
 	Partitions []UpdateServerDeployConfigPartitions `json:"partitions,omitempty"`
 	// URL where iPXE script is stored on, necessary for custom image deployments. This attribute is required when operating system iPXE is selected.
 	IpxeURL *string `json:"ipxe_url,omitempty"`
+	// Keep network boot enabled so the server iPXE-boots on every reboot instead of booting from disk. Only supported with the 'ipxe' operating system.
+	PersistentNetboot *bool `json:"persistent_netboot,omitempty"`
 }
 
 func (u *UpdateServerDeployConfigServersAttributes) GetHostname() *string {
@@ -342,6 +344,13 @@ func (u *UpdateServerDeployConfigServersAttributes) GetIpxeURL() *string {
 		return nil
 	}
 	return u.IpxeURL
+}
+
+func (u *UpdateServerDeployConfigServersAttributes) GetPersistentNetboot() *bool {
+	if u == nil {
+		return nil
+	}
+	return u.PersistentNetboot
 }
 
 type UpdateServerDeployConfigServersRequestBody struct {

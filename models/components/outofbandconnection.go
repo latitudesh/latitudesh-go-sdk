@@ -144,8 +144,12 @@ func (o *OutOfBandConnectionData) GetAttributes() *OutOfBandConnectionAttributes
 	return o.Attributes
 }
 
+type OutOfBandConnectionMeta struct {
+}
+
 type OutOfBandConnection struct {
 	Data *OutOfBandConnectionData `json:"data,omitempty"`
+	Meta *OutOfBandConnectionMeta `json:"meta,omitempty"`
 }
 
 func (o *OutOfBandConnection) GetData() *OutOfBandConnectionData {
@@ -153,4 +157,11 @@ func (o *OutOfBandConnection) GetData() *OutOfBandConnectionData {
 		return nil
 	}
 	return o.Data
+}
+
+func (o *OutOfBandConnection) GetMeta() *OutOfBandConnectionMeta {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
 }

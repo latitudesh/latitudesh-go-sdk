@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: c22579bd67427cce67ecfa73c307fe01
+  docChecksum: 6bcae468c4a1fa8f5e53167adb93219d
   docVersion: "2023-06-01"
   speakeasyVersion: 1.791.0
   generationVersion: 2.924.0
-  releaseVersion: 1.19.0
-  configChecksum: ed390ff95695ecc80238c88abe99f2f0
+  releaseVersion: 1.19.1
+  configChecksum: 422cae6f929a60613f32842362143e9f
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 895f0399-112b-499a-b810-b006f77f45e2
-  pristine_commit_hash: 63a0ab901fb798b34be9a662460c49772f1a1208
-  pristine_tree_hash: fadbe8fb6d6cac9a29e1d545b9635c16bdb2d1c6
+  generation_id: d6211a92-c301-4752-a507-67a2729bbbd7
+  pristine_commit_hash: 34b5bb7ba00bed50a72ae14cfdcaec4b7b2213ae
+  pristine_tree_hash: 6b2e66c81a8dd228fbd9a1c471e843dca92b6898
 features:
   go:
     additionalDependencies: 0.1.0
@@ -292,8 +292,8 @@ trackedFiles:
     pristine_git_object: 88046b5f206b7a9fed63924589f53113c3967c63
   docs/models/components/deployconfigattributes.md:
     id: 58f32bc4ffbb
-    last_write_checksum: sha1:f3cffdd597a51e5c1a7af253e89a58d5f73fac72
-    pristine_git_object: 8318803462aca17815e0df37f95cf5267700a9ad
+    last_write_checksum: sha1:21789a1a4e2c047ce7e19b4d5f3515f41442d232
+    pristine_git_object: 29d50d33d83e4e85dea988de6b7f7dcbd9a10d03
   docs/models/components/deployconfigdata.md:
     id: 6af279a19878
     last_write_checksum: sha1:d1f574e7aed04c1129f76843ca17a534adc46373
@@ -836,8 +836,8 @@ trackedFiles:
     pristine_git_object: e93f325a410512a235e6963243ec21057f9c247d
   docs/models/components/outofbandconnection.md:
     id: 65517b25719a
-    last_write_checksum: sha1:3b0d27172c5db481e4ec5f76a44c5f71d2133abc
-    pristine_git_object: 9693cdf6aa7e8f77d8bff7d9408e8929ec41c168
+    last_write_checksum: sha1:93a40e9b3b1b182e2eec16d62d0a2c6b3a756ab6
+    pristine_git_object: 1564759b47ac1e38ee39be6cc89610f360bc769c
   docs/models/components/outofbandconnectionattributes.md:
     id: 757f4717c9dc
     last_write_checksum: sha1:c7a3d610daa66f52f2ee07eeaa782a49c9a66e64
@@ -850,6 +850,10 @@ trackedFiles:
     id: a3edf3241cda
     last_write_checksum: sha1:286fe4195aa20567ac54fb8ab7c1e0b532e69cf0
     pristine_git_object: 598b00ddecac9d4c1a966382437d3e4a058a786d
+  docs/models/components/outofbandconnectionmeta.md:
+    id: d5c409b86cc7
+    last_write_checksum: sha1:81747f32290a13852a76b6c50cd8bba9e61aa93f
+    pristine_git_object: 05d3b3c60e3719db1a74e64feb2d3e23b6642a96
   docs/models/components/packages.md:
     id: b69e9612c7df
     last_write_checksum: sha1:975aa41d15244f5d97b488f1a24587e2ad4d708e
@@ -2124,8 +2128,8 @@ trackedFiles:
     pristine_git_object: 810d981330b2935256871d0791d5d8a3bdd19df7
   docs/models/operations/createserverreinstallserversattributes.md:
     id: b47e5ca95a2f
-    last_write_checksum: sha1:dc233f8212c969753e84cb088703ec2eefd83ed8
-    pristine_git_object: 50eb095ca49959fe8ec17e114e95569f863550fe
+    last_write_checksum: sha1:30aebc26b5069732f7f8c574629dcac6e5d6f2d4
+    pristine_git_object: 267766d367c8645ce9fa24fff592b2871cdbb3c0
   docs/models/operations/createserverreinstallserversdata.md:
     id: 62195760437d
     last_write_checksum: sha1:474cce57a19a6b9814c8c6c0b092dc36950265d0
@@ -2172,8 +2176,8 @@ trackedFiles:
     pristine_git_object: ed03c8c593d864490a9db898fccfaf1d9cacc618
   docs/models/operations/createserverserversattributes.md:
     id: b57a41906b77
-    last_write_checksum: sha1:fa9aa6c9000da8acc38b59ca87fbf559d190c917
-    pristine_git_object: 943fd559a698696b9b5b8e99a84055da9ffddfd3
+    last_write_checksum: sha1:7ff470e3a3286252ba807ab6d0b41298a5742bc2
+    pristine_git_object: 60c9c7d4b1de7acfd6d6e22317170e606a9fc1c4
   docs/models/operations/createserverserversdata.md:
     id: 17dcd52ff906
     last_write_checksum: sha1:3c5e43339a2a2c0be011f275199fd766f075c6a6
@@ -3820,8 +3824,8 @@ trackedFiles:
     pristine_git_object: 093c39b9670b7ba0302db89cd18253f76d782f67
   docs/models/operations/updateserverdeployconfigserversattributes.md:
     id: a13e32b70769
-    last_write_checksum: sha1:1c3d277cda5c32d3b174d1464b53ba59fc14a0ae
-    pristine_git_object: 484fa2dc34e0d761fc6c0be2c3d970689911bbe6
+    last_write_checksum: sha1:f8262aa94bd81e05a5f0408f4c59dd32bff78495
+    pristine_git_object: ce69a4204b71222c8fdf004dd13865a6a3cdb162
   docs/models/operations/updateserverdeployconfigserversdisklayout.md:
     id: 8e5428dbff22
     last_write_checksum: sha1:6a8d4351f81d34e543e780cfe57aa6d2cd595875
@@ -4160,8 +4164,8 @@ trackedFiles:
     pristine_git_object: f055c7135bd9df9511999b5a8af285cf62b279a1
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:49981957eeafec4bdaac7be0a34128c2086ccefa
-    pristine_git_object: e721b87b8163171db478e64581cbe2587e164fca
+    last_write_checksum: sha1:b3a4d95b0b46f0f9dbeb5be6d57c6295ab819d0c
+    pristine_git_object: 43740b20b30a7f4732fc6fd8e92edceb46e10012
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -4224,8 +4228,8 @@ trackedFiles:
     pristine_git_object: b570c60ee512d6083e4704ec154459840290681a
   models/components/deployconfig.go:
     id: bf5f770d833b
-    last_write_checksum: sha1:f0d5f49046192e6f422c3dc6975480ae3b61b686
-    pristine_git_object: d8f27d3f32e515100d47cc1b85c0af728882bb55
+    last_write_checksum: sha1:77cb260cdfbbf1fe405c91cfb3a36771e8130c5d
+    pristine_git_object: e679d0ad4f54b029d5535d756a6fa7392c1deba7
   models/components/elasticip.go:
     id: a5a4c5d31263
     last_write_checksum: sha1:1be8c67e587797028db8d7d289eab4d405f153bb
@@ -4364,8 +4368,8 @@ trackedFiles:
     pristine_git_object: 64122ee023dea93bced65e3d8cc9bb3a0a87b13a
   models/components/outofbandconnection.go:
     id: f2244f3e1bb0
-    last_write_checksum: sha1:5d21d39fed20b6dcfec83d4825294f8dd90f0f66
-    pristine_git_object: 9fa6b06fc027e8f5d8c42ae6c22e20e36a9e417d
+    last_write_checksum: sha1:80c15421e8a4e59314a713843948af33af4560c3
+    pristine_git_object: a53d4133bcc99b3bec33ab06509ee6d8411463ee
   models/components/paginationmeta.go:
     id: f583f9bdf286
     last_write_checksum: sha1:4dcb77a677ce91760d822a7efe8802406e2c4aa0
@@ -4664,8 +4668,8 @@ trackedFiles:
     pristine_git_object: bde7320cb5d8b3a58f7b48bd1d54e36152212909
   models/operations/createserver.go:
     id: 8ad2ecc6a3e3
-    last_write_checksum: sha1:e94859b56ab178d7bae40f01119bcb2411f61915
-    pristine_git_object: 972d48dcbc6bd7773650dd9350ba195ad3154a1d
+    last_write_checksum: sha1:f11d3fc4be73edfb0718938da439ecb9a54a5f48
+    pristine_git_object: ad17f9cbba39cdd62ef901d12995b8c23bac2b9c
   models/operations/createserveraction.go:
     id: ee7580f72478
     last_write_checksum: sha1:8838260324d0e1a1895824f431c06c0f0f120887
@@ -4676,8 +4680,8 @@ trackedFiles:
     pristine_git_object: 0d34b37bac83b44a68f1210f826ffac86500ec23
   models/operations/createserverreinstall.go:
     id: 4f6fc10f85bf
-    last_write_checksum: sha1:c5b58825e766538a71592cb6097c95990b728f00
-    pristine_git_object: 2686ad16111975e2b64db9166c2fd078d0766008
+    last_write_checksum: sha1:3637d920714c55370f9ddc6a414b25b1e97cb76c
+    pristine_git_object: 2cd06e261de28cefba78c3f227f73f7aea7916e5
   models/operations/createtag.go:
     id: da2b14facff8
     last_write_checksum: sha1:8968387f9b5decaf3ea7e98e6230dccd8e8265df
@@ -5224,8 +5228,8 @@ trackedFiles:
     pristine_git_object: b1e1c32d24a28410e236b59186227f16d8ec7f29
   models/operations/updateserverdeployconfig.go:
     id: 51fc2491f4a2
-    last_write_checksum: sha1:e526f652636543d22ed968bf6134b72038cf2ff9
-    pristine_git_object: 16fc9f615e001c83b73ac72a9e0a38012e6535cd
+    last_write_checksum: sha1:06612d1c6737aab7408c4809c8ce6036992d46cc
+    pristine_git_object: 95f5a9b22e50962e7e9abff4e7d63ea6e8734b30
   models/operations/updatetag.go:
     id: 7c74e28ef609
     last_write_checksum: sha1:b0409dfb343d4a2e3d94a44bb271352a0b5f2457
@@ -6676,7 +6680,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "out_of_band", "attributes": {"ssh_key_id": "ssh_3YjJOLMydvZ87"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "obc_mw49QDB5qagKb", "type": "out_of_band", "attributes": {"ssh_key": {"id": "ssh_3YjJOLMydvZ87", "description": "wisozk-gislason.example", "fingerprint": "14:e2:8e:b3:9e:f5:08:31:b6:c7:43:6d:f5:1e:6d:b2"}, "created_at": "2026-01-14T15:56:58+00:00", "username": "server-1", "credentials": {"user": "donn", "password": "398ig362ci"}, "port": "2222", "access_ip": "189.1.2.0", "server_id": "sv_8NkvdyGKDeLpx", "status": "connected"}}}
+          application/vnd.api+json: {"data": {"id": "obc_mw49QDB5qagKb", "type": "out_of_band", "attributes": {"ssh_key": {"id": "ssh_3YjJOLMydvZ87", "description": "wisozk-gislason.example", "fingerprint": "14:e2:8e:b3:9e:f5:08:31:b6:c7:43:6d:f5:1e:6d:b2"}, "created_at": "2026-01-14T15:56:58+00:00", "username": "server-1", "credentials": {"user": "donn", "password": "398ig362ci"}, "port": "2222", "access_ip": "189.1.2.0", "server_id": "sv_8NkvdyGKDeLpx", "status": "connected"}}, "meta": {}}
     Forbidden:
       parameters:
         path:
@@ -6718,7 +6722,7 @@ examples:
           server_id: "sv_GnzRD5lvqM5yw"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "obc_AW6Q2D9lqKLpr", "type": "out_of_band", "attributes": {"ssh_key": {"id": "ssh_Gr47qlNMOAg0m", "description": "raynor-dubuque.example", "fingerprint": "d5:d6:ac:44:54:1a:d9:c3:0a:1e:c6:2a:9b:66:d5:90"}, "created_at": "2026-01-14T15:56:58+00:00", "username": "server-1", "credentials": {"user": "vonda_littel", "password": "8i97d81tjq"}, "port": "2222", "access_ip": "189.1.2.0", "server_id": "sv_GnzRD5lvqM5yw", "status": "connected"}}}
+          application/vnd.api+json: {"data": {"id": "obc_AW6Q2D9lqKLpr", "type": "out_of_band", "attributes": {"ssh_key": {"id": "ssh_Gr47qlNMOAg0m", "description": "raynor-dubuque.example", "fingerprint": "d5:d6:ac:44:54:1a:d9:c3:0a:1e:c6:2a:9b:66:d5:90"}, "created_at": "2026-01-14T15:56:58+00:00", "username": "server-1", "credentials": {"user": "vonda_littel", "password": "8i97d81tjq"}, "port": "2222", "access_ip": "189.1.2.0", "server_id": "sv_GnzRD5lvqM5yw", "status": "connected"}}, "meta": {}}
     Not Found:
       parameters:
         path:
@@ -9350,6 +9354,7 @@ examples:
           application/vnd.api+json: {"errors": [{"code": "USER_AUTHORIZATION_ERROR", "status": "forbidden", "title": "User Authorization Error", "detail": "You are not authorized to perform this action.", "meta": {}}]}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Go SDK Changes:\n* `Latitudesh.Servers.StartOutOfBandConnection()`:  `response` **Changed** (Breaking ⚠️)\n* `Latitudesh.Servers.GetOutOfBand()`:  `response` **Changed** (Breaking ⚠️)\n* `Latitudesh.Servers.Create()`: \n  *  `request.Request.Data.Attributes.PersistentNetboot` **Added**\n* `Latitudesh.Servers.GetDeployConfig()`:  `response.Data.Attributes.PersistentNetboot` **Added**\n* `Latitudesh.Servers.UpdateDeployConfig()`: \n  *  `request.RequestBody.Attributes.PersistentNetboot` **Added**\n  *  `response.Data.Attributes.PersistentNetboot` **Added**\n* `Latitudesh.Servers.Reinstall()`: \n  *  `request.RequestBody.Data.Attributes.PersistentNetboot` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
