@@ -377,6 +377,8 @@ type CreateServerServersAttributes struct {
 	DiskLayout []CreateServerDiskLayout `json:"disk_layout,omitempty"`
 	// URL where iPXE script is stored on, OR the iPXE script encoded in base64. This attribute is required when iPXE is selected as operating system.
 	Ipxe *string `json:"ipxe,omitempty"`
+	// Keep network boot enabled so the server iPXE-boots on every reboot instead of booting from disk. Only supported with the 'ipxe' operating system.
+	PersistentNetboot *bool `json:"persistent_netboot,omitempty"`
 	// The server billing type. Accepts `hourly` and `monthly` for on demand projects and `yearly` for reserved projects.
 	Billing *CreateServerBilling `json:"billing,omitempty"`
 }
@@ -449,6 +451,13 @@ func (c *CreateServerServersAttributes) GetIpxe() *string {
 		return nil
 	}
 	return c.Ipxe
+}
+
+func (c *CreateServerServersAttributes) GetPersistentNetboot() *bool {
+	if c == nil {
+		return nil
+	}
+	return c.PersistentNetboot
 }
 
 func (c *CreateServerServersAttributes) GetBilling() *CreateServerBilling {

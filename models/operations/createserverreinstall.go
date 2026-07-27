@@ -290,6 +290,8 @@ type CreateServerReinstallServersAttributes struct {
 	DiskLayout []CreateServerReinstallServersDiskLayout `json:"disk_layout,omitempty"`
 	// URL where iPXE script is stored on, OR the iPXE script encoded in base64. This attribute is required when operating system iPXE is selected.
 	Ipxe *string `json:"ipxe,omitempty"`
+	// Keep network boot enabled so the server iPXE-boots on every reboot instead of booting from disk. Only supported with the 'ipxe' operating system.
+	PersistentNetboot *bool `json:"persistent_netboot,omitempty"`
 }
 
 func (c *CreateServerReinstallServersAttributes) GetOperatingSystem() *CreateServerReinstallServersOperatingSystem {
@@ -346,6 +348,13 @@ func (c *CreateServerReinstallServersAttributes) GetIpxe() *string {
 		return nil
 	}
 	return c.Ipxe
+}
+
+func (c *CreateServerReinstallServersAttributes) GetPersistentNetboot() *bool {
+	if c == nil {
+		return nil
+	}
+	return c.PersistentNetboot
 }
 
 type CreateServerReinstallServersData struct {
