@@ -31,18 +31,18 @@ func (e *PostStorageAccessKeysType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// StorageClass - Backend storage tier. `standard` provisions the key on Wasabi; `high_performance` provisions it on VAST.
-type StorageClass string
+// AccessKeyStorageClass - Backend storage tier. `standard` provisions the key on Wasabi; `high_performance` provisions it on VAST.
+type AccessKeyStorageClass string
 
 const (
-	StorageClassStandard        StorageClass = "standard"
-	StorageClassHighPerformance StorageClass = "high_performance"
+	AccessKeyStorageClassStandard        AccessKeyStorageClass = "standard"
+	AccessKeyStorageClassHighPerformance AccessKeyStorageClass = "high_performance"
 )
 
-func (e StorageClass) ToPointer() *StorageClass {
+func (e AccessKeyStorageClass) ToPointer() *AccessKeyStorageClass {
 	return &e
 }
-func (e *StorageClass) UnmarshalJSON(data []byte) error {
+func (e *AccessKeyStorageClass) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -51,10 +51,10 @@ func (e *StorageClass) UnmarshalJSON(data []byte) error {
 	case "standard":
 		fallthrough
 	case "high_performance":
-		*e = StorageClass(v)
+		*e = AccessKeyStorageClass(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for StorageClass: %v", v)
+		return fmt.Errorf("invalid value for AccessKeyStorageClass: %v", v)
 	}
 }
 
@@ -137,7 +137,7 @@ type PostStorageAccessKeysAttributes struct {
 	// Project ID or slug the access key belongs to.
 	Project string `json:"project"`
 	// Backend storage tier. `standard` provisions the key on Wasabi; `high_performance` provisions it on VAST.
-	StorageClass StorageClass `json:"storage_class"`
+	AccessKeyStorageClass AccessKeyStorageClass `json:"storage_class"`
 	// Name for the access key. Normalized server-side (lowercased, with special characters replaced by hyphens).
 	Name string `json:"name"`
 	// `fullaccess` grants access to all of the project's buckets. `limited_access` restricts the key to the buckets listed in `bucket_permissions`.
@@ -155,11 +155,11 @@ func (p *PostStorageAccessKeysAttributes) GetProject() string {
 	return p.Project
 }
 
-func (p *PostStorageAccessKeysAttributes) GetStorageClass() StorageClass {
+func (p *PostStorageAccessKeysAttributes) GetAccessKeyStorageClass() AccessKeyStorageClass {
 	if p == nil {
-		return StorageClass("")
+		return AccessKeyStorageClass("")
 	}
-	return p.StorageClass
+	return p.AccessKeyStorageClass
 }
 
 func (p *PostStorageAccessKeysAttributes) GetName() string {

@@ -32,18 +32,18 @@ func (e *PostStorageBucketsType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// PostStorageBucketsStorageClass - Backend storage tier. `standard` is the default S3-compatible tier. `high_performance` is a lower-latency, higher-throughput tier available in select regions only.
-type PostStorageBucketsStorageClass string
+// StorageClass - Backend storage tier. `standard` is the default S3-compatible tier. `high_performance` is a lower-latency, higher-throughput tier available in select regions only.
+type StorageClass string
 
 const (
-	PostStorageBucketsStorageClassStandard        PostStorageBucketsStorageClass = "standard"
-	PostStorageBucketsStorageClassHighPerformance PostStorageBucketsStorageClass = "high_performance"
+	StorageClassStandard        StorageClass = "standard"
+	StorageClassHighPerformance StorageClass = "high_performance"
 )
 
-func (e PostStorageBucketsStorageClass) ToPointer() *PostStorageBucketsStorageClass {
+func (e StorageClass) ToPointer() *StorageClass {
 	return &e
 }
-func (e *PostStorageBucketsStorageClass) UnmarshalJSON(data []byte) error {
+func (e *StorageClass) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -52,10 +52,10 @@ func (e *PostStorageBucketsStorageClass) UnmarshalJSON(data []byte) error {
 	case "standard":
 		fallthrough
 	case "high_performance":
-		*e = PostStorageBucketsStorageClass(v)
+		*e = StorageClass(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PostStorageBucketsStorageClass: %v", v)
+		return fmt.Errorf("invalid value for StorageClass: %v", v)
 	}
 }
 
@@ -101,7 +101,7 @@ type PostStorageBucketsAttributes struct {
 	// Customer identifier for scoped storage. Used when `scoped` is true to create customer-specific bucket isolation.
 	Customer *string `json:"customer,omitempty"`
 	// Backend storage tier. `standard` is the default S3-compatible tier. `high_performance` is a lower-latency, higher-throughput tier available in select regions only.
-	StorageClass *PostStorageBucketsStorageClass `default:"standard" json:"storage_class"`
+	StorageClass *StorageClass `default:"standard" json:"storage_class"`
 	// Enable S3 object versioning. Once enabled, versioning cannot be disabled.
 	Versioning *bool `default:"false" json:"versioning"`
 	// Enable S3 Object Lock (WORM). Must be enabled at bucket creation; cannot be added to an existing bucket. When `locking` is `true`, `versioning` is automatically enabled.
@@ -158,7 +158,7 @@ func (p *PostStorageBucketsAttributes) GetCustomer() *string {
 	return p.Customer
 }
 
-func (p *PostStorageBucketsAttributes) GetStorageClass() *PostStorageBucketsStorageClass {
+func (p *PostStorageBucketsAttributes) GetStorageClass() *StorageClass {
 	if p == nil {
 		return nil
 	}

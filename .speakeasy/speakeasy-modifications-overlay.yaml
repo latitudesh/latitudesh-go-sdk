@@ -985,3 +985,10 @@ actions:
       after: sdk.virtualMachineRestores.get()
       before: sdk.virtualMachineRestores.getVirtualMachineRestore()
       type: method-name
+  - target: $["paths"]["/storage/access_keys"]["post"]["requestBody"]["content"]["application/vnd.api+json"]["schema"]["properties"]["data"]["properties"]["attributes"]["properties"]["storage_class"]
+    update:
+      x-speakeasy-name-override: AccessKeyStorageClass
+    x-speakeasy-metadata:
+      after: operations.AccessKeyStorageClass
+      before: operations.StorageClass
+      type: type-name
