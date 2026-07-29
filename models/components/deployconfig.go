@@ -131,33 +131,6 @@ func (d *DiskLayout) GetMountPoint() *string {
 	return d.MountPoint
 }
 
-type Partitions struct {
-	Path           *string `json:"path,omitempty"`
-	SizeInGb       *int64  `json:"size_in_gb,omitempty"`
-	FilesystemType *string `json:"filesystem_type,omitempty"`
-}
-
-func (p *Partitions) GetPath() *string {
-	if p == nil {
-		return nil
-	}
-	return p.Path
-}
-
-func (p *Partitions) GetSizeInGb() *int64 {
-	if p == nil {
-		return nil
-	}
-	return p.SizeInGb
-}
-
-func (p *Partitions) GetFilesystemType() *string {
-	if p == nil {
-		return nil
-	}
-	return p.FilesystemType
-}
-
 type DeployConfigAttributes struct {
 	OperatingSystem *string      `json:"operating_system,omitempty"`
 	Hostname        *string      `json:"hostname,omitempty"`
@@ -165,7 +138,6 @@ type DeployConfigAttributes struct {
 	DiskLayout      []DiskLayout `json:"disk_layout,omitempty"`
 	UserData        *string      `json:"user_data,omitempty"`
 	SSHKeys         []string     `json:"ssh_keys,omitempty"`
-	Partitions      []Partitions `json:"partitions,omitempty"`
 	// Keep network boot enabled so the server iPXE-boots on every reboot instead of booting from disk. Only supported with the 'ipxe' operating system.
 	PersistentNetboot *bool `json:"persistent_netboot,omitempty"`
 }
@@ -210,13 +182,6 @@ func (d *DeployConfigAttributes) GetSSHKeys() []string {
 		return nil
 	}
 	return d.SSHKeys
-}
-
-func (d *DeployConfigAttributes) GetPartitions() []Partitions {
-	if d == nil {
-		return nil
-	}
-	return d.Partitions
 }
 
 func (d *DeployConfigAttributes) GetPersistentNetboot() *bool {
