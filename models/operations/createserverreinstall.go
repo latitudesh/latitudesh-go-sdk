@@ -97,33 +97,6 @@ func (e *CreateServerReinstallServersOperatingSystem) UnmarshalJSON(data []byte)
 	}
 }
 
-type CreateServerReinstallServersPartitions struct {
-	SizeInGb       *int64  `json:"size_in_gb,omitempty"`
-	Path           *string `json:"path,omitempty"`
-	FilesystemType *string `json:"filesystem_type,omitempty"`
-}
-
-func (c *CreateServerReinstallServersPartitions) GetSizeInGb() *int64 {
-	if c == nil {
-		return nil
-	}
-	return c.SizeInGb
-}
-
-func (c *CreateServerReinstallServersPartitions) GetPath() *string {
-	if c == nil {
-		return nil
-	}
-	return c.Path
-}
-
-func (c *CreateServerReinstallServersPartitions) GetFilesystemType() *string {
-	if c == nil {
-		return nil
-	}
-	return c.FilesystemType
-}
-
 // CreateServerReinstallServersRaid - RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, or omit/null for no RAID configuration
 type CreateServerReinstallServersRaid string
 
@@ -279,8 +252,7 @@ type CreateServerReinstallServersAttributes struct {
 	// The OS selected for the reinstall process
 	OperatingSystem *CreateServerReinstallServersOperatingSystem `json:"operating_system,omitempty"`
 	// The server hostname to set upon reinstall
-	Hostname   *string                                  `json:"hostname,omitempty"`
-	Partitions []CreateServerReinstallServersPartitions `json:"partitions,omitempty"`
+	Hostname *string `json:"hostname,omitempty"`
 	// SSH Key IDs to set upon reinstall
 	SSHKeys []string `json:"ssh_keys,omitempty"`
 	// User data ID to set upon reinstall
@@ -306,13 +278,6 @@ func (c *CreateServerReinstallServersAttributes) GetHostname() *string {
 		return nil
 	}
 	return c.Hostname
-}
-
-func (c *CreateServerReinstallServersAttributes) GetPartitions() []CreateServerReinstallServersPartitions {
-	if c == nil {
-		return nil
-	}
-	return c.Partitions
 }
 
 func (c *CreateServerReinstallServersAttributes) GetSSHKeys() []string {

@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 6bcae468c4a1fa8f5e53167adb93219d
+  docChecksum: 5ce81d2269f0558754512b863815f037
   docVersion: "2023-06-01"
   speakeasyVersion: 1.791.0
   generationVersion: 2.924.0
-  releaseVersion: 1.19.1
-  configChecksum: 422cae6f929a60613f32842362143e9f
+  releaseVersion: 1.19.2
+  configChecksum: e6892779f6a5d9840f5595c51536e40a
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: d6211a92-c301-4752-a507-67a2729bbbd7
-  pristine_commit_hash: 34b5bb7ba00bed50a72ae14cfdcaec4b7b2213ae
-  pristine_tree_hash: 6b2e66c81a8dd228fbd9a1c471e843dca92b6898
+  generation_id: 9bb63a4d-b52b-4c14-8a4d-676f020749cf
+  pristine_commit_hash: 555a32ede013a9856737236fcbcffeb503212370
+  pristine_tree_hash: 4e7b1938e60022988df076cb9e048feba1cccdb4
 features:
   go:
     additionalDependencies: 0.1.0
@@ -292,8 +292,8 @@ trackedFiles:
     pristine_git_object: 88046b5f206b7a9fed63924589f53113c3967c63
   docs/models/components/deployconfigattributes.md:
     id: 58f32bc4ffbb
-    last_write_checksum: sha1:21789a1a4e2c047ce7e19b4d5f3515f41442d232
-    pristine_git_object: 29d50d33d83e4e85dea988de6b7f7dcbd9a10d03
+    last_write_checksum: sha1:f1a267759b2912398d8247c2c62bc8425b925464
+    pristine_git_object: ea5d2e7bb39dab5d0ba5e6a593e6fb5b814098df
   docs/models/components/deployconfigdata.md:
     id: 6af279a19878
     last_write_checksum: sha1:d1f574e7aed04c1129f76843ca17a534adc46373
@@ -862,10 +862,6 @@ trackedFiles:
     id: 316660b3167a
     last_write_checksum: sha1:7d15136006bff370069ac4cec1e39f87e8e56799
     pristine_git_object: 581734a6272ab0df522505658647d9872ff27e9c
-  docs/models/components/partitions.md:
-    id: 8874a87bc332
-    last_write_checksum: sha1:30d8509ac94ef12b0671f486413eb482c0e521cb
-    pristine_git_object: ca9429ce62ec9ad7f4e70c85441c229931e4f62d
   docs/models/components/period.md:
     id: 15f5d3ae2687
     last_write_checksum: sha1:f7a1c82c6c4c958dfd6cf697304ae669f15e7c15
@@ -2128,8 +2124,8 @@ trackedFiles:
     pristine_git_object: 810d981330b2935256871d0791d5d8a3bdd19df7
   docs/models/operations/createserverreinstallserversattributes.md:
     id: b47e5ca95a2f
-    last_write_checksum: sha1:30aebc26b5069732f7f8c574629dcac6e5d6f2d4
-    pristine_git_object: 267766d367c8645ce9fa24fff592b2871cdbb3c0
+    last_write_checksum: sha1:e75d2728a587181d4ccbb274c657dce5487018b7
+    pristine_git_object: fa0438bcc49e1dbd0f5b16fdd6b66c11dbde760f
   docs/models/operations/createserverreinstallserversdata.md:
     id: 62195760437d
     last_write_checksum: sha1:474cce57a19a6b9814c8c6c0b092dc36950265d0
@@ -2146,10 +2142,6 @@ trackedFiles:
     id: db6f284cfc95
     last_write_checksum: sha1:a72789288e0137d7ca1b59b2c70646501b2473ee
     pristine_git_object: 0e7f4ff02211104558357f9c055c631def95d812
-  docs/models/operations/createserverreinstallserverspartitions.md:
-    id: ddfb54d4f49b
-    last_write_checksum: sha1:ca4101412ea6462c0ac3374332962c7763f11187
-    pristine_git_object: edb25bb7d61389a034043d32211424b7e636fcc6
   docs/models/operations/createserverreinstallserversraid.md:
     id: e062c740628f
     last_write_checksum: sha1:6992e432dff1d8f5a0af5e24cf4f3489034f8691
@@ -3810,10 +3802,6 @@ trackedFiles:
     id: 9cdad8520288
     last_write_checksum: sha1:5347e9d001aadef04372f4a06dbdf3df9c6e8b04
     pristine_git_object: 8aed152bee28a550ccfbb54b1a1d747c4c167fb4
-  docs/models/operations/updateserverdeployconfigpartitions.md:
-    id: fb5f39e7f085
-    last_write_checksum: sha1:7507601920e4ff367e9a12407f853a44e8f8a45c
-    pristine_git_object: a94879f3236c8a93dbabad17c70d3c5ef95f7474
   docs/models/operations/updateserverdeployconfigrequest.md:
     id: 612c9affa1ab
     last_write_checksum: sha1:e7d05a29407e163a54b95b938cab8692759edaf0
@@ -3824,8 +3812,8 @@ trackedFiles:
     pristine_git_object: 093c39b9670b7ba0302db89cd18253f76d782f67
   docs/models/operations/updateserverdeployconfigserversattributes.md:
     id: a13e32b70769
-    last_write_checksum: sha1:f8262aa94bd81e05a5f0408f4c59dd32bff78495
-    pristine_git_object: ce69a4204b71222c8fdf004dd13865a6a3cdb162
+    last_write_checksum: sha1:8e40aa120d9f37182a35c2e8e5d8347b7043a74f
+    pristine_git_object: 7327dcb667118f8196d160d1f2d83b6aa09680b7
   docs/models/operations/updateserverdeployconfigserversdisklayout.md:
     id: 8e5428dbff22
     last_write_checksum: sha1:6a8d4351f81d34e543e780cfe57aa6d2cd595875
@@ -4164,8 +4152,8 @@ trackedFiles:
     pristine_git_object: f055c7135bd9df9511999b5a8af285cf62b279a1
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:b3a4d95b0b46f0f9dbeb5be6d57c6295ab819d0c
-    pristine_git_object: 43740b20b30a7f4732fc6fd8e92edceb46e10012
+    last_write_checksum: sha1:aa86e377b83817a91d33b5c3538621a169684f94
+    pristine_git_object: c69e4be8084152a4eb9c952c8aa693f42e7980ee
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -4228,8 +4216,8 @@ trackedFiles:
     pristine_git_object: b570c60ee512d6083e4704ec154459840290681a
   models/components/deployconfig.go:
     id: bf5f770d833b
-    last_write_checksum: sha1:77cb260cdfbbf1fe405c91cfb3a36771e8130c5d
-    pristine_git_object: e679d0ad4f54b029d5535d756a6fa7392c1deba7
+    last_write_checksum: sha1:7406c0de26d40c8da0d84080ae107b8ff4d05bef
+    pristine_git_object: 83607a125f969b91284cc4ecbe56a2c4e9d2745a
   models/components/elasticip.go:
     id: a5a4c5d31263
     last_write_checksum: sha1:1be8c67e587797028db8d7d289eab4d405f153bb
@@ -4680,8 +4668,8 @@ trackedFiles:
     pristine_git_object: 0d34b37bac83b44a68f1210f826ffac86500ec23
   models/operations/createserverreinstall.go:
     id: 4f6fc10f85bf
-    last_write_checksum: sha1:3637d920714c55370f9ddc6a414b25b1e97cb76c
-    pristine_git_object: 2cd06e261de28cefba78c3f227f73f7aea7916e5
+    last_write_checksum: sha1:c035f1599223a70f11ef6873bce9b9a86ffdee40
+    pristine_git_object: 836712f1b9a0e38d68bb4566f42378f022f5eb9e
   models/operations/createtag.go:
     id: da2b14facff8
     last_write_checksum: sha1:8968387f9b5decaf3ea7e98e6230dccd8e8265df
@@ -5228,8 +5216,8 @@ trackedFiles:
     pristine_git_object: b1e1c32d24a28410e236b59186227f16d8ec7f29
   models/operations/updateserverdeployconfig.go:
     id: 51fc2491f4a2
-    last_write_checksum: sha1:06612d1c6737aab7408c4809c8ce6036992d46cc
-    pristine_git_object: 95f5a9b22e50962e7e9abff4e7d63ea6e8734b30
+    last_write_checksum: sha1:3c79cb87c12601990258e7987f984bdd87c00780
+    pristine_git_object: 3510c6d6e7f6242bfb69b2f7f5df5777a27e2206
   models/operations/updatetag.go:
     id: 7c74e28ef609
     last_write_checksum: sha1:b0409dfb343d4a2e3d94a44bb271352a0b5f2457
@@ -6560,7 +6548,7 @@ examples:
           server_id: "sv_pRMLydp0dQKr1"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "sv_pRMLydp0dQKr1", "attributes": {"operating_system": "debian_10", "hostname": "Asoka", "raid": "raid-0", "user_data": "ud_0g1mbDwBqLv5B", "ssh_keys": ["ssh_0g1mbDwBqLv5B"], "partitions": [{"path": "/", "size_in_gb": 300, "filesystem_type": "ext4"}]}}}
+          application/vnd.api+json: {"data": {"id": "sv_pRMLydp0dQKr1", "attributes": {"operating_system": "debian_10", "hostname": "Asoka", "raid": "raid-0", "user_data": "ud_0g1mbDwBqLv5B", "ssh_keys": ["ssh_0g1mbDwBqLv5B"]}}}
   update-server-deploy-config:
     Success:
       parameters:
@@ -6571,7 +6559,7 @@ examples:
         application/vnd.api+json: {"type": "deploy_config"}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "sv_lkg1DeYLDvZE5", "attributes": {"operating_system": "ubuntu_20_04_x64_lts", "hostname": "my-hostname", "raid": "raid-1", "user_data": "ud_5LA73qkjdaJ2o", "ssh_keys": ["ssh_m5xyZOnNOWM0l"], "partitions": [{"path": "/", "size_in_gb": 300, "filesystem_type": "ext4"}]}}}
+          application/vnd.api+json: {"data": {"id": "sv_lkg1DeYLDvZE5", "attributes": {"operating_system": "ubuntu_20_04_x64_lts", "hostname": "my-hostname", "raid": "raid-1", "user_data": "ud_5LA73qkjdaJ2o", "ssh_keys": ["ssh_m5xyZOnNOWM0l"]}}}
         "422":
           application/vnd.api+json: {"data": {"id": "sv_g1mbDweZdLv5B", "attributes": {"operating_system": "ubuntu_20_04_x64_lts", "hostname": "my-hostname", "raid": "raid-1", "ssh_keys": ["ssh_GlxWpD6KOm6rk"], "partitions": [{"path": "/", "size_in_gb": 300, "filesystem_type": "ext4"}]}}}
     Unprocessable Entity:
@@ -9354,7 +9342,7 @@ examples:
           application/vnd.api+json: {"errors": [{"code": "USER_AUTHORIZATION_ERROR", "status": "forbidden", "title": "User Authorization Error", "detail": "You are not authorized to perform this action.", "meta": {}}]}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes:\n* `Latitudesh.Servers.StartOutOfBandConnection()`:  `response` **Changed** (Breaking ⚠️)\n* `Latitudesh.Servers.GetOutOfBand()`:  `response` **Changed** (Breaking ⚠️)\n* `Latitudesh.Servers.Create()`: \n  *  `request.Request.Data.Attributes.PersistentNetboot` **Added**\n* `Latitudesh.Servers.GetDeployConfig()`:  `response.Data.Attributes.PersistentNetboot` **Added**\n* `Latitudesh.Servers.UpdateDeployConfig()`: \n  *  `request.RequestBody.Attributes.PersistentNetboot` **Added**\n  *  `response.Data.Attributes.PersistentNetboot` **Added**\n* `Latitudesh.Servers.Reinstall()`: \n  *  `request.RequestBody.Data.Attributes.PersistentNetboot` **Added**\n"
+releaseNotes: "## Go SDK Changes:\n* `Latitudesh.Servers.GetDeployConfig()`:  `response.Data.Attributes.Partitions` **Removed** (Breaking ⚠️)\n* `Latitudesh.Servers.UpdateDeployConfig()`: \n  *  `request.RequestBody.Attributes.Partitions` **Removed** (Breaking ⚠️)\n  *  `response.Data.Attributes.Partitions` **Removed** (Breaking ⚠️)\n* `Latitudesh.Servers.Reinstall()`: \n  *  `request.RequestBody.Data.Attributes.Partitions` **Removed** (Breaking ⚠️)\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

@@ -247,33 +247,6 @@ func (u *UpdateServerDeployConfigServersDiskLayout) GetMountPoint() *string {
 	return u.MountPoint
 }
 
-type UpdateServerDeployConfigPartitions struct {
-	SizeInGb       *int64  `json:"size_in_gb,omitempty"`
-	Path           *string `json:"path,omitempty"`
-	FilesystemType *string `json:"filesystem_type,omitempty"`
-}
-
-func (u *UpdateServerDeployConfigPartitions) GetSizeInGb() *int64 {
-	if u == nil {
-		return nil
-	}
-	return u.SizeInGb
-}
-
-func (u *UpdateServerDeployConfigPartitions) GetPath() *string {
-	if u == nil {
-		return nil
-	}
-	return u.Path
-}
-
-func (u *UpdateServerDeployConfigPartitions) GetFilesystemType() *string {
-	if u == nil {
-		return nil
-	}
-	return u.FilesystemType
-}
-
 type UpdateServerDeployConfigServersAttributes struct {
 	Hostname        *string                                         `json:"hostname,omitempty"`
 	OperatingSystem *UpdateServerDeployConfigServersOperatingSystem `json:"operating_system,omitempty"`
@@ -281,9 +254,8 @@ type UpdateServerDeployConfigServersAttributes struct {
 	Raid       *UpdateServerDeployConfigServersRaid        `json:"raid,omitempty"`
 	DiskLayout []UpdateServerDeployConfigServersDiskLayout `json:"disk_layout,omitempty"`
 	// User data to configure the server
-	UserData   *string                              `json:"user_data,omitempty"`
-	SSHKeys    []string                             `json:"ssh_keys,omitempty"`
-	Partitions []UpdateServerDeployConfigPartitions `json:"partitions,omitempty"`
+	UserData *string  `json:"user_data,omitempty"`
+	SSHKeys  []string `json:"ssh_keys,omitempty"`
 	// URL where iPXE script is stored on, necessary for custom image deployments. This attribute is required when operating system iPXE is selected.
 	IpxeURL *string `json:"ipxe_url,omitempty"`
 	// Keep network boot enabled so the server iPXE-boots on every reboot instead of booting from disk. Only supported with the 'ipxe' operating system.
@@ -330,13 +302,6 @@ func (u *UpdateServerDeployConfigServersAttributes) GetSSHKeys() []string {
 		return nil
 	}
 	return u.SSHKeys
-}
-
-func (u *UpdateServerDeployConfigServersAttributes) GetPartitions() []UpdateServerDeployConfigPartitions {
-	if u == nil {
-		return nil
-	}
-	return u.Partitions
 }
 
 func (u *UpdateServerDeployConfigServersAttributes) GetIpxeURL() *string {
