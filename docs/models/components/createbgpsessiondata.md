@@ -1,0 +1,9 @@
+# CreateBgpSessionData
+
+
+## Fields
+
+| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `Type`                                                                                          | [components.CreateBgpSessionType](../../models/components/createbgpsessiontype.md)              | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `Attributes`                                                                                    | [*components.CreateBgpSessionAttributes](../../models/components/createbgpsessionattributes.md) | :heavy_minus_sign:                                                                              | N/A                                                                                             |

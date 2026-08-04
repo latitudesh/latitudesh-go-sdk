@@ -1,4 +1,4 @@
-# CreateFirewallType
+# CreateBaselineType
 
 ## Example Usage
 
@@ -7,7 +7,7 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
 )
 
-value := operations.CreateFirewallTypeFirewalls
+value := operations.CreateBaselineTypeBaselines
 ```
 
 
@@ -15,4 +15,4 @@ value := operations.CreateFirewallTypeFirewalls
 
 | Name                          | Value                         |
 | ----------------------------- | ----------------------------- |
-| `CreateFirewallTypeFirewalls` | firewalls                     |
+| `CreateBaselineTypeBaselines` | baselines                     |

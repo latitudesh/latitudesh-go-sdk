@@ -91,7 +91,7 @@ func main() {
         Data: &operations.CreateTagTagsData{
             Type: operations.CreateTagTagsTypeTags.ToPointer(),
             Attributes: &operations.CreateTagTagsAttributes{
-                Name: latitudeshgosdk.Pointer("Tag Name"),
+                Name: "Tag Name",
                 Description: latitudeshgosdk.Pointer("Tag Description"),
                 Color: latitudeshgosdk.Pointer("#bebebe"),
             },
@@ -190,7 +190,7 @@ func main() {
         Data: &operations.CreateTagTagsData{
             Type: operations.CreateTagTagsTypeTags.ToPointer(),
             Attributes: &operations.CreateTagTagsAttributes{
-                Name: latitudeshgosdk.Pointer("Tag Name"),
+                Name: "Tag Name",
                 Description: latitudeshgosdk.Pointer(""),
             },
         },
@@ -228,7 +228,7 @@ func main() {
         Data: &operations.CreateTagTagsData{
             Type: operations.CreateTagTagsTypeTags.ToPointer(),
             Attributes: &operations.CreateTagTagsAttributes{
-                Name: latitudeshgosdk.Pointer("Tag Name"),
+                Name: "Tag Name",
                 Description: latitudeshgosdk.Pointer("Tag Description"),
                 Color: latitudeshgosdk.Pointer("bebebe"),
             },
@@ -267,7 +267,7 @@ func main() {
         Data: &operations.CreateTagTagsData{
             Type: operations.CreateTagTagsTypeTags.ToPointer(),
             Attributes: &operations.CreateTagTagsAttributes{
-                Name: latitudeshgosdk.Pointer("Tag Name"),
+                Name: "Tag Name",
                 Description: latitudeshgosdk.Pointer("lj553vy8r5j831s7dp78fscnq4z0iv9jjwtkeudrpsdsefghd2w3cd6b5qb3knpq6bin7uurf5qj1ya4xd2yhyzv6o4krqirha1aoubs0nvc04jd21hdp9etq6g3a4o7vb8ol0avqc2j4hlbw5o6yqxa2vsm9jhyf5kt9wy78gxr7jlaol3bxe18xau5fcff3b9qjmy14b2nw5tjynjefh1kjdmfmsn0wu1tg32mr563ndefj3y24j0cyyrlbl7b"),
                 Color: latitudeshgosdk.Pointer("#bebebe"),
             },
@@ -306,7 +306,7 @@ func main() {
         Data: &operations.CreateTagTagsData{
             Type: operations.CreateTagTagsTypeTags.ToPointer(),
             Attributes: &operations.CreateTagTagsAttributes{
-                Name: latitudeshgosdk.Pointer("Argon"),
+                Name: "Argon",
                 Description: latitudeshgosdk.Pointer("Tag Description"),
                 Color: latitudeshgosdk.Pointer("#bebebe"),
             },

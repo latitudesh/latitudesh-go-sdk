@@ -2,7 +2,7 @@
 
 package latitudeshgosdk
 
-// Generated from OpenAPI doc version 2023-06-01 and generator version 2.924.0
+// Generated from OpenAPI doc version 2023-06-01 and generator version 2.926.2
 
 import (
 	"context"
@@ -50,8 +50,10 @@ func Pointer[T any](v T) *T { return &v }
 
 // Latitudesh - Latitude.sh API: The Latitude.sh API is a RESTful API to manage your Latitude.sh account. It allows you to perform the same actions as the Latitude.sh dashboard.
 type Latitudesh struct {
-	SDKVersion             string
-	APIKeys                *APIKeys
+	SDKVersion string
+	APIKeys    *APIKeys
+	// Preview. Available to teams with the `baselines_api` feature flag. The shape of these endpoints may change before general availability.
+	BaselinesPreview       *BaselinesPreview
 	Billing                *Billing
 	Events                 *Events
 	Firewalls              *Firewalls
@@ -169,9 +171,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Latitudesh {
 	sdk := &Latitudesh{
-		SDKVersion: "1.19.2",
+		SDKVersion: "1.19.3",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 1.19.2 2.924.0 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
+			UserAgent:  "speakeasy-sdk/go 1.19.3 2.926.2 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
 			ServerList: ServerList,
 			ServerVariables: []map[string]string{
 				{
@@ -208,6 +210,7 @@ func New(opts ...SDKOption) *Latitudesh {
 	}
 
 	sdk.APIKeys = newAPIKeys(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.BaselinesPreview = newBaselinesPreview(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Billing = newBilling(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Events = newEvents(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Firewalls = newFirewalls(sdk, sdk.sdkConfiguration, sdk.hooks)

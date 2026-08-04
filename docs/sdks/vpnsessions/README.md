@@ -122,8 +122,8 @@ func main() {
     res, err := s.VpnSessions.Create(ctx, operations.PostVpnSessionVpnSessionsRequestBody{
         Data: &operations.PostVpnSessionVpnSessionsData{
             Attributes: &operations.PostVpnSessionVpnSessionsAttributes{
-                Site: operations.PostVpnSessionVpnSessionsSiteSao.ToPointer(),
-                ServerID: latitudeshgosdk.Pointer("sv_LMmAD8wyqwop2"),
+                Site: operations.PostVpnSessionVpnSessionsSiteSao,
+                ServerID: "sv_LMmAD8wyqwop2",
             },
         },
     })
@@ -159,8 +159,8 @@ func main() {
     res, err := s.VpnSessions.Create(ctx, operations.PostVpnSessionVpnSessionsRequestBody{
         Data: &operations.PostVpnSessionVpnSessionsData{
             Attributes: &operations.PostVpnSessionVpnSessionsAttributes{
-                Site: operations.PostVpnSessionVpnSessionsSiteSyd.ToPointer(),
-                ServerID: latitudeshgosdk.Pointer("sv_GnzRD5BYOM5yw"),
+                Site: operations.PostVpnSessionVpnSessionsSiteSyd,
+                ServerID: "sv_GnzRD5BYOM5yw",
             },
         },
     })

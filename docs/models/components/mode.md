@@ -18,3 +18,4 @@ value := components.ModeRouted
 | Name         | Value        |
 | ------------ | ------------ |
 | `ModeRouted` | routed       |
+| `ModeBgp`    | bgp          |

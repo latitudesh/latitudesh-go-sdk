@@ -34,7 +34,7 @@ func (e *CreateTagTagsType) UnmarshalJSON(data []byte) error {
 
 type CreateTagTagsAttributes struct {
 	// Name of the Tag
-	Name *string `json:"name,omitempty"`
+	Name string `json:"name"`
 	// Description of the Tag
 	Description *string `json:"description,omitempty"`
 	// Color of the Tag
@@ -52,9 +52,9 @@ func (c *CreateTagTagsAttributes) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (c *CreateTagTagsAttributes) GetName() *string {
+func (c *CreateTagTagsAttributes) GetName() string {
 	if c == nil {
-		return nil
+		return ""
 	}
 	return c.Name
 }

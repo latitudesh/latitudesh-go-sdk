@@ -1,0 +1,10 @@
+# BaselineData
+
+
+## Fields
+
+| Field                                                                                   | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `ID`                                                                                    | `*string`                                                                               | :heavy_minus_sign:                                                                      | N/A                                                                                     |
+| `Type`                                                                                  | [*components.BaselineDataType](../../models/components/baselinedatatype.md)             | :heavy_minus_sign:                                                                      | N/A                                                                                     |
+| `Attributes`                                                                            | [*components.BaselineDataAttributes](../../models/components/baselinedataattributes.md) | :heavy_minus_sign:                                                                      | N/A                                                                                     |

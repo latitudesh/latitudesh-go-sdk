@@ -512,11 +512,11 @@ func main() {
         Data: &operations.CreateServerServersData{
             Type: operations.CreateServerServersTypeServers,
             Attributes: &operations.CreateServerServersAttributes{
-                Project: latitudeshgosdk.Pointer("proj_lxWpD699qm6rk"),
-                Plan: operations.CreateServerPlanC2SmallX86.ToPointer(),
-                Site: operations.CreateServerSiteAsh.ToPointer(),
-                OperatingSystem: operations.CreateServerOperatingSystemUbuntu2204X64Lts.ToPointer(),
-                Hostname: latitudeshgosdk.Pointer("BRC1"),
+                Project: "proj_lxWpD699qm6rk",
+                Plan: operations.CreateServerPlanC2SmallX86,
+                Site: operations.CreateServerSiteAsh,
+                OperatingSystem: operations.CreateServerOperatingSystemUbuntu2204X64Lts,
+                Hostname: "BRC1",
             },
         },
     })
@@ -553,11 +553,11 @@ func main() {
         Data: &operations.CreateServerServersData{
             Type: operations.CreateServerServersTypeServers,
             Attributes: &operations.CreateServerServersAttributes{
-                Project: latitudeshgosdk.Pointer("proj_kjQwdEMXdYNVP"),
-                Plan: operations.CreateServerPlanC2SmallX86.ToPointer(),
-                Site: operations.CreateServerSiteSao.ToPointer(),
-                OperatingSystem: operations.CreateServerOperatingSystemUbuntu2204X64Lts.ToPointer(),
-                Hostname: latitudeshgosdk.Pointer("BRC1"),
+                Project: "proj_kjQwdEMXdYNVP",
+                Plan: operations.CreateServerPlanC2SmallX86,
+                Site: operations.CreateServerSiteSao,
+                OperatingSystem: operations.CreateServerOperatingSystemUbuntu2204X64Lts,
+                Hostname: "BRC1",
                 Billing: operations.CreateServerBillingMonthly.ToPointer(),
             },
         },
@@ -594,7 +594,13 @@ func main() {
     res, err := s.Servers.Create(ctx, operations.CreateServerServersRequestBody{
         Data: &operations.CreateServerServersData{
             Type: operations.CreateServerServersTypeServers,
-            Attributes: &operations.CreateServerServersAttributes{},
+            Attributes: &operations.CreateServerServersAttributes{
+                Project: "<value>",
+                Plan: operations.CreateServerPlanM4MetalSmall,
+                Site: operations.CreateServerSiteAsh,
+                OperatingSystem: operations.CreateServerOperatingSystemUbuntu2004X64Lts,
+                Hostname: "amused-shadowbox.com",
+            },
         },
     })
     if err != nil {
@@ -630,11 +636,11 @@ func main() {
         Data: &operations.CreateServerServersData{
             Type: operations.CreateServerServersTypeServers,
             Attributes: &operations.CreateServerServersAttributes{
-                Project: latitudeshgosdk.Pointer("proj_RMLydp9XqQKr1"),
-                Plan: operations.CreateServerPlanC2SmallX86.ToPointer(),
-                Site: operations.CreateServerSiteSao.ToPointer(),
-                OperatingSystem: operations.CreateServerOperatingSystemUbuntu2204X64Lts.ToPointer(),
-                Hostname: latitudeshgosdk.Pointer("BRC1"),
+                Project: "proj_RMLydp9XqQKr1",
+                Plan: operations.CreateServerPlanC2SmallX86,
+                Site: operations.CreateServerSiteSao,
+                OperatingSystem: operations.CreateServerOperatingSystemUbuntu2204X64Lts,
+                Hostname: "BRC1",
                 SSHKeys: []string{
                     "ssh_93YjJOLydvZ87",
                 },
@@ -1644,7 +1650,7 @@ func main() {
         Data: operations.CreateServerOutOfBandServersData{
             Type: operations.CreateServerOutOfBandServersTypeOutOfBand,
             Attributes: &operations.CreateServerOutOfBandServersAttributes{
-                SSHKeyID: latitudeshgosdk.Pointer("ssh_3YjJOLMydvZ87"),
+                SSHKeyID: "ssh_3YjJOLMydvZ87",
             },
         },
     })
@@ -1681,7 +1687,7 @@ func main() {
         Data: operations.CreateServerOutOfBandServersData{
             Type: operations.CreateServerOutOfBandServersTypeOutOfBand,
             Attributes: &operations.CreateServerOutOfBandServersAttributes{
-                SSHKeyID: latitudeshgosdk.Pointer("ssh_aKXgRdR3qv9k5"),
+                SSHKeyID: "ssh_aKXgRdR3qv9k5",
             },
         },
     })
@@ -1718,7 +1724,7 @@ func main() {
         Data: operations.CreateServerOutOfBandServersData{
             Type: operations.CreateServerOutOfBandServersTypeOutOfBand,
             Attributes: &operations.CreateServerOutOfBandServersAttributes{
-                SSHKeyID: latitudeshgosdk.Pointer("ssh_m1R3zq2bqWxyn"),
+                SSHKeyID: "ssh_m1R3zq2bqWxyn",
             },
         },
     })
@@ -1755,7 +1761,7 @@ func main() {
         Data: operations.CreateServerOutOfBandServersData{
             Type: operations.CreateServerOutOfBandServersTypeOutOfBand,
             Attributes: &operations.CreateServerOutOfBandServersAttributes{
-                SSHKeyID: latitudeshgosdk.Pointer("ssh_vGMy1DbgON50m"),
+                SSHKeyID: "ssh_vGMy1DbgON50m",
             },
         },
     })

@@ -70,20 +70,20 @@ func (e *PostVpnSessionVpnSessionsSite) IsExact() bool {
 }
 
 type PostVpnSessionVpnSessionsAttributes struct {
-	Site     *PostVpnSessionVpnSessionsSite `json:"site,omitempty"`
-	ServerID *string                        `json:"server_id,omitempty"`
+	Site     PostVpnSessionVpnSessionsSite `json:"site"`
+	ServerID string                        `json:"server_id"`
 }
 
-func (p *PostVpnSessionVpnSessionsAttributes) GetSite() *PostVpnSessionVpnSessionsSite {
+func (p *PostVpnSessionVpnSessionsAttributes) GetSite() PostVpnSessionVpnSessionsSite {
 	if p == nil {
-		return nil
+		return PostVpnSessionVpnSessionsSite("")
 	}
 	return p.Site
 }
 
-func (p *PostVpnSessionVpnSessionsAttributes) GetServerID() *string {
+func (p *PostVpnSessionVpnSessionsAttributes) GetServerID() string {
 	if p == nil {
-		return nil
+		return ""
 	}
 	return p.ServerID
 }

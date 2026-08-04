@@ -61,6 +61,7 @@ type Mode string
 
 const (
 	ModeRouted Mode = "routed"
+	ModeBgp    Mode = "bgp"
 )
 
 func (e Mode) ToPointer() *Mode {
@@ -73,6 +74,8 @@ func (e *Mode) UnmarshalJSON(data []byte) error {
 	}
 	switch v {
 	case "routed":
+		fallthrough
+	case "bgp":
 		*e = Mode(v)
 		return nil
 	default:
@@ -84,6 +87,7 @@ func (e *Mode) UnmarshalJSON(data []byte) error {
 type Status string
 
 const (
+	StatusPending     Status = "pending"
 	StatusConfiguring Status = "configuring"
 	StatusActive      Status = "active"
 	StatusMoving      Status = "moving"
@@ -100,6 +104,8 @@ func (e *Status) UnmarshalJSON(data []byte) error {
 		return err
 	}
 	switch v {
+	case "pending":
+		fallthrough
 	case "configuring":
 		fallthrough
 	case "active":

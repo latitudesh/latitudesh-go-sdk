@@ -36,17 +36,17 @@ func (e *DeployConfigRole) UnmarshalJSON(data []byte) error {
 	}
 }
 
-type RaidLevel string
+type DeployConfigRaidLevel string
 
 const (
-	RaidLevelRaid0 RaidLevel = "raid-0"
-	RaidLevelRaid1 RaidLevel = "raid-1"
+	DeployConfigRaidLevelRaid0 DeployConfigRaidLevel = "raid-0"
+	DeployConfigRaidLevelRaid1 DeployConfigRaidLevel = "raid-1"
 )
 
-func (e RaidLevel) ToPointer() *RaidLevel {
+func (e DeployConfigRaidLevel) ToPointer() *DeployConfigRaidLevel {
 	return &e
 }
-func (e *RaidLevel) UnmarshalJSON(data []byte) error {
+func (e *DeployConfigRaidLevel) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -55,24 +55,24 @@ func (e *RaidLevel) UnmarshalJSON(data []byte) error {
 	case "raid-0":
 		fallthrough
 	case "raid-1":
-		*e = RaidLevel(v)
+		*e = DeployConfigRaidLevel(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for RaidLevel: %v", v)
+		return fmt.Errorf("invalid value for DeployConfigRaidLevel: %v", v)
 	}
 }
 
-type Filesystem string
+type DeployConfigFilesystem string
 
 const (
-	FilesystemExt4 Filesystem = "ext4"
-	FilesystemXfs  Filesystem = "xfs"
+	DeployConfigFilesystemExt4 DeployConfigFilesystem = "ext4"
+	DeployConfigFilesystemXfs  DeployConfigFilesystem = "xfs"
 )
 
-func (e Filesystem) ToPointer() *Filesystem {
+func (e DeployConfigFilesystem) ToPointer() *DeployConfigFilesystem {
 	return &e
 }
-func (e *Filesystem) UnmarshalJSON(data []byte) error {
+func (e *DeployConfigFilesystem) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -81,19 +81,19 @@ func (e *Filesystem) UnmarshalJSON(data []byte) error {
 	case "ext4":
 		fallthrough
 	case "xfs":
-		*e = Filesystem(v)
+		*e = DeployConfigFilesystem(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for Filesystem: %v", v)
+		return fmt.Errorf("invalid value for DeployConfigFilesystem: %v", v)
 	}
 }
 
 type DiskLayout struct {
-	Count      int64            `json:"count"`
-	Role       DeployConfigRole `json:"role"`
-	RaidLevel  *RaidLevel       `json:"raid_level,omitempty"`
-	Filesystem *Filesystem      `json:"filesystem,omitempty"`
-	MountPoint *string          `json:"mount_point,omitempty"`
+	Count      int64                   `json:"count"`
+	Role       DeployConfigRole        `json:"role"`
+	RaidLevel  *DeployConfigRaidLevel  `json:"raid_level,omitempty"`
+	Filesystem *DeployConfigFilesystem `json:"filesystem,omitempty"`
+	MountPoint *string                 `json:"mount_point,omitempty"`
 }
 
 func (d *DiskLayout) GetCount() int64 {
@@ -110,14 +110,14 @@ func (d *DiskLayout) GetRole() DeployConfigRole {
 	return d.Role
 }
 
-func (d *DiskLayout) GetRaidLevel() *RaidLevel {
+func (d *DiskLayout) GetRaidLevel() *DeployConfigRaidLevel {
 	if d == nil {
 		return nil
 	}
 	return d.RaidLevel
 }
 
-func (d *DiskLayout) GetFilesystem() *Filesystem {
+func (d *DiskLayout) GetFilesystem() *DeployConfigFilesystem {
 	if d == nil {
 		return nil
 	}

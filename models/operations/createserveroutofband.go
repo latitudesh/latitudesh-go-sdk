@@ -33,12 +33,12 @@ func (e *CreateServerOutOfBandServersType) UnmarshalJSON(data []byte) error {
 
 type CreateServerOutOfBandServersAttributes struct {
 	// SSH Key ID to set for out of band
-	SSHKeyID *string `json:"ssh_key_id,omitempty"`
+	SSHKeyID string `json:"ssh_key_id"`
 }
 
-func (c *CreateServerOutOfBandServersAttributes) GetSSHKeyID() *string {
+func (c *CreateServerOutOfBandServersAttributes) GetSSHKeyID() string {
 	if c == nil {
-		return nil
+		return ""
 	}
 	return c.SSHKeyID
 }

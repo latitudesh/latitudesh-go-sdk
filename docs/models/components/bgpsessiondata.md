@@ -1,0 +1,10 @@
+# BgpSessionData
+
+
+## Fields
+
+| Field                                                                                       | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `ID`                                                                                        | `*string`                                                                                   | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `Type`                                                                                      | [*components.BgpSessionDataType](../../models/components/bgpsessiondatatype.md)             | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `Attributes`                                                                                | [*components.BgpSessionDataAttributes](../../models/components/bgpsessiondataattributes.md) | :heavy_minus_sign:                                                                          | N/A                                                                                         |

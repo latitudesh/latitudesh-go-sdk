@@ -105,9 +105,9 @@ func main() {
     )
 
     res, err := s.Firewalls.Create(ctx, operations.CreateFirewallFirewallsRequestBody{
-        Data: operations.CreateFirewallData{
-            Type: operations.CreateFirewallTypeFirewalls,
-            Attributes: &operations.CreateFirewallAttributes{
+        Data: operations.CreateFirewallFirewallsData{
+            Type: operations.CreateFirewallFirewallsTypeFirewalls,
+            Attributes: &operations.CreateFirewallFirewallsAttributes{
                 Name: "my-firewall",
                 Project: "heavy-duty-copper-watch",
                 Rules: []operations.CreateFirewallRules{
@@ -165,9 +165,9 @@ func main() {
     )
 
     res, err := s.Firewalls.Create(ctx, operations.CreateFirewallFirewallsRequestBody{
-        Data: operations.CreateFirewallData{
-            Type: operations.CreateFirewallTypeFirewalls,
-            Attributes: &operations.CreateFirewallAttributes{
+        Data: operations.CreateFirewallFirewallsData{
+            Type: operations.CreateFirewallFirewallsTypeFirewalls,
+            Attributes: &operations.CreateFirewallFirewallsAttributes{
                 Name: "<value>",
                 Project: "<value>",
             },
@@ -203,9 +203,9 @@ func main() {
     )
 
     res, err := s.Firewalls.Create(ctx, operations.CreateFirewallFirewallsRequestBody{
-        Data: operations.CreateFirewallData{
-            Type: operations.CreateFirewallTypeFirewalls,
-            Attributes: &operations.CreateFirewallAttributes{
+        Data: operations.CreateFirewallFirewallsData{
+            Type: operations.CreateFirewallFirewallsTypeFirewalls,
+            Attributes: &operations.CreateFirewallFirewallsAttributes{
                 Name: "my-firewall",
                 Project: "sleek-steel-shirt",
                 Rules: []operations.CreateFirewallRules{

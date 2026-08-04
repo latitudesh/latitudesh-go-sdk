@@ -9,6 +9,10 @@
 * [GetElasticIP](#getelasticip) - Retrieve an Elastic IP
 * [DeleteElasticIP](#deleteelasticip) - Release an Elastic IP
 * [UpdateElasticIP](#updateelasticip) - Move an Elastic IP
+* [ListElasticIPBgpSessions](#listelasticipbgpsessions) - List BGP sessions
+* [CreateElasticIPBgpSession](#createelasticipbgpsession) - Create a BGP session
+* [GetElasticIPBgpSession](#getelasticipbgpsession) - Retrieve a BGP session
+* [DeleteElasticIPBgpSession](#deleteelasticipbgpsession) - Delete a BGP session
 
 ## ListElasticIps
 
@@ -105,10 +109,6 @@ func main() {
     res, err := s.ElasticIps.CreateElasticIP(ctx, components.CreateElasticIP{
         Data: components.CreateElasticIPData{
             Type: components.CreateElasticIPTypeElasticIps,
-            Attributes: components.CreateElasticIPAttributes{
-                ProjectID: "<id>",
-                ServerID: "<id>",
-            },
         },
     })
     if err != nil {
@@ -143,9 +143,9 @@ func main() {
     res, err := s.ElasticIps.CreateElasticIP(ctx, components.CreateElasticIP{
         Data: components.CreateElasticIPData{
             Type: components.CreateElasticIPTypeElasticIps,
-            Attributes: components.CreateElasticIPAttributes{
+            Attributes: &components.CreateElasticIPAttributes{
+                ServerID: latitudeshgosdk.Pointer("sv_2GmAlJ6BXlK1a"),
                 ProjectID: "proj_AoW6vRnwkvLn0",
-                ServerID: "sv_2GmAlJ6BXlK1a",
             },
         },
     })
@@ -181,9 +181,9 @@ func main() {
     res, err := s.ElasticIps.CreateElasticIP(ctx, components.CreateElasticIP{
         Data: components.CreateElasticIPData{
             Type: components.CreateElasticIPTypeElasticIps,
-            Attributes: components.CreateElasticIPAttributes{
+            Attributes: &components.CreateElasticIPAttributes{
+                ServerID: latitudeshgosdk.Pointer("<id>"),
                 ProjectID: "<id>",
-                ServerID: "<id>",
             },
         },
     })
@@ -219,10 +219,6 @@ func main() {
     res, err := s.ElasticIps.CreateElasticIP(ctx, components.CreateElasticIP{
         Data: components.CreateElasticIPData{
             Type: components.CreateElasticIPTypeElasticIps,
-            Attributes: components.CreateElasticIPAttributes{
-                ProjectID: "<id>",
-                ServerID: "<id>",
-            },
         },
     })
     if err != nil {
@@ -257,10 +253,6 @@ func main() {
     res, err := s.ElasticIps.CreateElasticIP(ctx, components.CreateElasticIP{
         Data: components.CreateElasticIPData{
             Type: components.CreateElasticIPTypeElasticIps,
-            Attributes: components.CreateElasticIPAttributes{
-                ProjectID: "<id>",
-                ServerID: "<id>",
-            },
         },
     })
     if err != nil {
@@ -295,10 +287,6 @@ func main() {
     res, err := s.ElasticIps.CreateElasticIP(ctx, components.CreateElasticIP{
         Data: components.CreateElasticIPData{
             Type: components.CreateElasticIPTypeElasticIps,
-            Attributes: components.CreateElasticIPAttributes{
-                ProjectID: "<id>",
-                ServerID: "<id>",
-            },
         },
     })
     if err != nil {
@@ -333,10 +321,6 @@ func main() {
     res, err := s.ElasticIps.CreateElasticIP(ctx, components.CreateElasticIP{
         Data: components.CreateElasticIPData{
             Type: components.CreateElasticIPTypeElasticIps,
-            Attributes: components.CreateElasticIPAttributes{
-                ProjectID: "<id>",
-                ServerID: "<id>",
-            },
         },
     })
     if err != nil {
@@ -611,3 +595,223 @@ func main() {
 | ------------------------ | ------------------------ | ------------------------ |
 | components.ErrorObject   | 404, 422                 | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
+
+## ListElasticIPBgpSessions
+
+List the BGP sessions announcing an elastic IP
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="list-elastic-ip-bgp-sessions" method="get" path="/elastic_ips/{elastic_ip_id}/bgp_sessions" example="Success" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.ElasticIps.ListElasticIPBgpSessions(ctx, "ueip_v9BVDaGvdRm1W")
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.BgpSessions != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `elasticIPID`                                            | `string`                                                 | :heavy_check_mark:                                       | N/A                                                      |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+
+### Response
+
+**[*operations.ListElasticIPBgpSessionsResponse](../../models/operations/listelasticipbgpsessionsresponse.md), error**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
+
+## CreateElasticIPBgpSession
+
+Announce an elastic IP from a server over BGP
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="create-elastic-ip-bgp-session" method="post" path="/elastic_ips/{elastic_ip_id}/bgp_sessions" example="Accepted" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.ElasticIps.CreateElasticIPBgpSession(ctx, "ueip_059EqY7kOQj8p", components.CreateBgpSession{
+        Data: components.CreateBgpSessionData{
+            Type: components.CreateBgpSessionTypeBgpSessions,
+            Attributes: &components.CreateBgpSessionAttributes{
+                ServerID: "sv_A05EdQp4OvKYQ",
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.BgpSession != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `ctx`                                                                      | [context.Context](https://pkg.go.dev/context#Context)                      | :heavy_check_mark:                                                         | The context to use for the request.                                        |
+| `elasticIPID`                                                              | `string`                                                                   | :heavy_check_mark:                                                         | N/A                                                                        |
+| `createBgpSession`                                                         | [components.CreateBgpSession](../../models/components/createbgpsession.md) | :heavy_check_mark:                                                         | N/A                                                                        |
+| `opts`                                                                     | [][operations.Option](../../models/operations/option.md)                   | :heavy_minus_sign:                                                         | The options for this request.                                              |
+
+### Response
+
+**[*operations.CreateElasticIPBgpSessionResponse](../../models/operations/createelasticipbgpsessionresponse.md), error**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
+
+## GetElasticIPBgpSession
+
+Retrieve a BGP session announcing an elastic IP
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="get-elastic-ip-bgp-session" method="get" path="/elastic_ips/{elastic_ip_id}/bgp_sessions/{id}" example="Success" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.ElasticIps.GetElasticIPBgpSession(ctx, "ueip_e8pKq015DWAob", "bgps_w49QDB9PqagKb")
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.BgpSession != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `elasticIPID`                                            | `string`                                                 | :heavy_check_mark:                                       | N/A                                                      |
+| `id`                                                     | `string`                                                 | :heavy_check_mark:                                       | N/A                                                      |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+
+### Response
+
+**[*operations.GetElasticIPBgpSessionResponse](../../models/operations/getelasticipbgpsessionresponse.md), error**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
+
+## DeleteElasticIPBgpSession
+
+Stop announcing an elastic IP from a server
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="delete-elastic-ip-bgp-session" method="delete" path="/elastic_ips/{elastic_ip_id}/bgp_sessions/{id}" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.ElasticIps.DeleteElasticIPBgpSession(ctx, "<id>", "<id>", nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `elasticIPID`                                            | `string`                                                 | :heavy_check_mark:                                       | N/A                                                      |
+| `id`                                                     | `string`                                                 | :heavy_check_mark:                                       | N/A                                                      |
+| `force`                                                  | `*bool`                                                  | :heavy_minus_sign:                                       | N/A                                                      |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+
+### Response
+
+**[*operations.DeleteElasticIPBgpSessionResponse](../../models/operations/deleteelasticipbgpsessionresponse.md), error**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
