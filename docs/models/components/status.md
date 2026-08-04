@@ -9,7 +9,7 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
-value := components.StatusConfiguring
+value := components.StatusPending
 ```
 
 
@@ -17,6 +17,7 @@ value := components.StatusConfiguring
 
 | Name                | Value               |
 | ------------------- | ------------------- |
+| `StatusPending`     | pending             |
 | `StatusConfiguring` | configuring         |
 | `StatusActive`      | active              |
 | `StatusMoving`      | moving              |

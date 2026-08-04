@@ -5,6 +5,7 @@ package components
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
 )
 
 type CreateElasticIPType string
@@ -30,11 +31,69 @@ func (e *CreateElasticIPType) UnmarshalJSON(data []byte) error {
 	}
 }
 
+// CreateElasticIPMode - How the elastic IP is delivered. Defaults to routed
+type CreateElasticIPMode string
+
+const (
+	CreateElasticIPModeRouted CreateElasticIPMode = "routed"
+	CreateElasticIPModeBgp    CreateElasticIPMode = "bgp"
+)
+
+func (e CreateElasticIPMode) ToPointer() *CreateElasticIPMode {
+	return &e
+}
+func (e *CreateElasticIPMode) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "routed":
+		fallthrough
+	case "bgp":
+		*e = CreateElasticIPMode(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for CreateElasticIPMode: %v", v)
+	}
+}
+
 type CreateElasticIPAttributes struct {
-	// The project ID or slug
+	// How the elastic IP is delivered. Defaults to routed
+	Mode *CreateElasticIPMode `default:"routed" json:"mode"`
+	// The server to assign the elastic IP to. Required in routed mode and rejected in bgp mode, which uses server_ids
+	ServerID *string `json:"server_id,omitempty"`
+	// The project to create the elastic IP in
 	ProjectID string `json:"project_id"`
-	// The server ID to assign the Elastic IP to
-	ServerID string `json:"server_id"`
+	// The servers that announce the elastic IP over BGP. Only used in bgp mode, where it may be omitted to allocate a VIP with no sessions
+	ServerIds []string `json:"server_ids,omitempty"`
+	// The site slug to allocate the elastic IP in. Only used in bgp mode, where it is required when no server_ids are given
+	Site *string `json:"site,omitempty"`
+}
+
+func (c CreateElasticIPAttributes) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
+}
+
+func (c *CreateElasticIPAttributes) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (c *CreateElasticIPAttributes) GetMode() *CreateElasticIPMode {
+	if c == nil {
+		return nil
+	}
+	return c.Mode
+}
+
+func (c *CreateElasticIPAttributes) GetServerID() *string {
+	if c == nil {
+		return nil
+	}
+	return c.ServerID
 }
 
 func (c *CreateElasticIPAttributes) GetProjectID() string {
@@ -44,16 +103,23 @@ func (c *CreateElasticIPAttributes) GetProjectID() string {
 	return c.ProjectID
 }
 
-func (c *CreateElasticIPAttributes) GetServerID() string {
+func (c *CreateElasticIPAttributes) GetServerIds() []string {
 	if c == nil {
-		return ""
+		return nil
 	}
-	return c.ServerID
+	return c.ServerIds
+}
+
+func (c *CreateElasticIPAttributes) GetSite() *string {
+	if c == nil {
+		return nil
+	}
+	return c.Site
 }
 
 type CreateElasticIPData struct {
-	Type       CreateElasticIPType       `json:"type"`
-	Attributes CreateElasticIPAttributes `json:"attributes"`
+	Type       CreateElasticIPType        `json:"type"`
+	Attributes *CreateElasticIPAttributes `json:"attributes,omitempty"`
 }
 
 func (c *CreateElasticIPData) GetType() CreateElasticIPType {
@@ -63,9 +129,9 @@ func (c *CreateElasticIPData) GetType() CreateElasticIPType {
 	return c.Type
 }
 
-func (c *CreateElasticIPData) GetAttributes() CreateElasticIPAttributes {
+func (c *CreateElasticIPData) GetAttributes() *CreateElasticIPAttributes {
 	if c == nil {
-		return CreateElasticIPAttributes{}
+		return nil
 	}
 	return c.Attributes
 }

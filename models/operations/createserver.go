@@ -359,15 +359,15 @@ func (e *CreateServerBilling) UnmarshalJSON(data []byte) error {
 
 type CreateServerServersAttributes struct {
 	// The project (ID or Slug) to deploy the server
-	Project *string `json:"project,omitempty"`
+	Project string `json:"project"`
 	// The plan slug to choose server from, defining the specs the server will have
-	Plan *CreateServerPlan `json:"plan,omitempty"`
+	Plan CreateServerPlan `json:"plan"`
 	// The site slug to deploy the server
-	Site *CreateServerSite `json:"site,omitempty"`
+	Site CreateServerSite `json:"site"`
 	// The operating system slug for the new server
-	OperatingSystem *CreateServerOperatingSystem `json:"operating_system,omitempty"`
+	OperatingSystem CreateServerOperatingSystem `json:"operating_system"`
 	// The server hostname
-	Hostname *string `json:"hostname,omitempty"`
+	Hostname string `json:"hostname"`
 	// SSH Keys to set on the server
 	SSHKeys []string `json:"ssh_keys,omitempty"`
 	// User data ID to set on the server. This is a custom script that will run after the deploy
@@ -383,37 +383,37 @@ type CreateServerServersAttributes struct {
 	Billing *CreateServerBilling `json:"billing,omitempty"`
 }
 
-func (c *CreateServerServersAttributes) GetProject() *string {
+func (c *CreateServerServersAttributes) GetProject() string {
 	if c == nil {
-		return nil
+		return ""
 	}
 	return c.Project
 }
 
-func (c *CreateServerServersAttributes) GetPlan() *CreateServerPlan {
+func (c *CreateServerServersAttributes) GetPlan() CreateServerPlan {
 	if c == nil {
-		return nil
+		return CreateServerPlan("")
 	}
 	return c.Plan
 }
 
-func (c *CreateServerServersAttributes) GetSite() *CreateServerSite {
+func (c *CreateServerServersAttributes) GetSite() CreateServerSite {
 	if c == nil {
-		return nil
+		return CreateServerSite("")
 	}
 	return c.Site
 }
 
-func (c *CreateServerServersAttributes) GetOperatingSystem() *CreateServerOperatingSystem {
+func (c *CreateServerServersAttributes) GetOperatingSystem() CreateServerOperatingSystem {
 	if c == nil {
-		return nil
+		return CreateServerOperatingSystem("")
 	}
 	return c.OperatingSystem
 }
 
-func (c *CreateServerServersAttributes) GetHostname() *string {
+func (c *CreateServerServersAttributes) GetHostname() string {
 	if c == nil {
-		return nil
+		return ""
 	}
 	return c.Hostname
 }

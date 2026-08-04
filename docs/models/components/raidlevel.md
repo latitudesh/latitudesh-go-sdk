@@ -1,5 +1,7 @@
 # RaidLevel
 
+RAID level for the group. Only valid for the 'os' and 'storage' roles
+
 ## Example Usage
 
 ```go

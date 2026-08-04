@@ -32,12 +32,12 @@ func (e *VirtualMachineBackupPayloadType) UnmarshalJSON(data []byte) error {
 
 type VirtualMachineBackupPayloadAttributes struct {
 	// Virtual machine id to back up. Required on the top-level `POST /virtual_machine_backups`; taken from the path when nested under a VM.
-	VirtualMachine *string `json:"virtual_machine,omitempty"`
+	VirtualMachine string `json:"virtual_machine"`
 }
 
-func (v *VirtualMachineBackupPayloadAttributes) GetVirtualMachine() *string {
+func (v *VirtualMachineBackupPayloadAttributes) GetVirtualMachine() string {
 	if v == nil {
-		return nil
+		return ""
 	}
 	return v.VirtualMachine
 }

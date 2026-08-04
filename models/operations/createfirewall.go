@@ -8,26 +8,26 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
-type CreateFirewallType string
+type CreateFirewallFirewallsType string
 
 const (
-	CreateFirewallTypeFirewalls CreateFirewallType = "firewalls"
+	CreateFirewallFirewallsTypeFirewalls CreateFirewallFirewallsType = "firewalls"
 )
 
-func (e CreateFirewallType) ToPointer() *CreateFirewallType {
+func (e CreateFirewallFirewallsType) ToPointer() *CreateFirewallFirewallsType {
 	return &e
 }
-func (e *CreateFirewallType) UnmarshalJSON(data []byte) error {
+func (e *CreateFirewallFirewallsType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "firewalls":
-		*e = CreateFirewallType(v)
+		*e = CreateFirewallFirewallsType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateFirewallType: %v", v)
+		return fmt.Errorf("invalid value for CreateFirewallFirewallsType: %v", v)
 	}
 }
 
@@ -104,46 +104,46 @@ func (c *CreateFirewallRules) GetDescription() *string {
 	return c.Description
 }
 
-type CreateFirewallAttributes struct {
+type CreateFirewallFirewallsAttributes struct {
 	Name    string                `json:"name"`
 	Project string                `json:"project"`
 	Rules   []CreateFirewallRules `json:"rules,omitempty"`
 }
 
-func (c *CreateFirewallAttributes) GetName() string {
+func (c *CreateFirewallFirewallsAttributes) GetName() string {
 	if c == nil {
 		return ""
 	}
 	return c.Name
 }
 
-func (c *CreateFirewallAttributes) GetProject() string {
+func (c *CreateFirewallFirewallsAttributes) GetProject() string {
 	if c == nil {
 		return ""
 	}
 	return c.Project
 }
 
-func (c *CreateFirewallAttributes) GetRules() []CreateFirewallRules {
+func (c *CreateFirewallFirewallsAttributes) GetRules() []CreateFirewallRules {
 	if c == nil {
 		return nil
 	}
 	return c.Rules
 }
 
-type CreateFirewallData struct {
-	Type       CreateFirewallType        `json:"type"`
-	Attributes *CreateFirewallAttributes `json:"attributes,omitempty"`
+type CreateFirewallFirewallsData struct {
+	Type       CreateFirewallFirewallsType        `json:"type"`
+	Attributes *CreateFirewallFirewallsAttributes `json:"attributes,omitempty"`
 }
 
-func (c *CreateFirewallData) GetType() CreateFirewallType {
+func (c *CreateFirewallFirewallsData) GetType() CreateFirewallFirewallsType {
 	if c == nil {
-		return CreateFirewallType("")
+		return CreateFirewallFirewallsType("")
 	}
 	return c.Type
 }
 
-func (c *CreateFirewallData) GetAttributes() *CreateFirewallAttributes {
+func (c *CreateFirewallFirewallsData) GetAttributes() *CreateFirewallFirewallsAttributes {
 	if c == nil {
 		return nil
 	}
@@ -151,12 +151,12 @@ func (c *CreateFirewallData) GetAttributes() *CreateFirewallAttributes {
 }
 
 type CreateFirewallFirewallsRequestBody struct {
-	Data CreateFirewallData `json:"data"`
+	Data CreateFirewallFirewallsData `json:"data"`
 }
 
-func (c *CreateFirewallFirewallsRequestBody) GetData() CreateFirewallData {
+func (c *CreateFirewallFirewallsRequestBody) GetData() CreateFirewallFirewallsData {
 	if c == nil {
-		return CreateFirewallData{}
+		return CreateFirewallFirewallsData{}
 	}
 	return c.Data
 }

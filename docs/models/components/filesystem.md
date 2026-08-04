@@ -1,5 +1,7 @@
 # Filesystem
 
+Filesystem to format the group with. Only valid for the 'storage' role
+
 ## Example Usage
 
 ```go
@@ -16,4 +18,3 @@ value := components.FilesystemExt4
 | Name             | Value            |
 | ---------------- | ---------------- |
 | `FilesystemExt4` | ext4             |
-| `FilesystemXfs`  | xfs              |

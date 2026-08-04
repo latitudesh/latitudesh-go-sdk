@@ -125,6 +125,13 @@ func main() {
 * [Delete](docs/sdks/apikeys/README.md#delete) - Delete API key
 * [UpdateAPIKey](docs/sdks/apikeys/README.md#updateapikey) - Update API key settings
 
+### [BaselinesPreview](docs/sdks/baselinespreview/README.md)
+
+* [GetBaselines](docs/sdks/baselinespreview/README.md#getbaselines) - List baselines
+* [CreateBaseline](docs/sdks/baselinespreview/README.md#createbaseline) - Create baseline
+* [GetBaseline](docs/sdks/baselinespreview/README.md#getbaseline) - Retrieve baseline
+* [DestroyBaseline](docs/sdks/baselinespreview/README.md#destroybaseline) - Delete baseline
+
 ### [Billing](docs/sdks/billing/README.md)
 
 * [ListUsage](docs/sdks/billing/README.md#listusage) - Retrieve billing usage
@@ -144,6 +151,10 @@ func main() {
 * [GetElasticIP](docs/sdks/elasticips/README.md#getelasticip) - Retrieve an Elastic IP
 * [DeleteElasticIP](docs/sdks/elasticips/README.md#deleteelasticip) - Release an Elastic IP
 * [UpdateElasticIP](docs/sdks/elasticips/README.md#updateelasticip) - Move an Elastic IP
+* [ListElasticIPBgpSessions](docs/sdks/elasticips/README.md#listelasticipbgpsessions) - List BGP sessions
+* [CreateElasticIPBgpSession](docs/sdks/elasticips/README.md#createelasticipbgpsession) - Create a BGP session
+* [GetElasticIPBgpSession](docs/sdks/elasticips/README.md#getelasticipbgpsession) - Retrieve a BGP session
+* [DeleteElasticIPBgpSession](docs/sdks/elasticips/README.md#deleteelasticipbgpsession) - Delete a BGP session
 
 ### [Events](docs/sdks/events/README.md)
 
@@ -545,9 +556,9 @@ func main() {
 	res, err := s.ElasticIps.CreateElasticIP(ctx, components.CreateElasticIP{
 		Data: components.CreateElasticIPData{
 			Type: components.CreateElasticIPTypeElasticIps,
-			Attributes: components.CreateElasticIPAttributes{
+			Attributes: &components.CreateElasticIPAttributes{
+				ServerID:  latitudeshgosdk.Pointer("sv_2GmAlJ6BXlK1a"),
 				ProjectID: "proj_AoW6vRnwkvLn0",
-				ServerID:  "sv_2GmAlJ6BXlK1a",
 			},
 		},
 	})

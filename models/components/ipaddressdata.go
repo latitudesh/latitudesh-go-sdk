@@ -160,7 +160,7 @@ func (i *IPAddressDataRegion) GetLocation() *IPAddressDataLocation {
 	return i.Location
 }
 
-// Assignment - Server assignment information. Returns an empty object when the IP is not assigned to an active server (e.g., when the server is decommissioning or deleted).
+// Assignment - Server assignment information. Returns an empty object when the IP is not assigned to an active server (e.g., when the server is decommissioning or deleted). The hostname is null when the assigned server has no hostname set.
 type Assignment struct {
 	ServerID   *string `json:"server_id,omitempty"`
 	Hostname   *string `json:"hostname,omitempty"`
@@ -229,7 +229,7 @@ type IPAddressDataAttributes struct {
 	Project    *IPAddressDataProject        `json:"project,omitempty"`
 	Region     *IPAddressDataRegion         `json:"region,omitempty"`
 	Available  *bool                        `json:"available,omitempty"`
-	// Server assignment information. Returns an empty object when the IP is not assigned to an active server (e.g., when the server is decommissioning or deleted).
+	// Server assignment information. Returns an empty object when the IP is not assigned to an active server (e.g., when the server is decommissioning or deleted). The hostname is null when the assigned server has no hostname set.
 	Assignment *Assignment `json:"assignment,omitempty"`
 	// Elastic IP details. Returns an empty object when the IP is not an Elastic IP.
 	Elastic   *Elastic   `json:"elastic,omitempty"`
