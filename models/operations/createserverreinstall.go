@@ -264,6 +264,8 @@ type CreateServerReinstallServersAttributes struct {
 	Ipxe *string `json:"ipxe,omitempty"`
 	// Keep network boot enabled so the server iPXE-boots on every reboot instead of booting from disk. Only supported with the 'ipxe' operating system.
 	PersistentNetboot *bool `json:"persistent_netboot,omitempty"`
+	// ID of a customer prefix to bond this server to during the reinstall. The prefix must belong to the same project and be in the same location as the server, and must have at least one free IP address. Applies to this reinstall only; omit it to leave any existing bond unchanged.
+	PrefixID *string `json:"prefix_id,omitempty"`
 }
 
 func (c *CreateServerReinstallServersAttributes) GetOperatingSystem() *CreateServerReinstallServersOperatingSystem {
@@ -320,6 +322,13 @@ func (c *CreateServerReinstallServersAttributes) GetPersistentNetboot() *bool {
 		return nil
 	}
 	return c.PersistentNetboot
+}
+
+func (c *CreateServerReinstallServersAttributes) GetPrefixID() *string {
+	if c == nil {
+		return nil
+	}
+	return c.PrefixID
 }
 
 type CreateServerReinstallServersData struct {

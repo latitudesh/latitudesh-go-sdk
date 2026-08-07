@@ -43,6 +43,7 @@ type Limits struct {
 	VirtualMachine    *int64 `json:"virtual_machine,omitempty"`
 	VirtualMachineGpu *int64 `json:"virtual_machine_gpu,omitempty"`
 	ElasticIP         *int64 `json:"elastic_ip,omitempty"`
+	Prefix            *int64 `json:"prefix,omitempty"`
 	VirtualNetwork    *int64 `json:"virtual_network,omitempty"`
 	Database          *int64 `json:"database,omitempty"`
 	Filesystem        *int64 `json:"filesystem,omitempty"`
@@ -82,6 +83,13 @@ func (l *Limits) GetElasticIP() *int64 {
 		return nil
 	}
 	return l.ElasticIP
+}
+
+func (l *Limits) GetPrefix() *int64 {
+	if l == nil {
+		return nil
+	}
+	return l.Prefix
 }
 
 func (l *Limits) GetVirtualNetwork() *int64 {
