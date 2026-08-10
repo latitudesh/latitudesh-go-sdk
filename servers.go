@@ -3826,6 +3826,8 @@ func (s *Servers) Reinstall(ctx context.Context, serverID string, requestBody op
 	switch {
 	case httpRes.StatusCode == 201:
 		utils.DrainBody(httpRes)
+	case httpRes.StatusCode == 403:
+		fallthrough
 	case httpRes.StatusCode == 404:
 		fallthrough
 	case httpRes.StatusCode == 422:

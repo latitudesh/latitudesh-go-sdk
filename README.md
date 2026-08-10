@@ -225,6 +225,13 @@ func main() {
 
 * [List](docs/sdks/vm/README.md#list) - List VM plans
 
+### [Prefixes](docs/sdks/prefixes/README.md)
+
+* [GetPrefixes](docs/sdks/prefixes/README.md#getprefixes) - List networks
+* [CreatePrefix](docs/sdks/prefixes/README.md#createprefix) - Create a network
+* [GetPrefix](docs/sdks/prefixes/README.md#getprefix) - Retrieve a network
+* [DestroyPrefix](docs/sdks/prefixes/README.md#destroyprefix) - Delete a network
+
 ### [PrivateNetworks](docs/sdks/privatenetworks/README.md)
 
 * [List](docs/sdks/privatenetworks/README.md#list) - List VLANs

@@ -120,6 +120,19 @@ func (o *ObjectStorageDataRegion) GetCountry() *string {
 	return o.Country
 }
 
+// Credentials - S3 access credentials. Only included when `extra_fields[object_storages]=credentials` is requested and the requesting user is the bucket's creator.
+type Credentials struct {
+	// S3 access key for authentication
+	AccessKey *string `json:"access_key,omitempty"`
+}
+
+func (c *Credentials) GetAccessKey() *string {
+	if c == nil {
+		return nil
+	}
+	return c.AccessKey
+}
+
 type ObjectStorageDataAttributes struct {
 	// Display name of the object storage
 	Name *string `json:"name,omitempty"`
@@ -133,10 +146,6 @@ type ObjectStorageDataAttributes struct {
 	BucketName *string `json:"bucket_name,omitempty"`
 	// S3-compatible endpoint URL for accessing the bucket
 	Endpoint *string `json:"endpoint,omitempty"`
-	// S3 access key for authentication
-	AccessKey *string `json:"access_key,omitempty"`
-	// S3 secret key for authentication
-	SecretKey *string `json:"secret_key,omitempty"`
 	// Whether bucket versioning is enabled
 	Versioning *bool `json:"versioning,omitempty"`
 	// Whether object lock is enabled on the bucket
@@ -148,9 +157,11 @@ type ObjectStorageDataAttributes struct {
 	// How the bucket originated: `default` for buckets created through the API, or `synchronized` for buckets imported from the storage provider.
 	Source *string `json:"source,omitempty"`
 	// Region information where the object storage is located
-	Region  *ObjectStorageDataRegion `json:"region,omitempty"`
-	Project *ProjectInclude          `json:"project,omitempty"`
-	Team    *TeamInclude             `json:"team,omitempty"`
+	Region *ObjectStorageDataRegion `json:"region,omitempty"`
+	// S3 access credentials. Only included when `extra_fields[object_storages]=credentials` is requested and the requesting user is the bucket's creator.
+	Credentials *Credentials    `json:"credentials,omitempty"`
+	Project     *ProjectInclude `json:"project,omitempty"`
+	Team        *TeamInclude    `json:"team,omitempty"`
 }
 
 func (o ObjectStorageDataAttributes) MarshalJSON() ([]byte, error) {
@@ -206,20 +217,6 @@ func (o *ObjectStorageDataAttributes) GetEndpoint() *string {
 	return o.Endpoint
 }
 
-func (o *ObjectStorageDataAttributes) GetAccessKey() *string {
-	if o == nil {
-		return nil
-	}
-	return o.AccessKey
-}
-
-func (o *ObjectStorageDataAttributes) GetSecretKey() *string {
-	if o == nil {
-		return nil
-	}
-	return o.SecretKey
-}
-
 func (o *ObjectStorageDataAttributes) GetVersioning() *bool {
 	if o == nil {
 		return nil
@@ -260,6 +257,13 @@ func (o *ObjectStorageDataAttributes) GetRegion() *ObjectStorageDataRegion {
 		return nil
 	}
 	return o.Region
+}
+
+func (o *ObjectStorageDataAttributes) GetCredentials() *Credentials {
+	if o == nil {
+		return nil
+	}
+	return o.Credentials
 }
 
 func (o *ObjectStorageDataAttributes) GetProject() *ProjectInclude {

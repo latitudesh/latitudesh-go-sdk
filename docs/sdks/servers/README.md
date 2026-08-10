@@ -2457,6 +2457,40 @@ func main() {
     }
 }
 ```
+### Example Usage: FeatureNotEnabled
+
+<!-- UsageSnippet language="go" operationID="create-server-reinstall" method="post" path="/servers/{server_id}/reinstall" example="FeatureNotEnabled" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Servers.Reinstall(ctx, "<id>", operations.CreateServerReinstallServersRequestBody{
+        Data: operations.CreateServerReinstallServersData{
+            Type: operations.CreateServerReinstallServersTypeReinstalls,
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res != nil {
+        // handle response
+    }
+}
+```
 ### Example Usage: Forbidden
 
 <!-- UsageSnippet language="go" operationID="create-server-reinstall" method="post" path="/servers/{server_id}/reinstall" example="Forbidden" -->
@@ -2672,5 +2706,5 @@ func main() {
 
 | Error Type               | Status Code              | Content Type             |
 | ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 404, 422                 | application/vnd.api+json |
+| components.ErrorObject   | 403, 404, 422            | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
