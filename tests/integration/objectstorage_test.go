@@ -76,8 +76,8 @@ func TestObjectStorageIntegration(t *testing.T) {
 			bucket := result.ObjectStorages.Data[0]
 			assert.Equal(t, "my-bucket-abc123", *bucket.Attributes.BucketName)
 			assert.Equal(t, "https://s3.dal.latitude.sh", *bucket.Attributes.Endpoint)
-			require.NotNil(t, bucket.Attributes.Credentials)
-			assert.Equal(t, "AKIAEXAMPLE1234567890", *bucket.Attributes.Credentials.AccessKey)
+			// S3 credentials are only returned for extra_fields[object_storages]=credentials
+			// requests made by the bucket's creator, so they are not asserted here.
 			require.NotNil(t, bucket.Attributes.Region)
 			assert.Equal(t, "DAL", *bucket.Attributes.Region.ID)
 		})
