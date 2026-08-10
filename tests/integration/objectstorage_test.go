@@ -76,7 +76,8 @@ func TestObjectStorageIntegration(t *testing.T) {
 			bucket := result.ObjectStorages.Data[0]
 			assert.Equal(t, "my-bucket-abc123", *bucket.Attributes.BucketName)
 			assert.Equal(t, "https://s3.dal.latitude.sh", *bucket.Attributes.Endpoint)
-			assert.Equal(t, "AKIAEXAMPLE1234567890", *bucket.Attributes.AccessKey)
+			require.NotNil(t, bucket.Attributes.Credentials)
+			assert.Equal(t, "AKIAEXAMPLE1234567890", *bucket.Attributes.Credentials.AccessKey)
 			require.NotNil(t, bucket.Attributes.Region)
 			assert.Equal(t, "DAL", *bucket.Attributes.Region.ID)
 		})

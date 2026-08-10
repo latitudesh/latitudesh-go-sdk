@@ -345,7 +345,9 @@ func MockObjectStorage() map[string]interface{} {
 			"size_in_gb":  0,
 			"bucket_name": "my-bucket-abc123",
 			"endpoint":    "https://s3.dal.latitude.sh",
-			"access_key":  "AKIAEXAMPLE1234567890",
+			"credentials": map[string]interface{}{
+				"access_key": "AKIAEXAMPLE1234567890",
+			},
 			"region": map[string]interface{}{
 				"id":      "DAL",
 				"city":    "Dallas",
