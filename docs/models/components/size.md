@@ -1,9 +1,22 @@
 # Size
 
+IPv4 prefix length. Determines how many servers the network can host.
 
-## Fields
+## Example Usage
 
-| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `Amount`                                                                                  | `*int64`                                                                                  | :heavy_minus_sign:                                                                        | The total size of the disk                                                                |
-| `Unit`                                                                                    | [*components.VirtualMachinePlansUnit](../../models/components/virtualmachineplansunit.md) | :heavy_minus_sign:                                                                        | The unit of the disk size                                                                 |
+```go
+import (
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+)
+
+value := components.SizeTwentySix
+```
+
+
+## Values
+
+| Name              | Value             |
+| ----------------- | ----------------- |
+| `SizeTwentySix`   | 26                |
+| `SizeTwentySeven` | 27                |
+| `SizeTwentyEight` | 28                |

@@ -107,31 +107,31 @@ func (e *VirtualMachinePlansUnit) UnmarshalJSON(data []byte) error {
 	}
 }
 
-type Size struct {
+type VirtualMachinePlansSize struct {
 	// The total size of the disk
 	Amount *int64 `json:"amount,omitempty"`
 	// The unit of the disk size
 	Unit *VirtualMachinePlansUnit `json:"unit,omitempty"`
 }
 
-func (s *Size) GetAmount() *int64 {
-	if s == nil {
+func (v *VirtualMachinePlansSize) GetAmount() *int64 {
+	if v == nil {
 		return nil
 	}
-	return s.Amount
+	return v.Amount
 }
 
-func (s *Size) GetUnit() *VirtualMachinePlansUnit {
-	if s == nil {
+func (v *VirtualMachinePlansSize) GetUnit() *VirtualMachinePlansUnit {
+	if v == nil {
 		return nil
 	}
-	return s.Unit
+	return v.Unit
 }
 
 type Disk struct {
 	// The type of the disk (e.g., local SSD, local NVMe)
-	Type *string `json:"type,omitempty"`
-	Size *Size   `json:"size,omitempty"`
+	Type *string                  `json:"type,omitempty"`
+	Size *VirtualMachinePlansSize `json:"size,omitempty"`
 }
 
 func (d *Disk) GetType() *string {
@@ -141,7 +141,7 @@ func (d *Disk) GetType() *string {
 	return d.Type
 }
 
-func (d *Disk) GetSize() *Size {
+func (d *Disk) GetSize() *VirtualMachinePlansSize {
 	if d == nil {
 		return nil
 	}

@@ -210,8 +210,8 @@ func (v *VirtualMachineAttributesSSHKeys) GetUpdatedAt() *string {
 	return v.UpdatedAt
 }
 
-// Credentials - SSH credentials for connecting to the virtual machine. Only available when the VM is running. Opt-in extra field: request via `extra_fields[virtual_machines]=credentials`.
-type Credentials struct {
+// VirtualMachineAttributesCredentials - SSH credentials for connecting to the virtual machine. Only available when the VM is running. Opt-in extra field: request via `extra_fields[virtual_machines]=credentials`.
+type VirtualMachineAttributesCredentials struct {
 	// The SSH username for the VM, determined by the operating system (e.g., ubuntu, centos, ec2-user). Defaults to ubuntu if not specified by the OS. Returns null when the VM is not running.
 	Username *string                           `json:"username,omitempty"`
 	Host     *string                           `json:"host,omitempty"`
@@ -219,32 +219,32 @@ type Credentials struct {
 	SSHKeys  []VirtualMachineAttributesSSHKeys `json:"ssh_keys,omitempty"`
 }
 
-func (c *Credentials) GetUsername() *string {
-	if c == nil {
+func (v *VirtualMachineAttributesCredentials) GetUsername() *string {
+	if v == nil {
 		return nil
 	}
-	return c.Username
+	return v.Username
 }
 
-func (c *Credentials) GetHost() *string {
-	if c == nil {
+func (v *VirtualMachineAttributesCredentials) GetHost() *string {
+	if v == nil {
 		return nil
 	}
-	return c.Host
+	return v.Host
 }
 
-func (c *Credentials) GetPassword() *string {
-	if c == nil {
+func (v *VirtualMachineAttributesCredentials) GetPassword() *string {
+	if v == nil {
 		return nil
 	}
-	return c.Password
+	return v.Password
 }
 
-func (c *Credentials) GetSSHKeys() []VirtualMachineAttributesSSHKeys {
-	if c == nil {
+func (v *VirtualMachineAttributesCredentials) GetSSHKeys() []VirtualMachineAttributesSSHKeys {
+	if v == nil {
 		return nil
 	}
-	return c.SSHKeys
+	return v.SSHKeys
 }
 
 type VirtualMachineAttributesPlan struct {
@@ -361,9 +361,9 @@ type VirtualMachineAttributesAttributes struct {
 	// The operating system installed on the virtual machine
 	OperatingSystem *VirtualMachineAttributesOperatingSystem `json:"operating_system,omitempty"`
 	// SSH credentials for connecting to the virtual machine. Only available when the VM is running. Opt-in extra field: request via `extra_fields[virtual_machines]=credentials`.
-	Credentials *Credentials `json:"credentials,omitempty"`
-	Site        *string      `json:"site,omitempty"`
-	Billing     *string      `json:"billing,omitempty"`
+	Credentials *VirtualMachineAttributesCredentials `json:"credentials,omitempty"`
+	Site        *string                              `json:"site,omitempty"`
+	Billing     *string                              `json:"billing,omitempty"`
 	// Encoded ID of the user data record applied to this VM, if any
 	UserData *string                        `json:"user_data,omitempty"`
 	Plan     *VirtualMachineAttributesPlan  `json:"plan,omitempty"`
@@ -410,7 +410,7 @@ func (v *VirtualMachineAttributesAttributes) GetOperatingSystem() *VirtualMachin
 	return v.OperatingSystem
 }
 
-func (v *VirtualMachineAttributesAttributes) GetCredentials() *Credentials {
+func (v *VirtualMachineAttributesAttributes) GetCredentials() *VirtualMachineAttributesCredentials {
 	if v == nil {
 		return nil
 	}
