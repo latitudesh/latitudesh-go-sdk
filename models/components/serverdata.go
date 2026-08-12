@@ -393,7 +393,9 @@ type ServerDataAttributes struct {
 	Status     *ServerDataStatus `json:"status,omitempty"`
 	IpmiStatus *IpmiStatus       `json:"ipmi_status,omitempty"`
 	// The server role (e.g. Bare Metal)
-	Role                *string                   `json:"role,omitempty"`
+	Role *string `json:"role,omitempty"`
+	// Whether the server is eligible to be bonded (carries the bond-vpc-enabled tag).
+	BondEligible        *bool                     `json:"bond_eligible,omitempty"`
 	Site                *string                   `json:"site,omitempty"`
 	Locked              *bool                     `json:"locked,omitempty"`
 	RescueAllowed       *bool                     `json:"rescue_allowed,omitempty"`
@@ -457,6 +459,13 @@ func (s *ServerDataAttributes) GetRole() *string {
 		return nil
 	}
 	return s.Role
+}
+
+func (s *ServerDataAttributes) GetBondEligible() *bool {
+	if s == nil {
+		return nil
+	}
+	return s.BondEligible
 }
 
 func (s *ServerDataAttributes) GetSite() *string {

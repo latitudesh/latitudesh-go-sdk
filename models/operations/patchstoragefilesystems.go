@@ -5,7 +5,6 @@ package operations
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
@@ -34,23 +33,12 @@ func (e *PatchStorageFilesystemsFilesystemStorageType) UnmarshalJSON(data []byte
 
 type PatchStorageFilesystemsFilesystemStorageAttributes struct {
 	// Size in GB (not required, default is 1500)
-	SizeInGb *int64 `default:"1500" json:"size_in_gb"`
+	SizeInGb int64 `json:"size_in_gb"`
 }
 
-func (p PatchStorageFilesystemsFilesystemStorageAttributes) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(p, "", false)
-}
-
-func (p *PatchStorageFilesystemsFilesystemStorageAttributes) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (p *PatchStorageFilesystemsFilesystemStorageAttributes) GetSizeInGb() *int64 {
+func (p *PatchStorageFilesystemsFilesystemStorageAttributes) GetSizeInGb() int64 {
 	if p == nil {
-		return nil
+		return 0
 	}
 	return p.SizeInGb
 }

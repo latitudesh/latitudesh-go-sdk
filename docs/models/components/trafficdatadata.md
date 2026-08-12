@@ -10,3 +10,5 @@
 | `OutboundGb`            | `*int64`                | :heavy_minus_sign:      | Value in GB             |
 | `AvgOutboundSpeedMbps`  | `*float64`              | :heavy_minus_sign:      | Value in Mbps           |
 | `AvgInboundSpeedMbps`   | `*float64`              | :heavy_minus_sign:      | Value in Mbps           |
+| `OutboundSpeedMbps`     | `*float64`              | :heavy_minus_sign:      | Value in Mbps           |
+| `InboundSpeedMbps`      | `*float64`              | :heavy_minus_sign:      | Value in Mbps           |

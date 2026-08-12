@@ -357,7 +357,7 @@ func main() {
             ID: "fs_x1ZJrdx5qg4LV",
             Type: operations.PatchStorageFilesystemsFilesystemStorageTypeFilesystems,
             Attributes: operations.PatchStorageFilesystemsFilesystemStorageAttributes{
-                SizeInGb: latitudeshgosdk.Pointer[int64](1501),
+                SizeInGb: 1501,
             },
         },
     })
@@ -395,7 +395,7 @@ func main() {
             ID: "fs_7vYAZqGBdMQ94",
             Type: operations.PatchStorageFilesystemsFilesystemStorageTypeFilesystems,
             Attributes: operations.PatchStorageFilesystemsFilesystemStorageAttributes{
-                SizeInGb: latitudeshgosdk.Pointer[int64](1501),
+                SizeInGb: 1501,
             },
         },
     })
@@ -433,7 +433,7 @@ func main() {
             ID: "fs_r0MK4O4kDa95w",
             Type: operations.PatchStorageFilesystemsFilesystemStorageTypeFilesystems,
             Attributes: operations.PatchStorageFilesystemsFilesystemStorageAttributes{
-                SizeInGb: latitudeshgosdk.Pointer[int64](1499),
+                SizeInGb: 1499,
             },
         },
     })
