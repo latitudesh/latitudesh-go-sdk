@@ -787,6 +787,7 @@ func main() {
             ID: latitudeshgosdk.Pointer("sv_g1mbDwrZqLv5B"),
             Type: operations.UpdateServerServersTypeServers.ToPointer(),
             Attributes: &operations.UpdateServerServersAttributes{
+                Hostname: latitudeshgosdk.Pointer("new-hostname"),
                 Billing: operations.UpdateServerServersBillingHourly.ToPointer(),
             },
         },
@@ -825,6 +826,7 @@ func main() {
             ID: latitudeshgosdk.Pointer("sv_1ZJrdxe4qg4LV"),
             Type: operations.UpdateServerServersTypeServers.ToPointer(),
             Attributes: &operations.UpdateServerServersAttributes{
+                Hostname: latitudeshgosdk.Pointer("new-hostname"),
                 Billing: operations.UpdateServerServersBillingMonthly.ToPointer(),
             },
         },
@@ -863,6 +865,7 @@ func main() {
             ID: latitudeshgosdk.Pointer("sv_w49QDBaQqagKb"),
             Type: operations.UpdateServerServersTypeServers.ToPointer(),
             Attributes: &operations.UpdateServerServersAttributes{
+                Hostname: latitudeshgosdk.Pointer("new-hostname"),
                 Billing: operations.UpdateServerServersBillingHourly.ToPointer(),
             },
         },
@@ -939,6 +942,7 @@ func main() {
             ID: latitudeshgosdk.Pointer("sv_3YjJOLLNOvZ87"),
             Type: operations.UpdateServerServersTypeServers.ToPointer(),
             Attributes: &operations.UpdateServerServersAttributes{
+                Hostname: latitudeshgosdk.Pointer("new-hostname"),
                 Billing: operations.UpdateServerServersBillingMonthly.ToPointer(),
             },
         },
@@ -977,6 +981,7 @@ func main() {
             ID: latitudeshgosdk.Pointer("sv_vYAZqGNJdMQ94"),
             Type: operations.UpdateServerServersTypeServers.ToPointer(),
             Attributes: &operations.UpdateServerServersAttributes{
+                Hostname: latitudeshgosdk.Pointer("new-hostname"),
                 Billing: operations.UpdateServerServersBillingMonthly.ToPointer(),
                 Project: latitudeshgosdk.Pointer("new-project"),
             },
@@ -1016,6 +1021,7 @@ func main() {
             ID: latitudeshgosdk.Pointer("sv_W6Q2D9lGqKLpr"),
             Type: operations.UpdateServerServersTypeServers.ToPointer(),
             Attributes: &operations.UpdateServerServersAttributes{
+                Hostname: latitudeshgosdk.Pointer("new-hostname"),
                 Billing: operations.UpdateServerServersBillingYearly.ToPointer(),
             },
         },
@@ -1054,6 +1060,7 @@ func main() {
             ID: latitudeshgosdk.Pointer("sv_LMmAD8k4qwop2"),
             Type: operations.UpdateServerServersTypeServers.ToPointer(),
             Attributes: &operations.UpdateServerServersAttributes{
+                Hostname: latitudeshgosdk.Pointer("new-hostname"),
                 Billing: operations.UpdateServerServersBillingYearly.ToPointer(),
             },
         },

@@ -5,7 +5,6 @@ package operations
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
@@ -35,18 +34,7 @@ func (e *PutProjectSSHKeySSHKeysType) UnmarshalJSON(data []byte) error {
 type PutProjectSSHKeySSHKeysAttributes struct {
 	Tags []string `json:"tags,omitempty"`
 	// Name of the SSH Key
-	Name *string `default:"New SSH Key Name" json:"name"`
-}
-
-func (p PutProjectSSHKeySSHKeysAttributes) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(p, "", false)
-}
-
-func (p *PutProjectSSHKeySSHKeysAttributes) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
-		return err
-	}
-	return nil
+	Name *string `json:"name,omitempty"`
 }
 
 func (p *PutProjectSSHKeySSHKeysAttributes) GetTags() []string {
@@ -64,25 +52,14 @@ func (p *PutProjectSSHKeySSHKeysAttributes) GetName() *string {
 }
 
 type PutProjectSSHKeySSHKeysData struct {
-	ID         *string                            `default:"ssh_81EVOtR1N4J2Z" json:"id"`
+	ID         string                             `json:"id"`
 	Type       PutProjectSSHKeySSHKeysType        `json:"type"`
 	Attributes *PutProjectSSHKeySSHKeysAttributes `json:"attributes,omitempty"`
 }
 
-func (p PutProjectSSHKeySSHKeysData) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(p, "", false)
-}
-
-func (p *PutProjectSSHKeySSHKeysData) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (p *PutProjectSSHKeySSHKeysData) GetID() *string {
+func (p *PutProjectSSHKeySSHKeysData) GetID() string {
 	if p == nil {
-		return nil
+		return ""
 	}
 	return p.ID
 }

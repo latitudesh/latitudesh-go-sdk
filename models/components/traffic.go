@@ -41,6 +41,10 @@ type TrafficDataData struct {
 	AvgOutboundSpeedMbps *float64 `json:"avg_outbound_speed_mbps,omitempty"`
 	// Value in Mbps
 	AvgInboundSpeedMbps *float64 `json:"avg_inbound_speed_mbps,omitempty"`
+	// Value in Mbps
+	OutboundSpeedMbps *float64 `json:"outbound_speed_mbps,omitempty"`
+	// Value in Mbps
+	InboundSpeedMbps *float64 `json:"inbound_speed_mbps,omitempty"`
 }
 
 func (t *TrafficDataData) GetDate() *string {
@@ -76,6 +80,20 @@ func (t *TrafficDataData) GetAvgInboundSpeedMbps() *float64 {
 		return nil
 	}
 	return t.AvgInboundSpeedMbps
+}
+
+func (t *TrafficDataData) GetOutboundSpeedMbps() *float64 {
+	if t == nil {
+		return nil
+	}
+	return t.OutboundSpeedMbps
+}
+
+func (t *TrafficDataData) GetInboundSpeedMbps() *float64 {
+	if t == nil {
+		return nil
+	}
+	return t.InboundSpeedMbps
 }
 
 type TrafficRegions struct {
@@ -225,8 +243,12 @@ func (t *TrafficData) GetAttributes() *TrafficAttributes {
 	return t.Attributes
 }
 
+type TrafficMeta struct {
+}
+
 type Traffic struct {
 	Data *TrafficData `json:"data,omitempty"`
+	Meta *TrafficMeta `json:"meta,omitempty"`
 }
 
 func (t *Traffic) GetData() *TrafficData {
@@ -234,4 +256,11 @@ func (t *Traffic) GetData() *TrafficData {
 		return nil
 	}
 	return t.Data
+}
+
+func (t *Traffic) GetMeta() *TrafficMeta {
+	if t == nil {
+		return nil
+	}
+	return t.Meta
 }

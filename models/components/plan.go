@@ -2,8 +2,12 @@
 
 package components
 
+type PlanMeta struct {
+}
+
 type Plan struct {
 	Data *PlanData `json:"data,omitempty"`
+	Meta *PlanMeta `json:"meta,omitempty"`
 }
 
 func (p *Plan) GetData() *PlanData {
@@ -11,4 +15,11 @@ func (p *Plan) GetData() *PlanData {
 		return nil
 	}
 	return p.Data
+}
+
+func (p *Plan) GetMeta() *PlanMeta {
+	if p == nil {
+		return nil
+	}
+	return p.Meta
 }

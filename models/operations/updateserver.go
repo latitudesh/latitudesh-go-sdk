@@ -5,7 +5,6 @@ package operations
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
@@ -63,24 +62,13 @@ func (e *UpdateServerServersBilling) UnmarshalJSON(data []byte) error {
 }
 
 type UpdateServerServersAttributes struct {
-	Hostname *string `default:"new-hostname" json:"hostname"`
+	Hostname *string `json:"hostname,omitempty"`
 	// The server billing type. Accepts `hourly` and `monthly` for on demand projects and `yearly` for reserved projects.
 	Billing *UpdateServerServersBilling `json:"billing,omitempty"`
 	// List of Tag IDs
 	Tags []string `json:"tags,omitempty"`
 	// Project ID or slug to move the server to
 	Project *string `json:"project,omitempty"`
-}
-
-func (u UpdateServerServersAttributes) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(u, "", false)
-}
-
-func (u *UpdateServerServersAttributes) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &u, "", false, nil); err != nil {
-		return err
-	}
-	return nil
 }
 
 func (u *UpdateServerServersAttributes) GetHostname() *string {
@@ -112,20 +100,9 @@ func (u *UpdateServerServersAttributes) GetProject() *string {
 }
 
 type UpdateServerServersData struct {
-	ID         *string                        `default:"sv_81EVOtR1N4J2Z" json:"id"`
+	ID         *string                        `json:"id,omitempty"`
 	Type       *UpdateServerServersType       `json:"type,omitempty"`
 	Attributes *UpdateServerServersAttributes `json:"attributes,omitempty"`
-}
-
-func (u UpdateServerServersData) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(u, "", false)
-}
-
-func (u *UpdateServerServersData) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &u, "", false, nil); err != nil {
-		return err
-	}
-	return nil
 }
 
 func (u *UpdateServerServersData) GetID() *string {

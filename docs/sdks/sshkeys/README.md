@@ -225,9 +225,11 @@ func main() {
 
     res, err := s.SSHKeys.ModifyProjectKey(ctx, "proj_GMy1DbW0ON50m", "ssh_W6Q2D9plqKLpr", operations.PutProjectSSHKeySSHKeysRequestBody{
         Data: operations.PutProjectSSHKeySSHKeysData{
-            ID: latitudeshgosdk.Pointer("ssh_W6Q2D9plqKLpr"),
+            ID: "ssh_W6Q2D9plqKLpr",
             Type: operations.PutProjectSSHKeySSHKeysTypeSSHKeys,
-            Attributes: &operations.PutProjectSSHKeySSHKeysAttributes{},
+            Attributes: &operations.PutProjectSSHKeySSHKeysAttributes{
+                Name: latitudeshgosdk.Pointer("New SSH Key Name"),
+            },
         },
     })
     if err != nil {
@@ -261,7 +263,7 @@ func main() {
 
     res, err := s.SSHKeys.ModifyProjectKey(ctx, "proj_v9BVDaR3ORm1W", "ssh_zlkg1DegdvZE5", operations.PutProjectSSHKeySSHKeysRequestBody{
         Data: operations.PutProjectSSHKeySSHKeysData{
-            ID: latitudeshgosdk.Pointer("ssh_zlkg1DegdvZE5"),
+            ID: "ssh_zlkg1DegdvZE5",
             Type: operations.PutProjectSSHKeySSHKeysTypeSSHKeys,
             Attributes: &operations.PutProjectSSHKeySSHKeysAttributes{
                 Tags: []string{
@@ -302,12 +304,13 @@ func main() {
 
     res, err := s.SSHKeys.ModifyProjectKey(ctx, "proj_0MoLqJZ0q57pY", "ssh_RMLydp20DQKr1", operations.PutProjectSSHKeySSHKeysRequestBody{
         Data: operations.PutProjectSSHKeySSHKeysData{
-            ID: latitudeshgosdk.Pointer("ssh_RMLydp20DQKr1"),
+            ID: "ssh_RMLydp20DQKr1",
             Type: operations.PutProjectSSHKeySSHKeysTypeSSHKeys,
             Attributes: &operations.PutProjectSSHKeySSHKeysAttributes{
                 Tags: []string{
                     "invalid-tag",
                 },
+                Name: latitudeshgosdk.Pointer("New SSH Key Name"),
             },
         },
     })
@@ -342,9 +345,11 @@ func main() {
 
     res, err := s.SSHKeys.ModifyProjectKey(ctx, "proj_WVQJDMAvDRbyE", "ssh_LMmAD8pEDwop2", operations.PutProjectSSHKeySSHKeysRequestBody{
         Data: operations.PutProjectSSHKeySSHKeysData{
-            ID: latitudeshgosdk.Pointer("ssh_LMmAD8pEDwop2"),
+            ID: "ssh_LMmAD8pEDwop2",
             Type: operations.PutProjectSSHKeySSHKeysTypeSSHKeys,
-            Attributes: &operations.PutProjectSSHKeySSHKeysAttributes{},
+            Attributes: &operations.PutProjectSSHKeySSHKeysAttributes{
+                Name: latitudeshgosdk.Pointer("New SSH Key Name"),
+            },
         },
     })
     if err != nil {
@@ -708,9 +713,11 @@ func main() {
 
     res, err := s.SSHKeys.Update(ctx, "ssh_xkjQwdENqYNVP", operations.PutSSHKeySSHKeysRequestBody{
         Data: operations.PutSSHKeySSHKeysData{
-            ID: latitudeshgosdk.Pointer("ssh_xkjQwdENqYNVP"),
+            ID: "ssh_xkjQwdENqYNVP",
             Type: operations.PutSSHKeySSHKeysTypeSSHKeys,
-            Attributes: &operations.PutSSHKeySSHKeysAttributes{},
+            Attributes: &operations.PutSSHKeySSHKeysAttributes{
+                Name: latitudeshgosdk.Pointer("New SSH Key Name"),
+            },
         },
     })
     if err != nil {
@@ -744,7 +751,7 @@ func main() {
 
     res, err := s.SSHKeys.Update(ctx, "ssh_GnzRD5xAqM5yw", operations.PutSSHKeySSHKeysRequestBody{
         Data: operations.PutSSHKeySSHKeysData{
-            ID: latitudeshgosdk.Pointer("ssh_GnzRD5xAqM5yw"),
+            ID: "ssh_GnzRD5xAqM5yw",
             Type: operations.PutSSHKeySSHKeysTypeSSHKeys,
             Attributes: &operations.PutSSHKeySSHKeysAttributes{
                 Tags: []string{
@@ -785,12 +792,13 @@ func main() {
 
     res, err := s.SSHKeys.Update(ctx, "ssh_VaNmodjeObE8W", operations.PutSSHKeySSHKeysRequestBody{
         Data: operations.PutSSHKeySSHKeysData{
-            ID: latitudeshgosdk.Pointer("ssh_VaNmodjeObE8W"),
+            ID: "ssh_VaNmodjeObE8W",
             Type: operations.PutSSHKeySSHKeysTypeSSHKeys,
             Attributes: &operations.PutSSHKeySSHKeysAttributes{
                 Tags: []string{
                     "invalid-tag",
                 },
+                Name: latitudeshgosdk.Pointer("New SSH Key Name"),
             },
         },
     })
@@ -825,9 +833,11 @@ func main() {
 
     res, err := s.SSHKeys.Update(ctx, "ssh_6059EqYkOQj8p", operations.PutSSHKeySSHKeysRequestBody{
         Data: operations.PutSSHKeySSHKeysData{
-            ID: latitudeshgosdk.Pointer("ssh_6059EqYkOQj8p"),
+            ID: "ssh_6059EqYkOQj8p",
             Type: operations.PutSSHKeySSHKeysTypeSSHKeys,
-            Attributes: &operations.PutSSHKeySSHKeysAttributes{},
+            Attributes: &operations.PutSSHKeySSHKeysAttributes{
+                Name: latitudeshgosdk.Pointer("New SSH Key Name"),
+            },
         },
     })
     if err != nil {

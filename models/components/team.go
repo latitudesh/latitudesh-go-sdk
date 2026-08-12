@@ -105,20 +105,24 @@ func (t *TeamLimits) GetBlockStorage() *int64 {
 }
 
 type TeamAttributes struct {
-	Name         *string          `json:"name,omitempty"`
-	Slug         *string          `json:"slug,omitempty"`
-	Description  *string          `json:"description,omitempty"`
-	Address      *string          `json:"address,omitempty"`
-	Currency     *string          `json:"currency,omitempty"`
-	CreatedAt    *string          `json:"created_at,omitempty"`
-	UpdatedAt    *string          `json:"updated_at,omitempty"`
-	EnforceMfa   *bool            `json:"enforce_mfa,omitempty"`
-	Users        []UserInclude    `json:"users,omitempty"`
-	Projects     []ProjectInclude `json:"projects,omitempty"`
-	Owner        *UserInclude     `json:"owner,omitempty"`
-	Billing      *TeamBilling     `json:"billing,omitempty"`
-	FeatureFlags []string         `json:"feature_flags,omitempty"`
-	Limits       *TeamLimits      `json:"limits,omitempty"`
+	Name              *string          `json:"name,omitempty"`
+	Slug              *string          `json:"slug,omitempty"`
+	Description       *string          `json:"description,omitempty"`
+	Address           *string          `json:"address,omitempty"`
+	Currency          *string          `json:"currency,omitempty"`
+	CreatedAt         *string          `json:"created_at,omitempty"`
+	UpdatedAt         *string          `json:"updated_at,omitempty"`
+	Status            *string          `json:"status,omitempty"`
+	EnforceMfa        *bool            `json:"enforce_mfa,omitempty"`
+	Token             *string          `json:"token,omitempty"`
+	CustomerBillingID *string          `json:"customer_billing_id,omitempty"`
+	ReferredCode      *string          `json:"referred_code,omitempty"`
+	Users             []UserInclude    `json:"users,omitempty"`
+	Projects          []ProjectInclude `json:"projects,omitempty"`
+	Owner             *UserInclude     `json:"owner,omitempty"`
+	Billing           *TeamBilling     `json:"billing,omitempty"`
+	FeatureFlags      []string         `json:"feature_flags,omitempty"`
+	Limits            *TeamLimits      `json:"limits,omitempty"`
 }
 
 func (t *TeamAttributes) GetName() *string {
@@ -170,11 +174,39 @@ func (t *TeamAttributes) GetUpdatedAt() *string {
 	return t.UpdatedAt
 }
 
+func (t *TeamAttributes) GetStatus() *string {
+	if t == nil {
+		return nil
+	}
+	return t.Status
+}
+
 func (t *TeamAttributes) GetEnforceMfa() *bool {
 	if t == nil {
 		return nil
 	}
 	return t.EnforceMfa
+}
+
+func (t *TeamAttributes) GetToken() *string {
+	if t == nil {
+		return nil
+	}
+	return t.Token
+}
+
+func (t *TeamAttributes) GetCustomerBillingID() *string {
+	if t == nil {
+		return nil
+	}
+	return t.CustomerBillingID
+}
+
+func (t *TeamAttributes) GetReferredCode() *string {
+	if t == nil {
+		return nil
+	}
+	return t.ReferredCode
 }
 
 func (t *TeamAttributes) GetUsers() []UserInclude {

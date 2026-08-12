@@ -434,9 +434,10 @@ type PlanDataAttributes struct {
 	Slug *string `json:"slug,omitempty"`
 	Name *string `json:"name,omitempty"`
 	// List of available features for the plan
-	Features []PlanDataFeatures `json:"features,omitempty"`
-	Specs    *Specs             `json:"specs,omitempty"`
-	Regions  []PlanDataRegions  `json:"regions,omitempty"`
+	Features                  []PlanDataFeatures `json:"features,omitempty"`
+	Specs                     *Specs             `json:"specs,omitempty"`
+	Regions                   []PlanDataRegions  `json:"regions,omitempty"`
+	AvailableOperatingSystems []string           `json:"available_operating_systems,omitempty"`
 }
 
 func (p *PlanDataAttributes) GetSlug() *string {
@@ -472,6 +473,13 @@ func (p *PlanDataAttributes) GetRegions() []PlanDataRegions {
 		return nil
 	}
 	return p.Regions
+}
+
+func (p *PlanDataAttributes) GetAvailableOperatingSystems() []string {
+	if p == nil {
+		return nil
+	}
+	return p.AvailableOperatingSystems
 }
 
 type PlanData struct {

@@ -5,7 +5,6 @@ package operations
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
@@ -38,18 +37,7 @@ type CreateTagTagsAttributes struct {
 	// Description of the Tag
 	Description *string `json:"description,omitempty"`
 	// Color of the Tag
-	Color *string `default:"#ffffff" json:"color"`
-}
-
-func (c CreateTagTagsAttributes) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(c, "", false)
-}
-
-func (c *CreateTagTagsAttributes) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &c, "", false, nil); err != nil {
-		return err
-	}
-	return nil
+	Color string `json:"color"`
 }
 
 func (c *CreateTagTagsAttributes) GetName() string {
@@ -66,9 +54,9 @@ func (c *CreateTagTagsAttributes) GetDescription() *string {
 	return c.Description
 }
 
-func (c *CreateTagTagsAttributes) GetColor() *string {
+func (c *CreateTagTagsAttributes) GetColor() string {
 	if c == nil {
-		return nil
+		return ""
 	}
 	return c.Color
 }
