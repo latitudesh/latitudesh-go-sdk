@@ -47,14 +47,8 @@ func MockPlan() map[string]interface{} {
 					"deploys_instantly": []string{"sao-paulo-1"},
 				},
 			},
-			"features": []string{"ssh", "raid"},
-			"available_operating_systems": []map[string]interface{}{
-				{
-					"id":   "ubuntu_22_04_x64",
-					"name": "Ubuntu 22.04 LTS",
-					"slug": "ubuntu-22-04-x64",
-				},
-			},
+			"features":                    []string{"ssh", "raid"},
+			"available_operating_systems": []string{"ubuntu-22-04-x64"},
 		},
 	}
 }
@@ -119,14 +113,8 @@ func MockPlanList() map[string]interface{} {
 							"deploys_instantly": []string{},
 						},
 					},
-					"features": []string{"ssh", "raid", "sev"},
-					"available_operating_systems": []map[string]interface{}{
-						{
-							"id":   "ubuntu_22_04_x64",
-							"name": "Ubuntu 22.04 LTS",
-							"slug": "ubuntu-22-04-x64",
-						},
-					},
+					"features":                    []string{"ssh", "raid", "sev"},
+					"available_operating_systems": []string{"ubuntu-22-04-x64"},
 				},
 			},
 		},
