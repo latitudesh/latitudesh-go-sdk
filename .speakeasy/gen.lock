@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 70a734d41b060bd183a917256b689de8
+  docChecksum: 141d2618039ad90c0cebf4e269370875
   docVersion: "2023-06-01"
   speakeasyVersion: 1.794.1
   generationVersion: 2.931.0
-  releaseVersion: 1.19.6
-  configChecksum: 3d488e489f55f2088791e1424f3c7e36
+  releaseVersion: 1.19.7
+  configChecksum: ee89b0e87c5a845fac729a83457c71e4
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 9eebc6c0-ab4f-4cf3-8bbe-f34a1b658300
-  pristine_commit_hash: 71a30da0fe8f7f228ab7ef58bfc1394ed35628dc
-  pristine_tree_hash: c505165f0a1c0bc419198244b4a93ff1e0f46edc
+  generation_id: c1fecc1a-8d4f-4688-aa4a-9277b1ce09d2
+  pristine_commit_hash: ff8927d141b8ef3210c78a0f2cd5e3a48954d99e
+  pristine_tree_hash: 6a7b5821232f0d558502102e376ac5591f611e37
 features:
   go:
     additionalDependencies: 0.1.0
@@ -4184,8 +4184,8 @@ trackedFiles:
     pristine_git_object: 093c39b9670b7ba0302db89cd18253f76d782f67
   docs/models/operations/updateserverdeployconfigserversattributes.md:
     id: a13e32b70769
-    last_write_checksum: sha1:8e40aa120d9f37182a35c2e8e5d8347b7043a74f
-    pristine_git_object: 7327dcb667118f8196d160d1f2d83b6aa09680b7
+    last_write_checksum: sha1:9bd7487d44b7dbb2eb9682891c282e13a7badb95
+    pristine_git_object: 7e9f654d0bcd990539ee72ea3fc18631508a5af3
   docs/models/operations/updateserverdeployconfigserversdisklayout.md:
     id: 8e5428dbff22
     last_write_checksum: sha1:6a8d4351f81d34e543e780cfe57aa6d2cd595875
@@ -4388,8 +4388,8 @@ trackedFiles:
     pristine_git_object: 39f66a703faa8af3a2974c838c071470a41eb733
   docs/sdks/servers/README.md:
     id: f4172022b7ef
-    last_write_checksum: sha1:0a48bdc00ffb7fb7a1ab25a4c03abb0759bec47f
-    pristine_git_object: af707883572b581ea3093e5dae09a3a24f964a64
+    last_write_checksum: sha1:51c8a0014572d2ca7f676d4486f4f555bc3efa30
+    pristine_git_object: 7836dfde17a0f1ba8a00883be36399e2ad372bc8
   docs/sdks/sshkeys/README.md:
     id: 34435aa66d61
     last_write_checksum: sha1:0f968eac10898562151e5ed3f42778d2867721d3
@@ -4536,8 +4536,8 @@ trackedFiles:
     pristine_git_object: f055c7135bd9df9511999b5a8af285cf62b279a1
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:c78d80e5a19699fe96ed3b8dae4a4a2dae54c443
-    pristine_git_object: 862aab61cd2fba006148c1b221ffaf2da10e080c
+    last_write_checksum: sha1:ec0ee52c557136ecaf039d3221b593fa906691a7
+    pristine_git_object: 2eec76e12095fbeeea62d0126f041487057571bc
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -5708,8 +5708,8 @@ trackedFiles:
     pristine_git_object: b73cdb17f229aeb1f5e9f37d994271267d7ac3a7
   models/operations/updateserverdeployconfig.go:
     id: 51fc2491f4a2
-    last_write_checksum: sha1:3c79cb87c12601990258e7987f984bdd87c00780
-    pristine_git_object: 3510c6d6e7f6242bfb69b2f7f5df5777a27e2206
+    last_write_checksum: sha1:e5de3654c5b3a1a8023b1a06b1884e39f63ab411
+    pristine_git_object: c004ae7a083b278068ee7ab41585fc079d319827
   models/operations/updatetag.go:
     id: 7c74e28ef609
     last_write_checksum: sha1:bafa07f3d92901974687c848bc63e71c8a30f225
@@ -5768,8 +5768,8 @@ trackedFiles:
     pristine_git_object: 9dd80f20534b89f84e4a23de8f5886a186882fb0
   servers.go:
     id: c9fb7df5e9aa
-    last_write_checksum: sha1:6a0cd912d3e652e9bc1906fa37933c8151654646
-    pristine_git_object: 216aa86f7ce5cf8c9ee69f08746ad04fc97e03a5
+    last_write_checksum: sha1:201f61f0e01c9c55a6eebec2bdbbc4de82472a35
+    pristine_git_object: 59d4c4e166cdbbdf1cd0a5c15af7d9fd9a31dc7f
   sshkeys.go:
     id: 7f02ec5e3505
     last_write_checksum: sha1:36f11cc51cf473f5a27d2943da60f9aa281eab0a
@@ -7096,6 +7096,16 @@ examples:
           application/vnd.api+json: {}
         "422":
           application/vnd.api+json: {}
+    FeatureNotEnabled:
+      parameters:
+        path:
+          server_id: "<id>"
+      requestBody:
+        application/json: {"type": "deploy_config"}
+        application/vnd.api+json: {"type": "deploy_config"}
+      responses:
+        "403":
+          application/vnd.api+json: {"errors": [{"code": "FEATURE_NOT_ENABLED", "status": "403", "title": "Feature Not Enabled", "detail": "Prefixes are not enabled for this team"}]}
   server-lock:
     Ok:
       parameters:
@@ -9986,7 +9996,7 @@ examples:
           application/vnd.api+json: {"errors": [{"code": "STORAGE_NOT_ENABLED", "title": "Object Storage not enabled"}]}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes:\n* `Latitudesh.Regions.Get()`: \n  *  `request` **Changed** (Breaking ⚠️)\n  *  `response.Data[].Attributes.Features` **Added**\n* `Latitudesh.Prefixes.GetPrefix()`:  `response.Data.Attributes.Size.Enum(29)` **Added** (Breaking ⚠️)\n* `Latitudesh.Baselines(preview).GetBaselines()`:  `response.Data[].Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.Baselines(preview).CreateBaseline()`: \n  *  `request.Request.Data.Attributes` **Changed** (Breaking ⚠️)\n  *  `response.Data.Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.Baselines(preview).GetBaseline()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.IpAddresses.List()`:  `response.Data[].Attributes.Assignment.AssignedAt` **Changed** (Breaking ⚠️)\n* `Latitudesh.IpAddresses.Get()`:  `response.Data.Attributes.Assignment.AssignedAt` **Changed** (Breaking ⚠️)\n* `Latitudesh.Prefixes.GetPrefixes()`:  `response.Data[].Attributes.Size.Enum(29)` **Added** (Breaking ⚠️)\n* `Latitudesh.Prefixes.CreatePrefix()`: \n  *  `request.Request.Data.Attributes.Size.Enum(29)` **Added**\n  *  `response.Data.Attributes.Size.Enum(29)` **Added** (Breaking ⚠️)\n* `Latitudesh.Regions.Fetch()`:  `response.Data.Attributes.Features` **Added**\n* `Latitudesh.ObjectStorage.GetStorageBucketMetrics()`: **Added**\n* `Latitudesh.ObjectStorage.IndexProjectStorageUsage()`: **Added**\n* `Latitudesh.Servers.List()`:  `response.Data[].Attributes.Prefix` **Added**\n* `Latitudesh.Servers.Create()`:  `response.Data.Attributes.Prefix` **Added**\n* `Latitudesh.Servers.Get()`:  `response.Data.Attributes.Prefix` **Added**\n* `Latitudesh.Servers.Update()`:  `response.Data.Attributes.Prefix` **Added**\n* `Latitudesh.Servers.GetDeployConfig()`:  `response.Data.Attributes` **Changed**\n* `Latitudesh.Servers.UpdateDeployConfig()`:  `response.Data.Attributes` **Changed**\n* `Latitudesh.Servers.Lock()`:  `response.Data.Attributes.Prefix` **Added**\n* `Latitudesh.Servers.Unlock()`:  `response.Data.Attributes.Prefix` **Added**\n* `Latitudesh.Traffic.GetQuota()`:  `response` **Changed**\n* `Latitudesh.VirtualMachines.CreateVirtualMachineAction()`:  `error` **Changed**\n"
+releaseNotes: "## Go SDK Changes:\n* `Latitudesh.Servers.UpdateDeployConfig()`: \n  *  `request.RequestBody.Attributes` **Changed**\n  *  `error` **Changed**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
