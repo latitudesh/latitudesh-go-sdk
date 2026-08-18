@@ -87,6 +87,7 @@ func (q *QuotaInMbps) GetTotal() *int64 {
 type QuotaPerRegion struct {
 	RegionID    *string      `json:"region_id,omitempty"`
 	RegionSlug  *string      `json:"region_slug,omitempty"`
+	Price       *int64       `json:"price,omitempty"`
 	QuotaInTb   *QuotaInTb   `json:"quota_in_tb,omitempty"`
 	QuotaInMbps *QuotaInMbps `json:"quota_in_mbps,omitempty"`
 }
@@ -103,6 +104,13 @@ func (q *QuotaPerRegion) GetRegionSlug() *string {
 		return nil
 	}
 	return q.RegionSlug
+}
+
+func (q *QuotaPerRegion) GetPrice() *int64 {
+	if q == nil {
+		return nil
+	}
+	return q.Price
 }
 
 func (q *QuotaPerRegion) GetQuotaInTb() *QuotaInTb {
@@ -200,8 +208,12 @@ func (t *TrafficQuotaData) GetAttributes() *TrafficQuotaAttributes {
 	return t.Attributes
 }
 
+type TrafficQuotaMeta struct {
+}
+
 type TrafficQuota struct {
 	Data *TrafficQuotaData `json:"data,omitempty"`
+	Meta *TrafficQuotaMeta `json:"meta,omitempty"`
 }
 
 func (t *TrafficQuota) GetData() *TrafficQuotaData {
@@ -209,4 +221,11 @@ func (t *TrafficQuota) GetData() *TrafficQuotaData {
 		return nil
 	}
 	return t.Data
+}
+
+func (t *TrafficQuota) GetMeta() *TrafficQuotaMeta {
+	if t == nil {
+		return nil
+	}
+	return t.Meta
 }

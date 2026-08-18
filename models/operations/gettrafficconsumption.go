@@ -13,7 +13,7 @@ type GetTrafficConsumptionRequest struct {
 	FilterProject *string `queryParam:"style=form,explode=true,name=filter[project]"`
 	// The start timestamp to retrieve the traffic. You must provide in ISO8601 format. Example: filter[date][gte]=2024-04-01T00:00:00Z
 	FilterDateGte string `queryParam:"style=form,explode=true,name=filter[date][gte]"`
-	// The end timestamp to retrieve the traffic. You must provide in ISO8601 format. Example: filter[date][gte]=2024-04-31T23:59:59Z
+	// The end timestamp to retrieve the traffic. You must provide in ISO8601 format. The period must not exceed 366 days. Example: filter[date][gte]=2024-04-31T23:59:59Z
 	FilterDateLte string `queryParam:"style=form,explode=true,name=filter[date][lte]"`
 }
 

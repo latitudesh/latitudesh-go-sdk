@@ -14,6 +14,10 @@ type GetRegionsRequest struct {
 	PageNumber *int64 `default:"1" queryParam:"style=form,explode=true,name=page[number]"`
 	// Request aggregate stats in the response `meta`. Use `count` to get the total number of records, returned as `meta.stats.total.count`.
 	StatsTotal *string `queryParam:"style=form,explode=true,name=stats[total]"`
+	// When set to `true`, the response also includes custom regions (such as storage-only regions) alongside the default core regions. When omitted or `false`, only core regions are returned.
+	IncludeCustom *bool `queryParam:"style=form,explode=true,name=include_custom"`
+	// Return only locations that support the given capability, e.g. `filter[features]=prefixes`.
+	FilterFeatures *string `queryParam:"style=form,explode=true,name=filter[features]"`
 }
 
 func (g GetRegionsRequest) MarshalJSON() ([]byte, error) {
@@ -46,6 +50,20 @@ func (g *GetRegionsRequest) GetStatsTotal() *string {
 		return nil
 	}
 	return g.StatsTotal
+}
+
+func (g *GetRegionsRequest) GetIncludeCustom() *bool {
+	if g == nil {
+		return nil
+	}
+	return g.IncludeCustom
+}
+
+func (g *GetRegionsRequest) GetFilterFeatures() *string {
+	if g == nil {
+		return nil
+	}
+	return g.FilterFeatures
 }
 
 type GetRegionsResponse struct {

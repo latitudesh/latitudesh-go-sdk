@@ -119,6 +119,34 @@ func (e *IpmiStatus) UnmarshalJSON(data []byte) error {
 	}
 }
 
+// ServerDataPrefix - **Preview** (`prefixes_api` feature flag). The customer prefix this server is bonded onto, or null. Fetch full details from GET /prefixes/{id}.
+type ServerDataPrefix struct {
+	ID   *string `json:"id,omitempty"`
+	Ipv4 *string `json:"ipv4,omitempty"`
+	Ipv6 *string `json:"ipv6,omitempty"`
+}
+
+func (s *ServerDataPrefix) GetID() *string {
+	if s == nil {
+		return nil
+	}
+	return s.ID
+}
+
+func (s *ServerDataPrefix) GetIpv4() *string {
+	if s == nil {
+		return nil
+	}
+	return s.Ipv4
+}
+
+func (s *ServerDataPrefix) GetIpv6() *string {
+	if s == nil {
+		return nil
+	}
+	return s.Ipv6
+}
+
 type ServerDataPlan struct {
 	// The plan ID
 	ID *string `json:"id,omitempty"`
@@ -395,7 +423,9 @@ type ServerDataAttributes struct {
 	// The server role (e.g. Bare Metal)
 	Role *string `json:"role,omitempty"`
 	// Whether the server is eligible to be bonded (carries the bond-vpc-enabled tag).
-	BondEligible        *bool                     `json:"bond_eligible,omitempty"`
+	BondEligible *bool `json:"bond_eligible,omitempty"`
+	// **Preview** (`prefixes_api` feature flag). The customer prefix this server is bonded onto, or null. Fetch full details from GET /prefixes/{id}.
+	Prefix              *ServerDataPrefix         `json:"prefix,omitempty"`
 	Site                *string                   `json:"site,omitempty"`
 	Locked              *bool                     `json:"locked,omitempty"`
 	RescueAllowed       *bool                     `json:"rescue_allowed,omitempty"`
@@ -466,6 +496,13 @@ func (s *ServerDataAttributes) GetBondEligible() *bool {
 		return nil
 	}
 	return s.BondEligible
+}
+
+func (s *ServerDataAttributes) GetPrefix() *ServerDataPrefix {
+	if s == nil {
+		return nil
+	}
+	return s.Prefix
 }
 
 func (s *ServerDataAttributes) GetSite() *string {

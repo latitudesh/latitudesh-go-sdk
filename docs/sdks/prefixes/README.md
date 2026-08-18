@@ -65,7 +65,7 @@ func main() {
 
 ## CreatePrefix
 
-Provision a customer network: an IPv4 block of the chosen size plus a paired IPv6 /64
+Provision a customer network: an IPv4 block of the chosen size plus a paired IPv6 /64. The network is allocated synchronously and returned in the response; billing is settled in the background.
 
 ### Example Usage
 

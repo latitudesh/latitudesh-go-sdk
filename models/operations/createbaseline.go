@@ -31,6 +31,36 @@ func (e *CreateBaselineType) UnmarshalJSON(data []byte) error {
 	}
 }
 
+// CreateBaselineTargetType - Baseline target: all servers, a custom set (plan unknown), or specific platforms
+type CreateBaselineTargetType string
+
+const (
+	CreateBaselineTargetTypeAllServers CreateBaselineTargetType = "all_servers"
+	CreateBaselineTargetTypeCustom     CreateBaselineTargetType = "custom"
+	CreateBaselineTargetTypePlatforms  CreateBaselineTargetType = "platforms"
+)
+
+func (e CreateBaselineTargetType) ToPointer() *CreateBaselineTargetType {
+	return &e
+}
+func (e *CreateBaselineTargetType) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "all_servers":
+		fallthrough
+	case "custom":
+		fallthrough
+	case "platforms":
+		*e = CreateBaselineTargetType(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for CreateBaselineTargetType: %v", v)
+	}
+}
+
 // CreateBaselineBios - Expected BIOS settings, keyed by setting id
 type CreateBaselineBios struct {
 }
@@ -40,8 +70,10 @@ type CreateBaselineAttributes struct {
 	Name *string `json:"name,omitempty"`
 	// Description of the baseline
 	Description *string `json:"description,omitempty"`
-	// Slug of the plan this baseline applies to
-	Plan *string `json:"plan,omitempty"`
+	// Baseline target: all servers, a custom set (plan unknown), or specific platforms
+	TargetType *CreateBaselineTargetType `json:"target_type,omitempty"`
+	// Slugs of the plans this baseline applies to. Required when target_type is "platforms"
+	Platforms []string `json:"platforms,omitempty"`
 	// SSH keys the baseline expects on the server
 	SSHKeyIds []string `json:"ssh_key_ids,omitempty"`
 	// User data the baseline expects to run on first boot
@@ -66,11 +98,18 @@ func (c *CreateBaselineAttributes) GetDescription() *string {
 	return c.Description
 }
 
-func (c *CreateBaselineAttributes) GetPlan() *string {
+func (c *CreateBaselineAttributes) GetTargetType() *CreateBaselineTargetType {
 	if c == nil {
 		return nil
 	}
-	return c.Plan
+	return c.TargetType
+}
+
+func (c *CreateBaselineAttributes) GetPlatforms() []string {
+	if c == nil {
+		return nil
+	}
+	return c.Platforms
 }
 
 func (c *CreateBaselineAttributes) GetSSHKeyIds() []string {

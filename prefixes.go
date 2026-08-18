@@ -267,7 +267,7 @@ func (s *Prefixes) GetPrefixes(ctx context.Context, filterProject *string, filte
 }
 
 // CreatePrefix - Create a network
-// Provision a customer network: an IPv4 block of the chosen size plus a paired IPv6 /64
+// Provision a customer network: an IPv4 block of the chosen size plus a paired IPv6 /64. The network is allocated synchronously and returned in the response; billing is settled in the background.
 func (s *Prefixes) CreatePrefix(ctx context.Context, request components.CreatePrefix, opts ...operations.Option) (*operations.CreatePrefixResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{

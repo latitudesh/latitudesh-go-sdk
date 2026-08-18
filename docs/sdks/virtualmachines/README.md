@@ -482,8 +482,46 @@ Performs a power action on a given virtual machine:
 - `power_off` - Stops the virtual machine
 - `reboot` - Restarts the virtual machine
 
+`power_on` is never blocked. A `power_off` or `reboot` returns `409 Conflict` when a backup is in progress for the virtual machine.
 
-### Example Usage
+
+### Example Usage: BackupInProgress
+
+<!-- UsageSnippet language="go" operationID="create-virtual-machine-action" method="post" path="/virtual_machines/{virtual_machine_id}/actions" example="BackupInProgress" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.VirtualMachines.CreateVirtualMachineAction(ctx, "<id>", operations.CreateVirtualMachineActionVirtualMachinesRequestBody{
+        ID: "<id>",
+        Type: operations.CreateVirtualMachineActionVirtualMachinesTypeVirtualMachines,
+        Attributes: operations.CreateVirtualMachineActionVirtualMachinesAttributes{
+            Action: operations.CreateVirtualMachineActionVirtualMachinesActionReboot,
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Created
 
 <!-- UsageSnippet language="go" operationID="create-virtual-machine-action" method="post" path="/virtual_machines/{virtual_machine_id}/actions" example="Created" -->
 ```go
@@ -535,9 +573,10 @@ func main() {
 
 ### Errors
 
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| components.APIError | 4XX, 5XX            | \*/\*               |
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| components.ErrorObject   | 409, 422                 | application/vnd.api+json |
+| components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
 ## ShowVirtualMachineMetrics
 

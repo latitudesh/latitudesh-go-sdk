@@ -33,13 +33,7 @@ func newRegions(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *h
 
 // Get - List regions
 // Lists all [available locations](https://latitude.sh/locations). For server availability by location, please see the [Plans API](/reference/get-plans).
-func (s *Regions) Get(ctx context.Context, pageSize *int64, pageNumber *int64, statsTotal *string, opts ...operations.Option) (*operations.GetRegionsResponse, error) {
-	request := operations.GetRegionsRequest{
-		PageSize:   pageSize,
-		PageNumber: pageNumber,
-		StatsTotal: statsTotal,
-	}
-
+func (s *Regions) Get(ctx context.Context, request operations.GetRegionsRequest, opts ...operations.Option) (*operations.GetRegionsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -211,8 +205,8 @@ func (s *Regions) Get(ctx context.Context, pageSize *int64, pageNumber *int64, s
 			return nil, err
 		}
 		var p int64 = 1
-		if pageNumber != nil {
-			p = *pageNumber
+		if request.PageNumber != nil {
+			p = *request.PageNumber
 		}
 		nP := int64(p + 1)
 		r, err := ajson.Eval(b, "$.data")
@@ -231,18 +225,17 @@ func (s *Regions) Get(ctx context.Context, pageSize *int64, pageNumber *int64, s
 		}
 
 		l := 0
-		if pageSize != nil {
-			l = int(*pageSize)
+		if request.PageSize != nil {
+			l = int(*request.PageSize)
 		}
 		if len(arr) < l {
 			return nil, nil
 		}
+		request.PageNumber = &nP
 
 		return s.Get(
 			ctx,
-			pageSize,
-			&nP,
-			statsTotal,
+			request,
 			opts...,
 		)
 	}
