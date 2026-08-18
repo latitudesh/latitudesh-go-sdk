@@ -25,6 +25,8 @@ type RegionsAttributes struct {
 	Slug    *string  `json:"slug,omitempty"`
 	Name    *string  `json:"name,omitempty"`
 	Country *Country `json:"country,omitempty"`
+	// Location capabilities available at this location (e.g. `prefixes`).
+	Features []string `json:"features,omitempty"`
 }
 
 func (r *RegionsAttributes) GetSlug() *string {
@@ -46,6 +48,13 @@ func (r *RegionsAttributes) GetCountry() *Country {
 		return nil
 	}
 	return r.Country
+}
+
+func (r *RegionsAttributes) GetFeatures() []string {
+	if r == nil {
+		return nil
+	}
+	return r.Features
 }
 
 type RegionsData struct {

@@ -144,7 +144,7 @@ type ObjectStorageDataAttributes struct {
 	CreatedAt *time.Time `json:"created_at,omitempty"`
 	// S3-compatible bucket name
 	BucketName *string `json:"bucket_name,omitempty"`
-	// S3-compatible endpoint URL for accessing the bucket
+	// Region-specific S3-compatible endpoint URL for accessing the bucket. The endpoint varies based on the bucket's location.
 	Endpoint *string `json:"endpoint,omitempty"`
 	// Whether bucket versioning is enabled
 	Versioning *bool `json:"versioning,omitempty"`

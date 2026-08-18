@@ -20,3 +20,4 @@ value := components.SizeTwentySix
 | `SizeTwentySix`   | 26                |
 | `SizeTwentySeven` | 27                |
 | `SizeTwentyEight` | 28                |
+| `SizeTwentyNine`  | 29                |

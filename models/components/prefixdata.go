@@ -39,6 +39,7 @@ const (
 	SizeTwentySix   Size = 26
 	SizeTwentySeven Size = 27
 	SizeTwentyEight Size = 28
+	SizeTwentyNine  Size = 29
 )
 
 func (e Size) ToPointer() *Size {
@@ -55,6 +56,8 @@ func (e *Size) UnmarshalJSON(data []byte) error {
 	case 27:
 		fallthrough
 	case 28:
+		fallthrough
+	case 29:
 		*e = Size(v)
 		return nil
 	default:

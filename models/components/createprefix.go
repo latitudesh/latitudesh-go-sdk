@@ -37,6 +37,7 @@ const (
 	CreatePrefixSizeTwentySix   CreatePrefixSize = 26
 	CreatePrefixSizeTwentySeven CreatePrefixSize = 27
 	CreatePrefixSizeTwentyEight CreatePrefixSize = 28
+	CreatePrefixSizeTwentyNine  CreatePrefixSize = 29
 )
 
 func (e CreatePrefixSize) ToPointer() *CreatePrefixSize {
@@ -53,6 +54,8 @@ func (e *CreatePrefixSize) UnmarshalJSON(data []byte) error {
 	case 27:
 		fallthrough
 	case 28:
+		fallthrough
+	case 29:
 		*e = CreatePrefixSize(v)
 		return nil
 	default:

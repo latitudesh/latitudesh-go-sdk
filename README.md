@@ -24,6 +24,7 @@ Latitude.sh API: The Latitude.sh API is a RESTful API to manage your Latitude.sh
   * [Error Handling](#error-handling)
   * [Server Selection](#server-selection)
   * [Custom HTTP Client](#custom-http-client)
+  * [Special Types](#special-types)
 
 <!-- End Table of Contents [toc] -->
 
@@ -199,6 +200,7 @@ func main() {
 
 ### [ObjectStorage](docs/sdks/objectstorage/README.md)
 
+* [IndexProjectStorageUsage](docs/sdks/objectstorage/README.md#indexprojectstorageusage) - List storage usage
 * [PostStorageAccessKeys](docs/sdks/objectstorage/README.md#poststorageaccesskeys) - Create access key
 * [GetStorageAccessKeys](docs/sdks/objectstorage/README.md#getstorageaccesskeys) - List access keys
 * [DeleteStorageAccessKeysUsername](docs/sdks/objectstorage/README.md#deletestorageaccesskeysusername) - Delete access key
@@ -207,6 +209,7 @@ func main() {
 * [PostStorageBuckets](docs/sdks/objectstorage/README.md#poststoragebuckets) - Create bucket
 * [GetStorageBucket](docs/sdks/objectstorage/README.md#getstoragebucket) - Retrieve bucket
 * [DeleteStorageBuckets](docs/sdks/objectstorage/README.md#deletestoragebuckets) - Delete bucket
+* [GetStorageBucketMetrics](docs/sdks/objectstorage/README.md#getstoragebucketmetrics) - Retrieve bucket metrics
 
 ### [OperatingSystems](docs/sdks/operatingsystems/README.md)
 
@@ -700,5 +703,31 @@ var (
 
 This can be a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration.
 <!-- End Custom HTTP Client [http-client] -->
+
+<!-- Start Special Types [types] -->
+## Special Types
+
+This SDK defines the following custom types to assist with marshalling and unmarshalling data.
+
+### Date
+
+`types.Date` is a wrapper around time.Time that allows for JSON marshaling a date string formatted as "2006-01-02".
+
+#### Usage
+
+```go
+d1 := types.NewDate(time.Now()) // returns *types.Date
+
+d2 := types.DateFromTime(time.Now()) // returns types.Date
+
+d3, err := types.NewDateFromString("2019-01-01") // returns *types.Date, error
+
+d4, err := types.DateFromString("2019-01-01") // returns types.Date, error
+
+d5 := types.MustNewDateFromString("2019-01-01") // returns *types.Date and panics on error
+
+d6 := types.MustDateFromString("2019-01-01") // returns types.Date and panics on error
+```
+<!-- End Special Types [types] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->

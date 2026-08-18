@@ -102,9 +102,9 @@ type TrafficRegions struct {
 	TotalInboundGb *int64 `json:"total_inbound_gb,omitempty"`
 	// Value in GB
 	TotalOutboundGb *int64 `json:"total_outbound_gb,omitempty"`
-	// The 95th percentile of inbound bandwidth for this region, calculated from 30-minute intervals. Value in Mbps
+	// The 95th percentile of inbound bandwidth for this region. Value in Mbps
 	TotalInbound95thPercentileMbps *float64 `json:"total_inbound_95th_percentile_mbps,omitempty"`
-	// The 95th percentile of outbound bandwidth for this region, calculated from 30-minute intervals. Value in Mbps
+	// The 95th percentile of outbound bandwidth for this region. Value in Mbps
 	TotalOutbound95thPercentileMbps *float64          `json:"total_outbound_95th_percentile_mbps,omitempty"`
 	Data                            []TrafficDataData `json:"data,omitempty"`
 }
@@ -161,9 +161,9 @@ type TrafficAttributes struct {
 	TotalInboundGb *int64 `json:"total_inbound_gb,omitempty"`
 	// Value in GB
 	TotalOutboundGb *int64 `json:"total_outbound_gb,omitempty"`
-	// The 95th percentile of inbound bandwidth across all regions, calculated from all 30-minute intervals combined. This is a global percentile, not a sum of regional percentiles. Value in Mbps
+	// The 95th percentile of inbound bandwidth across all regions. This is a global percentile, not a sum of regional percentiles. Value in Mbps
 	TotalInbound95thPercentileMbps *float64 `json:"total_inbound_95th_percentile_mbps,omitempty"`
-	// The 95th percentile of outbound bandwidth across all regions, calculated from all 30-minute intervals combined. This is a global percentile, not a sum of regional percentiles. Value in Mbps
+	// The 95th percentile of outbound bandwidth across all regions. This is a global percentile, not a sum of regional percentiles. Value in Mbps
 	TotalOutbound95thPercentileMbps *float64 `json:"total_outbound_95th_percentile_mbps,omitempty"`
 }
 

@@ -244,8 +244,10 @@ func (s *BaselinesPreview) GetBaselines(ctx context.Context, opts ...operations.
 // CreateBaseline - Create baseline
 // **Preview.** Available to teams with the `baselines_api` feature flag.
 //
-// Create a baseline in the team. The disk layout is validated by the same rules a deploy
-// applies, so a baseline that saves here can be dispatched verbatim.
+// Create a baseline in the team. A baseline can target all servers, a custom set (when the
+// plan is not yet known), or one or more specific platforms. When it targets platforms, the
+// disk layout is validated by the same rules a deploy applies — against the smallest of the
+// selected platforms — so a baseline that saves here can be dispatched verbatim.
 func (s *BaselinesPreview) CreateBaseline(ctx context.Context, request operations.CreateBaselineBaselinesPreviewRequestBody, opts ...operations.Option) (*operations.CreateBaselineResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{

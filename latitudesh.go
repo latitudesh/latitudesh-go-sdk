@@ -2,7 +2,7 @@
 
 package latitudeshgosdk
 
-// Generated from OpenAPI doc version 2023-06-01 and generator version 2.928.0
+// Generated from OpenAPI doc version 2023-06-01 and generator version 2.931.0
 
 import (
 	"context"
@@ -67,13 +67,13 @@ type Latitudesh struct {
 	Prefixes               *Prefixes
 	Projects               *Projects
 	SSHKeys                *SSHKeys
+	ObjectStorage          *ObjectStorage
 	UserData               *UserData
 	Regions                *Regions
 	Roles                  *Roles
 	Servers                *Servers
 	FilesystemStorage      *FilesystemStorage
 	BlockStorage           *BlockStorage
-	ObjectStorage          *ObjectStorage
 	Tags                   *Tags
 	Traffic                *Traffic
 	UserProfile            *UserProfile
@@ -172,9 +172,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Latitudesh {
 	sdk := &Latitudesh{
-		SDKVersion: "1.19.5",
+		SDKVersion: "1.19.6",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 1.19.5 2.928.0 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
+			UserAgent:  "speakeasy-sdk/go 1.19.6 2.931.0 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
 			ServerList: ServerList,
 			ServerVariables: []map[string]string{
 				{
@@ -225,13 +225,13 @@ func New(opts ...SDKOption) *Latitudesh {
 	sdk.Prefixes = newPrefixes(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Projects = newProjects(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.SSHKeys = newSSHKeys(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.ObjectStorage = newObjectStorage(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.UserData = newUserData(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Regions = newRegions(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Roles = newRoles(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Servers = newServers(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.FilesystemStorage = newFilesystemStorage(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.BlockStorage = newBlockStorage(sdk, sdk.sdkConfiguration, sdk.hooks)
-	sdk.ObjectStorage = newObjectStorage(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Tags = newTags(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Traffic = newTraffic(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.UserProfile = newUserProfile(sdk, sdk.sdkConfiguration, sdk.hooks)

@@ -30,32 +30,61 @@ func (e *BaselineDataType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// BaselineDataPlan - The plan this baseline applies to
-type BaselineDataPlan struct {
+// TargetType - Target of the baseline: all servers, a custom set (plan unknown), or specific platforms
+type TargetType string
+
+const (
+	TargetTypeAllServers TargetType = "all_servers"
+	TargetTypeCustom     TargetType = "custom"
+	TargetTypePlatforms  TargetType = "platforms"
+)
+
+func (e TargetType) ToPointer() *TargetType {
+	return &e
+}
+func (e *TargetType) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "all_servers":
+		fallthrough
+	case "custom":
+		fallthrough
+	case "platforms":
+		*e = TargetType(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for TargetType: %v", v)
+	}
+}
+
+type Platforms struct {
 	ID   *string `json:"id,omitempty"`
 	Slug *string `json:"slug,omitempty"`
 	Name *string `json:"name,omitempty"`
 }
 
-func (b *BaselineDataPlan) GetID() *string {
-	if b == nil {
+func (p *Platforms) GetID() *string {
+	if p == nil {
 		return nil
 	}
-	return b.ID
+	return p.ID
 }
 
-func (b *BaselineDataPlan) GetSlug() *string {
-	if b == nil {
+func (p *Platforms) GetSlug() *string {
+	if p == nil {
 		return nil
 	}
-	return b.Slug
+	return p.Slug
 }
 
-func (b *BaselineDataPlan) GetName() *string {
-	if b == nil {
+func (p *Platforms) GetName() *string {
+	if p == nil {
 		return nil
 	}
-	return b.Name
+	return p.Name
 }
 
 type BaselineDataSSHKeys struct {
@@ -114,8 +143,10 @@ type BaselineDataAttributes struct {
 	Name *string `json:"name,omitempty"`
 	// Description of the baseline
 	Description *string `json:"description,omitempty"`
-	// The plan this baseline applies to
-	Plan *BaselineDataPlan `json:"plan,omitempty"`
+	// Target of the baseline: all servers, a custom set (plan unknown), or specific platforms
+	TargetType *TargetType `json:"target_type,omitempty"`
+	// The plans this baseline applies to (only populated when target_type is "platforms")
+	Platforms []Platforms `json:"platforms,omitempty"`
 	// SSH keys the baseline expects on the server
 	SSHKeys []BaselineDataSSHKeys `json:"ssh_keys,omitempty"`
 	// User data the baseline expects to run on first boot
@@ -142,11 +173,18 @@ func (b *BaselineDataAttributes) GetDescription() *string {
 	return b.Description
 }
 
-func (b *BaselineDataAttributes) GetPlan() *BaselineDataPlan {
+func (b *BaselineDataAttributes) GetTargetType() *TargetType {
 	if b == nil {
 		return nil
 	}
-	return b.Plan
+	return b.TargetType
+}
+
+func (b *BaselineDataAttributes) GetPlatforms() []Platforms {
+	if b == nil {
+		return nil
+	}
+	return b.Platforms
 }
 
 func (b *BaselineDataAttributes) GetSSHKeys() []BaselineDataSSHKeys {

@@ -37,7 +37,7 @@ type Rules struct {
 	To       *string `json:"to,omitempty"`
 	Port     *string `json:"port,omitempty"`
 	Protocol *string `json:"protocol,omitempty"`
-	// True when this rule was seeded by Latitude when the firewall was created (cannot be deleted); false for user-added rules.
+	// True when this rule was seeded by Latitude when the firewall was created; false for user-added rules. Read-only: this flag cannot be set through the API.
 	Default *bool `json:"default,omitempty"`
 	// Optional description explaining the purpose of this rule
 	Description *string `json:"description,omitempty"`

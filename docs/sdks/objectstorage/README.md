@@ -4,6 +4,7 @@
 
 ### Available Operations
 
+* [IndexProjectStorageUsage](#indexprojectstorageusage) - List storage usage
 * [PostStorageAccessKeys](#poststorageaccesskeys) - Create access key
 * [GetStorageAccessKeys](#getstorageaccesskeys) - List access keys
 * [DeleteStorageAccessKeysUsername](#deletestorageaccesskeysusername) - Delete access key
@@ -12,6 +13,63 @@
 * [PostStorageBuckets](#poststoragebuckets) - Create bucket
 * [GetStorageBucket](#getstoragebucket) - Retrieve bucket
 * [DeleteStorageBuckets](#deletestoragebuckets) - Delete bucket
+* [GetStorageBucketMetrics](#getstoragebucketmetrics) - Retrieve bucket metrics
+
+## IndexProjectStorageUsage
+
+Returns daily object storage usage for the project. Each row reports the canonical usage in bytes for a single storage on a given day, plus the provider-reported raw value.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="index-project-storage-usage" method="get" path="/projects/{project_id}/storage_usage" example="Success" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.ObjectStorage.IndexProjectStorageUsage(ctx, "proj_5AEmq7wMqBkWX", latitudeshgosdk.Pointer("bkt_6VE1Wd37dXnZJ"), nil, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.StorageUsage != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `ctx`                                                                  | [context.Context](https://pkg.go.dev/context#Context)                  | :heavy_check_mark:                                                     | The context to use for the request.                                    |
+| `projectID`                                                            | `string`                                                               | :heavy_check_mark:                                                     | Project ID or Slug                                                     |
+| `storageID`                                                            | `*string`                                                              | :heavy_minus_sign:                                                     | Restrict the result to a single storage. Accepts the storage/bucket ID |
+| `startDate`                                                            | [*types.Date](../../types/date.md)                                     | :heavy_minus_sign:                                                     | Defaults to yesterday                                                  |
+| `endDate`                                                              | [*types.Date](../../types/date.md)                                     | :heavy_minus_sign:                                                     | Defaults to today; clamped to today when a future date is given        |
+| `opts`                                                                 | [][operations.Option](../../models/operations/option.md)               | :heavy_minus_sign:                                                     | The options for this request.                                          |
+
+### Response
+
+**[*operations.IndexProjectStorageUsageResponse](../../models/operations/indexprojectstorageusageresponse.md), error**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
 
 ## PostStorageAccessKeys
 
@@ -754,4 +812,57 @@ func main() {
 | ------------------------ | ------------------------ | ------------------------ |
 | components.ErrorObject   | 403, 404, 409            | application/vnd.api+json |
 | components.ErrorObject   | 500                      | application/vnd.api+json |
+| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+
+## GetStorageBucketMetrics
+
+Retrieves usage metrics for a specific object storage bucket, including storage consumption and estimated cost for the current billing period.
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="get-storage-bucket-metrics" method="get" path="/storage/buckets/{bucket_id}/metrics" example="Success" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.ObjectStorage.GetStorageBucketMetrics(ctx, "<id>")
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `bucketID`                                               | `string`                                                 | :heavy_check_mark:                                       | The object storage bucket ID                             |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+
+### Response
+
+**[*operations.GetStorageBucketMetricsResponse](../../models/operations/getstoragebucketmetricsresponse.md), error**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| components.ErrorObject   | 403, 404                 | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
