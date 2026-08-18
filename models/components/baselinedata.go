@@ -145,6 +145,8 @@ type BaselineDataAttributes struct {
 	Description *string `json:"description,omitempty"`
 	// Target of the baseline: all servers, a custom set (plan unknown), or specific platforms
 	TargetType *TargetType `json:"target_type,omitempty"`
+	// Slug of the operating system the baseline expects the server to run
+	OperatingSystem *string `json:"operating_system,omitempty"`
 	// The plans this baseline applies to (only populated when target_type is "platforms")
 	Platforms []Platforms `json:"platforms,omitempty"`
 	// SSH keys the baseline expects on the server
@@ -178,6 +180,13 @@ func (b *BaselineDataAttributes) GetTargetType() *TargetType {
 		return nil
 	}
 	return b.TargetType
+}
+
+func (b *BaselineDataAttributes) GetOperatingSystem() *string {
+	if b == nil {
+		return nil
+	}
+	return b.OperatingSystem
 }
 
 func (b *BaselineDataAttributes) GetPlatforms() []Platforms {

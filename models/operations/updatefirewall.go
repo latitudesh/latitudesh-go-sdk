@@ -103,7 +103,9 @@ func (u *UpdateFirewallFirewallsRules) GetDescription() *string {
 }
 
 type UpdateFirewallFirewallsAttributes struct {
-	Name  *string                        `json:"name,omitempty"`
+	Name *string `json:"name,omitempty"`
+	// IDs of the tags to attach to the firewall. Replaces the current tags; send an empty array to remove all tags.
+	Tags  []string                       `json:"tags,omitempty"`
 	Rules []UpdateFirewallFirewallsRules `json:"rules,omitempty"`
 }
 
@@ -112,6 +114,13 @@ func (u *UpdateFirewallFirewallsAttributes) GetName() *string {
 		return nil
 	}
 	return u.Name
+}
+
+func (u *UpdateFirewallFirewallsAttributes) GetTags() []string {
+	if u == nil {
+		return nil
+	}
+	return u.Tags
 }
 
 func (u *UpdateFirewallFirewallsAttributes) GetRules() []UpdateFirewallFirewallsRules {

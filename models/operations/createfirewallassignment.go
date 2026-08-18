@@ -32,14 +32,24 @@ func (e *CreateFirewallAssignmentFirewallsAssignmentsType) UnmarshalJSON(data []
 }
 
 type CreateFirewallAssignmentFirewallsAssignmentsAttributes struct {
-	ServerID string `json:"server_id"`
+	// The server ID to assign. Provide exactly one of server_id or virtual_machine_id.
+	ServerID *string `json:"server_id,omitempty"`
+	// The virtual machine ID to assign. Provide exactly one of server_id or virtual_machine_id. A virtual machine can be assigned to at most one firewall.
+	VirtualMachineID *string `json:"virtual_machine_id,omitempty"`
 }
 
-func (c *CreateFirewallAssignmentFirewallsAssignmentsAttributes) GetServerID() string {
+func (c *CreateFirewallAssignmentFirewallsAssignmentsAttributes) GetServerID() *string {
 	if c == nil {
-		return ""
+		return nil
 	}
 	return c.ServerID
+}
+
+func (c *CreateFirewallAssignmentFirewallsAssignmentsAttributes) GetVirtualMachineID() *string {
+	if c == nil {
+		return nil
+	}
+	return c.VirtualMachineID
 }
 
 type CreateFirewallAssignmentFirewallsAssignmentsData struct {

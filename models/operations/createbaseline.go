@@ -67,11 +67,13 @@ type CreateBaselineBios struct {
 
 type CreateBaselineAttributes struct {
 	// Name of the baseline
-	Name *string `json:"name,omitempty"`
+	Name string `json:"name"`
 	// Description of the baseline
 	Description *string `json:"description,omitempty"`
 	// Baseline target: all servers, a custom set (plan unknown), or specific platforms
-	TargetType *CreateBaselineTargetType `json:"target_type,omitempty"`
+	TargetType CreateBaselineTargetType `json:"target_type"`
+	// Slug of the operating system the baseline expects the server to run (required)
+	OperatingSystem string `json:"operating_system"`
 	// Slugs of the plans this baseline applies to. Required when target_type is "platforms"
 	Platforms []string `json:"platforms,omitempty"`
 	// SSH keys the baseline expects on the server
@@ -84,9 +86,9 @@ type CreateBaselineAttributes struct {
 	Bios *CreateBaselineBios `json:"bios,omitempty"`
 }
 
-func (c *CreateBaselineAttributes) GetName() *string {
+func (c *CreateBaselineAttributes) GetName() string {
 	if c == nil {
-		return nil
+		return ""
 	}
 	return c.Name
 }
@@ -98,11 +100,18 @@ func (c *CreateBaselineAttributes) GetDescription() *string {
 	return c.Description
 }
 
-func (c *CreateBaselineAttributes) GetTargetType() *CreateBaselineTargetType {
+func (c *CreateBaselineAttributes) GetTargetType() CreateBaselineTargetType {
 	if c == nil {
-		return nil
+		return CreateBaselineTargetType("")
 	}
 	return c.TargetType
+}
+
+func (c *CreateBaselineAttributes) GetOperatingSystem() string {
+	if c == nil {
+		return ""
+	}
+	return c.OperatingSystem
 }
 
 func (c *CreateBaselineAttributes) GetPlatforms() []string {

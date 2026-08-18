@@ -30,7 +30,7 @@ func (e *ProjectType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-type Tags struct {
+type ProjectTags struct {
 }
 
 type BillingType string
@@ -198,7 +198,7 @@ func (p *ProjectBilling) GetMethod() *string {
 
 type ProjectAttributes struct {
 	// The tags assigned to the project
-	Tags []Tags `json:"tags,omitempty"`
+	Tags []ProjectTags `json:"tags,omitempty"`
 	// The project name
 	Name *string `json:"name,omitempty"`
 	// A unique project identifier
@@ -220,7 +220,7 @@ type ProjectAttributes struct {
 	UpdatedAt        *string         `json:"updated_at,omitempty"`
 }
 
-func (p *ProjectAttributes) GetTags() []Tags {
+func (p *ProjectAttributes) GetTags() []ProjectTags {
 	if p == nil {
 		return nil
 	}

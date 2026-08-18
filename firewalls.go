@@ -35,12 +35,13 @@ func newFirewalls(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks 
 }
 
 // GetAllFirewallAssignments - List firewall assignments
-// Returns a list of all servers assigned to one or more firewalls.
-func (s *Firewalls) GetAllFirewallAssignments(ctx context.Context, filterServer *string, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetAllFirewallAssignmentsResponse, error) {
+// Returns a list of all servers and virtual machines assigned to one or more firewalls.
+func (s *Firewalls) GetAllFirewallAssignments(ctx context.Context, filterServer *string, filterVirtualMachine *string, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetAllFirewallAssignmentsResponse, error) {
 	request := operations.GetAllFirewallAssignmentsRequest{
-		FilterServer: filterServer,
-		PageSize:     pageSize,
-		PageNumber:   pageNumber,
+		FilterServer:         filterServer,
+		FilterVirtualMachine: filterVirtualMachine,
+		PageSize:             pageSize,
+		PageNumber:           pageNumber,
 	}
 
 	o := operations.Options{}
@@ -244,6 +245,7 @@ func (s *Firewalls) GetAllFirewallAssignments(ctx context.Context, filterServer 
 		return s.GetAllFirewallAssignments(
 			ctx,
 			filterServer,
+			filterVirtualMachine,
 			pageSize,
 			&nP,
 			opts...,
@@ -511,9 +513,10 @@ func (s *Firewalls) Create(ctx context.Context, request operations.CreateFirewal
 
 // List firewalls
 // List firewalls
-func (s *Firewalls) List(ctx context.Context, filterProject *string, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.ListFirewallsResponse, error) {
+func (s *Firewalls) List(ctx context.Context, filterProject *string, filterTags *string, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.ListFirewallsResponse, error) {
 	request := operations.ListFirewallsRequest{
 		FilterProject: filterProject,
+		FilterTags:    filterTags,
 		PageSize:      pageSize,
 		PageNumber:    pageNumber,
 	}
@@ -719,6 +722,7 @@ func (s *Firewalls) List(ctx context.Context, filterProject *string, pageSize *i
 		return s.List(
 			ctx,
 			filterProject,
+			filterTags,
 			pageSize,
 			&nP,
 			opts...,
@@ -1390,7 +1394,7 @@ func (s *Firewalls) Delete(ctx context.Context, firewallID string, opts ...opera
 }
 
 // ListAssignments - Firewall assignments
-// Returns a list of all servers assigned to a particular firewall.
+// Returns a list of all servers and virtual machines assigned to a particular firewall.
 func (s *Firewalls) ListAssignments(ctx context.Context, firewallID string, pageSize *int64, pageNumber *int64, opts ...operations.Option) (*operations.GetFirewallAssignmentsResponse, error) {
 	request := operations.GetFirewallAssignmentsRequest{
 		FirewallID: firewallID,
@@ -1652,7 +1656,7 @@ func (s *Firewalls) ListAssignments(ctx context.Context, firewallID string, page
 }
 
 // DeleteAssignment - Delete assignment
-// Removes a server from a firewall by its ID.
+// Removes a server or a virtual machine from a firewall by its assignment ID.
 func (s *Firewalls) DeleteAssignment(ctx context.Context, firewallID string, assignmentID string, opts ...operations.Option) (*operations.DeleteFirewallAssignmentResponse, error) {
 	request := operations.DeleteFirewallAssignmentRequest{
 		FirewallID:   firewallID,
