@@ -260,6 +260,10 @@ type UpdateServerDeployConfigServersAttributes struct {
 	IpxeURL *string `json:"ipxe_url,omitempty"`
 	// Keep network boot enabled so the server iPXE-boots on every reboot instead of booting from disk. Only supported with the 'ipxe' operating system.
 	PersistentNetboot *bool `json:"persistent_netboot,omitempty"`
+	// Set to 'true' to bond the server onto a prefix. Requires 'prefix_id'. Available only when the prefixes feature is enabled for your team.
+	Bond *bool `json:"bond,omitempty"`
+	// ID of a customer prefix to bond the server onto. Requires 'bond' to be 'true'. The prefix must belong to the same project and be in the same location as the server, and must have at least one free IP address. This bond configuration is saved to the deploy config and inherited by future reinstalls until changed. Available only when the prefixes feature is enabled for your team.
+	PrefixID *string `json:"prefix_id,omitempty"`
 }
 
 func (u *UpdateServerDeployConfigServersAttributes) GetHostname() *string {
@@ -316,6 +320,20 @@ func (u *UpdateServerDeployConfigServersAttributes) GetPersistentNetboot() *bool
 		return nil
 	}
 	return u.PersistentNetboot
+}
+
+func (u *UpdateServerDeployConfigServersAttributes) GetBond() *bool {
+	if u == nil {
+		return nil
+	}
+	return u.Bond
+}
+
+func (u *UpdateServerDeployConfigServersAttributes) GetPrefixID() *string {
+	if u == nil {
+		return nil
+	}
+	return u.PrefixID
 }
 
 type UpdateServerDeployConfigServersRequestBody struct {

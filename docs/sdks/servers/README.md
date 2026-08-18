@@ -1202,6 +1202,38 @@ func main() {
 
 Update deploy config
 
+### Example Usage: FeatureNotEnabled
+
+<!-- UsageSnippet language="go" operationID="update-server-deploy-config" method="patch" path="/servers/{server_id}/deploy_config" example="FeatureNotEnabled" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Servers.UpdateDeployConfig(ctx, "<id>", operations.UpdateServerDeployConfigServersRequestBody{
+        Type: operations.UpdateServerDeployConfigServersTypeDeployConfig,
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.DeployConfig != nil {
+        // handle response
+    }
+}
+```
 ### Example Usage: Forbidden
 
 <!-- UsageSnippet language="go" operationID="update-server-deploy-config" method="patch" path="/servers/{server_id}/deploy_config" example="Forbidden" -->
@@ -1346,9 +1378,10 @@ func main() {
 
 ### Errors
 
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| components.APIError | 4XX, 5XX            | \*/\*               |
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| components.ErrorObject   | 403, 422                 | application/vnd.api+json |
+| components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
 ## Lock
 
