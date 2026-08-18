@@ -112,10 +112,46 @@ func (f *FirewallDataProject) GetName() *string {
 	return f.Name
 }
 
+type Tags struct {
+	ID          *string `json:"id,omitempty"`
+	Name        *string `json:"name,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Color       *string `json:"color,omitempty"`
+}
+
+func (t *Tags) GetID() *string {
+	if t == nil {
+		return nil
+	}
+	return t.ID
+}
+
+func (t *Tags) GetName() *string {
+	if t == nil {
+		return nil
+	}
+	return t.Name
+}
+
+func (t *Tags) GetDescription() *string {
+	if t == nil {
+		return nil
+	}
+	return t.Description
+}
+
+func (t *Tags) GetColor() *string {
+	if t == nil {
+		return nil
+	}
+	return t.Color
+}
+
 type FirewallDataAttributes struct {
 	Name    *string              `json:"name,omitempty"`
 	Rules   []Rules              `json:"rules,omitempty"`
 	Project *FirewallDataProject `json:"project,omitempty"`
+	Tags    []Tags               `json:"tags,omitempty"`
 }
 
 func (f *FirewallDataAttributes) GetName() *string {
@@ -137,6 +173,13 @@ func (f *FirewallDataAttributes) GetProject() *FirewallDataProject {
 		return nil
 	}
 	return f.Project
+}
+
+func (f *FirewallDataAttributes) GetTags() []Tags {
+	if f == nil {
+		return nil
+	}
+	return f.Tags
 }
 
 type FirewallData struct {

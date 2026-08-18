@@ -10,6 +10,8 @@ import (
 type GetAllFirewallAssignmentsRequest struct {
 	// The server ID to filter by
 	FilterServer *string `queryParam:"style=form,explode=true,name=filter[server]"`
+	// The virtual machine ID to filter by
+	FilterVirtualMachine *string `queryParam:"style=form,explode=true,name=filter[virtual_machine]"`
 	// Number of items to return per page
 	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
 	// Page number to return (starts at 1)
@@ -32,6 +34,13 @@ func (g *GetAllFirewallAssignmentsRequest) GetFilterServer() *string {
 		return nil
 	}
 	return g.FilterServer
+}
+
+func (g *GetAllFirewallAssignmentsRequest) GetFilterVirtualMachine() *string {
+	if g == nil {
+		return nil
+	}
+	return g.FilterVirtualMachine
 }
 
 func (g *GetAllFirewallAssignmentsRequest) GetPageSize() *int64 {

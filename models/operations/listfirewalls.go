@@ -9,6 +9,8 @@ import (
 
 type ListFirewallsRequest struct {
 	FilterProject *string `queryParam:"style=form,explode=true,name=filter[project]"`
+	// Comma-separated tag IDs. Returns firewalls that have all the given tags.
+	FilterTags *string `queryParam:"style=form,explode=true,name=filter[tags]"`
 	// Number of items to return per page
 	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
 	// Page number to return (starts at 1)
@@ -31,6 +33,13 @@ func (l *ListFirewallsRequest) GetFilterProject() *string {
 		return nil
 	}
 	return l.FilterProject
+}
+
+func (l *ListFirewallsRequest) GetFilterTags() *string {
+	if l == nil {
+		return nil
+	}
+	return l.FilterTags
 }
 
 func (l *ListFirewallsRequest) GetPageSize() *int64 {

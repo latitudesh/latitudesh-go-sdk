@@ -107,6 +107,8 @@ func (c *CreateFirewallRules) GetDescription() *string {
 type CreateFirewallFirewallsAttributes struct {
 	Name    string `json:"name"`
 	Project string `json:"project"`
+	// IDs of the tags to attach to the firewall
+	Tags []string `json:"tags,omitempty"`
 	// Firewall rules. When empty, Latitude seeds a default rule allowing SSH (TCP port 22) from any source.
 	Rules []CreateFirewallRules `json:"rules,omitempty"`
 }
@@ -123,6 +125,13 @@ func (c *CreateFirewallFirewallsAttributes) GetProject() string {
 		return ""
 	}
 	return c.Project
+}
+
+func (c *CreateFirewallFirewallsAttributes) GetTags() []string {
+	if c == nil {
+		return nil
+	}
+	return c.Tags
 }
 
 func (c *CreateFirewallFirewallsAttributes) GetRules() []CreateFirewallRules {

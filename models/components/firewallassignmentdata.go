@@ -30,6 +30,7 @@ func (e *FirewallAssignmentDataType) UnmarshalJSON(data []byte) error {
 	}
 }
 
+// FirewallAssignmentDataServer - Present only when the assignment targets a server.
 type FirewallAssignmentDataServer struct {
 	ID          *string `json:"id,omitempty"`
 	PrimaryIpv4 *string `json:"primary_ipv4,omitempty"`
@@ -57,6 +58,34 @@ func (f *FirewallAssignmentDataServer) GetHostname() *string {
 	return f.Hostname
 }
 
+// FirewallAssignmentDataVirtualMachine - Present only when the assignment targets a virtual machine.
+type FirewallAssignmentDataVirtualMachine struct {
+	ID          *string `json:"id,omitempty"`
+	PrimaryIpv4 *string `json:"primary_ipv4,omitempty"`
+	Hostname    *string `json:"hostname,omitempty"`
+}
+
+func (f *FirewallAssignmentDataVirtualMachine) GetID() *string {
+	if f == nil {
+		return nil
+	}
+	return f.ID
+}
+
+func (f *FirewallAssignmentDataVirtualMachine) GetPrimaryIpv4() *string {
+	if f == nil {
+		return nil
+	}
+	return f.PrimaryIpv4
+}
+
+func (f *FirewallAssignmentDataVirtualMachine) GetHostname() *string {
+	if f == nil {
+		return nil
+	}
+	return f.Hostname
+}
+
 type FirewallAssignmentDataFirewall struct {
 	ID   *string `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
@@ -77,9 +106,12 @@ func (f *FirewallAssignmentDataFirewall) GetName() *string {
 }
 
 type FirewallAssignmentDataAttributes struct {
-	Server     *FirewallAssignmentDataServer   `json:"server,omitempty"`
-	Firewall   *FirewallAssignmentDataFirewall `json:"firewall,omitempty"`
-	FirewallID *string                         `json:"firewall_id,omitempty"`
+	// Present only when the assignment targets a server.
+	Server *FirewallAssignmentDataServer `json:"server,omitempty"`
+	// Present only when the assignment targets a virtual machine.
+	VirtualMachine *FirewallAssignmentDataVirtualMachine `json:"virtual_machine,omitempty"`
+	Firewall       *FirewallAssignmentDataFirewall       `json:"firewall,omitempty"`
+	FirewallID     *string                               `json:"firewall_id,omitempty"`
 }
 
 func (f *FirewallAssignmentDataAttributes) GetServer() *FirewallAssignmentDataServer {
@@ -87,6 +119,13 @@ func (f *FirewallAssignmentDataAttributes) GetServer() *FirewallAssignmentDataSe
 		return nil
 	}
 	return f.Server
+}
+
+func (f *FirewallAssignmentDataAttributes) GetVirtualMachine() *FirewallAssignmentDataVirtualMachine {
+	if f == nil {
+		return nil
+	}
+	return f.VirtualMachine
 }
 
 func (f *FirewallAssignmentDataAttributes) GetFirewall() *FirewallAssignmentDataFirewall {

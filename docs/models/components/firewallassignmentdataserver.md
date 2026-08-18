@@ -1,5 +1,7 @@
 # FirewallAssignmentDataServer
 
+Present only when the assignment targets a server.
+
 
 ## Fields
 

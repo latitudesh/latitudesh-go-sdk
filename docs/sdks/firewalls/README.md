@@ -15,7 +15,7 @@
 
 ## GetAllFirewallAssignments
 
-Returns a list of all servers assigned to one or more firewalls.
+Returns a list of all servers and virtual machines assigned to one or more firewalls.
 
 ### Example Usage
 
@@ -37,7 +37,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Firewalls.GetAllFirewallAssignments(ctx, latitudeshgosdk.Pointer("sv_Qk0Ryqv1dW36X"), latitudeshgosdk.Pointer[int64](20), latitudeshgosdk.Pointer[int64](1))
+    res, err := s.Firewalls.GetAllFirewallAssignments(ctx, latitudeshgosdk.Pointer("sv_Qk0Ryqv1dW36X"), nil, latitudeshgosdk.Pointer[int64](20), latitudeshgosdk.Pointer[int64](1))
     if err != nil {
         log.Fatal(err)
     }
@@ -65,6 +65,7 @@ func main() {
 | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
 | `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
 | `filterServer`                                           | `*string`                                                | :heavy_minus_sign:                                       | The server ID to filter by                               |
+| `filterVirtualMachine`                                   | `*string`                                                | :heavy_minus_sign:                                       | The virtual machine ID to filter by                      |
 | `pageSize`                                               | `*int64`                                                 | :heavy_minus_sign:                                       | Number of items to return per page                       |
 | `pageNumber`                                             | `*int64`                                                 | :heavy_minus_sign:                                       | Page number to return (starts at 1)                      |
 | `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
@@ -282,7 +283,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Firewalls.List(ctx, latitudeshgosdk.Pointer("intelligent-marble-lamp"), latitudeshgosdk.Pointer[int64](20), latitudeshgosdk.Pointer[int64](1))
+    res, err := s.Firewalls.List(ctx, latitudeshgosdk.Pointer("intelligent-marble-lamp"), nil, latitudeshgosdk.Pointer[int64](20), latitudeshgosdk.Pointer[int64](1))
     if err != nil {
         log.Fatal(err)
     }
@@ -306,13 +307,14 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `filterProject`                                          | `*string`                                                | :heavy_minus_sign:                                       | N/A                                                      |
-| `pageSize`                                               | `*int64`                                                 | :heavy_minus_sign:                                       | Number of items to return per page                       |
-| `pageNumber`                                             | `*int64`                                                 | :heavy_minus_sign:                                       | Page number to return (starts at 1)                      |
-| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `ctx`                                                                    | [context.Context](https://pkg.go.dev/context#Context)                    | :heavy_check_mark:                                                       | The context to use for the request.                                      |
+| `filterProject`                                                          | `*string`                                                                | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `filterTags`                                                             | `*string`                                                                | :heavy_minus_sign:                                                       | Comma-separated tag IDs. Returns firewalls that have all the given tags. |
+| `pageSize`                                                               | `*int64`                                                                 | :heavy_minus_sign:                                                       | Number of items to return per page                                       |
+| `pageNumber`                                                             | `*int64`                                                                 | :heavy_minus_sign:                                                       | Page number to return (starts at 1)                                      |
+| `opts`                                                                   | [][operations.Option](../../models/operations/option.md)                 | :heavy_minus_sign:                                                       | The options for this request.                                            |
 
 ### Response
 
@@ -571,7 +573,7 @@ func main() {
 
 ## ListAssignments
 
-Returns a list of all servers assigned to a particular firewall.
+Returns a list of all servers and virtual machines assigned to a particular firewall.
 
 ### Example Usage: Ok
 
@@ -678,7 +680,7 @@ func main() {
 
 ## DeleteAssignment
 
-Removes a server from a firewall by its ID.
+Removes a server or a virtual machine from a firewall by its assignment ID.
 
 ### Example Usage
 

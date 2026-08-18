@@ -103,9 +103,10 @@ func main() {
         Data: &operations.CreateBaselineData{
             Type: operations.CreateBaselineTypeBaselines.ToPointer(),
             Attributes: &operations.CreateBaselineAttributes{
-                Name: latitudeshgosdk.Pointer("web-fleet-v3"),
+                Name: "web-fleet-v3",
                 Description: latitudeshgosdk.Pointer("Standard build for the public web tier"),
-                TargetType: operations.CreateBaselineTargetTypePlatforms.ToPointer(),
+                TargetType: operations.CreateBaselineTargetTypePlatforms,
+                OperatingSystem: "ubuntu_22_04_x64_lts",
                 Platforms: []string{
                     "g3-l40s-small-76",
                 },

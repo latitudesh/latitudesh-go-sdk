@@ -8,7 +8,7 @@
 
 ## Create
 
-Assigns a server to a firewall by its ID.
+Assigns a server or a virtual machine to a firewall by its ID.
 
 ### Example Usage: Conflict
 
@@ -35,7 +35,7 @@ func main() {
         Data: operations.CreateFirewallAssignmentFirewallsAssignmentsData{
             Type: operations.CreateFirewallAssignmentFirewallsAssignmentsTypeFirewallAssignments,
             Attributes: &operations.CreateFirewallAssignmentFirewallsAssignmentsAttributes{
-                ServerID: "sv_aKXgRdR3qv9k5",
+                ServerID: latitudeshgosdk.Pointer("sv_aKXgRdR3qv9k5"),
             },
         },
     })
@@ -72,7 +72,7 @@ func main() {
         Data: operations.CreateFirewallAssignmentFirewallsAssignmentsData{
             Type: operations.CreateFirewallAssignmentFirewallsAssignmentsTypeFirewallAssignments,
             Attributes: &operations.CreateFirewallAssignmentFirewallsAssignmentsAttributes{
-                ServerID: "sv_aKXgRdR3qv9k5",
+                ServerID: latitudeshgosdk.Pointer("sv_aKXgRdR3qv9k5"),
             },
         },
     })
@@ -109,7 +109,7 @@ func main() {
         Data: operations.CreateFirewallAssignmentFirewallsAssignmentsData{
             Type: operations.CreateFirewallAssignmentFirewallsAssignmentsTypeFirewallAssignments,
             Attributes: &operations.CreateFirewallAssignmentFirewallsAssignmentsAttributes{
-                ServerID: "sv_byQrJdNJd30gv",
+                ServerID: latitudeshgosdk.Pointer("sv_byQrJdNJd30gv"),
             },
         },
     })
@@ -146,7 +146,7 @@ func main() {
         Data: operations.CreateFirewallAssignmentFirewallsAssignmentsData{
             Type: operations.CreateFirewallAssignmentFirewallsAssignmentsTypeFirewallAssignments,
             Attributes: &operations.CreateFirewallAssignmentFirewallsAssignmentsAttributes{
-                ServerID: "sv_93YjJOLydvZ87",
+                ServerID: latitudeshgosdk.Pointer("sv_93YjJOLydvZ87"),
             },
         },
     })
@@ -183,7 +183,7 @@ func main() {
         Data: operations.CreateFirewallAssignmentFirewallsAssignmentsData{
             Type: operations.CreateFirewallAssignmentFirewallsAssignmentsTypeFirewallAssignments,
             Attributes: &operations.CreateFirewallAssignmentFirewallsAssignmentsAttributes{
-                ServerID: "sv_NGnzRD5ADM5yw",
+                ServerID: latitudeshgosdk.Pointer("sv_NGnzRD5ADM5yw"),
             },
         },
     })
