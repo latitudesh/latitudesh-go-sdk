@@ -37,6 +37,8 @@ type PostStorageVolumesBlockStorageAttributes struct {
 	Project string `json:"project"`
 	// Volume name
 	Name string `json:"name"`
+	// Region (site) slug where the volume is provisioned
+	Region string `json:"region"`
 	// Size in GB (not required, default is 1500)
 	SizeInGb *int64 `default:"1500" json:"size_in_gb"`
 }
@@ -64,6 +66,13 @@ func (p *PostStorageVolumesBlockStorageAttributes) GetName() string {
 		return ""
 	}
 	return p.Name
+}
+
+func (p *PostStorageVolumesBlockStorageAttributes) GetRegion() string {
+	if p == nil {
+		return ""
+	}
+	return p.Region
 }
 
 func (p *PostStorageVolumesBlockStorageAttributes) GetSizeInGb() *int64 {

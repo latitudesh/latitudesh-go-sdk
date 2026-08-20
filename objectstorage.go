@@ -31,14 +31,14 @@ func newObjectStorage(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, ho
 	}
 }
 
-// IndexProjectStorageUsage - List storage usage
-// Returns daily object storage usage for the project. Each row reports the canonical usage in bytes for a single storage on a given day, plus the provider-reported raw value.
-func (s *ObjectStorage) IndexProjectStorageUsage(ctx context.Context, projectID string, storageID *string, startDate *types.Date, endDate *types.Date, opts ...operations.Option) (*operations.IndexProjectStorageUsageResponse, error) {
-	request := operations.IndexProjectStorageUsageRequest{
-		ProjectID: projectID,
-		StorageID: storageID,
-		StartDate: startDate,
-		EndDate:   endDate,
+// GetStorageUsage - List storage usage
+// Returns daily object storage usage for a project. Each row reports the canonical usage in bytes for a single storage on a given day, plus the provider-reported raw value.
+func (s *ObjectStorage) GetStorageUsage(ctx context.Context, filterProject string, filterStorageID *string, filterStartDate *types.Date, filterEndDate *types.Date, opts ...operations.Option) (*operations.GetStorageUsageResponse, error) {
+	request := operations.GetStorageUsageRequest{
+		FilterProject:   filterProject,
+		FilterStorageID: filterStorageID,
+		FilterStartDate: filterStartDate,
+		FilterEndDate:   filterEndDate,
 	}
 
 	o := operations.Options{}
@@ -59,7 +59,7 @@ func (s *ObjectStorage) IndexProjectStorageUsage(ctx context.Context, projectID 
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := utils.GenerateURL(ctx, baseURL, "/projects/{project_id}/storage_usage", request, nil)
+	opURL, err := url.JoinPath(baseURL, "/storage/usage")
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
@@ -69,7 +69,7 @@ func (s *ObjectStorage) IndexProjectStorageUsage(ctx context.Context, projectID 
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "index-project-storage-usage",
+		OperationID:      "get-storage-usage",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
@@ -195,7 +195,7 @@ func (s *ObjectStorage) IndexProjectStorageUsage(ctx context.Context, projectID 
 		}
 	}
 
-	res := &operations.IndexProjectStorageUsageResponse{
+	res := &operations.GetStorageUsageResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,

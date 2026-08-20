@@ -200,7 +200,7 @@ func main() {
 
 ### [ObjectStorage](docs/sdks/objectstorage/README.md)
 
-* [IndexProjectStorageUsage](docs/sdks/objectstorage/README.md#indexprojectstorageusage) - List storage usage
+* [GetStorageUsage](docs/sdks/objectstorage/README.md#getstorageusage) - List storage usage
 * [PostStorageAccessKeys](docs/sdks/objectstorage/README.md#poststorageaccesskeys) - Create access key
 * [GetStorageAccessKeys](docs/sdks/objectstorage/README.md#getstorageaccesskeys) - List access keys
 * [DeleteStorageAccessKeysUsername](docs/sdks/objectstorage/README.md#deletestorageaccesskeysusername) - Delete access key

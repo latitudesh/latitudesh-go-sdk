@@ -4,7 +4,7 @@
 
 ### Available Operations
 
-* [IndexProjectStorageUsage](#indexprojectstorageusage) - List storage usage
+* [GetStorageUsage](#getstorageusage) - List storage usage
 * [PostStorageAccessKeys](#poststorageaccesskeys) - Create access key
 * [GetStorageAccessKeys](#getstorageaccesskeys) - List access keys
 * [DeleteStorageAccessKeysUsername](#deletestorageaccesskeysusername) - Delete access key
@@ -15,14 +15,14 @@
 * [DeleteStorageBuckets](#deletestoragebuckets) - Delete bucket
 * [GetStorageBucketMetrics](#getstoragebucketmetrics) - Retrieve bucket metrics
 
-## IndexProjectStorageUsage
+## GetStorageUsage
 
-Returns daily object storage usage for the project. Each row reports the canonical usage in bytes for a single storage on a given day, plus the provider-reported raw value.
+Returns daily object storage usage for a project. Each row reports the canonical usage in bytes for a single storage on a given day, plus the provider-reported raw value.
 
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="index-project-storage-usage" method="get" path="/projects/{project_id}/storage_usage" example="Success" -->
+<!-- UsageSnippet language="go" operationID="get-storage-usage" method="get" path="/storage/usage" example="Success" -->
 ```go
 package main
 
@@ -40,7 +40,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.ObjectStorage.IndexProjectStorageUsage(ctx, "proj_5AEmq7wMqBkWX", latitudeshgosdk.Pointer("bkt_6VE1Wd37dXnZJ"), nil, nil)
+    res, err := s.ObjectStorage.GetStorageUsage(ctx, "proj_5AEmq7wMqBkWX", latitudeshgosdk.Pointer("bkt_6VE1Wd37dXnZJ"), nil, nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -55,15 +55,15 @@ func main() {
 | Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
 | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | `ctx`                                                                  | [context.Context](https://pkg.go.dev/context#Context)                  | :heavy_check_mark:                                                     | The context to use for the request.                                    |
-| `projectID`                                                            | `string`                                                               | :heavy_check_mark:                                                     | Project ID or Slug                                                     |
-| `storageID`                                                            | `*string`                                                              | :heavy_minus_sign:                                                     | Restrict the result to a single storage. Accepts the storage/bucket ID |
-| `startDate`                                                            | [*types.Date](../../types/date.md)                                     | :heavy_minus_sign:                                                     | Defaults to yesterday                                                  |
-| `endDate`                                                              | [*types.Date](../../types/date.md)                                     | :heavy_minus_sign:                                                     | Defaults to today; clamped to today when a future date is given        |
+| `filterProject`                                                        | `string`                                                               | :heavy_check_mark:                                                     | Project ID or Slug                                                     |
+| `filterStorageID`                                                      | `*string`                                                              | :heavy_minus_sign:                                                     | Restrict the result to a single storage. Accepts the storage/bucket ID |
+| `filterStartDate`                                                      | [*types.Date](../../types/date.md)                                     | :heavy_minus_sign:                                                     | Defaults to yesterday                                                  |
+| `filterEndDate`                                                        | [*types.Date](../../types/date.md)                                     | :heavy_minus_sign:                                                     | Defaults to today; clamped to today when a future date is given        |
 | `opts`                                                                 | [][operations.Option](../../models/operations/option.md)               | :heavy_minus_sign:                                                     | The options for this request.                                          |
 
 ### Response
 
-**[*operations.IndexProjectStorageUsageResponse](../../models/operations/indexprojectstorageusageresponse.md), error**
+**[*operations.GetStorageUsageResponse](../../models/operations/getstorageusageresponse.md), error**
 
 ### Errors
 

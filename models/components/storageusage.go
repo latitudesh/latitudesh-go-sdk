@@ -13,9 +13,11 @@ type StorageUsageAttributes struct {
 	Date      *types.Date `json:"date,omitempty"`
 	StorageID *int64      `json:"storage_id,omitempty"`
 	ProjectID *int64      `json:"project_id,omitempty"`
-	// Storage provider that reported this usage (e.g. vast, wasabi)
-	Provider *string `json:"provider,omitempty"`
-	Region   *string `json:"region,omitempty"`
+	// Storage kind. One of: object, file, block.
+	StorageType *string `json:"storage_type,omitempty"`
+	// Performance tier. One of: high, standard.
+	Tier   *string `json:"tier,omitempty"`
+	Region *string `json:"region,omitempty"`
 	// Canonical storage usage for the day, in bytes
 	Bytes *int64 `json:"bytes,omitempty"`
 	// The provider-reported usage value, in raw_unit
@@ -57,11 +59,18 @@ func (s *StorageUsageAttributes) GetProjectID() *int64 {
 	return s.ProjectID
 }
 
-func (s *StorageUsageAttributes) GetProvider() *string {
+func (s *StorageUsageAttributes) GetStorageType() *string {
 	if s == nil {
 		return nil
 	}
-	return s.Provider
+	return s.StorageType
+}
+
+func (s *StorageUsageAttributes) GetTier() *string {
+	if s == nil {
+		return nil
+	}
+	return s.Tier
 }
 
 func (s *StorageUsageAttributes) GetRegion() *string {
