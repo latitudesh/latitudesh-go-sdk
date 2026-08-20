@@ -2,6 +2,34 @@
 
 package components
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
+type RegionType string
+
+const (
+	RegionTypeRegions RegionType = "regions"
+)
+
+func (e RegionType) ToPointer() *RegionType {
+	return &e
+}
+func (e *RegionType) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "regions":
+		*e = RegionType(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for RegionType: %v", v)
+	}
+}
+
 type RegionCountry struct {
 	Slug *string `json:"slug,omitempty"`
 	Name *string `json:"name,omitempty"`
@@ -22,11 +50,15 @@ func (r *RegionCountry) GetName() *string {
 }
 
 type RegionAttributes struct {
-	Slug    *string        `json:"slug,omitempty"`
-	Name    *string        `json:"name,omitempty"`
-	Country *RegionCountry `json:"country,omitempty"`
+	Slug     *string        `json:"slug,omitempty"`
+	Name     *string        `json:"name,omitempty"`
+	Facility *string        `json:"facility,omitempty"`
+	Country  *RegionCountry `json:"country,omitempty"`
+	Type     *string        `json:"type,omitempty"`
 	// Location capabilities available at this location (e.g. `prefixes`).
 	Features []string `json:"features,omitempty"`
+	// The location's network group slug (e.g. `TYO`, `LON2`).
+	NetworkGroup *string `json:"network_group,omitempty"`
 }
 
 func (r *RegionAttributes) GetSlug() *string {
@@ -43,11 +75,25 @@ func (r *RegionAttributes) GetName() *string {
 	return r.Name
 }
 
+func (r *RegionAttributes) GetFacility() *string {
+	if r == nil {
+		return nil
+	}
+	return r.Facility
+}
+
 func (r *RegionAttributes) GetCountry() *RegionCountry {
 	if r == nil {
 		return nil
 	}
 	return r.Country
+}
+
+func (r *RegionAttributes) GetType() *string {
+	if r == nil {
+		return nil
+	}
+	return r.Type
 }
 
 func (r *RegionAttributes) GetFeatures() []string {
@@ -57,8 +103,16 @@ func (r *RegionAttributes) GetFeatures() []string {
 	return r.Features
 }
 
+func (r *RegionAttributes) GetNetworkGroup() *string {
+	if r == nil {
+		return nil
+	}
+	return r.NetworkGroup
+}
+
 type RegionData struct {
 	ID         *string           `json:"id,omitempty"`
+	Type       *RegionType       `json:"type,omitempty"`
 	Attributes *RegionAttributes `json:"attributes,omitempty"`
 }
 
@@ -67,6 +121,13 @@ func (r *RegionData) GetID() *string {
 		return nil
 	}
 	return r.ID
+}
+
+func (r *RegionData) GetType() *RegionType {
+	if r == nil {
+		return nil
+	}
+	return r.Type
 }
 
 func (r *RegionData) GetAttributes() *RegionAttributes {

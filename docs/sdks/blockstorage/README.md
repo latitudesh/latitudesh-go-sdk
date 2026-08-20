@@ -93,6 +93,7 @@ func main() {
             Attributes: operations.PostStorageVolumesBlockStorageAttributes{
                 Project: "proj_enPbqoZ6dA2MQ",
                 Name: "my-data",
+                Region: "DAL",
             },
         },
     })
@@ -131,6 +132,7 @@ func main() {
             Attributes: operations.PostStorageVolumesBlockStorageAttributes{
                 Project: "<value>",
                 Name: "<value>",
+                Region: "<value>",
             },
         },
     })
