@@ -1,0 +1,10 @@
+# PublicNetworkData
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `ID`                                                                                              | `*string`                                                                                         | :heavy_minus_sign:                                                                                | N/A                                                                                               |
+| `Type`                                                                                            | [*components.PublicNetworkDataType](../../models/components/publicnetworkdatatype.md)             | :heavy_minus_sign:                                                                                | N/A                                                                                               |
+| `Attributes`                                                                                      | [*components.PublicNetworkDataAttributes](../../models/components/publicnetworkdataattributes.md) | :heavy_minus_sign:                                                                                | N/A                                                                                               |

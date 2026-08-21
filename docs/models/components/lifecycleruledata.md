@@ -1,0 +1,10 @@
+# LifecycleRuleData
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `ID`                                                                                              | `*string`                                                                                         | :heavy_minus_sign:                                                                                | Lifecycle rule ID with lifecycle_ prefix                                                          |
+| `Type`                                                                                            | [*components.LifecycleRuleDataType](../../models/components/lifecycleruledatatype.md)             | :heavy_minus_sign:                                                                                | N/A                                                                                               |
+| `Attributes`                                                                                      | [*components.LifecycleRuleDataAttributes](../../models/components/lifecycleruledataattributes.md) | :heavy_minus_sign:                                                                                | N/A                                                                                               |

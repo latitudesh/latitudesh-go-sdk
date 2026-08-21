@@ -264,8 +264,10 @@ type CreateServerReinstallServersAttributes struct {
 	Ipxe *string `json:"ipxe,omitempty"`
 	// Keep network boot enabled so the server iPXE-boots on every reboot instead of booting from disk. Only supported with the 'ipxe' operating system.
 	PersistentNetboot *bool `json:"persistent_netboot,omitempty"`
-	// ID of a customer prefix to bond this server to during the reinstall. The prefix must belong to the same project and be in the same location as the server, and must have at least one free IP address. Applies to this reinstall only; omit it to leave any existing bond unchanged.
-	PrefixID *string `json:"prefix_id,omitempty"`
+	// **Preview** (`public_network` feature flag). Set to 'true' to attach the server onto the given 'public_network_id', or 'false' to detach an existing public network, during the reinstall. Requires 'public_network_id' when attaching.
+	PublicNetwork *bool `json:"public_network,omitempty"`
+	// ID of a customer public network to attach this server to during the reinstall. The public network must belong to the same project and be in the same location as the server, and must have at least one free IP address. Applies to this reinstall only; omit it to leave any existing public network unchanged.
+	PublicNetworkID *string `json:"public_network_id,omitempty"`
 }
 
 func (c *CreateServerReinstallServersAttributes) GetOperatingSystem() *CreateServerReinstallServersOperatingSystem {
@@ -324,11 +326,18 @@ func (c *CreateServerReinstallServersAttributes) GetPersistentNetboot() *bool {
 	return c.PersistentNetboot
 }
 
-func (c *CreateServerReinstallServersAttributes) GetPrefixID() *string {
+func (c *CreateServerReinstallServersAttributes) GetPublicNetwork() *bool {
 	if c == nil {
 		return nil
 	}
-	return c.PrefixID
+	return c.PublicNetwork
+}
+
+func (c *CreateServerReinstallServersAttributes) GetPublicNetworkID() *string {
+	if c == nil {
+		return nil
+	}
+	return c.PublicNetworkID
 }
 
 type CreateServerReinstallServersData struct {

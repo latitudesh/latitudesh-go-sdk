@@ -119,28 +119,28 @@ func (e *IpmiStatus) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// ServerDataPrefix - **Preview** (`prefixes_api` feature flag). The customer prefix this server is bonded onto, or null. Fetch full details from GET /prefixes/{id}.
-type ServerDataPrefix struct {
+// ServerDataPublicNetwork - **Preview** (`public_network` feature flag). The public network this server is attached onto, or null. Fetch full details from GET /public_networks/{id}.
+type ServerDataPublicNetwork struct {
 	ID   *string `json:"id,omitempty"`
 	Ipv4 *string `json:"ipv4,omitempty"`
 	Ipv6 *string `json:"ipv6,omitempty"`
 }
 
-func (s *ServerDataPrefix) GetID() *string {
+func (s *ServerDataPublicNetwork) GetID() *string {
 	if s == nil {
 		return nil
 	}
 	return s.ID
 }
 
-func (s *ServerDataPrefix) GetIpv4() *string {
+func (s *ServerDataPublicNetwork) GetIpv4() *string {
 	if s == nil {
 		return nil
 	}
 	return s.Ipv4
 }
 
-func (s *ServerDataPrefix) GetIpv6() *string {
+func (s *ServerDataPublicNetwork) GetIpv6() *string {
 	if s == nil {
 		return nil
 	}
@@ -422,10 +422,10 @@ type ServerDataAttributes struct {
 	IpmiStatus *IpmiStatus       `json:"ipmi_status,omitempty"`
 	// The server role (e.g. Bare Metal)
 	Role *string `json:"role,omitempty"`
-	// Whether the server is eligible to be bonded (carries the bond-vpc-enabled tag).
-	BondEligible *bool `json:"bond_eligible,omitempty"`
-	// **Preview** (`prefixes_api` feature flag). The customer prefix this server is bonded onto, or null. Fetch full details from GET /prefixes/{id}.
-	Prefix              *ServerDataPrefix         `json:"prefix,omitempty"`
+	// Whether the server is eligible to attach a public network (carries the bond-vpc-enabled tag).
+	PublicNetworkEligible *bool `json:"public_network_eligible,omitempty"`
+	// **Preview** (`public_network` feature flag). The public network this server is attached onto, or null. Fetch full details from GET /public_networks/{id}.
+	PublicNetwork       *ServerDataPublicNetwork  `json:"public_network,omitempty"`
 	Site                *string                   `json:"site,omitempty"`
 	Locked              *bool                     `json:"locked,omitempty"`
 	RescueAllowed       *bool                     `json:"rescue_allowed,omitempty"`
@@ -491,18 +491,18 @@ func (s *ServerDataAttributes) GetRole() *string {
 	return s.Role
 }
 
-func (s *ServerDataAttributes) GetBondEligible() *bool {
+func (s *ServerDataAttributes) GetPublicNetworkEligible() *bool {
 	if s == nil {
 		return nil
 	}
-	return s.BondEligible
+	return s.PublicNetworkEligible
 }
 
-func (s *ServerDataAttributes) GetPrefix() *ServerDataPrefix {
+func (s *ServerDataAttributes) GetPublicNetwork() *ServerDataPublicNetwork {
 	if s == nil {
 		return nil
 	}
-	return s.Prefix
+	return s.PublicNetwork
 }
 
 func (s *ServerDataAttributes) GetSite() *string {

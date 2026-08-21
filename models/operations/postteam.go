@@ -131,9 +131,22 @@ func (p *PostTeamTeamsRequestBody) GetData() PostTeamTeamsData {
 	return p.Data
 }
 
+type PostTeamMeta struct {
+	// Create-only session token to authenticate follow-up requests against the new team
+	SessionToken *string `json:"session_token,omitempty"`
+}
+
+func (p *PostTeamMeta) GetSessionToken() *string {
+	if p == nil {
+		return nil
+	}
+	return p.SessionToken
+}
+
 // PostTeamResponseBody - Created
 type PostTeamResponseBody struct {
 	Data *components.Team `json:"data,omitempty"`
+	Meta *PostTeamMeta    `json:"meta,omitempty"`
 }
 
 func (p *PostTeamResponseBody) GetData() *components.Team {
@@ -141,6 +154,13 @@ func (p *PostTeamResponseBody) GetData() *components.Team {
 		return nil
 	}
 	return p.Data
+}
+
+func (p *PostTeamResponseBody) GetMeta() *PostTeamMeta {
+	if p == nil {
+		return nil
+	}
+	return p.Meta
 }
 
 type PostTeamResponse struct {

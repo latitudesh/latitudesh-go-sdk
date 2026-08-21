@@ -1,0 +1,10 @@
+# CreatePublicNetworkAttributes
+
+
+## Fields
+
+| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ProjectID`                                                                              | `string`                                                                                 | :heavy_check_mark:                                                                       | The project to create the public network in                                              |
+| `Site`                                                                                   | `string`                                                                                 | :heavy_check_mark:                                                                       | The site slug the public network is bound to                                             |
+| `Size`                                                                                   | [components.CreatePublicNetworkSize](../../models/components/createpublicnetworksize.md) | :heavy_check_mark:                                                                       | IPv4 prefix length. Determines how many servers the public network can host.             |

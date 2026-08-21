@@ -1,6 +1,6 @@
 # Size
 
-IPv4 prefix length. Determines how many servers the network can host.
+IPv4 prefix length. Determines how many servers the public network can host.
 
 ## Example Usage
 

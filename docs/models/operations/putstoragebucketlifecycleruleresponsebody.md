@@ -1,0 +1,10 @@
+# PutStorageBucketLifecycleRuleResponseBody
+
+Success
+
+
+## Fields
+
+| Field                                                                         | Type                                                                          | Required                                                                      | Description                                                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `Data`                                                                        | [*components.LifecycleRuleData](../../models/components/lifecycleruledata.md) | :heavy_minus_sign:                                                            | N/A                                                                           |

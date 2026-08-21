@@ -16,7 +16,7 @@ type GetRegionsRequest struct {
 	StatsTotal *string `queryParam:"style=form,explode=true,name=stats[total]"`
 	// When set to `true`, the response also includes custom regions (such as storage-only regions) alongside the default core regions. When omitted or `false`, only core regions are returned.
 	IncludeCustom *bool `queryParam:"style=form,explode=true,name=include_custom"`
-	// Return only locations that support the given capability, e.g. `filter[features]=prefixes`.
+	// Return only locations that support the given capability, e.g. `filter[features]=public_network`.
 	FilterFeatures *string `queryParam:"style=form,explode=true,name=filter[features]"`
 }
 
