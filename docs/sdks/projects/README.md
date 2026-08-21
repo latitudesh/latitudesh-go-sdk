@@ -8,6 +8,7 @@
 * [Create](#create) - Create project
 * [Update](#update) - Update project
 * [Delete](#delete) - Delete project
+* [GetProject](#getproject) - Retrieve project
 
 ## List
 
@@ -661,6 +662,59 @@ func main() {
 ### Response
 
 **[*operations.DeleteProjectResponse](../../models/operations/deleteprojectresponse.md), error**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
+
+## GetProject
+
+Returns a single project belonging to the current team
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="get-project" method="get" path="/projects/{project_id}" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Projects.GetProject(ctx, "<id>")
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `projectID`                                              | `string`                                                 | :heavy_check_mark:                                       | The project ID or Slug                                   |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+
+### Response
+
+**[*operations.GetProjectResponse](../../models/operations/getprojectresponse.md), error**
 
 ### Errors
 

@@ -102,7 +102,7 @@ type PostStorageBucketsAttributes struct {
 	Customer *string `json:"customer,omitempty"`
 	// Backend storage tier. `standard` is the default S3-compatible tier. `high_performance` is a lower-latency, higher-throughput tier available in select regions only.
 	StorageClass *StorageClass `default:"standard" json:"storage_class"`
-	// Enable S3 object versioning. Once enabled, versioning cannot be disabled.
+	// Enable S3 object versioning. Versioning can be suspended later unless Object Lock is enabled; enabling Object Lock requires versioning and prevents versioning from being suspended.
 	Versioning *bool `default:"false" json:"versioning"`
 	// Enable S3 Object Lock (WORM). Must be enabled at bucket creation; cannot be added to an existing bucket. When `locking` is `true`, `versioning` is automatically enabled.
 	Locking *bool `default:"false" json:"locking"`

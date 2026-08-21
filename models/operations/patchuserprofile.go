@@ -147,13 +147,13 @@ func (p *PatchUserProfileRequest) GetRequestBody() PatchUserProfileUserProfileRe
 	return p.RequestBody
 }
 
-type Meta struct {
+type PatchUserProfileMeta struct {
 }
 
 // PatchUserProfileResponseBody - Success
 type PatchUserProfileResponseBody struct {
 	Data *components.UserUpdate `json:"data,omitempty"`
-	Meta *Meta                  `json:"meta,omitempty"`
+	Meta *PatchUserProfileMeta  `json:"meta,omitempty"`
 }
 
 func (p *PatchUserProfileResponseBody) GetData() *components.UserUpdate {
@@ -163,7 +163,7 @@ func (p *PatchUserProfileResponseBody) GetData() *components.UserUpdate {
 	return p.Data
 }
 
-func (p *PatchUserProfileResponseBody) GetMeta() *Meta {
+func (p *PatchUserProfileResponseBody) GetMeta() *PatchUserProfileMeta {
 	if p == nil {
 		return nil
 	}

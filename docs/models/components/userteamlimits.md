@@ -10,7 +10,8 @@
 | `VirtualMachine`    | `*int64`            | :heavy_minus_sign:  | N/A                 |
 | `VirtualMachineGpu` | `*int64`            | :heavy_minus_sign:  | N/A                 |
 | `ElasticIP`         | `*int64`            | :heavy_minus_sign:  | N/A                 |
-| `Prefix`            | `*int64`            | :heavy_minus_sign:  | N/A                 |
+| `BgpSessionPerIP`   | `*int64`            | :heavy_minus_sign:  | N/A                 |
+| `PublicNetwork`     | `*int64`            | :heavy_minus_sign:  | N/A                 |
 | `VirtualNetwork`    | `*int64`            | :heavy_minus_sign:  | N/A                 |
 | `Database`          | `*int64`            | :heavy_minus_sign:  | N/A                 |
 | `Filesystem`        | `*int64`            | :heavy_minus_sign:  | N/A                 |

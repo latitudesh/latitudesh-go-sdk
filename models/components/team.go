@@ -27,7 +27,8 @@ type TeamLimits struct {
 	VirtualMachine    *int64 `json:"virtual_machine,omitempty"`
 	VirtualMachineGpu *int64 `json:"virtual_machine_gpu,omitempty"`
 	ElasticIP         *int64 `json:"elastic_ip,omitempty"`
-	Prefix            *int64 `json:"prefix,omitempty"`
+	BgpSessionPerIP   *int64 `json:"bgp_session_per_ip,omitempty"`
+	PublicNetwork     *int64 `json:"public_network,omitempty"`
 	VirtualNetwork    *int64 `json:"virtual_network,omitempty"`
 	Database          *int64 `json:"database,omitempty"`
 	Filesystem        *int64 `json:"filesystem,omitempty"`
@@ -69,11 +70,18 @@ func (t *TeamLimits) GetElasticIP() *int64 {
 	return t.ElasticIP
 }
 
-func (t *TeamLimits) GetPrefix() *int64 {
+func (t *TeamLimits) GetBgpSessionPerIP() *int64 {
 	if t == nil {
 		return nil
 	}
-	return t.Prefix
+	return t.BgpSessionPerIP
+}
+
+func (t *TeamLimits) GetPublicNetwork() *int64 {
+	if t == nil {
+		return nil
+	}
+	return t.PublicNetwork
 }
 
 func (t *TeamLimits) GetVirtualNetwork() *int64 {
@@ -114,7 +122,6 @@ type TeamAttributes struct {
 	UpdatedAt         *string          `json:"updated_at,omitempty"`
 	Status            *string          `json:"status,omitempty"`
 	EnforceMfa        *bool            `json:"enforce_mfa,omitempty"`
-	Token             *string          `json:"token,omitempty"`
 	CustomerBillingID *string          `json:"customer_billing_id,omitempty"`
 	ReferredCode      *string          `json:"referred_code,omitempty"`
 	Users             []UserInclude    `json:"users,omitempty"`
@@ -186,13 +193,6 @@ func (t *TeamAttributes) GetEnforceMfa() *bool {
 		return nil
 	}
 	return t.EnforceMfa
-}
-
-func (t *TeamAttributes) GetToken() *string {
-	if t == nil {
-		return nil
-	}
-	return t.Token
 }
 
 func (t *TeamAttributes) GetCustomerBillingID() *string {

@@ -1,0 +1,10 @@
+# PublicNetworkDataRegion
+
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `ID`                                                                                          | `*string`                                                                                     | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `Name`                                                                                        | `*string`                                                                                     | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `Location`                                                                                    | [*components.PublicNetworkDataLocation](../../models/components/publicnetworkdatalocation.md) | :heavy_minus_sign:                                                                            | N/A                                                                                           |

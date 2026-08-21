@@ -55,7 +55,8 @@ type UserTeamLimits struct {
 	VirtualMachine    *int64 `json:"virtual_machine,omitempty"`
 	VirtualMachineGpu *int64 `json:"virtual_machine_gpu,omitempty"`
 	ElasticIP         *int64 `json:"elastic_ip,omitempty"`
-	Prefix            *int64 `json:"prefix,omitempty"`
+	BgpSessionPerIP   *int64 `json:"bgp_session_per_ip,omitempty"`
+	PublicNetwork     *int64 `json:"public_network,omitempty"`
 	VirtualNetwork    *int64 `json:"virtual_network,omitempty"`
 	Database          *int64 `json:"database,omitempty"`
 	Filesystem        *int64 `json:"filesystem,omitempty"`
@@ -97,11 +98,18 @@ func (u *UserTeamLimits) GetElasticIP() *int64 {
 	return u.ElasticIP
 }
 
-func (u *UserTeamLimits) GetPrefix() *int64 {
+func (u *UserTeamLimits) GetBgpSessionPerIP() *int64 {
 	if u == nil {
 		return nil
 	}
-	return u.Prefix
+	return u.BgpSessionPerIP
+}
+
+func (u *UserTeamLimits) GetPublicNetwork() *int64 {
+	if u == nil {
+		return nil
+	}
+	return u.PublicNetwork
 }
 
 func (u *UserTeamLimits) GetVirtualNetwork() *int64 {

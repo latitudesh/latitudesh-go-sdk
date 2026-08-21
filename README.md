@@ -209,6 +209,11 @@ func main() {
 * [PostStorageBuckets](docs/sdks/objectstorage/README.md#poststoragebuckets) - Create bucket
 * [GetStorageBucket](docs/sdks/objectstorage/README.md#getstoragebucket) - Retrieve bucket
 * [DeleteStorageBuckets](docs/sdks/objectstorage/README.md#deletestoragebuckets) - Delete bucket
+* [GetStorageBucketLifecycleRules](docs/sdks/objectstorage/README.md#getstoragebucketlifecyclerules) - List lifecycle rules
+* [PostStorageBucketLifecycleRules](docs/sdks/objectstorage/README.md#poststoragebucketlifecyclerules) - Create lifecycle rule
+* [GetStorageBucketLifecycleRule](docs/sdks/objectstorage/README.md#getstoragebucketlifecyclerule) - Retrieve lifecycle rule
+* [PutStorageBucketLifecycleRule](docs/sdks/objectstorage/README.md#putstoragebucketlifecyclerule) - Update lifecycle rule
+* [DeleteStorageBucketLifecycleRule](docs/sdks/objectstorage/README.md#deletestoragebucketlifecyclerule) - Delete lifecycle rule
 * [GetStorageBucketMetrics](docs/sdks/objectstorage/README.md#getstoragebucketmetrics) - Retrieve bucket metrics
 
 ### [OperatingSystems](docs/sdks/operatingsystems/README.md)
@@ -228,13 +233,6 @@ func main() {
 
 * [List](docs/sdks/vm/README.md#list) - List VM plans
 
-### [Prefixes](docs/sdks/prefixes/README.md)
-
-* [GetPrefixes](docs/sdks/prefixes/README.md#getprefixes) - List networks
-* [CreatePrefix](docs/sdks/prefixes/README.md#createprefix) - Create a network
-* [GetPrefix](docs/sdks/prefixes/README.md#getprefix) - Retrieve a network
-* [DestroyPrefix](docs/sdks/prefixes/README.md#destroyprefix) - Delete a network
-
 ### [PrivateNetworks](docs/sdks/privatenetworks/README.md)
 
 * [List](docs/sdks/privatenetworks/README.md#list) - List VLANs
@@ -251,10 +249,18 @@ func main() {
 * [Create](docs/sdks/projects/README.md#create) - Create project
 * [Update](docs/sdks/projects/README.md#update) - Update project
 * [Delete](docs/sdks/projects/README.md#delete) - Delete project
+* [GetProject](docs/sdks/projects/README.md#getproject) - Retrieve project
 
 ### [~~Projects.SshKeys~~](docs/sdks/latitudeshprojectssshkeys/README.md)
 
 * [~~PostProjectSSHKey~~](docs/sdks/latitudeshprojectssshkeys/README.md#postprojectsshkey) - Create SSH Key :warning: **Deprecated**
+
+### [PublicNetworks](docs/sdks/publicnetworks/README.md)
+
+* [GetPublicNetworks](docs/sdks/publicnetworks/README.md#getpublicnetworks) - List networks
+* [CreatePublicNetwork](docs/sdks/publicnetworks/README.md#createpublicnetwork) - Create a network
+* [GetPublicNetwork](docs/sdks/publicnetworks/README.md#getpublicnetwork) - Retrieve a network
+* [DestroyPublicNetwork](docs/sdks/publicnetworks/README.md#destroypublicnetwork) - Delete a network
 
 ### [Regions](docs/sdks/regions/README.md)
 

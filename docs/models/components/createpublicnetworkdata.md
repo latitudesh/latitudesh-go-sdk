@@ -1,0 +1,9 @@
+# CreatePublicNetworkData
+
+
+## Fields
+
+| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `Type`                                                                                                | [components.CreatePublicNetworkType](../../models/components/createpublicnetworktype.md)              | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
+| `Attributes`                                                                                          | [*components.CreatePublicNetworkAttributes](../../models/components/createpublicnetworkattributes.md) | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
