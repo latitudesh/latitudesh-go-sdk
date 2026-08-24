@@ -16,8 +16,8 @@
 * [GetStorageBucketLifecycleRules](#getstoragebucketlifecyclerules) - List lifecycle rules
 * [PostStorageBucketLifecycleRules](#poststoragebucketlifecyclerules) - Create lifecycle rule
 * [GetStorageBucketLifecycleRule](#getstoragebucketlifecyclerule) - Retrieve lifecycle rule
-* [PutStorageBucketLifecycleRule](#putstoragebucketlifecyclerule) - Update lifecycle rule
 * [DeleteStorageBucketLifecycleRule](#deletestoragebucketlifecyclerule) - Delete lifecycle rule
+* [PatchStorageBucketLifecycleRule](#patchstoragebucketlifecyclerule) - Update lifecycle rule
 * [GetStorageBucketMetrics](#getstoragebucketmetrics) - Retrieve bucket metrics
 
 ## GetStorageUsage
@@ -1146,183 +1146,6 @@ func main() {
 | components.ErrorObject   | 403, 404                 | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## PutStorageBucketLifecycleRule
-
-Updates an existing lifecycle rule for an object storage bucket.
-
-### Example Usage: FeatureNotEnabled
-
-<!-- UsageSnippet language="go" operationID="put-storage-bucket-lifecycle-rule" method="put" path="/storage/buckets/{bucket_id}/lifecycle_rules/{id}" example="FeatureNotEnabled" -->
-```go
-package main
-
-import(
-	"context"
-	"os"
-	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
-	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
-	"log"
-)
-
-func main() {
-    ctx := context.Background()
-
-    s := latitudeshgosdk.New(
-        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
-    )
-
-    res, err := s.ObjectStorage.PutStorageBucketLifecycleRule(ctx, "<id>", "<id>", operations.PutStorageBucketLifecycleRuleRequestBody{
-        Data: operations.PutStorageBucketLifecycleRuleData{
-            Type: operations.PutStorageBucketLifecycleRuleTypeLifecycleRules,
-            Attributes: operations.PutStorageBucketLifecycleRuleAttributes{
-                Name: "<value>",
-            },
-        },
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-    if res.Object != nil {
-        // handle response
-    }
-}
-```
-### Example Usage: InsufficientPermissions
-
-<!-- UsageSnippet language="go" operationID="put-storage-bucket-lifecycle-rule" method="put" path="/storage/buckets/{bucket_id}/lifecycle_rules/{id}" example="InsufficientPermissions" -->
-```go
-package main
-
-import(
-	"context"
-	"os"
-	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
-	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
-	"log"
-)
-
-func main() {
-    ctx := context.Background()
-
-    s := latitudeshgosdk.New(
-        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
-    )
-
-    res, err := s.ObjectStorage.PutStorageBucketLifecycleRule(ctx, "<id>", "<id>", operations.PutStorageBucketLifecycleRuleRequestBody{
-        Data: operations.PutStorageBucketLifecycleRuleData{
-            Type: operations.PutStorageBucketLifecycleRuleTypeLifecycleRules,
-            Attributes: operations.PutStorageBucketLifecycleRuleAttributes{
-                Name: "<value>",
-            },
-        },
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-    if res.Object != nil {
-        // handle response
-    }
-}
-```
-### Example Usage: Success
-
-<!-- UsageSnippet language="go" operationID="put-storage-bucket-lifecycle-rule" method="put" path="/storage/buckets/{bucket_id}/lifecycle_rules/{id}" example="Success" -->
-```go
-package main
-
-import(
-	"context"
-	"os"
-	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
-	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
-	"log"
-)
-
-func main() {
-    ctx := context.Background()
-
-    s := latitudeshgosdk.New(
-        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
-    )
-
-    res, err := s.ObjectStorage.PutStorageBucketLifecycleRule(ctx, "<id>", "<id>", operations.PutStorageBucketLifecycleRuleRequestBody{
-        Data: operations.PutStorageBucketLifecycleRuleData{
-            Type: operations.PutStorageBucketLifecycleRuleTypeLifecycleRules,
-            Attributes: operations.PutStorageBucketLifecycleRuleAttributes{
-                Name: "<value>",
-            },
-        },
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-    if res.Object != nil {
-        // handle response
-    }
-}
-```
-### Example Usage: Update
-
-<!-- UsageSnippet language="go" operationID="put-storage-bucket-lifecycle-rule" method="put" path="/storage/buckets/{bucket_id}/lifecycle_rules/{id}" example="Update" -->
-```go
-package main
-
-import(
-	"context"
-	"os"
-	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
-	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
-	"log"
-)
-
-func main() {
-    ctx := context.Background()
-
-    s := latitudeshgosdk.New(
-        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
-    )
-
-    res, err := s.ObjectStorage.PutStorageBucketLifecycleRule(ctx, "<id>", "<id>", operations.PutStorageBucketLifecycleRuleRequestBody{
-        Data: operations.PutStorageBucketLifecycleRuleData{
-            Type: operations.PutStorageBucketLifecycleRuleTypeLifecycleRules,
-            Attributes: operations.PutStorageBucketLifecycleRuleAttributes{
-                Name: "delete-old-logs",
-                Enabled: latitudeshgosdk.Pointer(false),
-                ExpirationDays: latitudeshgosdk.Pointer[int64](60),
-            },
-        },
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-    if res.Object != nil {
-        // handle response
-    }
-}
-```
-
-### Parameters
-
-| Parameter                                                                                                                  | Type                                                                                                                       | Required                                                                                                                   | Description                                                                                                                |
-| -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                                                      | :heavy_check_mark:                                                                                                         | The context to use for the request.                                                                                        |
-| `bucketID`                                                                                                                 | `string`                                                                                                                   | :heavy_check_mark:                                                                                                         | The object storage bucket ID                                                                                               |
-| `id`                                                                                                                       | `string`                                                                                                                   | :heavy_check_mark:                                                                                                         | The lifecycle rule ID                                                                                                      |
-| `requestBody`                                                                                                              | [operations.PutStorageBucketLifecycleRuleRequestBody](../../models/operations/putstoragebucketlifecyclerulerequestbody.md) | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
-| `opts`                                                                                                                     | [][operations.Option](../../models/operations/option.md)                                                                   | :heavy_minus_sign:                                                                                                         | The options for this request.                                                                                              |
-
-### Response
-
-**[*operations.PutStorageBucketLifecycleRuleResponse](../../models/operations/putstoragebucketlifecycleruleresponse.md), error**
-
-### Errors
-
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403, 404, 422            | application/vnd.api+json |
-| components.ErrorObject   | 500                      | application/vnd.api+json |
-| components.APIError      | 4XX, 5XX                 | \*/\*                    |
-
 ## DeleteStorageBucketLifecycleRule
 
 Deletes a lifecycle rule from an object storage bucket.
@@ -1375,6 +1198,183 @@ func main() {
 | Error Type               | Status Code              | Content Type             |
 | ------------------------ | ------------------------ | ------------------------ |
 | components.ErrorObject   | 403, 404                 | application/vnd.api+json |
+| components.ErrorObject   | 500                      | application/vnd.api+json |
+| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+
+## PatchStorageBucketLifecycleRule
+
+Updates an existing lifecycle rule for an object storage bucket.
+
+### Example Usage: FeatureNotEnabled
+
+<!-- UsageSnippet language="go" operationID="patch-storage-bucket-lifecycle-rule" method="patch" path="/storage/buckets/{bucket_id}/lifecycle_rules/{id}" example="FeatureNotEnabled" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.ObjectStorage.PatchStorageBucketLifecycleRule(ctx, "<id>", "<id>", operations.PatchStorageBucketLifecycleRuleRequestBody{
+        Data: operations.PatchStorageBucketLifecycleRuleData{
+            Type: operations.PatchStorageBucketLifecycleRuleTypeLifecycleRules,
+            Attributes: operations.PatchStorageBucketLifecycleRuleAttributes{
+                Name: "<value>",
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: InsufficientPermissions
+
+<!-- UsageSnippet language="go" operationID="patch-storage-bucket-lifecycle-rule" method="patch" path="/storage/buckets/{bucket_id}/lifecycle_rules/{id}" example="InsufficientPermissions" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.ObjectStorage.PatchStorageBucketLifecycleRule(ctx, "<id>", "<id>", operations.PatchStorageBucketLifecycleRuleRequestBody{
+        Data: operations.PatchStorageBucketLifecycleRuleData{
+            Type: operations.PatchStorageBucketLifecycleRuleTypeLifecycleRules,
+            Attributes: operations.PatchStorageBucketLifecycleRuleAttributes{
+                Name: "<value>",
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Success
+
+<!-- UsageSnippet language="go" operationID="patch-storage-bucket-lifecycle-rule" method="patch" path="/storage/buckets/{bucket_id}/lifecycle_rules/{id}" example="Success" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.ObjectStorage.PatchStorageBucketLifecycleRule(ctx, "<id>", "<id>", operations.PatchStorageBucketLifecycleRuleRequestBody{
+        Data: operations.PatchStorageBucketLifecycleRuleData{
+            Type: operations.PatchStorageBucketLifecycleRuleTypeLifecycleRules,
+            Attributes: operations.PatchStorageBucketLifecycleRuleAttributes{
+                Name: "<value>",
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Update
+
+<!-- UsageSnippet language="go" operationID="patch-storage-bucket-lifecycle-rule" method="patch" path="/storage/buckets/{bucket_id}/lifecycle_rules/{id}" example="Update" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.ObjectStorage.PatchStorageBucketLifecycleRule(ctx, "<id>", "<id>", operations.PatchStorageBucketLifecycleRuleRequestBody{
+        Data: operations.PatchStorageBucketLifecycleRuleData{
+            Type: operations.PatchStorageBucketLifecycleRuleTypeLifecycleRules,
+            Attributes: operations.PatchStorageBucketLifecycleRuleAttributes{
+                Name: "delete-old-logs",
+                Enabled: latitudeshgosdk.Pointer(false),
+                ExpirationDays: latitudeshgosdk.Pointer[int64](60),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                      | Type                                                                                                                           | Required                                                                                                                       | Description                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                                                          | :heavy_check_mark:                                                                                                             | The context to use for the request.                                                                                            |
+| `bucketID`                                                                                                                     | `string`                                                                                                                       | :heavy_check_mark:                                                                                                             | The object storage bucket ID                                                                                                   |
+| `id`                                                                                                                           | `string`                                                                                                                       | :heavy_check_mark:                                                                                                             | The lifecycle rule ID                                                                                                          |
+| `requestBody`                                                                                                                  | [operations.PatchStorageBucketLifecycleRuleRequestBody](../../models/operations/patchstoragebucketlifecyclerulerequestbody.md) | :heavy_check_mark:                                                                                                             | N/A                                                                                                                            |
+| `opts`                                                                                                                         | [][operations.Option](../../models/operations/option.md)                                                                       | :heavy_minus_sign:                                                                                                             | The options for this request.                                                                                                  |
+
+### Response
+
+**[*operations.PatchStorageBucketLifecycleRuleResponse](../../models/operations/patchstoragebucketlifecycleruleresponse.md), error**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| components.ErrorObject   | 403, 404, 422            | application/vnd.api+json |
 | components.ErrorObject   | 500                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
