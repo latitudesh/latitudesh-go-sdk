@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 8e41e7c5c9ed1deb695fe24b0270b1a2
+  docChecksum: b7a3c18796ed30c001fadde010acd93f
   docVersion: "2023-06-01"
   speakeasyVersion: 1.795.1
   generationVersion: 2.932.9
-  releaseVersion: 1.19.10
-  configChecksum: 02acfd4cb0dd6dcefe501cae5ab6bafd
+  releaseVersion: 1.19.11
+  configChecksum: 63cad1cbb8aae01e7352caf0ab792ee7
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 606f82e5-9875-4835-9e36-a7f991052e10
-  pristine_commit_hash: a4ca19924e39ff6e424aa0f75676b87b2569a101
-  pristine_tree_hash: 36d97d39a0eacd0301f72ab3a8dddff5a2bf5e87
+  generation_id: 83f05ff3-f75f-4903-b40c-d591d805c1f2
+  pristine_commit_hash: b52aac196435cc0b73ac641a8478871a76b5db33
+  pristine_tree_hash: f63b321f93b3f93882f6f362fc453cda0bf8f2b7
 features:
   go:
     additionalDependencies: 0.1.0
@@ -108,16 +108,24 @@ trackedFiles:
     pristine_git_object: 9d0939643792030455d92582fab9a8d6c607650d
   docs/models/components/bandwidthpackages.md:
     id: fa41ed65f5fb
-    last_write_checksum: sha1:b4acee38bb73f685d60fe6520c8ded1b343c41bf
-    pristine_git_object: 9fe35b4076846d5e3d844c8b7b8d3135ec97abc5
+    last_write_checksum: sha1:e8b0643594a161c88376247e899dfb5888f71b5e
+    pristine_git_object: dea01622c1be548c89cc12fe2131170a1dde41ae
   docs/models/components/bandwidthpackagesattributes.md:
     id: 5d8d2ed92bf8
     last_write_checksum: sha1:1b55f212c9057fc808f4acdd079d814c9d742401
     pristine_git_object: 8c9a6d0b42bf8bf54b4abd3ada9ae0301befbbcf
+  docs/models/components/bandwidthpackagesdata.md:
+    id: 75801d0da822
+    last_write_checksum: sha1:7169d05e3056e12b98e89569f12849e9ffda91fd
+    pristine_git_object: 1254da0c6747d5b4785627ffcafe5ccb7757b185
+  docs/models/components/bandwidthpackagesmeta.md:
+    id: f37fc814211d
+    last_write_checksum: sha1:3c31d802c6272ea309b4c89528fb34a79c7a1cc0
+    pristine_git_object: c2c526e75923226511f82917f64e526ad071580b
   docs/models/components/bandwidthpackagesproject.md:
     id: 1593b7b602e5
-    last_write_checksum: sha1:ea10a4df56a0c6c6b1a65a8f997ca6a49a21d436
-    pristine_git_object: 23c3b8e9c8767cce5dd0bcc80e0ac3044eed7d41
+    last_write_checksum: sha1:fbda6493ee5046a7d81271e61269cbccc2b3554f
+    pristine_git_object: 5f042f3943b119effe80b4665d2b29b9af84b2c2
   docs/models/components/bandwidthpackagestype.md:
     id: 9e57eefb9fbb
     last_write_checksum: sha1:045d350f1948942d820bbd5bb8801890ff3fa56c
@@ -268,8 +276,8 @@ trackedFiles:
     pristine_git_object: 813316fbc5b6bcc453ceb83ac01bcdffe62612f9
   docs/models/components/brl.md:
     id: ffdbd1d72dd9
-    last_write_checksum: sha1:ae60b8db12473442f2ac96ba48ae2aba94cf91f7
-    pristine_git_object: c597a033daa12edf7dd40f1e660c5ca3c60bb6d1
+    last_write_checksum: sha1:c7204ef1e8bf8a166bfa8ae7ef5c8e5783f39677
+    pristine_git_object: 6c4b502de98a12bedace263347c895b421330144
   docs/models/components/bucket.md:
     id: 86ab4b5c99e8
     last_write_checksum: sha1:e5bd05e27b357bb9810a04e039dd9f8ca1f3c630
@@ -1644,8 +1652,8 @@ trackedFiles:
     pristine_git_object: 4c5302d2daddeb72bf4a8b48cb80b5d6a0ce0f76
   docs/models/components/usd.md:
     id: e643b91e5f43
-    last_write_checksum: sha1:38ca0d08f32351ffd49fa14b11e5d8b057c2809b
-    pristine_git_object: 8c442de2e14042d9f28a89c063b97da14d4fd4b4
+    last_write_checksum: sha1:2a377a2b6ba9260de68e50ff3de10d7987d7ee29
+    pristine_git_object: 53c6f087dc03be8e31fbb3b0d9a9796d575fcf39
   docs/models/components/user.md:
     id: 9615438c874c
     last_write_checksum: sha1:6408da7ae39431fdc94814ba10267ef392a9addc
@@ -4672,8 +4680,8 @@ trackedFiles:
     pristine_git_object: f055c7135bd9df9511999b5a8af285cf62b279a1
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:23872e3409723bca825b859f77d51099042ac61f
-    pristine_git_object: fcaf6dd532a38f079f69ca7b0e0ed51b3d0b7b34
+    last_write_checksum: sha1:4ee5378c44578b6707ab2d35e5ca3aab196ae197
+    pristine_git_object: 6553a4a2a7d1567af0c7c37f649e2ad2a7815641
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -4696,12 +4704,12 @@ trackedFiles:
     pristine_git_object: c7f00850576a90e1da86b2b849201043b9e6daa4
   models/components/bandwidthpackages.go:
     id: 0e5a73da3ff2
-    last_write_checksum: sha1:b27f50fbda12907a60d1b23503c3b191ca7e510d
-    pristine_git_object: b87994cde6cf2ca7d63f39a377756efe0bdfce6c
+    last_write_checksum: sha1:be2fc6b45edbbcf59ccb9609c27724df9fd257d7
+    pristine_git_object: 2c444138965d8a7de76d1633a9bb72c6e61be994
   models/components/bandwidthplandata.go:
     id: 14121edbed3c
-    last_write_checksum: sha1:b3a9006572bc65edbd39d2f858e61d69bdc96997
-    pristine_git_object: 2b999529d6078cb8887c8b3fed49c5053f0087ec
+    last_write_checksum: sha1:8609da542031651c8450b91927b22172ac4599df
+    pristine_git_object: 85e9981986072bceaf6ef6d1f5a5a647496fab5d
   models/components/bandwidthplans.go:
     id: d163dfb92814
     last_write_checksum: sha1:25a205d7d957c4d872bb7e12dc990219a05fc442
@@ -6677,7 +6685,7 @@ examples:
           API-Version: "2023-06-01"
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "chile-54", "type": "bandwidth_plan", "attributes": {"region": "Chile 54", "locations": ["ASH", "SAO"], "pricing": {"usd": {"monthly": 5000}, "brl": {"monthly": 8000}}}}], "meta": {}}
+          application/vnd.api+json: {"data": [{"id": "chile-54", "type": "bandwidth_plan", "attributes": {"region": "Chile 54", "locations": ["ASH", "SAO"], "pricing": {"usd": {"monthly": 5000, "yearly": 6000}, "brl": {"monthly": 8000, "yearly": null}}}}], "meta": {}}
   update-plans-bandwidth:
     Success:
       requestBody:
@@ -6685,7 +6693,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "bandwidth_packages", "attributes": {"project": "proj_z2A3DVZ3DnawP", "quantity": 5, "region_slug": "brazil"}}}
       responses:
         "200":
-          application/vnd.api+json: {}
+          application/vnd.api+json: {"data": {"type": "bandwidth_packages", "attributes": {"project": {"id": "proj_z2A3DVZ3DnawP", "name": "Orn-Reilly", "slug": "orn-reilly"}, "packages": [{"region_slug": "united-states", "currency": "USD", "unit_price": 0.5, "contracted": 10, "total_price": 5}, {"region_slug": "brazil", "currency": "USD", "unit_price": 4.6, "contracted": 0, "total_price": 0}]}}}
     Forbidden:
       requestBody:
         application/json: {"data": {"type": "bandwidth_packages", "attributes": {"project": "proj_v9BVDaEYDRm1W", "quantity": 5, "region_slug": "brazil"}}}
@@ -10386,7 +10394,10 @@ examples:
           application/vnd.api+json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes:\n* `Latitudesh.Servers.UpdateDeployConfig()`: \n  *  `request.RequestBody.Attributes` **Changed** (Breaking ⚠️)\n  *  `response.Data.Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachines.Create()`:  `response.Data.Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachineRestores.Get()`:  `response.Data.Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachineRestores.Create()`:  `response.Data.Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachineRestores.List()`:  `response.Data[].Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachineRestores.ListForBackup()`:  `response.Data[].Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachineRestores.CreateForVirtualMachineBackup()`:  `response.Data.Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachineRestores.ListForVirtualMachineBackup()`:  `response.Data[].Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachineBackups.Delete()`:  `response.Data.Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachineBackups.Get()`:  `response.Data.Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachineBackups.Create()`:  `response.Data.Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachineBackups.List()`:  `response.Data[].Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachineBackups.CreateForVirtualMachine()`:  `response.Data.Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachineBackups.ListForVirtualMachine()`:  `response.Data[].Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.Teams.Get()`:  `response.Data[].Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.Teams.Create()`:  `response` **Changed** (Breaking ⚠️)\n* `Latitudesh.Teams.Update()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.Projects.List()`:  `response.Data[].Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.Projects.Create()`:  `response.Data.Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.Projects.Update()`:  `response.Data.Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.ObjectStorage.GetStorageBuckets()`:  `response.Data[].Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.ObjectStorage.PostStorageBuckets()`:  `response.Data.Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.ObjectStorage.GetStorageBucket()`:  `response.Data.Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.Servers.List()`:  `response.Data[].Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.Servers.Create()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.Servers.Get()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.Servers.Update()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.Servers.GetDeployConfig()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachines.UpdateVirtualMachine()`:  `response.Data.Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.Tags.Update()`:  `response.Data.Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachines.Get()`:  `response.Data.Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.Servers.Reinstall()`: \n  *  `request.RequestBody.Data.Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.FilesystemStorage.CreateFilesystem()`:  `response.Data.Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.FilesystemStorage.ListFilesystems()`:  `response.Data[].Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.FilesystemStorage.UpdateFilesystem()`:  `response.Data.Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.BlockStorage.GetStorageVolumes()`:  `response.Data[].Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.BlockStorage.PostStorageVolumes()`:  `response.Data.Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.BlockStorage.GetStorageVolume()`:  `response.Data.Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.Tags.List()`:  `response.Data[].Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.Tags.Create()`:  `response.Data.Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.Servers.Lock()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.UserProfile.Get()`:  `response.Data.Attributes.Teams[].Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.UserProfile.ListTeams()`:  `response.Data[].Attributes.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.Servers.Unlock()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachines.List()`:  `response.Data[].Attributes.Team.Limits` **Changed** (Breaking ⚠️)\n* `Latitudesh.ObjectStorage.PostStorageBucketLifecycleRules()`: **Added**\n* `Latitudesh.PublicNetworks.DestroyPublicNetwork()`: **Added**\n* `Latitudesh.Prefixes.DestroyPrefix()`: **Removed** (Breaking ⚠️)\n* `Latitudesh.Prefixes.GetPrefix()`: **Removed** (Breaking ⚠️)\n* `Latitudesh.Prefixes.CreatePrefix()`: **Removed** (Breaking ⚠️)\n* `Latitudesh.PublicNetworks.GetPublicNetworks()`: **Added**\n* `Latitudesh.ObjectStorage.GetStorageBucketLifecycleRule()`: **Added**\n* `Latitudesh.ObjectStorage.PutStorageBucketLifecycleRule()`: **Added**\n* `Latitudesh.PublicNetworks.CreatePublicNetwork()`: **Added**\n* `Latitudesh.ObjectStorage.DeleteStorageBucketLifecycleRule()`: **Added**\n* `Latitudesh.ObjectStorage.GetStorageBucketLifecycleRules()`: **Added**\n* `Latitudesh.Projects.GetProject()`: **Added**\n* `Latitudesh.Prefixes.GetPrefixes()`: **Removed** (Breaking ⚠️)\n* `Latitudesh.PublicNetworks.GetPublicNetwork()`: **Added**\n"
+releaseNotes: |
+  ## Go SDK Changes:
+  * `Latitudesh.Plans.UpdateBandwidth()`:  `response` **Changed** (Breaking ⚠️)
+  * `Latitudesh.Plans.GetBandwidth()`:  `response.Data[].Attributes.Pricing` **Changed**
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
