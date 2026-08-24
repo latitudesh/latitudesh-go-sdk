@@ -212,8 +212,8 @@ func main() {
 * [GetStorageBucketLifecycleRules](docs/sdks/objectstorage/README.md#getstoragebucketlifecyclerules) - List lifecycle rules
 * [PostStorageBucketLifecycleRules](docs/sdks/objectstorage/README.md#poststoragebucketlifecyclerules) - Create lifecycle rule
 * [GetStorageBucketLifecycleRule](docs/sdks/objectstorage/README.md#getstoragebucketlifecyclerule) - Retrieve lifecycle rule
-* [PutStorageBucketLifecycleRule](docs/sdks/objectstorage/README.md#putstoragebucketlifecyclerule) - Update lifecycle rule
 * [DeleteStorageBucketLifecycleRule](docs/sdks/objectstorage/README.md#deletestoragebucketlifecyclerule) - Delete lifecycle rule
+* [PatchStorageBucketLifecycleRule](docs/sdks/objectstorage/README.md#patchstoragebucketlifecyclerule) - Update lifecycle rule
 * [GetStorageBucketMetrics](docs/sdks/objectstorage/README.md#getstoragebucketmetrics) - Retrieve bucket metrics
 
 ### [OperatingSystems](docs/sdks/operatingsystems/README.md)

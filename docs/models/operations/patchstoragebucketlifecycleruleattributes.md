@@ -1,4 +1,4 @@
-# PutStorageBucketLifecycleRuleAttributes
+# PatchStorageBucketLifecycleRuleAttributes
 
 
 ## Fields

@@ -1,4 +1,4 @@
-# PutStorageBucketLifecycleRuleResponseBody
+# PatchStorageBucketLifecycleRuleResponseBody
 
 Success
 
