@@ -31,12 +31,12 @@ func (e *BandwidthPackagesType) UnmarshalJSON(data []byte) error {
 }
 
 type BandwidthPackagesProject struct {
-	ID   *int64  `json:"id,omitempty"`
+	ID   *string `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Slug *string `json:"slug,omitempty"`
 }
 
-func (b *BandwidthPackagesProject) GetID() *int64 {
+func (b *BandwidthPackagesProject) GetID() *string {
 	if b == nil {
 		return nil
 	}
@@ -119,21 +119,51 @@ func (b *BandwidthPackagesAttributes) GetPackages() []Packages {
 	return b.Packages
 }
 
-type BandwidthPackages struct {
+type BandwidthPackagesData struct {
+	ID         *string                      `json:"id,omitempty"`
 	Type       *BandwidthPackagesType       `json:"type,omitempty"`
 	Attributes *BandwidthPackagesAttributes `json:"attributes,omitempty"`
 }
 
-func (b *BandwidthPackages) GetType() *BandwidthPackagesType {
+func (b *BandwidthPackagesData) GetID() *string {
+	if b == nil {
+		return nil
+	}
+	return b.ID
+}
+
+func (b *BandwidthPackagesData) GetType() *BandwidthPackagesType {
 	if b == nil {
 		return nil
 	}
 	return b.Type
 }
 
-func (b *BandwidthPackages) GetAttributes() *BandwidthPackagesAttributes {
+func (b *BandwidthPackagesData) GetAttributes() *BandwidthPackagesAttributes {
 	if b == nil {
 		return nil
 	}
 	return b.Attributes
+}
+
+type BandwidthPackagesMeta struct {
+}
+
+type BandwidthPackages struct {
+	Data *BandwidthPackagesData `json:"data,omitempty"`
+	Meta *BandwidthPackagesMeta `json:"meta,omitempty"`
+}
+
+func (b *BandwidthPackages) GetData() *BandwidthPackagesData {
+	if b == nil {
+		return nil
+	}
+	return b.Data
+}
+
+func (b *BandwidthPackages) GetMeta() *BandwidthPackagesMeta {
+	if b == nil {
+		return nil
+	}
+	return b.Meta
 }

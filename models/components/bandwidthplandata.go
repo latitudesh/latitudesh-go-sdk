@@ -33,6 +33,7 @@ func (e *BandwidthPlanDataType) UnmarshalJSON(data []byte) error {
 type Usd struct {
 	Monthly *int64 `json:"monthly,omitempty"`
 	Hourly  *int64 `json:"hourly,omitempty"`
+	Yearly  *int64 `json:"yearly,omitempty"`
 }
 
 func (u *Usd) GetMonthly() *int64 {
@@ -49,9 +50,17 @@ func (u *Usd) GetHourly() *int64 {
 	return u.Hourly
 }
 
+func (u *Usd) GetYearly() *int64 {
+	if u == nil {
+		return nil
+	}
+	return u.Yearly
+}
+
 type Brl struct {
 	Monthly *int64 `json:"monthly,omitempty"`
 	Hourly  *int64 `json:"hourly,omitempty"`
+	Yearly  *int64 `json:"yearly,omitempty"`
 }
 
 func (b *Brl) GetMonthly() *int64 {
@@ -66,6 +75,13 @@ func (b *Brl) GetHourly() *int64 {
 		return nil
 	}
 	return b.Hourly
+}
+
+func (b *Brl) GetYearly() *int64 {
+	if b == nil {
+		return nil
+	}
+	return b.Yearly
 }
 
 type Pricing struct {

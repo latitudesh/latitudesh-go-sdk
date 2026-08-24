@@ -7,3 +7,4 @@
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `Monthly`          | `*int64`           | :heavy_minus_sign: | N/A                |
 | `Hourly`           | `*int64`           | :heavy_minus_sign: | N/A                |
+| `Yearly`           | `*int64`           | :heavy_minus_sign: | N/A                |
