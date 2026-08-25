@@ -198,6 +198,11 @@ func main() {
 * [UpdateKubernetesCluster](docs/sdks/kubernetesclusters/README.md#updatekubernetescluster) - Update Kubernetes Cluster
 * [GetKubernetesClusterKubeconfig](docs/sdks/kubernetesclusters/README.md#getkubernetesclusterkubeconfig) - Get Kubernetes Cluster Kubeconfig
 
+### [MarketplaceApps](docs/sdks/marketplaceapps/README.md)
+
+* [ListMarketplaceApps](docs/sdks/marketplaceapps/README.md#listmarketplaceapps) - List marketplace apps
+* [GetMarketplaceApp](docs/sdks/marketplaceapps/README.md#getmarketplaceapp) - Retrieve a marketplace app
+
 ### [ObjectStorage](docs/sdks/objectstorage/README.md)
 
 * [GetStorageUsage](docs/sdks/objectstorage/README.md#getstorageusage) - List storage usage

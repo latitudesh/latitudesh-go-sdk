@@ -1,0 +1,10 @@
+# MarketplaceAppData
+
+
+## Fields
+
+| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `ID`                                                                                                | `*string`                                                                                           | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
+| `Type`                                                                                              | [*components.MarketplaceAppDataType](../../models/components/marketplaceappdatatype.md)             | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
+| `Attributes`                                                                                        | [*components.MarketplaceAppDataAttributes](../../models/components/marketplaceappdataattributes.md) | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |

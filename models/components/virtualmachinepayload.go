@@ -138,6 +138,8 @@ type VirtualMachinePayloadAttributes struct {
 	OperatingSystem *string `json:"operating_system,omitempty"`
 	// A user data record reference (encoded id_hash, e.g. 'ud_xxx', or raw integer id) to apply as cloud-init configuration
 	UserData *VirtualMachinePayloadUserData `json:"user_data,omitempty"`
+	// A marketplace app reference (slug, e.g. "openclaw", or encoded id_hash "mkapp_xxx") to preinstall on the VM via cloud-init. Cannot be combined with operating_system; the app defines its own.
+	MarketplaceApp *string `json:"marketplace_app,omitempty"`
 	// Array of tag IDs to assign to the VM.
 	Tags []string `json:"tags,omitempty"`
 	// Site/region slug where the VM is provisioned (e.g. DAL, SAO). Defaults to DAL when omitted.
@@ -202,6 +204,13 @@ func (v *VirtualMachinePayloadAttributes) GetUserData() *VirtualMachinePayloadUs
 		return nil
 	}
 	return v.UserData
+}
+
+func (v *VirtualMachinePayloadAttributes) GetMarketplaceApp() *string {
+	if v == nil {
+		return nil
+	}
+	return v.MarketplaceApp
 }
 
 func (v *VirtualMachinePayloadAttributes) GetTags() []string {
