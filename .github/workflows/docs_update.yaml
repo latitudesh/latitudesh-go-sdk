@@ -14,6 +14,6 @@ jobs:
     steps:
       - name: Trigger Mintlify deployment
         run: |
-          curl -sS --fail-with-body --retry 3 -X POST \
+          curl -sS --fail-with-body -X POST \
             "https://api.mintlify.com/v1/project/update/${{ vars.MINTLIFY_PROJECT_ID }}" \
             -H "Authorization: Bearer ${{ secrets.MINTLIFY_ADMIN_API_KEY }}"
