@@ -77,6 +77,7 @@ type Latitudesh struct {
 	Tags                   *Tags
 	Traffic                *Traffic
 	UserProfile            *UserProfile
+	MarketplaceApps        *MarketplaceApps
 	VirtualMachines        *VirtualMachines
 	VirtualMachineBackups  *VirtualMachineBackups
 	VirtualMachineRestores *VirtualMachineRestores
@@ -172,9 +173,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Latitudesh {
 	sdk := &Latitudesh{
-		SDKVersion: "1.19.13",
+		SDKVersion: "1.19.14",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 1.19.13 2.932.9 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
+			UserAgent:  "speakeasy-sdk/go 1.19.14 2.932.9 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
 			ServerList: ServerList,
 			ServerVariables: []map[string]string{
 				{
@@ -235,6 +236,7 @@ func New(opts ...SDKOption) *Latitudesh {
 	sdk.Tags = newTags(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Traffic = newTraffic(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.UserProfile = newUserProfile(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.MarketplaceApps = newMarketplaceApps(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.VirtualMachines = newVirtualMachines(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.VirtualMachineBackups = newVirtualMachineBackups(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.VirtualMachineRestores = newVirtualMachineRestores(sdk, sdk.sdkConfiguration, sdk.hooks)

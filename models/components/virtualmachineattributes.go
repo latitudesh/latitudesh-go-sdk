@@ -247,6 +247,34 @@ func (v *VirtualMachineAttributesCredentials) GetSSHKeys() []VirtualMachineAttri
 	return v.SSHKeys
 }
 
+// VirtualMachineAttributesMarketplaceApp - Deploy-time snapshot of the marketplace app this VM was created with. Null when the VM was deployed from a plain operating system.
+type VirtualMachineAttributesMarketplaceApp struct {
+	Slug    *string `json:"slug,omitempty"`
+	Name    *string `json:"name,omitempty"`
+	Version *string `json:"version,omitempty"`
+}
+
+func (v *VirtualMachineAttributesMarketplaceApp) GetSlug() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Slug
+}
+
+func (v *VirtualMachineAttributesMarketplaceApp) GetName() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Name
+}
+
+func (v *VirtualMachineAttributesMarketplaceApp) GetVersion() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Version
+}
+
 type VirtualMachineAttributesPlan struct {
 	ID   *string `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
@@ -365,12 +393,14 @@ type VirtualMachineAttributesAttributes struct {
 	Site        *string                              `json:"site,omitempty"`
 	Billing     *string                              `json:"billing,omitempty"`
 	// Encoded ID of the user data record applied to this VM, if any
-	UserData *string                        `json:"user_data,omitempty"`
-	Plan     *VirtualMachineAttributesPlan  `json:"plan,omitempty"`
-	Specs    *VirtualMachineAttributesSpecs `json:"specs,omitempty"`
-	Tags     []VirtualMachineAttributesTags `json:"tags,omitempty"`
-	Team     *TeamInclude                   `json:"team,omitempty"`
-	Project  *ProjectInclude                `json:"project,omitempty"`
+	UserData *string `json:"user_data,omitempty"`
+	// Deploy-time snapshot of the marketplace app this VM was created with. Null when the VM was deployed from a plain operating system.
+	MarketplaceApp *VirtualMachineAttributesMarketplaceApp `json:"marketplace_app,omitempty"`
+	Plan           *VirtualMachineAttributesPlan           `json:"plan,omitempty"`
+	Specs          *VirtualMachineAttributesSpecs          `json:"specs,omitempty"`
+	Tags           []VirtualMachineAttributesTags          `json:"tags,omitempty"`
+	Team           *TeamInclude                            `json:"team,omitempty"`
+	Project        *ProjectInclude                         `json:"project,omitempty"`
 	// Opt-in extra field. Request via `extra_fields[virtual_machines]=pending_restart`.
 	PendingRestart *bool `json:"pending_restart,omitempty"`
 }
@@ -436,6 +466,13 @@ func (v *VirtualMachineAttributesAttributes) GetUserData() *string {
 		return nil
 	}
 	return v.UserData
+}
+
+func (v *VirtualMachineAttributesAttributes) GetMarketplaceApp() *VirtualMachineAttributesMarketplaceApp {
+	if v == nil {
+		return nil
+	}
+	return v.MarketplaceApp
 }
 
 func (v *VirtualMachineAttributesAttributes) GetPlan() *VirtualMachineAttributesPlan {
