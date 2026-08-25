@@ -1,0 +1,19 @@
+name: Update Docs
+permissions: {}
+"on":
+  workflow_run:
+    workflows:
+      - Publish
+    types:
+      - completed
+  workflow_dispatch: {}
+jobs:
+  trigger-mintlify:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Mintlify deployment
+        run: |
+          curl -sS --fail-with-body --retry 3 --retry-all-errors -X POST \
+            "https://api.mintlify.com/v1/project/update/${{ vars.MINTLIFY_PROJECT_ID }}" \
+            -H "Authorization: Bearer ${{ secrets.MINTLIFY_ADMIN_API_KEY }}"
