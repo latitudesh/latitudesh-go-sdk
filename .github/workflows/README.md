@@ -60,6 +60,22 @@ Workflow to publish the SDK when there are changes.
 - Push to `main` when `.speakeasy/gen.lock` changes
 - Manual dispatch
 
+### 4. Update Docs (`docs_update.yaml`)
+
+Triggers a Mintlify docs deployment after a successful SDK publish, so the API
+reference (which pulls the Speakeasy spec with code samples at build time)
+reflects the newly released SDK without waiting for an unrelated docs push.
+
+**Triggers:**
+- Completion of the `Publish` workflow (only proceeds on success)
+- Manual dispatch
+
+**Configuration:**
+- Requires the `MINTLIFY_PROJECT_ID` repository variable
+- Requires the `MINTLIFY_ADMIN_API_KEY` secret
+
+Both values come from the Mintlify dashboard (Settings → API keys).
+
 ## Secret Configuration
 
 The following secrets must be configured in the repository:
@@ -68,6 +84,13 @@ The following secrets must be configured in the repository:
 |--------|-------------|---------|
 | `GITHUB_TOKEN` | Automatic GitHub token | All workflows |
 | `SPEAKEASY_API_KEY` | Speakeasy API key | SDK Generation, SDK Publish |
+| `MINTLIFY_ADMIN_API_KEY` | Mintlify admin API key | Update Docs |
+
+The following repository variables must be configured:
+
+| Variable | Description | Used by |
+|----------|-------------|---------|
+| `MINTLIFY_PROJECT_ID` | Mintlify project ID | Update Docs |
 
 ## Permissions
 
