@@ -5,7 +5,6 @@ package operations
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
@@ -39,19 +38,8 @@ type PostStorageVolumesBlockStorageAttributes struct {
 	Name string `json:"name"`
 	// Region (site) slug where the volume is provisioned
 	Region string `json:"region"`
-	// Size in GB (not required, default is 1500)
-	SizeInGb *int64 `default:"1500" json:"size_in_gb"`
-}
-
-func (p PostStorageVolumesBlockStorageAttributes) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(p, "", false)
-}
-
-func (p *PostStorageVolumesBlockStorageAttributes) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
-		return err
-	}
-	return nil
+	// Size in GB
+	SizeInGb int64 `json:"size_in_gb"`
 }
 
 func (p *PostStorageVolumesBlockStorageAttributes) GetProject() string {
@@ -75,9 +63,9 @@ func (p *PostStorageVolumesBlockStorageAttributes) GetRegion() string {
 	return p.Region
 }
 
-func (p *PostStorageVolumesBlockStorageAttributes) GetSizeInGb() *int64 {
+func (p *PostStorageVolumesBlockStorageAttributes) GetSizeInGb() int64 {
 	if p == nil {
-		return nil
+		return 0
 	}
 	return p.SizeInGb
 }

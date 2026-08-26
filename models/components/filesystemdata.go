@@ -63,9 +63,9 @@ type FilesystemDataAttributes struct {
 	SizeInGb               *int64                  `json:"size_in_gb,omitempty"`
 	FilesystemStorageClass *FilesystemStorageClass `json:"storage_class,omitempty"`
 	CreatedAt              *time.Time              `json:"created_at,omitempty"`
-	// Cephx keyring secret used to mount the filesystem. Returned only for dashboard-origin requests; null until the filesystem is provisioned.
+	// Keyring secret used to mount the filesystem. Returned only for dashboard-origin requests; null until the filesystem is provisioned.
 	Keyring *string `json:"keyring,omitempty"`
-	// Ceph cluster user used to mount the filesystem. Returned only for dashboard-origin requests; null until the filesystem is provisioned.
+	// Cluster user used to mount the filesystem. Returned only for dashboard-origin requests; null until the filesystem is provisioned.
 	ClusterUser *string `json:"cluster_user,omitempty"`
 	// Path of the filesystem volume inside the cluster. Returned only for dashboard-origin requests; null until the filesystem is provisioned.
 	VolumePath *string         `json:"volume_path,omitempty"`

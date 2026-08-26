@@ -43,6 +43,99 @@ func (i *Initiators) GetNqn() *string {
 	return i.Nqn
 }
 
+// Block - NVMe-TCP block mapping of a high performance volume. Null for volumes that are not mapped to a server.
+type Block struct {
+	// NVMe Qualified Name of the mapped server.
+	Nqn *string `json:"nqn,omitempty"`
+	// NVMe namespace ID of the mapping.
+	Nsid *int64 `json:"nsid,omitempty"`
+	// ID of the server the volume is mapped to.
+	ServerID *string `json:"server_id,omitempty"`
+}
+
+func (b *Block) GetNqn() *string {
+	if b == nil {
+		return nil
+	}
+	return b.Nqn
+}
+
+func (b *Block) GetNsid() *int64 {
+	if b == nil {
+		return nil
+	}
+	return b.Nsid
+}
+
+func (b *Block) GetServerID() *string {
+	if b == nil {
+		return nil
+	}
+	return b.ServerID
+}
+
+type VolumeDataSite struct {
+	ID       *string `json:"id,omitempty"`
+	Name     *string `json:"name,omitempty"`
+	Slug     *string `json:"slug,omitempty"`
+	Facility *string `json:"facility,omitempty"`
+}
+
+func (v *VolumeDataSite) GetID() *string {
+	if v == nil {
+		return nil
+	}
+	return v.ID
+}
+
+func (v *VolumeDataSite) GetName() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Name
+}
+
+func (v *VolumeDataSite) GetSlug() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Slug
+}
+
+func (v *VolumeDataSite) GetFacility() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Facility
+}
+
+type VolumeDataRegion struct {
+	City    *string         `json:"city,omitempty"`
+	Country *string         `json:"country,omitempty"`
+	Site    *VolumeDataSite `json:"site,omitempty"`
+}
+
+func (v *VolumeDataRegion) GetCity() *string {
+	if v == nil {
+		return nil
+	}
+	return v.City
+}
+
+func (v *VolumeDataRegion) GetCountry() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Country
+}
+
+func (v *VolumeDataRegion) GetSite() *VolumeDataSite {
+	if v == nil {
+		return nil
+	}
+	return v.Site
+}
+
 type VolumeDataAttributes struct {
 	Name        *string      `json:"name,omitempty"`
 	SizeInGb    *int64       `json:"size_in_gb,omitempty"`
@@ -50,14 +143,17 @@ type VolumeDataAttributes struct {
 	NamespaceID *string      `json:"namespace_id,omitempty"`
 	ConnectorID *string      `json:"connector_id,omitempty"`
 	Initiators  []Initiators `json:"initiators,omitempty"`
-	// Cephx keyring secret used to connect to the volume. Returned only for dashboard-origin requests; null until the volume is provisioned.
+	// NVMe-TCP block mapping of a high performance volume. Null for volumes that are not mapped to a server.
+	Block *Block `json:"block,omitempty"`
+	// Keyring secret used to connect to the volume. Returned only for dashboard-origin requests; null until the volume is provisioned.
 	Keyring *string `json:"keyring,omitempty"`
-	// Ceph cluster user used to connect to the volume. Returned only for dashboard-origin requests; null until the volume is provisioned.
+	// Cluster user used to connect to the volume. Returned only for dashboard-origin requests; null until the volume is provisioned.
 	ClusterUser *string `json:"cluster_user,omitempty"`
 	// Path of the volume inside the cluster. Returned only for dashboard-origin requests; null until the volume is provisioned.
-	VolumePath *string         `json:"volume_path,omitempty"`
-	Project    *ProjectInclude `json:"project,omitempty"`
-	Team       *TeamInclude    `json:"team,omitempty"`
+	VolumePath *string           `json:"volume_path,omitempty"`
+	Region     *VolumeDataRegion `json:"region,omitempty"`
+	Project    *ProjectInclude   `json:"project,omitempty"`
+	Team       *TeamInclude      `json:"team,omitempty"`
 }
 
 func (v VolumeDataAttributes) MarshalJSON() ([]byte, error) {
@@ -113,6 +209,13 @@ func (v *VolumeDataAttributes) GetInitiators() []Initiators {
 	return v.Initiators
 }
 
+func (v *VolumeDataAttributes) GetBlock() *Block {
+	if v == nil {
+		return nil
+	}
+	return v.Block
+}
+
 func (v *VolumeDataAttributes) GetKeyring() *string {
 	if v == nil {
 		return nil
@@ -132,6 +235,13 @@ func (v *VolumeDataAttributes) GetVolumePath() *string {
 		return nil
 	}
 	return v.VolumePath
+}
+
+func (v *VolumeDataAttributes) GetRegion() *VolumeDataRegion {
+	if v == nil {
+		return nil
+	}
+	return v.Region
 }
 
 func (v *VolumeDataAttributes) GetProject() *ProjectInclude {

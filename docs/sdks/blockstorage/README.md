@@ -9,6 +9,7 @@
 * [GetStorageVolume](#getstoragevolume) - Retrieve volume
 * [DeleteStorageVolumes](#deletestoragevolumes) - Delete volume
 * [PostStorageVolumesMount](#poststoragevolumesmount) - Mount volume
+* [PostStorageVolumesMap](#poststoragevolumesmap) - Map volume to server
 
 ## GetStorageVolumes
 
@@ -94,6 +95,7 @@ func main() {
                 Project: "proj_enPbqoZ6dA2MQ",
                 Name: "my-data",
                 Region: "DAL",
+                SizeInGb: 1500,
             },
         },
     })
@@ -133,6 +135,7 @@ func main() {
                 Project: "<value>",
                 Name: "<value>",
                 Region: "<value>",
+                SizeInGb: 1500,
             },
         },
     })
@@ -322,6 +325,67 @@ func main() {
 ### Response
 
 **[*operations.PostStorageVolumesMountResponse](../../models/operations/poststoragevolumesmountresponse.md), error**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
+
+## PostStorageVolumesMap
+
+Maps a high performance volume to a server over NVMe-TCP.
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="post-storage-volumes-map" method="post" path="/storage/volumes/{id}/map" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.BlockStorage.PostStorageVolumesMap(ctx, "<id>", operations.PostStorageVolumesMapRequestBody{
+        Data: operations.PostStorageVolumesMapData{
+            Type: operations.PostStorageVolumesMapTypeVolumes,
+            Attributes: operations.PostStorageVolumesMapAttributes{
+                ServerID: "sv_abcd1234",
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                                      | :heavy_check_mark:                                                                                         | The context to use for the request.                                                                        |
+| `id`                                                                                                       | `string`                                                                                                   | :heavy_check_mark:                                                                                         | Volume ID                                                                                                  |
+| `requestBody`                                                                                              | [operations.PostStorageVolumesMapRequestBody](../../models/operations/poststoragevolumesmaprequestbody.md) | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `opts`                                                                                                     | [][operations.Option](../../models/operations/option.md)                                                   | :heavy_minus_sign:                                                                                         | The options for this request.                                                                              |
+
+### Response
+
+**[*operations.PostStorageVolumesMapResponse](../../models/operations/poststoragevolumesmapresponse.md), error**
 
 ### Errors
 

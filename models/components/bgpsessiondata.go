@@ -168,10 +168,12 @@ func (b *BgpSessionDataRegion) GetLocation() *BgpSessionDataLocation {
 type BgpSessionDataAttributes struct {
 	Status *BgpSessionDataStatus `json:"status,omitempty"`
 	// Generic explanation when the session could not be configured. Infrastructure diagnostics are intentionally not exposed.
-	StatusMessage *string    `json:"status_message,omitempty"`
-	ServerIP      *string    `json:"server_ip,omitempty"`
-	Asn           *int64     `json:"asn,omitempty"`
-	CreatedAt     *time.Time `json:"created_at,omitempty"`
+	StatusMessage *string `json:"status_message,omitempty"`
+	ServerIP      *string `json:"server_ip,omitempty"`
+	// IP address on the other end of the announcing server's /31 — the address you configure as the BGP neighbor when peering. Use it as the neighbor in BIRD or as peerAddress in MetalLB. Null while the session is still pending, or when the address cannot be resolved.
+	PeerAddress *string    `json:"peer_address,omitempty"`
+	Asn         *int64     `json:"asn,omitempty"`
+	CreatedAt   *time.Time `json:"created_at,omitempty"`
 	// The server announcing the Elastic IP over BGP. Null when the announcer could not be resolved to a server record.
 	Server *BgpSessionDataServer `json:"server,omitempty"`
 	// The region where this Elastic IP is located
@@ -208,6 +210,13 @@ func (b *BgpSessionDataAttributes) GetServerIP() *string {
 		return nil
 	}
 	return b.ServerIP
+}
+
+func (b *BgpSessionDataAttributes) GetPeerAddress() *string {
+	if b == nil {
+		return nil
+	}
+	return b.PeerAddress
 }
 
 func (b *BgpSessionDataAttributes) GetAsn() *int64 {
