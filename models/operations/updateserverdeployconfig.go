@@ -260,9 +260,9 @@ type UpdateServerDeployConfigServersAttributes struct {
 	IpxeURL *string `json:"ipxe_url,omitempty"`
 	// Keep network boot enabled so the server iPXE-boots on every reboot instead of booting from disk. Only supported with the 'ipxe' operating system.
 	PersistentNetboot *bool `json:"persistent_netboot,omitempty"`
-	// Set to 'true' to attach the server onto a public network. Requires 'public_network_id'. Available only when the public network feature is enabled for your team.
+	// Set to 'true' to attach the server onto a public network. Requires 'public_network_id'. Available only when the public network feature is enabled for the server's location.
 	PublicNetwork *bool `json:"public_network,omitempty"`
-	// ID of a customer public network to attach the server onto. Requires 'public_network' to be 'true'. The public network must belong to the same project and be in the same location as the server, and must have at least one free IP address. This public network configuration is saved to the deploy config and inherited by future reinstalls until changed. Available only when the public network feature is enabled for your team.
+	// ID of a customer public network to attach the server onto. Requires 'public_network' to be 'true'. The public network must belong to the same project and be in the same location as the server, and must have at least one free IP address. This public network configuration is saved to the deploy config and inherited by future reinstalls until changed. Available only when the public network feature is enabled for the server's location.
 	PublicNetworkID *string `json:"public_network_id,omitempty"`
 }
 

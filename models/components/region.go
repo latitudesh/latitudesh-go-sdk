@@ -55,7 +55,7 @@ type RegionAttributes struct {
 	Facility *string        `json:"facility,omitempty"`
 	Country  *RegionCountry `json:"country,omitempty"`
 	Type     *string        `json:"type,omitempty"`
-	// Location capabilities available at this location (e.g. `public_network`).
+	// Location capabilities available at this location (e.g. `public_network`, `elastic_ip_bgp`).
 	Features []string `json:"features,omitempty"`
 	// The location's network group slug (e.g. `TYO`, `LON2`).
 	NetworkGroup *string `json:"network_group,omitempty"`

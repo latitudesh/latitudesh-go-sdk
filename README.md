@@ -144,6 +144,7 @@ func main() {
 * [GetStorageVolume](docs/sdks/blockstorage/README.md#getstoragevolume) - Retrieve volume
 * [DeleteStorageVolumes](docs/sdks/blockstorage/README.md#deletestoragevolumes) - Delete volume
 * [PostStorageVolumesMount](docs/sdks/blockstorage/README.md#poststoragevolumesmount) - Mount volume
+* [PostStorageVolumesMap](docs/sdks/blockstorage/README.md#poststoragevolumesmap) - Map volume to server
 
 ### [ElasticIps](docs/sdks/elasticips/README.md)
 

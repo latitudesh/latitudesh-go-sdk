@@ -1,0 +1,9 @@
+# PostStorageVolumesMapData
+
+
+## Fields
+
+| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `Type`                                                                                                   | [operations.PostStorageVolumesMapType](../../models/operations/poststoragevolumesmaptype.md)             | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| `Attributes`                                                                                             | [operations.PostStorageVolumesMapAttributes](../../models/operations/poststoragevolumesmapattributes.md) | :heavy_check_mark:                                                                                       | N/A                                                                                                      |

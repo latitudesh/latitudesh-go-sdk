@@ -23,6 +23,7 @@ type AcceptHeaderEnum string
 const (
 	AcceptHeaderEnumApplicationVndApiPlusJson AcceptHeaderEnum = "application/vnd.api+json"
 	AcceptHeaderEnumWildcardRootWildcard      AcceptHeaderEnum = "*/*"
+	AcceptHeaderEnumApplicationJson           AcceptHeaderEnum = "application/json"
 )
 
 func (e AcceptHeaderEnum) ToPointer() *AcceptHeaderEnum {
