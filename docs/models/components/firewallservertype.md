@@ -7,12 +7,12 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
-value := components.FirewallServerTypeFirewallServers
+value := components.FirewallServerTypeFirewallAssignments
 ```
 
 
 ## Values
 
-| Name                                | Value                               |
-| ----------------------------------- | ----------------------------------- |
-| `FirewallServerTypeFirewallServers` | firewall_servers                    |
+| Name                                    | Value                                   |
+| --------------------------------------- | --------------------------------------- |
+| `FirewallServerTypeFirewallAssignments` | firewall_assignments                    |

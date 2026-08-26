@@ -10,7 +10,7 @@ import (
 type FirewallServerType string
 
 const (
-	FirewallServerTypeFirewallServers FirewallServerType = "firewall_servers"
+	FirewallServerTypeFirewallAssignments FirewallServerType = "firewall_assignments"
 )
 
 func (e FirewallServerType) ToPointer() *FirewallServerType {
@@ -22,7 +22,7 @@ func (e *FirewallServerType) UnmarshalJSON(data []byte) error {
 		return err
 	}
 	switch v {
-	case "firewall_servers":
+	case "firewall_assignments":
 		*e = FirewallServerType(v)
 		return nil
 	default:
@@ -30,16 +30,82 @@ func (e *FirewallServerType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-type FirewallServerAttributes struct {
-	ServerID   *string `json:"server_id,omitempty"`
-	FirewallID *string `json:"firewall_id,omitempty"`
+// FirewallServerServer - Present only when the assignment targets a server.
+type FirewallServerServer struct {
+	ID          *string `json:"id,omitempty"`
+	Hostname    *string `json:"hostname,omitempty"`
+	PrimaryIpv4 *string `json:"primary_ipv4,omitempty"`
 }
 
-func (f *FirewallServerAttributes) GetServerID() *string {
+func (f *FirewallServerServer) GetID() *string {
 	if f == nil {
 		return nil
 	}
-	return f.ServerID
+	return f.ID
+}
+
+func (f *FirewallServerServer) GetHostname() *string {
+	if f == nil {
+		return nil
+	}
+	return f.Hostname
+}
+
+func (f *FirewallServerServer) GetPrimaryIpv4() *string {
+	if f == nil {
+		return nil
+	}
+	return f.PrimaryIpv4
+}
+
+// FirewallServerVirtualMachine - Present only when the assignment targets a virtual machine.
+type FirewallServerVirtualMachine struct {
+	ID          *string `json:"id,omitempty"`
+	Hostname    *string `json:"hostname,omitempty"`
+	PrimaryIpv4 *string `json:"primary_ipv4,omitempty"`
+}
+
+func (f *FirewallServerVirtualMachine) GetID() *string {
+	if f == nil {
+		return nil
+	}
+	return f.ID
+}
+
+func (f *FirewallServerVirtualMachine) GetHostname() *string {
+	if f == nil {
+		return nil
+	}
+	return f.Hostname
+}
+
+func (f *FirewallServerVirtualMachine) GetPrimaryIpv4() *string {
+	if f == nil {
+		return nil
+	}
+	return f.PrimaryIpv4
+}
+
+type FirewallServerAttributes struct {
+	// Present only when the assignment targets a server.
+	Server *FirewallServerServer `json:"server,omitempty"`
+	// Present only when the assignment targets a virtual machine.
+	VirtualMachine *FirewallServerVirtualMachine `json:"virtual_machine,omitempty"`
+	FirewallID     *string                       `json:"firewall_id,omitempty"`
+}
+
+func (f *FirewallServerAttributes) GetServer() *FirewallServerServer {
+	if f == nil {
+		return nil
+	}
+	return f.Server
+}
+
+func (f *FirewallServerAttributes) GetVirtualMachine() *FirewallServerVirtualMachine {
+	if f == nil {
+		return nil
+	}
+	return f.VirtualMachine
 }
 
 func (f *FirewallServerAttributes) GetFirewallID() *string {
@@ -49,29 +115,40 @@ func (f *FirewallServerAttributes) GetFirewallID() *string {
 	return f.FirewallID
 }
 
-type FirewallServer struct {
+type FirewallServerData struct {
 	ID         *string                   `json:"id,omitempty"`
 	Type       *FirewallServerType       `json:"type,omitempty"`
 	Attributes *FirewallServerAttributes `json:"attributes,omitempty"`
 }
 
-func (f *FirewallServer) GetID() *string {
+func (f *FirewallServerData) GetID() *string {
 	if f == nil {
 		return nil
 	}
 	return f.ID
 }
 
-func (f *FirewallServer) GetType() *FirewallServerType {
+func (f *FirewallServerData) GetType() *FirewallServerType {
 	if f == nil {
 		return nil
 	}
 	return f.Type
 }
 
-func (f *FirewallServer) GetAttributes() *FirewallServerAttributes {
+func (f *FirewallServerData) GetAttributes() *FirewallServerAttributes {
 	if f == nil {
 		return nil
 	}
 	return f.Attributes
+}
+
+type FirewallServer struct {
+	Data *FirewallServerData `json:"data,omitempty"`
+}
+
+func (f *FirewallServer) GetData() *FirewallServerData {
+	if f == nil {
+		return nil
+	}
+	return f.Data
 }

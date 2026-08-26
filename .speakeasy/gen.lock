@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 1329f819554e0ffb923139624036fdee
+  docChecksum: 140271529b605212f235c7067d8991a0
   docVersion: "2023-06-01"
   speakeasyVersion: 1.795.3
   generationVersion: 2.932.9
-  releaseVersion: 1.19.14
-  configChecksum: 98a97ce6edeaa66b3f534de80245cbdd
+  releaseVersion: 1.19.15
+  configChecksum: 9506fb8a2232172d0df7777d5ecd3328
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 29008df8-0357-4883-b04e-78e5f5f4be64
-  pristine_commit_hash: 02c5c24cdcc8a478ecd1920e7715e45630f94ed8
-  pristine_tree_hash: 44028dbfe564a94e80112fd0673549a76ef561f3
+  generation_id: d634966f-b37e-4c0b-98a6-02e781f23e11
+  pristine_commit_hash: 91fa7878abd4c8411e60cd142a6a7475da89a648
+  pristine_tree_hash: 10fac9dfae2f983e479a62b5432627888cc26a08
 features:
   go:
     additionalDependencies: 0.1.0
@@ -652,16 +652,28 @@ trackedFiles:
     pristine_git_object: c10a7aa9e43fc7d5a0ec9c148728deeaadefbf76
   docs/models/components/firewallserver.md:
     id: b199c4b8b675
-    last_write_checksum: sha1:4b82706481fa7997ebc20d8da4982c60092729d3
-    pristine_git_object: 214cd6f14869aae019bcdd271a77e7180a274d56
+    last_write_checksum: sha1:4378fc589474d25a570387b2fd6aec985efd8633
+    pristine_git_object: b46641d1207f5c38d37c2a6aded12569d0f2e86e
   docs/models/components/firewallserverattributes.md:
     id: 2960fc450d63
-    last_write_checksum: sha1:ad8b587b17181e0b5854f050907cdbbb18311838
-    pristine_git_object: 6bde2f87a2725760efe14a9a4f1afe5911e05d8c
+    last_write_checksum: sha1:0871f6ed1db84b83d62b2da9a2650a6e7c455c31
+    pristine_git_object: 27847cd02646da78a1bfe128c7b4710b54c296e0
+  docs/models/components/firewallserverdata.md:
+    id: 68cf6b71faa2
+    last_write_checksum: sha1:0b00c30b4c92ae72b5d7f4fc54625089a35925d7
+    pristine_git_object: 85c42465d9540a9f635e8cb4ab5e9547b16420f2
+  docs/models/components/firewallserverserver.md:
+    id: 06abc2a15c84
+    last_write_checksum: sha1:c047ceb01b7296e5c443a1eca87fa5bc6ae89557
+    pristine_git_object: 285ae903f35bee435900fc6aef9e16d62d3dda07
   docs/models/components/firewallservertype.md:
     id: 0ec03b086b7c
-    last_write_checksum: sha1:7927032ca8313af828a7f1c92ed498f52721e3ad
-    pristine_git_object: 94ad41d713e79b1f8afe6ba6403e660a9f69f790
+    last_write_checksum: sha1:ec43bc57969bfd1a6fcc0501bd9f794a865dc93d
+    pristine_git_object: 4833e6e6129209c7be279ecb1a41a88844d19375
+  docs/models/components/firewallservervirtualmachine.md:
+    id: 0c64d4fd179a
+    last_write_checksum: sha1:4bec12338923ee43cf8c44fcb4672dcd5726fa34
+    pristine_git_object: 8dc2ae5ecf95c78775bde7937d043cfcaaa869a5
   docs/models/components/firewallsmeta.md:
     id: 163cb97046b0
     last_write_checksum: sha1:b730392f477b294800075d3157540aaa1ea83755
@@ -1896,8 +1908,8 @@ trackedFiles:
     pristine_git_object: 865fac6f34a49372fc9255979065a5e403e514d7
   docs/models/components/virtualmachinenetworkattachmentcreatepayloadattributes.md:
     id: 5250e99ba960
-    last_write_checksum: sha1:1ed3b445e0441f3fcdeaf8c385d2c4a56ef3b4a9
-    pristine_git_object: c995a9cf0559ab47bdb5d54796b3e1c07ae7297b
+    last_write_checksum: sha1:ee5b38e435c444593969255d3715209c7e1744e7
+    pristine_git_object: 2a419a9c4a885c6af637be74d09347d75b05b91f
   docs/models/components/virtualmachinenetworkattachmentcreatepayloaddata.md:
     id: 3c71bbe6dabc
     last_write_checksum: sha1:6c8ac2bfc3783520a3ddb47cc2f2199f970d9adb
@@ -4728,8 +4740,8 @@ trackedFiles:
     pristine_git_object: f055c7135bd9df9511999b5a8af285cf62b279a1
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:200080d8bcb35db21b7bc58ef4e318b33caf2443
-    pristine_git_object: 7525bc200ffa4f4cb8ee3347cee1bebcf431882c
+    last_write_checksum: sha1:282d62753eb239192e2a242fc5c3734c35ea5d22
+    pristine_git_object: 6d1a3e276e08bd15ae1607017a094a80bb284a87
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -4888,8 +4900,8 @@ trackedFiles:
     pristine_git_object: 565b70f16c37be4e4eef2fdcb2234343e3d1ea9f
   models/components/firewallserver.go:
     id: 696bd06b8f57
-    last_write_checksum: sha1:4caff4d5b65037c95f5e9c5f34577a492883aeb7
-    pristine_git_object: 23b09827548d16168eab46a89e8ed1ec8c28b3c4
+    last_write_checksum: sha1:5989303423556e1b57c226a365a241e1eaa95915
+    pristine_git_object: 05278d3894a8ed8816452932f60e70507a295ef6
   models/components/httpmetadata.go:
     id: 790bad4a7abb
     last_write_checksum: sha1:01a20fcff33179809ff9920ee431c7adabbd98f1
@@ -5200,8 +5212,8 @@ trackedFiles:
     pristine_git_object: 78ca2988b908c1d0ab8220952215fbb222556c55
   models/components/virtualmachinenetworkattachmentcreatepayload.go:
     id: b78710a1c42f
-    last_write_checksum: sha1:28bb4bc627377bf716f1b2d984c661ad314edeb5
-    pristine_git_object: 8911abccfd09184a2609f3899880023aa93c15a1
+    last_write_checksum: sha1:602976456c369fbe83dbcb4c5421555f27425946
+    pristine_git_object: 5d9560c3d1262537c92c2ceb3fabccb2cc5b0977
   models/components/virtualmachinenetworkattachmentresource.go:
     id: 7a9470c65a5a
     last_write_checksum: sha1:ef7491c038e5fd6099ebec5a6792e5eb7884abbf
@@ -6449,7 +6461,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "firewall_assignments", "attributes": {"server_id": "sv_aKXgRdR3qv9k5"}}}
       responses:
         "201":
-          application/vnd.api+json: {}
+          application/vnd.api+json: {"data": {"id": "fwasg_6VE1Wd37dXnZJ", "type": "firewall_assignments", "attributes": {"server": {"id": "sv_aKXgRdR3qv9k5", "hostname": "Ergonomic Wooden Keyboard", "primary_ipv4": "132.192.74.198"}, "firewall_id": "fw_Ee8pKq05DWAob"}}}
     Forbidden:
       parameters:
         path:
@@ -10528,7 +10540,7 @@ examples:
           application/vnd.api+json: {"data": {"id": "mkapp_x1kg1DegdvZE5", "type": "marketplace_apps", "attributes": {"name": "OpenClaw", "slug": "openclaw", "description": "Personal AI agent gateway with messaging integrations", "short_description": "Personal AI agent gateway", "category": "ai_agents", "version": "2026.7.20", "system_requirements": {"vcpus": 1, "memory_in_gb": 2, "storage_in_gb": 10, "gpu": false}, "deployment_strategy": "user_data", "default_operating_system": "ubuntu_24_04_x64_lts", "compatible_plans": ["vm.small", "vm.medium"], "access_instructions": "Connect with: ssh -L 18789:localhost:18789 ubuntu@{{PUBLIC_IPV4}}", "upstream_url": "https://github.com/openclaw/openclaw", "documentation_url": null, "logo_url": null, "created_at": "2026-07-20T12:00:00+00:00"}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes:\n* `Latitudesh.MarketplaceApps.ListMarketplaceApps()`: **Added**\n* `Latitudesh.MarketplaceApps.GetMarketplaceApp()`: **Added**\n* `Latitudesh.VirtualMachines.Create()`: \n  *  `request.Request.Data.Attributes.MarketplaceApp` **Added**\n  *  `response.Data.Attributes.MarketplaceApp` **Added**\n* `Latitudesh.VirtualMachines.List()`:  `response.Data[].Attributes.MarketplaceApp` **Added**\n* `Latitudesh.VirtualMachines.Get()`:  `response.Data.Attributes.MarketplaceApp` **Added**\n* `Latitudesh.VirtualMachines.UpdateVirtualMachine()`:  `response.Data.Attributes.MarketplaceApp` **Added**\n"
+releaseNotes: "## Go SDK Changes:\n* `Latitudesh.Firewalls.Assignments.Create()`:  `response` **Changed** (Breaking ⚠️)\n* `Latitudesh.VirtualMachines.CreateVirtualMachineNetworkAttachment()`: \n  *  `request.VirtualMachineNetworkAttachmentCreatePayload.Data.Attributes.Address` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
