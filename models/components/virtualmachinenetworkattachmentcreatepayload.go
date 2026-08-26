@@ -33,6 +33,8 @@ func (e *VirtualMachineNetworkAttachmentCreatePayloadType) UnmarshalJSON(data []
 type VirtualMachineNetworkAttachmentCreatePayloadAttributes struct {
 	// VLAN id_hash to attach (e.g. vlan_abc123).
 	VirtualNetworkID string `json:"virtual_network_id"`
+	// Optional static IPv4 address with prefix (e.g. 10.0.0.5/24) for the NIC inside the guest. When omitted the NIC is configured for DHCP without a default route. Applying the regenerated network configuration requires running `sudo cloud-init clean --logs --reboot` inside the guest. Warning: that command makes cloud-init treat the next boot as a first boot — it re-runs the instance user-data (e.g. runcmd scripts) and regenerates the SSH host keys, so SSH clients will see a host-key changed warning.
+	Address *string `json:"address,omitempty"`
 }
 
 func (v *VirtualMachineNetworkAttachmentCreatePayloadAttributes) GetVirtualNetworkID() string {
@@ -40,6 +42,13 @@ func (v *VirtualMachineNetworkAttachmentCreatePayloadAttributes) GetVirtualNetwo
 		return ""
 	}
 	return v.VirtualNetworkID
+}
+
+func (v *VirtualMachineNetworkAttachmentCreatePayloadAttributes) GetAddress() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Address
 }
 
 type VirtualMachineNetworkAttachmentCreatePayloadData struct {

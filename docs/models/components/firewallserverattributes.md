@@ -3,7 +3,8 @@
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `ServerID`         | `*string`          | :heavy_minus_sign: | N/A                |
-| `FirewallID`       | `*string`          | :heavy_minus_sign: | N/A                |
+| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `Server`                                                                                            | [*components.FirewallServerServer](../../models/components/firewallserverserver.md)                 | :heavy_minus_sign:                                                                                  | Present only when the assignment targets a server.                                                  |
+| `VirtualMachine`                                                                                    | [*components.FirewallServerVirtualMachine](../../models/components/firewallservervirtualmachine.md) | :heavy_minus_sign:                                                                                  | Present only when the assignment targets a virtual machine.                                         |
+| `FirewallID`                                                                                        | `*string`                                                                                           | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
