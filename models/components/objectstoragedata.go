@@ -120,17 +120,17 @@ func (o *ObjectStorageDataRegion) GetCountry() *string {
 	return o.Country
 }
 
-// Credentials - S3 access credentials. Only included when `extra_fields[object_storages]=credentials` is requested and the requesting user is the bucket's creator.
-type Credentials struct {
+// ObjectStorageDataCredentials - S3 access credentials. Only included when `extra_fields[object_storages]=credentials` is requested and the requesting user is the bucket's creator.
+type ObjectStorageDataCredentials struct {
 	// S3 access key for authentication
 	AccessKey *string `json:"access_key,omitempty"`
 }
 
-func (c *Credentials) GetAccessKey() *string {
-	if c == nil {
+func (o *ObjectStorageDataCredentials) GetAccessKey() *string {
+	if o == nil {
 		return nil
 	}
-	return c.AccessKey
+	return o.AccessKey
 }
 
 type ObjectStorageDataAttributes struct {
@@ -159,9 +159,9 @@ type ObjectStorageDataAttributes struct {
 	// Region information where the object storage is located
 	Region *ObjectStorageDataRegion `json:"region,omitempty"`
 	// S3 access credentials. Only included when `extra_fields[object_storages]=credentials` is requested and the requesting user is the bucket's creator.
-	Credentials *Credentials    `json:"credentials,omitempty"`
-	Project     *ProjectInclude `json:"project,omitempty"`
-	Team        *TeamInclude    `json:"team,omitempty"`
+	Credentials *ObjectStorageDataCredentials `json:"credentials,omitempty"`
+	Project     *ProjectInclude               `json:"project,omitempty"`
+	Team        *TeamInclude                  `json:"team,omitempty"`
 }
 
 func (o ObjectStorageDataAttributes) MarshalJSON() ([]byte, error) {
@@ -259,7 +259,7 @@ func (o *ObjectStorageDataAttributes) GetRegion() *ObjectStorageDataRegion {
 	return o.Region
 }
 
-func (o *ObjectStorageDataAttributes) GetCredentials() *Credentials {
+func (o *ObjectStorageDataAttributes) GetCredentials() *ObjectStorageDataCredentials {
 	if o == nil {
 		return nil
 	}

@@ -1,6 +1,6 @@
 # ServerDataPublicNetwork
 
-**Preview** (`public_network` feature flag). The public network this server is attached onto, or null. Fetch full details from GET /public_networks/{id}.
+**Preview.** Available to teams with public networks enabled. The public network this server is attached onto, or null. Fetch full details from GET /public_networks/{id}.
 
 
 ## Fields

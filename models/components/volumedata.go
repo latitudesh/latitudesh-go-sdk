@@ -45,12 +45,21 @@ func (i *Initiators) GetNqn() *string {
 
 // Block - NVMe-TCP block mapping of a high performance volume. Null for volumes that are not mapped to a server.
 type Block struct {
+	// Mapping lifecycle state: "mapping" while the mapping is being applied, "mapped" once the server can access the volume, or "failed". Mapping is asynchronous, so poll the volume until this reaches a terminal state.
+	Status *string `json:"status,omitempty"`
 	// NVMe Qualified Name of the mapped server.
 	Nqn *string `json:"nqn,omitempty"`
 	// NVMe namespace ID of the mapping.
 	Nsid *int64 `json:"nsid,omitempty"`
 	// ID of the server the volume is mapped to.
 	ServerID *string `json:"server_id,omitempty"`
+}
+
+func (b *Block) GetStatus() *string {
+	if b == nil {
+		return nil
+	}
+	return b.Status
 }
 
 func (b *Block) GetNqn() *string {

@@ -7,6 +7,29 @@ import (
 	"fmt"
 )
 
+type DeployConfigType string
+
+const (
+	DeployConfigTypeDeployConfig DeployConfigType = "deploy_config"
+)
+
+func (e DeployConfigType) ToPointer() *DeployConfigType {
+	return &e
+}
+func (e *DeployConfigType) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "deploy_config":
+		*e = DeployConfigType(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for DeployConfigType: %v", v)
+	}
+}
+
 type DeployConfigRole string
 
 const (
@@ -66,7 +89,6 @@ type DeployConfigFilesystem string
 
 const (
 	DeployConfigFilesystemExt4 DeployConfigFilesystem = "ext4"
-	DeployConfigFilesystemXfs  DeployConfigFilesystem = "xfs"
 )
 
 func (e DeployConfigFilesystem) ToPointer() *DeployConfigFilesystem {
@@ -79,8 +101,6 @@ func (e *DeployConfigFilesystem) UnmarshalJSON(data []byte) error {
 	}
 	switch v {
 	case "ext4":
-		fallthrough
-	case "xfs":
 		*e = DeployConfigFilesystem(v)
 		return nil
 	default:
@@ -138,6 +158,8 @@ type DeployConfigAttributes struct {
 	DiskLayout      []DiskLayout `json:"disk_layout,omitempty"`
 	UserData        *string      `json:"user_data,omitempty"`
 	SSHKeys         []string     `json:"ssh_keys,omitempty"`
+	IpxeURL         *string      `json:"ipxe_url,omitempty"`
+	Ipxe            *string      `json:"ipxe,omitempty"`
 	// Keep network boot enabled so the server iPXE-boots on every reboot instead of booting from disk. Only supported with the 'ipxe' operating system.
 	PersistentNetboot *bool   `json:"persistent_netboot,omitempty"`
 	PublicNetwork     *bool   `json:"public_network,omitempty"`
@@ -186,6 +208,20 @@ func (d *DeployConfigAttributes) GetSSHKeys() []string {
 	return d.SSHKeys
 }
 
+func (d *DeployConfigAttributes) GetIpxeURL() *string {
+	if d == nil {
+		return nil
+	}
+	return d.IpxeURL
+}
+
+func (d *DeployConfigAttributes) GetIpxe() *string {
+	if d == nil {
+		return nil
+	}
+	return d.Ipxe
+}
+
 func (d *DeployConfigAttributes) GetPersistentNetboot() *bool {
 	if d == nil {
 		return nil
@@ -209,6 +245,7 @@ func (d *DeployConfigAttributes) GetPublicNetworkID() *string {
 
 type DeployConfigData struct {
 	ID         *string                 `json:"id,omitempty"`
+	Type       *DeployConfigType       `json:"type,omitempty"`
 	Attributes *DeployConfigAttributes `json:"attributes,omitempty"`
 }
 
@@ -219,6 +256,13 @@ func (d *DeployConfigData) GetID() *string {
 	return d.ID
 }
 
+func (d *DeployConfigData) GetType() *DeployConfigType {
+	if d == nil {
+		return nil
+	}
+	return d.Type
+}
+
 func (d *DeployConfigData) GetAttributes() *DeployConfigAttributes {
 	if d == nil {
 		return nil
@@ -226,8 +270,12 @@ func (d *DeployConfigData) GetAttributes() *DeployConfigAttributes {
 	return d.Attributes
 }
 
+type DeployConfigMeta struct {
+}
+
 type DeployConfig struct {
 	Data *DeployConfigData `json:"data,omitempty"`
+	Meta *DeployConfigMeta `json:"meta,omitempty"`
 }
 
 func (d *DeployConfig) GetData() *DeployConfigData {
@@ -235,4 +283,11 @@ func (d *DeployConfig) GetData() *DeployConfigData {
 		return nil
 	}
 	return d.Data
+}
+
+func (d *DeployConfig) GetMeta() *DeployConfigMeta {
+	if d == nil {
+		return nil
+	}
+	return d.Meta
 }

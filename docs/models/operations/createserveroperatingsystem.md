@@ -10,6 +10,9 @@ import (
 )
 
 value := operations.CreateServerOperatingSystemCentos74X64
+
+// Open enum: custom values can be created with a direct type cast
+custom := operations.CreateServerOperatingSystem("custom_value")
 ```
 
 

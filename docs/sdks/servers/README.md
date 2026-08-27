@@ -1224,7 +1224,9 @@ func main() {
     )
 
     res, err := s.Servers.UpdateDeployConfig(ctx, "<id>", operations.UpdateServerDeployConfigServersRequestBody{
-        Type: operations.UpdateServerDeployConfigServersTypeDeployConfig,
+        Data: operations.UpdateServerDeployConfigServersData{
+            Type: operations.UpdateServerDeployConfigServersTypeDeployConfig,
+        },
     })
     if err != nil {
         log.Fatal(err)
@@ -1256,7 +1258,9 @@ func main() {
     )
 
     res, err := s.Servers.UpdateDeployConfig(ctx, "sv_kjQwdEmXdYNVP", operations.UpdateServerDeployConfigServersRequestBody{
-        Type: operations.UpdateServerDeployConfigServersTypeDeployConfig,
+        Data: operations.UpdateServerDeployConfigServersData{
+            Type: operations.UpdateServerDeployConfigServersTypeDeployConfig,
+        },
     })
     if err != nil {
         log.Fatal(err)
@@ -1288,7 +1292,9 @@ func main() {
     )
 
     res, err := s.Servers.UpdateDeployConfig(ctx, "sv_5AEmq7xMDBkWX", operations.UpdateServerDeployConfigServersRequestBody{
-        Type: operations.UpdateServerDeployConfigServersTypeDeployConfig,
+        Data: operations.UpdateServerDeployConfigServersData{
+            Type: operations.UpdateServerDeployConfigServersTypeDeployConfig,
+        },
     })
     if err != nil {
         log.Fatal(err)
@@ -1320,7 +1326,18 @@ func main() {
     )
 
     res, err := s.Servers.UpdateDeployConfig(ctx, "sv_lkg1DeYLDvZE5", operations.UpdateServerDeployConfigServersRequestBody{
-        Type: operations.UpdateServerDeployConfigServersTypeDeployConfig,
+        Data: operations.UpdateServerDeployConfigServersData{
+            Type: operations.UpdateServerDeployConfigServersTypeDeployConfig,
+            Attributes: &operations.UpdateServerDeployConfigServersAttributes{
+                Hostname: latitudeshgosdk.Pointer("my-hostname"),
+                OperatingSystem: operations.UpdateServerDeployConfigServersOperatingSystemUbuntu2004X64Lts.ToPointer(),
+                Raid: operations.UpdateServerDeployConfigServersRaidRaid1.ToPointer(),
+                UserData: latitudeshgosdk.Pointer("ud_5LA73qkjdaJ2o"),
+                SSHKeys: []string{
+                    "ssh_m5xyZOnNOWM0l",
+                },
+            },
+        },
     })
     if err != nil {
         log.Fatal(err)
@@ -1352,7 +1369,9 @@ func main() {
     )
 
     res, err := s.Servers.UpdateDeployConfig(ctx, "sv_Gr47ql4vqAg0m", operations.UpdateServerDeployConfigServersRequestBody{
-        Type: operations.UpdateServerDeployConfigServersTypeDeployConfig,
+        Data: operations.UpdateServerDeployConfigServersData{
+            Type: operations.UpdateServerDeployConfigServersTypeDeployConfig,
+        },
     })
     if err != nil {
         log.Fatal(err)

@@ -182,7 +182,6 @@ type UpdateServerDeployConfigServersFilesystem string
 
 const (
 	UpdateServerDeployConfigServersFilesystemExt4 UpdateServerDeployConfigServersFilesystem = "ext4"
-	UpdateServerDeployConfigServersFilesystemXfs  UpdateServerDeployConfigServersFilesystem = "xfs"
 )
 
 func (e UpdateServerDeployConfigServersFilesystem) ToPointer() *UpdateServerDeployConfigServersFilesystem {
@@ -195,8 +194,6 @@ func (e *UpdateServerDeployConfigServersFilesystem) UnmarshalJSON(data []byte) e
 	}
 	switch v {
 	case "ext4":
-		fallthrough
-	case "xfs":
 		*e = UpdateServerDeployConfigServersFilesystem(v)
 		return nil
 	default:
@@ -258,6 +255,8 @@ type UpdateServerDeployConfigServersAttributes struct {
 	SSHKeys  []string `json:"ssh_keys,omitempty"`
 	// URL where iPXE script is stored on, necessary for custom image deployments. This attribute is required when operating system iPXE is selected.
 	IpxeURL *string `json:"ipxe_url,omitempty"`
+	// URL where the iPXE script is stored, or the iPXE script encoded in base64. This attribute is required when the iPXE operating system is selected. Replaces the deprecated 'ipxe_url'.
+	Ipxe *string `json:"ipxe,omitempty"`
 	// Keep network boot enabled so the server iPXE-boots on every reboot instead of booting from disk. Only supported with the 'ipxe' operating system.
 	PersistentNetboot *bool `json:"persistent_netboot,omitempty"`
 	// Set to 'true' to attach the server onto a public network. Requires 'public_network_id'. Available only when the public network feature is enabled for the server's location.
@@ -315,6 +314,13 @@ func (u *UpdateServerDeployConfigServersAttributes) GetIpxeURL() *string {
 	return u.IpxeURL
 }
 
+func (u *UpdateServerDeployConfigServersAttributes) GetIpxe() *string {
+	if u == nil {
+		return nil
+	}
+	return u.Ipxe
+}
+
 func (u *UpdateServerDeployConfigServersAttributes) GetPersistentNetboot() *bool {
 	if u == nil {
 		return nil
@@ -336,23 +342,42 @@ func (u *UpdateServerDeployConfigServersAttributes) GetPublicNetworkID() *string
 	return u.PublicNetworkID
 }
 
-type UpdateServerDeployConfigServersRequestBody struct {
+type UpdateServerDeployConfigServersData struct {
+	ID         *string                                    `json:"id,omitempty"`
 	Type       UpdateServerDeployConfigServersType        `json:"type"`
 	Attributes *UpdateServerDeployConfigServersAttributes `json:"attributes,omitempty"`
 }
 
-func (u *UpdateServerDeployConfigServersRequestBody) GetType() UpdateServerDeployConfigServersType {
+func (u *UpdateServerDeployConfigServersData) GetID() *string {
+	if u == nil {
+		return nil
+	}
+	return u.ID
+}
+
+func (u *UpdateServerDeployConfigServersData) GetType() UpdateServerDeployConfigServersType {
 	if u == nil {
 		return UpdateServerDeployConfigServersType("")
 	}
 	return u.Type
 }
 
-func (u *UpdateServerDeployConfigServersRequestBody) GetAttributes() *UpdateServerDeployConfigServersAttributes {
+func (u *UpdateServerDeployConfigServersData) GetAttributes() *UpdateServerDeployConfigServersAttributes {
 	if u == nil {
 		return nil
 	}
 	return u.Attributes
+}
+
+type UpdateServerDeployConfigServersRequestBody struct {
+	Data UpdateServerDeployConfigServersData `json:"data"`
+}
+
+func (u *UpdateServerDeployConfigServersRequestBody) GetData() UpdateServerDeployConfigServersData {
+	if u == nil {
+		return UpdateServerDeployConfigServersData{}
+	}
+	return u.Data
 }
 
 type UpdateServerDeployConfigRequest struct {
