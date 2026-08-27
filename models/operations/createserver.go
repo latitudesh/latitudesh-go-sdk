@@ -134,46 +134,16 @@ const (
 func (e CreateServerOperatingSystem) ToPointer() *CreateServerOperatingSystem {
 	return &e
 }
-func (e *CreateServerOperatingSystem) UnmarshalJSON(data []byte) error {
-	var v string
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
+
+// IsExact returns true if the value matches a known enum value, false otherwise.
+func (e *CreateServerOperatingSystem) IsExact() bool {
+	if e != nil {
+		switch *e {
+		case "centos_7_4_x64", "centos_8_x64", "debian_10", "debian_11", "debian_12", "ipxe", "rhel8", "rockylinux_8", "ubuntu22_ml_in_a_box", "ubuntu24_ml_in_a_box", "ubuntu_20_04_x64_lts", "ubuntu_22_04_x64_lts", "ubuntu_24_04_x64_lts", "windows_2022_std", "windows_server_2019_std_v1":
+			return true
+		}
 	}
-	switch v {
-	case "centos_7_4_x64":
-		fallthrough
-	case "centos_8_x64":
-		fallthrough
-	case "debian_10":
-		fallthrough
-	case "debian_11":
-		fallthrough
-	case "debian_12":
-		fallthrough
-	case "ipxe":
-		fallthrough
-	case "rhel8":
-		fallthrough
-	case "rockylinux_8":
-		fallthrough
-	case "ubuntu22_ml_in_a_box":
-		fallthrough
-	case "ubuntu24_ml_in_a_box":
-		fallthrough
-	case "ubuntu_20_04_x64_lts":
-		fallthrough
-	case "ubuntu_22_04_x64_lts":
-		fallthrough
-	case "ubuntu_24_04_x64_lts":
-		fallthrough
-	case "windows_2022_std":
-		fallthrough
-	case "windows_server_2019_std_v1":
-		*e = CreateServerOperatingSystem(v)
-		return nil
-	default:
-		return fmt.Errorf("invalid value for CreateServerOperatingSystem: %v", v)
-	}
+	return false
 }
 
 // CreateServerRaid - RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, or omit/null for no RAID configuration
@@ -377,6 +347,10 @@ type CreateServerServersAttributes struct {
 	DiskLayout []CreateServerDiskLayout `json:"disk_layout,omitempty"`
 	// URL where iPXE script is stored on, OR the iPXE script encoded in base64. This attribute is required when iPXE is selected as operating system.
 	Ipxe *string `json:"ipxe,omitempty"`
+	// **Preview.** Available to teams with public networks enabled. Set to true to deploy the server attached to the given public_network_id. Requires public_network_id; only public-network-capable stock is selected.
+	PublicNetwork *bool `json:"public_network,omitempty"`
+	// **Preview.** Available to teams with public networks enabled. ID of a customer public network to attach the server onto. Requires public_network: true. The public network must belong to the same project and location as the deployment and have a free address.
+	PublicNetworkID *string `json:"public_network_id,omitempty"`
 	// Keep network boot enabled so the server iPXE-boots on every reboot instead of booting from disk. Only supported with the 'ipxe' operating system.
 	PersistentNetboot *bool `json:"persistent_netboot,omitempty"`
 	// Deploy the server onto hardware that can announce an Elastic IP over BGP.
@@ -453,6 +427,20 @@ func (c *CreateServerServersAttributes) GetIpxe() *string {
 		return nil
 	}
 	return c.Ipxe
+}
+
+func (c *CreateServerServersAttributes) GetPublicNetwork() *bool {
+	if c == nil {
+		return nil
+	}
+	return c.PublicNetwork
+}
+
+func (c *CreateServerServersAttributes) GetPublicNetworkID() *string {
+	if c == nil {
+		return nil
+	}
+	return c.PublicNetworkID
 }
 
 func (c *CreateServerServersAttributes) GetPersistentNetboot() *bool {

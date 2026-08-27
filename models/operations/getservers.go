@@ -42,6 +42,8 @@ type GetServersRequest struct {
 	FilterTags *string `queryParam:"style=form,explode=true,name=filter[tags]"`
 	// The `credentials` are provided as extra attributes that are lazy loaded. To request it, just set `extra_fields[servers]=credentials` in the query string.
 	ExtraFieldsServers *string `queryParam:"style=form,explode=true,name=extra_fields[servers]"`
+	// Comma-separated sort fields. Prefix a field with `-` for descending order. Supported: hostname, created_at, location, operating_system.
+	Sort *string `queryParam:"style=form,explode=true,name=sort"`
 	// Number of items to return per page
 	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
 	// Page number to return (starts at 1)
@@ -178,6 +180,13 @@ func (g *GetServersRequest) GetExtraFieldsServers() *string {
 		return nil
 	}
 	return g.ExtraFieldsServers
+}
+
+func (g *GetServersRequest) GetSort() *string {
+	if g == nil {
+		return nil
+	}
+	return g.Sort
 }
 
 func (g *GetServersRequest) GetPageSize() *int64 {

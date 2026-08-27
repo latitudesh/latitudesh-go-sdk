@@ -16,4 +16,3 @@ value := components.DeployConfigFilesystemExt4
 | Name                         | Value                        |
 | ---------------------------- | ---------------------------- |
 | `DeployConfigFilesystemExt4` | ext4                         |
-| `DeployConfigFilesystemXfs`  | xfs                          |

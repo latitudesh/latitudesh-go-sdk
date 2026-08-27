@@ -104,8 +104,10 @@ func (e *Unit) UnmarshalJSON(data []byte) error {
 
 // Storage consumption metrics
 type Storage struct {
-	// Amount of storage consumed
+	// Billed storage usage for the current period
 	Consumed *int64 `json:"consumed,omitempty"`
+	// Latest recorded storage usage (last datapoint)
+	Current *int64 `json:"current,omitempty"`
 	// Unit of measurement for storage
 	Unit *Unit `json:"unit,omitempty"`
 }
@@ -115,6 +117,13 @@ func (s *Storage) GetConsumed() *int64 {
 		return nil
 	}
 	return s.Consumed
+}
+
+func (s *Storage) GetCurrent() *int64 {
+	if s == nil {
+		return nil
+	}
+	return s.Current
 }
 
 func (s *Storage) GetUnit() *Unit {

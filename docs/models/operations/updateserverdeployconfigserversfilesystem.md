@@ -16,4 +16,3 @@ value := operations.UpdateServerDeployConfigServersFilesystemExt4
 | Name                                            | Value                                           |
 | ----------------------------------------------- | ----------------------------------------------- |
 | `UpdateServerDeployConfigServersFilesystemExt4` | ext4                                            |
-| `UpdateServerDeployConfigServersFilesystemXfs`  | xfs                                             |

@@ -5,6 +5,8 @@ package components
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
+	"time"
 )
 
 type ServerDataTags struct {
@@ -42,54 +44,6 @@ func (s *ServerDataTags) GetColor() *string {
 	return s.Color
 }
 
-// ServerDataStatus - `on` - The server is powered ON
-// `off` - The server is powered OFF
-// `unknown` - The server power status is unknown
-// `disk_erasing` - The server is in reinstalling state `disk_erasing`
-// `deploying` - The server is deploying or reinstalling
-// `failed_deployment` - The server has failed deployment or reinstall
-// `rescue_mode` - The server is in rescue mode
-type ServerDataStatus string
-
-const (
-	ServerDataStatusOn               ServerDataStatus = "on"
-	ServerDataStatusOff              ServerDataStatus = "off"
-	ServerDataStatusUnknown          ServerDataStatus = "unknown"
-	ServerDataStatusDiskErasing      ServerDataStatus = "disk_erasing"
-	ServerDataStatusDeploying        ServerDataStatus = "deploying"
-	ServerDataStatusFailedDeployment ServerDataStatus = "failed_deployment"
-	ServerDataStatusRescueMode       ServerDataStatus = "rescue_mode"
-)
-
-func (e ServerDataStatus) ToPointer() *ServerDataStatus {
-	return &e
-}
-func (e *ServerDataStatus) UnmarshalJSON(data []byte) error {
-	var v string
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-	switch v {
-	case "on":
-		fallthrough
-	case "off":
-		fallthrough
-	case "unknown":
-		fallthrough
-	case "disk_erasing":
-		fallthrough
-	case "deploying":
-		fallthrough
-	case "failed_deployment":
-		fallthrough
-	case "rescue_mode":
-		*e = ServerDataStatus(v)
-		return nil
-	default:
-		return fmt.Errorf("invalid value for ServerDataStatus: %v", v)
-	}
-}
-
 type IpmiStatus string
 
 const (
@@ -119,7 +73,7 @@ func (e *IpmiStatus) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// ServerDataPublicNetwork - **Preview** (`public_network` feature flag). The public network this server is attached onto, or null. Fetch full details from GET /public_networks/{id}.
+// ServerDataPublicNetwork - **Preview.** Available to teams with public networks enabled. The public network this server is attached onto, or null. Fetch full details from GET /public_networks/{id}.
 type ServerDataPublicNetwork struct {
 	ID   *string `json:"id,omitempty"`
 	Ipv4 *string `json:"ipv4,omitempty"`
@@ -187,9 +141,12 @@ func (s *ServerDataPlan) GetBilling() *string {
 }
 
 type ServerDataFeatures struct {
-	Raid     *bool `json:"raid,omitempty"`
-	SSHKeys  *bool `json:"ssh_keys,omitempty"`
-	UserData *bool `json:"user_data,omitempty"`
+	Raid       *bool `json:"raid,omitempty"`
+	SSHKeys    *bool `json:"ssh_keys,omitempty"`
+	UserData   *bool `json:"user_data,omitempty"`
+	Accelerate *bool `json:"accelerate,omitempty"`
+	Rescue     *bool `json:"rescue,omitempty"`
+	Workflow   *bool `json:"workflow,omitempty"`
 }
 
 func (s *ServerDataFeatures) GetRaid() *bool {
@@ -211,6 +168,27 @@ func (s *ServerDataFeatures) GetUserData() *bool {
 		return nil
 	}
 	return s.UserData
+}
+
+func (s *ServerDataFeatures) GetAccelerate() *bool {
+	if s == nil {
+		return nil
+	}
+	return s.Accelerate
+}
+
+func (s *ServerDataFeatures) GetRescue() *bool {
+	if s == nil {
+		return nil
+	}
+	return s.Rescue
+}
+
+func (s *ServerDataFeatures) GetWorkflow() *bool {
+	if s == nil {
+		return nil
+	}
+	return s.Workflow
 }
 
 type Distro struct {
@@ -404,6 +382,131 @@ func (i *Interfaces) GetDescription() *string {
 	return i.Description
 }
 
+type ServerDataSSHKeys struct {
+	ID          *int64     `json:"id,omitempty"`
+	Name        *string    `json:"name,omitempty"`
+	Fingerprint *string    `json:"fingerprint,omitempty"`
+	PublicKey   *string    `json:"public_key,omitempty"`
+	CreatedAt   *time.Time `json:"created_at,omitempty"`
+	UpdatedAt   *time.Time `json:"updated_at,omitempty"`
+	UserID      *string    `json:"user_id,omitempty"`
+	GroupID     *int64     `json:"group_id,omitempty"`
+}
+
+func (s ServerDataSSHKeys) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
+}
+
+func (s *ServerDataSSHKeys) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (s *ServerDataSSHKeys) GetID() *int64 {
+	if s == nil {
+		return nil
+	}
+	return s.ID
+}
+
+func (s *ServerDataSSHKeys) GetName() *string {
+	if s == nil {
+		return nil
+	}
+	return s.Name
+}
+
+func (s *ServerDataSSHKeys) GetFingerprint() *string {
+	if s == nil {
+		return nil
+	}
+	return s.Fingerprint
+}
+
+func (s *ServerDataSSHKeys) GetPublicKey() *string {
+	if s == nil {
+		return nil
+	}
+	return s.PublicKey
+}
+
+func (s *ServerDataSSHKeys) GetCreatedAt() *time.Time {
+	if s == nil {
+		return nil
+	}
+	return s.CreatedAt
+}
+
+func (s *ServerDataSSHKeys) GetUpdatedAt() *time.Time {
+	if s == nil {
+		return nil
+	}
+	return s.UpdatedAt
+}
+
+func (s *ServerDataSSHKeys) GetUserID() *string {
+	if s == nil {
+		return nil
+	}
+	return s.UserID
+}
+
+func (s *ServerDataSSHKeys) GetGroupID() *int64 {
+	if s == nil {
+		return nil
+	}
+	return s.GroupID
+}
+
+// Credentials - Latest provisioning credentials, lazy loaded. Request it with `extra_fields[servers]=credentials`. Empty when the latest provisioning has no valid credentials.
+type Credentials struct {
+	Username  *string             `json:"username,omitempty"`
+	Password  *string             `json:"password,omitempty"`
+	SSHKeys   []ServerDataSSHKeys `json:"ssh_keys,omitempty"`
+	ExpiresAt *time.Time          `json:"expires_at,omitempty"`
+}
+
+func (c Credentials) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
+}
+
+func (c *Credentials) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (c *Credentials) GetUsername() *string {
+	if c == nil {
+		return nil
+	}
+	return c.Username
+}
+
+func (c *Credentials) GetPassword() *string {
+	if c == nil {
+		return nil
+	}
+	return c.Password
+}
+
+func (c *Credentials) GetSSHKeys() []ServerDataSSHKeys {
+	if c == nil {
+		return nil
+	}
+	return c.SSHKeys
+}
+
+func (c *Credentials) GetExpiresAt() *time.Time {
+	if c == nil {
+		return nil
+	}
+	return c.ExpiresAt
+}
+
 type ServerDataAttributes struct {
 	Tags     []ServerDataTags `json:"tags,omitempty"`
 	Hostname *string          `json:"hostname,omitempty"`
@@ -417,17 +520,27 @@ type ServerDataAttributes struct {
 	// `deploying` - The server is deploying or reinstalling
 	// `failed_deployment` - The server has failed deployment or reinstall
 	// `rescue_mode` - The server is in rescue mode
+	// `entering_rescue_mode` - The server is entering rescue mode
+	// `exiting_rescue_mode` - The server is exiting rescue mode
 	//
-	Status     *ServerDataStatus `json:"status,omitempty"`
-	IpmiStatus *IpmiStatus       `json:"ipmi_status,omitempty"`
+	// While a server is provisioning, the provisioning state slug is returned verbatim,
+	// so values outside this list (e.g. `queued`, `starting_deploy`, `commissioning`)
+	// are possible. Treat this field as an open set, not a closed enum.
+	//
+	Status     *string     `json:"status,omitempty"`
+	IpmiStatus *IpmiStatus `json:"ipmi_status,omitempty"`
 	// The server role (e.g. Bare Metal)
 	Role *string `json:"role,omitempty"`
 	// Whether the server is eligible to attach a public network (carries the bond-vpc-enabled tag).
 	PublicNetworkEligible *bool `json:"public_network_eligible,omitempty"`
-	// **Preview** (`public_network` feature flag). The public network this server is attached onto, or null. Fetch full details from GET /public_networks/{id}.
-	PublicNetwork       *ServerDataPublicNetwork  `json:"public_network,omitempty"`
-	Site                *string                   `json:"site,omitempty"`
-	Locked              *bool                     `json:"locked,omitempty"`
+	// **Preview.** Available to teams with public networks enabled. The public network this server is attached onto, or null. Fetch full details from GET /public_networks/{id}.
+	PublicNetwork *ServerDataPublicNetwork `json:"public_network,omitempty"`
+	Site          *string                  `json:"site,omitempty"`
+	Locked        *bool                    `json:"locked,omitempty"`
+	// Whether the server is attached to a legacy network.
+	LegacyNetwork *bool `json:"legacy_network,omitempty"`
+	// Feature slugs supported by the server hardware (e.g. `direct_remote_access`).
+	Features            []string                  `json:"features,omitempty"`
 	RescueAllowed       *bool                     `json:"rescue_allowed,omitempty"`
 	PrimaryIpv4         *string                   `json:"primary_ipv4,omitempty"`
 	PrimaryIpv6         *string                   `json:"primary_ipv6,omitempty"`
@@ -438,8 +551,10 @@ type ServerDataAttributes struct {
 	Region              *ServerRegionResourceData `json:"region,omitempty"`
 	Specs               *ServerDataSpecs          `json:"specs,omitempty"`
 	Interfaces          []Interfaces              `json:"interfaces,omitempty"`
-	Project             *ProjectInclude           `json:"project,omitempty"`
-	Team                *TeamInclude              `json:"team,omitempty"`
+	// Latest provisioning credentials, lazy loaded. Request it with `extra_fields[servers]=credentials`. Empty when the latest provisioning has no valid credentials.
+	Credentials *Credentials    `json:"credentials,omitempty"`
+	Project     *ProjectInclude `json:"project,omitempty"`
+	Team        *TeamInclude    `json:"team,omitempty"`
 }
 
 func (s *ServerDataAttributes) GetTags() []ServerDataTags {
@@ -470,7 +585,7 @@ func (s *ServerDataAttributes) GetPrice() *float64 {
 	return s.Price
 }
 
-func (s *ServerDataAttributes) GetStatus() *ServerDataStatus {
+func (s *ServerDataAttributes) GetStatus() *string {
 	if s == nil {
 		return nil
 	}
@@ -517,6 +632,20 @@ func (s *ServerDataAttributes) GetLocked() *bool {
 		return nil
 	}
 	return s.Locked
+}
+
+func (s *ServerDataAttributes) GetLegacyNetwork() *bool {
+	if s == nil {
+		return nil
+	}
+	return s.LegacyNetwork
+}
+
+func (s *ServerDataAttributes) GetFeatures() []string {
+	if s == nil {
+		return nil
+	}
+	return s.Features
 }
 
 func (s *ServerDataAttributes) GetRescueAllowed() *bool {
@@ -587,6 +716,13 @@ func (s *ServerDataAttributes) GetInterfaces() []Interfaces {
 		return nil
 	}
 	return s.Interfaces
+}
+
+func (s *ServerDataAttributes) GetCredentials() *Credentials {
+	if s == nil {
+		return nil
+	}
+	return s.Credentials
 }
 
 func (s *ServerDataAttributes) GetProject() *ProjectInclude {
