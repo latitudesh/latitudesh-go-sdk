@@ -31,7 +31,7 @@ func newMarketplaceApps(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, 
 }
 
 // ListMarketplaceApps - List marketplace apps
-// Lists the marketplace apps available to deploy on Virtual Machines. Only published apps are returned. Requires the `marketplace_apps` feature to be enabled for the team.
+// Lists the marketplace apps available to deploy on Virtual Machines. Only published apps are returned.
 func (s *MarketplaceApps) ListMarketplaceApps(ctx context.Context, opts ...operations.Option) (*operations.ListMarketplaceAppsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -237,7 +237,7 @@ func (s *MarketplaceApps) ListMarketplaceApps(ctx context.Context, opts ...opera
 }
 
 // GetMarketplaceApp - Retrieve a marketplace app
-// Retrieve a single marketplace app by ID or slug. Only published apps are visible. Requires the `marketplace_apps` feature to be enabled for the team.
+// Retrieve a single marketplace app by ID or slug. Only published apps are visible.
 func (s *MarketplaceApps) GetMarketplaceApp(ctx context.Context, id string, opts ...operations.Option) (*operations.GetMarketplaceAppResponse, error) {
 	request := operations.GetMarketplaceAppRequest{
 		ID: id,

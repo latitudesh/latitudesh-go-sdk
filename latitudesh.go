@@ -84,6 +84,7 @@ type Latitudesh struct {
 	PrivateNetworks        *PrivateNetworks
 	VirtualNetworks        *VirtualNetworks
 	VpnSessions            *VpnSessions
+	ManagedDatabases       *ManagedDatabases
 
 	sdkConfiguration config.SDKConfiguration
 	hooks            *hooks.Hooks
@@ -173,9 +174,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Latitudesh {
 	sdk := &Latitudesh{
-		SDKVersion: "1.19.17",
+		SDKVersion: "1.19.18",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 1.19.17 2.933.0 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
+			UserAgent:  "speakeasy-sdk/go 1.19.18 2.933.0 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
 			ServerList: ServerList,
 			ServerVariables: []map[string]string{
 				{
@@ -243,6 +244,7 @@ func New(opts ...SDKOption) *Latitudesh {
 	sdk.PrivateNetworks = newPrivateNetworks(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.VirtualNetworks = newVirtualNetworks(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.VpnSessions = newVpnSessions(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.ManagedDatabases = newManagedDatabases(sdk, sdk.sdkConfiguration, sdk.hooks)
 
 	return sdk
 }

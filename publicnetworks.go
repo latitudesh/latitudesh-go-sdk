@@ -31,6 +31,8 @@ func newPublicNetworks(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, h
 }
 
 // GetPublicNetworks - List networks
+// **Preview.** Available at locations where the `public_network` feature is enabled.
+//
 // List the customer networks owned by the team
 func (s *PublicNetworks) GetPublicNetworks(ctx context.Context, filterProject *string, filterSite *string, opts ...operations.Option) (*operations.GetPublicNetworksResponse, error) {
 	request := operations.GetPublicNetworksRequest{
@@ -267,6 +269,8 @@ func (s *PublicNetworks) GetPublicNetworks(ctx context.Context, filterProject *s
 }
 
 // CreatePublicNetwork - Create a network
+// **Preview.** Available at locations where the `public_network` feature is enabled.
+//
 // Provision a customer network: an IPv4 block of the chosen size plus a paired IPv6 /64. The network is allocated synchronously and returned in the response; billing is settled in the background.
 func (s *PublicNetworks) CreatePublicNetwork(ctx context.Context, request components.CreatePublicNetwork, opts ...operations.Option) (*operations.CreatePublicNetworkResponse, error) {
 	o := operations.Options{}
@@ -738,6 +742,8 @@ func (s *PublicNetworks) GetPublicNetwork(ctx context.Context, id string, opts .
 }
 
 // DestroyPublicNetwork - Delete a network
+// **Preview.** Available at locations where the `public_network` feature is enabled.
+//
 // Delete a customer network. Only allowed while the network has no IPs in use.
 func (s *PublicNetworks) DestroyPublicNetwork(ctx context.Context, id string, opts ...operations.Option) (*operations.DestroyPublicNetworkResponse, error) {
 	request := operations.DestroyPublicNetworkRequest{

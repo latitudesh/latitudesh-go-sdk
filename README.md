@@ -199,6 +199,10 @@ func main() {
 * [UpdateKubernetesCluster](docs/sdks/kubernetesclusters/README.md#updatekubernetescluster) - Update Kubernetes Cluster
 * [GetKubernetesClusterKubeconfig](docs/sdks/kubernetesclusters/README.md#getkubernetesclusterkubeconfig) - Get Kubernetes Cluster Kubeconfig
 
+### [ManagedDatabases](docs/sdks/manageddatabases/README.md)
+
+* [ShowManagedDatabaseMetrics](docs/sdks/manageddatabases/README.md#showmanageddatabasemetrics) - Show managed database metrics
+
 ### [MarketplaceApps](docs/sdks/marketplaceapps/README.md)
 
 * [ListMarketplaceApps](docs/sdks/marketplaceapps/README.md#listmarketplaceapps) - List marketplace apps

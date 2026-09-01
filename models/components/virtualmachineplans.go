@@ -213,77 +213,31 @@ func (v *VirtualMachinePlansSpecs) GetDisk() *Disk {
 	return v.Disk
 }
 
-type VirtualMachinePlansUSD struct {
-	Hour  *float64 `json:"hour,omitempty"`
-	Month *float64 `json:"month,omitempty"`
-	Year  *float64 `json:"year,omitempty"`
-}
-
-func (v *VirtualMachinePlansUSD) GetHour() *float64 {
-	if v == nil {
-		return nil
-	}
-	return v.Hour
-}
-
-func (v *VirtualMachinePlansUSD) GetMonth() *float64 {
-	if v == nil {
-		return nil
-	}
-	return v.Month
-}
-
-func (v *VirtualMachinePlansUSD) GetYear() *float64 {
-	if v == nil {
-		return nil
-	}
-	return v.Year
-}
-
-type VirtualMachinePlansBRL struct {
-	Hour  *float64 `json:"hour,omitempty"`
-	Month *float64 `json:"month,omitempty"`
-	Year  *float64 `json:"year,omitempty"`
-}
-
-func (v *VirtualMachinePlansBRL) GetHour() *float64 {
-	if v == nil {
-		return nil
-	}
-	return v.Hour
-}
-
-func (v *VirtualMachinePlansBRL) GetMonth() *float64 {
-	if v == nil {
-		return nil
-	}
-	return v.Month
-}
-
-func (v *VirtualMachinePlansBRL) GetYear() *float64 {
-	if v == nil {
-		return nil
-	}
-	return v.Year
-}
-
 type VirtualMachinePlansPricing struct {
-	Usd *VirtualMachinePlansUSD `json:"USD,omitempty"`
-	Brl *VirtualMachinePlansBRL `json:"BRL,omitempty"`
+	Hour  *float64 `json:"hour,omitempty"`
+	Month *float64 `json:"month,omitempty"`
+	Year  *float64 `json:"year,omitempty"`
 }
 
-func (v *VirtualMachinePlansPricing) GetUsd() *VirtualMachinePlansUSD {
+func (v *VirtualMachinePlansPricing) GetHour() *float64 {
 	if v == nil {
 		return nil
 	}
-	return v.Usd
+	return v.Hour
 }
 
-func (v *VirtualMachinePlansPricing) GetBrl() *VirtualMachinePlansBRL {
+func (v *VirtualMachinePlansPricing) GetMonth() *float64 {
 	if v == nil {
 		return nil
 	}
-	return v.Brl
+	return v.Month
+}
+
+func (v *VirtualMachinePlansPricing) GetYear() *float64 {
+	if v == nil {
+		return nil
+	}
+	return v.Year
 }
 
 type VirtualMachinePlansLocations struct {
@@ -341,10 +295,11 @@ func (e *VirtualMachinePlansDataStockLevel) UnmarshalJSON(data []byte) error {
 }
 
 type VirtualMachinePlansRegions struct {
-	Name      *string                       `json:"name,omitempty"`
-	Available []string                      `json:"available,omitempty"`
-	Pricing   *VirtualMachinePlansPricing   `json:"pricing,omitempty"`
-	Locations *VirtualMachinePlansLocations `json:"locations,omitempty"`
+	Name      *string  `json:"name,omitempty"`
+	Available []string `json:"available,omitempty"`
+	// Prices keyed by ISO 4217 currency code (e.g. USD, BRL).
+	Pricing   map[string]VirtualMachinePlansPricing `json:"pricing,omitempty"`
+	Locations *VirtualMachinePlansLocations         `json:"locations,omitempty"`
 	// The stock level in this region
 	StockLevel *VirtualMachinePlansDataStockLevel `json:"stock_level,omitempty"`
 }
@@ -363,7 +318,7 @@ func (v *VirtualMachinePlansRegions) GetAvailable() []string {
 	return v.Available
 }
 
-func (v *VirtualMachinePlansRegions) GetPricing() *VirtualMachinePlansPricing {
+func (v *VirtualMachinePlansRegions) GetPricing() map[string]VirtualMachinePlansPricing {
 	if v == nil {
 		return nil
 	}

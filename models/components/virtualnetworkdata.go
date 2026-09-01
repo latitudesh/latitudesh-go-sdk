@@ -143,6 +143,8 @@ type VirtualNetworkDataAttributes struct {
 	AssignmentsCount *int64 `json:"assignments_count,omitempty"`
 	// Tags associated with the virtual network
 	Tags []VirtualNetworkDataTags `json:"tags,omitempty"`
+	// Whether this is an auto-provisioned storage service VLAN
+	Storage *bool `json:"storage,omitempty"`
 }
 
 func (v VirtualNetworkDataAttributes) MarshalJSON() ([]byte, error) {
@@ -210,6 +212,13 @@ func (v *VirtualNetworkDataAttributes) GetTags() []VirtualNetworkDataTags {
 		return nil
 	}
 	return v.Tags
+}
+
+func (v *VirtualNetworkDataAttributes) GetStorage() *bool {
+	if v == nil {
+		return nil
+	}
+	return v.Storage
 }
 
 type VirtualNetworkData struct {

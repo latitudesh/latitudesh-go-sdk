@@ -96,7 +96,7 @@ func (p *PostStorageVolumesMapRequest) GetRequestBody() PostStorageVolumesMapReq
 type PostStorageVolumesMapMeta struct {
 }
 
-// PostStorageVolumesMapResponseBody - Success
+// PostStorageVolumesMapResponseBody - Accepted
 type PostStorageVolumesMapResponseBody struct {
 	Data *components.VolumeData     `json:"data,omitempty"`
 	Meta *PostStorageVolumesMapMeta `json:"meta,omitempty"`
@@ -118,7 +118,7 @@ func (p *PostStorageVolumesMapResponseBody) GetMeta() *PostStorageVolumesMapMeta
 
 type PostStorageVolumesMapResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
-	// Success
+	// Accepted
 	Object *PostStorageVolumesMapResponseBody
 }
 

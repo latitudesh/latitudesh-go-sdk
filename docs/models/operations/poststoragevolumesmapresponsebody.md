@@ -1,6 +1,6 @@
 # PostStorageVolumesMapResponseBody
 
-Success
+Accepted
 
 
 ## Fields

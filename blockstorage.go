@@ -1251,7 +1251,7 @@ func (s *BlockStorage) PostStorageVolumesMap(ctx context.Context, id string, req
 	}
 
 	switch {
-	case httpRes.StatusCode == 200:
+	case httpRes.StatusCode == 202:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
 			rawBody, err := utils.ConsumeRawBody(httpRes)

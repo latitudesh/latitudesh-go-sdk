@@ -11,6 +11,8 @@
 
 ## GetPublicNetworks
 
+**Preview.** Available at locations where the `public_network` feature is enabled.
+
 List the customer networks owned by the team
 
 ### Example Usage
@@ -64,6 +66,8 @@ func main() {
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
 ## CreatePublicNetwork
+
+**Preview.** Available at locations where the `public_network` feature is enabled.
 
 Provision a customer network: an IPv4 block of the chosen size plus a paired IPv6 /64. The network is allocated synchronously and returned in the response; billing is settled in the background.
 
@@ -175,6 +179,8 @@ func main() {
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
 ## DestroyPublicNetwork
+
+**Preview.** Available at locations where the `public_network` feature is enabled.
 
 Delete a customer network. Only allowed while the network has no IPs in use.
 
