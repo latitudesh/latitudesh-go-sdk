@@ -281,7 +281,7 @@ func (o *ObjectStorageDataAttributes) GetTeam() *TeamInclude {
 }
 
 type ObjectStorageData struct {
-	// Object storage ID with bucket_ prefix
+	// Object storage ID with bkt_ prefix
 	ID         *string                      `json:"id,omitempty"`
 	Type       *ObjectStorageDataType       `json:"type,omitempty"`
 	Attributes *ObjectStorageDataAttributes `json:"attributes,omitempty"`

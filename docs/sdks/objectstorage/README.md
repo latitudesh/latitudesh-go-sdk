@@ -194,11 +194,11 @@ func main() {
                 Region: "DAL",
                 BucketPermissions: []operations.BucketPermissions{
                     operations.BucketPermissions{
-                        BucketID: "bucket_6VE1Wd37dXnZJ",
+                        BucketID: "bkt_6VE1Wd37dXnZJ",
                         Permission: operations.PermissionReadonly,
                     },
                     operations.BucketPermissions{
-                        BucketID: "bucket_7WF2Xe48eYoAK",
+                        BucketID: "bkt_7WF2Xe48eYoAK",
                         Permission: operations.PermissionRw,
                     },
                 },
