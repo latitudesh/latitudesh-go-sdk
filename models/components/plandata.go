@@ -314,85 +314,40 @@ func (e *StockLevel) UnmarshalJSON(data []byte) error {
 	}
 }
 
-type PlanDataUSD struct {
-	Hour  *float64 `json:"hour,omitempty"`
-	Month *float64 `json:"month,omitempty"`
-	Year  *float64 `json:"year,omitempty"`
-}
-
-func (p *PlanDataUSD) GetHour() *float64 {
-	if p == nil {
-		return nil
-	}
-	return p.Hour
-}
-
-func (p *PlanDataUSD) GetMonth() *float64 {
-	if p == nil {
-		return nil
-	}
-	return p.Month
-}
-
-func (p *PlanDataUSD) GetYear() *float64 {
-	if p == nil {
-		return nil
-	}
-	return p.Year
-}
-
-type PlanDataBRL struct {
-	Hour  *float64 `json:"hour,omitempty"`
-	Month *float64 `json:"month,omitempty"`
-	Year  *float64 `json:"year,omitempty"`
-}
-
-func (p *PlanDataBRL) GetHour() *float64 {
-	if p == nil {
-		return nil
-	}
-	return p.Hour
-}
-
-func (p *PlanDataBRL) GetMonth() *float64 {
-	if p == nil {
-		return nil
-	}
-	return p.Month
-}
-
-func (p *PlanDataBRL) GetYear() *float64 {
-	if p == nil {
-		return nil
-	}
-	return p.Year
-}
-
 type PlanDataPricing struct {
-	Usd *PlanDataUSD `json:"USD,omitempty"`
-	Brl *PlanDataBRL `json:"BRL,omitempty"`
+	Hour  *float64 `json:"hour,omitempty"`
+	Month *float64 `json:"month,omitempty"`
+	Year  *float64 `json:"year,omitempty"`
 }
 
-func (p *PlanDataPricing) GetUsd() *PlanDataUSD {
+func (p *PlanDataPricing) GetHour() *float64 {
 	if p == nil {
 		return nil
 	}
-	return p.Usd
+	return p.Hour
 }
 
-func (p *PlanDataPricing) GetBrl() *PlanDataBRL {
+func (p *PlanDataPricing) GetMonth() *float64 {
 	if p == nil {
 		return nil
 	}
-	return p.Brl
+	return p.Month
+}
+
+func (p *PlanDataPricing) GetYear() *float64 {
+	if p == nil {
+		return nil
+	}
+	return p.Year
 }
 
 type PlanDataRegions struct {
-	Name             *string          `json:"name,omitempty"`
-	DeploysInstantly []string         `json:"deploys_instantly,omitempty"`
-	Locations        *Locations       `json:"locations,omitempty"`
-	StockLevel       *StockLevel      `json:"stock_level,omitempty"`
-	Pricing          *PlanDataPricing `json:"pricing,omitempty"`
+	Name             *string     `json:"name,omitempty"`
+	DeploysInstantly []string    `json:"deploys_instantly,omitempty"`
+	Locations        *Locations  `json:"locations,omitempty"`
+	StockLevel       *StockLevel `json:"stock_level,omitempty"`
+	// Prices keyed by ISO 4217 currency code (e.g. USD, BRL).
+	Pricing map[string]PlanDataPricing `json:"pricing,omitempty"`
 }
 
 func (p *PlanDataRegions) GetName() *string {
@@ -423,7 +378,7 @@ func (p *PlanDataRegions) GetStockLevel() *StockLevel {
 	return p.StockLevel
 }
 
-func (p *PlanDataRegions) GetPricing() *PlanDataPricing {
+func (p *PlanDataRegions) GetPricing() map[string]PlanDataPricing {
 	if p == nil {
 		return nil
 	}

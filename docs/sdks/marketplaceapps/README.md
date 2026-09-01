@@ -9,7 +9,7 @@
 
 ## ListMarketplaceApps
 
-Lists the marketplace apps available to deploy on Virtual Machines. Only published apps are returned. Requires the `marketplace_apps` feature to be enabled for the team.
+Lists the marketplace apps available to deploy on Virtual Machines. Only published apps are returned.
 
 ### Example Usage
 
@@ -60,7 +60,7 @@ func main() {
 
 ## GetMarketplaceApp
 
-Retrieve a single marketplace app by ID or slug. Only published apps are visible. Requires the `marketplace_apps` feature to be enabled for the team.
+Retrieve a single marketplace app by ID or slug. Only published apps are visible.
 
 ### Example Usage
 

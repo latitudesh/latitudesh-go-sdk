@@ -10,9 +10,11 @@ import (
 
 type StorageUsageAttributes struct {
 	// The day this usage row refers to
-	Date      *types.Date `json:"date,omitempty"`
-	StorageID *int64      `json:"storage_id,omitempty"`
-	ProjectID *int64      `json:"project_id,omitempty"`
+	Date *types.Date `json:"date,omitempty"`
+	// The storage/bucket ID. A numeric value serialized as a string, e.g. "42".
+	StorageID *string `json:"storage_id,omitempty"`
+	// The project ID. A numeric value serialized as a string, e.g. "1234".
+	ProjectID *string `json:"project_id,omitempty"`
 	// Storage kind. One of: object, file, block.
 	StorageType *string `json:"storage_type,omitempty"`
 	// Performance tier. One of: high, standard.
@@ -45,14 +47,14 @@ func (s *StorageUsageAttributes) GetDate() *types.Date {
 	return s.Date
 }
 
-func (s *StorageUsageAttributes) GetStorageID() *int64 {
+func (s *StorageUsageAttributes) GetStorageID() *string {
 	if s == nil {
 		return nil
 	}
 	return s.StorageID
 }
 
-func (s *StorageUsageAttributes) GetProjectID() *int64 {
+func (s *StorageUsageAttributes) GetProjectID() *string {
 	if s == nil {
 		return nil
 	}

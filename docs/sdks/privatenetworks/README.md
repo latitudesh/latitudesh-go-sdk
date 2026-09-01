@@ -1018,6 +1018,36 @@ func main() {
     }
 }
 ```
+### Example Usage: StorageVlanNotAssignable
+
+<!-- UsageSnippet language="go" operationID="assign-server-virtual-network" method="post" path="/virtual_networks/assignments" example="StorageVlanNotAssignable" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.PrivateNetworks.Assign(ctx, operations.AssignServerVirtualNetworkPrivateNetworksRequestBody{})
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.VirtualNetworkAssignment != nil {
+        // handle response
+    }
+}
+```
 ### Example Usage: validation error
 
 <!-- UsageSnippet language="go" operationID="assign-server-virtual-network" method="post" path="/virtual_networks/assignments" example="validation error" -->
@@ -1071,9 +1101,10 @@ func main() {
 
 ### Errors
 
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| components.APIError | 4XX, 5XX            | \*/\*               |
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| components.ErrorObject   | 422                      | application/vnd.api+json |
+| components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
 ## DeleteAssignment
 
@@ -1124,6 +1155,7 @@ func main() {
 
 ### Errors
 
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| components.APIError | 4XX, 5XX            | \*/\*               |
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| components.ErrorObject   | 422                      | application/vnd.api+json |
+| components.APIError      | 4XX, 5XX                 | \*/\*                    |

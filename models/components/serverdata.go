@@ -533,6 +533,10 @@ type ServerDataAttributes struct {
 	Role *string `json:"role,omitempty"`
 	// Whether the server is eligible to attach a public network (carries the bond-vpc-enabled tag).
 	PublicNetworkEligible *bool `json:"public_network_eligible,omitempty"`
+	// Whether the server can announce a BGP Elastic IP. Lazy loaded; request it with `extra_fields[servers]=bgp_eligible`.
+	BgpEligible *bool `json:"bgp_eligible,omitempty"`
+	// Whether the server was deployed with the BGP option.
+	BgpDeployed *bool `json:"bgp_deployed,omitempty"`
 	// **Preview.** Available to teams with public networks enabled. The public network this server is attached onto, or null. Fetch full details from GET /public_networks/{id}.
 	PublicNetwork *ServerDataPublicNetwork `json:"public_network,omitempty"`
 	Site          *string                  `json:"site,omitempty"`
@@ -611,6 +615,20 @@ func (s *ServerDataAttributes) GetPublicNetworkEligible() *bool {
 		return nil
 	}
 	return s.PublicNetworkEligible
+}
+
+func (s *ServerDataAttributes) GetBgpEligible() *bool {
+	if s == nil {
+		return nil
+	}
+	return s.BgpEligible
+}
+
+func (s *ServerDataAttributes) GetBgpDeployed() *bool {
+	if s == nil {
+		return nil
+	}
+	return s.BgpDeployed
 }
 
 func (s *ServerDataAttributes) GetPublicNetwork() *ServerDataPublicNetwork {

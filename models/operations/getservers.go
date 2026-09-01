@@ -40,6 +40,8 @@ type GetServersRequest struct {
 	FilterDiskLte *int64 `queryParam:"style=form,explode=true,name=filter[disk][lte]"`
 	// The tags IDs to filter by, separated by comma, e.g. `filter[tags]=tag_1,tag_2`will return servers with `tag_1` AND `tag_2`
 	FilterTags *string `queryParam:"style=form,explode=true,name=filter[tags]"`
+	// Filter by whether the server can announce a BGP Elastic IP.
+	FilterBgpEligible *bool `queryParam:"style=form,explode=true,name=filter[bgp_eligible]"`
 	// The `credentials` are provided as extra attributes that are lazy loaded. To request it, just set `extra_fields[servers]=credentials` in the query string.
 	ExtraFieldsServers *string `queryParam:"style=form,explode=true,name=extra_fields[servers]"`
 	// Comma-separated sort fields. Prefix a field with `-` for descending order. Supported: hostname, created_at, location, operating_system.
@@ -173,6 +175,13 @@ func (g *GetServersRequest) GetFilterTags() *string {
 		return nil
 	}
 	return g.FilterTags
+}
+
+func (g *GetServersRequest) GetFilterBgpEligible() *bool {
+	if g == nil {
+		return nil
+	}
+	return g.FilterBgpEligible
 }
 
 func (g *GetServersRequest) GetExtraFieldsServers() *string {

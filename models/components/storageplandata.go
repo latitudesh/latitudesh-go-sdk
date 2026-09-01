@@ -82,51 +82,22 @@ func (e *StoragePlanStorageClass) UnmarshalJSON(data []byte) error {
 	}
 }
 
-type StoragePlanDataUSD struct {
-	Month *float64 `json:"month,omitempty"`
-}
-
-func (s *StoragePlanDataUSD) GetMonth() *float64 {
-	if s == nil {
-		return nil
-	}
-	return s.Month
-}
-
-type StoragePlanDataBRL struct {
-	Month *float64 `json:"month,omitempty"`
-}
-
-func (s *StoragePlanDataBRL) GetMonth() *float64 {
-	if s == nil {
-		return nil
-	}
-	return s.Month
-}
-
 type StoragePlanDataPricing struct {
-	Usd *StoragePlanDataUSD `json:"USD,omitempty"`
-	Brl *StoragePlanDataBRL `json:"BRL,omitempty"`
+	Month *float64 `json:"month,omitempty"`
 }
 
-func (s *StoragePlanDataPricing) GetUsd() *StoragePlanDataUSD {
+func (s *StoragePlanDataPricing) GetMonth() *float64 {
 	if s == nil {
 		return nil
 	}
-	return s.Usd
-}
-
-func (s *StoragePlanDataPricing) GetBrl() *StoragePlanDataBRL {
-	if s == nil {
-		return nil
-	}
-	return s.Brl
+	return s.Month
 }
 
 type StoragePlanDataRegions struct {
-	Name      *string                 `json:"name,omitempty"`
-	Locations []string                `json:"locations,omitempty"`
-	Pricing   *StoragePlanDataPricing `json:"pricing,omitempty"`
+	Name      *string  `json:"name,omitempty"`
+	Locations []string `json:"locations,omitempty"`
+	// Prices keyed by ISO 4217 currency code (e.g. USD, BRL).
+	Pricing map[string]StoragePlanDataPricing `json:"pricing,omitempty"`
 }
 
 func (s *StoragePlanDataRegions) GetName() *string {
@@ -143,7 +114,7 @@ func (s *StoragePlanDataRegions) GetLocations() []string {
 	return s.Locations
 }
 
-func (s *StoragePlanDataRegions) GetPricing() *StoragePlanDataPricing {
+func (s *StoragePlanDataRegions) GetPricing() map[string]StoragePlanDataPricing {
 	if s == nil {
 		return nil
 	}
