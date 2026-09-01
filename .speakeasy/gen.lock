@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 200c2ac6a880051f324a22601a94b79e
+  docChecksum: 8d6ac943360e4a06dbcc2b3e3d5e894e
   docVersion: "2023-06-01"
   speakeasyVersion: 1.796.2
   generationVersion: 2.933.0
-  releaseVersion: 1.19.18
-  configChecksum: 2680d8935445d222a682ab21d29b79b1
+  releaseVersion: 1.19.19
+  configChecksum: f49cd44eba4c68d64d63339f45a0b5b3
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 1f7e692d-ca91-4f3e-950d-e554672a06bd
-  pristine_commit_hash: 60461023b7965eb488ec4a01b8d3631b74f4e215
-  pristine_tree_hash: c6745772b9faf3948758f3e7be6ac3dfcc55d256
+  generation_id: 2f687441-dad1-4551-8ac9-b0eb84c53d3c
+  pristine_commit_hash: 34848331183b5017c3cbc7f1d5312c5fb44548ef
+  pristine_tree_hash: 7a2f6f63a428766fb537c1d92be7ecd83ac0588e
 features:
   go:
     additionalDependencies: 0.1.0
@@ -1008,8 +1008,8 @@ trackedFiles:
     pristine_git_object: c9a857ab4093c56715c2e8884978288ab28d4b01
   docs/models/components/objectstoragedata.md:
     id: a83054f6331d
-    last_write_checksum: sha1:14b2f81dae37eabe298e1add324122befcc58e5d
-    pristine_git_object: 1e3344c03bf4253fc258a073f717bb7b7f9abd27
+    last_write_checksum: sha1:21b2729c2e2bd738967114ec01ca4da34a499caa
+    pristine_git_object: 7adb01a9c31553c0ee72632e9dab946bbe424e8e
   docs/models/components/objectstoragedataattributes.md:
     id: 12875e1646b9
     last_write_checksum: sha1:44737126301030bc0104564c38839fbff0d6e170
@@ -4620,8 +4620,8 @@ trackedFiles:
     pristine_git_object: b7786dc1de3156dc43f69609d7c25476fe2836d5
   docs/sdks/objectstorage/README.md:
     id: 0cbe3f763e9e
-    last_write_checksum: sha1:6562e605057963660e3724e50f72fe1e8771d726
-    pristine_git_object: 72e436650a2a71f3586cf7021daf839d82b0f9e4
+    last_write_checksum: sha1:4976abdd77aeed22e7b06541168bb4a08743d578
+    pristine_git_object: c390070767ba52dffec0ea9b642a6c755942c071
   docs/sdks/operatingsystems/README.md:
     id: 54bceca06ee8
     last_write_checksum: sha1:e92b6fdfee72e0c933956bd331f06f0a2525a5ba
@@ -4800,8 +4800,8 @@ trackedFiles:
     pristine_git_object: f055c7135bd9df9511999b5a8af285cf62b279a1
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:0856763c251a68e8ac3c23d86bac2094113e5f11
-    pristine_git_object: 14ccdd11a3426ee57b0224100eca4fd60035f65b
+    last_write_checksum: sha1:18bd8b7b356d7ef1d9e2c8e50b9546485d48a227
+    pristine_git_object: faab0c78f0fc8d6e9e62fc759d9694cfc3416fc5
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -5052,8 +5052,8 @@ trackedFiles:
     pristine_git_object: 2a55f3482cc054ae23a60e64f7f1f7c0abe5198b
   models/components/objectstoragedata.go:
     id: 6f2b8c483e94
-    last_write_checksum: sha1:9ad4e3771f659d7255b665eb504e4b6fb73b163c
-    pristine_git_object: 473d7bbba90adbc4fa848409cd9c5d54996c91b4
+    last_write_checksum: sha1:2281ac26cc3d9567f70c9e677c447711417a3954
+    pristine_git_object: b64ae6a82cbb7dd7acf1192f8224b5c91a64dee7
   models/components/objectstorages.go:
     id: 98260401f4e7
     last_write_checksum: sha1:27d7b125a4e869141e39208df2001ab091367e38
@@ -9813,7 +9813,7 @@ examples:
     Success:
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "bucket_6VE1Wd37dXnZJ", "type": "object_storages", "attributes": {"name": "my-bucket-storage", "storage_type": "object", "storage_class": "standard", "created_at": "2026-03-19T10:30:00.000Z", "bucket_name": "my-bucket", "endpoint": "https://objects.us-east-1.storage.sh", "versioning": false, "locking": false, "retention_mode": "NONE", "retention_period": null, "source": "default", "region": {"id": "SAO2", "city": "SAO2", "country": "Brazil"}, "project": {"id": "proj_6059EqYkOQj8p", "name": "My Project", "slug": "my-project", "description": "Project description", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 1, "virtual_machines": 0, "vlans": 0}}, "team": {"id": "team_lV9Xe2AAK5CbMgGbpPYLskLRXyV", "name": "My Team", "slug": "my-team", "description": "My Team", "address": "123 Main St", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "USD", "name": "US Dollar", "currency_id": null}, "status": "verified"}}}]}
+          application/vnd.api+json: {"data": [{"id": "bkt_6VE1Wd37dXnZJ", "type": "object_storages", "attributes": {"name": "my-bucket-storage", "storage_type": "object", "storage_class": "standard", "created_at": "2026-03-19T10:30:00.000Z", "bucket_name": "my-bucket", "endpoint": "https://objects.us-east-1.storage.sh", "versioning": false, "locking": false, "retention_mode": "NONE", "retention_period": null, "source": "default", "region": {"id": "SAO2", "city": "SAO2", "country": "Brazil"}, "project": {"id": "proj_6059EqYkOQj8p", "name": "My Project", "slug": "my-project", "description": "Project description", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 1, "virtual_machines": 0, "vlans": 0}}, "team": {"id": "team_lV9Xe2AAK5CbMgGbpPYLskLRXyV", "name": "My Team", "slug": "my-team", "description": "My Team", "address": "123 Main St", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "USD", "name": "US Dollar", "currency_id": null}, "status": "verified"}}}]}
     FeatureNotEnabled:
       responses:
         "403":
@@ -9844,7 +9844,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "objects", "attributes": {"project": "<value>", "name": "<value>", "region": "<value>", "scoped": false, "storage_class": "standard", "versioning": false, "locking": false, "retention_mode": "NONE"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "bucket_6VE1Wd37dXnZJ", "type": "object_storages", "attributes": {"name": "my-bucket", "storage_type": "object", "storage_class": "standard", "created_at": "2026-03-19T15:30:00.000Z", "bucket_name": "my-bucket", "endpoint": "https://objects.us-east-1.storage.sh", "versioning": false, "locking": false, "retention_mode": "NONE", "retention_period": null, "region": {"id": "DAL", "city": "DAL", "country": "United States"}, "project": {"id": "proj_6059EqYkOQj8p", "name": "My Project", "slug": "my-project", "description": "Project description", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 1, "virtual_machines": 0, "vlans": 0}}, "team": {"id": "team_lV9Xe2AAK5CbMgGbpPYLskLRXyV", "name": "My Team", "slug": "my-team", "description": "My Team", "address": "123 Main St", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "USD", "name": "US Dollar", "currency_id": null}, "status": "verified"}}}}
+          application/vnd.api+json: {"data": {"id": "bkt_6VE1Wd37dXnZJ", "type": "object_storages", "attributes": {"name": "my-bucket", "storage_type": "object", "storage_class": "standard", "created_at": "2026-03-19T15:30:00.000Z", "bucket_name": "my-bucket", "endpoint": "https://objects.us-east-1.storage.sh", "versioning": false, "locking": false, "retention_mode": "NONE", "retention_period": null, "region": {"id": "DAL", "city": "DAL", "country": "United States"}, "project": {"id": "proj_6059EqYkOQj8p", "name": "My Project", "slug": "my-project", "description": "Project description", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 1, "virtual_machines": 0, "vlans": 0}}, "team": {"id": "team_lV9Xe2AAK5CbMgGbpPYLskLRXyV", "name": "My Team", "slug": "my-team", "description": "My Team", "address": "123 Main St", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "USD", "name": "US Dollar", "currency_id": null}, "status": "verified"}}}}
     FeatureNotEnabled:
       requestBody:
         application/vnd.api+json: {"data": {"type": "objects", "attributes": {"project": "<value>", "name": "<value>", "region": "<value>", "scoped": false, "storage_class": "standard", "versioning": false, "locking": false, "retention_mode": "NONE"}}}
@@ -9868,7 +9868,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "bucket_6VE1Wd37dXnZJ", "type": "object_storages", "attributes": {"name": "my-bucket-storage", "storage_type": "object", "storage_class": "standard", "created_at": "2026-03-19T10:30:00.000Z", "bucket_name": "my-bucket", "endpoint": "https://objects.us-east-1.storage.sh", "versioning": false, "locking": false, "retention_mode": "NONE", "retention_period": null, "source": "default", "region": {"id": "SAO2", "city": "SAO2", "country": "Brazil"}, "project": {"id": "proj_6059EqYkOQj8p", "name": "My Project", "slug": "my-project", "description": "Project description", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 1, "virtual_machines": 0, "vlans": 0}}, "team": {"id": "team_lV9Xe2AAK5CbMgGbpPYLskLRXyV", "name": "My Team", "slug": "my-team", "description": "My Team", "address": "123 Main St", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "USD", "name": "US Dollar", "currency_id": null}, "status": "verified"}}}}
+          application/vnd.api+json: {"data": {"id": "bkt_6VE1Wd37dXnZJ", "type": "object_storages", "attributes": {"name": "my-bucket-storage", "storage_type": "object", "storage_class": "standard", "created_at": "2026-03-19T10:30:00.000Z", "bucket_name": "my-bucket", "endpoint": "https://objects.us-east-1.storage.sh", "versioning": false, "locking": false, "retention_mode": "NONE", "retention_period": null, "source": "default", "region": {"id": "SAO2", "city": "SAO2", "country": "Brazil"}, "project": {"id": "proj_6059EqYkOQj8p", "name": "My Project", "slug": "my-project", "description": "Project description", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 1, "virtual_machines": 0, "vlans": 0}}, "team": {"id": "team_lV9Xe2AAK5CbMgGbpPYLskLRXyV", "name": "My Team", "slug": "my-team", "description": "My Team", "address": "123 Main St", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "USD", "name": "US Dollar", "currency_id": null}, "status": "verified"}}}}
     FeatureNotEnabled:
       parameters:
         path:
@@ -10169,7 +10169,7 @@ examples:
           application/vnd.api+json: {}
     LimitedAccess:
       requestBody:
-        application/vnd.api+json: {"data": {"type": "access_keys", "attributes": {"project": "proj_6059EqYkOQj8p", "storage_class": "standard", "name": "my-limited-key", "access_scope": "limited_access", "region": "DAL", "bucket_permissions": [{"bucket_id": "bucket_6VE1Wd37dXnZJ", "permission": "readonly"}, {"bucket_id": "bucket_7WF2Xe48eYoAK", "permission": "rw"}]}}}
+        application/vnd.api+json: {"data": {"type": "access_keys", "attributes": {"project": "proj_6059EqYkOQj8p", "storage_class": "standard", "name": "my-limited-key", "access_scope": "limited_access", "region": "DAL", "bucket_permissions": [{"bucket_id": "bkt_6VE1Wd37dXnZJ", "permission": "readonly"}, {"bucket_id": "bkt_7WF2Xe48eYoAK", "permission": "rw"}]}}}
       responses:
         "201":
           application/vnd.api+json: {}
@@ -10649,7 +10649,6 @@ examples:
           application/json: {"from": "2025-12-18T07:10:10.998Z", "to": "2025-08-10T01:07:23.648Z", "metrics": {"key": {"unit": "ratio", "current": 0.0041, "points": [{"timestamp": "2026-01-23T20:57:17.621Z", "value": 4617.4}]}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes:\n* `Latitudesh.BlockStorage.PostStorageVolumesMap()`:  `response` **Changed** (Breaking ⚠️)\n* `Latitudesh.Plans.List()`:  `response.Data[].Attributes.Regions[].Pricing` **Changed** (Breaking ⚠️)\n* `Latitudesh.Plans.Get()`:  `response.Data.Attributes.Regions[].Pricing` **Changed** (Breaking ⚠️)\n* `Latitudesh.Plans.ListStorage()`:  `response.Data[].Attributes.Regions[].Pricing` **Changed** (Breaking ⚠️)\n* `Latitudesh.Plans.Vm.List()`:  `response.Data[].Attributes.Regions[].Pricing` **Changed** (Breaking ⚠️)\n* `Latitudesh.ObjectStorage.GetStorageUsage()`:  `response.Data[].Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.Servers.Lock()`:  `response.Data.Attributes` **Changed**\n* `Latitudesh.Servers.Create()`:  `response.Data.Attributes` **Changed**\n* `Latitudesh.Servers.List()`: \n  *  `request.Request.Filter[bgpEligible]` **Added**\n  *  `response.Data[].Attributes` **Changed**\n* `Latitudesh.Servers.Get()`:  `response.Data.Attributes` **Changed**\n* `Latitudesh.Servers.Update()`:  `response.Data.Attributes` **Changed**\n* `Latitudesh.Servers.Unlock()`:  `response.Data.Attributes` **Changed**\n* `Latitudesh.ManagedDatabases.ShowManagedDatabaseMetrics()`: **Added**\n* `Latitudesh.PrivateNetworks.List()`:  `response.Data[].Attributes.Storage` **Added**\n* `Latitudesh.PrivateNetworks.Create()`:  `response.Data.Attributes.Storage` **Added**\n* `Latitudesh.PrivateNetworks.Update()`:  `response.Data.Attributes.Storage` **Added**\n* `Latitudesh.PrivateNetworks.Get()`:  `response.Data.Attributes.Storage` **Added**\n* `Latitudesh.PrivateNetworks.Assign()`:  `error.status[422]` **Added**\n* `Latitudesh.PrivateNetworks.DeleteAssignment()`:  `error.status[422]` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
