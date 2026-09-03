@@ -8,22 +8,50 @@ import (
 )
 
 type GetServersRequest struct {
+	// The server ID to filter by (exact match)
+	FilterID *string `queryParam:"style=form,explode=true,name=filter[id]"`
 	// The project ID or Slug to filter by
 	FilterProject *string `queryParam:"style=form,explode=true,name=filter[project]"`
 	// The region Slug to filter by
 	FilterRegion *string `queryParam:"style=form,explode=true,name=filter[region]"`
 	// The hostname of server to filter by
 	FilterHostname *string `queryParam:"style=form,explode=true,name=filter[hostname]"`
-	// The created at greater than equal date to filter by
+	// The exact (case-sensitive) hostname of server to filter by
+	FilterHostnameEql *string `queryParam:"style=form,explode=true,name=filter[hostname][eql]"`
+	// Filter servers whose hostname starts with the provided value
+	FilterHostnamePrefix *string `queryParam:"style=form,explode=true,name=filter[hostname][prefix]"`
+	// Filter servers whose hostname ends with the provided value
+	FilterHostnameSuffix *string `queryParam:"style=form,explode=true,name=filter[hostname][suffix]"`
+	// Filter servers whose hostname contains the provided value
+	FilterHostnameMatch *string `queryParam:"style=form,explode=true,name=filter[hostname][match]"`
+	// The created at greater than equal date to filter by. `created_at` is the date the server was added to the project
 	FilterCreatedAtGte *string `queryParam:"style=form,explode=true,name=filter[created_at_gte]"`
-	// The created at less than equal date to filter by
+	// The created at less than equal date to filter by. `created_at` is the date the server was added to the project
 	FilterCreatedAtLte *string `queryParam:"style=form,explode=true,name=filter[created_at_lte]"`
+	// The created at date range to filter by, as two comma-separated ISO 8601 datetimes (both bounds required), e.g. `filter[created_at]=2026-01-01T00:00:00Z,2026-01-31T23:59:59Z`. `created_at` is the date the server was added to the project
+	FilterCreatedAt *string `queryParam:"style=form,explode=true,name=filter[created_at]"`
 	// The label of server to filter by
 	FilterLabel *string `queryParam:"style=form,explode=true,name=filter[label]"`
+	// The exact (case-sensitive) label of server to filter by
+	FilterLabelEql *string `queryParam:"style=form,explode=true,name=filter[label][eql]"`
+	// Filter servers whose label starts with the provided value
+	FilterLabelPrefix *string `queryParam:"style=form,explode=true,name=filter[label][prefix]"`
+	// Filter servers whose label ends with the provided value
+	FilterLabelSuffix *string `queryParam:"style=form,explode=true,name=filter[label][suffix]"`
+	// Filter servers whose label contains the provided value
+	FilterLabelMatch *string `queryParam:"style=form,explode=true,name=filter[label][match]"`
 	// The status of server to filter by
 	FilterStatus *string `queryParam:"style=form,explode=true,name=filter[status]"`
 	// The platform/plan name of the server to filter by
 	FilterPlan *string `queryParam:"style=form,explode=true,name=filter[plan]"`
+	// The exact platform/plan name of the server to filter by (case-insensitive)
+	FilterPlanEql *string `queryParam:"style=form,explode=true,name=filter[plan][eql]"`
+	// Filter servers whose platform/plan name starts with the provided value
+	FilterPlanPrefix *string `queryParam:"style=form,explode=true,name=filter[plan][prefix]"`
+	// Filter servers whose platform/plan name ends with the provided value
+	FilterPlanSuffix *string `queryParam:"style=form,explode=true,name=filter[plan][suffix]"`
+	// Filter servers whose platform/plan name contains the provided value
+	FilterPlanMatch *string `queryParam:"style=form,explode=true,name=filter[plan][match]"`
 	// Filter by the existence of an associated GPU
 	FilterGpu *bool `queryParam:"style=form,explode=true,name=filter[gpu]"`
 	// Filter servers with RAM size (in GB) equals the provided value.
@@ -65,6 +93,13 @@ func (g *GetServersRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
+func (g *GetServersRequest) GetFilterID() *string {
+	if g == nil {
+		return nil
+	}
+	return g.FilterID
+}
+
 func (g *GetServersRequest) GetFilterProject() *string {
 	if g == nil {
 		return nil
@@ -86,6 +121,34 @@ func (g *GetServersRequest) GetFilterHostname() *string {
 	return g.FilterHostname
 }
 
+func (g *GetServersRequest) GetFilterHostnameEql() *string {
+	if g == nil {
+		return nil
+	}
+	return g.FilterHostnameEql
+}
+
+func (g *GetServersRequest) GetFilterHostnamePrefix() *string {
+	if g == nil {
+		return nil
+	}
+	return g.FilterHostnamePrefix
+}
+
+func (g *GetServersRequest) GetFilterHostnameSuffix() *string {
+	if g == nil {
+		return nil
+	}
+	return g.FilterHostnameSuffix
+}
+
+func (g *GetServersRequest) GetFilterHostnameMatch() *string {
+	if g == nil {
+		return nil
+	}
+	return g.FilterHostnameMatch
+}
+
 func (g *GetServersRequest) GetFilterCreatedAtGte() *string {
 	if g == nil {
 		return nil
@@ -100,11 +163,46 @@ func (g *GetServersRequest) GetFilterCreatedAtLte() *string {
 	return g.FilterCreatedAtLte
 }
 
+func (g *GetServersRequest) GetFilterCreatedAt() *string {
+	if g == nil {
+		return nil
+	}
+	return g.FilterCreatedAt
+}
+
 func (g *GetServersRequest) GetFilterLabel() *string {
 	if g == nil {
 		return nil
 	}
 	return g.FilterLabel
+}
+
+func (g *GetServersRequest) GetFilterLabelEql() *string {
+	if g == nil {
+		return nil
+	}
+	return g.FilterLabelEql
+}
+
+func (g *GetServersRequest) GetFilterLabelPrefix() *string {
+	if g == nil {
+		return nil
+	}
+	return g.FilterLabelPrefix
+}
+
+func (g *GetServersRequest) GetFilterLabelSuffix() *string {
+	if g == nil {
+		return nil
+	}
+	return g.FilterLabelSuffix
+}
+
+func (g *GetServersRequest) GetFilterLabelMatch() *string {
+	if g == nil {
+		return nil
+	}
+	return g.FilterLabelMatch
 }
 
 func (g *GetServersRequest) GetFilterStatus() *string {
@@ -119,6 +217,34 @@ func (g *GetServersRequest) GetFilterPlan() *string {
 		return nil
 	}
 	return g.FilterPlan
+}
+
+func (g *GetServersRequest) GetFilterPlanEql() *string {
+	if g == nil {
+		return nil
+	}
+	return g.FilterPlanEql
+}
+
+func (g *GetServersRequest) GetFilterPlanPrefix() *string {
+	if g == nil {
+		return nil
+	}
+	return g.FilterPlanPrefix
+}
+
+func (g *GetServersRequest) GetFilterPlanSuffix() *string {
+	if g == nil {
+		return nil
+	}
+	return g.FilterPlanSuffix
+}
+
+func (g *GetServersRequest) GetFilterPlanMatch() *string {
+	if g == nil {
+		return nil
+	}
+	return g.FilterPlanMatch
 }
 
 func (g *GetServersRequest) GetFilterGpu() *bool {

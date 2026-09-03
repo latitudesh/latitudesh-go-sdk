@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 8d6ac943360e4a06dbcc2b3e3d5e894e
+  docChecksum: 3c6afcfd1c37c165656fa4768a5678e9
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.796.2
-  generationVersion: 2.933.0
-  releaseVersion: 1.19.19
-  configChecksum: f49cd44eba4c68d64d63339f45a0b5b3
+  speakeasyVersion: 1.796.3
+  generationVersion: 2.934.1
+  releaseVersion: 1.19.20
+  configChecksum: f4558c7a0ce4b9acc7353bae8055a710
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 2f687441-dad1-4551-8ac9-b0eb84c53d3c
-  pristine_commit_hash: 34848331183b5017c3cbc7f1d5312c5fb44548ef
-  pristine_tree_hash: 7a2f6f63a428766fb537c1d92be7ecd83ac0588e
+  generation_id: dea78ad8-4aaf-4e3e-9fcc-ff2ca8ee3d3c
+  pristine_commit_hash: 06e01be5be8092c6a108ef7744876ec9f4ad18f9
+  pristine_tree_hash: 22b0eefe6b617862e99677ed961d835b7aaa80b6
 features:
   go:
     additionalDependencies: 0.1.0
@@ -3176,8 +3176,8 @@ trackedFiles:
     pristine_git_object: ec1580d4b3a56bf48ec9ce4db7deda9cef011cbd
   docs/models/operations/getserversrequest.md:
     id: 20ac84b3d0dc
-    last_write_checksum: sha1:65cfb22a61ddc7ab583f1a479449fff48a38591a
-    pristine_git_object: 7329c85258313048fd7a838e0bae65aacfd4e4f6
+    last_write_checksum: sha1:913ec656c2589e51bf1963fd8cd67f33cd2ff123
+    pristine_git_object: e56fbf6d41a2f3a614f610e66be4420acb305252
   docs/models/operations/getserversresponse.md:
     id: f60c21848eab
     last_write_checksum: sha1:baa8d864e1609d9e2dc90a580e61008fdf5fd7eb
@@ -4800,8 +4800,8 @@ trackedFiles:
     pristine_git_object: f055c7135bd9df9511999b5a8af285cf62b279a1
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:18bd8b7b356d7ef1d9e2c8e50b9546485d48a227
-    pristine_git_object: faab0c78f0fc8d6e9e62fc759d9694cfc3416fc5
+    last_write_checksum: sha1:3bfdb4831eb9067bc5f2a3bc8dda5d9ccf65e95d
+    pristine_git_object: 5f2bae8cc6f85fb2bd0cba9eb8f1530fa0b4fdb2
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -5696,8 +5696,8 @@ trackedFiles:
     pristine_git_object: 6fb78c082846640f0f3b4b838e952a42a268de27
   models/operations/getservers.go:
     id: f28f8190b155
-    last_write_checksum: sha1:746158ea62968605703896fb47c6b1a9738fa4a5
-    pristine_git_object: e89e86f0745f985f9f37289f10cd04d9d596249d
+    last_write_checksum: sha1:c5342713c0cf137cebe0e312a901bc75ff0406f6
+    pristine_git_object: 6816f8ebaa9206fc83723230186a89e691af40b7
   models/operations/getsshkey.go:
     id: b79df94f3c45
     last_write_checksum: sha1:427c49dd4de4e428932e44b39f0bd3fa57cc8adb
@@ -10649,6 +10649,9 @@ examples:
           application/json: {"from": "2025-12-18T07:10:10.998Z", "to": "2025-08-10T01:07:23.648Z", "metrics": {"key": {"unit": "ratio", "current": 0.0041, "points": [{"timestamp": "2026-01-23T20:57:17.621Z", "value": 4617.4}]}}}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## Go SDK Changes:
+  * `Latitudesh.Servers.List()`:  `request.Request` **Changed**
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
