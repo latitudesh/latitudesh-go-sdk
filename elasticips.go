@@ -71,6 +71,7 @@ func (s *ElasticIps) ListElasticIps(ctx context.Context, request operations.List
 	if timeout == nil {
 		timeout = s.sdkConfiguration.Timeout
 	}
+	paginationCtx := ctx
 
 	if timeout != nil {
 		var cancel context.CancelFunc
@@ -234,7 +235,7 @@ func (s *ElasticIps) ListElasticIps(ctx context.Context, request operations.List
 		request.PageNumber = &nP
 
 		return s.ListElasticIps(
-			ctx,
+			paginationCtx,
 			request,
 			opts...,
 		)

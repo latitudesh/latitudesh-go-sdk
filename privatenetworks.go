@@ -71,6 +71,7 @@ func (s *PrivateNetworks) List(ctx context.Context, request operations.GetVirtua
 	if timeout == nil {
 		timeout = s.sdkConfiguration.Timeout
 	}
+	paginationCtx := ctx
 
 	if timeout != nil {
 		var cancel context.CancelFunc
@@ -234,7 +235,7 @@ func (s *PrivateNetworks) List(ctx context.Context, request operations.GetVirtua
 		request.PageNumber = &nP
 
 		return s.List(
-			ctx,
+			paginationCtx,
 			request,
 			opts...,
 		)
@@ -967,6 +968,7 @@ func (s *PrivateNetworks) ListAssignments(ctx context.Context, request operation
 	if timeout == nil {
 		timeout = s.sdkConfiguration.Timeout
 	}
+	paginationCtx := ctx
 
 	if timeout != nil {
 		var cancel context.CancelFunc
@@ -1130,7 +1132,7 @@ func (s *PrivateNetworks) ListAssignments(ctx context.Context, request operation
 		request.PageNumber = &nP
 
 		return s.ListAssignments(
-			ctx,
+			paginationCtx,
 			request,
 			opts...,
 		)
