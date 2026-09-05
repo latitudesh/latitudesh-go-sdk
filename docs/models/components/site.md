@@ -10,3 +10,4 @@
 | `Slug`             | `*string`          | :heavy_minus_sign: | N/A                |
 | `Facility`         | `*string`          | :heavy_minus_sign: | N/A                |
 | `RackID`           | `*string`          | :heavy_minus_sign: | N/A                |
+| `RackName`         | `*string`          | :heavy_minus_sign: | N/A                |

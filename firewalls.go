@@ -81,6 +81,7 @@ func (s *Firewalls) GetAllFirewallAssignments(ctx context.Context, filterServer 
 	if timeout == nil {
 		timeout = s.sdkConfiguration.Timeout
 	}
+	paginationCtx := ctx
 
 	if timeout != nil {
 		var cancel context.CancelFunc
@@ -243,7 +244,7 @@ func (s *Firewalls) GetAllFirewallAssignments(ctx context.Context, filterServer 
 		}
 
 		return s.GetAllFirewallAssignments(
-			ctx,
+			paginationCtx,
 			filterServer,
 			filterVirtualMachine,
 			pageSize,
@@ -558,6 +559,7 @@ func (s *Firewalls) List(ctx context.Context, filterProject *string, filterTags 
 	if timeout == nil {
 		timeout = s.sdkConfiguration.Timeout
 	}
+	paginationCtx := ctx
 
 	if timeout != nil {
 		var cancel context.CancelFunc
@@ -720,7 +722,7 @@ func (s *Firewalls) List(ctx context.Context, filterProject *string, filterTags 
 		}
 
 		return s.List(
-			ctx,
+			paginationCtx,
 			filterProject,
 			filterTags,
 			pageSize,
@@ -1439,6 +1441,7 @@ func (s *Firewalls) ListAssignments(ctx context.Context, firewallID string, page
 	if timeout == nil {
 		timeout = s.sdkConfiguration.Timeout
 	}
+	paginationCtx := ctx
 
 	if timeout != nil {
 		var cancel context.CancelFunc
@@ -1601,7 +1604,7 @@ func (s *Firewalls) ListAssignments(ctx context.Context, firewallID string, page
 		}
 
 		return s.ListAssignments(
-			ctx,
+			paginationCtx,
 			firewallID,
 			pageSize,
 			&nP,

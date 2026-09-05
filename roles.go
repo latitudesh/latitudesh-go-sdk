@@ -77,6 +77,7 @@ func (s *Roles) List(ctx context.Context, pageSize *int64, pageNumber *int64, st
 	if timeout == nil {
 		timeout = s.sdkConfiguration.Timeout
 	}
+	paginationCtx := ctx
 
 	if timeout != nil {
 		var cancel context.CancelFunc
@@ -239,7 +240,7 @@ func (s *Roles) List(ctx context.Context, pageSize *int64, pageNumber *int64, st
 		}
 
 		return s.List(
-			ctx,
+			paginationCtx,
 			pageSize,
 			&nP,
 			statsTotal,
