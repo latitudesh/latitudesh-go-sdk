@@ -1,4 +1,4 @@
-# PostStorageVolumesMapAttributes
+# PostStorageVolumesMapBlockStorageAttributes
 
 
 ## Fields

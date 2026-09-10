@@ -77,6 +77,7 @@ func (s *OperatingSystems) ListPlans(ctx context.Context, pageSize *int64, pageN
 	if timeout == nil {
 		timeout = s.sdkConfiguration.Timeout
 	}
+	paginationCtx := ctx
 
 	if timeout != nil {
 		var cancel context.CancelFunc
@@ -239,7 +240,7 @@ func (s *OperatingSystems) ListPlans(ctx context.Context, pageSize *int64, pageN
 		}
 
 		return s.ListPlans(
-			ctx,
+			paginationCtx,
 			pageSize,
 			&nP,
 			statsTotal,

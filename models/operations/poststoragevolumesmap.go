@@ -8,75 +8,75 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
-type PostStorageVolumesMapType string
+type PostStorageVolumesMapBlockStorageType string
 
 const (
-	PostStorageVolumesMapTypeVolumes PostStorageVolumesMapType = "volumes"
+	PostStorageVolumesMapBlockStorageTypeVolumes PostStorageVolumesMapBlockStorageType = "volumes"
 )
 
-func (e PostStorageVolumesMapType) ToPointer() *PostStorageVolumesMapType {
+func (e PostStorageVolumesMapBlockStorageType) ToPointer() *PostStorageVolumesMapBlockStorageType {
 	return &e
 }
-func (e *PostStorageVolumesMapType) UnmarshalJSON(data []byte) error {
+func (e *PostStorageVolumesMapBlockStorageType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "volumes":
-		*e = PostStorageVolumesMapType(v)
+		*e = PostStorageVolumesMapBlockStorageType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for PostStorageVolumesMapType: %v", v)
+		return fmt.Errorf("invalid value for PostStorageVolumesMapBlockStorageType: %v", v)
 	}
 }
 
-type PostStorageVolumesMapAttributes struct {
+type PostStorageVolumesMapBlockStorageAttributes struct {
 	// ID of the server that will access the volume. The server must belong to the same project and location as the volume, and must be eligible for bonding.
 	ServerID string `json:"server_id"`
 }
 
-func (p *PostStorageVolumesMapAttributes) GetServerID() string {
+func (p *PostStorageVolumesMapBlockStorageAttributes) GetServerID() string {
 	if p == nil {
 		return ""
 	}
 	return p.ServerID
 }
 
-type PostStorageVolumesMapData struct {
-	Type       PostStorageVolumesMapType       `json:"type"`
-	Attributes PostStorageVolumesMapAttributes `json:"attributes"`
+type PostStorageVolumesMapBlockStorageData struct {
+	Type       PostStorageVolumesMapBlockStorageType       `json:"type"`
+	Attributes PostStorageVolumesMapBlockStorageAttributes `json:"attributes"`
 }
 
-func (p *PostStorageVolumesMapData) GetType() PostStorageVolumesMapType {
+func (p *PostStorageVolumesMapBlockStorageData) GetType() PostStorageVolumesMapBlockStorageType {
 	if p == nil {
-		return PostStorageVolumesMapType("")
+		return PostStorageVolumesMapBlockStorageType("")
 	}
 	return p.Type
 }
 
-func (p *PostStorageVolumesMapData) GetAttributes() PostStorageVolumesMapAttributes {
+func (p *PostStorageVolumesMapBlockStorageData) GetAttributes() PostStorageVolumesMapBlockStorageAttributes {
 	if p == nil {
-		return PostStorageVolumesMapAttributes{}
+		return PostStorageVolumesMapBlockStorageAttributes{}
 	}
 	return p.Attributes
 }
 
-type PostStorageVolumesMapRequestBody struct {
-	Data PostStorageVolumesMapData `json:"data"`
+type PostStorageVolumesMapBlockStorageRequestBody struct {
+	Data PostStorageVolumesMapBlockStorageData `json:"data"`
 }
 
-func (p *PostStorageVolumesMapRequestBody) GetData() PostStorageVolumesMapData {
+func (p *PostStorageVolumesMapBlockStorageRequestBody) GetData() PostStorageVolumesMapBlockStorageData {
 	if p == nil {
-		return PostStorageVolumesMapData{}
+		return PostStorageVolumesMapBlockStorageData{}
 	}
 	return p.Data
 }
 
 type PostStorageVolumesMapRequest struct {
 	// Volume ID
-	ID          string                           `pathParam:"style=simple,explode=false,name=id"`
-	RequestBody PostStorageVolumesMapRequestBody `request:"mediaType=application/json"`
+	ID          string                                       `pathParam:"style=simple,explode=false,name=id"`
+	RequestBody PostStorageVolumesMapBlockStorageRequestBody `request:"mediaType=application/json"`
 }
 
 func (p *PostStorageVolumesMapRequest) GetID() string {
@@ -86,9 +86,9 @@ func (p *PostStorageVolumesMapRequest) GetID() string {
 	return p.ID
 }
 
-func (p *PostStorageVolumesMapRequest) GetRequestBody() PostStorageVolumesMapRequestBody {
+func (p *PostStorageVolumesMapRequest) GetRequestBody() PostStorageVolumesMapBlockStorageRequestBody {
 	if p == nil {
-		return PostStorageVolumesMapRequestBody{}
+		return PostStorageVolumesMapBlockStorageRequestBody{}
 	}
 	return p.RequestBody
 }

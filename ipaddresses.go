@@ -74,6 +74,7 @@ func (s *IPAddresses) List(ctx context.Context, request operations.GetIpsRequest
 	if timeout == nil {
 		timeout = s.sdkConfiguration.Timeout
 	}
+	paginationCtx := ctx
 
 	if timeout != nil {
 		var cancel context.CancelFunc
@@ -237,7 +238,7 @@ func (s *IPAddresses) List(ctx context.Context, request operations.GetIpsRequest
 		request.PageNumber = &nP
 
 		return s.List(
-			ctx,
+			paginationCtx,
 			request,
 			opts...,
 		)
