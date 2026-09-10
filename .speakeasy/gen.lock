@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: d7928f99be49ba73c011c713c3ea93b1
+  docChecksum: 56435098812376fed2c1a067810119d6
   docVersion: "2023-06-01"
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 1.19.21
-  configChecksum: c8d5a9c2f23ae47ce019864f7e4f64b3
+  releaseVersion: 1.19.22
+  configChecksum: 7ef4ff648b20966260d8c9fe6475245a
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 693a4f80-65d8-4ef4-98ac-11e9d6fd5dc7
-  pristine_commit_hash: 8183c07d9231ad6b4de2ebc37925a9a024e5f976
-  pristine_tree_hash: fdabc43b21e5368d6727605e0eaa4d0d15319ccc
+  generation_id: 2eb057ed-a74b-44d2-9911-6bd88ac6346a
+  pristine_commit_hash: e2a41eb5678f36686e6cc5d8efb67b5e2dea250c
+  pristine_tree_hash: 8eee988f24d3768387577cf00d0819a9ee9afeff
 features:
   go:
     additionalDependencies: 0.1.0
@@ -4816,16 +4816,16 @@ trackedFiles:
     pristine_git_object: f055c7135bd9df9511999b5a8af285cf62b279a1
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:f1cc523d9c5bb483f947f64cecebadfeac8e30b3
-    pristine_git_object: e34d5d88c88f1878f1c975c7c5ad023997e357d9
+    last_write_checksum: sha1:4764acfdc465192f96903782491e035a7627ef2d
+    pristine_git_object: baeec59ba791098e1f77b3d53732c7a640d05d23
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
     pristine_git_object: 6e74a25c7b92950c4524fa52df6595e968b1e64f
   manageddatabases.go:
     id: 574f7129e88a
-    last_write_checksum: sha1:651baa6866a103aa2537dcc7cba767d1a182eb97
-    pristine_git_object: d5d121111a8181c608db7719881afa2539d8bd54
+    last_write_checksum: sha1:8cd3c524ab36333e47b78718a0b5fcc49fd2f4df
+    pristine_git_object: 83de30e22d70d26cc4d11508629e338faa3b9ce8
   marketplaceapps.go:
     id: 0de75f331f8a
     last_write_checksum: sha1:dcb4c263b201f5322aa3f37b10f380d2104f2cca
@@ -5888,8 +5888,8 @@ trackedFiles:
     pristine_git_object: e0f9ccfcb3421be51e7d04c85c2682e30d8523bb
   models/operations/options.go:
     id: d20dd4db9865
-    last_write_checksum: sha1:0c21d42b87b35ac7b98393d2fe7f4acd7b0b6465
-    pristine_git_object: 3a1b6a4ee2fbc3ae803778942e197eaaff88d767
+    last_write_checksum: sha1:b60248c6a2ddfb75f769d30c6567714300b0f765
+    pristine_git_object: 627aee7660193f3a60f3727a24e38ec95f552f65
   models/operations/patchcurrentteam.go:
     id: 7f1a7a91e131
     last_write_checksum: sha1:312c6ebd431af9dd394ee045ae8cfe6e549b5fdd
@@ -10669,6 +10669,7 @@ examples:
       responses:
         "200":
           application/json: {"from": "2025-12-18T07:10:10.998Z", "to": "2025-08-10T01:07:23.648Z", "metrics": {"key": {"unit": "ratio", "current": 0.0041, "points": [{"timestamp": "2026-01-23T20:57:17.621Z", "value": 4617.4}]}}}
+          application/vnd.api+json: {"from": "2025-12-18T07:10:10.998Z", "to": "2025-08-10T01:07:23.648Z", "metrics": {"key": {"unit": "ratio", "current": 0.0041, "points": [{"timestamp": "2026-01-23T20:57:17.621Z", "value": 4617.4}]}}}
   post-storage-volumes-unmap:
     speakeasy-default-post-storage-volumes-unmap:
       parameters:
@@ -10681,14 +10682,7 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Go SDK Changes:
-  * `Latitudesh.BlockStorage.PostStorageVolumesMap()`:  `response.status[202]` **Changed** (Breaking ⚠️)
-  * `Latitudesh.BlockStorage.PostStorageVolumesUnmap()`: **Added**
-  * `Latitudesh.Servers.List()`:  `response.Data[].Attributes.Region.Site.RackName` **Added**
-  * `Latitudesh.Servers.Create()`:  `response.Data.Attributes.Region.Site.RackName` **Added**
-  * `Latitudesh.Servers.Get()`:  `response.Data.Attributes.Region.Site.RackName` **Added**
-  * `Latitudesh.Servers.Update()`:  `response.Data.Attributes.Region.Site.RackName` **Added**
-  * `Latitudesh.Servers.Lock()`:  `response.Data.Attributes.Region.Site.RackName` **Added**
-  * `Latitudesh.Servers.Unlock()`:  `response.Data.Attributes.Region.Site.RackName` **Added**
+  * `Latitudesh.ManagedDatabases.ShowManagedDatabaseMetrics()`:  `response.status[200]` **Changed** (Breaking ⚠️)
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

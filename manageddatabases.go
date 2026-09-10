@@ -85,7 +85,7 @@ func (s *ManagedDatabases) ShowManagedDatabaseMetrics(ctx context.Context, manag
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
-	req.Header.Set("Accept", "application/json")
+	req.Header.Set("Accept", "application/vnd.api+json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil, nil); err != nil {
@@ -201,7 +201,7 @@ func (s *ManagedDatabases) ShowManagedDatabaseMetrics(ctx context.Context, manag
 	switch {
 	case httpRes.StatusCode == 200:
 		switch {
-		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
+		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/vnd.api+json`):
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
 				return nil, err
