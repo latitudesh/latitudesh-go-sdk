@@ -8,6 +8,7 @@ type Site struct {
 	Slug     *string `json:"slug,omitempty"`
 	Facility *string `json:"facility,omitempty"`
 	RackID   *string `json:"rack_id,omitempty"`
+	RackName *string `json:"rack_name,omitempty"`
 }
 
 func (s *Site) GetID() *string {
@@ -43,6 +44,13 @@ func (s *Site) GetRackID() *string {
 		return nil
 	}
 	return s.RackID
+}
+
+func (s *Site) GetRackName() *string {
+	if s == nil {
+		return nil
+	}
+	return s.RackName
 }
 
 type ServerRegionResourceData struct {

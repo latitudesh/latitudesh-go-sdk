@@ -493,6 +493,7 @@ func (s *Plans) GetBandwidth(ctx context.Context, request operations.GetBandwidt
 	if timeout == nil {
 		timeout = s.sdkConfiguration.Timeout
 	}
+	paginationCtx := ctx
 
 	if timeout != nil {
 		var cancel context.CancelFunc
@@ -658,7 +659,7 @@ func (s *Plans) GetBandwidth(ctx context.Context, request operations.GetBandwidt
 		request.PageNumber = &nP
 
 		return s.GetBandwidth(
-			ctx,
+			paginationCtx,
 			request,
 			opts...,
 		)

@@ -71,6 +71,7 @@ func (s *Regions) Get(ctx context.Context, request operations.GetRegionsRequest,
 	if timeout == nil {
 		timeout = s.sdkConfiguration.Timeout
 	}
+	paginationCtx := ctx
 
 	if timeout != nil {
 		var cancel context.CancelFunc
@@ -234,7 +235,7 @@ func (s *Regions) Get(ctx context.Context, request operations.GetRegionsRequest,
 		request.PageNumber = &nP
 
 		return s.Get(
-			ctx,
+			paginationCtx,
 			request,
 			opts...,
 		)

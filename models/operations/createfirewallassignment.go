@@ -32,7 +32,7 @@ func (e *CreateFirewallAssignmentFirewallsAssignmentsType) UnmarshalJSON(data []
 }
 
 type CreateFirewallAssignmentFirewallsAssignmentsAttributes struct {
-	// The server ID to assign. Provide exactly one of server_id or virtual_machine_id.
+	// The server ID to assign. Provide exactly one of server_id or virtual_machine_id. A server can be assigned to at most one firewall.
 	ServerID *string `json:"server_id,omitempty"`
 	// The virtual machine ID to assign. Provide exactly one of server_id or virtual_machine_id. A virtual machine can be assigned to at most one firewall.
 	VirtualMachineID *string `json:"virtual_machine_id,omitempty"`

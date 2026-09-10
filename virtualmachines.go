@@ -284,6 +284,7 @@ func (s *VirtualMachines) List(ctx context.Context, request operations.IndexVirt
 	if timeout == nil {
 		timeout = s.sdkConfiguration.Timeout
 	}
+	paginationCtx := ctx
 
 	if timeout != nil {
 		var cancel context.CancelFunc
@@ -447,7 +448,7 @@ func (s *VirtualMachines) List(ctx context.Context, request operations.IndexVirt
 		request.PageNumber = &nP
 
 		return s.List(
-			ctx,
+			paginationCtx,
 			request,
 			opts...,
 		)

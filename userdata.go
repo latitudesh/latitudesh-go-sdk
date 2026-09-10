@@ -1141,6 +1141,7 @@ func (s *UserData) List(ctx context.Context, request operations.GetUsersDataRequ
 	if timeout == nil {
 		timeout = s.sdkConfiguration.Timeout
 	}
+	paginationCtx := ctx
 
 	if timeout != nil {
 		var cancel context.CancelFunc
@@ -1304,7 +1305,7 @@ func (s *UserData) List(ctx context.Context, request operations.GetUsersDataRequ
 		request.PageNumber = &nP
 
 		return s.List(
-			ctx,
+			paginationCtx,
 			request,
 			opts...,
 		)
