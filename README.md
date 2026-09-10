@@ -203,6 +203,12 @@ func main() {
 ### [ManagedDatabases](docs/sdks/manageddatabases/README.md)
 
 * [ShowManagedDatabaseMetrics](docs/sdks/manageddatabases/README.md#showmanageddatabasemetrics) - Show managed database metrics
+* [ListManagedDatabases](docs/sdks/manageddatabases/README.md#listmanageddatabases) - List managed databases
+* [CreateManagedDatabase](docs/sdks/manageddatabases/README.md#createmanageddatabase) - Create a managed database
+* [ShowManagedDatabase](docs/sdks/manageddatabases/README.md#showmanageddatabase) - Show a managed database
+* [DestroyManagedDatabase](docs/sdks/manageddatabases/README.md#destroymanageddatabase) - Destroy a managed database
+* [UpdateManagedDatabase](docs/sdks/manageddatabases/README.md#updatemanageddatabase) - Update a managed database
+* [ListManagedDatabaseBackups](docs/sdks/manageddatabases/README.md#listmanageddatabasebackups) - List managed database backups
 
 ### [MarketplaceApps](docs/sdks/marketplaceapps/README.md)
 

@@ -1,0 +1,9 @@
+# ManagedDatabasePayloadData
+
+
+## Fields
+
+| Field                                                                                                       | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `Type`                                                                                                      | [*components.ManagedDatabasePayloadType](../../models/components/manageddatabasepayloadtype.md)             | :heavy_minus_sign:                                                                                          | N/A                                                                                                         |
+| `Attributes`                                                                                                | [*components.ManagedDatabasePayloadAttributes](../../models/components/manageddatabasepayloadattributes.md) | :heavy_minus_sign:                                                                                          | N/A                                                                                                         |
