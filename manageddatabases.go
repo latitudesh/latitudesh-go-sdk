@@ -16,6 +16,7 @@ import (
 	"net/url"
 )
 
+// ManagedDatabases - Managed database instances (PostgreSQL, ClickHouse)
 type ManagedDatabases struct {
 	rootSDK          *Latitudesh
 	sdkConfiguration config.SDKConfiguration

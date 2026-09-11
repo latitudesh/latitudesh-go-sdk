@@ -30,33 +30,6 @@ func (e *ManagedDatabasePayloadType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// Engine - Database engine
-type Engine string
-
-const (
-	EngineClickhouse Engine = "clickhouse"
-	EnginePostgres   Engine = "postgres"
-)
-
-func (e Engine) ToPointer() *Engine {
-	return &e
-}
-func (e *Engine) UnmarshalJSON(data []byte) error {
-	var v string
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-	switch v {
-	case "clickhouse":
-		fallthrough
-	case "postgres":
-		*e = Engine(v)
-		return nil
-	default:
-		return fmt.Errorf("invalid value for Engine: %v", v)
-	}
-}
-
 // ManagedDatabasePayloadBilling - Billing cycle (postgres/clickhouse). Defaults to monthly when omitted.
 type ManagedDatabasePayloadBilling string
 
@@ -111,10 +84,10 @@ type ManagedDatabasePayloadAttributes struct {
 	ProjectID string `json:"project_id"`
 	// Target region
 	Region string `json:"region"`
-	// Plan slug (e.g. db.clickhouse.dev)
+	// Plan slug (e.g. db.psql.small)
 	Plan string `json:"plan"`
 	// Database engine
-	Engine Engine `json:"engine"`
+	Engine string `json:"engine"`
 	// Billing cycle (postgres/clickhouse). Defaults to monthly when omitted.
 	Billing *ManagedDatabasePayloadBilling `json:"billing,omitempty"`
 	// Custom PostgreSQL parameters at create (postgres only)
@@ -155,9 +128,9 @@ func (m *ManagedDatabasePayloadAttributes) GetPlan() string {
 	return m.Plan
 }
 
-func (m *ManagedDatabasePayloadAttributes) GetEngine() Engine {
+func (m *ManagedDatabasePayloadAttributes) GetEngine() string {
 	if m == nil {
-		return Engine("")
+		return ""
 	}
 	return m.Engine
 }
