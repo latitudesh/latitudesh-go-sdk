@@ -2,6 +2,8 @@
 
 ## Overview
 
+Managed database instances (PostgreSQL, ClickHouse)
+
 ### Available Operations
 
 * [ShowManagedDatabaseMetrics](#showmanageddatabasemetrics) - Show managed database metrics
@@ -90,7 +92,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.ManagedDatabases.ListManagedDatabases(ctx, "<id>", nil)
+    res, err := s.ManagedDatabases.ListManagedDatabases(ctx, "<id>", latitudeshgosdk.Pointer("postgres"))
     if err != nil {
         log.Fatal(err)
     }
@@ -102,12 +104,12 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `projectID`                                              | `string`                                                 | :heavy_check_mark:                                       | The project slug to filter databases by                  |
-| `engine`                                                 | `*string`                                                | :heavy_minus_sign:                                       | Filter by database engine                                |
-| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              | Example                                                  |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |                                                          |
+| `projectID`                                              | `string`                                                 | :heavy_check_mark:                                       | The project slug to filter databases by                  |                                                          |
+| `engine`                                                 | `*string`                                                | :heavy_minus_sign:                                       | Filter by database engine                                | postgres                                                 |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |                                                          |
 
 ### Response
 
@@ -148,11 +150,11 @@ func main() {
         Data: &components.ManagedDatabasePayloadData{
             Type: components.ManagedDatabasePayloadTypeManagedDatabases.ToPointer(),
             Attributes: &components.ManagedDatabasePayloadAttributes{
-                Name: latitudeshgosdk.Pointer("my-analytics-db"),
+                Name: latitudeshgosdk.Pointer("my-postgres-db"),
                 ProjectID: "proj_ABC123",
                 Region: "ASH",
-                Plan: "db.clickhouse.dev",
-                Engine: components.EngineClickhouse,
+                Plan: "db.psql.small",
+                Engine: "postgres",
             },
         },
     })
