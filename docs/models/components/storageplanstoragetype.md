@@ -17,3 +17,4 @@ value := components.StoragePlanStorageTypeFilesystem
 | ---------------------------------- | ---------------------------------- |
 | `StoragePlanStorageTypeFilesystem` | filesystem                         |
 | `StoragePlanStorageTypeObject`     | object                             |
+| `StoragePlanStorageTypeVolume`     | volume                             |
