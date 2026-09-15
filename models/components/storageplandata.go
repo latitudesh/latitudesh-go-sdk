@@ -30,58 +30,6 @@ func (e *StoragePlanDataType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-type StoragePlanStorageType string
-
-const (
-	StoragePlanStorageTypeFilesystem StoragePlanStorageType = "filesystem"
-	StoragePlanStorageTypeObject     StoragePlanStorageType = "object"
-)
-
-func (e StoragePlanStorageType) ToPointer() *StoragePlanStorageType {
-	return &e
-}
-func (e *StoragePlanStorageType) UnmarshalJSON(data []byte) error {
-	var v string
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-	switch v {
-	case "filesystem":
-		fallthrough
-	case "object":
-		*e = StoragePlanStorageType(v)
-		return nil
-	default:
-		return fmt.Errorf("invalid value for StoragePlanStorageType: %v", v)
-	}
-}
-
-type StoragePlanStorageClass string
-
-const (
-	StoragePlanStorageClassStandard        StoragePlanStorageClass = "standard"
-	StoragePlanStorageClassHighPerformance StoragePlanStorageClass = "high_performance"
-)
-
-func (e StoragePlanStorageClass) ToPointer() *StoragePlanStorageClass {
-	return &e
-}
-func (e *StoragePlanStorageClass) UnmarshalJSON(data []byte) error {
-	var v string
-	if err := json.Unmarshal(data, &v); err != nil {
-		return err
-	}
-	switch v {
-	case "standard":
-		fallthrough
-	case "high_performance":
-		*e = StoragePlanStorageClass(v)
-		return nil
-	default:
-		return fmt.Errorf("invalid value for StoragePlanStorageClass: %v", v)
-	}
-}
-
 type StoragePlanDataPricing struct {
 	Month *float64 `json:"month,omitempty"`
 }

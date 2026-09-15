@@ -7,7 +7,7 @@ import (
 )
 
 type GetStoragePlansRequest struct {
-	// Filter by storage type (filesystem or object)
+	// Filter by storage type (filesystem, object, or volume)
 	FilterStorageType *string `queryParam:"style=form,explode=true,name=filter[storage_type]"`
 	// Filter by storage class (standard or high_performance)
 	FilterStorageClass *string `queryParam:"style=form,explode=true,name=filter[storage_class]"`

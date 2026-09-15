@@ -323,7 +323,7 @@ func main() {
 | Parameter                                                | Type                                                     | Required                                                 | Description                                              |
 | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
 | `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `filterStorageType`                                      | `*string`                                                | :heavy_minus_sign:                                       | Filter by storage type (filesystem or object)            |
+| `filterStorageType`                                      | `*string`                                                | :heavy_minus_sign:                                       | Filter by storage type (filesystem, object, or volume)   |
 | `filterStorageClass`                                     | `*string`                                                | :heavy_minus_sign:                                       | Filter by storage class (standard or high_performance)   |
 | `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
 
