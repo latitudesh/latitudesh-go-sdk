@@ -1,0 +1,9 @@
+# CreateVolumeBlockStorageData
+
+
+## Fields
+
+| Field                                                                                                          | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `Type`                                                                                                         | [operations.CreateVolumeBlockStorageType](../../models/operations/createvolumeblockstoragetype.md)             | :heavy_check_mark:                                                                                             | N/A                                                                                                            |
+| `Attributes`                                                                                                   | [operations.CreateVolumeBlockStorageAttributes](../../models/operations/createvolumeblockstorageattributes.md) | :heavy_check_mark:                                                                                             | N/A                                                                                                            |
