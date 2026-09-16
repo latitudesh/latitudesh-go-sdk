@@ -139,13 +139,13 @@ func main() {
 
 ### [BlockStorage](docs/sdks/blockstorage/README.md)
 
-* [GetStorageVolumes](docs/sdks/blockstorage/README.md#getstoragevolumes) - List volumes
-* [PostStorageVolumes](docs/sdks/blockstorage/README.md#poststoragevolumes) - Create volume
-* [GetStorageVolume](docs/sdks/blockstorage/README.md#getstoragevolume) - Retrieve volume
-* [DeleteStorageVolumes](docs/sdks/blockstorage/README.md#deletestoragevolumes) - Delete volume
-* [PostStorageVolumesMount](docs/sdks/blockstorage/README.md#poststoragevolumesmount) - Mount volume
-* [PostStorageVolumesMap](docs/sdks/blockstorage/README.md#poststoragevolumesmap) - Map volume to server
-* [PostStorageVolumesUnmap](docs/sdks/blockstorage/README.md#poststoragevolumesunmap) - Unmap volume from server
+* [ListVolumes](docs/sdks/blockstorage/README.md#listvolumes) - List volumes
+* [CreateVolume](docs/sdks/blockstorage/README.md#createvolume) - Create volume
+* [RetrieveVolume](docs/sdks/blockstorage/README.md#retrievevolume) - Retrieve volume
+* [DeleteVolume](docs/sdks/blockstorage/README.md#deletevolume) - Delete volume
+* [~~MountVolume~~](docs/sdks/blockstorage/README.md#mountvolume) - Mount volume (deprecated) :warning: **Deprecated**
+* [MapVolume](docs/sdks/blockstorage/README.md#mapvolume) - Map volume
+* [UnmapVolume](docs/sdks/blockstorage/README.md#unmapvolume) - Unmap volume
 
 ### [ElasticIps](docs/sdks/elasticips/README.md)
 

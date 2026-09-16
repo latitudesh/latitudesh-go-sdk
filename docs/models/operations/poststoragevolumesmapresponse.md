@@ -1,9 +1,0 @@
-# PostStorageVolumesMapResponse
-
-
-## Fields
-
-| Field                                                                                                         | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `HTTPMeta`                                                                                                    | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                            | :heavy_check_mark:                                                                                            | N/A                                                                                                           |
-| `Object`                                                                                                      | [*operations.PostStorageVolumesMapResponseBody](../../models/operations/poststoragevolumesmapresponsebody.md) | :heavy_minus_sign:                                                                                            | Accepted                                                                                                      |

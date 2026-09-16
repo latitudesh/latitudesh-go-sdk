@@ -216,7 +216,7 @@ type VolumeDataAttributes struct {
 	Name        *string      `json:"name,omitempty"`
 	SizeInGb    *int64       `json:"size_in_gb,omitempty"`
 	CreatedAt   *time.Time   `json:"created_at,omitempty"`
-	NamespaceID *string      `json:"namespace_id,omitempty"`
+	NamespaceID *int64       `json:"namespace_id,omitempty"`
 	ConnectorID *string      `json:"connector_id,omitempty"`
 	Initiators  []Initiators `json:"initiators,omitempty"`
 	// NVMe-TCP block mapping of a high performance volume. Null for volumes that are not mapped to a server.
@@ -264,7 +264,7 @@ func (v *VolumeDataAttributes) GetCreatedAt() *time.Time {
 	return v.CreatedAt
 }
 
-func (v *VolumeDataAttributes) GetNamespaceID() *string {
+func (v *VolumeDataAttributes) GetNamespaceID() *int64 {
 	if v == nil {
 		return nil
 	}

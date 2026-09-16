@@ -1,0 +1,9 @@
+# MapVolumeBlockStorageData
+
+
+## Fields
+
+| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `Type`                                                                                                   | [operations.MapVolumeBlockStorageType](../../models/operations/mapvolumeblockstoragetype.md)             | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| `Attributes`                                                                                             | [operations.MapVolumeBlockStorageAttributes](../../models/operations/mapvolumeblockstorageattributes.md) | :heavy_check_mark:                                                                                       | N/A                                                                                                      |

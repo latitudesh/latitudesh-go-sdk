@@ -30,10 +30,10 @@ func newBlockStorage(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hoo
 	}
 }
 
-// GetStorageVolumes - List volumes
+// ListVolumes - List volumes
 // Lists all the volumes from a team.
-func (s *BlockStorage) GetStorageVolumes(ctx context.Context, filterProject *string, opts ...operations.Option) (*operations.GetStorageVolumesResponse, error) {
-	request := operations.GetStorageVolumesRequest{
+func (s *BlockStorage) ListVolumes(ctx context.Context, filterProject *string, opts ...operations.Option) (*operations.ListVolumesResponse, error) {
+	request := operations.ListVolumesRequest{
 		FilterProject: filterProject,
 	}
 
@@ -65,7 +65,7 @@ func (s *BlockStorage) GetStorageVolumes(ctx context.Context, filterProject *str
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "get-storage-volumes",
+		OperationID:      "list-volumes",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
@@ -191,7 +191,7 @@ func (s *BlockStorage) GetStorageVolumes(ctx context.Context, filterProject *str
 		}
 	}
 
-	res := &operations.GetStorageVolumesResponse{
+	res := &operations.ListVolumesResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -207,7 +207,7 @@ func (s *BlockStorage) GetStorageVolumes(ctx context.Context, filterProject *str
 				return nil, err
 			}
 
-			var out operations.GetStorageVolumesResponseBody
+			var out operations.ListVolumesResponseBody
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -244,9 +244,9 @@ func (s *BlockStorage) GetStorageVolumes(ctx context.Context, filterProject *str
 
 }
 
-// PostStorageVolumes - Create volume
+// CreateVolume - Create volume
 // Allows you to add persistent storage to a project. These volumes can be used to store data across your servers.
-func (s *BlockStorage) PostStorageVolumes(ctx context.Context, request operations.PostStorageVolumesBlockStorageRequestBody, opts ...operations.Option) (*operations.PostStorageVolumesResponse, error) {
+func (s *BlockStorage) CreateVolume(ctx context.Context, request operations.CreateVolumeBlockStorageRequestBody, opts ...operations.Option) (*operations.CreateVolumeResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -275,7 +275,7 @@ func (s *BlockStorage) PostStorageVolumes(ctx context.Context, request operation
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "post-storage-volumes",
+		OperationID:      "create-volume",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
@@ -404,7 +404,7 @@ func (s *BlockStorage) PostStorageVolumes(ctx context.Context, request operation
 		}
 	}
 
-	res := &operations.PostStorageVolumesResponse{
+	res := &operations.CreateVolumeResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -420,33 +420,12 @@ func (s *BlockStorage) PostStorageVolumes(ctx context.Context, request operation
 				return nil, err
 			}
 
-			var out operations.PostStorageVolumesResponseBody
+			var out operations.CreateVolumeResponseBody
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
 			res.Object = &out
-		default:
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
-			return nil, components.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
-		}
-	case httpRes.StatusCode == 503:
-		switch {
-		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/vnd.api+json`):
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
-
-			var out components.ErrorObject
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
-
-			return nil, &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -478,10 +457,10 @@ func (s *BlockStorage) PostStorageVolumes(ctx context.Context, request operation
 
 }
 
-// GetStorageVolume - Retrieve volume
+// RetrieveVolume - Retrieve volume
 // Shows details of a specific volume.
-func (s *BlockStorage) GetStorageVolume(ctx context.Context, id string, opts ...operations.Option) (*operations.GetStorageVolumeResponse, error) {
-	request := operations.GetStorageVolumeRequest{
+func (s *BlockStorage) RetrieveVolume(ctx context.Context, id string, opts ...operations.Option) (*operations.RetrieveVolumeResponse, error) {
+	request := operations.RetrieveVolumeRequest{
 		ID: id,
 	}
 
@@ -513,7 +492,7 @@ func (s *BlockStorage) GetStorageVolume(ctx context.Context, id string, opts ...
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "get-storage-volume",
+		OperationID:      "retrieve-volume",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
@@ -635,7 +614,7 @@ func (s *BlockStorage) GetStorageVolume(ctx context.Context, id string, opts ...
 		}
 	}
 
-	res := &operations.GetStorageVolumeResponse{
+	res := &operations.RetrieveVolumeResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -651,7 +630,7 @@ func (s *BlockStorage) GetStorageVolume(ctx context.Context, id string, opts ...
 				return nil, err
 			}
 
-			var out operations.GetStorageVolumeResponseBody
+			var out operations.RetrieveVolumeResponseBody
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -688,10 +667,10 @@ func (s *BlockStorage) GetStorageVolume(ctx context.Context, id string, opts ...
 
 }
 
-// DeleteStorageVolumes - Delete volume
+// DeleteVolume - Delete volume
 // Allows you to remove a volume from a project.
-func (s *BlockStorage) DeleteStorageVolumes(ctx context.Context, id string, opts ...operations.Option) (*operations.DeleteStorageVolumesResponse, error) {
-	request := operations.DeleteStorageVolumesRequest{
+func (s *BlockStorage) DeleteVolume(ctx context.Context, id string, opts ...operations.Option) (*operations.DeleteVolumeResponse, error) {
+	request := operations.DeleteVolumeRequest{
 		ID: id,
 	}
 
@@ -723,7 +702,7 @@ func (s *BlockStorage) DeleteStorageVolumes(ctx context.Context, id string, opts
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "delete-storage-volumes",
+		OperationID:      "delete-volume",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
@@ -845,7 +824,7 @@ func (s *BlockStorage) DeleteStorageVolumes(ctx context.Context, id string, opts
 		}
 	}
 
-	res := &operations.DeleteStorageVolumesResponse{
+	res := &operations.DeleteVolumeResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -879,10 +858,12 @@ func (s *BlockStorage) DeleteStorageVolumes(ctx context.Context, id string, opts
 
 }
 
-// PostStorageVolumesMount - Mount volume
+// MountVolume - Mount volume (deprecated)
 // Mounts a volume by adding the client to an allowed list
-func (s *BlockStorage) PostStorageVolumesMount(ctx context.Context, id string, requestBody operations.PostStorageVolumesMountRequestBody, opts ...operations.Option) (*operations.PostStorageVolumesMountResponse, error) {
-	request := operations.PostStorageVolumesMountRequest{
+//
+// Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
+func (s *BlockStorage) MountVolume(ctx context.Context, id string, requestBody operations.MountVolumeRequestBody, opts ...operations.Option) (*operations.MountVolumeResponse, error) {
+	request := operations.MountVolumeRequest{
 		ID:          id,
 		RequestBody: requestBody,
 	}
@@ -915,7 +896,7 @@ func (s *BlockStorage) PostStorageVolumesMount(ctx context.Context, id string, r
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "post-storage-volumes-mount",
+		OperationID:      "mount-volume",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
@@ -1044,7 +1025,7 @@ func (s *BlockStorage) PostStorageVolumesMount(ctx context.Context, id string, r
 		}
 	}
 
-	res := &operations.PostStorageVolumesMountResponse{
+	res := &operations.MountVolumeResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -1078,10 +1059,10 @@ func (s *BlockStorage) PostStorageVolumesMount(ctx context.Context, id string, r
 
 }
 
-// PostStorageVolumesMap - Map volume to server
+// MapVolume - Map volume
 // Maps a high performance volume to a server over NVMe-TCP.
-func (s *BlockStorage) PostStorageVolumesMap(ctx context.Context, id string, requestBody operations.PostStorageVolumesMapBlockStorageRequestBody, opts ...operations.Option) (*operations.PostStorageVolumesMapResponse, error) {
-	request := operations.PostStorageVolumesMapRequest{
+func (s *BlockStorage) MapVolume(ctx context.Context, id string, requestBody operations.MapVolumeBlockStorageRequestBody, opts ...operations.Option) (*operations.MapVolumeResponse, error) {
+	request := operations.MapVolumeRequest{
 		ID:          id,
 		RequestBody: requestBody,
 	}
@@ -1114,7 +1095,7 @@ func (s *BlockStorage) PostStorageVolumesMap(ctx context.Context, id string, req
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "post-storage-volumes-map",
+		OperationID:      "map-volume",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
@@ -1243,7 +1224,7 @@ func (s *BlockStorage) PostStorageVolumesMap(ctx context.Context, id string, req
 		}
 	}
 
-	res := &operations.PostStorageVolumesMapResponse{
+	res := &operations.MapVolumeResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -1259,7 +1240,7 @@ func (s *BlockStorage) PostStorageVolumesMap(ctx context.Context, id string, req
 				return nil, err
 			}
 
-			var out operations.PostStorageVolumesMapResponseBody
+			var out operations.MapVolumeResponseBody
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -1296,10 +1277,10 @@ func (s *BlockStorage) PostStorageVolumesMap(ctx context.Context, id string, req
 
 }
 
-// PostStorageVolumesUnmap - Unmap volume from server
+// UnmapVolume - Unmap volume
 // Unmaps a high performance volume from the server it is currently mapped to.
-func (s *BlockStorage) PostStorageVolumesUnmap(ctx context.Context, id string, opts ...operations.Option) (*operations.PostStorageVolumesUnmapResponse, error) {
-	request := operations.PostStorageVolumesUnmapRequest{
+func (s *BlockStorage) UnmapVolume(ctx context.Context, id string, opts ...operations.Option) (*operations.UnmapVolumeResponse, error) {
+	request := operations.UnmapVolumeRequest{
 		ID: id,
 	}
 
@@ -1331,7 +1312,7 @@ func (s *BlockStorage) PostStorageVolumesUnmap(ctx context.Context, id string, o
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "post-storage-volumes-unmap",
+		OperationID:      "unmap-volume",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
@@ -1453,7 +1434,7 @@ func (s *BlockStorage) PostStorageVolumesUnmap(ctx context.Context, id string, o
 		}
 	}
 
-	res := &operations.PostStorageVolumesUnmapResponse{
+	res := &operations.UnmapVolumeResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -1469,7 +1450,7 @@ func (s *BlockStorage) PostStorageVolumesUnmap(ctx context.Context, id string, o
 				return nil, err
 			}
 
-			var out operations.PostStorageVolumesUnmapResponseBody
+			var out operations.UnmapVolumeResponseBody
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
