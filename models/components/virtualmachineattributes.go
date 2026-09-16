@@ -401,7 +401,7 @@ type VirtualMachineAttributesAttributes struct {
 	Tags           []VirtualMachineAttributesTags          `json:"tags,omitempty"`
 	Team           *TeamInclude                            `json:"team,omitempty"`
 	Project        *ProjectInclude                         `json:"project,omitempty"`
-	// Opt-in extra field. Request via `extra_fields[virtual_machines]=pending_restart`.
+	// Deprecated, always false. Opt-in extra field, requested via `extra_fields[virtual_machines]=pending_restart`. Attaching and detaching restart the VM automatically.
 	PendingRestart *bool `json:"pending_restart,omitempty"`
 }
 

@@ -30,25 +30,6 @@ func (e *RegionType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-type RegionCountry struct {
-	Slug *string `json:"slug,omitempty"`
-	Name *string `json:"name,omitempty"`
-}
-
-func (r *RegionCountry) GetSlug() *string {
-	if r == nil {
-		return nil
-	}
-	return r.Slug
-}
-
-func (r *RegionCountry) GetName() *string {
-	if r == nil {
-		return nil
-	}
-	return r.Name
-}
-
 type RegionAttributes struct {
 	Slug     *string        `json:"slug,omitempty"`
 	Name     *string        `json:"name,omitempty"`

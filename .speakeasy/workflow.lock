@@ -2,8 +2,8 @@ speakeasyVersion: 1.797.0
 sources:
     Latitudesh-OAS:
         sourceNamespace: latitudesh-oas
-        sourceRevisionDigest: sha256:d23ccee0cd0e98778bc9550d5aef3d196dfb5756546132f5c4227ed6d473f256
-        sourceBlobDigest: sha256:f1d1d1a6d4f6aec592496fd3339b70283091d1a26e5fbdcf3abf7dfc6762d1bd
+        sourceRevisionDigest: sha256:0e14f88e2a986d9172986776fe013b74e1358a2114d91eb6020463d9388ee2eb
+        sourceBlobDigest: sha256:b7d55c2cbad64f21af676236f2b83447b3776ad6591fb1c68c5ef65b6ccf3bf6
         tags:
             - latest
             - "2023-06-01"
@@ -11,10 +11,10 @@ targets:
     latitudesh:
         source: Latitudesh-OAS
         sourceNamespace: latitudesh-oas
-        sourceRevisionDigest: sha256:d23ccee0cd0e98778bc9550d5aef3d196dfb5756546132f5c4227ed6d473f256
-        sourceBlobDigest: sha256:f1d1d1a6d4f6aec592496fd3339b70283091d1a26e5fbdcf3abf7dfc6762d1bd
+        sourceRevisionDigest: sha256:0e14f88e2a986d9172986776fe013b74e1358a2114d91eb6020463d9388ee2eb
+        sourceBlobDigest: sha256:b7d55c2cbad64f21af676236f2b83447b3776ad6591fb1c68c5ef65b6ccf3bf6
         codeSamplesNamespace: latitudesh-oas-go-code-samples
-        codeSamplesRevisionDigest: sha256:2bc2207fcdad4b84d79423a9e4f2af9eaf343eccc9016da6afa173c93f57a6dd
+        codeSamplesRevisionDigest: sha256:4f81c26fb6903520f82462559f81512a67bbe66754a71397aa31dd51ef3cc6ee
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

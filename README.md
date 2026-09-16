@@ -190,15 +190,31 @@ func main() {
 * [List](docs/sdks/ipaddresses/README.md#list) - List IPs
 * [Get](docs/sdks/ipaddresses/README.md#get) - Retrieve an IP
 
-### [KubernetesClusters](docs/sdks/kubernetesclusters/README.md)
+### [~~KubernetesClusters~~](docs/sdks/kubernetesclusters/README.md)
 
-* [ListKubernetesClusters](docs/sdks/kubernetesclusters/README.md#listkubernetesclusters) - List Kubernetes Clusters
-* [CreateKubernetesCluster](docs/sdks/kubernetesclusters/README.md#createkubernetescluster) - Create a Kubernetes Cluster
-* [ListKubernetesAvailableVersions](docs/sdks/kubernetesclusters/README.md#listkubernetesavailableversions) - List Available Kubernetes Versions
-* [GetKubernetesCluster](docs/sdks/kubernetesclusters/README.md#getkubernetescluster) - Get a Kubernetes Cluster
-* [DeleteKubernetesCluster](docs/sdks/kubernetesclusters/README.md#deletekubernetescluster) - Delete a Kubernetes Cluster
-* [UpdateKubernetesCluster](docs/sdks/kubernetesclusters/README.md#updatekubernetescluster) - Update Kubernetes Cluster
-* [GetKubernetesClusterKubeconfig](docs/sdks/kubernetesclusters/README.md#getkubernetesclusterkubeconfig) - Get Kubernetes Cluster Kubeconfig
+* [~~ListKubernetesClusters~~](docs/sdks/kubernetesclusters/README.md#listkubernetesclusters) - List Kubernetes Clusters :warning: **Deprecated**
+* [~~CreateKubernetesCluster~~](docs/sdks/kubernetesclusters/README.md#createkubernetescluster) - Create a Kubernetes Cluster :warning: **Deprecated**
+* [~~ListKubernetesAvailableVersions~~](docs/sdks/kubernetesclusters/README.md#listkubernetesavailableversions) - List Available Kubernetes Versions :warning: **Deprecated**
+* [~~GetKubernetesCluster~~](docs/sdks/kubernetesclusters/README.md#getkubernetescluster) - Get a Kubernetes Cluster :warning: **Deprecated**
+* [~~DeleteKubernetesCluster~~](docs/sdks/kubernetesclusters/README.md#deletekubernetescluster) - Delete a Kubernetes Cluster :warning: **Deprecated**
+* [~~UpdateKubernetesCluster~~](docs/sdks/kubernetesclusters/README.md#updatekubernetescluster) - Update Kubernetes Cluster :warning: **Deprecated**
+* [~~GetKubernetesClusterKubeconfig~~](docs/sdks/kubernetesclusters/README.md#getkubernetesclusterkubeconfig) - Get Kubernetes Cluster Kubeconfig :warning: **Deprecated**
+
+### [Lks](docs/sdks/lks/README.md)
+
+* [ListLksClusters](docs/sdks/lks/README.md#listlksclusters) - List LKS clusters
+* [CreateLksCluster](docs/sdks/lks/README.md#createlkscluster) - Create an LKS cluster
+* [GetLksCluster](docs/sdks/lks/README.md#getlkscluster) - Get an LKS cluster
+* [DeleteLksCluster](docs/sdks/lks/README.md#deletelkscluster) - Delete an LKS cluster
+* [UpdateLksCluster](docs/sdks/lks/README.md#updatelkscluster) - Update an LKS cluster
+* [GetLksClusterKubeconfig](docs/sdks/lks/README.md#getlksclusterkubeconfig) - Get the cluster kubeconfig
+* [ListLksNodePools](docs/sdks/lks/README.md#listlksnodepools) - List node pools
+* [CreateLksNodePool](docs/sdks/lks/README.md#createlksnodepool) - Create a node pool
+* [GetLksNodePool](docs/sdks/lks/README.md#getlksnodepool) - Get a node pool
+* [DeleteLksNodePool](docs/sdks/lks/README.md#deletelksnodepool) - Delete a node pool
+* [UpdateLksNodePool](docs/sdks/lks/README.md#updatelksnodepool) - Update a node pool
+* [ListLksAvailableVersions](docs/sdks/lks/README.md#listlksavailableversions) - List available Kubernetes versions
+* [ListLksSites](docs/sdks/lks/README.md#listlkssites) - List sites available for LKS
 
 ### [ManagedDatabases](docs/sdks/manageddatabases/README.md)
 
@@ -244,6 +260,7 @@ func main() {
 * [GetBandwidth](docs/sdks/plans/README.md#getbandwidth) - List bandwidth plans
 * [UpdateBandwidth](docs/sdks/plans/README.md#updatebandwidth) - Update bandwidth packages
 * [ListStorage](docs/sdks/plans/README.md#liststorage) - List storage plans
+* [GetLksPlans](docs/sdks/plans/README.md#getlksplans) - List LKS plans
 * [GetManagedDatabasePlans](docs/sdks/plans/README.md#getmanageddatabaseplans) - List managed database plans
 
 ### [Plans.Vm](docs/sdks/vm/README.md)

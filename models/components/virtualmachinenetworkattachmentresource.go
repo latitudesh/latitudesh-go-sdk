@@ -35,7 +35,7 @@ type VirtualMachineNetworkAttachmentResourceAttributes struct {
 	VirtualNetworkID *string `json:"virtual_network_id,omitempty"`
 	// The 802.1Q VLAN ID
 	Vid *int64 `json:"vid,omitempty"`
-	// True if the attachment requires a VM restart to take effect
+	// Deprecated, always false. Attaching and detaching restart the VM automatically, so an attachment never waits on a manual restart.
 	PendingRestart *bool `json:"pending_restart,omitempty"`
 }
 
