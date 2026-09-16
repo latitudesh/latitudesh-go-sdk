@@ -32,6 +32,8 @@ func newKubernetesClusters(rootSDK *Latitudesh, sdkConfig config.SDKConfiguratio
 
 // ListKubernetesClusters - List Kubernetes Clusters
 // Lists all Kubernetes clusters for a project.
+//
+// Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *KubernetesClusters) ListKubernetesClusters(ctx context.Context, projectID string, opts ...operations.Option) (*operations.ListKubernetesClustersResponse, error) {
 	request := operations.ListKubernetesClustersRequest{
 		ProjectID: projectID,
@@ -273,6 +275,8 @@ func (s *KubernetesClusters) ListKubernetesClusters(ctx context.Context, project
 // **Note:** Only users with the `owner`, `administrator`, or `collaborator` role can create clusters. Users with the `billing` role cannot perform this action.
 //
 // Cluster names must follow Kubernetes naming rules: lowercase alphanumeric characters or hyphens, must start and end with an alphanumeric character, and be at most 63 characters long.
+//
+// Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *KubernetesClusters) CreateKubernetesCluster(ctx context.Context, request components.CreateKubernetesCluster, opts ...operations.Option) (*operations.CreateKubernetesClusterResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -538,6 +542,8 @@ func (s *KubernetesClusters) CreateKubernetesCluster(ctx context.Context, reques
 // - `minor`: The minor version number (e.g., `1.35`)
 //
 // The API returns the latest 5 supported minor versions. When upgrading clusters, you can only upgrade one minor version at a time (e.g., from 1.34 to 1.35).
+//
+// Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *KubernetesClusters) ListKubernetesAvailableVersions(ctx context.Context, opts ...operations.Option) (*operations.ListKubernetesAvailableVersionsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -765,6 +771,8 @@ func (s *KubernetesClusters) ListKubernetesAvailableVersions(ctx context.Context
 
 // GetKubernetesCluster - Get a Kubernetes Cluster
 // Retrieves detailed information about a Kubernetes cluster including its status, control plane, worker node details, and individual node information.
+//
+// Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *KubernetesClusters) GetKubernetesCluster(ctx context.Context, kubernetesClusterID string, opts ...operations.Option) (*operations.GetKubernetesClusterResponse, error) {
 	request := operations.GetKubernetesClusterRequest{
 		KubernetesClusterID: kubernetesClusterID,
@@ -1000,6 +1008,8 @@ func (s *KubernetesClusters) GetKubernetesCluster(ctx context.Context, kubernete
 // Deletes a Kubernetes cluster. This action is irreversible and will destroy all cluster resources.
 //
 // **Note:** Only users with the `owner`, `administrator`, or `collaborator` role can delete clusters. Users with the `billing` role cannot perform this action.
+//
+// Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *KubernetesClusters) DeleteKubernetesCluster(ctx context.Context, kubernetesClusterID string, opts ...operations.Option) (*operations.DeleteKubernetesClusterResponse, error) {
 	request := operations.DeleteKubernetesClusterRequest{
 		KubernetesClusterID: kubernetesClusterID,
@@ -1239,6 +1249,8 @@ func (s *KubernetesClusters) DeleteKubernetesCluster(ctx context.Context, kubern
 // - **Available versions only**: The target version must be in the list returned by `GET /kubernetes_clusters/available_versions`
 //
 // Returns 202 Accepted when an update operation is triggered. Poll the GET endpoint to monitor progress. Returns 200 OK if no change is needed (no-op).
+//
+// Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *KubernetesClusters) UpdateKubernetesCluster(ctx context.Context, kubernetesClusterID string, updateKubernetesCluster components.UpdateKubernetesCluster, opts ...operations.Option) (*operations.UpdateKubernetesClusterResponse, error) {
 	request := operations.UpdateKubernetesClusterRequest{
 		KubernetesClusterID:     kubernetesClusterID,
@@ -1509,6 +1521,8 @@ func (s *KubernetesClusters) UpdateKubernetesCluster(ctx context.Context, kubern
 // Retrieves the kubeconfig file for a Kubernetes cluster. The kubeconfig is only available once the cluster is fully provisioned.
 //
 // **Note:** Only users with the `owner`, `administrator`, or `collaborator` role can access cluster credentials. Users with the `billing` role cannot perform this action.
+//
+// Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *KubernetesClusters) GetKubernetesClusterKubeconfig(ctx context.Context, kubernetesClusterID string, opts ...operations.Option) (*operations.GetKubernetesClusterKubeconfigResponse, error) {
 	request := operations.GetKubernetesClusterKubeconfigRequest{
 		KubernetesClusterID: kubernetesClusterID,

@@ -1,21 +1,26 @@
-# KubernetesClusters
+# ~~KubernetesClusters~~
+
+> [!WARNING]
+> This SDK is **DEPRECATED**
 
 ## Overview
 
 ### Available Operations
 
-* [ListKubernetesClusters](#listkubernetesclusters) - List Kubernetes Clusters
-* [CreateKubernetesCluster](#createkubernetescluster) - Create a Kubernetes Cluster
-* [ListKubernetesAvailableVersions](#listkubernetesavailableversions) - List Available Kubernetes Versions
-* [GetKubernetesCluster](#getkubernetescluster) - Get a Kubernetes Cluster
-* [DeleteKubernetesCluster](#deletekubernetescluster) - Delete a Kubernetes Cluster
-* [UpdateKubernetesCluster](#updatekubernetescluster) - Update Kubernetes Cluster
-* [GetKubernetesClusterKubeconfig](#getkubernetesclusterkubeconfig) - Get Kubernetes Cluster Kubeconfig
+* [~~ListKubernetesClusters~~](#listkubernetesclusters) - List Kubernetes Clusters :warning: **Deprecated**
+* [~~CreateKubernetesCluster~~](#createkubernetescluster) - Create a Kubernetes Cluster :warning: **Deprecated**
+* [~~ListKubernetesAvailableVersions~~](#listkubernetesavailableversions) - List Available Kubernetes Versions :warning: **Deprecated**
+* [~~GetKubernetesCluster~~](#getkubernetescluster) - Get a Kubernetes Cluster :warning: **Deprecated**
+* [~~DeleteKubernetesCluster~~](#deletekubernetescluster) - Delete a Kubernetes Cluster :warning: **Deprecated**
+* [~~UpdateKubernetesCluster~~](#updatekubernetescluster) - Update Kubernetes Cluster :warning: **Deprecated**
+* [~~GetKubernetesClusterKubeconfig~~](#getkubernetesclusterkubeconfig) - Get Kubernetes Cluster Kubeconfig :warning: **Deprecated**
 
-## ListKubernetesClusters
+## ~~ListKubernetesClusters~~
 
 Lists all Kubernetes clusters for a project.
 
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage: EmptyList
 
@@ -95,7 +100,7 @@ func main() {
 | components.ErrorObject   | 400, 401                 | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## CreateKubernetesCluster
+## ~~CreateKubernetesCluster~~
 
 Creates a new managed Kubernetes cluster. Maximum of 1 cluster per project.
 
@@ -103,6 +108,8 @@ Creates a new managed Kubernetes cluster. Maximum of 1 cluster per project.
 
 Cluster names must follow Kubernetes naming rules: lowercase alphanumeric characters or hyphens, must start and end with an alphanumeric character, and be at most 63 characters long.
 
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage: Created
 
@@ -246,7 +253,7 @@ func main() {
 | components.ErrorObject   | 503                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## ListKubernetesAvailableVersions
+## ~~ListKubernetesAvailableVersions~~
 
 Returns the list of available Kubernetes versions for cluster creation and upgrades. Versions are sourced from the RKE2 release channels and cached for 24 hours.
 
@@ -256,6 +263,8 @@ Each version object includes:
 
 The API returns the latest 5 supported minor versions. When upgrading clusters, you can only upgrade one minor version at a time (e.g., from 1.34 to 1.35).
 
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -305,10 +314,12 @@ func main() {
 | components.ErrorObject   | 401                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## GetKubernetesCluster
+## ~~GetKubernetesCluster~~
 
 Retrieves detailed information about a Kubernetes cluster including its status, control plane, worker node details, and individual node information.
 
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage: Provisioning
 
@@ -388,12 +399,14 @@ func main() {
 | components.ErrorObject   | 401, 404                 | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## DeleteKubernetesCluster
+## ~~DeleteKubernetesCluster~~
 
 Deletes a Kubernetes cluster. This action is irreversible and will destroy all cluster resources.
 
 **Note:** Only users with the `owner`, `administrator`, or `collaborator` role can delete clusters. Users with the `billing` role cannot perform this action.
 
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -444,7 +457,7 @@ func main() {
 | components.ErrorObject   | 401, 403, 404, 422       | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## UpdateKubernetesCluster
+## ~~UpdateKubernetesCluster~~
 
 Updates a Kubernetes cluster by scaling nodes or upgrading the Kubernetes version. The cluster must be in `Provisioned` phase to accept updates.
 
@@ -469,6 +482,8 @@ Provide a `kubernetes_version` parameter to upgrade the cluster to a new Kuberne
 
 Returns 202 Accepted when an update operation is triggered. Poll the GET endpoint to monitor progress. Returns 200 OK if no change is needed (no-op).
 
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage: ControlPlaneUnchanged
 
@@ -1290,12 +1305,14 @@ func main() {
 | components.ErrorObject   | 503                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
-## GetKubernetesClusterKubeconfig
+## ~~GetKubernetesClusterKubeconfig~~
 
 Retrieves the kubeconfig file for a Kubernetes cluster. The kubeconfig is only available once the cluster is fully provisioned.
 
 **Note:** Only users with the `owner`, `administrator`, or `collaborator` role can access cluster credentials. Users with the `billing` role cannot perform this action.
 
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

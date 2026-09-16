@@ -63,6 +63,7 @@ type Latitudesh struct {
 	TeamMembers            *TeamMembers
 	OperatingSystems       *OperatingSystems
 	KubernetesClusters     *KubernetesClusters
+	Lks                    *Lks
 	Plans                  *Plans
 	PublicNetworks         *PublicNetworks
 	Projects               *Projects
@@ -175,10 +176,10 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Latitudesh {
 	sdk := &Latitudesh{
-		SDKVersion: "1.19.25",
+		SDKVersion: "1.19.26",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:         "speakeasy-sdk/go 1.19.25 2.937.18 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
-			SDKVersion:        "1.19.25",
+			UserAgent:         "speakeasy-sdk/go 1.19.26 2.937.18 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
+			SDKVersion:        "1.19.26",
 			GenVersion:        "2.937.18",
 			OpenAPIDocVersion: "2023-06-01",
 			ServerList:        ServerList,
@@ -227,6 +228,7 @@ func New(opts ...SDKOption) *Latitudesh {
 	sdk.TeamMembers = newTeamMembers(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.OperatingSystems = newOperatingSystems(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.KubernetesClusters = newKubernetesClusters(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Lks = newLks(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Plans = newPlans(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.PublicNetworks = newPublicNetworks(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Projects = newProjects(sdk, sdk.sdkConfiguration, sdk.hooks)

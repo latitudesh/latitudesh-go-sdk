@@ -1,0 +1,10 @@
+# LksNodePoolTaint
+
+
+## Fields
+
+| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 | Example                                                                     |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `Key`                                                                       | `string`                                                                    | :heavy_check_mark:                                                          | N/A                                                                         | dedicated                                                                   |
+| `Value`                                                                     | `*string`                                                                   | :heavy_minus_sign:                                                          | May be empty; max 63 chars. Absent or null when the taint carries no value. | gpu                                                                         |
+| `Effect`                                                                    | [components.Effect](../../models/components/effect.md)                      | :heavy_check_mark:                                                          | N/A                                                                         | NoSchedule                                                                  |

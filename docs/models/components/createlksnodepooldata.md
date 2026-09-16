@@ -1,0 +1,9 @@
+# CreateLksNodePoolData
+
+
+## Fields
+
+| Field                                                                                            | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `Type`                                                                                           | [components.CreateLksNodePoolType](../../models/components/createlksnodepooltype.md)             | :heavy_check_mark:                                                                               | N/A                                                                                              |
+| `Attributes`                                                                                     | [components.CreateLksNodePoolAttributes](../../models/components/createlksnodepoolattributes.md) | :heavy_check_mark:                                                                               | N/A                                                                                              |

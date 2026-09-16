@@ -9,6 +9,7 @@
 * [GetBandwidth](#getbandwidth) - List bandwidth plans
 * [UpdateBandwidth](#updatebandwidth) - Update bandwidth packages
 * [ListStorage](#liststorage) - List storage plans
+* [GetLksPlans](#getlksplans) - List LKS plans
 * [GetManagedDatabasePlans](#getmanageddatabaseplans) - List managed database plans
 
 ## List
@@ -330,6 +331,59 @@ func main() {
 ### Response
 
 **[*operations.GetStoragePlansResponse](../../models/operations/getstorageplansresponse.md), error**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
+
+## GetLksPlans
+
+Lists bare metal plans available to LKS with per-site capacity for a node pool.
+`attributes.regions.locations.in_stock_count` gives the number of servers a node pool can get, keyed by site slug.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="get-lks-plans" method="get" path="/plans/lks" example="Success" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Plans.GetLksPlans(ctx)
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.LksPlans != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+
+### Response
+
+**[*operations.GetLksPlansResponse](../../models/operations/getlksplansresponse.md), error**
 
 ### Errors
 

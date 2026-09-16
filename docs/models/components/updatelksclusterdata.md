@@ -1,0 +1,9 @@
+# UpdateLksClusterData
+
+
+## Fields
+
+| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `Type`                                                                                          | [components.UpdateLksClusterType](../../models/components/updatelksclustertype.md)              | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `Attributes`                                                                                    | [*components.UpdateLksClusterAttributes](../../models/components/updatelksclusterattributes.md) | :heavy_minus_sign:                                                                              | At least one of name, description or kubernetes_version must be provided.                       |
