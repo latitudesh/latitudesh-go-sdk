@@ -486,7 +486,7 @@ func (s *ElasticIps) CreateElasticIP(ctx context.Context, request components.Cre
 
 			var out components.ErrorObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, components.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -717,7 +717,7 @@ func (s *ElasticIps) GetElasticIP(ctx context.Context, elasticIPID string, opts 
 
 			var out components.ErrorObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, components.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -931,7 +931,7 @@ func (s *ElasticIps) DeleteElasticIP(ctx context.Context, elasticIPID string, op
 
 			var out components.ErrorObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, components.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -1172,7 +1172,7 @@ func (s *ElasticIps) UpdateElasticIP(ctx context.Context, elasticIPID string, up
 
 			var out components.ErrorObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, components.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out

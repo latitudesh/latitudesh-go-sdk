@@ -451,7 +451,7 @@ func (s *ObjectStorage) PostStorageAccessKeys(ctx context.Context, request opera
 
 			var out components.ErrorObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, components.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -688,7 +688,7 @@ func (s *ObjectStorage) GetStorageAccessKeys(ctx context.Context, project string
 
 			var out components.ErrorObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, components.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -909,7 +909,7 @@ func (s *ObjectStorage) DeleteStorageAccessKeysUsername(ctx context.Context, use
 
 			var out components.ErrorObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, components.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -1142,7 +1142,7 @@ func (s *ObjectStorage) GetStorageBucketAccessKeys(ctx context.Context, id strin
 
 			var out components.ErrorObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, components.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -1377,7 +1377,7 @@ func (s *ObjectStorage) GetStorageBuckets(ctx context.Context, filterProject *st
 
 			var out components.ErrorObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, components.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -1617,7 +1617,7 @@ func (s *ObjectStorage) PostStorageBuckets(ctx context.Context, request operatio
 
 			var out components.ErrorObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, components.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -1638,7 +1638,7 @@ func (s *ObjectStorage) PostStorageBuckets(ctx context.Context, request operatio
 
 			var out components.ErrorObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, components.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -1871,7 +1871,7 @@ func (s *ObjectStorage) GetStorageBucket(ctx context.Context, id string, opts ..
 
 			var out components.ErrorObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, components.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -2087,7 +2087,7 @@ func (s *ObjectStorage) DeleteStorageBuckets(ctx context.Context, id string, opt
 
 			var out components.ErrorObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, components.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -2108,7 +2108,7 @@ func (s *ObjectStorage) DeleteStorageBuckets(ctx context.Context, id string, opt
 
 			var out components.ErrorObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, components.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -2341,7 +2341,7 @@ func (s *ObjectStorage) GetStorageBucketLifecycleRules(ctx context.Context, buck
 
 			var out components.ErrorObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, components.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -2584,7 +2584,7 @@ func (s *ObjectStorage) PostStorageBucketLifecycleRules(ctx context.Context, buc
 
 			var out components.ErrorObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, components.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -2605,7 +2605,7 @@ func (s *ObjectStorage) PostStorageBucketLifecycleRules(ctx context.Context, buc
 
 			var out components.ErrorObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, components.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -2839,7 +2839,7 @@ func (s *ObjectStorage) GetStorageBucketLifecycleRule(ctx context.Context, bucke
 
 			var out components.ErrorObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, components.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -3054,7 +3054,7 @@ func (s *ObjectStorage) DeleteStorageBucketLifecycleRule(ctx context.Context, bu
 
 			var out components.ErrorObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, components.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -3075,7 +3075,7 @@ func (s *ObjectStorage) DeleteStorageBucketLifecycleRule(ctx context.Context, bu
 
 			var out components.ErrorObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, components.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -3319,7 +3319,7 @@ func (s *ObjectStorage) PatchStorageBucketLifecycleRule(ctx context.Context, buc
 
 			var out components.ErrorObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, components.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -3340,7 +3340,7 @@ func (s *ObjectStorage) PatchStorageBucketLifecycleRule(ctx context.Context, buc
 
 			var out components.ErrorObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, components.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -3573,7 +3573,7 @@ func (s *ObjectStorage) GetStorageBucketMetrics(ctx context.Context, bucketID st
 
 			var out components.ErrorObject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, components.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out

@@ -34,24 +34,32 @@ func (e *PostVpnSessionVpnSessionsType) UnmarshalJSON(data []byte) error {
 type PostVpnSessionVpnSessionsSite string
 
 const (
+	PostVpnSessionVpnSessionsSiteAms  PostVpnSessionVpnSessionsSite = "AMS"
 	PostVpnSessionVpnSessionsSiteAsh  PostVpnSessionVpnSessionsSite = "ASH"
+	PostVpnSessionVpnSessionsSiteAsh2 PostVpnSessionVpnSessionsSite = "ASH2"
+	PostVpnSessionVpnSessionsSiteBgt  PostVpnSessionVpnSessionsSite = "BGT"
 	PostVpnSessionVpnSessionsSiteBue  PostVpnSessionVpnSessionsSite = "BUE"
 	PostVpnSessionVpnSessionsSiteChi  PostVpnSessionVpnSessionsSite = "CHI"
 	PostVpnSessionVpnSessionsSiteDal  PostVpnSessionVpnSessionsSite = "DAL"
 	PostVpnSessionVpnSessionsSiteFra  PostVpnSessionVpnSessionsSite = "FRA"
+	PostVpnSessionVpnSessionsSiteFra2 PostVpnSessionVpnSessionsSite = "FRA2"
 	PostVpnSessionVpnSessionsSiteLax  PostVpnSessionVpnSessionsSite = "LAX"
+	PostVpnSessionVpnSessionsSiteLax2 PostVpnSessionVpnSessionsSite = "LAX2"
 	PostVpnSessionVpnSessionsSiteLon  PostVpnSessionVpnSessionsSite = "LON"
-	PostVpnSessionVpnSessionsSiteMex  PostVpnSessionVpnSessionsSite = "MEX"
+	PostVpnSessionVpnSessionsSiteLon2 PostVpnSessionVpnSessionsSite = "LON2"
 	PostVpnSessionVpnSessionsSiteMex2 PostVpnSessionVpnSessionsSite = "MEX2"
-	PostVpnSessionVpnSessionsSiteMia  PostVpnSessionVpnSessionsSite = "MIA"
 	PostVpnSessionVpnSessionsSiteMia2 PostVpnSessionVpnSessionsSite = "MIA2"
 	PostVpnSessionVpnSessionsSiteNyc  PostVpnSessionVpnSessionsSite = "NYC"
+	PostVpnSessionVpnSessionsSiteSan3 PostVpnSessionVpnSessionsSite = "SAN3"
 	PostVpnSessionVpnSessionsSiteSao  PostVpnSessionVpnSessionsSite = "SAO"
 	PostVpnSessionVpnSessionsSiteSao2 PostVpnSessionVpnSessionsSite = "SAO2"
 	PostVpnSessionVpnSessionsSiteSgp  PostVpnSessionVpnSessionsSite = "SGP"
+	PostVpnSessionVpnSessionsSiteSjc2 PostVpnSessionVpnSessionsSite = "SJC2"
 	PostVpnSessionVpnSessionsSiteSyd  PostVpnSessionVpnSessionsSite = "SYD"
-	PostVpnSessionVpnSessionsSiteTyo  PostVpnSessionVpnSessionsSite = "TYO"
-	PostVpnSessionVpnSessionsSiteTyo2 PostVpnSessionVpnSessionsSite = "TYO2"
+	PostVpnSessionVpnSessionsSiteSyd2 PostVpnSessionVpnSessionsSite = "SYD2"
+	PostVpnSessionVpnSessionsSiteTor  PostVpnSessionVpnSessionsSite = "TOR"
+	PostVpnSessionVpnSessionsSiteTyo3 PostVpnSessionVpnSessionsSite = "TYO3"
+	PostVpnSessionVpnSessionsSiteTyo4 PostVpnSessionVpnSessionsSite = "TYO4"
 )
 
 func (e PostVpnSessionVpnSessionsSite) ToPointer() *PostVpnSessionVpnSessionsSite {
@@ -62,7 +70,7 @@ func (e PostVpnSessionVpnSessionsSite) ToPointer() *PostVpnSessionVpnSessionsSit
 func (e *PostVpnSessionVpnSessionsSite) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "ASH", "BUE", "CHI", "DAL", "FRA", "LAX", "LON", "MEX", "MEX2", "MIA", "MIA2", "NYC", "SAO", "SAO2", "SGP", "SYD", "TYO", "TYO2":
+		case "AMS", "ASH", "ASH2", "BGT", "BUE", "CHI", "DAL", "FRA", "FRA2", "LAX", "LAX2", "LON", "LON2", "MEX2", "MIA2", "NYC", "SAN3", "SAO", "SAO2", "SGP", "SJC2", "SYD", "SYD2", "TOR", "TYO3", "TYO4":
 			return true
 		}
 	}

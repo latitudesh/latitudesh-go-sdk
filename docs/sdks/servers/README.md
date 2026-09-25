@@ -513,9 +513,9 @@ func main() {
             Type: operations.CreateServerServersTypeServers,
             Attributes: &operations.CreateServerServersAttributes{
                 Project: "proj_lxWpD699qm6rk",
-                Plan: operations.CreateServerPlanC2SmallX86,
+                Plan: operations.CreateServerPlanM4MetalXlarge,
                 Site: operations.CreateServerSiteAsh,
-                OperatingSystem: operations.CreateServerOperatingSystemUbuntu2204X64Lts,
+                OperatingSystem: operations.CreateServerOperatingSystemAlmalinux10,
                 Hostname: "BRC1",
             },
         },
@@ -554,9 +554,7 @@ func main() {
             Type: operations.CreateServerServersTypeServers,
             Attributes: &operations.CreateServerServersAttributes{
                 Project: "proj_kjQwdEMXdYNVP",
-                Plan: operations.CreateServerPlanC2SmallX86,
                 Site: operations.CreateServerSiteSao,
-                OperatingSystem: operations.CreateServerOperatingSystemUbuntu2204X64Lts,
                 Hostname: "BRC1",
                 Billing: operations.CreateServerBillingMonthly.ToPointer(),
             },
@@ -596,9 +594,9 @@ func main() {
             Type: operations.CreateServerServersTypeServers,
             Attributes: &operations.CreateServerServersAttributes{
                 Project: "<value>",
-                Plan: operations.CreateServerPlanM4MetalSmall,
-                Site: operations.CreateServerSiteAsh,
-                OperatingSystem: operations.CreateServerOperatingSystemUbuntu2004X64Lts,
+                Plan: operations.CreateServerPlanM4MetalXlarge,
+                Site: operations.CreateServerSiteAms,
+                OperatingSystem: operations.CreateServerOperatingSystemRocky9,
                 Hostname: "amused-shadowbox.com",
             },
         },
@@ -637,9 +635,7 @@ func main() {
             Type: operations.CreateServerServersTypeServers,
             Attributes: &operations.CreateServerServersAttributes{
                 Project: "proj_RMLydp9XqQKr1",
-                Plan: operations.CreateServerPlanC2SmallX86,
                 Site: operations.CreateServerSiteSao,
-                OperatingSystem: operations.CreateServerOperatingSystemUbuntu2204X64Lts,
                 Hostname: "BRC1",
                 SSHKeys: []string{
                     "ssh_93YjJOLydvZ87",
@@ -1330,7 +1326,7 @@ func main() {
             Type: operations.UpdateServerDeployConfigServersTypeDeployConfig,
             Attributes: &operations.UpdateServerDeployConfigServersAttributes{
                 Hostname: latitudeshgosdk.Pointer("my-hostname"),
-                OperatingSystem: operations.UpdateServerDeployConfigServersOperatingSystemUbuntu2004X64Lts.ToPointer(),
+                OperatingSystem: operations.UpdateServerDeployConfigServersOperatingSystemCentos9Stream.ToPointer(),
                 Raid: operations.UpdateServerDeployConfigServersRaidRaid1.ToPointer(),
                 UserData: latitudeshgosdk.Pointer("ud_5LA73qkjdaJ2o"),
                 SSHKeys: []string{
@@ -2575,7 +2571,6 @@ func main() {
         Data: operations.CreateServerReinstallServersData{
             Type: operations.CreateServerReinstallServersTypeReinstalls,
             Attributes: &operations.CreateServerReinstallServersAttributes{
-                OperatingSystem: operations.CreateServerReinstallServersOperatingSystemUbuntu2204X64Lts.ToPointer(),
                 Hostname: latitudeshgosdk.Pointer("BRC1"),
             },
         },
@@ -2613,7 +2608,6 @@ func main() {
         Data: operations.CreateServerReinstallServersData{
             Type: operations.CreateServerReinstallServersTypeReinstalls,
             Attributes: &operations.CreateServerReinstallServersAttributes{
-                OperatingSystem: operations.CreateServerReinstallServersOperatingSystemUbuntu2204X64Lts.ToPointer(),
                 Hostname: latitudeshgosdk.Pointer("BRC1"),
                 SSHKeys: []string{
                     "37",
@@ -2656,7 +2650,6 @@ func main() {
         Data: operations.CreateServerReinstallServersData{
             Type: operations.CreateServerReinstallServersTypeReinstalls,
             Attributes: &operations.CreateServerReinstallServersAttributes{
-                OperatingSystem: operations.CreateServerReinstallServersOperatingSystemUbuntu2204X64Lts.ToPointer(),
                 Hostname: latitudeshgosdk.Pointer("BRC1"),
                 SSHKeys: []string{
                     "36",
@@ -2733,7 +2726,6 @@ func main() {
         Data: operations.CreateServerReinstallServersData{
             Type: operations.CreateServerReinstallServersTypeReinstalls,
             Attributes: &operations.CreateServerReinstallServersAttributes{
-                OperatingSystem: operations.CreateServerReinstallServersOperatingSystemWindowsServer2019StdV1.ToPointer(),
                 Hostname: latitudeshgosdk.Pointer("BRC1"),
                 Raid: operations.CreateServerReinstallServersRaidRaid0.ToPointer(),
             },

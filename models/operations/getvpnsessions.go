@@ -9,24 +9,32 @@ import (
 type FilterLocation string
 
 const (
+	FilterLocationAms  FilterLocation = "AMS"
 	FilterLocationAsh  FilterLocation = "ASH"
+	FilterLocationAsh2 FilterLocation = "ASH2"
+	FilterLocationBgt  FilterLocation = "BGT"
 	FilterLocationBue  FilterLocation = "BUE"
 	FilterLocationChi  FilterLocation = "CHI"
 	FilterLocationDal  FilterLocation = "DAL"
 	FilterLocationFra  FilterLocation = "FRA"
+	FilterLocationFra2 FilterLocation = "FRA2"
 	FilterLocationLax  FilterLocation = "LAX"
+	FilterLocationLax2 FilterLocation = "LAX2"
 	FilterLocationLon  FilterLocation = "LON"
-	FilterLocationMex  FilterLocation = "MEX"
+	FilterLocationLon2 FilterLocation = "LON2"
 	FilterLocationMex2 FilterLocation = "MEX2"
-	FilterLocationMia  FilterLocation = "MIA"
 	FilterLocationMia2 FilterLocation = "MIA2"
 	FilterLocationNyc  FilterLocation = "NYC"
+	FilterLocationSan3 FilterLocation = "SAN3"
 	FilterLocationSao  FilterLocation = "SAO"
 	FilterLocationSao2 FilterLocation = "SAO2"
 	FilterLocationSgp  FilterLocation = "SGP"
+	FilterLocationSjc2 FilterLocation = "SJC2"
 	FilterLocationSyd  FilterLocation = "SYD"
-	FilterLocationTyo  FilterLocation = "TYO"
-	FilterLocationTyo2 FilterLocation = "TYO2"
+	FilterLocationSyd2 FilterLocation = "SYD2"
+	FilterLocationTor  FilterLocation = "TOR"
+	FilterLocationTyo3 FilterLocation = "TYO3"
+	FilterLocationTyo4 FilterLocation = "TYO4"
 )
 
 func (e FilterLocation) ToPointer() *FilterLocation {
@@ -37,7 +45,7 @@ func (e FilterLocation) ToPointer() *FilterLocation {
 func (e *FilterLocation) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "ASH", "BUE", "CHI", "DAL", "FRA", "LAX", "LON", "MEX", "MEX2", "MIA", "MIA2", "NYC", "SAO", "SAO2", "SGP", "SYD", "TYO", "TYO2":
+		case "AMS", "ASH", "ASH2", "BGT", "BUE", "CHI", "DAL", "FRA", "FRA2", "LAX", "LAX2", "LON", "LON2", "MEX2", "MIA2", "NYC", "SAN3", "SAO", "SAO2", "SGP", "SJC2", "SYD", "SYD2", "TOR", "TYO3", "TYO4":
 			return true
 		}
 	}

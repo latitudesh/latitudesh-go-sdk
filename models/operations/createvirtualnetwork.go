@@ -35,24 +35,32 @@ func (e *CreateVirtualNetworkPrivateNetworksType) UnmarshalJSON(data []byte) err
 type CreateVirtualNetworkPrivateNetworksSite string
 
 const (
+	CreateVirtualNetworkPrivateNetworksSiteAms  CreateVirtualNetworkPrivateNetworksSite = "AMS"
 	CreateVirtualNetworkPrivateNetworksSiteAsh  CreateVirtualNetworkPrivateNetworksSite = "ASH"
+	CreateVirtualNetworkPrivateNetworksSiteAsh2 CreateVirtualNetworkPrivateNetworksSite = "ASH2"
+	CreateVirtualNetworkPrivateNetworksSiteBgt  CreateVirtualNetworkPrivateNetworksSite = "BGT"
 	CreateVirtualNetworkPrivateNetworksSiteBue  CreateVirtualNetworkPrivateNetworksSite = "BUE"
 	CreateVirtualNetworkPrivateNetworksSiteChi  CreateVirtualNetworkPrivateNetworksSite = "CHI"
 	CreateVirtualNetworkPrivateNetworksSiteDal  CreateVirtualNetworkPrivateNetworksSite = "DAL"
 	CreateVirtualNetworkPrivateNetworksSiteFra  CreateVirtualNetworkPrivateNetworksSite = "FRA"
+	CreateVirtualNetworkPrivateNetworksSiteFra2 CreateVirtualNetworkPrivateNetworksSite = "FRA2"
 	CreateVirtualNetworkPrivateNetworksSiteLax  CreateVirtualNetworkPrivateNetworksSite = "LAX"
+	CreateVirtualNetworkPrivateNetworksSiteLax2 CreateVirtualNetworkPrivateNetworksSite = "LAX2"
 	CreateVirtualNetworkPrivateNetworksSiteLon  CreateVirtualNetworkPrivateNetworksSite = "LON"
-	CreateVirtualNetworkPrivateNetworksSiteMex  CreateVirtualNetworkPrivateNetworksSite = "MEX"
+	CreateVirtualNetworkPrivateNetworksSiteLon2 CreateVirtualNetworkPrivateNetworksSite = "LON2"
 	CreateVirtualNetworkPrivateNetworksSiteMex2 CreateVirtualNetworkPrivateNetworksSite = "MEX2"
-	CreateVirtualNetworkPrivateNetworksSiteMia  CreateVirtualNetworkPrivateNetworksSite = "MIA"
 	CreateVirtualNetworkPrivateNetworksSiteMia2 CreateVirtualNetworkPrivateNetworksSite = "MIA2"
 	CreateVirtualNetworkPrivateNetworksSiteNyc  CreateVirtualNetworkPrivateNetworksSite = "NYC"
+	CreateVirtualNetworkPrivateNetworksSiteSan3 CreateVirtualNetworkPrivateNetworksSite = "SAN3"
 	CreateVirtualNetworkPrivateNetworksSiteSao  CreateVirtualNetworkPrivateNetworksSite = "SAO"
 	CreateVirtualNetworkPrivateNetworksSiteSao2 CreateVirtualNetworkPrivateNetworksSite = "SAO2"
 	CreateVirtualNetworkPrivateNetworksSiteSgp  CreateVirtualNetworkPrivateNetworksSite = "SGP"
+	CreateVirtualNetworkPrivateNetworksSiteSjc2 CreateVirtualNetworkPrivateNetworksSite = "SJC2"
 	CreateVirtualNetworkPrivateNetworksSiteSyd  CreateVirtualNetworkPrivateNetworksSite = "SYD"
-	CreateVirtualNetworkPrivateNetworksSiteTyo  CreateVirtualNetworkPrivateNetworksSite = "TYO"
-	CreateVirtualNetworkPrivateNetworksSiteTyo2 CreateVirtualNetworkPrivateNetworksSite = "TYO2"
+	CreateVirtualNetworkPrivateNetworksSiteSyd2 CreateVirtualNetworkPrivateNetworksSite = "SYD2"
+	CreateVirtualNetworkPrivateNetworksSiteTor  CreateVirtualNetworkPrivateNetworksSite = "TOR"
+	CreateVirtualNetworkPrivateNetworksSiteTyo3 CreateVirtualNetworkPrivateNetworksSite = "TYO3"
+	CreateVirtualNetworkPrivateNetworksSiteTyo4 CreateVirtualNetworkPrivateNetworksSite = "TYO4"
 )
 
 func (e CreateVirtualNetworkPrivateNetworksSite) ToPointer() *CreateVirtualNetworkPrivateNetworksSite {
@@ -63,7 +71,7 @@ func (e CreateVirtualNetworkPrivateNetworksSite) ToPointer() *CreateVirtualNetwo
 func (e *CreateVirtualNetworkPrivateNetworksSite) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "ASH", "BUE", "CHI", "DAL", "FRA", "LAX", "LON", "MEX", "MEX2", "MIA", "MIA2", "NYC", "SAO", "SAO2", "SGP", "SYD", "TYO", "TYO2":
+		case "AMS", "ASH", "ASH2", "BGT", "BUE", "CHI", "DAL", "FRA", "FRA2", "LAX", "LAX2", "LON", "LON2", "MEX2", "MIA2", "NYC", "SAN3", "SAO", "SAO2", "SGP", "SJC2", "SYD", "SYD2", "TOR", "TYO3", "TYO4":
 			return true
 		}
 	}

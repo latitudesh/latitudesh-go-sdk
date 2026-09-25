@@ -34,21 +34,25 @@ func (e *UpdateServerDeployConfigServersType) UnmarshalJSON(data []byte) error {
 type UpdateServerDeployConfigServersOperatingSystem string
 
 const (
-	UpdateServerDeployConfigServersOperatingSystemCentos74X64            UpdateServerDeployConfigServersOperatingSystem = "centos_7_4_x64"
-	UpdateServerDeployConfigServersOperatingSystemCentos8X64             UpdateServerDeployConfigServersOperatingSystem = "centos_8_x64"
-	UpdateServerDeployConfigServersOperatingSystemDebian10               UpdateServerDeployConfigServersOperatingSystem = "debian_10"
-	UpdateServerDeployConfigServersOperatingSystemDebian11               UpdateServerDeployConfigServersOperatingSystem = "debian_11"
-	UpdateServerDeployConfigServersOperatingSystemDebian12               UpdateServerDeployConfigServersOperatingSystem = "debian_12"
-	UpdateServerDeployConfigServersOperatingSystemIpxe                   UpdateServerDeployConfigServersOperatingSystem = "ipxe"
-	UpdateServerDeployConfigServersOperatingSystemRhel8                  UpdateServerDeployConfigServersOperatingSystem = "rhel8"
-	UpdateServerDeployConfigServersOperatingSystemRockylinux8            UpdateServerDeployConfigServersOperatingSystem = "rockylinux_8"
-	UpdateServerDeployConfigServersOperatingSystemUbuntu22MlInABox       UpdateServerDeployConfigServersOperatingSystem = "ubuntu22_ml_in_a_box"
-	UpdateServerDeployConfigServersOperatingSystemUbuntu24MlInABox       UpdateServerDeployConfigServersOperatingSystem = "ubuntu24_ml_in_a_box"
-	UpdateServerDeployConfigServersOperatingSystemUbuntu2004X64Lts       UpdateServerDeployConfigServersOperatingSystem = "ubuntu_20_04_x64_lts"
-	UpdateServerDeployConfigServersOperatingSystemUbuntu2204X64Lts       UpdateServerDeployConfigServersOperatingSystem = "ubuntu_22_04_x64_lts"
-	UpdateServerDeployConfigServersOperatingSystemUbuntu2404X64Lts       UpdateServerDeployConfigServersOperatingSystem = "ubuntu_24_04_x64_lts"
-	UpdateServerDeployConfigServersOperatingSystemWindows2022Std         UpdateServerDeployConfigServersOperatingSystem = "windows_2022_std"
-	UpdateServerDeployConfigServersOperatingSystemWindowsServer2019StdV1 UpdateServerDeployConfigServersOperatingSystem = "windows_server_2019_std_v1"
+	UpdateServerDeployConfigServersOperatingSystemAlmalinux10          UpdateServerDeployConfigServersOperatingSystem = "almalinux-10"
+	UpdateServerDeployConfigServersOperatingSystemAlmalinux9           UpdateServerDeployConfigServersOperatingSystem = "almalinux-9"
+	UpdateServerDeployConfigServersOperatingSystemCentos9Stream        UpdateServerDeployConfigServersOperatingSystem = "centos-9-stream"
+	UpdateServerDeployConfigServersOperatingSystemDebian12             UpdateServerDeployConfigServersOperatingSystem = "debian_12"
+	UpdateServerDeployConfigServersOperatingSystemDebian13             UpdateServerDeployConfigServersOperatingSystem = "debian_13"
+	UpdateServerDeployConfigServersOperatingSystemFedora44             UpdateServerDeployConfigServersOperatingSystem = "fedora-44"
+	UpdateServerDeployConfigServersOperatingSystemIpxe                 UpdateServerDeployConfigServersOperatingSystem = "ipxe"
+	UpdateServerDeployConfigServersOperatingSystemOpensuse15           UpdateServerDeployConfigServersOperatingSystem = "opensuse-15"
+	UpdateServerDeployConfigServersOperatingSystemOraclelinux10        UpdateServerDeployConfigServersOperatingSystem = "oraclelinux-10"
+	UpdateServerDeployConfigServersOperatingSystemOraclelinux9         UpdateServerDeployConfigServersOperatingSystem = "oraclelinux-9"
+	UpdateServerDeployConfigServersOperatingSystemProxmox9             UpdateServerDeployConfigServersOperatingSystem = "proxmox-9"
+	UpdateServerDeployConfigServersOperatingSystemProxmoxBackupServer4 UpdateServerDeployConfigServersOperatingSystem = "proxmox-backup-server-4"
+	UpdateServerDeployConfigServersOperatingSystemRocky10              UpdateServerDeployConfigServersOperatingSystem = "rocky-10"
+	UpdateServerDeployConfigServersOperatingSystemRocky9               UpdateServerDeployConfigServersOperatingSystem = "rocky-9"
+	UpdateServerDeployConfigServersOperatingSystemUbuntu24MlInABox     UpdateServerDeployConfigServersOperatingSystem = "ubuntu24_ml_in_a_box"
+	UpdateServerDeployConfigServersOperatingSystemUbuntu24MlInABoxSxm  UpdateServerDeployConfigServersOperatingSystem = "ubuntu24_ml_in_a_box_sxm"
+	UpdateServerDeployConfigServersOperatingSystemUbuntu26MlInABox     UpdateServerDeployConfigServersOperatingSystem = "ubuntu26_ml_in_a_box"
+	UpdateServerDeployConfigServersOperatingSystemUbuntu2404X64Lts     UpdateServerDeployConfigServersOperatingSystem = "ubuntu_24_04_x64_lts"
+	UpdateServerDeployConfigServersOperatingSystemUbuntu2604X64Lts     UpdateServerDeployConfigServersOperatingSystem = "ubuntu_26_04_x64_lts"
 )
 
 func (e UpdateServerDeployConfigServersOperatingSystem) ToPointer() *UpdateServerDeployConfigServersOperatingSystem {
@@ -60,35 +64,43 @@ func (e *UpdateServerDeployConfigServersOperatingSystem) UnmarshalJSON(data []by
 		return err
 	}
 	switch v {
-	case "centos_7_4_x64":
+	case "almalinux-10":
 		fallthrough
-	case "centos_8_x64":
+	case "almalinux-9":
 		fallthrough
-	case "debian_10":
-		fallthrough
-	case "debian_11":
+	case "centos-9-stream":
 		fallthrough
 	case "debian_12":
 		fallthrough
+	case "debian_13":
+		fallthrough
+	case "fedora-44":
+		fallthrough
 	case "ipxe":
 		fallthrough
-	case "rhel8":
+	case "opensuse-15":
 		fallthrough
-	case "rockylinux_8":
+	case "oraclelinux-10":
 		fallthrough
-	case "ubuntu22_ml_in_a_box":
+	case "oraclelinux-9":
+		fallthrough
+	case "proxmox-9":
+		fallthrough
+	case "proxmox-backup-server-4":
+		fallthrough
+	case "rocky-10":
+		fallthrough
+	case "rocky-9":
 		fallthrough
 	case "ubuntu24_ml_in_a_box":
 		fallthrough
-	case "ubuntu_20_04_x64_lts":
+	case "ubuntu24_ml_in_a_box_sxm":
 		fallthrough
-	case "ubuntu_22_04_x64_lts":
+	case "ubuntu26_ml_in_a_box":
 		fallthrough
 	case "ubuntu_24_04_x64_lts":
 		fallthrough
-	case "windows_2022_std":
-		fallthrough
-	case "windows_server_2019_std_v1":
+	case "ubuntu_26_04_x64_lts":
 		*e = UpdateServerDeployConfigServersOperatingSystem(v)
 		return nil
 	default:

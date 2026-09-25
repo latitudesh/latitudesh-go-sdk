@@ -98,6 +98,8 @@ type ManagedDatabasePayloadAttributes struct {
 	Backup map[string]any `json:"backup,omitempty"`
 	// Restore from a source database backup at create (postgres only)
 	Recovery *ManagedDatabasePayloadRecovery `json:"recovery,omitempty"`
+	// Optional. Reserved for cross-region read replicas (postgres only): accepted and validated, but replica provisioning is not yet active.
+	ReplicaRegions []string `json:"replica_regions,omitempty"`
 }
 
 func (m *ManagedDatabasePayloadAttributes) GetName() *string {
@@ -168,6 +170,13 @@ func (m *ManagedDatabasePayloadAttributes) GetRecovery() *ManagedDatabasePayload
 		return nil
 	}
 	return m.Recovery
+}
+
+func (m *ManagedDatabasePayloadAttributes) GetReplicaRegions() []string {
+	if m == nil {
+		return nil
+	}
+	return m.ReplicaRegions
 }
 
 type ManagedDatabasePayloadData struct {
