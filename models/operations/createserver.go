@@ -35,24 +35,22 @@ func (e *CreateServerServersType) UnmarshalJSON(data []byte) error {
 type CreateServerPlan string
 
 const (
-	CreateServerPlanC2LargeX86      CreateServerPlan = "c2-large-x86"
-	CreateServerPlanC2MediumX86     CreateServerPlan = "c2-medium-x86"
-	CreateServerPlanC2SmallX86      CreateServerPlan = "c2-small-x86"
 	CreateServerPlanC3LargeX86      CreateServerPlan = "c3-large-x86"
-	CreateServerPlanC3MediumX86     CreateServerPlan = "c3-medium-x86"
 	CreateServerPlanC3SmallX86      CreateServerPlan = "c3-small-x86"
-	CreateServerPlanC3XlargeX86     CreateServerPlan = "c3-xlarge-x86"
-	CreateServerPlanG3Gh200         CreateServerPlan = "g3-gh200"
-	CreateServerPlanG3LargeX86      CreateServerPlan = "g3-large-x86"
-	CreateServerPlanG3MediumX86     CreateServerPlan = "g3-medium-x86"
-	CreateServerPlanG3SmallX86      CreateServerPlan = "g3-small-x86"
-	CreateServerPlanG3XlargeX86     CreateServerPlan = "g3-xlarge-x86"
+	CreateServerPlanC4MetalLarge    CreateServerPlan = "c4-metal-large"
+	CreateServerPlanF4MetalLarge    CreateServerPlan = "f4-metal-large"
+	CreateServerPlanF4MetalMedium   CreateServerPlan = "f4-metal-medium"
+	CreateServerPlanF4MetalSmall    CreateServerPlan = "f4-metal-small"
+	CreateServerPlanG3H100Small     CreateServerPlan = "g3-h100-small"
+	CreateServerPlanG4B300Large     CreateServerPlan = "g4-b300-large"
 	CreateServerPlanG4Rtx6kproLarge CreateServerPlan = "g4-rtx6kpro-large"
 	CreateServerPlanM3LargeX86      CreateServerPlan = "m3-large-x86"
 	CreateServerPlanM4MetalLarge    CreateServerPlan = "m4-metal-large"
+	CreateServerPlanM4MetalMedium   CreateServerPlan = "m4-metal-medium"
 	CreateServerPlanM4MetalSmall    CreateServerPlan = "m4-metal-small"
+	CreateServerPlanM4MetalXlarge   CreateServerPlan = "m4-metal-xlarge"
+	CreateServerPlanRs4MetalLarge   CreateServerPlan = "rs4-metal-large"
 	CreateServerPlanRs4MetalXlarge  CreateServerPlan = "rs4-metal-xlarge"
-	CreateServerPlanS2SmallX86      CreateServerPlan = "s2-small-x86"
 	CreateServerPlanS3LargeX86      CreateServerPlan = "s3-large-x86"
 )
 
@@ -64,7 +62,7 @@ func (e CreateServerPlan) ToPointer() *CreateServerPlan {
 func (e *CreateServerPlan) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "c2-large-x86", "c2-medium-x86", "c2-small-x86", "c3-large-x86", "c3-medium-x86", "c3-small-x86", "c3-xlarge-x86", "g3-gh200", "g3-large-x86", "g3-medium-x86", "g3-small-x86", "g3-xlarge-x86", "g4-rtx6kpro-large", "m3-large-x86", "m4-metal-large", "m4-metal-small", "rs4-metal-xlarge", "s2-small-x86", "s3-large-x86":
+		case "c3-large-x86", "c3-small-x86", "c4-metal-large", "f4-metal-large", "f4-metal-medium", "f4-metal-small", "g3-h100-small", "g4-b300-large", "g4-rtx6kpro-large", "m3-large-x86", "m4-metal-large", "m4-metal-medium", "m4-metal-small", "m4-metal-xlarge", "rs4-metal-large", "rs4-metal-xlarge", "s3-large-x86":
 			return true
 		}
 	}
@@ -75,24 +73,32 @@ func (e *CreateServerPlan) IsExact() bool {
 type CreateServerSite string
 
 const (
+	CreateServerSiteAms  CreateServerSite = "AMS"
 	CreateServerSiteAsh  CreateServerSite = "ASH"
+	CreateServerSiteAsh2 CreateServerSite = "ASH2"
+	CreateServerSiteBgt  CreateServerSite = "BGT"
 	CreateServerSiteBue  CreateServerSite = "BUE"
 	CreateServerSiteChi  CreateServerSite = "CHI"
 	CreateServerSiteDal  CreateServerSite = "DAL"
 	CreateServerSiteFra  CreateServerSite = "FRA"
+	CreateServerSiteFra2 CreateServerSite = "FRA2"
 	CreateServerSiteLax  CreateServerSite = "LAX"
+	CreateServerSiteLax2 CreateServerSite = "LAX2"
 	CreateServerSiteLon  CreateServerSite = "LON"
-	CreateServerSiteMex  CreateServerSite = "MEX"
+	CreateServerSiteLon2 CreateServerSite = "LON2"
 	CreateServerSiteMex2 CreateServerSite = "MEX2"
-	CreateServerSiteMia  CreateServerSite = "MIA"
 	CreateServerSiteMia2 CreateServerSite = "MIA2"
 	CreateServerSiteNyc  CreateServerSite = "NYC"
+	CreateServerSiteSan3 CreateServerSite = "SAN3"
 	CreateServerSiteSao  CreateServerSite = "SAO"
 	CreateServerSiteSao2 CreateServerSite = "SAO2"
 	CreateServerSiteSgp  CreateServerSite = "SGP"
+	CreateServerSiteSjc2 CreateServerSite = "SJC2"
 	CreateServerSiteSyd  CreateServerSite = "SYD"
-	CreateServerSiteTyo  CreateServerSite = "TYO"
-	CreateServerSiteTyo2 CreateServerSite = "TYO2"
+	CreateServerSiteSyd2 CreateServerSite = "SYD2"
+	CreateServerSiteTor  CreateServerSite = "TOR"
+	CreateServerSiteTyo3 CreateServerSite = "TYO3"
+	CreateServerSiteTyo4 CreateServerSite = "TYO4"
 )
 
 func (e CreateServerSite) ToPointer() *CreateServerSite {
@@ -103,7 +109,7 @@ func (e CreateServerSite) ToPointer() *CreateServerSite {
 func (e *CreateServerSite) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "ASH", "BUE", "CHI", "DAL", "FRA", "LAX", "LON", "MEX", "MEX2", "MIA", "MIA2", "NYC", "SAO", "SAO2", "SGP", "SYD", "TYO", "TYO2":
+		case "AMS", "ASH", "ASH2", "BGT", "BUE", "CHI", "DAL", "FRA", "FRA2", "LAX", "LAX2", "LON", "LON2", "MEX2", "MIA2", "NYC", "SAN3", "SAO", "SAO2", "SGP", "SJC2", "SYD", "SYD2", "TOR", "TYO3", "TYO4":
 			return true
 		}
 	}
@@ -114,21 +120,25 @@ func (e *CreateServerSite) IsExact() bool {
 type CreateServerOperatingSystem string
 
 const (
-	CreateServerOperatingSystemCentos74X64            CreateServerOperatingSystem = "centos_7_4_x64"
-	CreateServerOperatingSystemCentos8X64             CreateServerOperatingSystem = "centos_8_x64"
-	CreateServerOperatingSystemDebian10               CreateServerOperatingSystem = "debian_10"
-	CreateServerOperatingSystemDebian11               CreateServerOperatingSystem = "debian_11"
-	CreateServerOperatingSystemDebian12               CreateServerOperatingSystem = "debian_12"
-	CreateServerOperatingSystemIpxe                   CreateServerOperatingSystem = "ipxe"
-	CreateServerOperatingSystemRhel8                  CreateServerOperatingSystem = "rhel8"
-	CreateServerOperatingSystemRockylinux8            CreateServerOperatingSystem = "rockylinux_8"
-	CreateServerOperatingSystemUbuntu22MlInABox       CreateServerOperatingSystem = "ubuntu22_ml_in_a_box"
-	CreateServerOperatingSystemUbuntu24MlInABox       CreateServerOperatingSystem = "ubuntu24_ml_in_a_box"
-	CreateServerOperatingSystemUbuntu2004X64Lts       CreateServerOperatingSystem = "ubuntu_20_04_x64_lts"
-	CreateServerOperatingSystemUbuntu2204X64Lts       CreateServerOperatingSystem = "ubuntu_22_04_x64_lts"
-	CreateServerOperatingSystemUbuntu2404X64Lts       CreateServerOperatingSystem = "ubuntu_24_04_x64_lts"
-	CreateServerOperatingSystemWindows2022Std         CreateServerOperatingSystem = "windows_2022_std"
-	CreateServerOperatingSystemWindowsServer2019StdV1 CreateServerOperatingSystem = "windows_server_2019_std_v1"
+	CreateServerOperatingSystemAlmalinux10          CreateServerOperatingSystem = "almalinux-10"
+	CreateServerOperatingSystemAlmalinux9           CreateServerOperatingSystem = "almalinux-9"
+	CreateServerOperatingSystemCentos9Stream        CreateServerOperatingSystem = "centos-9-stream"
+	CreateServerOperatingSystemDebian12             CreateServerOperatingSystem = "debian_12"
+	CreateServerOperatingSystemDebian13             CreateServerOperatingSystem = "debian_13"
+	CreateServerOperatingSystemFedora44             CreateServerOperatingSystem = "fedora-44"
+	CreateServerOperatingSystemIpxe                 CreateServerOperatingSystem = "ipxe"
+	CreateServerOperatingSystemOpensuse15           CreateServerOperatingSystem = "opensuse-15"
+	CreateServerOperatingSystemOraclelinux10        CreateServerOperatingSystem = "oraclelinux-10"
+	CreateServerOperatingSystemOraclelinux9         CreateServerOperatingSystem = "oraclelinux-9"
+	CreateServerOperatingSystemProxmox9             CreateServerOperatingSystem = "proxmox-9"
+	CreateServerOperatingSystemProxmoxBackupServer4 CreateServerOperatingSystem = "proxmox-backup-server-4"
+	CreateServerOperatingSystemRocky10              CreateServerOperatingSystem = "rocky-10"
+	CreateServerOperatingSystemRocky9               CreateServerOperatingSystem = "rocky-9"
+	CreateServerOperatingSystemUbuntu24MlInABox     CreateServerOperatingSystem = "ubuntu24_ml_in_a_box"
+	CreateServerOperatingSystemUbuntu24MlInABoxSxm  CreateServerOperatingSystem = "ubuntu24_ml_in_a_box_sxm"
+	CreateServerOperatingSystemUbuntu26MlInABox     CreateServerOperatingSystem = "ubuntu26_ml_in_a_box"
+	CreateServerOperatingSystemUbuntu2404X64Lts     CreateServerOperatingSystem = "ubuntu_24_04_x64_lts"
+	CreateServerOperatingSystemUbuntu2604X64Lts     CreateServerOperatingSystem = "ubuntu_26_04_x64_lts"
 )
 
 func (e CreateServerOperatingSystem) ToPointer() *CreateServerOperatingSystem {
@@ -139,7 +149,7 @@ func (e CreateServerOperatingSystem) ToPointer() *CreateServerOperatingSystem {
 func (e *CreateServerOperatingSystem) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "centos_7_4_x64", "centos_8_x64", "debian_10", "debian_11", "debian_12", "ipxe", "rhel8", "rockylinux_8", "ubuntu22_ml_in_a_box", "ubuntu24_ml_in_a_box", "ubuntu_20_04_x64_lts", "ubuntu_22_04_x64_lts", "ubuntu_24_04_x64_lts", "windows_2022_std", "windows_server_2019_std_v1":
+		case "almalinux-10", "almalinux-9", "centos-9-stream", "debian_12", "debian_13", "fedora-44", "ipxe", "opensuse-15", "oraclelinux-10", "oraclelinux-9", "proxmox-9", "proxmox-backup-server-4", "rocky-10", "rocky-9", "ubuntu24_ml_in_a_box", "ubuntu24_ml_in_a_box_sxm", "ubuntu26_ml_in_a_box", "ubuntu_24_04_x64_lts", "ubuntu_26_04_x64_lts":
 			return true
 		}
 	}

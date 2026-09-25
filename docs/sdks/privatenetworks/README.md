@@ -329,7 +329,7 @@ func main() {
             Type: operations.CreateVirtualNetworkPrivateNetworksTypeVirtualNetwork,
             Attributes: operations.CreateVirtualNetworkPrivateNetworksAttributes{
                 Description: "São Paulo VLAN",
-                Site: operations.CreateVirtualNetworkPrivateNetworksSiteMia.ToPointer(),
+                Site: operations.CreateVirtualNetworkPrivateNetworksSiteLax2.ToPointer(),
                 Project: "ergonomic-steel-bag",
             },
         },
@@ -406,7 +406,6 @@ func main() {
             Type: operations.CreateVirtualNetworkPrivateNetworksTypeVirtualNetwork,
             Attributes: operations.CreateVirtualNetworkPrivateNetworksAttributes{
                 Description: "São Paulo VLAN",
-                Site: operations.CreateVirtualNetworkPrivateNetworksSiteMia.ToPointer(),
                 Project: "lightweight-rubber-shirt",
             },
         },
@@ -445,7 +444,6 @@ func main() {
             Type: operations.CreateVirtualNetworkPrivateNetworksTypeVirtualNetwork,
             Attributes: operations.CreateVirtualNetworkPrivateNetworksAttributes{
                 Description: "São Paulo VLAN",
-                Site: operations.CreateVirtualNetworkPrivateNetworksSiteMia.ToPointer(),
                 Project: "enormous-paper-clock",
             },
         },

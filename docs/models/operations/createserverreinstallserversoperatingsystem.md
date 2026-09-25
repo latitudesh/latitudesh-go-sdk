@@ -9,26 +9,30 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
 )
 
-value := operations.CreateServerReinstallServersOperatingSystemCentos74X64
+value := operations.CreateServerReinstallServersOperatingSystemAlmalinux10
 ```
 
 
 ## Values
 
-| Name                                                                | Value                                                               |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `CreateServerReinstallServersOperatingSystemCentos74X64`            | centos_7_4_x64                                                      |
-| `CreateServerReinstallServersOperatingSystemCentos8X64`             | centos_8_x64                                                        |
-| `CreateServerReinstallServersOperatingSystemDebian10`               | debian_10                                                           |
-| `CreateServerReinstallServersOperatingSystemDebian11`               | debian_11                                                           |
-| `CreateServerReinstallServersOperatingSystemDebian12`               | debian_12                                                           |
-| `CreateServerReinstallServersOperatingSystemIpxe`                   | ipxe                                                                |
-| `CreateServerReinstallServersOperatingSystemRhel8`                  | rhel8                                                               |
-| `CreateServerReinstallServersOperatingSystemRockylinux8`            | rockylinux_8                                                        |
-| `CreateServerReinstallServersOperatingSystemUbuntu22MlInABox`       | ubuntu22_ml_in_a_box                                                |
-| `CreateServerReinstallServersOperatingSystemUbuntu24MlInABox`       | ubuntu24_ml_in_a_box                                                |
-| `CreateServerReinstallServersOperatingSystemUbuntu2004X64Lts`       | ubuntu_20_04_x64_lts                                                |
-| `CreateServerReinstallServersOperatingSystemUbuntu2204X64Lts`       | ubuntu_22_04_x64_lts                                                |
-| `CreateServerReinstallServersOperatingSystemUbuntu2404X64Lts`       | ubuntu_24_04_x64_lts                                                |
-| `CreateServerReinstallServersOperatingSystemWindows2022Std`         | windows_2022_std                                                    |
-| `CreateServerReinstallServersOperatingSystemWindowsServer2019StdV1` | windows_server_2019_std_v1                                          |
+| Name                                                              | Value                                                             |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `CreateServerReinstallServersOperatingSystemAlmalinux10`          | almalinux-10                                                      |
+| `CreateServerReinstallServersOperatingSystemAlmalinux9`           | almalinux-9                                                       |
+| `CreateServerReinstallServersOperatingSystemCentos9Stream`        | centos-9-stream                                                   |
+| `CreateServerReinstallServersOperatingSystemDebian12`             | debian_12                                                         |
+| `CreateServerReinstallServersOperatingSystemDebian13`             | debian_13                                                         |
+| `CreateServerReinstallServersOperatingSystemFedora44`             | fedora-44                                                         |
+| `CreateServerReinstallServersOperatingSystemIpxe`                 | ipxe                                                              |
+| `CreateServerReinstallServersOperatingSystemOpensuse15`           | opensuse-15                                                       |
+| `CreateServerReinstallServersOperatingSystemOraclelinux10`        | oraclelinux-10                                                    |
+| `CreateServerReinstallServersOperatingSystemOraclelinux9`         | oraclelinux-9                                                     |
+| `CreateServerReinstallServersOperatingSystemProxmox9`             | proxmox-9                                                         |
+| `CreateServerReinstallServersOperatingSystemProxmoxBackupServer4` | proxmox-backup-server-4                                           |
+| `CreateServerReinstallServersOperatingSystemRocky10`              | rocky-10                                                          |
+| `CreateServerReinstallServersOperatingSystemRocky9`               | rocky-9                                                           |
+| `CreateServerReinstallServersOperatingSystemUbuntu24MlInABox`     | ubuntu24_ml_in_a_box                                              |
+| `CreateServerReinstallServersOperatingSystemUbuntu24MlInABoxSxm`  | ubuntu24_ml_in_a_box_sxm                                          |
+| `CreateServerReinstallServersOperatingSystemUbuntu26MlInABox`     | ubuntu26_ml_in_a_box                                              |
+| `CreateServerReinstallServersOperatingSystemUbuntu2404X64Lts`     | ubuntu_24_04_x64_lts                                              |
+| `CreateServerReinstallServersOperatingSystemUbuntu2604X64Lts`     | ubuntu_26_04_x64_lts                                              |

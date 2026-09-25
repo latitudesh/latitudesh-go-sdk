@@ -35,21 +35,25 @@ func (e *CreateServerReinstallServersType) UnmarshalJSON(data []byte) error {
 type CreateServerReinstallServersOperatingSystem string
 
 const (
-	CreateServerReinstallServersOperatingSystemCentos74X64            CreateServerReinstallServersOperatingSystem = "centos_7_4_x64"
-	CreateServerReinstallServersOperatingSystemCentos8X64             CreateServerReinstallServersOperatingSystem = "centos_8_x64"
-	CreateServerReinstallServersOperatingSystemDebian10               CreateServerReinstallServersOperatingSystem = "debian_10"
-	CreateServerReinstallServersOperatingSystemDebian11               CreateServerReinstallServersOperatingSystem = "debian_11"
-	CreateServerReinstallServersOperatingSystemDebian12               CreateServerReinstallServersOperatingSystem = "debian_12"
-	CreateServerReinstallServersOperatingSystemIpxe                   CreateServerReinstallServersOperatingSystem = "ipxe"
-	CreateServerReinstallServersOperatingSystemRhel8                  CreateServerReinstallServersOperatingSystem = "rhel8"
-	CreateServerReinstallServersOperatingSystemRockylinux8            CreateServerReinstallServersOperatingSystem = "rockylinux_8"
-	CreateServerReinstallServersOperatingSystemUbuntu22MlInABox       CreateServerReinstallServersOperatingSystem = "ubuntu22_ml_in_a_box"
-	CreateServerReinstallServersOperatingSystemUbuntu24MlInABox       CreateServerReinstallServersOperatingSystem = "ubuntu24_ml_in_a_box"
-	CreateServerReinstallServersOperatingSystemUbuntu2004X64Lts       CreateServerReinstallServersOperatingSystem = "ubuntu_20_04_x64_lts"
-	CreateServerReinstallServersOperatingSystemUbuntu2204X64Lts       CreateServerReinstallServersOperatingSystem = "ubuntu_22_04_x64_lts"
-	CreateServerReinstallServersOperatingSystemUbuntu2404X64Lts       CreateServerReinstallServersOperatingSystem = "ubuntu_24_04_x64_lts"
-	CreateServerReinstallServersOperatingSystemWindows2022Std         CreateServerReinstallServersOperatingSystem = "windows_2022_std"
-	CreateServerReinstallServersOperatingSystemWindowsServer2019StdV1 CreateServerReinstallServersOperatingSystem = "windows_server_2019_std_v1"
+	CreateServerReinstallServersOperatingSystemAlmalinux10          CreateServerReinstallServersOperatingSystem = "almalinux-10"
+	CreateServerReinstallServersOperatingSystemAlmalinux9           CreateServerReinstallServersOperatingSystem = "almalinux-9"
+	CreateServerReinstallServersOperatingSystemCentos9Stream        CreateServerReinstallServersOperatingSystem = "centos-9-stream"
+	CreateServerReinstallServersOperatingSystemDebian12             CreateServerReinstallServersOperatingSystem = "debian_12"
+	CreateServerReinstallServersOperatingSystemDebian13             CreateServerReinstallServersOperatingSystem = "debian_13"
+	CreateServerReinstallServersOperatingSystemFedora44             CreateServerReinstallServersOperatingSystem = "fedora-44"
+	CreateServerReinstallServersOperatingSystemIpxe                 CreateServerReinstallServersOperatingSystem = "ipxe"
+	CreateServerReinstallServersOperatingSystemOpensuse15           CreateServerReinstallServersOperatingSystem = "opensuse-15"
+	CreateServerReinstallServersOperatingSystemOraclelinux10        CreateServerReinstallServersOperatingSystem = "oraclelinux-10"
+	CreateServerReinstallServersOperatingSystemOraclelinux9         CreateServerReinstallServersOperatingSystem = "oraclelinux-9"
+	CreateServerReinstallServersOperatingSystemProxmox9             CreateServerReinstallServersOperatingSystem = "proxmox-9"
+	CreateServerReinstallServersOperatingSystemProxmoxBackupServer4 CreateServerReinstallServersOperatingSystem = "proxmox-backup-server-4"
+	CreateServerReinstallServersOperatingSystemRocky10              CreateServerReinstallServersOperatingSystem = "rocky-10"
+	CreateServerReinstallServersOperatingSystemRocky9               CreateServerReinstallServersOperatingSystem = "rocky-9"
+	CreateServerReinstallServersOperatingSystemUbuntu24MlInABox     CreateServerReinstallServersOperatingSystem = "ubuntu24_ml_in_a_box"
+	CreateServerReinstallServersOperatingSystemUbuntu24MlInABoxSxm  CreateServerReinstallServersOperatingSystem = "ubuntu24_ml_in_a_box_sxm"
+	CreateServerReinstallServersOperatingSystemUbuntu26MlInABox     CreateServerReinstallServersOperatingSystem = "ubuntu26_ml_in_a_box"
+	CreateServerReinstallServersOperatingSystemUbuntu2404X64Lts     CreateServerReinstallServersOperatingSystem = "ubuntu_24_04_x64_lts"
+	CreateServerReinstallServersOperatingSystemUbuntu2604X64Lts     CreateServerReinstallServersOperatingSystem = "ubuntu_26_04_x64_lts"
 )
 
 func (e CreateServerReinstallServersOperatingSystem) ToPointer() *CreateServerReinstallServersOperatingSystem {
@@ -61,35 +65,43 @@ func (e *CreateServerReinstallServersOperatingSystem) UnmarshalJSON(data []byte)
 		return err
 	}
 	switch v {
-	case "centos_7_4_x64":
+	case "almalinux-10":
 		fallthrough
-	case "centos_8_x64":
+	case "almalinux-9":
 		fallthrough
-	case "debian_10":
-		fallthrough
-	case "debian_11":
+	case "centos-9-stream":
 		fallthrough
 	case "debian_12":
 		fallthrough
+	case "debian_13":
+		fallthrough
+	case "fedora-44":
+		fallthrough
 	case "ipxe":
 		fallthrough
-	case "rhel8":
+	case "opensuse-15":
 		fallthrough
-	case "rockylinux_8":
+	case "oraclelinux-10":
 		fallthrough
-	case "ubuntu22_ml_in_a_box":
+	case "oraclelinux-9":
+		fallthrough
+	case "proxmox-9":
+		fallthrough
+	case "proxmox-backup-server-4":
+		fallthrough
+	case "rocky-10":
+		fallthrough
+	case "rocky-9":
 		fallthrough
 	case "ubuntu24_ml_in_a_box":
 		fallthrough
-	case "ubuntu_20_04_x64_lts":
+	case "ubuntu24_ml_in_a_box_sxm":
 		fallthrough
-	case "ubuntu_22_04_x64_lts":
+	case "ubuntu26_ml_in_a_box":
 		fallthrough
 	case "ubuntu_24_04_x64_lts":
 		fallthrough
-	case "windows_2022_std":
-		fallthrough
-	case "windows_server_2019_std_v1":
+	case "ubuntu_26_04_x64_lts":
 		*e = CreateServerReinstallServersOperatingSystem(v)
 		return nil
 	default:

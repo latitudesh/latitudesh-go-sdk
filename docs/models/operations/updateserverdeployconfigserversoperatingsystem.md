@@ -7,26 +7,30 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
 )
 
-value := operations.UpdateServerDeployConfigServersOperatingSystemCentos74X64
+value := operations.UpdateServerDeployConfigServersOperatingSystemAlmalinux10
 ```
 
 
 ## Values
 
-| Name                                                                   | Value                                                                  |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `UpdateServerDeployConfigServersOperatingSystemCentos74X64`            | centos_7_4_x64                                                         |
-| `UpdateServerDeployConfigServersOperatingSystemCentos8X64`             | centos_8_x64                                                           |
-| `UpdateServerDeployConfigServersOperatingSystemDebian10`               | debian_10                                                              |
-| `UpdateServerDeployConfigServersOperatingSystemDebian11`               | debian_11                                                              |
-| `UpdateServerDeployConfigServersOperatingSystemDebian12`               | debian_12                                                              |
-| `UpdateServerDeployConfigServersOperatingSystemIpxe`                   | ipxe                                                                   |
-| `UpdateServerDeployConfigServersOperatingSystemRhel8`                  | rhel8                                                                  |
-| `UpdateServerDeployConfigServersOperatingSystemRockylinux8`            | rockylinux_8                                                           |
-| `UpdateServerDeployConfigServersOperatingSystemUbuntu22MlInABox`       | ubuntu22_ml_in_a_box                                                   |
-| `UpdateServerDeployConfigServersOperatingSystemUbuntu24MlInABox`       | ubuntu24_ml_in_a_box                                                   |
-| `UpdateServerDeployConfigServersOperatingSystemUbuntu2004X64Lts`       | ubuntu_20_04_x64_lts                                                   |
-| `UpdateServerDeployConfigServersOperatingSystemUbuntu2204X64Lts`       | ubuntu_22_04_x64_lts                                                   |
-| `UpdateServerDeployConfigServersOperatingSystemUbuntu2404X64Lts`       | ubuntu_24_04_x64_lts                                                   |
-| `UpdateServerDeployConfigServersOperatingSystemWindows2022Std`         | windows_2022_std                                                       |
-| `UpdateServerDeployConfigServersOperatingSystemWindowsServer2019StdV1` | windows_server_2019_std_v1                                             |
+| Name                                                                 | Value                                                                |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `UpdateServerDeployConfigServersOperatingSystemAlmalinux10`          | almalinux-10                                                         |
+| `UpdateServerDeployConfigServersOperatingSystemAlmalinux9`           | almalinux-9                                                          |
+| `UpdateServerDeployConfigServersOperatingSystemCentos9Stream`        | centos-9-stream                                                      |
+| `UpdateServerDeployConfigServersOperatingSystemDebian12`             | debian_12                                                            |
+| `UpdateServerDeployConfigServersOperatingSystemDebian13`             | debian_13                                                            |
+| `UpdateServerDeployConfigServersOperatingSystemFedora44`             | fedora-44                                                            |
+| `UpdateServerDeployConfigServersOperatingSystemIpxe`                 | ipxe                                                                 |
+| `UpdateServerDeployConfigServersOperatingSystemOpensuse15`           | opensuse-15                                                          |
+| `UpdateServerDeployConfigServersOperatingSystemOraclelinux10`        | oraclelinux-10                                                       |
+| `UpdateServerDeployConfigServersOperatingSystemOraclelinux9`         | oraclelinux-9                                                        |
+| `UpdateServerDeployConfigServersOperatingSystemProxmox9`             | proxmox-9                                                            |
+| `UpdateServerDeployConfigServersOperatingSystemProxmoxBackupServer4` | proxmox-backup-server-4                                              |
+| `UpdateServerDeployConfigServersOperatingSystemRocky10`              | rocky-10                                                             |
+| `UpdateServerDeployConfigServersOperatingSystemRocky9`               | rocky-9                                                              |
+| `UpdateServerDeployConfigServersOperatingSystemUbuntu24MlInABox`     | ubuntu24_ml_in_a_box                                                 |
+| `UpdateServerDeployConfigServersOperatingSystemUbuntu24MlInABoxSxm`  | ubuntu24_ml_in_a_box_sxm                                             |
+| `UpdateServerDeployConfigServersOperatingSystemUbuntu26MlInABox`     | ubuntu26_ml_in_a_box                                                 |
+| `UpdateServerDeployConfigServersOperatingSystemUbuntu2404X64Lts`     | ubuntu_24_04_x64_lts                                                 |
+| `UpdateServerDeployConfigServersOperatingSystemUbuntu2604X64Lts`     | ubuntu_26_04_x64_lts                                                 |
