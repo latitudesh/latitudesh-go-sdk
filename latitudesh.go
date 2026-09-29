@@ -176,10 +176,10 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Latitudesh {
 	sdk := &Latitudesh{
-		SDKVersion: "1.20.0",
+		SDKVersion: "1.20.1",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:         "speakeasy-sdk/go 1.20.0 2.941.0 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
-			SDKVersion:        "1.20.0",
+			UserAgent:         "speakeasy-sdk/go 1.20.1 2.941.0 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
+			SDKVersion:        "1.20.1",
 			GenVersion:        "2.941.0",
 			OpenAPIDocVersion: "2023-06-01",
 			ServerList:        ServerList,

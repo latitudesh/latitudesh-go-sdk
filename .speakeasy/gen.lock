@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 5b70604f1360b69438f96f7d7376c68b
+  docChecksum: 23f10e6db04afd6d729ef8f6113bb060
   docVersion: "2023-06-01"
   speakeasyVersion: 1.799.0
   generationVersion: 2.941.0
-  releaseVersion: 1.20.0
-  configChecksum: def67e5c0455522cf05fbf15fbb0e47a
+  releaseVersion: 1.20.1
+  configChecksum: 55c5af41d91a81a4c11884ff55f1510d
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 301d2fcc-bc11-4ef8-88be-74cc8e6d870b
-  pristine_commit_hash: 929208a7fc5052e9cd95dc74850c6f0cbd95c808
-  pristine_tree_hash: 6102005b3cf0a6c09335b2eddcc796b645a9f744
+  generation_id: bc59a254-9e1d-4e2f-a4bb-e498444b0840
+  pristine_commit_hash: 76a9fd3d36935746a89a643645471e362ce665a2
+  pristine_tree_hash: 202aff6e2ab5e19863f5ca58e3d8b3d1655f30f5
 features:
   go:
     additionalDependencies: 0.1.0
@@ -5312,8 +5312,8 @@ trackedFiles:
     pristine_git_object: 744f75c4ecbe927fc9ee0191d4e324b3e0579a5a
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:08075f5bb2e450e0500d4c071926dc846cd5e676
-    pristine_git_object: 849ad6f12577a9dc423b276746a7b48ed32159ca
+    last_write_checksum: sha1:810dc4889ff42da813779f76eacecf272fb4f1e8
+    pristine_git_object: d7d1183198041f97678d79e63bb75d7133215138
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -11873,7 +11873,6 @@ examples:
           application/vnd.api+json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes:\n* `Latitudesh.Servers.Create()`: \n  *  `request.Request.Data.Attributes` **Changed** (Breaking ⚠️)\n* `Latitudesh.Servers.UpdateDeployConfig()`: \n  *  `request.RequestBody.Data.Attributes.OperatingSystem` **Changed** (Breaking ⚠️)\n* `Latitudesh.Servers.Reinstall()`: \n  *  `request.RequestBody.Data.Attributes.OperatingSystem` **Changed** (Breaking ⚠️)\n* `Latitudesh.PrivateNetworks.Create()`: \n  *  `request.Request.Data.Attributes.Site` **Changed** (Breaking ⚠️)\n* `Latitudesh.VpnSessions.List()`:  `request.Filter[location]` **Changed** (Breaking ⚠️)\n* `Latitudesh.VpnSessions.Create()`: \n  *  `request.Request.Data.Attributes.Site` **Changed** (Breaking ⚠️)\n* `Latitudesh.ManagedDatabases.CreateManagedDatabase()`: \n  *  `request.Request.Data.Attributes.ReplicaRegions` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
