@@ -219,6 +219,8 @@ type VolumeDataAttributes struct {
 	NamespaceID *int64       `json:"namespace_id,omitempty"`
 	ConnectorID *string      `json:"connector_id,omitempty"`
 	Initiators  []Initiators `json:"initiators,omitempty"`
+	// NVMe namespace globally unique identifier (NGUID) of the volume, exactly as reported by the storage cluster, in UUID form (e.g. "b338cb51-7593-413d-8c87-2657af7ecae9"). Without the dashes it matches the NGUID the mapped server reports for the NVMe device of the volume. Null when it has not been recorded for the volume.
+	Nguid *string `json:"nguid,omitempty"`
 	// NVMe-TCP block mapping of a high performance volume. Null for volumes that are not mapped to a server.
 	Block *Block `json:"block,omitempty"`
 	// Keyring secret used to connect to the volume. Returned only for dashboard-origin requests; null until the volume is provisioned.
@@ -283,6 +285,13 @@ func (v *VolumeDataAttributes) GetInitiators() []Initiators {
 		return nil
 	}
 	return v.Initiators
+}
+
+func (v *VolumeDataAttributes) GetNguid() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Nguid
 }
 
 func (v *VolumeDataAttributes) GetBlock() *Block {
