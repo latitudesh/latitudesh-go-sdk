@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 23f10e6db04afd6d729ef8f6113bb060
+  docChecksum: f554896ab6fd0c9108be3b4d5b0b673e
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.799.0
-  generationVersion: 2.941.0
-  releaseVersion: 1.20.1
-  configChecksum: 55c5af41d91a81a4c11884ff55f1510d
+  speakeasyVersion: 1.800.0
+  generationVersion: 2.943.0
+  releaseVersion: 1.20.2
+  configChecksum: fbcab35c1c6eec10e299db228790f2ff
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: bc59a254-9e1d-4e2f-a4bb-e498444b0840
-  pristine_commit_hash: 76a9fd3d36935746a89a643645471e362ce665a2
-  pristine_tree_hash: 202aff6e2ab5e19863f5ca58e3d8b3d1655f30f5
+  generation_id: d73189ee-6444-4f75-bd71-b3bd49dc8f4a
+  pristine_commit_hash: e5c58f5a7ebdfd54e95d4d5b19b8a6d6e8f00801
+  pristine_tree_hash: 8656e3a0a560b9eec648ef5b4a9b2e3d2172d40a
 features:
   go:
     additionalDependencies: 0.1.0
@@ -36,7 +36,7 @@ features:
     responseFormat: 0.1.2
     retries: 2.84.5
     sdkHooks: 0.3.1
-    unions: 2.87.10
+    unions: 2.87.12
 trackedFiles:
   .devcontainer/README.md:
     id: b170c0f184ac
@@ -2496,8 +2496,8 @@ trackedFiles:
     pristine_git_object: 1da7a1d964196cd9231d20e011f06a2e04a32029
   docs/models/components/volumedataattributes.md:
     id: 3a637acfa8ef
-    last_write_checksum: sha1:bd798490d891d2d46e3c29cc704aa6208e35e0bc
-    pristine_git_object: 466bd982d4a30887813980d46e77e1aa108358d7
+    last_write_checksum: sha1:d7b90e1a6178d183589060a165b97fc09a545586
+    pristine_git_object: 238605e82b5deed8c02fd73e13db8b712ce2492f
   docs/models/components/volumedataregion.md:
     id: 3cceef442912
     last_write_checksum: sha1:58a894af140c11107a8913911a50b1b080324d20
@@ -5312,8 +5312,8 @@ trackedFiles:
     pristine_git_object: 744f75c4ecbe927fc9ee0191d4e324b3e0579a5a
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:810dc4889ff42da813779f76eacecf272fb4f1e8
-    pristine_git_object: d7d1183198041f97678d79e63bb75d7133215138
+    last_write_checksum: sha1:7201d81719d3a18acb93d6946c50087eb9bcda76
+    pristine_git_object: 3cefefa13d58a62fa3d69808023ec279921e194b
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -5968,8 +5968,8 @@ trackedFiles:
     pristine_git_object: 09117b0373561f981a4ec5f29d98399cbb8790bb
   models/components/volumedata.go:
     id: 34f19f1464dc
-    last_write_checksum: sha1:b14837e24b237de1df7dfc2623cf8fd5355fb665
-    pristine_git_object: 5f022dc54dbd06e9e1592bf2cb36ecc35273ca2b
+    last_write_checksum: sha1:ec9ff88847ba754dcaac92622f200ad8f2a6fa88
+    pristine_git_object: 53e45b7b1a4b17ca09af2de5dbb5ad45141bd44a
   models/components/vpnsessiondatawithpassword.go:
     id: 6b39c3cbeb0f
     last_write_checksum: sha1:d4f794fbb29bee375cd7a52d521e5678f51a69a6
@@ -11873,6 +11873,13 @@ examples:
           application/vnd.api+json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## Go SDK Changes:
+  * `Latitudesh.BlockStorage.ListVolumes()`:  `response.Data[].Attributes.Nguid` **Added**
+  * `Latitudesh.BlockStorage.CreateVolume()`:  `response.Data.Attributes.Nguid` **Added**
+  * `Latitudesh.BlockStorage.RetrieveVolume()`:  `response.Data.Attributes.Nguid` **Added**
+  * `Latitudesh.BlockStorage.MapVolume()`:  `response.Data.Attributes.Nguid` **Added**
+  * `Latitudesh.BlockStorage.UnmapVolume()`:  `response.Data.Attributes.Nguid` **Added**
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
