@@ -143,6 +143,7 @@ func main() {
 * [CreateVolume](docs/sdks/blockstorage/README.md#createvolume) - Create volume
 * [RetrieveVolume](docs/sdks/blockstorage/README.md#retrievevolume) - Retrieve volume
 * [DeleteVolume](docs/sdks/blockstorage/README.md#deletevolume) - Delete volume
+* [UpdateVolume](docs/sdks/blockstorage/README.md#updatevolume) - Update volume
 * [~~MountVolume~~](docs/sdks/blockstorage/README.md#mountvolume) - Mount volume (deprecated) :warning: **Deprecated**
 * [MapVolume](docs/sdks/blockstorage/README.md#mapvolume) - Map volume
 * [UnmapVolume](docs/sdks/blockstorage/README.md#unmapvolume) - Unmap volume

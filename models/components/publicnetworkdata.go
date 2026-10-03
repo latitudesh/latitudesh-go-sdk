@@ -65,6 +65,126 @@ func (e *Size) UnmarshalJSON(data []byte) error {
 	}
 }
 
+// PublicNetworkDataRole - gateway: reserved for the network gateway; server: a server on the network; elastic_ip: an elastic IP; reserved: held in IPAM but not by a server; available: free to use
+type PublicNetworkDataRole string
+
+const (
+	PublicNetworkDataRoleGateway   PublicNetworkDataRole = "gateway"
+	PublicNetworkDataRoleServer    PublicNetworkDataRole = "server"
+	PublicNetworkDataRoleElasticIP PublicNetworkDataRole = "elastic_ip"
+	PublicNetworkDataRoleReserved  PublicNetworkDataRole = "reserved"
+	PublicNetworkDataRoleAvailable PublicNetworkDataRole = "available"
+)
+
+func (e PublicNetworkDataRole) ToPointer() *PublicNetworkDataRole {
+	return &e
+}
+func (e *PublicNetworkDataRole) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "gateway":
+		fallthrough
+	case "server":
+		fallthrough
+	case "elastic_ip":
+		fallthrough
+	case "reserved":
+		fallthrough
+	case "available":
+		*e = PublicNetworkDataRole(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for PublicNetworkDataRole: %v", v)
+	}
+}
+
+type PublicNetworkDataAttributesType string
+
+const (
+	PublicNetworkDataAttributesTypeServer    PublicNetworkDataAttributesType = "server"
+	PublicNetworkDataAttributesTypeElasticIP PublicNetworkDataAttributesType = "elastic_ip"
+)
+
+func (e PublicNetworkDataAttributesType) ToPointer() *PublicNetworkDataAttributesType {
+	return &e
+}
+func (e *PublicNetworkDataAttributesType) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "server":
+		fallthrough
+	case "elastic_ip":
+		*e = PublicNetworkDataAttributesType(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for PublicNetworkDataAttributesType: %v", v)
+	}
+}
+
+// PublicNetworkDataAssignment - The resource holding the address, when it is a server or an elastic IP
+type PublicNetworkDataAssignment struct {
+	Type *PublicNetworkDataAttributesType `json:"type,omitempty"`
+	ID   *string                          `json:"id,omitempty"`
+	// Servers only
+	Hostname *string `json:"hostname,omitempty"`
+}
+
+func (p *PublicNetworkDataAssignment) GetType() *PublicNetworkDataAttributesType {
+	if p == nil {
+		return nil
+	}
+	return p.Type
+}
+
+func (p *PublicNetworkDataAssignment) GetID() *string {
+	if p == nil {
+		return nil
+	}
+	return p.ID
+}
+
+func (p *PublicNetworkDataAssignment) GetHostname() *string {
+	if p == nil {
+		return nil
+	}
+	return p.Hostname
+}
+
+type Ips struct {
+	Address *string `json:"address,omitempty"`
+	// gateway: reserved for the network gateway; server: a server on the network; elastic_ip: an elastic IP; reserved: held in IPAM but not by a server; available: free to use
+	Role *PublicNetworkDataRole `json:"role,omitempty"`
+	// The resource holding the address, when it is a server or an elastic IP
+	Assignment *PublicNetworkDataAssignment `json:"assignment,omitempty"`
+}
+
+func (i *Ips) GetAddress() *string {
+	if i == nil {
+		return nil
+	}
+	return i.Address
+}
+
+func (i *Ips) GetRole() *PublicNetworkDataRole {
+	if i == nil {
+		return nil
+	}
+	return i.Role
+}
+
+func (i *Ips) GetAssignment() *PublicNetworkDataAssignment {
+	if i == nil {
+		return nil
+	}
+	return i.Assignment
+}
+
 type PublicNetworkDataProject struct {
 	ID   *string `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
@@ -156,9 +276,11 @@ type PublicNetworkDataAttributes struct {
 	// True once a server has been added to the public network and the public network is ready to use.
 	Activated *bool `json:"activated,omitempty"`
 	// Servers this public network can host
-	Capacity  *int64                    `json:"capacity,omitempty"`
-	IpsUsed   *int64                    `json:"ips_used,omitempty"`
-	IpsFree   *int64                    `json:"ips_free,omitempty"`
+	Capacity *int64 `json:"capacity,omitempty"`
+	IpsUsed  *int64 `json:"ips_used,omitempty"`
+	IpsFree  *int64 `json:"ips_free,omitempty"`
+	// Every host address of the IPv4 network and what holds it. Only returned when retrieving a single public network.
+	Ips       []Ips                     `json:"ips,omitempty"`
 	CreatedAt *time.Time                `json:"created_at,omitempty"`
 	Project   *PublicNetworkDataProject `json:"project,omitempty"`
 	Region    *PublicNetworkDataRegion  `json:"region,omitempty"`
@@ -222,6 +344,13 @@ func (p *PublicNetworkDataAttributes) GetIpsFree() *int64 {
 		return nil
 	}
 	return p.IpsFree
+}
+
+func (p *PublicNetworkDataAttributes) GetIps() []Ips {
+	if p == nil {
+		return nil
+	}
+	return p.Ips
 }
 
 func (p *PublicNetworkDataAttributes) GetCreatedAt() *time.Time {

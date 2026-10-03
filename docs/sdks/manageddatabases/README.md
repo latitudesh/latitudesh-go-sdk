@@ -150,7 +150,7 @@ func main() {
         Data: &components.ManagedDatabasePayloadData{
             Type: components.ManagedDatabasePayloadTypeManagedDatabases.ToPointer(),
             Attributes: &components.ManagedDatabasePayloadAttributes{
-                Name: latitudeshgosdk.Pointer("my-postgres-db"),
+                Name: "my-postgres-db",
                 ProjectID: "proj_ABC123",
                 Region: "ASH",
                 Plan: "db.psql.small",
