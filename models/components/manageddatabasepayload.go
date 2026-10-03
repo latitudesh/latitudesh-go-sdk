@@ -78,8 +78,8 @@ func (m *ManagedDatabasePayloadRecovery) GetBackupID() *string {
 }
 
 type ManagedDatabasePayloadAttributes struct {
-	// Display name (optional)
-	Name *string `json:"name,omitempty"`
+	// Display name; used to derive the helm release name
+	Name string `json:"name"`
 	// Project slug
 	ProjectID string `json:"project_id"`
 	// Target region
@@ -102,9 +102,9 @@ type ManagedDatabasePayloadAttributes struct {
 	ReplicaRegions []string `json:"replica_regions,omitempty"`
 }
 
-func (m *ManagedDatabasePayloadAttributes) GetName() *string {
+func (m *ManagedDatabasePayloadAttributes) GetName() string {
 	if m == nil {
-		return nil
+		return ""
 	}
 	return m.Name
 }

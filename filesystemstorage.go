@@ -32,7 +32,7 @@ func newFilesystemStorage(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration
 
 // CreateFilesystem - Create filesystem
 // Allows you to add persistent storage to a project. These filesystems can be used to store data across your servers.
-func (s *FilesystemStorage) CreateFilesystem(ctx context.Context, request operations.PostStorageFilesystemsFilesystemStorageRequestBody, opts ...operations.Option) (*operations.PostStorageFilesystemsResponse, error) {
+func (s *FilesystemStorage) CreateFilesystem(ctx context.Context, request operations.CreateFilesystemFilesystemStorageRequestBody, opts ...operations.Option) (*operations.CreateFilesystemResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -61,7 +61,7 @@ func (s *FilesystemStorage) CreateFilesystem(ctx context.Context, request operat
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "post-storage-filesystems",
+		OperationID:      "create-filesystem",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
@@ -190,7 +190,7 @@ func (s *FilesystemStorage) CreateFilesystem(ctx context.Context, request operat
 		}
 	}
 
-	res := &operations.PostStorageFilesystemsResponse{
+	res := &operations.CreateFilesystemResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -206,7 +206,7 @@ func (s *FilesystemStorage) CreateFilesystem(ctx context.Context, request operat
 				return nil, err
 			}
 
-			var out operations.PostStorageFilesystemsResponseBody
+			var out operations.CreateFilesystemResponseBody
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -266,8 +266,8 @@ func (s *FilesystemStorage) CreateFilesystem(ctx context.Context, request operat
 
 // ListFilesystems - List filesystems
 // Lists all the filesystems from a team.
-func (s *FilesystemStorage) ListFilesystems(ctx context.Context, filterProject *string, opts ...operations.Option) (*operations.GetStorageFilesystemsResponse, error) {
-	request := operations.GetStorageFilesystemsRequest{
+func (s *FilesystemStorage) ListFilesystems(ctx context.Context, filterProject *string, opts ...operations.Option) (*operations.ListFilesystemsResponse, error) {
+	request := operations.ListFilesystemsRequest{
 		FilterProject: filterProject,
 	}
 
@@ -299,7 +299,7 @@ func (s *FilesystemStorage) ListFilesystems(ctx context.Context, filterProject *
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "get-storage-filesystems",
+		OperationID:      "list-filesystems",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
@@ -425,7 +425,7 @@ func (s *FilesystemStorage) ListFilesystems(ctx context.Context, filterProject *
 		}
 	}
 
-	res := &operations.GetStorageFilesystemsResponse{
+	res := &operations.ListFilesystemsResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -480,8 +480,8 @@ func (s *FilesystemStorage) ListFilesystems(ctx context.Context, filterProject *
 
 // DeleteFilesystem - Delete filesystem
 // Allows you to remove a filesystem from a project.
-func (s *FilesystemStorage) DeleteFilesystem(ctx context.Context, filesystemID string, opts ...operations.Option) (*operations.DeleteStorageFilesystemsResponse, error) {
-	request := operations.DeleteStorageFilesystemsRequest{
+func (s *FilesystemStorage) DeleteFilesystem(ctx context.Context, filesystemID string, opts ...operations.Option) (*operations.DeleteFilesystemResponse, error) {
+	request := operations.DeleteFilesystemRequest{
 		FilesystemID: filesystemID,
 	}
 
@@ -513,7 +513,7 @@ func (s *FilesystemStorage) DeleteFilesystem(ctx context.Context, filesystemID s
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "delete-storage-filesystems",
+		OperationID:      "delete-filesystem",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
@@ -635,7 +635,7 @@ func (s *FilesystemStorage) DeleteFilesystem(ctx context.Context, filesystemID s
 		}
 	}
 
-	res := &operations.DeleteStorageFilesystemsResponse{
+	res := &operations.DeleteFilesystemResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -671,8 +671,8 @@ func (s *FilesystemStorage) DeleteFilesystem(ctx context.Context, filesystemID s
 
 // UpdateFilesystem - Update filesystem
 // Allow you to upgrade the size of a filesystem.
-func (s *FilesystemStorage) UpdateFilesystem(ctx context.Context, filesystemID string, requestBody operations.PatchStorageFilesystemsFilesystemStorageRequestBody, opts ...operations.Option) (*operations.PatchStorageFilesystemsResponse, error) {
-	request := operations.PatchStorageFilesystemsRequest{
+func (s *FilesystemStorage) UpdateFilesystem(ctx context.Context, filesystemID string, requestBody operations.UpdateFilesystemFilesystemStorageRequestBody, opts ...operations.Option) (*operations.UpdateFilesystemResponse, error) {
+	request := operations.UpdateFilesystemRequest{
 		FilesystemID: filesystemID,
 		RequestBody:  requestBody,
 	}
@@ -705,7 +705,7 @@ func (s *FilesystemStorage) UpdateFilesystem(ctx context.Context, filesystemID s
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "patch-storage-filesystems",
+		OperationID:      "update-filesystem",
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
@@ -834,7 +834,7 @@ func (s *FilesystemStorage) UpdateFilesystem(ctx context.Context, filesystemID s
 		}
 	}
 
-	res := &operations.PatchStorageFilesystemsResponse{
+	res := &operations.UpdateFilesystemResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -850,7 +850,7 @@ func (s *FilesystemStorage) UpdateFilesystem(ctx context.Context, filesystemID s
 				return nil, err
 			}
 
-			var out operations.PatchStorageFilesystemsResponseBody
+			var out operations.UpdateFilesystemResponseBody
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}

@@ -1,4 +1,4 @@
-# DeleteStorageFilesystemsRequest
+# DeleteFilesystemRequest
 
 
 ## Fields

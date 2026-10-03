@@ -1,4 +1,4 @@
-# GetStorageFilesystemsRequest
+# ListFilesystemsRequest
 
 
 ## Fields

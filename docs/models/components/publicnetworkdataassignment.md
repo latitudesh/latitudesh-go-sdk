@@ -1,0 +1,12 @@
+# PublicNetworkDataAssignment
+
+The resource holding the address, when it is a server or an elastic IP
+
+
+## Fields
+
+| Field                                                                                                     | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `Type`                                                                                                    | [*components.PublicNetworkDataAttributesType](../../models/components/publicnetworkdataattributestype.md) | :heavy_minus_sign:                                                                                        | N/A                                                                                                       |
+| `ID`                                                                                                      | `*string`                                                                                                 | :heavy_minus_sign:                                                                                        | N/A                                                                                                       |
+| `Hostname`                                                                                                | `*string`                                                                                                 | :heavy_minus_sign:                                                                                        | Servers only                                                                                              |
