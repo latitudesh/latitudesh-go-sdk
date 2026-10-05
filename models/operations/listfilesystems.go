@@ -6,34 +6,34 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
-type GetStorageFilesystemsRequest struct {
+type ListFilesystemsRequest struct {
 	// The project ID or Slug to filter by
 	FilterProject *string `queryParam:"style=form,explode=true,name=filter[project]"`
 }
 
-func (g *GetStorageFilesystemsRequest) GetFilterProject() *string {
-	if g == nil {
+func (l *ListFilesystemsRequest) GetFilterProject() *string {
+	if l == nil {
 		return nil
 	}
-	return g.FilterProject
+	return l.FilterProject
 }
 
-type GetStorageFilesystemsResponse struct {
+type ListFilesystemsResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Success
 	Filesystems *components.Filesystems
 }
 
-func (g *GetStorageFilesystemsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if g == nil {
+func (l *ListFilesystemsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if l == nil {
 		return components.HTTPMetadata{}
 	}
-	return g.HTTPMeta
+	return l.HTTPMeta
 }
 
-func (g *GetStorageFilesystemsResponse) GetFilesystems() *components.Filesystems {
-	if g == nil {
+func (l *ListFilesystemsResponse) GetFilesystems() *components.Filesystems {
+	if l == nil {
 		return nil
 	}
-	return g.Filesystems
+	return l.Filesystems
 }

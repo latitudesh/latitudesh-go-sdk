@@ -1,0 +1,9 @@
+# UpdateVolumeBlockStorageData
+
+
+## Fields
+
+| Field                                                                                                          | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `Type`                                                                                                         | [operations.UpdateVolumeBlockStorageType](../../models/operations/updatevolumeblockstoragetype.md)             | :heavy_check_mark:                                                                                             | N/A                                                                                                            |
+| `Attributes`                                                                                                   | [operations.UpdateVolumeBlockStorageAttributes](../../models/operations/updatevolumeblockstorageattributes.md) | :heavy_check_mark:                                                                                             | N/A                                                                                                            |

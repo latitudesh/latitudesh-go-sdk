@@ -8,6 +8,7 @@
 * [CreateVolume](#createvolume) - Create volume
 * [RetrieveVolume](#retrievevolume) - Retrieve volume
 * [DeleteVolume](#deletevolume) - Delete volume
+* [UpdateVolume](#updatevolume) - Update volume
 * [~~MountVolume~~](#mountvolume) - Mount volume (deprecated) :warning: **Deprecated**
 * [MapVolume](#mapvolume) - Map volume
 * [UnmapVolume](#unmapvolume) - Unmap volume
@@ -224,6 +225,67 @@ func main() {
 ### Response
 
 **[*operations.DeleteVolumeResponse](../../models/operations/deletevolumeresponse.md), error**
+
+### Errors
+
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| components.APIError | 4XX, 5XX            | \*/\*               |
+
+## UpdateVolume
+
+Increases the size of a high performance volume. Shrinking is not supported. Billing is prorated to the new size.
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="update-volume" method="patch" path="/storage/volumes/{id}" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.BlockStorage.UpdateVolume(ctx, "<id>", operations.UpdateVolumeBlockStorageRequestBody{
+        Data: operations.UpdateVolumeBlockStorageData{
+            Type: operations.UpdateVolumeBlockStorageTypeVolumes,
+            Attributes: operations.UpdateVolumeBlockStorageAttributes{
+                SizeInGb: 873925,
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                        | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                                            | :heavy_check_mark:                                                                                               | The context to use for the request.                                                                              |
+| `id`                                                                                                             | `string`                                                                                                         | :heavy_check_mark:                                                                                               | Volume ID                                                                                                        |
+| `requestBody`                                                                                                    | [operations.UpdateVolumeBlockStorageRequestBody](../../models/operations/updatevolumeblockstoragerequestbody.md) | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `opts`                                                                                                           | [][operations.Option](../../models/operations/option.md)                                                         | :heavy_minus_sign:                                                                                               | The options for this request.                                                                                    |
+
+### Response
+
+**[*operations.UpdateVolumeResponse](../../models/operations/updatevolumeresponse.md), error**
 
 ### Errors
 
