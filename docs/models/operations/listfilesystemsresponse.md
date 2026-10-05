@@ -1,4 +1,4 @@
-# GetStorageFilesystemsResponse
+# ListFilesystemsResponse
 
 
 ## Fields

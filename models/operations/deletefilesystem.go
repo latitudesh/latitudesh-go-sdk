@@ -6,22 +6,22 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
-type DeleteStorageFilesystemsRequest struct {
+type DeleteFilesystemRequest struct {
 	FilesystemID string `pathParam:"style=simple,explode=false,name=filesystem_id"`
 }
 
-func (d *DeleteStorageFilesystemsRequest) GetFilesystemID() string {
+func (d *DeleteFilesystemRequest) GetFilesystemID() string {
 	if d == nil {
 		return ""
 	}
 	return d.FilesystemID
 }
 
-type DeleteStorageFilesystemsResponse struct {
+type DeleteFilesystemResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (d *DeleteStorageFilesystemsResponse) GetHTTPMeta() components.HTTPMetadata {
+func (d *DeleteFilesystemResponse) GetHTTPMeta() components.HTTPMetadata {
 	if d == nil {
 		return components.HTTPMetadata{}
 	}

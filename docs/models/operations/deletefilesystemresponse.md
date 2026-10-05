@@ -1,4 +1,4 @@
-# DeleteStorageFilesystemsResponse
+# DeleteFilesystemResponse
 
 
 ## Fields

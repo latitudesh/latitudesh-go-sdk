@@ -58,6 +58,94 @@ func (e *FilesystemStorageClass) UnmarshalJSON(data []byte) error {
 	}
 }
 
+type Protocols string
+
+const (
+	ProtocolsNfs3 Protocols = "nfs3"
+	ProtocolsNfs4 Protocols = "nfs4"
+)
+
+func (e Protocols) ToPointer() *Protocols {
+	return &e
+}
+func (e *Protocols) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "nfs3":
+		fallthrough
+	case "nfs4":
+		*e = Protocols(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for Protocols: %v", v)
+	}
+}
+
+type FilesystemDataSite struct {
+	ID       *string `json:"id,omitempty"`
+	Name     *string `json:"name,omitempty"`
+	Slug     *string `json:"slug,omitempty"`
+	Facility *string `json:"facility,omitempty"`
+}
+
+func (f *FilesystemDataSite) GetID() *string {
+	if f == nil {
+		return nil
+	}
+	return f.ID
+}
+
+func (f *FilesystemDataSite) GetName() *string {
+	if f == nil {
+		return nil
+	}
+	return f.Name
+}
+
+func (f *FilesystemDataSite) GetSlug() *string {
+	if f == nil {
+		return nil
+	}
+	return f.Slug
+}
+
+func (f *FilesystemDataSite) GetFacility() *string {
+	if f == nil {
+		return nil
+	}
+	return f.Facility
+}
+
+type FilesystemDataRegion struct {
+	City    *string             `json:"city,omitempty"`
+	Country *string             `json:"country,omitempty"`
+	Site    *FilesystemDataSite `json:"site,omitempty"`
+}
+
+func (f *FilesystemDataRegion) GetCity() *string {
+	if f == nil {
+		return nil
+	}
+	return f.City
+}
+
+func (f *FilesystemDataRegion) GetCountry() *string {
+	if f == nil {
+		return nil
+	}
+	return f.Country
+}
+
+func (f *FilesystemDataRegion) GetSite() *FilesystemDataSite {
+	if f == nil {
+		return nil
+	}
+	return f.Site
+}
+
 type FilesystemDataAttributes struct {
 	Name                   *string                 `json:"name,omitempty"`
 	SizeInGb               *int64                  `json:"size_in_gb,omitempty"`
@@ -68,9 +156,16 @@ type FilesystemDataAttributes struct {
 	// Cluster user used to mount the filesystem. Returned only for dashboard-origin requests; null until the filesystem is provisioned.
 	ClusterUser *string `json:"cluster_user,omitempty"`
 	// Path of the filesystem volume inside the cluster. Returned only for dashboard-origin requests; null until the filesystem is provisioned.
-	VolumePath *string         `json:"volume_path,omitempty"`
-	Project    *ProjectInclude `json:"project,omitempty"`
-	Team       *TeamInclude    `json:"team,omitempty"`
+	VolumePath *string `json:"volume_path,omitempty"`
+	// Path of the NFS view (NFSv3 and NFSv4) backing the filesystem. Null for filesystems that are not backed by high performance file storage.
+	NfsMountPath *string `json:"nfs_mount_path,omitempty"`
+	// NFS protocol version(s) the filesystem was requested to be mounted with. Null for filesystems that are not backed by high performance file storage.
+	Protocols []Protocols `json:"protocols,omitempty"`
+	// Hostname of the NFS endpoint backing the filesystem. Null for filesystems that are not backed by high performance file storage.
+	FileEndpoint *string               `json:"file_endpoint,omitempty"`
+	Region       *FilesystemDataRegion `json:"region,omitempty"`
+	Project      *ProjectInclude       `json:"project,omitempty"`
+	Team         *TeamInclude          `json:"team,omitempty"`
 }
 
 func (f FilesystemDataAttributes) MarshalJSON() ([]byte, error) {
@@ -131,6 +226,34 @@ func (f *FilesystemDataAttributes) GetVolumePath() *string {
 		return nil
 	}
 	return f.VolumePath
+}
+
+func (f *FilesystemDataAttributes) GetNfsMountPath() *string {
+	if f == nil {
+		return nil
+	}
+	return f.NfsMountPath
+}
+
+func (f *FilesystemDataAttributes) GetProtocols() []Protocols {
+	if f == nil {
+		return nil
+	}
+	return f.Protocols
+}
+
+func (f *FilesystemDataAttributes) GetFileEndpoint() *string {
+	if f == nil {
+		return nil
+	}
+	return f.FileEndpoint
+}
+
+func (f *FilesystemDataAttributes) GetRegion() *FilesystemDataRegion {
+	if f == nil {
+		return nil
+	}
+	return f.Region
 }
 
 func (f *FilesystemDataAttributes) GetProject() *ProjectInclude {
