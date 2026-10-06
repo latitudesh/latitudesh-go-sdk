@@ -65,7 +65,7 @@ func (e *Size) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// PublicNetworkDataRole - gateway: reserved for the network gateway; server: a server on the network; elastic_ip: an elastic IP; reserved: held in IPAM but not by a server; available: free to use
+// PublicNetworkDataRole - gateway: reserved for the network gateway; server: a server on the network; elastic_ip: an elastic IP; reserved: held in IPAM but not by a server, including addresses you reserved; available: free to use
 type PublicNetworkDataRole string
 
 const (
@@ -158,7 +158,7 @@ func (p *PublicNetworkDataAssignment) GetHostname() *string {
 
 type Ips struct {
 	Address *string `json:"address,omitempty"`
-	// gateway: reserved for the network gateway; server: a server on the network; elastic_ip: an elastic IP; reserved: held in IPAM but not by a server; available: free to use
+	// gateway: reserved for the network gateway; server: a server on the network; elastic_ip: an elastic IP; reserved: held in IPAM but not by a server, including addresses you reserved; available: free to use
 	Role *PublicNetworkDataRole `json:"role,omitempty"`
 	// The resource holding the address, when it is a server or an elastic IP
 	Assignment *PublicNetworkDataAssignment `json:"assignment,omitempty"`

@@ -296,6 +296,7 @@ func main() {
 * [CreatePublicNetwork](docs/sdks/publicnetworks/README.md#createpublicnetwork) - Create a network
 * [GetPublicNetwork](docs/sdks/publicnetworks/README.md#getpublicnetwork) - Retrieve a network
 * [DestroyPublicNetwork](docs/sdks/publicnetworks/README.md#destroypublicnetwork) - Delete a network
+* [UpdatePublicNetworkIP](docs/sdks/publicnetworks/README.md#updatepublicnetworkip) - Update a network IP
 
 ### [Regions](docs/sdks/regions/README.md)
 
