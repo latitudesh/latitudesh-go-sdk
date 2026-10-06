@@ -1,0 +1,9 @@
+# UpdatePublicNetworkIPAttributes
+
+
+## Fields
+
+| Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `Address`                                                                                                        | `string`                                                                                                         | :heavy_check_mark:                                                                                               | The IPv4 address, e.g. 203.0.113.4                                                                               |
+| `Reserved`                                                                                                       | `bool`                                                                                                           | :heavy_check_mark:                                                                                               | true reserves an available address so servers are never attached with it; false releases an address you reserved |

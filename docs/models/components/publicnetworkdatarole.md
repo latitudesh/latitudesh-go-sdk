@@ -1,6 +1,6 @@
 # PublicNetworkDataRole
 
-gateway: reserved for the network gateway; server: a server on the network; elastic_ip: an elastic IP; reserved: held in IPAM but not by a server; available: free to use
+gateway: reserved for the network gateway; server: a server on the network; elastic_ip: an elastic IP; reserved: held in IPAM but not by a server, including addresses you reserved; available: free to use
 
 ## Example Usage
 

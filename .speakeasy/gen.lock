@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 56fbc5467526d185fdacbebc4e500d55
+  docChecksum: b725111bcc2330bd0673a8d1f20b14df
   docVersion: "2023-06-01"
   speakeasyVersion: 1.800.1
   generationVersion: 2.943.0
-  releaseVersion: 1.20.3
-  configChecksum: d82327f19cc58f163a9a8066cc7841f5
+  releaseVersion: 1.20.4
+  configChecksum: f1b47fd0291e0b48fbbf5c1175d32f0f
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 11f2a3e9-b2b6-441a-9ebc-47cdde0cb34b
-  pristine_commit_hash: 80d08fce611f7413955ea7180460d8104c3111a3
-  pristine_tree_hash: 8ff69b01a94e8f389c241312859b7512745c5ae3
+  generation_id: f056cfc9-5370-465f-abe7-ecc53372c8e7
+  pristine_commit_hash: c9b25ec2e8910aa3b3a6db374286e94dfe3c7afd
+  pristine_tree_hash: 958b464863b33beabf2a4ac817d296c54c049a91
 features:
   go:
     additionalDependencies: 0.1.0
@@ -828,8 +828,8 @@ trackedFiles:
     pristine_git_object: 49c5c6ea265b8b65d63597e9b940761a2f8a7044
   docs/models/components/ips.md:
     id: afb6e31a8780
-    last_write_checksum: sha1:f7550d6bcbef0f1368d6735b6a8351b1e76c1b59
-    pristine_git_object: 15144a8dbe6a6d09776b36c37af00fe70e21425d
+    last_write_checksum: sha1:359b3ff1f0462232262feb20fe8a312b95ebb81a
+    pristine_git_object: c217287183bc552c3d0a594014654be20a6cb7d0
   docs/models/components/kubernetesavailableversions.md:
     id: 2041599b030f
     last_write_checksum: sha1:012fef49b8dc21564495ccce74cff3bd7d6a87c1
@@ -1524,8 +1524,8 @@ trackedFiles:
     pristine_git_object: 57b72406c762146736288e317c29ccae7c3fb2f7
   docs/models/components/publicnetworkdatarole.md:
     id: be9f656f9a09
-    last_write_checksum: sha1:0a5075657091d1805b8c37c9e9c26187fe36b107
-    pristine_git_object: be0435d0608b386c0ab5db563854fc02fae2b23f
+    last_write_checksum: sha1:8c7c45685272730d25820a48c655419445f403b4
+    pristine_git_object: 4b0ff88113662f8e317ffd1c664e9b43e48032b7
   docs/models/components/publicnetworkdatatype.md:
     id: 39d707dc1306
     last_write_checksum: sha1:d1c8113af444f647811a51c9434ab7aab6fc8f44
@@ -2054,6 +2054,22 @@ trackedFiles:
     id: af57f628c543
     last_write_checksum: sha1:d3aca9a8767d02ffce837f6d9997f07018167b42
     pristine_git_object: b31054f6fcd661f0149483b32297a5a5495247b2
+  docs/models/components/updatepublicnetworkip.md:
+    id: 263345b3c479
+    last_write_checksum: sha1:a9bee6897338d970a2634f7c6bfd41453f7277f5
+    pristine_git_object: 00bff93162868bd1758be7422ecce3bc2bb1b34a
+  docs/models/components/updatepublicnetworkipattributes.md:
+    id: 9c81e98063ad
+    last_write_checksum: sha1:f93e29d9700b2ce29c66d34c411230ca9ced5616
+    pristine_git_object: 6abde36163c2f6344e5125cfd92d52bc99e79a62
+  docs/models/components/updatepublicnetworkipdata.md:
+    id: d8d4acb1a993
+    last_write_checksum: sha1:7e81ef78132768ac9ec6481198dee199d3e227c4
+    pristine_git_object: 4a239c34d47e6e178ffe040af507510f56e8ea02
+  docs/models/components/updatepublicnetworkiptype.md:
+    id: 3822992d6fc0
+    last_write_checksum: sha1:1af9c831de810cbada09974bbddbe14a5a11299e
+    pristine_git_object: eef9e632e4907ac56a6cb614f19add96ef59511c
   docs/models/components/usagetype.md:
     id: 3ade48a201d7
     last_write_checksum: sha1:e7b255f54b57bd8cd7cd6dc4bd04f6e9633fa1e6
@@ -4966,6 +4982,14 @@ trackedFiles:
     id: 9cdad8520288
     last_write_checksum: sha1:5347e9d001aadef04372f4a06dbdf3df9c6e8b04
     pristine_git_object: 8aed152bee28a550ccfbb54b1a1d747c4c167fb4
+  docs/models/operations/updatepublicnetworkiprequest.md:
+    id: 6f6d21e248f8
+    last_write_checksum: sha1:d6ebcaa4fcf84d1ba09efebae806c412690680cd
+    pristine_git_object: 84552e0f6476fd966eed3b72ec1dd77bead06865
+  docs/models/operations/updatepublicnetworkipresponse.md:
+    id: 1d5ce7f959bb
+    last_write_checksum: sha1:5eec6c4474d54300cab83aca75f81b7895649c65
+    pristine_git_object: 97883d8c5b848f8087857a0c3c753491fdb29a00
   docs/models/operations/updateserverdeployconfigrequest.md:
     id: 612c9affa1ab
     last_write_checksum: sha1:e7d05a29407e163a54b95b938cab8692759edaf0
@@ -5216,8 +5240,8 @@ trackedFiles:
     pristine_git_object: e63047759772dcf2bfce927c07436a730e393d2b
   docs/sdks/publicnetworks/README.md:
     id: d76e4b3f1565
-    last_write_checksum: sha1:0bd6a276a5b48d7d4a411907d9686c09323cfca8
-    pristine_git_object: 3f82bb4d34d806c0ce9afdba9a926ce26dfde37e
+    last_write_checksum: sha1:5eb0062071db0c07ea479ca812eae60a08de5484
+    pristine_git_object: 60cd8b317b6e766c5126635ddee6bcd5927a1a49
   docs/sdks/regions/README.md:
     id: bad944ca9ff1
     last_write_checksum: sha1:ea8634ec024748627a267231421ea4d19f2ce59e
@@ -5376,8 +5400,8 @@ trackedFiles:
     pristine_git_object: 3f417d76ab1ce17678fd54b6c17f8a5428d5e262
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:db36a566bdd122cf08ae6bb353d58ade24ccc6b1
-    pristine_git_object: c1ac83e7b7cb296f7a687290392f276b1a8bc2e4
+    last_write_checksum: sha1:31669057ac2367c7b30001a8efd65ff47656fda9
+    pristine_git_object: 93b4396e76223ea2f824cc1f75d871d3ec565f28
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -5764,8 +5788,8 @@ trackedFiles:
     pristine_git_object: 1eb01b5e86034b8f77b5b9e95c52dbb8280ddf2a
   models/components/publicnetworkdata.go:
     id: ff5cdd4ef614
-    last_write_checksum: sha1:9eb313154e6128ab311c59f7bc68766863c44a12
-    pristine_git_object: e70211f4ea7085283f0cfe654a6d2c09e91c8deb
+    last_write_checksum: sha1:8e5c3ff81a5bed97a7637d5fe5cd10e9b605649f
+    pristine_git_object: 1e611abb213b5d47a001e9c900d328713202b6d3
   models/components/publicnetworks.go:
     id: 28d726ade41a
     last_write_checksum: sha1:baa2d9b1c4cd33c441886c86b151c94d3f2a9972
@@ -5902,6 +5926,10 @@ trackedFiles:
     id: 8ecd0b0a87e8
     last_write_checksum: sha1:b9dd141213c4e5747bfda5b37132b31545faf808
     pristine_git_object: 07dc0792a94d8c7ae12fe5be5c8d54bf6b3ea819
+  models/components/updatepublicnetworkip.go:
+    id: 4912905d4b4f
+    last_write_checksum: sha1:85722f022f9de8666732eadb7a18bf10c4d64a94
+    pristine_git_object: e10df22049d2766e19ecf0fccc6e8c4e1fc1eb2a
   models/components/user.go:
     id: 972e0ca973c7
     last_write_checksum: sha1:e7935b6143841156cd7fd84474274bd3c266b7e3
@@ -6806,6 +6834,10 @@ trackedFiles:
     id: cd2ab9bc0fa9
     last_write_checksum: sha1:73cc3bacd407e54bbac41953f4ea53f7a363dffd
     pristine_git_object: 1fecc4ef510d3136c6e6ecdd9f0df5427b430421
+  models/operations/updatepublicnetworkip.go:
+    id: d30a2774322e
+    last_write_checksum: sha1:a1f02a10d14ba463f608fd27e17eb0a5fb288921
+    pristine_git_object: 407653892f98183222b0ae1a3319e804151ab59d
   models/operations/updateserver.go:
     id: 97ec05837276
     last_write_checksum: sha1:97619d7c0a23dcaa51b1c57f04c601c5c8c691ba
@@ -6860,8 +6892,8 @@ trackedFiles:
     pristine_git_object: 447f5b3ff154a9aa0e09b364d2f47b8c35a72b57
   publicnetworks.go:
     id: d24361353099
-    last_write_checksum: sha1:95827842d95e771f16a519b8cd58fd2a868107de
-    pristine_git_object: f7a7a527b455b2984f29207119e7f01f5a274b3c
+    last_write_checksum: sha1:3fc7dee1914eda89fcb2f79ab089c9dcab466760
+    pristine_git_object: b2d1dc200a790bfacaa3b9b8f6be9165156fd072
   regions.go:
     id: f6c41935d664
     last_write_checksum: sha1:38db2a328b97d08f7d36a18b940b4db692f3c05c
@@ -11989,9 +12021,24 @@ examples:
       responses:
         "200":
           application/vnd.api+json: {}
+  update-public-network-ip:
+    speakeasy-default-update-public-network-ip:
+      parameters:
+        path:
+          id: "<id>"
+      requestBody:
+        application/json: {"data": {"type": "public_networks"}}
+        application/vnd.api+json: {"data": {"type": "public_networks"}}
+      responses:
+        "200":
+          application/vnd.api+json: {}
+        "404":
+          application/vnd.api+json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes:\n* `Latitudesh.FilesystemStorage.CreateFilesystem()`: \n  *  `request.Request.Data.Attributes` **Changed** (Breaking ⚠️)\n  *  `response.Data.Attributes` **Changed**\n* `Latitudesh.ManagedDatabases.CreateManagedDatabase()`: \n  *  `request.Request.Data.Attributes.Name` **Changed** (Breaking ⚠️)\n* `Latitudesh.BlockStorage.UpdateVolume()`: **Added**\n* `Latitudesh.KubernetesClusters.ListKubernetesClusters()`:  `error.status[403]` **Added**\n* `Latitudesh.KubernetesClusters.ListKubernetesAvailableVersions()`:  `error.status[403]` **Added**\n* `Latitudesh.KubernetesClusters.GetKubernetesCluster()`:  `error.status[403]` **Added**\n* `Latitudesh.PublicNetworks.GetPublicNetworks()`:  `response.Data[].Attributes.Ips` **Added**\n* `Latitudesh.PublicNetworks.CreatePublicNetwork()`:  `response.Data.Attributes.Ips` **Added**\n* `Latitudesh.PublicNetworks.GetPublicNetwork()`:  `response.Data.Attributes.Ips` **Added**\n* `Latitudesh.FilesystemStorage.ListFilesystems()`:  `response.Data[].Attributes` **Changed**\n* `Latitudesh.FilesystemStorage.UpdateFilesystem()`: \n  *  `request.RequestBody.Data.Id` **Changed**\n  *  `response.Data.Attributes` **Changed**\n"
+releaseNotes: |
+  ## Go SDK Changes:
+  * `Latitudesh.PublicNetworks.UpdatePublicNetworkIp()`: **Added**
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

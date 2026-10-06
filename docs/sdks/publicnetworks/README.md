@@ -8,6 +8,7 @@
 * [CreatePublicNetwork](#createpublicnetwork) - Create a network
 * [GetPublicNetwork](#getpublicnetwork) - Retrieve a network
 * [DestroyPublicNetwork](#destroypublicnetwork) - Delete a network
+* [UpdatePublicNetworkIP](#updatepublicnetworkip) - Update a network IP
 
 ## GetPublicNetworks
 
@@ -231,4 +232,65 @@ func main() {
 | Error Type               | Status Code              | Content Type             |
 | ------------------------ | ------------------------ | ------------------------ |
 | components.ErrorObject   | 403, 404, 422            | application/vnd.api+json |
+| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+
+## UpdatePublicNetworkIP
+
+**Preview.** Available at locations where the `public_network` feature is enabled.
+
+Reserve an available address of a network for your own use, so servers are never attached to the network with it, or release an address you reserved.
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="update-public-network-ip" method="patch" path="/public_networks/{id}/ips" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.PublicNetworks.UpdatePublicNetworkIP(ctx, "<id>", components.UpdatePublicNetworkIP{
+        Data: components.UpdatePublicNetworkIPData{
+            Type: components.UpdatePublicNetworkIPTypePublicNetworks,
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.PublicNetwork != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `id`                                                                                 | `string`                                                                             | :heavy_check_mark:                                                                   | N/A                                                                                  |
+| `updatePublicNetworkIP`                                                              | [components.UpdatePublicNetworkIP](../../models/components/updatepublicnetworkip.md) | :heavy_check_mark:                                                                   | N/A                                                                                  |
+| `opts`                                                                               | [][operations.Option](../../models/operations/option.md)                             | :heavy_minus_sign:                                                                   | The options for this request.                                                        |
+
+### Response
+
+**[*operations.UpdatePublicNetworkIPResponse](../../models/operations/updatepublicnetworkipresponse.md), error**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| components.ErrorObject   | 404, 422                 | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
