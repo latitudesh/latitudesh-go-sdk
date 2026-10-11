@@ -401,6 +401,8 @@ type VirtualMachineAttributesAttributes struct {
 	Tags           []VirtualMachineAttributesTags          `json:"tags,omitempty"`
 	Team           *TeamInclude                            `json:"team,omitempty"`
 	Project        *ProjectInclude                         `json:"project,omitempty"`
+	// Whether the VM re-applies the platform network configuration on every boot. Set at creation; false for VMs created before this option was available.
+	ApplyNetworkOnBoot *bool `json:"apply_network_on_boot,omitempty"`
 	// Deprecated, always false. Opt-in extra field, requested via `extra_fields[virtual_machines]=pending_restart`. Attaching and detaching restart the VM automatically.
 	PendingRestart *bool `json:"pending_restart,omitempty"`
 }
@@ -508,6 +510,13 @@ func (v *VirtualMachineAttributesAttributes) GetProject() *ProjectInclude {
 		return nil
 	}
 	return v.Project
+}
+
+func (v *VirtualMachineAttributesAttributes) GetApplyNetworkOnBoot() *bool {
+	if v == nil {
+		return nil
+	}
+	return v.ApplyNetworkOnBoot
 }
 
 func (v *VirtualMachineAttributesAttributes) GetPendingRestart() *bool {

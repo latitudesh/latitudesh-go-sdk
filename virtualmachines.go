@@ -1810,7 +1810,14 @@ func (s *VirtualMachines) ListVirtualMachineNetworkAttachments(ctx context.Conte
 }
 
 // CreateVirtualMachineNetworkAttachment - Attach a network to a VM
-// Attaches a virtual network (VLAN) to a Virtual Machine. Work runs asynchronously and returns 202 Accepted.
+// Attaches a virtual network (VLAN) to a Virtual Machine. Work runs asynchronously and returns 202 Accepted. A running VM restarts so the new NIC reaches the guest; a VM that is not running picks it up when it next starts.
+//
+// After the restart, check the interface inside the guest (`ip -br addr`):
+//
+// - VMs created with `apply_network_on_boot` enabled (the default) configure the NIC on boot, with the attachment's `address` when one was given. Nothing else to do.
+// - VMs created before that option existed, or with it disabled, leave the NIC DOWN. Configure it yourself, finding the interface by the `mac_address` returned by `GET /virtual_machines/{virtual_machine_id}/network_attachments`.
+//
+// Keep network configuration of your own in a separate file. With `apply_network_on_boot`, every boot, including a restart started inside the guest, rewrites cloud-init's own network file (for example `/etc/netplan/50-cloud-init.yaml`), so changes made there are lost. To stop that on a VM, create `/etc/cloud/cloud.cfg.d/99-disable-network-config.cfg` containing `network: {config: disabled}`; cloud-init then leaves the network configuration alone on every boot, and networks attached afterwards must be configured by hand.
 func (s *VirtualMachines) CreateVirtualMachineNetworkAttachment(ctx context.Context, virtualMachineID string, virtualMachineNetworkAttachmentCreatePayload components.VirtualMachineNetworkAttachmentCreatePayload, opts ...operations.Option) (*operations.CreateVirtualMachineNetworkAttachmentResponse, error) {
 	request := operations.CreateVirtualMachineNetworkAttachmentRequest{
 		VirtualMachineID: virtualMachineID,
@@ -2034,7 +2041,9 @@ func (s *VirtualMachines) CreateVirtualMachineNetworkAttachment(ctx context.Cont
 }
 
 // DestroyVirtualMachineNetworkAttachment - Detach a network from a VM
-// Detaches a virtual network (VLAN) from a Virtual Machine. Work runs asynchronously and returns 202 Accepted.
+// Detaches a virtual network (VLAN) from a Virtual Machine. Work runs asynchronously and returns 202 Accepted. A running VM restarts so the NIC is removed from the guest; a VM that is not running loses it when it next starts.
+//
+// On VMs created with `apply_network_on_boot` enabled, that boot also removes the NIC's configuration. If you configured the NIC yourself, remove your own configuration file for it.
 func (s *VirtualMachines) DestroyVirtualMachineNetworkAttachment(ctx context.Context, virtualMachineID string, id string, opts ...operations.Option) (*operations.DestroyVirtualMachineNetworkAttachmentResponse, error) {
 	request := operations.DestroyVirtualMachineNetworkAttachmentRequest{
 		VirtualMachineID: virtualMachineID,
