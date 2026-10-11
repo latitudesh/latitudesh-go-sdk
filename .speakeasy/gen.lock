@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: b725111bcc2330bd0673a8d1f20b14df
+  docChecksum: 079b08c2ce8254c12e8643fbf1779483
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.800.1
-  generationVersion: 2.943.0
-  releaseVersion: 1.20.4
-  configChecksum: f1b47fd0291e0b48fbbf5c1175d32f0f
+  speakeasyVersion: 1.801.0
+  generationVersion: 2.946.0
+  releaseVersion: 1.20.5
+  configChecksum: d1559b5b138c6583ec57c698ab4febf4
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: f056cfc9-5370-465f-abe7-ecc53372c8e7
-  pristine_commit_hash: c9b25ec2e8910aa3b3a6db374286e94dfe3c7afd
-  pristine_tree_hash: 958b464863b33beabf2a4ac817d296c54c049a91
+  generation_id: 65dbb146-273b-49dd-9d08-91b8cf7c2453
+  pristine_commit_hash: c3d2608cca681247ddfd12a8b71abed402531299
+  pristine_tree_hash: c0ac9f1a9ad15c6b9b0e9d56c7e5e941db98b2a0
 features:
   go:
     additionalDependencies: 0.1.0
@@ -34,7 +34,7 @@ features:
     openEnums: 0.1.0
     pagination: 2.82.9
     responseFormat: 0.1.2
-    retries: 2.84.5
+    retries: 2.84.6
     sdkHooks: 0.3.1
     unions: 2.87.12
 trackedFiles:
@@ -2184,8 +2184,8 @@ trackedFiles:
     pristine_git_object: 432b355b52ee060de1b35d5c8a39ab968708458b
   docs/models/components/virtualmachineattributesattributes.md:
     id: a12ad77c4868
-    last_write_checksum: sha1:16348a6aac0c6eb2930a23a811ae060ce8f4b6cc
-    pristine_git_object: 0fe4c723860fa735261d1d0a70bd6dc09e7065a0
+    last_write_checksum: sha1:a91e46e682a60dfad09dfcf43b0bee70157dde59
+    pristine_git_object: 189dc763ed349e7a3bf2a40c123c2407d8960a97
   docs/models/components/virtualmachineattributescredentials.md:
     id: a786248078b1
     last_write_checksum: sha1:4f715e077c3e44dd161ff319ee43cb5de7774b36
@@ -2292,8 +2292,8 @@ trackedFiles:
     pristine_git_object: 865fac6f34a49372fc9255979065a5e403e514d7
   docs/models/components/virtualmachinenetworkattachmentcreatepayloadattributes.md:
     id: 5250e99ba960
-    last_write_checksum: sha1:ee5b38e435c444593969255d3715209c7e1744e7
-    pristine_git_object: 2a419a9c4a885c6af637be74d09347d75b05b91f
+    last_write_checksum: sha1:dc3a988148948a254e688bccf1554f2831c9ba15
+    pristine_git_object: e86246a98ec4818723d9fe8b09ac7ff11576c7a7
   docs/models/components/virtualmachinenetworkattachmentcreatepayloaddata.md:
     id: 3c71bbe6dabc
     last_write_checksum: sha1:6c8ac2bfc3783520a3ddb47cc2f2199f970d9adb
@@ -2308,8 +2308,8 @@ trackedFiles:
     pristine_git_object: 86420882e75768a28db97afb0788d04512564d0d
   docs/models/components/virtualmachinenetworkattachmentresourceattributes.md:
     id: b5d9b88142d8
-    last_write_checksum: sha1:61184196cb1f004b09b97bfa386a4462ed9d8314
-    pristine_git_object: 50f57dbbfe75c490039b76969c9d54f768e29736
+    last_write_checksum: sha1:b679ff51d87e60042541892e60d005a86782f490
+    pristine_git_object: 5208a043416e5ee4484680c19a654d86a2b34a39
   docs/models/components/virtualmachinenetworkattachmentresourcetype.md:
     id: 0633689c98e7
     last_write_checksum: sha1:f848fb0fdd37a91aef2875024820d525ab08d137
@@ -2324,8 +2324,8 @@ trackedFiles:
     pristine_git_object: 63d722ed45cc31de5861a719c4e2dac1387e6278
   docs/models/components/virtualmachinepayloadattributes.md:
     id: 08d0e3fb2a5e
-    last_write_checksum: sha1:b2c06d08b4c72c79de151dfcac8c1351a018d44d
-    pristine_git_object: 8b68cd80cb4bcd29c9c4f94fa666be2d8abdbf29
+    last_write_checksum: sha1:0a243f860d39d36df3a948b0a61f97a8eb5e2ac9
+    pristine_git_object: bb7377f95003b6eab9afee6c18c030e0e341dbb6
   docs/models/components/virtualmachinepayloadbilling.md:
     id: 3e42afdc4cc0
     last_write_checksum: sha1:ec07c370f45869099aa1db1adc56157f758b8555
@@ -5292,8 +5292,8 @@ trackedFiles:
     pristine_git_object: 58bc980691b44f39d0a767e9d5836cfda4676d20
   docs/sdks/virtualmachines/README.md:
     id: 9a444616366b
-    last_write_checksum: sha1:54f2a5072615f58fabb625abe87d1058802daf08
-    pristine_git_object: 26ff8a153e205b363b9d9d4b84eae7d7a8069b15
+    last_write_checksum: sha1:bcf8320b4da4752d054ed1a04f0abfff72efc027
+    pristine_git_object: f675887af53b478235e33564d11137b866e0062b
   docs/sdks/virtualnetworks/README.md:
     id: 523cffefb080
     last_write_checksum: sha1:8b68f053c8a41185bbf92c501a89d4bff133f603
@@ -5372,8 +5372,8 @@ trackedFiles:
     pristine_git_object: c101cb8bc0f7ce7e4c5ae8de39d1d6e48cc048bf
   internal/utils/retries.go:
     id: b5e011d15c2d
-    last_write_checksum: sha1:ca3de5dc93fcca1e0630dd0a0b319123569c2d14
-    pristine_git_object: ee11ef4bcfe526de4bde81a320501faef4efc6cb
+    last_write_checksum: sha1:079335948901651a5eb1d754204ab8d835cc2557
+    pristine_git_object: 819e17f2541b66804eebd021d58bbffd1c6ba5d6
   internal/utils/security.go:
     id: eeb54c55241b
     last_write_checksum: sha1:1c0b332b3cf0fa405df0c5bf4e03f335139566b6
@@ -5400,8 +5400,8 @@ trackedFiles:
     pristine_git_object: 3f417d76ab1ce17678fd54b6c17f8a5428d5e262
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:31669057ac2367c7b30001a8efd65ff47656fda9
-    pristine_git_object: 93b4396e76223ea2f824cc1f75d871d3ec565f28
+    last_write_checksum: sha1:084fc7c042d29164d833c83e09c7ea945f8b3206
+    pristine_git_object: cfdeb0312b2fc7b56467f9e5a517d4bcf29defad
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -5968,8 +5968,8 @@ trackedFiles:
     pristine_git_object: c231b17d8704cec79f5cce513891751bb99ddb1c
   models/components/virtualmachineattributes.go:
     id: c01da1db9c5a
-    last_write_checksum: sha1:c0c9756225988a0e2e7ba2f94f644c5eea8eb66f
-    pristine_git_object: 1869ccf4eb4b22894bcc826b63207e64b9f2ea36
+    last_write_checksum: sha1:c36022d777a1710c2bb705798c2563a27d4d7297
+    pristine_git_object: ecbc05f854453b0f2612ec1f805e0b34823ca6fb
   models/components/virtualmachinebackup.go:
     id: d1a3c86773a1
     last_write_checksum: sha1:4ca89342b44b4850fb493f0be3885efd91bcc712
@@ -5992,20 +5992,20 @@ trackedFiles:
     pristine_git_object: 78ca2988b908c1d0ab8220952215fbb222556c55
   models/components/virtualmachinenetworkattachmentcreatepayload.go:
     id: b78710a1c42f
-    last_write_checksum: sha1:602976456c369fbe83dbcb4c5421555f27425946
-    pristine_git_object: 5d9560c3d1262537c92c2ceb3fabccb2cc5b0977
+    last_write_checksum: sha1:7b8bf61db24c68431d468365dcd456f1455df1d9
+    pristine_git_object: e72446c7eb7089fc22fa62833848bc54aa7fcba0
   models/components/virtualmachinenetworkattachmentresource.go:
     id: 7a9470c65a5a
-    last_write_checksum: sha1:8b942f840521d1be9cd18e9708429431b056ee5b
-    pristine_git_object: 5f4108042e259e27ed71ee9e4c7c703e08e12de7
+    last_write_checksum: sha1:bda037ff491bf066d4f143205b249a75e323c154
+    pristine_git_object: 06a1825199d88fe3e80a7d0c2bab77e2f5694de0
   models/components/virtualmachinenetworkattachments.go:
     id: 6c25dbf8c6a9
     last_write_checksum: sha1:470d0b70a20e35418038bf01636359ccc970ad66
     pristine_git_object: 878185470a0e8df6170193fbb6ec3a8b58dc8d1b
   models/components/virtualmachinepayload.go:
     id: a59f10f93ffe
-    last_write_checksum: sha1:fbc51233ed8a2bf54baf3e18a227378541201e34
-    pristine_git_object: 0830cd8a8500040c1e28a914c2a389f263784e12
+    last_write_checksum: sha1:ce8888082b5d80dc2765cdf8f905afc0e3d0b2aa
+    pristine_git_object: 4455f7cbc058afca1e5bf9ff897eb6b679050605
   models/components/virtualmachineplans.go:
     id: 1607b9634af6
     last_write_checksum: sha1:b14fa4ee5c46f87178bc58650f1cc27cc52db858
@@ -6964,8 +6964,8 @@ trackedFiles:
     pristine_git_object: 4d482d106a4c476d1768d38632f1de8da2c7ccfb
   virtualmachines.go:
     id: 30cb88c4969c
-    last_write_checksum: sha1:19370aae0d670e7d4b4c4b1bf09991c7704d215b
-    pristine_git_object: 2960390b1f57f370f711ef978da11b9c1697413c
+    last_write_checksum: sha1:979841c64e6a23b7e9439d4b9ef91706177793f3
+    pristine_git_object: 963146912199243feb7937dc32b2f8794879c231
   virtualnetworks.go:
     id: 3816b5f92080
     last_write_checksum: sha1:bbcd1e22df503f04659433c61ce44937baff816e
@@ -9271,8 +9271,8 @@ examples:
   create-virtual-machine:
     Created:
       requestBody:
-        application/json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "billing": "monthly", "project": "lightweight-leather-lamp", "site": "DAL"}}}
-        application/vnd.api+json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "billing": "monthly", "project": "lightweight-leather-lamp", "site": "DAL"}}}
+        application/json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "billing": "monthly", "project": "lightweight-leather-lamp", "apply_network_on_boot": true, "site": "DAL"}}}
+        application/vnd.api+json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "billing": "monthly", "project": "lightweight-leather-lamp", "apply_network_on_boot": true, "site": "DAL"}}}
       responses:
         "201":
           application/vnd.api+json: {"data": {"id": "vm_mw49QDB5qagKb", "type": "virtual_machines", "attributes": {"name": "my-new-vm", "created_at": "2026-01-14T15:57:13+00:00", "status": "Starting", "primary_ipv4": "192.168.1.50", "operating_system": {"name": "Ubuntu 24.04 LTS", "slug": "ubuntu_24_04_x64_lts", "version": "24.04 x64 LTS", "features": {"raid": true, "ssh_keys": true, "user_data": true}, "distro": {"name": "Ubuntu", "slug": "ubuntu", "series": "noble"}}, "site": "FRA181", "billing": "monthly", "plan": {"id": "plan_VE1Wd3VXOXnZJ", "name": "g3.h100.large-131"}, "specs": {"vcpu": 16, "ram": "128 GB", "storage": "100 GB", "nic": "1 x 1 Gbps", "gpu": "1 x NVIDIA H100 Tensor Core GPU"}, "team": {"id": "team_zAbb72Zm3VS3N0o89Y48sGXv3mZ", "name": "690 Team", "slug": "690-team", "description": "690 Team", "address": "Apt. 922 405 Ondricka Lights, Lake Jennineview, SC 58925-4625", "currency": {"id": "cur_AW6Q2D9lqKLpr", "code": "BRL", "name": "Brazilian Real", "currency_id": null}, "status": "verified"}, "project": {"id": "proj_GMy1Dbk1ON50m", "name": "Lightweight Leather Lamp", "slug": "lightweight-leather-lamp", "description": "Sleek Wool Plate", "billing_type": "Normal", "billing_method": "Normal", "bandwidth_alert": false, "environment": null, "billing": {"subscription_id": null, "type": "Normal", "method": "Normal"}, "stats": {"databases": 0, "ip_addresses": 0, "prefixes": 0, "servers": 0, "storages": 0, "virtual_machines": 1, "vlans": 0}}}}}
@@ -9292,15 +9292,15 @@ examples:
           application/vnd.api+json: {}
     CreatedWithOS:
       requestBody:
-        application/json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "billing": "monthly", "project": "lightweight-leather-lamp", "operating_system": "ubuntu_24_04_x64_lts", "site": "DAL"}}}
-        application/vnd.api+json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "billing": "monthly", "project": "lightweight-leather-lamp", "operating_system": "ubuntu_24_04_x64_lts", "site": "DAL"}}}
+        application/json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "billing": "monthly", "project": "lightweight-leather-lamp", "operating_system": "ubuntu_24_04_x64_lts", "apply_network_on_boot": true, "site": "DAL"}}}
+        application/vnd.api+json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "billing": "monthly", "project": "lightweight-leather-lamp", "operating_system": "ubuntu_24_04_x64_lts", "apply_network_on_boot": true, "site": "DAL"}}}
       responses:
         "201":
           application/vnd.api+json: {}
     CreatedWithUserData:
       requestBody:
-        application/json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "billing": "monthly", "project": "lightweight-leather-lamp", "user_data": "ud_abc123", "site": "DAL"}}}
-        application/vnd.api+json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "billing": "monthly", "project": "lightweight-leather-lamp", "user_data": "ud_abc123", "site": "DAL"}}}
+        application/json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "billing": "monthly", "project": "lightweight-leather-lamp", "user_data": "ud_abc123", "apply_network_on_boot": true, "site": "DAL"}}}
+        application/vnd.api+json: {"data": {"type": "virtual_machines", "attributes": {"name": "my-new-vm", "billing": "monthly", "project": "lightweight-leather-lamp", "user_data": "ud_abc123", "apply_network_on_boot": true, "site": "DAL"}}}
       responses:
         "201":
           application/vnd.api+json: {}
@@ -12036,9 +12036,7 @@ examples:
           application/vnd.api+json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Go SDK Changes:
-  * `Latitudesh.PublicNetworks.UpdatePublicNetworkIp()`: **Added**
+releaseNotes: "## Go SDK Changes:\n* `Latitudesh.VirtualMachines.Create()`: \n  *  `request.Request.Data.Attributes.ApplyNetworkOnBoot` **Added**\n  *  `response.Data.Attributes.ApplyNetworkOnBoot` **Added**\n* `Latitudesh.VirtualMachines.List()`:  `response.Data[].Attributes.ApplyNetworkOnBoot` **Added**\n* `Latitudesh.VirtualMachines.Get()`:  `response.Data.Attributes.ApplyNetworkOnBoot` **Added**\n* `Latitudesh.VirtualMachines.UpdateVirtualMachine()`:  `response.Data.Attributes.ApplyNetworkOnBoot` **Added**\n* `Latitudesh.VirtualMachines.ListVirtualMachineNetworkAttachments()`:  `response.Data[].Attributes` **Changed**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

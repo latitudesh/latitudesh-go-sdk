@@ -149,6 +149,8 @@ type VirtualMachinePayloadAttributes struct {
 	MarketplaceApp *string `json:"marketplace_app,omitempty"`
 	// Array of tag IDs to assign to the VM.
 	Tags []string `json:"tags,omitempty"`
+	// Re-apply the platform network configuration on every boot, so a virtual network attached to or detached from the VM is configured in the guest by the restart the attach or detach performs. Every boot, including a restart started inside the guest, rewrites cloud-init's own network file (for example `/etc/netplan/50-cloud-init.yaml`): keep custom network configuration in a separate file. Set at creation only; it cannot be changed later through the API. To stop the re-apply from inside the guest, create `/etc/cloud/cloud.cfg.d/99-disable-network-config.cfg` containing `network: {config: disabled}`; networks attached afterwards must then be configured by hand. Defaults to true.
+	ApplyNetworkOnBoot *bool `default:"true" json:"apply_network_on_boot"`
 	// Site/region slug where the VM is provisioned (e.g. DAL, SAO). Defaults to DAL when omitted.
 	Site *string `default:"DAL" json:"site"`
 }
@@ -225,6 +227,13 @@ func (v *VirtualMachinePayloadAttributes) GetTags() []string {
 		return nil
 	}
 	return v.Tags
+}
+
+func (v *VirtualMachinePayloadAttributes) GetApplyNetworkOnBoot() *bool {
+	if v == nil {
+		return nil
+	}
+	return v.ApplyNetworkOnBoot
 }
 
 func (v *VirtualMachinePayloadAttributes) GetSite() *string {
