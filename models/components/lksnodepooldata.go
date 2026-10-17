@@ -31,19 +31,23 @@ func (e *LksNodePoolDataType) UnmarshalJSON(data []byte) error {
 }
 
 type LksNodePoolDataAttributes struct {
-	Name        *string `json:"name,omitempty"`
-	Type        *string `json:"type,omitempty"`
-	Mode        *string `json:"mode,omitempty"`
-	Plan        *string `json:"plan,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Count       *int64  `json:"count,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Type *string `json:"type,omitempty"`
+	// on_demand: nodes are servers provisioned from stock. allocated: nodes are servers already in the project, reinstalled to join the pool.
+	Mode *string `json:"mode,omitempty"`
+	// null for allocated node pools
+	Plan *string `json:"plan,omitempty"`
+	// Servers backing an allocated node pool; null for on_demand node pools
+	ServerIds   []string `json:"server_ids,omitempty"`
+	Description *string  `json:"description,omitempty"`
+	Count       *int64   `json:"count,omitempty"`
 	// null when it was not set at creation — the platform default (110) applies
 	MaxPodsPerNode    *int64  `json:"max_pods_per_node,omitempty"`
 	KubernetesVersion *string `json:"kubernetes_version,omitempty"`
 	PlatformVersion   *string `json:"platform_version,omitempty"`
 	Status            *string `json:"status,omitempty"`
 	Message           *string `json:"message,omitempty"`
-	// Machine-readable status reason (open enum)
+	// Machine-readable status reason (open enum). Allocated pools also report AdoptingServers, ServerNotEligible, ServerQuarantined, ServerReturnBlocked and ReturningServers.
 	Reason     *string            `json:"reason,omitempty"`
 	ReadyNodes *int64             `json:"ready_nodes,omitempty"`
 	Labels     map[string]string  `json:"labels,omitempty"`
@@ -78,6 +82,13 @@ func (l *LksNodePoolDataAttributes) GetPlan() *string {
 		return nil
 	}
 	return l.Plan
+}
+
+func (l *LksNodePoolDataAttributes) GetServerIds() []string {
+	if l == nil {
+		return nil
+	}
+	return l.ServerIds
 }
 
 func (l *LksNodePoolDataAttributes) GetDescription() *string {

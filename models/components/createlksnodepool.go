@@ -5,6 +5,7 @@ package components
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/latitudesh/latitudesh-go-sdk/internal/utils"
 )
 
 type CreateLksNodePoolType string
@@ -53,12 +54,43 @@ func (e *CreateLksNodePoolDataType) UnmarshalJSON(data []byte) error {
 	}
 }
 
+// CreateLksNodePoolMode - on_demand provisions new servers of `plan` from stock. allocated builds the pool from `server_ids`, servers already in the cluster project: each one is reinstalled with the LKS node image (erasing its disks) and, when it leaves the pool, reinstalled with a clean OS (no data, keys or user data are restored).
+type CreateLksNodePoolMode string
+
+const (
+	CreateLksNodePoolModeOnDemand  CreateLksNodePoolMode = "on_demand"
+	CreateLksNodePoolModeAllocated CreateLksNodePoolMode = "allocated"
+)
+
+func (e CreateLksNodePoolMode) ToPointer() *CreateLksNodePoolMode {
+	return &e
+}
+func (e *CreateLksNodePoolMode) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "on_demand":
+		fallthrough
+	case "allocated":
+		*e = CreateLksNodePoolMode(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for CreateLksNodePoolMode: %v", v)
+	}
+}
+
 type CreateLksNodePoolAttributes struct {
 	Type *CreateLksNodePoolDataType `json:"type,omitempty"`
-	// Plan the pool nodes are provisioned from
-	Plan string `json:"plan"`
-	// Number of nodes; must be >= 1
-	Count int64 `json:"count"`
+	// on_demand provisions new servers of `plan` from stock. allocated builds the pool from `server_ids`, servers already in the cluster project: each one is reinstalled with the LKS node image (erasing its disks) and, when it leaves the pool, reinstalled with a clean OS (no data, keys or user data are restored).
+	Mode *CreateLksNodePoolMode `default:"on_demand" json:"mode"`
+	// Plan the pool nodes are provisioned from. Required in on_demand mode; rejected in allocated mode, where the plan is the one the servers already have
+	Plan *string `json:"plan,omitempty"`
+	// Number of nodes; must be >= 1. Required in on_demand mode; rejected in allocated mode, where it is the number of server_ids
+	Count *int64 `json:"count,omitempty"`
+	// Required in allocated mode and rejected in on_demand mode. Servers must be bare metal, in the cluster project and location, share one plan, have been deployed with bgp_ready and not belong to another node pool. Each server that fails a check is reported as its own 422 error pointing at its index.
+	ServerIds []string `json:"server_ids,omitempty"`
 	// Patch; defaults to the cluster control-plane patch. Must not be newer than the control-plane patch (422 VERSION_SKEW)
 	KubernetesVersion *string `json:"kubernetes_version,omitempty"`
 	// kubelet --max-pods for every node in the pool. Set once, at creation: it is immutable afterwards and a PATCH that carries it is rejected with 422. Omit to get the platform default (110).
@@ -72,6 +104,17 @@ type CreateLksNodePoolAttributes struct {
 	Taints []LksNodePoolTaint `json:"taints,omitempty"`
 }
 
+func (c CreateLksNodePoolAttributes) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
+}
+
+func (c *CreateLksNodePoolAttributes) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, nil); err != nil {
+		return err
+	}
+	return nil
+}
+
 func (c *CreateLksNodePoolAttributes) GetType() *CreateLksNodePoolDataType {
 	if c == nil {
 		return nil
@@ -79,18 +122,32 @@ func (c *CreateLksNodePoolAttributes) GetType() *CreateLksNodePoolDataType {
 	return c.Type
 }
 
-func (c *CreateLksNodePoolAttributes) GetPlan() string {
+func (c *CreateLksNodePoolAttributes) GetMode() *CreateLksNodePoolMode {
 	if c == nil {
-		return ""
+		return nil
+	}
+	return c.Mode
+}
+
+func (c *CreateLksNodePoolAttributes) GetPlan() *string {
+	if c == nil {
+		return nil
 	}
 	return c.Plan
 }
 
-func (c *CreateLksNodePoolAttributes) GetCount() int64 {
+func (c *CreateLksNodePoolAttributes) GetCount() *int64 {
 	if c == nil {
-		return 0
+		return nil
 	}
 	return c.Count
+}
+
+func (c *CreateLksNodePoolAttributes) GetServerIds() []string {
+	if c == nil {
+		return nil
+	}
+	return c.ServerIds
 }
 
 func (c *CreateLksNodePoolAttributes) GetKubernetesVersion() *string {
