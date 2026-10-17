@@ -214,8 +214,10 @@ func main() {
 * [GetLksNodePool](docs/sdks/lks/README.md#getlksnodepool) - Get a node pool
 * [DeleteLksNodePool](docs/sdks/lks/README.md#deletelksnodepool) - Delete a node pool
 * [UpdateLksNodePool](docs/sdks/lks/README.md#updatelksnodepool) - Update a node pool
+* [ListLksNodes](docs/sdks/lks/README.md#listlksnodes) - List nodes
 * [ListLksAvailableVersions](docs/sdks/lks/README.md#listlksavailableversions) - List available Kubernetes versions
 * [ListLksSites](docs/sdks/lks/README.md#listlkssites) - List sites available for LKS
+* [ListLksAllocatableServers](docs/sdks/lks/README.md#listlksallocatableservers) - List servers that can join an allocated node pool
 
 ### [ManagedDatabases](docs/sdks/manageddatabases/README.md)
 
