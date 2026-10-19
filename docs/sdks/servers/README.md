@@ -1533,9 +1533,10 @@ func main() {
 
 ### Errors
 
-| Error Type          | Status Code         | Content Type        |
-| ------------------- | ------------------- | ------------------- |
-| components.APIError | 4XX, 5XX            | \*/\*               |
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| components.ErrorObject   | 409                      | application/vnd.api+json |
+| components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
 ## Unlock
 
@@ -2757,5 +2758,5 @@ func main() {
 
 | Error Type               | Status Code              | Content Type             |
 | ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403, 404, 422            | application/vnd.api+json |
+| components.ErrorObject   | 403, 404, 409, 422       | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |

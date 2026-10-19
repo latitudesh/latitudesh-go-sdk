@@ -35,6 +35,10 @@ type VirtualMachineNetworkAttachmentResourceAttributes struct {
 	VirtualNetworkID *string `json:"virtual_network_id,omitempty"`
 	// The 802.1Q VLAN ID
 	Vid *int64 `json:"vid,omitempty"`
+	// The static IPv4 address with prefix given when the network was attached (e.g. 10.0.0.5/24). Null when the attachment has no static address.
+	Address *string `json:"address,omitempty"`
+	// MAC address of the NIC inside the guest. Interface names differ between images, so use the MAC to find the interface. Null until the VM has restarted with the network attached.
+	MacAddress *string `json:"mac_address,omitempty"`
 	// Deprecated, always false. Attaching and detaching restart the VM automatically, so an attachment never waits on a manual restart.
 	PendingRestart *bool `json:"pending_restart,omitempty"`
 }
@@ -51,6 +55,20 @@ func (v *VirtualMachineNetworkAttachmentResourceAttributes) GetVid() *int64 {
 		return nil
 	}
 	return v.Vid
+}
+
+func (v *VirtualMachineNetworkAttachmentResourceAttributes) GetAddress() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Address
+}
+
+func (v *VirtualMachineNetworkAttachmentResourceAttributes) GetMacAddress() *string {
+	if v == nil {
+		return nil
+	}
+	return v.MacAddress
 }
 
 func (v *VirtualMachineNetworkAttachmentResourceAttributes) GetPendingRestart() *bool {

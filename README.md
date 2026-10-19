@@ -170,6 +170,9 @@ func main() {
 * [ListFilesystems](docs/sdks/filesystemstorage/README.md#listfilesystems) - List filesystems
 * [DeleteFilesystem](docs/sdks/filesystemstorage/README.md#deletefilesystem) - Delete filesystem
 * [UpdateFilesystem](docs/sdks/filesystemstorage/README.md#updatefilesystem) - Update filesystem
+* [GetFilesystemAttachment](docs/sdks/filesystemstorage/README.md#getfilesystemattachment) - Get filesystem attachment
+* [AttachFilesystem](docs/sdks/filesystemstorage/README.md#attachfilesystem) - Attach filesystem to server
+* [DetachFilesystem](docs/sdks/filesystemstorage/README.md#detachfilesystem) - Detach filesystem from server
 
 ### [Firewalls](docs/sdks/firewalls/README.md)
 
@@ -214,8 +217,10 @@ func main() {
 * [GetLksNodePool](docs/sdks/lks/README.md#getlksnodepool) - Get a node pool
 * [DeleteLksNodePool](docs/sdks/lks/README.md#deletelksnodepool) - Delete a node pool
 * [UpdateLksNodePool](docs/sdks/lks/README.md#updatelksnodepool) - Update a node pool
+* [ListLksNodes](docs/sdks/lks/README.md#listlksnodes) - List nodes
 * [ListLksAvailableVersions](docs/sdks/lks/README.md#listlksavailableversions) - List available Kubernetes versions
 * [ListLksSites](docs/sdks/lks/README.md#listlkssites) - List sites available for LKS
+* [ListLksAllocatableServers](docs/sdks/lks/README.md#listlksallocatableservers) - List servers that can join an allocated node pool
 
 ### [ManagedDatabases](docs/sdks/manageddatabases/README.md)
 
