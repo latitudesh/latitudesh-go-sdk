@@ -43,8 +43,8 @@ func (i *Initiators) GetNqn() *string {
 	return i.Nqn
 }
 
-// StorageNetwork - Storage network the mapped server joins to reach the volume over NVMe-TCP. Null until the network has been provisioned for the volume.
-type StorageNetwork struct {
+// VolumeDataStorageNetwork - Storage network the mapped server joins to reach the volume over NVMe-TCP. Null until the network has been provisioned for the volume.
+type VolumeDataStorageNetwork struct {
 	// VLAN ID of the storage VLAN to tag on the server bond.
 	Vid *int64 `json:"vid,omitempty"`
 	// Storage IP of the mapped server, in CIDR notation. Null until the mapping status is "mapped".
@@ -59,46 +59,46 @@ type StorageNetwork struct {
 	BlockPort *int64 `json:"block_port,omitempty"`
 }
 
-func (s *StorageNetwork) GetVid() *int64 {
-	if s == nil {
+func (v *VolumeDataStorageNetwork) GetVid() *int64 {
+	if v == nil {
 		return nil
 	}
-	return s.Vid
+	return v.Vid
 }
 
-func (s *StorageNetwork) GetHostCidr() *string {
-	if s == nil {
+func (v *VolumeDataStorageNetwork) GetHostCidr() *string {
+	if v == nil {
 		return nil
 	}
-	return s.HostCidr
+	return v.HostCidr
 }
 
-func (s *StorageNetwork) GetGateway() *string {
-	if s == nil {
+func (v *VolumeDataStorageNetwork) GetGateway() *string {
+	if v == nil {
 		return nil
 	}
-	return s.Gateway
+	return v.Gateway
 }
 
-func (s *StorageNetwork) GetRoutes() []string {
-	if s == nil {
+func (v *VolumeDataStorageNetwork) GetRoutes() []string {
+	if v == nil {
 		return nil
 	}
-	return s.Routes
+	return v.Routes
 }
 
-func (s *StorageNetwork) GetBlockGateway() *string {
-	if s == nil {
+func (v *VolumeDataStorageNetwork) GetBlockGateway() *string {
+	if v == nil {
 		return nil
 	}
-	return s.BlockGateway
+	return v.BlockGateway
 }
 
-func (s *StorageNetwork) GetBlockPort() *int64 {
-	if s == nil {
+func (v *VolumeDataStorageNetwork) GetBlockPort() *int64 {
+	if v == nil {
 		return nil
 	}
-	return s.BlockPort
+	return v.BlockPort
 }
 
 // Block - NVMe-TCP block mapping of a high performance volume. Null for volumes that are not mapped to a server.
@@ -112,7 +112,7 @@ type Block struct {
 	// ID of the server the volume is mapped to.
 	ServerID *string `json:"server_id,omitempty"`
 	// Storage network the mapped server joins to reach the volume over NVMe-TCP. Null until the network has been provisioned for the volume.
-	StorageNetwork *StorageNetwork `json:"storage_network,omitempty"`
+	StorageNetwork *VolumeDataStorageNetwork `json:"storage_network,omitempty"`
 }
 
 func (b *Block) GetStatus() *string {
@@ -143,7 +143,7 @@ func (b *Block) GetServerID() *string {
 	return b.ServerID
 }
 
-func (b *Block) GetStorageNetwork() *StorageNetwork {
+func (b *Block) GetStorageNetwork() *VolumeDataStorageNetwork {
 	if b == nil {
 		return nil
 	}

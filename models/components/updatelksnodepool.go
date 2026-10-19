@@ -30,11 +30,13 @@ func (e *UpdateLksNodePoolType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// UpdateLksNodePoolAttributes - At least one attribute must be provided. max_pods_per_node is set once, at creation, and is not updatable: a PATCH that carries it is rejected with 422.
+// UpdateLksNodePoolAttributes - At least one attribute must be provided. max_pods_per_node and mode are set once, at creation, and are not updatable: a PATCH that carries either is rejected with 422.
 type UpdateLksNodePoolAttributes struct {
 	Name *string `json:"name,omitempty"`
-	// must be >= 1
+	// must be >= 1. on_demand node pools only; rejected for allocated node pools
 	Count *int64 `json:"count,omitempty"`
+	// Allocated node pools only. Declarative: send the whole set of servers the pool should have. Added servers are checked like on create and reinstalled to join; removed servers are drained and reinstalled with a clean OS. Cannot be combined with a kubernetes_version change.
+	ServerIds []string `json:"server_ids,omitempty"`
 	// A newer patch rolls a node-recreating upgrade. Must not be lower than the current patch (422 DOWNGRADE_NOT_ALLOWED) nor newer than the control-plane patch (422 VERSION_SKEW)
 	KubernetesVersion *string `json:"kubernetes_version,omitempty"`
 	// Declarative replace. Omit to leave labels unchanged; send the whole map to replace it (not a merge); send {} to clear all. Same validation as on create.
@@ -56,6 +58,13 @@ func (u *UpdateLksNodePoolAttributes) GetCount() *int64 {
 		return nil
 	}
 	return u.Count
+}
+
+func (u *UpdateLksNodePoolAttributes) GetServerIds() []string {
+	if u == nil {
+		return nil
+	}
+	return u.ServerIds
 }
 
 func (u *UpdateLksNodePoolAttributes) GetKubernetesVersion() *string {
@@ -88,7 +97,7 @@ func (u *UpdateLksNodePoolAttributes) GetDescription() *string {
 
 type UpdateLksNodePoolData struct {
 	Type UpdateLksNodePoolType `json:"type"`
-	// At least one attribute must be provided. max_pods_per_node is set once, at creation, and is not updatable: a PATCH that carries it is rejected with 422.
+	// At least one attribute must be provided. max_pods_per_node and mode are set once, at creation, and are not updatable: a PATCH that carries either is rejected with 422.
 	Attributes *UpdateLksNodePoolAttributes `json:"attributes,omitempty"`
 }
 

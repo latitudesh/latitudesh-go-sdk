@@ -15,8 +15,10 @@
 * [GetLksNodePool](#getlksnodepool) - Get a node pool
 * [DeleteLksNodePool](#deletelksnodepool) - Delete a node pool
 * [UpdateLksNodePool](#updatelksnodepool) - Update a node pool
+* [ListLksNodes](#listlksnodes) - List nodes
 * [ListLksAvailableVersions](#listlksavailableversions) - List available Kubernetes versions
 * [ListLksSites](#listlkssites) - List sites available for LKS
+* [ListLksAllocatableServers](#listlksallocatableservers) - List servers that can join an allocated node pool
 
 ## ListLksClusters
 
@@ -736,11 +738,104 @@ func main() {
 
 ## CreateLksNodePool
 
-Adds a node pool to an LKS cluster. The platform provisions `count` servers of `plan` from stock, so both fields are required.
+Adds a node pool to an LKS cluster. `mode` decides where the pool's nodes come from:
 
-`kubernetes_version` defaults to the control-plane patch and may never be newer than it. `max_pods_per_node` is set once, here — it cannot be changed later.
+- `on_demand` (default): the platform provisions `count` servers of `plan` from stock, so both fields are required.
+- `allocated`: the pool is built from `server_ids`, bare metal servers already in the cluster project. Each server is reinstalled with the LKS node image, which erases its disks. `plan` and `count` are rejected: the pool uses the plan the servers share, and `count` is the number of servers. Each server that fails an eligibility check is reported as its own 422 error, pointing at its index in `server_ids` and listing every reason in `meta.reasons`. `GET /lks/allocatable_servers` shows which servers can join. Allocated node pools are available only in on-demand projects: a reserved project is refused with 422 `RESERVED_PROJECT_NOT_SUPPORTED`.
+
+`kubernetes_version` defaults to the control-plane patch and may never be newer than it. `max_pods_per_node` and `mode` are set once, here — they cannot be changed later.
 
 
+### Example Usage: Allocated
+
+<!-- UsageSnippet language="go" operationID="create-lks-node-pool" method="post" path="/lks/clusters/{cluster_id}/nodepools" example="Allocated" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Lks.CreateLksNodePool(ctx, "<id>", components.CreateLksNodePool{
+        Data: components.CreateLksNodePoolData{
+            Type: components.CreateLksNodePoolTypeLksNodePools,
+            Attributes: components.CreateLksNodePoolAttributes{
+                Mode: components.CreateLksNodePoolModeAllocated.ToPointer(),
+                ServerIds: []string{
+                    "sv_9dQKr1pRMLyd",
+                    "sv_pRMLydp0dQKr1",
+                },
+                Name: latitudeshgosdk.Pointer("gpu-owned"),
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.LksNodePool != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: AllocatedProvisioning
+
+<!-- UsageSnippet language="go" operationID="create-lks-node-pool" method="post" path="/lks/clusters/{cluster_id}/nodepools" example="AllocatedProvisioning" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Lks.CreateLksNodePool(ctx, "<id>", components.CreateLksNodePool{
+        Data: components.CreateLksNodePoolData{
+            Type: components.CreateLksNodePoolTypeLksNodePools,
+            Attributes: components.CreateLksNodePoolAttributes{
+                ServerIds: []string{
+                    "sv_9dQKr1pRMLyd",
+                },
+                KubernetesVersion: latitudeshgosdk.Pointer("1.36.3"),
+                MaxPodsPerNode: latitudeshgosdk.Pointer[int64](110),
+                Taints: []components.LksNodePoolTaint{
+                    components.LksNodePoolTaint{
+                        Key: "dedicated",
+                        Value: latitudeshgosdk.Pointer("gpu"),
+                        Effect: components.EffectNoSchedule,
+                    },
+                },
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.LksNodePool != nil {
+        // handle response
+    }
+}
+```
 ### Example Usage: InsufficientPermissions
 
 <!-- UsageSnippet language="go" operationID="create-lks-node-pool" method="post" path="/lks/clusters/{cluster_id}/nodepools" example="InsufficientPermissions" -->
@@ -766,8 +861,9 @@ func main() {
         Data: components.CreateLksNodePoolData{
             Type: components.CreateLksNodePoolTypeLksNodePools,
             Attributes: components.CreateLksNodePoolAttributes{
-                Plan: "<value>",
-                Count: 973849,
+                ServerIds: []string{
+                    "sv_9dQKr1pRMLyd",
+                },
                 KubernetesVersion: latitudeshgosdk.Pointer("1.36.3"),
                 MaxPodsPerNode: latitudeshgosdk.Pointer[int64](110),
                 Taints: []components.LksNodePoolTaint{
@@ -813,8 +909,8 @@ func main() {
         Data: components.CreateLksNodePoolData{
             Type: components.CreateLksNodePoolTypeLksNodePools,
             Attributes: components.CreateLksNodePoolAttributes{
-                Plan: "c2-small-x86",
-                Count: 2,
+                Plan: latitudeshgosdk.Pointer("c2-small-x86"),
+                Count: latitudeshgosdk.Pointer[int64](2),
                 Name: latitudeshgosdk.Pointer("pool-a"),
             },
         },
@@ -852,8 +948,9 @@ func main() {
         Data: components.CreateLksNodePoolData{
             Type: components.CreateLksNodePoolTypeLksNodePools,
             Attributes: components.CreateLksNodePoolAttributes{
-                Plan: "<value>",
-                Count: 973849,
+                ServerIds: []string{
+                    "sv_9dQKr1pRMLyd",
+                },
                 KubernetesVersion: latitudeshgosdk.Pointer("1.36.3"),
                 MaxPodsPerNode: latitudeshgosdk.Pointer[int64](110),
                 Taints: []components.LksNodePoolTaint{
@@ -899,8 +996,8 @@ func main() {
         Data: components.CreateLksNodePoolData{
             Type: components.CreateLksNodePoolTypeLksNodePools,
             Attributes: components.CreateLksNodePoolAttributes{
-                Plan: "g3-xlarge-x86",
-                Count: 3,
+                Plan: latitudeshgosdk.Pointer("g3-xlarge-x86"),
+                Count: latitudeshgosdk.Pointer[int64](3),
                 MaxPodsPerNode: latitudeshgosdk.Pointer[int64](250),
                 Name: latitudeshgosdk.Pointer("gpu"),
                 Labels: map[string]string{
@@ -1060,11 +1157,13 @@ func main() {
 
 ## UpdateLksNodePool
 
-Scales, renames, upgrades or re-labels a node pool. At least one attribute must be provided.
+Scales, renames, upgrades, re-labels or changes the servers of a node pool. At least one attribute must be provided.
 
 `labels` and `taints` are declarative replacements, not merges: omit the field to leave it untouched, send the whole map/list to replace it, or send `{}` / `[]` to clear it.
 
-A newer `kubernetes_version` rolls a node-recreating upgrade; it must not be lower than the pool's current patch nor newer than the control-plane patch. `max_pods_per_node` is immutable — a PATCH that carries it is rejected with 422 even if the value is unchanged.
+A newer `kubernetes_version` rolls a node-recreating upgrade; it must not be lower than the pool's current patch nor newer than the control-plane patch. `max_pods_per_node` and `mode` are immutable — a PATCH that carries either is rejected with 422 even if the value is unchanged.
+
+For an allocated node pool, `server_ids` replaces `count`: send the whole set of servers the pool should have. Added servers are checked as on create and reinstalled to join; removed servers are drained and reinstalled with a clean OS, with no data, keys or user data restored. A server set change cannot be combined with a `kubernetes_version` change.
 
 The node pool must be idle: one that is provisioning, updating, scaling, upgrading, paused or deleting rejects the request with 409.
 
@@ -1176,6 +1275,46 @@ func main() {
             Attributes: &components.UpdateLksNodePoolAttributes{
                 Labels: map[string]string{
                     "env": "prod",
+                },
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.LksNodePool != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: ReplaceServers
+
+<!-- UsageSnippet language="go" operationID="update-lks-node-pool" method="patch" path="/lks/clusters/{cluster_id}/nodepools/{id}" example="ReplaceServers" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Lks.UpdateLksNodePool(ctx, "<id>", "<id>", components.UpdateLksNodePool{
+        Data: components.UpdateLksNodePoolData{
+            Type: components.UpdateLksNodePoolTypeLksNodePools,
+            Attributes: &components.UpdateLksNodePoolAttributes{
+                ServerIds: []string{
+                    "sv_9dQKr1pRMLyd",
+                    "sv_pRMLydp0dQKr1",
                 },
             },
         },
@@ -1328,6 +1467,63 @@ func main() {
 | components.ErrorObject   | 502                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
+## ListLksNodes
+
+Lists the nodes of a node pool, with the status of each node and of the server it runs on. Each node's `id` is a stable node ID (format: `lksno_<hash>`); `name` is its Kubernetes node name, as shown by `kubectl get nodes`. The response is not paginated; `meta.total` is the number of nodes returned.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="list-lks-nodes" method="get" path="/lks/clusters/{cluster_id}/nodepools/{node_pool_id}/nodes" example="OneNode" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Lks.ListLksNodes(ctx, "<id>", "<id>", nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.LksNodes != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `ctx`                                                                             | [context.Context](https://pkg.go.dev/context#Context)                             | :heavy_check_mark:                                                                | The context to use for the request.                                               |
+| `clusterID`                                                                       | `string`                                                                          | :heavy_check_mark:                                                                | The cluster ID (format: `lksc_<hash>`).                                           |
+| `nodePoolID`                                                                      | `string`                                                                          | :heavy_check_mark:                                                                | The node pool ID (format: `lksnp_<hash>`).                                        |
+| `filterStatus`                                                                    | `*string`                                                                         | :heavy_minus_sign:                                                                | Only return nodes in this status: `pending`, `ready`, `not_ready`, or `deleting`. |
+| `opts`                                                                            | [][operations.Option](../../models/operations/option.md)                          | :heavy_minus_sign:                                                                | The options for this request.                                                     |
+
+### Response
+
+**[*operations.ListLksNodesResponse](../../models/operations/listlksnodesresponse.md), error**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| components.ErrorObject   | 403, 404                 | application/vnd.api+json |
+| components.ErrorObject   | 502                      | application/vnd.api+json |
+| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+
 ## ListLksAvailableVersions
 
 Lists the Kubernetes patches the platform offers, with their lifecycle flags. Use a version with `available_for_creation: true` when creating a cluster or a node pool, and one with `available_for_upgrade: true` when upgrading. Exactly one entry has `default: true`.
@@ -1431,5 +1627,63 @@ func main() {
 
 | Error Type               | Status Code              | Content Type             |
 | ------------------------ | ------------------------ | ------------------------ |
+| components.ErrorObject   | 502                      | application/vnd.api+json |
+| components.APIError      | 4XX, 5XX                 | \*/\*                    |
+
+## ListLksAllocatableServers
+
+Lists a project's servers at a site, with whether each one can join an allocated node pool right now. Pass the `id` of an allocatable server in `server_ids` when creating or updating an allocated node pool.
+
+When `allocatable` is false, `reasons` lists why, using the same codes that node pool create and update return per server. `node_pool_id` and `cluster_id` identify the pool a server already belongs to.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="list-lks-allocatable-servers" method="get" path="/lks/allocatable_servers" example="TwoServers" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.Lks.ListLksAllocatableServers(ctx, "<value>", "<value>")
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.LksAllocatableServers != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `filterProject`                                          | `string`                                                 | :heavy_check_mark:                                       | Project id or slug                                       |
+| `filterSite`                                             | `string`                                                 | :heavy_check_mark:                                       | Site slug                                                |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+
+### Response
+
+**[*operations.ListLksAllocatableServersResponse](../../models/operations/listlksallocatableserversresponse.md), error**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| components.ErrorObject   | 404, 422                 | application/vnd.api+json |
 | components.ErrorObject   | 502                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
