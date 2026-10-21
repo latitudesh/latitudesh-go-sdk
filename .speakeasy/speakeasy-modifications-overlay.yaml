@@ -992,3 +992,10 @@ actions:
       after: operations.AccessKeyStorageClass
       before: operations.StorageClass
       type: type-name
+  - target: $["paths"]["/servers"]["post"]["requestBody"]["content"]["application/json"]["schema"]["properties"]["data"]["properties"]["attributes"]["properties"]["raid"]
+    update:
+      title: CreateServerRaid
+    x-speakeasy-metadata:
+      after: operations.CreateServerRaid
+      before: operations.CreateServerServersRaid
+      type: type-name

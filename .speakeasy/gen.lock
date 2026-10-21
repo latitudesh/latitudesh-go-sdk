@@ -1,7 +1,7 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: c9ec328c23cdf84e5691dc20ec55f14f
+  docChecksum: 15ac7ec014a84746e4ae5bdd25cd0503
   docVersion: "2023-06-01"
   speakeasyVersion: 1.803.0
   generationVersion: 2.950.2
@@ -10,9 +10,9 @@ management:
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: c2038932-40c1-4f1b-8888-9fd0eb11d8f1
-  pristine_commit_hash: c6b08ad8596ddf9d94918554cd38076bc4a6a415
-  pristine_tree_hash: d7e7cce5a77ff5e2dd52189b1ad79a761df55336
+  generation_id: c1677728-7c9e-4354-a539-aec11e4056e5
+  pristine_commit_hash: bc9a4d1e0e91b3d69c34cf736d9a4d95fb59e94e
+  pristine_tree_hash: f38dede73aabcbbad9bf96e948d67e00e53c95f5
 features:
   go:
     additionalDependencies: 0.1.0
@@ -2982,6 +2982,10 @@ trackedFiles:
     id: bca332ea2631
     last_write_checksum: sha1:50feb6187a3e5a95e4b8214599e43ca5faffb6e7
     pristine_git_object: b81aba9daaf9480e948e111beb7e0ab1e600b4f7
+  docs/models/operations/createserverraid.md:
+    id: 55c3e564805a
+    last_write_checksum: sha1:c3abf2b2e75328bc4745cf6ef09f98b160872004
+    pristine_git_object: 0eceb51051ad353d7ec377829351d92761811e07
   docs/models/operations/createserverraidlevel.md:
     id: 5d396a836052
     last_write_checksum: sha1:05efdea5f1181b7fff7cf8eeeba30f8e48c2b4b3
@@ -3040,16 +3044,12 @@ trackedFiles:
     pristine_git_object: ed03c8c593d864490a9db898fccfaf1d9cacc618
   docs/models/operations/createserverserversattributes.md:
     id: b57a41906b77
-    last_write_checksum: sha1:0f0f639ba3d986c8be47a351975a443d4bd34a8a
-    pristine_git_object: 5fd4783d7888b0ae11108078c5c2b740030bb8f3
+    last_write_checksum: sha1:306f2292e303b6bee4320debd07b07aba0bf1391
+    pristine_git_object: 6e4cc59b0b81b6f573cbb62619b6676c81021cec
   docs/models/operations/createserverserversdata.md:
     id: 17dcd52ff906
     last_write_checksum: sha1:3c5e43339a2a2c0be011f275199fd766f075c6a6
     pristine_git_object: 12db047106a177ff25fad3c454dd8dda6c37eb63
-  docs/models/operations/createserverserversraid.md:
-    id: db79e918c58b
-    last_write_checksum: sha1:65a906e16201b4a0b4d443b9dc1641da1fe8b517
-    pristine_git_object: b475f169d2754a2b0e8e1f58b6ce8af382208422
   docs/models/operations/createserverserversrequestbody.md:
     id: 3bb54e1bf982
     last_write_checksum: sha1:6e85c479e5413c0a5b9578d5a9ab69dbcff54454
@@ -6312,8 +6312,8 @@ trackedFiles:
     pristine_git_object: 41aa99c67249f2ff8ee20fb78a5af6e23335c28c
   models/operations/createserver.go:
     id: 8ad2ecc6a3e3
-    last_write_checksum: sha1:2f04a554fc39deeea00b29374aeb5a5089d2bb0d
-    pristine_git_object: 3771486ea412112c6980d21e1f1319e1ed5cbecb
+    last_write_checksum: sha1:590fb5686b233c13c57e395445bbd06a867352d6
+    pristine_git_object: fbb5cbc1ed0e298a7ea39bfec79ca7e531758299
   models/operations/createserveraction.go:
     id: ee7580f72478
     last_write_checksum: sha1:8838260324d0e1a1895824f431c06c0f0f120887

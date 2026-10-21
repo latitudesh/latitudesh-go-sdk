@@ -156,19 +156,19 @@ func (e *CreateServerOperatingSystem) IsExact() bool {
 	return false
 }
 
-// CreateServerServersRaid - RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, 'raid-10' for RAID 10 on the data disks (only at locations with the `raid_ten` feature), or omit/null for no RAID configuration
-type CreateServerServersRaid string
+// CreateServerRaid - RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, 'raid-10' for RAID 10 on the data disks (only at locations with the `raid_ten` feature), or omit/null for no RAID configuration
+type CreateServerRaid string
 
 const (
-	CreateServerServersRaidRaid0  CreateServerServersRaid = "raid-0"
-	CreateServerServersRaidRaid1  CreateServerServersRaid = "raid-1"
-	CreateServerServersRaidRaid10 CreateServerServersRaid = "raid-10"
+	CreateServerRaidRaid0  CreateServerRaid = "raid-0"
+	CreateServerRaidRaid1  CreateServerRaid = "raid-1"
+	CreateServerRaidRaid10 CreateServerRaid = "raid-10"
 )
 
-func (e CreateServerServersRaid) ToPointer() *CreateServerServersRaid {
+func (e CreateServerRaid) ToPointer() *CreateServerRaid {
 	return &e
 }
-func (e *CreateServerServersRaid) UnmarshalJSON(data []byte) error {
+func (e *CreateServerRaid) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -179,10 +179,10 @@ func (e *CreateServerServersRaid) UnmarshalJSON(data []byte) error {
 	case "raid-1":
 		fallthrough
 	case "raid-10":
-		*e = CreateServerServersRaid(v)
+		*e = CreateServerRaid(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateServerServersRaid: %v", v)
+		return fmt.Errorf("invalid value for CreateServerRaid: %v", v)
 	}
 }
 
@@ -359,7 +359,7 @@ type CreateServerServersAttributes struct {
 	// User data ID to set on the server. This is a custom script that will run after the deploy
 	UserData *string `json:"user_data,omitempty"`
 	// RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, 'raid-10' for RAID 10 on the data disks (only at locations with the `raid_ten` feature), or omit/null for no RAID configuration
-	Raid       *CreateServerServersRaid `json:"raid,omitempty"`
+	Raid       *CreateServerRaid        `json:"raid,omitempty"`
 	DiskLayout []CreateServerDiskLayout `json:"disk_layout,omitempty"`
 	// URL where iPXE script is stored on, OR the iPXE script encoded in base64. This attribute is required when iPXE is selected as operating system.
 	Ipxe *string `json:"ipxe,omitempty"`
@@ -424,7 +424,7 @@ func (c *CreateServerServersAttributes) GetUserData() *string {
 	return c.UserData
 }
 
-func (c *CreateServerServersAttributes) GetRaid() *CreateServerServersRaid {
+func (c *CreateServerServersAttributes) GetRaid() *CreateServerRaid {
 	if c == nil {
 		return nil
 	}
