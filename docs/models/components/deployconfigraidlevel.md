@@ -13,7 +13,8 @@ value := components.DeployConfigRaidLevelRaid0
 
 ## Values
 
-| Name                         | Value                        |
-| ---------------------------- | ---------------------------- |
-| `DeployConfigRaidLevelRaid0` | raid-0                       |
-| `DeployConfigRaidLevelRaid1` | raid-1                       |
+| Name                          | Value                         |
+| ----------------------------- | ----------------------------- |
+| `DeployConfigRaidLevelRaid0`  | raid-0                        |
+| `DeployConfigRaidLevelRaid1`  | raid-1                        |
+| `DeployConfigRaidLevelRaid10` | raid-10                       |

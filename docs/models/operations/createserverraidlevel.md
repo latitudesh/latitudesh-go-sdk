@@ -13,7 +13,8 @@ value := operations.CreateServerRaidLevelRaid0
 
 ## Values
 
-| Name                         | Value                        |
-| ---------------------------- | ---------------------------- |
-| `CreateServerRaidLevelRaid0` | raid-0                       |
-| `CreateServerRaidLevelRaid1` | raid-1                       |
+| Name                          | Value                         |
+| ----------------------------- | ----------------------------- |
+| `CreateServerRaidLevelRaid0`  | raid-0                        |
+| `CreateServerRaidLevelRaid1`  | raid-1                        |
+| `CreateServerRaidLevelRaid10` | raid-10                       |

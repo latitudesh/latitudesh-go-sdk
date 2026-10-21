@@ -2,7 +2,7 @@
 
 package latitudeshgosdk
 
-// Generated from OpenAPI doc version 2023-06-01 and generator version 2.948.4
+// Generated from OpenAPI doc version 2023-06-01 and generator version 2.950.2
 
 import (
 	"context"
@@ -176,11 +176,11 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Latitudesh {
 	sdk := &Latitudesh{
-		SDKVersion: "1.21.0",
+		SDKVersion: "1.21.1",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:         "speakeasy-sdk/go 1.21.0 2.948.4 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
-			SDKVersion:        "1.21.0",
-			GenVersion:        "2.948.4",
+			UserAgent:         "speakeasy-sdk/go 1.21.1 2.950.2 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
+			SDKVersion:        "1.21.1",
+			GenVersion:        "2.950.2",
 			OpenAPIDocVersion: "2023-06-01",
 			ServerList:        ServerList,
 			ServerVariables: []map[string]string{

@@ -61,6 +61,36 @@ func (e *CreateBaselineTargetType) UnmarshalJSON(data []byte) error {
 	}
 }
 
+// CreateBaselineRaid - RAID level for the default disk layout. With 4 or more disks (or a hardware RAID boot disk) the OS stays on the boot disk or a RAID 1 mirror and the remaining disks form the data array at /data at this level; with 2-3 disks the level applies to the OS across all disks. 'raid-10' is data-only, needs at least 4 data disks and is applied only at locations with the `raid_ten` feature. Mutually exclusive with disk_layout
+type CreateBaselineRaid string
+
+const (
+	CreateBaselineRaidRaid0  CreateBaselineRaid = "raid-0"
+	CreateBaselineRaidRaid1  CreateBaselineRaid = "raid-1"
+	CreateBaselineRaidRaid10 CreateBaselineRaid = "raid-10"
+)
+
+func (e CreateBaselineRaid) ToPointer() *CreateBaselineRaid {
+	return &e
+}
+func (e *CreateBaselineRaid) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "raid-0":
+		fallthrough
+	case "raid-1":
+		fallthrough
+	case "raid-10":
+		*e = CreateBaselineRaid(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for CreateBaselineRaid: %v", v)
+	}
+}
+
 // CreateBaselineBios - Expected BIOS settings, keyed by setting id
 type CreateBaselineBios struct {
 }
@@ -82,6 +112,8 @@ type CreateBaselineAttributes struct {
 	UserDataID *string `json:"user_data_id,omitempty"`
 	// Expected disk layout
 	DiskLayout []components.BaselineDiskLayoutGroup `json:"disk_layout,omitempty"`
+	// RAID level for the default disk layout. With 4 or more disks (or a hardware RAID boot disk) the OS stays on the boot disk or a RAID 1 mirror and the remaining disks form the data array at /data at this level; with 2-3 disks the level applies to the OS across all disks. 'raid-10' is data-only, needs at least 4 data disks and is applied only at locations with the `raid_ten` feature. Mutually exclusive with disk_layout
+	Raid *CreateBaselineRaid `json:"raid,omitempty"`
 	// Expected BIOS settings, keyed by setting id
 	Bios *CreateBaselineBios `json:"bios,omitempty"`
 }
@@ -140,6 +172,13 @@ func (c *CreateBaselineAttributes) GetDiskLayout() []components.BaselineDiskLayo
 		return nil
 	}
 	return c.DiskLayout
+}
+
+func (c *CreateBaselineAttributes) GetRaid() *CreateBaselineRaid {
+	if c == nil {
+		return nil
+	}
+	return c.Raid
 }
 
 func (c *CreateBaselineAttributes) GetBios() *CreateBaselineBios {

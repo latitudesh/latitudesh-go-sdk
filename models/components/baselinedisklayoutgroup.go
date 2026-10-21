@@ -37,12 +37,13 @@ func (e *BaselineDiskLayoutGroupRole) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// RaidLevel - RAID level for the group. Only valid for the 'os' and 'storage' roles
+// RaidLevel - RAID level for the group. Only valid for the 'os' and 'storage' roles; 'raid-10' is storage-only, needs at least 4 disks, and is applied only at locations with the `raid_ten` feature
 type RaidLevel string
 
 const (
-	RaidLevelRaid0 RaidLevel = "raid-0"
-	RaidLevelRaid1 RaidLevel = "raid-1"
+	RaidLevelRaid0  RaidLevel = "raid-0"
+	RaidLevelRaid1  RaidLevel = "raid-1"
+	RaidLevelRaid10 RaidLevel = "raid-10"
 )
 
 func (e RaidLevel) ToPointer() *RaidLevel {
@@ -57,6 +58,8 @@ func (e *RaidLevel) UnmarshalJSON(data []byte) error {
 	case "raid-0":
 		fallthrough
 	case "raid-1":
+		fallthrough
+	case "raid-10":
 		*e = RaidLevel(v)
 		return nil
 	default:
@@ -93,7 +96,7 @@ type BaselineDiskLayoutGroup struct {
 	Role *BaselineDiskLayoutGroupRole `json:"role,omitempty"`
 	// Number of disks in the group
 	Count *int64 `json:"count,omitempty"`
-	// RAID level for the group. Only valid for the 'os' and 'storage' roles
+	// RAID level for the group. Only valid for the 'os' and 'storage' roles; 'raid-10' is storage-only, needs at least 4 disks, and is applied only at locations with the `raid_ten` feature
 	RaidLevel *RaidLevel `json:"raid_level,omitempty"`
 	// Filesystem to format the group with. Only valid for the 'storage' role
 	Filesystem *Filesystem `json:"filesystem,omitempty"`

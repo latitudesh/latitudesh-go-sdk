@@ -108,12 +108,13 @@ func (e *UpdateServerDeployConfigServersOperatingSystem) UnmarshalJSON(data []by
 	}
 }
 
-// UpdateServerDeployConfigServersRaid - RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, or omit/null for no RAID configuration
+// UpdateServerDeployConfigServersRaid - RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, 'raid-10' for RAID 10 on the data disks (only at locations with the `raid_ten` feature), or omit/null for no RAID configuration
 type UpdateServerDeployConfigServersRaid string
 
 const (
-	UpdateServerDeployConfigServersRaidRaid0 UpdateServerDeployConfigServersRaid = "raid-0"
-	UpdateServerDeployConfigServersRaidRaid1 UpdateServerDeployConfigServersRaid = "raid-1"
+	UpdateServerDeployConfigServersRaidRaid0  UpdateServerDeployConfigServersRaid = "raid-0"
+	UpdateServerDeployConfigServersRaidRaid1  UpdateServerDeployConfigServersRaid = "raid-1"
+	UpdateServerDeployConfigServersRaidRaid10 UpdateServerDeployConfigServersRaid = "raid-10"
 )
 
 func (e UpdateServerDeployConfigServersRaid) ToPointer() *UpdateServerDeployConfigServersRaid {
@@ -128,6 +129,8 @@ func (e *UpdateServerDeployConfigServersRaid) UnmarshalJSON(data []byte) error {
 	case "raid-0":
 		fallthrough
 	case "raid-1":
+		fallthrough
+	case "raid-10":
 		*e = UpdateServerDeployConfigServersRaid(v)
 		return nil
 	default:
@@ -167,8 +170,9 @@ func (e *UpdateServerDeployConfigServersRole) UnmarshalJSON(data []byte) error {
 type UpdateServerDeployConfigServersRaidLevel string
 
 const (
-	UpdateServerDeployConfigServersRaidLevelRaid0 UpdateServerDeployConfigServersRaidLevel = "raid-0"
-	UpdateServerDeployConfigServersRaidLevelRaid1 UpdateServerDeployConfigServersRaidLevel = "raid-1"
+	UpdateServerDeployConfigServersRaidLevelRaid0  UpdateServerDeployConfigServersRaidLevel = "raid-0"
+	UpdateServerDeployConfigServersRaidLevelRaid1  UpdateServerDeployConfigServersRaidLevel = "raid-1"
+	UpdateServerDeployConfigServersRaidLevelRaid10 UpdateServerDeployConfigServersRaidLevel = "raid-10"
 )
 
 func (e UpdateServerDeployConfigServersRaidLevel) ToPointer() *UpdateServerDeployConfigServersRaidLevel {
@@ -183,6 +187,8 @@ func (e *UpdateServerDeployConfigServersRaidLevel) UnmarshalJSON(data []byte) er
 	case "raid-0":
 		fallthrough
 	case "raid-1":
+		fallthrough
+	case "raid-10":
 		*e = UpdateServerDeployConfigServersRaidLevel(v)
 		return nil
 	default:
@@ -259,7 +265,7 @@ func (u *UpdateServerDeployConfigServersDiskLayout) GetMountPoint() *string {
 type UpdateServerDeployConfigServersAttributes struct {
 	Hostname        *string                                         `json:"hostname,omitempty"`
 	OperatingSystem *UpdateServerDeployConfigServersOperatingSystem `json:"operating_system,omitempty"`
-	// RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, or omit/null for no RAID configuration
+	// RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, 'raid-10' for RAID 10 on the data disks (only at locations with the `raid_ten` feature), or omit/null for no RAID configuration
 	Raid       *UpdateServerDeployConfigServersRaid        `json:"raid,omitempty"`
 	DiskLayout []UpdateServerDeployConfigServersDiskLayout `json:"disk_layout,omitempty"`
 	// User data to configure the server

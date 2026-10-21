@@ -156,18 +156,19 @@ func (e *CreateServerOperatingSystem) IsExact() bool {
 	return false
 }
 
-// CreateServerRaid - RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, or omit/null for no RAID configuration
-type CreateServerRaid string
+// CreateServerServersRaid - RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, 'raid-10' for RAID 10 on the data disks (only at locations with the `raid_ten` feature), or omit/null for no RAID configuration
+type CreateServerServersRaid string
 
 const (
-	CreateServerRaidRaid0 CreateServerRaid = "raid-0"
-	CreateServerRaidRaid1 CreateServerRaid = "raid-1"
+	CreateServerServersRaidRaid0  CreateServerServersRaid = "raid-0"
+	CreateServerServersRaidRaid1  CreateServerServersRaid = "raid-1"
+	CreateServerServersRaidRaid10 CreateServerServersRaid = "raid-10"
 )
 
-func (e CreateServerRaid) ToPointer() *CreateServerRaid {
+func (e CreateServerServersRaid) ToPointer() *CreateServerServersRaid {
 	return &e
 }
-func (e *CreateServerRaid) UnmarshalJSON(data []byte) error {
+func (e *CreateServerServersRaid) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -176,10 +177,12 @@ func (e *CreateServerRaid) UnmarshalJSON(data []byte) error {
 	case "raid-0":
 		fallthrough
 	case "raid-1":
-		*e = CreateServerRaid(v)
+		fallthrough
+	case "raid-10":
+		*e = CreateServerServersRaid(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for CreateServerRaid: %v", v)
+		return fmt.Errorf("invalid value for CreateServerServersRaid: %v", v)
 	}
 }
 
@@ -215,8 +218,9 @@ func (e *CreateServerServersRole) UnmarshalJSON(data []byte) error {
 type CreateServerRaidLevel string
 
 const (
-	CreateServerRaidLevelRaid0 CreateServerRaidLevel = "raid-0"
-	CreateServerRaidLevelRaid1 CreateServerRaidLevel = "raid-1"
+	CreateServerRaidLevelRaid0  CreateServerRaidLevel = "raid-0"
+	CreateServerRaidLevelRaid1  CreateServerRaidLevel = "raid-1"
+	CreateServerRaidLevelRaid10 CreateServerRaidLevel = "raid-10"
 )
 
 func (e CreateServerRaidLevel) ToPointer() *CreateServerRaidLevel {
@@ -231,6 +235,8 @@ func (e *CreateServerRaidLevel) UnmarshalJSON(data []byte) error {
 	case "raid-0":
 		fallthrough
 	case "raid-1":
+		fallthrough
+	case "raid-10":
 		*e = CreateServerRaidLevel(v)
 		return nil
 	default:
@@ -352,8 +358,8 @@ type CreateServerServersAttributes struct {
 	SSHKeys []string `json:"ssh_keys,omitempty"`
 	// User data ID to set on the server. This is a custom script that will run after the deploy
 	UserData *string `json:"user_data,omitempty"`
-	// RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, or omit/null for no RAID configuration
-	Raid       *CreateServerRaid        `json:"raid,omitempty"`
+	// RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, 'raid-10' for RAID 10 on the data disks (only at locations with the `raid_ten` feature), or omit/null for no RAID configuration
+	Raid       *CreateServerServersRaid `json:"raid,omitempty"`
 	DiskLayout []CreateServerDiskLayout `json:"disk_layout,omitempty"`
 	// URL where iPXE script is stored on, OR the iPXE script encoded in base64. This attribute is required when iPXE is selected as operating system.
 	Ipxe *string `json:"ipxe,omitempty"`
@@ -418,7 +424,7 @@ func (c *CreateServerServersAttributes) GetUserData() *string {
 	return c.UserData
 }
 
-func (c *CreateServerServersAttributes) GetRaid() *CreateServerRaid {
+func (c *CreateServerServersAttributes) GetRaid() *CreateServerServersRaid {
 	if c == nil {
 		return nil
 	}

@@ -62,8 +62,9 @@ func (e *DeployConfigRole) UnmarshalJSON(data []byte) error {
 type DeployConfigRaidLevel string
 
 const (
-	DeployConfigRaidLevelRaid0 DeployConfigRaidLevel = "raid-0"
-	DeployConfigRaidLevelRaid1 DeployConfigRaidLevel = "raid-1"
+	DeployConfigRaidLevelRaid0  DeployConfigRaidLevel = "raid-0"
+	DeployConfigRaidLevelRaid1  DeployConfigRaidLevel = "raid-1"
+	DeployConfigRaidLevelRaid10 DeployConfigRaidLevel = "raid-10"
 )
 
 func (e DeployConfigRaidLevel) ToPointer() *DeployConfigRaidLevel {
@@ -78,6 +79,8 @@ func (e *DeployConfigRaidLevel) UnmarshalJSON(data []byte) error {
 	case "raid-0":
 		fallthrough
 	case "raid-1":
+		fallthrough
+	case "raid-10":
 		*e = DeployConfigRaidLevel(v)
 		return nil
 	default:

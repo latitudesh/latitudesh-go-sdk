@@ -13,7 +13,8 @@ value := operations.CreateServerReinstallServersRaidLevelRaid0
 
 ## Values
 
-| Name                                         | Value                                        |
-| -------------------------------------------- | -------------------------------------------- |
-| `CreateServerReinstallServersRaidLevelRaid0` | raid-0                                       |
-| `CreateServerReinstallServersRaidLevelRaid1` | raid-1                                       |
+| Name                                          | Value                                         |
+| --------------------------------------------- | --------------------------------------------- |
+| `CreateServerReinstallServersRaidLevelRaid0`  | raid-0                                        |
+| `CreateServerReinstallServersRaidLevelRaid1`  | raid-1                                        |
+| `CreateServerReinstallServersRaidLevelRaid10` | raid-10                                       |

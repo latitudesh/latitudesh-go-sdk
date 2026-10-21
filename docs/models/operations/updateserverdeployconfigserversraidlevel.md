@@ -13,7 +13,8 @@ value := operations.UpdateServerDeployConfigServersRaidLevelRaid0
 
 ## Values
 
-| Name                                            | Value                                           |
-| ----------------------------------------------- | ----------------------------------------------- |
-| `UpdateServerDeployConfigServersRaidLevelRaid0` | raid-0                                          |
-| `UpdateServerDeployConfigServersRaidLevelRaid1` | raid-1                                          |
+| Name                                             | Value                                            |
+| ------------------------------------------------ | ------------------------------------------------ |
+| `UpdateServerDeployConfigServersRaidLevelRaid0`  | raid-0                                           |
+| `UpdateServerDeployConfigServersRaidLevelRaid1`  | raid-1                                           |
+| `UpdateServerDeployConfigServersRaidLevelRaid10` | raid-10                                          |
