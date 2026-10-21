@@ -134,6 +134,36 @@ func (b *BaselineDataUserData) GetDescription() *string {
 	return b.Description
 }
 
+// Raid - Expected RAID level with the default disk layout (data array on 4+ disk servers, the OS on 2-3 disk servers). Mutually exclusive with disk_layout
+type Raid string
+
+const (
+	RaidRaid0  Raid = "raid-0"
+	RaidRaid1  Raid = "raid-1"
+	RaidRaid10 Raid = "raid-10"
+)
+
+func (e Raid) ToPointer() *Raid {
+	return &e
+}
+func (e *Raid) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "raid-0":
+		fallthrough
+	case "raid-1":
+		fallthrough
+	case "raid-10":
+		*e = Raid(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for Raid: %v", v)
+	}
+}
+
 // Bios - Expected BIOS settings, keyed by setting id
 type Bios struct {
 }
@@ -155,6 +185,8 @@ type BaselineDataAttributes struct {
 	UserData *BaselineDataUserData `json:"user_data,omitempty"`
 	// Expected disk layout
 	DiskLayout []BaselineDiskLayoutGroup `json:"disk_layout,omitempty"`
+	// Expected RAID level with the default disk layout (data array on 4+ disk servers, the OS on 2-3 disk servers). Mutually exclusive with disk_layout
+	Raid *Raid `json:"raid,omitempty"`
 	// Expected BIOS settings, keyed by setting id
 	Bios *Bios `json:"bios,omitempty"`
 	// Date the baseline was created
@@ -215,6 +247,13 @@ func (b *BaselineDataAttributes) GetDiskLayout() []BaselineDiskLayoutGroup {
 		return nil
 	}
 	return b.DiskLayout
+}
+
+func (b *BaselineDataAttributes) GetRaid() *Raid {
+	if b == nil {
+		return nil
+	}
+	return b.Raid
 }
 
 func (b *BaselineDataAttributes) GetBios() *Bios {

@@ -109,12 +109,13 @@ func (e *CreateServerReinstallServersOperatingSystem) UnmarshalJSON(data []byte)
 	}
 }
 
-// CreateServerReinstallServersRaid - RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, or omit/null for no RAID configuration
+// CreateServerReinstallServersRaid - RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, 'raid-10' for RAID 10 on the data disks (only at locations with the `raid_ten` feature), or omit/null for no RAID configuration
 type CreateServerReinstallServersRaid string
 
 const (
-	CreateServerReinstallServersRaidRaid0 CreateServerReinstallServersRaid = "raid-0"
-	CreateServerReinstallServersRaidRaid1 CreateServerReinstallServersRaid = "raid-1"
+	CreateServerReinstallServersRaidRaid0  CreateServerReinstallServersRaid = "raid-0"
+	CreateServerReinstallServersRaidRaid1  CreateServerReinstallServersRaid = "raid-1"
+	CreateServerReinstallServersRaidRaid10 CreateServerReinstallServersRaid = "raid-10"
 )
 
 func (e CreateServerReinstallServersRaid) ToPointer() *CreateServerReinstallServersRaid {
@@ -129,6 +130,8 @@ func (e *CreateServerReinstallServersRaid) UnmarshalJSON(data []byte) error {
 	case "raid-0":
 		fallthrough
 	case "raid-1":
+		fallthrough
+	case "raid-10":
 		*e = CreateServerReinstallServersRaid(v)
 		return nil
 	default:
@@ -168,8 +171,9 @@ func (e *CreateServerReinstallServersRole) UnmarshalJSON(data []byte) error {
 type CreateServerReinstallServersRaidLevel string
 
 const (
-	CreateServerReinstallServersRaidLevelRaid0 CreateServerReinstallServersRaidLevel = "raid-0"
-	CreateServerReinstallServersRaidLevelRaid1 CreateServerReinstallServersRaidLevel = "raid-1"
+	CreateServerReinstallServersRaidLevelRaid0  CreateServerReinstallServersRaidLevel = "raid-0"
+	CreateServerReinstallServersRaidLevelRaid1  CreateServerReinstallServersRaidLevel = "raid-1"
+	CreateServerReinstallServersRaidLevelRaid10 CreateServerReinstallServersRaidLevel = "raid-10"
 )
 
 func (e CreateServerReinstallServersRaidLevel) ToPointer() *CreateServerReinstallServersRaidLevel {
@@ -184,6 +188,8 @@ func (e *CreateServerReinstallServersRaidLevel) UnmarshalJSON(data []byte) error
 	case "raid-0":
 		fallthrough
 	case "raid-1":
+		fallthrough
+	case "raid-10":
 		*e = CreateServerReinstallServersRaidLevel(v)
 		return nil
 	default:
@@ -269,7 +275,7 @@ type CreateServerReinstallServersAttributes struct {
 	SSHKeys []string `json:"ssh_keys,omitempty"`
 	// User data ID to set upon reinstall
 	UserData *string `json:"user_data,omitempty"`
-	// RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, or omit/null for no RAID configuration
+	// RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, 'raid-10' for RAID 10 on the data disks (only at locations with the `raid_ten` feature), or omit/null for no RAID configuration
 	Raid       *CreateServerReinstallServersRaid        `json:"raid,omitempty"`
 	DiskLayout []CreateServerReinstallServersDiskLayout `json:"disk_layout,omitempty"`
 	// URL where iPXE script is stored on, OR the iPXE script encoded in base64. This attribute is required when operating system iPXE is selected.

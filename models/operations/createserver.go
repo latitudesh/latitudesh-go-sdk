@@ -156,12 +156,13 @@ func (e *CreateServerOperatingSystem) IsExact() bool {
 	return false
 }
 
-// CreateServerRaid - RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, or omit/null for no RAID configuration
+// CreateServerRaid - RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, 'raid-10' for RAID 10 on the data disks (only at locations with the `raid_ten` feature), or omit/null for no RAID configuration
 type CreateServerRaid string
 
 const (
-	CreateServerRaidRaid0 CreateServerRaid = "raid-0"
-	CreateServerRaidRaid1 CreateServerRaid = "raid-1"
+	CreateServerRaidRaid0  CreateServerRaid = "raid-0"
+	CreateServerRaidRaid1  CreateServerRaid = "raid-1"
+	CreateServerRaidRaid10 CreateServerRaid = "raid-10"
 )
 
 func (e CreateServerRaid) ToPointer() *CreateServerRaid {
@@ -176,6 +177,8 @@ func (e *CreateServerRaid) UnmarshalJSON(data []byte) error {
 	case "raid-0":
 		fallthrough
 	case "raid-1":
+		fallthrough
+	case "raid-10":
 		*e = CreateServerRaid(v)
 		return nil
 	default:
@@ -215,8 +218,9 @@ func (e *CreateServerServersRole) UnmarshalJSON(data []byte) error {
 type CreateServerRaidLevel string
 
 const (
-	CreateServerRaidLevelRaid0 CreateServerRaidLevel = "raid-0"
-	CreateServerRaidLevelRaid1 CreateServerRaidLevel = "raid-1"
+	CreateServerRaidLevelRaid0  CreateServerRaidLevel = "raid-0"
+	CreateServerRaidLevelRaid1  CreateServerRaidLevel = "raid-1"
+	CreateServerRaidLevelRaid10 CreateServerRaidLevel = "raid-10"
 )
 
 func (e CreateServerRaidLevel) ToPointer() *CreateServerRaidLevel {
@@ -231,6 +235,8 @@ func (e *CreateServerRaidLevel) UnmarshalJSON(data []byte) error {
 	case "raid-0":
 		fallthrough
 	case "raid-1":
+		fallthrough
+	case "raid-10":
 		*e = CreateServerRaidLevel(v)
 		return nil
 	default:
@@ -352,7 +358,7 @@ type CreateServerServersAttributes struct {
 	SSHKeys []string `json:"ssh_keys,omitempty"`
 	// User data ID to set on the server. This is a custom script that will run after the deploy
 	UserData *string `json:"user_data,omitempty"`
-	// RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, or omit/null for no RAID configuration
+	// RAID mode for the server. Set to 'raid-0' for RAID 0, 'raid-1' for RAID 1, 'raid-10' for RAID 10 on the data disks (only at locations with the `raid_ten` feature), or omit/null for no RAID configuration
 	Raid       *CreateServerRaid        `json:"raid,omitempty"`
 	DiskLayout []CreateServerDiskLayout `json:"disk_layout,omitempty"`
 	// URL where iPXE script is stored on, OR the iPXE script encoded in base64. This attribute is required when iPXE is selected as operating system.
