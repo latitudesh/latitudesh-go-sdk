@@ -266,6 +266,32 @@ func (c *CreateServerReinstallServersDiskLayout) GetMountPoint() *string {
 	return c.MountPoint
 }
 
+type CreateServerReinstallServersBios string
+
+const (
+	CreateServerReinstallServersBiosEnabled  CreateServerReinstallServersBios = "enabled"
+	CreateServerReinstallServersBiosDisabled CreateServerReinstallServersBios = "disabled"
+)
+
+func (e CreateServerReinstallServersBios) ToPointer() *CreateServerReinstallServersBios {
+	return &e
+}
+func (e *CreateServerReinstallServersBios) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "enabled":
+		fallthrough
+	case "disabled":
+		*e = CreateServerReinstallServersBios(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for CreateServerReinstallServersBios: %v", v)
+	}
+}
+
 type CreateServerReinstallServersAttributes struct {
 	// The OS selected for the reinstall process
 	OperatingSystem *CreateServerReinstallServersOperatingSystem `json:"operating_system,omitempty"`
@@ -282,10 +308,12 @@ type CreateServerReinstallServersAttributes struct {
 	Ipxe *string `json:"ipxe,omitempty"`
 	// Keep network boot enabled so the server iPXE-boots on every reboot instead of booting from disk. Only supported with the 'ipxe' operating system.
 	PersistentNetboot *bool `json:"persistent_netboot,omitempty"`
-	// **Preview.** Available to teams with public networks enabled. Set to 'true' to attach the server onto the given 'public_network_id', or 'false' to detach an existing public network, during the reinstall. Requires 'public_network_id' when attaching.
+	// **Preview.** Available to teams with public networks enabled. Set to true to attach the server onto the given public_network_id. Requires public_network_id; the server must be public-network eligible.
 	PublicNetwork *bool `json:"public_network,omitempty"`
-	// ID of a customer public network to attach this server to during the reinstall. The public network must belong to the same project and be in the same location as the server, and must have at least one free IP address. Applies to this reinstall only; omit it to leave any existing public network unchanged.
+	// **Preview.** Available to teams with public networks enabled. ID of a customer public network to attach the server onto. Requires public_network: true. The public network must belong to the same project and location as the server and have a free address. A server already attached to another public network is detached from it first. Applies only to this reinstall; omitting it leaves an existing attachment.
 	PublicNetworkID *string `json:"public_network_id,omitempty"`
+	// **Preview.** Available to teams with custom BIOS settings enabled. Custom BIOS settings applied before the OS is installed. Keys are BIOS setting names (e.g. `cpu_virtualization`, `simultaneous_multithreading`, `iommu`, `sr_iov`); only the settings listed in the server specs `supported_bios_settings` are accepted. Values are `enabled` or `disabled`. The settings are kept and reapplied on later reinstalls that omit `bios`; send `null` or `{}` to stop applying them. The reinstall fails if the settings cannot be applied.
+	Bios map[string]CreateServerReinstallServersBios `json:"bios,omitempty"`
 }
 
 func (c *CreateServerReinstallServersAttributes) GetOperatingSystem() *CreateServerReinstallServersOperatingSystem {
@@ -356,6 +384,13 @@ func (c *CreateServerReinstallServersAttributes) GetPublicNetworkID() *string {
 		return nil
 	}
 	return c.PublicNetworkID
+}
+
+func (c *CreateServerReinstallServersAttributes) GetBios() map[string]CreateServerReinstallServersBios {
+	if c == nil {
+		return nil
+	}
+	return c.Bios
 }
 
 type CreateServerReinstallServersData struct {

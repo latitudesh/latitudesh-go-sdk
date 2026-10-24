@@ -266,6 +266,8 @@ func (s *Specs) GetGpu() *Gpu {
 type Locations struct {
 	Available []string `json:"available,omitempty"`
 	InStock   []string `json:"in_stock,omitempty"`
+	// Servers in stock keyed by site slug. Only sites with stock are present.
+	InStockCount map[string]int64 `json:"in_stock_count,omitempty"`
 }
 
 func (l *Locations) GetAvailable() []string {
@@ -280,6 +282,13 @@ func (l *Locations) GetInStock() []string {
 		return nil
 	}
 	return l.InStock
+}
+
+func (l *Locations) GetInStockCount() map[string]int64 {
+	if l == nil {
+		return nil
+	}
+	return l.InStockCount
 }
 
 type StockLevel string
