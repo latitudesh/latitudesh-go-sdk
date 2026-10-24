@@ -1,0 +1,10 @@
+# InferenceModel
+
+
+## Fields
+
+| Field                                                                                       | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `ID`                                                                                        | `*string`                                                                                   | :heavy_minus_sign:                                                                          | Canonical model ID — the exact value to send as "model" in inference requests               |
+| `Type`                                                                                      | [*components.InferenceModelType](../../models/components/inferencemodeltype.md)             | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `Attributes`                                                                                | [*components.InferenceModelAttributes](../../models/components/inferencemodelattributes.md) | :heavy_minus_sign:                                                                          | N/A                                                                                         |

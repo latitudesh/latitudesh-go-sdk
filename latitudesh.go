@@ -2,7 +2,7 @@
 
 package latitudeshgosdk
 
-// Generated from OpenAPI doc version 2023-06-01 and generator version 2.950.2
+// Generated from OpenAPI doc version 2023-06-01 and generator version 2.950.13
 
 import (
 	"context"
@@ -52,26 +52,29 @@ func Pointer[T any](v T) *T { return &v }
 type Latitudesh struct {
 	SDKVersion string
 	APIKeys    *APIKeys
+	Inference  *Inference
 	// Preview. Available to teams with the `baselines_api` feature flag. The shape of these endpoints may change before general availability.
-	BaselinesPreview       *BaselinesPreview
-	Billing                *Billing
-	Events                 *Events
-	Firewalls              *Firewalls
-	ElasticIps             *ElasticIps
-	IPAddresses            *IPAddresses
-	Teams                  *Teams
-	TeamMembers            *TeamMembers
-	OperatingSystems       *OperatingSystems
-	KubernetesClusters     *KubernetesClusters
-	Lks                    *Lks
-	Plans                  *Plans
-	PublicNetworks         *PublicNetworks
-	Projects               *Projects
-	SSHKeys                *SSHKeys
-	ObjectStorage          *ObjectStorage
-	UserData               *UserData
-	Regions                *Regions
-	Roles                  *Roles
+	BaselinesPreview   *BaselinesPreview
+	Billing            *Billing
+	Events             *Events
+	Firewalls          *Firewalls
+	ElasticIps         *ElasticIps
+	IPAddresses        *IPAddresses
+	Teams              *Teams
+	TeamMembers        *TeamMembers
+	OperatingSystems   *OperatingSystems
+	KubernetesClusters *KubernetesClusters
+	Lks                *Lks
+	Plans              *Plans
+	PublicNetworks     *PublicNetworks
+	Projects           *Projects
+	SSHKeys            *SSHKeys
+	ObjectStorage      *ObjectStorage
+	UserData           *UserData
+	Regions            *Regions
+	Roles              *Roles
+	// Preview. Available to teams with the `sandboxes_api` feature flag. The shape of these endpoints may change before general availability.
+	SandboxesPreview       *SandboxesPreview
 	Servers                *Servers
 	FilesystemStorage      *FilesystemStorage
 	BlockStorage           *BlockStorage
@@ -176,11 +179,11 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Latitudesh {
 	sdk := &Latitudesh{
-		SDKVersion: "1.21.1",
+		SDKVersion: "1.21.2",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:         "speakeasy-sdk/go 1.21.1 2.950.2 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
-			SDKVersion:        "1.21.1",
-			GenVersion:        "2.950.2",
+			UserAgent:         "speakeasy-sdk/go 1.21.2 2.950.13 2023-06-01 github.com/latitudesh/latitudesh-go-sdk",
+			SDKVersion:        "1.21.2",
+			GenVersion:        "2.950.13",
 			OpenAPIDocVersion: "2023-06-01",
 			ServerList:        ServerList,
 			ServerVariables: []map[string]string{
@@ -218,6 +221,7 @@ func New(opts ...SDKOption) *Latitudesh {
 	}
 
 	sdk.APIKeys = newAPIKeys(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Inference = newInference(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.BaselinesPreview = newBaselinesPreview(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Billing = newBilling(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Events = newEvents(sdk, sdk.sdkConfiguration, sdk.hooks)
@@ -237,6 +241,7 @@ func New(opts ...SDKOption) *Latitudesh {
 	sdk.UserData = newUserData(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Regions = newRegions(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Roles = newRoles(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.SandboxesPreview = newSandboxesPreview(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Servers = newServers(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.FilesystemStorage = newFilesystemStorage(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.BlockStorage = newBlockStorage(sdk, sdk.sdkConfiguration, sdk.hooks)

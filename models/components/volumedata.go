@@ -43,11 +43,61 @@ func (i *Initiators) GetNqn() *string {
 	return i.Nqn
 }
 
-// VolumeDataStorageNetwork - Storage network the mapped server joins to reach the volume over NVMe-TCP. Null until the network has been provisioned for the volume.
+type Mappings struct {
+	// ID of the mapped server.
+	ServerID *string `json:"server_id,omitempty"`
+	// Mapping lifecycle state: "mapping" while the mapping is being applied, "mapped" once the server can access the volume, "unmapping" while the mapping is being removed, or "failed". Mapping and unmapping are asynchronous, so poll the volume until this reaches a terminal state. The entry disappears once the server is fully unmapped.
+	Status *string `json:"status,omitempty"`
+	// NVMe Qualified Name of the server.
+	Nqn *string `json:"nqn,omitempty"`
+	// NVMe namespace ID of the mapping.
+	Nsid *int64 `json:"nsid,omitempty"`
+	// Storage IP of the server, in CIDR notation. Null until the mapping status is "mapped".
+	HostCidr *string `json:"host_cidr,omitempty"`
+}
+
+func (m *Mappings) GetServerID() *string {
+	if m == nil {
+		return nil
+	}
+	return m.ServerID
+}
+
+func (m *Mappings) GetStatus() *string {
+	if m == nil {
+		return nil
+	}
+	return m.Status
+}
+
+func (m *Mappings) GetNqn() *string {
+	if m == nil {
+		return nil
+	}
+	return m.Nqn
+}
+
+func (m *Mappings) GetNsid() *int64 {
+	if m == nil {
+		return nil
+	}
+	return m.Nsid
+}
+
+func (m *Mappings) GetHostCidr() *string {
+	if m == nil {
+		return nil
+	}
+	return m.HostCidr
+}
+
+// VolumeDataStorageNetwork - Storage network the mapped servers join to reach the volume over NVMe-TCP. Null until the network has been provisioned for the volume.
 type VolumeDataStorageNetwork struct {
 	// VLAN ID of the storage VLAN to tag on the server bond.
 	Vid *int64 `json:"vid,omitempty"`
-	// Storage IP of the mapped server, in CIDR notation. Null until the mapping status is "mapped".
+	// Deprecated: use mappings[].host_cidr. Storage IP of the server when the volume is mapped to exactly one server and the mapping is "mapped"; null otherwise.
+	//
+	// Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
 	HostCidr *string `json:"host_cidr,omitempty"`
 	// Gateway of the storage network, used for the routes below.
 	Gateway *string `json:"gateway,omitempty"`
@@ -101,17 +151,27 @@ func (v *VolumeDataStorageNetwork) GetBlockPort() *int64 {
 	return v.BlockPort
 }
 
-// Block - NVMe-TCP block mapping of a high performance volume. Null for volumes that are not mapped to a server.
+// Block - NVMe-TCP block mappings of a high performance volume. A volume can be mapped to several servers at once; every server writes to the same NVMe namespace, so use a cluster-aware filesystem when more than one server mounts the volume. Null for volumes that are not mapped to any server.
 type Block struct {
-	// Mapping lifecycle state: "mapping" while the mapping is being applied, "mapped" once the server can access the volume, "unmapping" while the mapping is being removed, or "failed". Mapping and unmapping are asynchronous, so poll the volume until this reaches a terminal state. The block object becomes null once the volume is fully unmapped.
+	// Deprecated: use mappings[].status. Status of the mapping when the volume is mapped to exactly one server; null otherwise.
+	//
+	// Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
 	Status *string `json:"status,omitempty"`
-	// NVMe Qualified Name of the mapped server.
+	// Deprecated: use mappings[].nqn. NVMe Qualified Name of the server when the volume is mapped to exactly one server; null otherwise.
+	//
+	// Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
 	Nqn *string `json:"nqn,omitempty"`
-	// NVMe namespace ID of the mapping.
+	// Deprecated: use mappings[].nsid. NVMe namespace ID of the mapping when the volume is mapped to exactly one server; null otherwise.
+	//
+	// Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
 	Nsid *int64 `json:"nsid,omitempty"`
-	// ID of the server the volume is mapped to.
+	// Deprecated: use mappings[].server_id. ID of the server when the volume is mapped to exactly one server; null otherwise.
+	//
+	// Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
 	ServerID *string `json:"server_id,omitempty"`
-	// Storage network the mapped server joins to reach the volume over NVMe-TCP. Null until the network has been provisioned for the volume.
+	// One entry per server the volume is mapped to.
+	Mappings []Mappings `json:"mappings,omitempty"`
+	// Storage network the mapped servers join to reach the volume over NVMe-TCP. Null until the network has been provisioned for the volume.
 	StorageNetwork *VolumeDataStorageNetwork `json:"storage_network,omitempty"`
 }
 
@@ -141,6 +201,13 @@ func (b *Block) GetServerID() *string {
 		return nil
 	}
 	return b.ServerID
+}
+
+func (b *Block) GetMappings() []Mappings {
+	if b == nil {
+		return nil
+	}
+	return b.Mappings
 }
 
 func (b *Block) GetStorageNetwork() *VolumeDataStorageNetwork {
@@ -221,7 +288,7 @@ type VolumeDataAttributes struct {
 	Initiators  []Initiators `json:"initiators,omitempty"`
 	// NVMe namespace globally unique identifier (NGUID) of the volume, exactly as reported by the storage cluster, in UUID form (e.g. "b338cb51-7593-413d-8c87-2657af7ecae9"). Without the dashes it matches the NGUID the mapped server reports for the NVMe device of the volume. Null when it has not been recorded for the volume.
 	Nguid *string `json:"nguid,omitempty"`
-	// NVMe-TCP block mapping of a high performance volume. Null for volumes that are not mapped to a server.
+	// NVMe-TCP block mappings of a high performance volume. A volume can be mapped to several servers at once; every server writes to the same NVMe namespace, so use a cluster-aware filesystem when more than one server mounts the volume. Null for volumes that are not mapped to any server.
 	Block *Block `json:"block,omitempty"`
 	// Keyring secret used to connect to the volume. Returned only for dashboard-origin requests; null until the volume is provisioned.
 	Keyring *string `json:"keyring,omitempty"`

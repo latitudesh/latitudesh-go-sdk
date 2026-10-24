@@ -1,8 +1,8 @@
-# MountVolumeRequestBody
+# InferenceModels
 
 
 ## Fields
 
 | Field                                                                    | Type                                                                     | Required                                                                 | Description                                                              |
 | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `Data`                                                                   | [operations.MountVolumeData](../../models/operations/mountvolumedata.md) | :heavy_check_mark:                                                       | N/A                                                                      |
+| `Data`                                                                   | [][components.InferenceModel](../../models/components/inferencemodel.md) | :heavy_minus_sign:                                                       | N/A                                                                      |

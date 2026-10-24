@@ -1,0 +1,10 @@
+# InferenceAPIKey
+
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `ID`                                                                                          | `*string`                                                                                     | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `Type`                                                                                        | [*components.InferenceAPIKeyType](../../models/components/inferenceapikeytype.md)             | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `Attributes`                                                                                  | [*components.InferenceAPIKeyAttributes](../../models/components/inferenceapikeyattributes.md) | :heavy_minus_sign:                                                                            | N/A                                                                                           |
