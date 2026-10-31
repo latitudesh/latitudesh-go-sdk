@@ -40,6 +40,8 @@ type VirtualMachineAttributesFeatures struct {
 	UserData *bool `json:"user_data,omitempty"`
 	// Whether rescue mode is supported
 	Rescue *bool `json:"rescue,omitempty"`
+	// Whether the operating system can be deployed on ARM (arm64) servers
+	Arm64 *bool `json:"arm64,omitempty"`
 	// Whether workflow is supported
 	Workflow *bool `json:"workflow,omitempty"`
 }
@@ -70,6 +72,13 @@ func (v *VirtualMachineAttributesFeatures) GetRescue() *bool {
 		return nil
 	}
 	return v.Rescue
+}
+
+func (v *VirtualMachineAttributesFeatures) GetArm64() *bool {
+	if v == nil {
+		return nil
+	}
+	return v.Arm64
 }
 
 func (v *VirtualMachineAttributesFeatures) GetWorkflow() *bool {

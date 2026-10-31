@@ -146,6 +146,7 @@ type ServerDataFeatures struct {
 	UserData   *bool `json:"user_data,omitempty"`
 	Accelerate *bool `json:"accelerate,omitempty"`
 	Rescue     *bool `json:"rescue,omitempty"`
+	Arm64      *bool `json:"arm64,omitempty"`
 	Workflow   *bool `json:"workflow,omitempty"`
 }
 
@@ -182,6 +183,13 @@ func (s *ServerDataFeatures) GetRescue() *bool {
 		return nil
 	}
 	return s.Rescue
+}
+
+func (s *ServerDataFeatures) GetArm64() *bool {
+	if s == nil {
+		return nil
+	}
+	return s.Arm64
 }
 
 func (s *ServerDataFeatures) GetWorkflow() *bool {
@@ -516,6 +524,7 @@ type ServerDataAttributes struct {
 	// `on` - The server is powered ON
 	// `off` - The server is powered OFF
 	// `unknown` - The server power status is unknown
+	// `configuring_bios` - The server is applying custom BIOS settings at the start of a reinstall
 	// `disk_erasing` - The server is in reinstalling state `disk_erasing`
 	// `deploying` - The server is deploying or reinstalling
 	// `failed_deployment` - The server has failed deployment or reinstall

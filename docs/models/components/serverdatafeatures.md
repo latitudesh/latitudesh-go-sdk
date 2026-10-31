@@ -10,4 +10,5 @@
 | `UserData`         | `*bool`            | :heavy_minus_sign: | N/A                |
 | `Accelerate`       | `*bool`            | :heavy_minus_sign: | N/A                |
 | `Rescue`           | `*bool`            | :heavy_minus_sign: | N/A                |
+| `Arm64`            | `*bool`            | :heavy_minus_sign: | N/A                |
 | `Workflow`         | `*bool`            | :heavy_minus_sign: | N/A                |

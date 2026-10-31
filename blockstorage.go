@@ -433,6 +433,27 @@ func (s *BlockStorage) CreateVolume(ctx context.Context, request operations.Crea
 			}
 			return nil, components.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode == 422:
+		switch {
+		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/vnd.api+json`):
+			rawBody, err := utils.ConsumeRawBody(httpRes)
+			if err != nil {
+				return nil, err
+			}
+
+			var out components.ErrorObject
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
+				return nil, components.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
+			}
+
+			return nil, &out
+		default:
+			rawBody, err := utils.ConsumeRawBody(httpRes)
+			if err != nil {
+				return nil, err
+			}
+			return nil, components.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
+		}
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)
 		if err != nil {
@@ -1080,7 +1101,7 @@ func (s *BlockStorage) UpdateVolume(ctx context.Context, id string, requestBody 
 // Mounts a volume by adding the client to an allowed list
 //
 // Deprecated: This will be removed in a future release, please migrate away from it as soon as possible.
-func (s *BlockStorage) MountVolume(ctx context.Context, id string, requestBody operations.MountVolumeRequestBody, opts ...operations.Option) (*operations.MountVolumeResponse, error) {
+func (s *BlockStorage) MountVolume(ctx context.Context, id string, requestBody operations.MountVolumeBlockStorageRequestBody, opts ...operations.Option) (*operations.MountVolumeResponse, error) {
 	request := operations.MountVolumeRequest{
 		ID:          id,
 		RequestBody: requestBody,
@@ -1278,7 +1299,7 @@ func (s *BlockStorage) MountVolume(ctx context.Context, id string, requestBody o
 }
 
 // MapVolume - Map volume
-// Maps a high performance volume to a server over NVMe-TCP.
+// Maps a high performance volume to a server over NVMe-TCP. Teams with multi-host mapping enabled can map a volume to several servers, once per server; otherwise a volume maps to one server. Every mapped server writes to the same NVMe namespace, so use a cluster-aware filesystem when more than one server mounts the volume.
 func (s *BlockStorage) MapVolume(ctx context.Context, id string, requestBody operations.MapVolumeBlockStorageRequestBody, opts ...operations.Option) (*operations.MapVolumeResponse, error) {
 	request := operations.MapVolumeRequest{
 		ID:          id,
@@ -1496,10 +1517,11 @@ func (s *BlockStorage) MapVolume(ctx context.Context, id string, requestBody ope
 }
 
 // UnmapVolume - Unmap volume
-// Unmaps a high performance volume from the server it is currently mapped to.
-func (s *BlockStorage) UnmapVolume(ctx context.Context, id string, opts ...operations.Option) (*operations.UnmapVolumeResponse, error) {
+// Unmaps a high performance volume from one of the servers it is mapped to.
+func (s *BlockStorage) UnmapVolume(ctx context.Context, id string, requestBody *operations.UnmapVolumeBlockStorageRequestBody, opts ...operations.Option) (*operations.UnmapVolumeResponse, error) {
 	request := operations.UnmapVolumeRequest{
-		ID: id,
+		ID:          id,
+		RequestBody: requestBody,
 	}
 
 	o := operations.Options{}
@@ -1534,6 +1556,10 @@ func (s *BlockStorage) UnmapVolume(ctx context.Context, id string, opts ...opera
 		OAuth2Scopes:     nil,
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
+	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, true, "RequestBody", "json", `request:"mediaType=application/json"`)
+	if err != nil {
+		return nil, err
+	}
 
 	timeout := o.Timeout
 	if timeout == nil {
@@ -1546,12 +1572,15 @@ func (s *BlockStorage) UnmapVolume(ctx context.Context, id string, opts ...opera
 		defer cancel()
 	}
 
-	req, err := http.NewRequestWithContext(ctx, "POST", opURL, nil)
+	req, err := http.NewRequestWithContext(ctx, "POST", opURL, bodyReader)
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
 	req.Header.Set("Accept", "application/vnd.api+json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
+	if reqContentType != "" {
+		req.Header.Set("Content-Type", reqContentType)
+	}
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
