@@ -77,7 +77,7 @@ type GetIpsRequest struct {
 	FilterType *FilterType `queryParam:"style=form,explode=true,name=filter[type]"`
 	// The site slug to filter by
 	FilterLocation *string `queryParam:"style=form,explode=true,name=filter[location]"`
-	// The address of IP to filter by starts_with
+	// The address of IP to filter by starts_with. Private IPs are only listed when this filter is set
 	FilterAddress *string `queryParam:"style=form,explode=true,name=filter[address]"`
 	// Filter by additional IPs (true) or management IPs (false)
 	FilterAdditional *bool `queryParam:"style=form,explode=true,name=filter[additional]"`

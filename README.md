@@ -189,6 +189,14 @@ func main() {
 
 * [Create](docs/sdks/assignments/README.md#create) - Assign server to firewall
 
+### [Inference](docs/sdks/inference/README.md)
+
+* [GetInferenceModels](docs/sdks/inference/README.md#getinferencemodels) - List available inference models
+* [GetInferenceAPIKeys](docs/sdks/inference/README.md#getinferenceapikeys) - List inference API keys
+* [PostInferenceAPIKey](docs/sdks/inference/README.md#postinferenceapikey) - Create an inference API key
+* [DeleteInferenceAPIKey](docs/sdks/inference/README.md#deleteinferenceapikey) - Revoke an inference API key
+* [GetInferenceUsage](docs/sdks/inference/README.md#getinferenceusage) - Get inference usage for a project
+
 ### [IpAddresses](docs/sdks/ipaddresses/README.md)
 
 * [List](docs/sdks/ipaddresses/README.md#list) - List IPs
@@ -313,6 +321,14 @@ func main() {
 * [List](docs/sdks/roles/README.md#list) - List roles
 * [Get](docs/sdks/roles/README.md#get) - Retrieve role
 
+### [SandboxesPreview](docs/sdks/sandboxespreview/README.md)
+
+* [GetSandboxes](docs/sdks/sandboxespreview/README.md#getsandboxes) - List sandboxes
+* [CreateSandbox](docs/sdks/sandboxespreview/README.md#createsandbox) - Create sandbox
+* [GetSandbox](docs/sdks/sandboxespreview/README.md#getsandbox) - Retrieve sandbox
+* [DestroySandbox](docs/sdks/sandboxespreview/README.md#destroysandbox) - Delete sandbox
+* [ExecSandbox](docs/sdks/sandboxespreview/README.md#execsandbox) - Run a command in a sandbox
+
 ### [Servers](docs/sdks/servers/README.md)
 
 * [List](docs/sdks/servers/README.md#list) - List servers
@@ -426,13 +442,6 @@ func main() {
 ### [VirtualNetworks](docs/sdks/virtualnetworks/README.md)
 
 * [Delete](docs/sdks/virtualnetworks/README.md#delete) - Delete VLAN
-
-### [VpnSessions](docs/sdks/vpnsessions/README.md)
-
-* [List](docs/sdks/vpnsessions/README.md#list) - List VPN sessions
-* [Create](docs/sdks/vpnsessions/README.md#create) - Create VPN session
-* [RefreshPassword](docs/sdks/vpnsessions/README.md#refreshpassword) - Refresh VPN session
-* [Delete](docs/sdks/vpnsessions/README.md#delete) - Delete VPN session
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -582,12 +591,13 @@ Handling errors in this SDK should largely match your expectations. All operatio
 
 By Default, an API error will return `components.APIError`. When custom error responses are specified for an operation, the SDK may also return their associated error. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation.
 
-For example, the `CreateElasticIP` function may return the following errors:
+For example, the `GetInferenceModels` function may return the following errors:
 
-| Error Type             | Status Code | Content Type             |
-| ---------------------- | ----------- | ------------------------ |
-| components.ErrorObject | 422         | application/vnd.api+json |
-| components.APIError    | 4XX, 5XX    | \*/\*                    |
+| Error Type             | Status Code   | Content Type             |
+| ---------------------- | ------------- | ------------------------ |
+| components.ErrorObject | 401, 403, 404 | application/vnd.api+json |
+| components.ErrorObject | 503           | application/vnd.api+json |
+| components.APIError    | 4XX, 5XX      | \*/\*                    |
 
 ### Example
 
@@ -610,16 +620,14 @@ func main() {
 		latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
 	)
 
-	res, err := s.ElasticIps.CreateElasticIP(ctx, components.CreateElasticIP{
-		Data: components.CreateElasticIPData{
-			Type: components.CreateElasticIPTypeElasticIps,
-			Attributes: &components.CreateElasticIPAttributes{
-				ServerID:  latitudeshgosdk.Pointer("sv_2GmAlJ6BXlK1a"),
-				ProjectID: "proj_AoW6vRnwkvLn0",
-			},
-		},
-	})
+	res, err := s.Inference.GetInferenceModels(ctx, "proj_AoW6vRnwkvLn0")
 	if err != nil {
+
+		var e *components.ErrorObject
+		if errors.As(err, &e) {
+			// handle error
+			log.Fatal(e.Error())
+		}
 
 		var e *components.ErrorObject
 		if errors.As(err, &e) {

@@ -1,0 +1,11 @@
+# GetInferenceUsageRequest
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `ProjectID`                                                                           | `string`                                                                              | :heavy_check_mark:                                                                    | Project ID or Slug                                                                    |
+| `From`                                                                                | [time.Time](https://pkg.go.dev/time#Time)                                             | :heavy_check_mark:                                                                    | Start of the window (inclusive), truncated to whole seconds                           |
+| `To`                                                                                  | [time.Time](https://pkg.go.dev/time#Time)                                             | :heavy_check_mark:                                                                    | End of the window (exclusive), truncated to whole seconds; at most 31 days after from |
+| `Granularity`                                                                         | [operations.Granularity](../../models/operations/granularity.md)                      | :heavy_check_mark:                                                                    | Size of each series bucket                                                            |

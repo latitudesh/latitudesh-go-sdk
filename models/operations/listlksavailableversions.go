@@ -6,6 +6,18 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
+type ListLksAvailableVersionsRequest struct {
+	// Site slug. Includes versions released there ahead of general availability
+	FilterSite *string `queryParam:"style=form,explode=true,name=filter[site]"`
+}
+
+func (l *ListLksAvailableVersionsRequest) GetFilterSite() *string {
+	if l == nil {
+		return nil
+	}
+	return l.FilterSite
+}
+
 type ListLksAvailableVersionsResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// OK

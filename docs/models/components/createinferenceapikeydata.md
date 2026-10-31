@@ -1,0 +1,9 @@
+# CreateInferenceAPIKeyData
+
+
+## Fields
+
+| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `Type`                                                                                                   | [components.CreateInferenceAPIKeyType](../../models/components/createinferenceapikeytype.md)             | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| `Attributes`                                                                                             | [components.CreateInferenceAPIKeyAttributes](../../models/components/createinferenceapikeyattributes.md) | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
