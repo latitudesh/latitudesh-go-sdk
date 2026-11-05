@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: f27ac39bd463d3000068229f32a95320
+  docChecksum: ed81e0f6b0d114393b73434b99f007a8
   docVersion: "2023-06-01"
   speakeasyVersion: 1.806.0
   generationVersion: 2.956.1
-  releaseVersion: 1.21.2
-  configChecksum: 9319a14069e9767ead18ea41263dbd57
+  releaseVersion: 1.21.3
+  configChecksum: 9a1b59d7915c7c489cd09ff395df0286
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: 9d13ba03-78b5-42a8-8cba-9bf65b4cfae7
-  pristine_commit_hash: 3727a934cebe648d6ff477ac27121a22fb385270
-  pristine_tree_hash: 099e91337c671022f555d86b2f76b65a0875b471
+  generation_id: d02bc563-2399-4c3b-b074-625867776c40
+  pristine_commit_hash: 4964cd79271420b74ee2ceccf8fe80ee3b8f64c9
+  pristine_tree_hash: 94538102da6840440c59f5b36bded46336aaa208
 features:
   go:
     additionalDependencies: 0.1.0
@@ -80,16 +80,12 @@ trackedFiles:
     pristine_git_object: 00eede6a4a29d9c0cd87de15417688ba85c20989
   clusters.go:
     id: 79c6e40bd195
-    last_write_checksum: sha1:542c879507de87bf3b8a5e34249d32511c4f7c97
-    pristine_git_object: bc9f88df19fe8819b6629cae082b8c8d55a22670
+    last_write_checksum: sha1:347c1d3e563ab14571443b633f7367fba00eefe6
+    pristine_git_object: 09d946ddf160cc8fa551c401185c6c173187db14
   docs/models/components/accesscredentials.md:
     id: b1beddea503a
     last_write_checksum: sha1:ee956ac02ba6ad969172120e2fbc2fc8df00e21d
     pristine_git_object: 15cbac795f6d710ce7ba2ef280c5e054111e00c0
-  docs/models/components/added.md:
-    id: 40707ec485ee
-    last_write_checksum: sha1:7e54755e108b0c8bf8df2e71e60ec964877844ae
-    pristine_git_object: a56d5176b59b598f3abc01a54e5e46160ca27f87
   docs/models/components/apikey.md:
     id: d9ee76dadf23
     last_write_checksum: sha1:cf2f5eaf6681fe705354f6fce5d5ca9f19762112
@@ -356,8 +352,8 @@ trackedFiles:
     pristine_git_object: f304129505f4dc603a3f9f117a2e027dcc4e03b5
   docs/models/components/clusterrequirementsdataattributes.md:
     id: 7f0586b35f72
-    last_write_checksum: sha1:262a92a3c800e36a6d884d5399e1ce5f6a97869d
-    pristine_git_object: b411f4d3530745724add41d0d34c90a87b811b8f
+    last_write_checksum: sha1:cdf17fc00ace4d90f9d3e02814cf910d7c56f68c
+    pristine_git_object: 47b7cbeeda641d87b1e2d43b5fc27cd07babd8eb
   docs/models/components/clusterrequirementsdatakind.md:
     id: f6f080fb42c8
     last_write_checksum: sha1:87e2181d22f00d5c70b1f5441ba7267bb272d492
@@ -1026,6 +1022,10 @@ trackedFiles:
     id: afb6e31a8780
     last_write_checksum: sha1:359b3ff1f0462232262feb20fe8a312b95ebb81a
     pristine_git_object: c217287183bc552c3d0a594014654be20a6cb7d0
+  docs/models/components/items.md:
+    id: 88ffcd973b51
+    last_write_checksum: sha1:6d208f4989963a8633e2197c3adbef4b2ca32f16
+    pristine_git_object: 8df3d4756e751b48b843b83903ba4a8612fac306
   docs/models/components/kind.md:
     id: 72cd1832e8b4
     last_write_checksum: sha1:6e61d82c5c051ff05ceeb1df63ce901697c5e77a
@@ -1576,8 +1576,8 @@ trackedFiles:
     pristine_git_object: 0a67cb20a2fcb3a50836abf6eba87476394244f8
   docs/models/components/nodegroups.md:
     id: 1de55a61dc90
-    last_write_checksum: sha1:4716bc0ac720374254406e1fa6dccf65d64e14b7
-    pristine_git_object: 7e738c80ed2eba81646cd9281f414f94c1e7e7b4
+    last_write_checksum: sha1:37e4f56031d5fc6c3b843ce841c51a4fbc961603
+    pristine_git_object: 425a08d32607ec38ae40aa17c600ccf881aa390b
   docs/models/components/nodes.md:
     id: db800578c977
     last_write_checksum: sha1:b32e5152a1b69be9f6818156b3a422002eeb1275
@@ -1878,14 +1878,14 @@ trackedFiles:
     id: f5f032fe1002
     last_write_checksum: sha1:c6feae8fef93dbe7f7e097c52734877f1ee02110
     pristine_git_object: 3e0f07a5ef6463f06108d33883ef7d35eccb9181
-  docs/models/components/requirementoverrides.md:
-    id: 1dbc8dec4cde
-    last_write_checksum: sha1:a03b825c8ce89efd2b5e8d38cc9aa5bf52739f05
-    pristine_git_object: 943b330b2717cc0ddb89dbc5c043ad4bbf302b6e
+  docs/models/components/requirements.md:
+    id: 449a09a1849b
+    last_write_checksum: sha1:a74d34b708c4601754af530f82a6d607076a144e
+    pristine_git_object: f7243c8dc2989d61bb45db6f26cf5d0d2c2d7fb0
   docs/models/components/requirementsstate.md:
     id: 1c05692e4b3e
-    last_write_checksum: sha1:86facee3369163d4fa476751e2206294f7d40146
-    pristine_git_object: 7ea9327c8b1030d5a42c4cdcab740f8986087040
+    last_write_checksum: sha1:79b57bd54287934201f705527ab0efac8f4c3640
+    pristine_git_object: 65b636a66b35c00f7d4a3afdb12450fa62142e61
   docs/models/components/retentionmode.md:
     id: 3f0b511f316a
     last_write_checksum: sha1:196e458ae7ba95c7b24a51591066c62f32b86832
@@ -5764,8 +5764,8 @@ trackedFiles:
     pristine_git_object: e76308ea4eb11316f7998e63edefad170132049c
   docs/sdks/clusters/README.md:
     id: d6bdd36799e6
-    last_write_checksum: sha1:4a73fd5cc67947f5ae7f4773c3244c9f06b2f167
-    pristine_git_object: c4e2226fe5f1601d961bb68c09e77b098754cf18
+    last_write_checksum: sha1:4839840fceb5af713639462013946e92ac1585c4
+    pristine_git_object: 088a0fa6ff671ab70982a20f13b6aa4230b892d9
   docs/sdks/elasticips/README.md:
     id: d3a0d795d883
     last_write_checksum: sha1:ab00fd7f4b98ddbb3eb9f8d82aaa75bbbeeea18e
@@ -6000,8 +6000,8 @@ trackedFiles:
     pristine_git_object: 3f417d76ab1ce17678fd54b6c17f8a5428d5e262
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:300e7c8e6425dd1512f25397558560027392c2ba
-    pristine_git_object: 71eed98b67b788c96f0cdbcdc9f68305480f01d6
+    last_write_checksum: sha1:7ec0158062675a07c0715e75cc7dc18a037cc274
+    pristine_git_object: 4e59ced7d9f97a56d43a03f76021f22d38c63c2d
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -6104,8 +6104,8 @@ trackedFiles:
     pristine_git_object: 956cb8d1d37d34b731f7c325d3f7ec791be017ff
   models/components/clusterrequirementsdata.go:
     id: 73898a94b918
-    last_write_checksum: sha1:96684d0ceaa41e45b52b87e5179b51013d1110fd
-    pristine_git_object: 2fde390974722fe56f4edadee08b786caa5a0bac
+    last_write_checksum: sha1:69bd50c1d49eb109bbbc97f65e9733d2aee68efb
+    pristine_git_object: 1e0533b27df85c3f8bebd3c9de0be7eb104146ae
   models/components/clusterrequirementsignoffs.go:
     id: 19761ad3a51e
     last_write_checksum: sha1:a32e377065d24da8ffa35b219736a7ab787e3ca5
@@ -13000,7 +13000,7 @@ examples:
           project_id: "proj_lxWpD699qm6rk"
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "proj_lxWpD699qm6rk", "type": "cluster_requirements", "attributes": {"requirements_state": "with_customer", "requirements_due_date": "2026-11-20", "requirement_overrides": {"added": [{"id": "bios_smt", "label": "BIOS: multithreading", "category": "bios", "check": "bios_smt"}], "values": {"bios_smt": {"expected": "Disabled", "note": "HPC jobs"}}}, "node_groups": [{"name": "gpu-b300", "kind": "gpu", "plan": "g4-b300-large", "plan_name": "g4.b300.large", "server_count": 16, "os": "ubuntu_24_04_x64_lts", "os_options": [{"slug": "ubuntu_24_04_x64_lts", "name": "Ubuntu 24.04"}, {"slug": "rocky_9_x64", "name": "Rocky Linux 9"}]}], "node_group_options": {"kinds": ["gpu", "cpu", "storage", "management", "other"], "max_server_count": 1024, "plans": [{"slug": "g4-b300-large", "name": "g4.b300.large", "os_options": [{"slug": "ubuntu_24_04_x64_lts", "name": "Ubuntu 24.04"}, {"slug": "rocky_9_x64", "name": "Rocky Linux 9"}]}]}, "requirements_version": "3f1c9b2e7a4d8c06b5e9f2a1d7c3e8b04a6f9d2c1b7e5a3f8d0c4b6e2a9f7d1c", "signoff": null}}}
+          application/vnd.api+json: {"data": {"id": "proj_lxWpD699qm6rk", "type": "cluster_requirements", "attributes": {"requirements_state": "awaiting_signature", "requirements_due_date": "2026-11-20", "requirements": {"items": [{"id": "bios_smt", "label": "BIOS: multithreading", "category": "bios", "check": "bios_smt"}], "values": {"bios_smt": {"expected": "Disabled", "note": "HPC jobs"}}}, "node_groups": [{"id": "7", "name": "gpu-b300", "kind": "gpu", "plan": "g4-b300-large", "plan_name": "g4.b300.large", "server_count": 16, "os": "ubuntu_24_04_x64_lts", "os_options": [{"slug": "ubuntu_24_04_x64_lts", "name": "Ubuntu 24.04"}, {"slug": "rocky_9_x64", "name": "Rocky Linux 9"}]}], "node_group_options": {"kinds": ["gpu", "cpu", "storage", "management", "other"], "max_server_count": 1024, "plans": [{"slug": "g4-b300-large", "name": "g4.b300.large", "os_options": [{"slug": "ubuntu_24_04_x64_lts", "name": "Ubuntu 24.04"}, {"slug": "rocky_9_x64", "name": "Rocky Linux 9"}]}]}, "requirements_version": "3f1c9b2e7a4d8c06b5e9f2a1d7c3e8b04a6f9d2c1b7e5a3f8d0c4b6e2a9f7d1c", "signoff": null}}}
   update-project-cluster-requirements:
     Success:
       parameters:
@@ -13011,7 +13011,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "cluster_requirements", "attributes": {"add": "storage_fs", "expected": "xfs", "note": "Scratch"}}}
       responses:
         "200":
-          application/vnd.api+json: {"data": {"id": "proj_lxWpD699qm6rk", "type": "cluster_requirements", "attributes": {"requirements_state": "with_customer", "requirements_due_date": "2026-11-20", "requirement_overrides": {"added": [{"id": "bios_smt", "label": "BIOS: multithreading", "category": "bios", "check": "bios_smt"}], "values": {"bios_smt": {"expected": "Disabled", "note": "HPC jobs"}, "storage_fs": {"expected": "xfs", "note": "Scratch"}}}, "node_groups": [{"name": "gpu-b300", "kind": "gpu", "plan": "g4-b300-large", "plan_name": "g4.b300.large", "server_count": 16, "os": "ubuntu_24_04_x64_lts", "os_options": [{"slug": "ubuntu_24_04_x64_lts", "name": "Ubuntu 24.04"}, {"slug": "rocky_9_x64", "name": "Rocky Linux 9"}]}], "node_group_options": {"kinds": ["gpu", "cpu", "storage", "management", "other"], "max_server_count": 1024, "plans": [{"slug": "g4-b300-large", "name": "g4.b300.large", "os_options": [{"slug": "ubuntu_24_04_x64_lts", "name": "Ubuntu 24.04"}, {"slug": "rocky_9_x64", "name": "Rocky Linux 9"}]}]}, "requirements_version": "3f1c9b2e7a4d8c06b5e9f2a1d7c3e8b04a6f9d2c1b7e5a3f8d0c4b6e2a9f7d1c", "signoff": null}}}
+          application/vnd.api+json: {"data": {"id": "proj_lxWpD699qm6rk", "type": "cluster_requirements", "attributes": {"requirements_state": "awaiting_signature", "requirements_due_date": "2026-11-20", "requirements": {"items": [{"id": "bios_smt", "label": "BIOS: multithreading", "category": "bios", "check": "bios_smt"}], "values": {"bios_smt": {"expected": "Disabled", "note": "HPC jobs"}, "storage_fs": {"expected": "xfs", "note": "Scratch"}}}, "node_groups": [{"id": "7", "name": "gpu-b300", "kind": "gpu", "plan": "g4-b300-large", "plan_name": "g4.b300.large", "server_count": 16, "os": "ubuntu_24_04_x64_lts", "os_options": [{"slug": "ubuntu_24_04_x64_lts", "name": "Ubuntu 24.04"}, {"slug": "rocky_9_x64", "name": "Rocky Linux 9"}]}], "node_group_options": {"kinds": ["gpu", "cpu", "storage", "management", "other"], "max_server_count": 1024, "plans": [{"slug": "g4-b300-large", "name": "g4.b300.large", "os_options": [{"slug": "ubuntu_24_04_x64_lts", "name": "Ubuntu 24.04"}, {"slug": "rocky_9_x64", "name": "Rocky Linux 9"}]}]}, "requirements_version": "3f1c9b2e7a4d8c06b5e9f2a1d7c3e8b04a6f9d2c1b7e5a3f8d0c4b6e2a9f7d1c", "signoff": null}}}
   sign-project-cluster-requirements:
     Created:
       parameters:
@@ -13022,7 +13022,7 @@ examples:
         application/vnd.api+json: {"data": {"type": "cluster_requirements", "attributes": {"requirements_version": "3f1c9b2e7a4d8c06b5e9f2a1d7c3e8b04a6f9d2c1b7e5a3f8d0c4b6e2a9f7d1c"}}}
       responses:
         "201":
-          application/vnd.api+json: {"data": {"id": "proj_lxWpD699qm6rk", "type": "cluster_requirements", "attributes": {"requirements_state": "signed", "requirements_due_date": "2026-11-20", "requirement_overrides": {"added": [{"id": "bios_smt", "label": "BIOS: multithreading", "category": "bios", "check": "bios_smt"}], "values": {"bios_smt": {"expected": "Disabled", "note": "HPC jobs"}}}, "node_groups": [{"name": "gpu-b300", "kind": "gpu", "plan": "g4-b300-large", "plan_name": "g4.b300.large", "server_count": 16, "os": "ubuntu_24_04_x64_lts", "os_options": [{"slug": "ubuntu_24_04_x64_lts", "name": "Ubuntu 24.04"}, {"slug": "rocky_9_x64", "name": "Rocky Linux 9"}]}], "node_group_options": {"kinds": ["gpu", "cpu", "storage", "management", "other"], "max_server_count": 1024, "plans": [{"slug": "g4-b300-large", "name": "g4.b300.large", "os_options": [{"slug": "ubuntu_24_04_x64_lts", "name": "Ubuntu 24.04"}, {"slug": "rocky_9_x64", "name": "Rocky Linux 9"}]}]}, "requirements_version": "3f1c9b2e7a4d8c06b5e9f2a1d7c3e8b04a6f9d2c1b7e5a3f8d0c4b6e2a9f7d1c", "signoff": {"user_email": "ana@example.com", "signed_at": "2026-11-04T12:00:00Z"}}}}
+          application/vnd.api+json: {"data": {"id": "proj_lxWpD699qm6rk", "type": "cluster_requirements", "attributes": {"requirements_state": "signed", "requirements_due_date": "2026-11-20", "requirements": {"items": [{"id": "bios_smt", "label": "BIOS: multithreading", "category": "bios", "check": "bios_smt"}], "values": {"bios_smt": {"expected": "Disabled", "note": "HPC jobs"}}}, "node_groups": [{"id": "7", "name": "gpu-b300", "kind": "gpu", "plan": "g4-b300-large", "plan_name": "g4.b300.large", "server_count": 16, "os": "ubuntu_24_04_x64_lts", "os_options": [{"slug": "ubuntu_24_04_x64_lts", "name": "Ubuntu 24.04"}, {"slug": "rocky_9_x64", "name": "Rocky Linux 9"}]}], "node_group_options": {"kinds": ["gpu", "cpu", "storage", "management", "other"], "max_server_count": 1024, "plans": [{"slug": "g4-b300-large", "name": "g4.b300.large", "os_options": [{"slug": "ubuntu_24_04_x64_lts", "name": "Ubuntu 24.04"}, {"slug": "rocky_9_x64", "name": "Rocky Linux 9"}]}]}, "requirements_version": "3f1c9b2e7a4d8c06b5e9f2a1d7c3e8b04a6f9d2c1b7e5a3f8d0c4b6e2a9f7d1c", "signoff": {"user_email": "ana@example.com", "signed_at": "2026-11-04T12:00:00Z"}}}}
   get-project-cluster-requirement-signoffs:
     Success:
       parameters:
@@ -13115,7 +13115,11 @@ examples:
           application/vnd.api+json: {"data": {"id": "sbx-demo", "type": "sandbox_execs", "attributes": {"stdout": "Python 3.12.0\n", "stderr": "", "exit_code": 0, "truncated": false}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes:\n* `Latitudesh.Inference.GetInferenceModels()`: **Added**\n* `Latitudesh.Inference.GetInferenceApiKeys()`: **Added**\n* `Latitudesh.Inference.PostInferenceApiKey()`: **Added**\n* `Latitudesh.Inference.DeleteInferenceApiKey()`: **Added**\n* `Latitudesh.Inference.GetInferenceUsage()`: **Added**\n* `Latitudesh.Clusters.GetProjectClusterRequirements()`: **Added**\n* `Latitudesh.Clusters.UpdateProjectClusterRequirements()`: **Added**\n* `Latitudesh.Clusters.SignProjectClusterRequirements()`: **Added**\n* `Latitudesh.Clusters.GetProjectClusterRequirementSignoffs()`: **Added**\n* `Latitudesh.Clusters.GetProjectClusterNodeGroups()`: **Added**\n* `Latitudesh.Clusters.CreateProjectClusterNodeGroup()`: **Added**\n* `Latitudesh.Clusters.DeleteProjectClusterNodeGroup()`: **Added**\n* `Latitudesh.Clusters.UpdateProjectClusterNodeGroup()`: **Added**\n* `Latitudesh.Sandboxes(preview).GetSandboxes()`: **Added**\n* `Latitudesh.Sandboxes(preview).CreateSandbox()`: **Added**\n* `Latitudesh.Sandboxes(preview).GetSandbox()`: **Added**\n* `Latitudesh.Sandboxes(preview).DestroySandbox()`: **Added**\n* `Latitudesh.Sandboxes(preview).ExecSandbox()`: **Added**\n* `Latitudesh.VpnSessions.List()`: **Removed** (Breaking ⚠️)\n* `Latitudesh.VpnSessions.Create()`: **Removed** (Breaking ⚠️)\n* `Latitudesh.VpnSessions.RefreshPassword()`: **Removed** (Breaking ⚠️)\n* `Latitudesh.VpnSessions.Delete()`: **Removed** (Breaking ⚠️)\n* `Latitudesh.OperatingSystems.ListPlans()`:  `response.Data[].Attributes.Features.Arm64` **Added**\n* `Latitudesh.Lks.ListLksAvailableVersions()`: \n  *  `request.Filter[site]` **Added**\n  *  `error.status[404]` **Added**\n* `Latitudesh.Plans.List()`:  `response.Data[].Attributes.Regions[].Locations.InStockCount` **Added**\n* `Latitudesh.Plans.Get()`:  `response.Data.Attributes.Regions[].Locations.InStockCount` **Added**\n* `Latitudesh.ObjectStorage.PostStorageBucketLifecycleRules()`:  `error.status[409]` **Added**\n* `Latitudesh.Servers.List()`:  `response.Data[].Attributes.OperatingSystem.Features.Arm64` **Added**\n* `Latitudesh.Servers.Create()`:  `response.Data.Attributes.OperatingSystem.Features.Arm64` **Added**\n* `Latitudesh.Servers.Get()`:  `response.Data.Attributes.OperatingSystem.Features.Arm64` **Added**\n* `Latitudesh.Servers.Update()`:  `response.Data.Attributes.OperatingSystem.Features.Arm64` **Added**\n* `Latitudesh.Servers.GetDeployConfig()`:  `response.Data.Attributes.Bios` **Added**\n* `Latitudesh.Servers.UpdateDeployConfig()`:  `response.Data.Attributes.Bios` **Added**\n* `Latitudesh.Servers.Lock()`:  `response.Data.Attributes.OperatingSystem.Features.Arm64` **Added**\n* `Latitudesh.Servers.Unlock()`:  `response.Data.Attributes.OperatingSystem.Features.Arm64` **Added**\n* `Latitudesh.Servers.Reinstall()`: \n  *  `request.RequestBody.Data.Attributes.Bios` **Added**\n* `Latitudesh.FilesystemStorage.CreateFilesystem()`:  `error.status[422]` **Added**\n* `Latitudesh.BlockStorage.ListVolumes()`:  `response.Data[].Attributes.Block` **Changed**\n* `Latitudesh.BlockStorage.CreateVolume()`: \n  *  `response.Data.Attributes.Block` **Changed**\n  *  `error.status[422]` **Added**\n* `Latitudesh.BlockStorage.RetrieveVolume()`:  `response.Data.Attributes.Block` **Changed**\n* `Latitudesh.BlockStorage.UpdateVolume()`:  `response.Data.Attributes.Block` **Changed**\n* `Latitudesh.BlockStorage.MapVolume()`:  `response.Data.Attributes.Block` **Changed**\n* `Latitudesh.BlockStorage.UnmapVolume()`: \n  *  `request.RequestBody` **Added**\n  *  `response.Data.Attributes.Block` **Changed**\n* `Latitudesh.VirtualMachines.Create()`:  `response.Data.Attributes.OperatingSystem.Features.Arm64` **Added**\n* `Latitudesh.VirtualMachines.List()`:  `response.Data[].Attributes.OperatingSystem.Features.Arm64` **Added**\n* `Latitudesh.VirtualMachines.Get()`:  `response.Data.Attributes.OperatingSystem.Features.Arm64` **Added**\n* `Latitudesh.VirtualMachines.UpdateVirtualMachine()`:  `response.Data.Attributes.OperatingSystem.Features.Arm64` **Added**\n* `Latitudesh.VirtualMachineBackups.CreateForVirtualMachine()`:  `error.status[409]` **Added**\n* `Latitudesh.VirtualMachineBackups.Create()`:  `error.status[409]` **Added**\n"
+releaseNotes: |
+  ## Go SDK Changes:
+  * `Latitudesh.Clusters.GetProjectClusterRequirements()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)
+  * `Latitudesh.Clusters.UpdateProjectClusterRequirements()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)
+  * `Latitudesh.Clusters.SignProjectClusterRequirements()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

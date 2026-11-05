@@ -32,13 +32,13 @@ func (e *ClusterRequirementsDataType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// RequirementsState - draft until Latitude.sh shares them; with_customer to review and sign; signed once an owner or administrator signs. Any later change moves them back to with_customer.
+// RequirementsState - draft while they're being prepared; awaiting_signature to review and sign; signed once an owner or administrator signs. Any later change asks for a new signature.
 type RequirementsState string
 
 const (
-	RequirementsStateDraft        RequirementsState = "draft"
-	RequirementsStateWithCustomer RequirementsState = "with_customer"
-	RequirementsStateSigned       RequirementsState = "signed"
+	RequirementsStateDraft             RequirementsState = "draft"
+	RequirementsStateAwaitingSignature RequirementsState = "awaiting_signature"
+	RequirementsStateSigned            RequirementsState = "signed"
 )
 
 func (e RequirementsState) ToPointer() *RequirementsState {
@@ -52,7 +52,7 @@ func (e *RequirementsState) UnmarshalJSON(data []byte) error {
 	switch v {
 	case "draft":
 		fallthrough
-	case "with_customer":
+	case "awaiting_signature":
 		fallthrough
 	case "signed":
 		*e = RequirementsState(v)
@@ -62,7 +62,7 @@ func (e *RequirementsState) UnmarshalJSON(data []byte) error {
 	}
 }
 
-type Added struct {
+type Items struct {
 	ID       *string `json:"id,omitempty"`
 	Label    *string `json:"label,omitempty"`
 	Category *string `json:"category,omitempty"`
@@ -71,46 +71,46 @@ type Added struct {
 	Note     *string `json:"note,omitempty"`
 }
 
-func (a *Added) GetID() *string {
-	if a == nil {
+func (i *Items) GetID() *string {
+	if i == nil {
 		return nil
 	}
-	return a.ID
+	return i.ID
 }
 
-func (a *Added) GetLabel() *string {
-	if a == nil {
+func (i *Items) GetLabel() *string {
+	if i == nil {
 		return nil
 	}
-	return a.Label
+	return i.Label
 }
 
-func (a *Added) GetCategory() *string {
-	if a == nil {
+func (i *Items) GetCategory() *string {
+	if i == nil {
 		return nil
 	}
-	return a.Category
+	return i.Category
 }
 
-func (a *Added) GetCheck() *string {
-	if a == nil {
+func (i *Items) GetCheck() *string {
+	if i == nil {
 		return nil
 	}
-	return a.Check
+	return i.Check
 }
 
-func (a *Added) GetExpected() *string {
-	if a == nil {
+func (i *Items) GetExpected() *string {
+	if i == nil {
 		return nil
 	}
-	return a.Expected
+	return i.Expected
 }
 
-func (a *Added) GetNote() *string {
-	if a == nil {
+func (i *Items) GetNote() *string {
+	if i == nil {
 		return nil
 	}
-	return a.Note
+	return i.Note
 }
 
 type Values struct {
@@ -132,20 +132,22 @@ func (v *Values) GetNote() *string {
 	return v.Note
 }
 
-type RequirementOverrides struct {
-	Added []Added `json:"added,omitempty"`
-	// The expected value and note of each requirement, by requirement id
+// Requirements - The cluster's requirements, and what is expected of each
+type Requirements struct {
+	// The requirements
+	Items []Items `json:"items,omitempty"`
+	// What is expected of each requirement, and why, by requirement id
 	Values map[string]Values `json:"values,omitempty"`
 }
 
-func (r *RequirementOverrides) GetAdded() []Added {
+func (r *Requirements) GetItems() []Items {
 	if r == nil {
 		return nil
 	}
-	return r.Added
+	return r.Items
 }
 
-func (r *RequirementOverrides) GetValues() map[string]Values {
+func (r *Requirements) GetValues() map[string]Values {
 	if r == nil {
 		return nil
 	}
@@ -189,7 +191,7 @@ func (e *ClusterRequirementsDataKind) UnmarshalJSON(data []byte) error {
 
 type NodeGroups struct {
 	// The node group ID
-	ID   *int64                       `json:"id,omitempty"`
+	ID   *string                      `json:"id,omitempty"`
 	Name *string                      `json:"name,omitempty"`
 	Kind *ClusterRequirementsDataKind `json:"kind,omitempty"`
 	// The plan slug
@@ -201,7 +203,7 @@ type NodeGroups struct {
 	OsOptions []ClusterOsOption `json:"os_options,omitempty"`
 }
 
-func (n *NodeGroups) GetID() *int64 {
+func (n *NodeGroups) GetID() *string {
 	if n == nil {
 		return nil
 	}
@@ -368,10 +370,11 @@ func (s *Signoff) GetSignedAt() *string {
 }
 
 type ClusterRequirementsDataAttributes struct {
-	// draft until Latitude.sh shares them; with_customer to review and sign; signed once an owner or administrator signs. Any later change moves them back to with_customer.
-	RequirementsState    *RequirementsState    `json:"requirements_state,omitempty"`
-	RequirementsDueDate  *types.Date           `json:"requirements_due_date,omitempty"`
-	RequirementOverrides *RequirementOverrides `json:"requirement_overrides,omitempty"`
+	// draft while they're being prepared; awaiting_signature to review and sign; signed once an owner or administrator signs. Any later change asks for a new signature.
+	RequirementsState   *RequirementsState `json:"requirements_state,omitempty"`
+	RequirementsDueDate *types.Date        `json:"requirements_due_date,omitempty"`
+	// The cluster's requirements, and what is expected of each
+	Requirements *Requirements `json:"requirements,omitempty"`
 	// Empty while the requirements are a draft
 	NodeGroups []NodeGroups `json:"node_groups,omitempty"`
 	// What a node group can be set to; null while the requirements are a draft
@@ -407,11 +410,11 @@ func (c *ClusterRequirementsDataAttributes) GetRequirementsDueDate() *types.Date
 	return c.RequirementsDueDate
 }
 
-func (c *ClusterRequirementsDataAttributes) GetRequirementOverrides() *RequirementOverrides {
+func (c *ClusterRequirementsDataAttributes) GetRequirements() *Requirements {
 	if c == nil {
 		return nil
 	}
-	return c.RequirementOverrides
+	return c.Requirements
 }
 
 func (c *ClusterRequirementsDataAttributes) GetNodeGroups() []NodeGroups {

@@ -17,7 +17,7 @@ Projects that have a GPU cluster only. Every operation answers 404 PROJECT_NOT_A
 
 ## GetProjectClusterRequirements
 
-Shows a cluster project's requirements for review: the requirement blocks and their expected values, the node groups, the version to sign and who signed. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. While the requirements are a draft, their content is empty.
+Shows your cluster's requirements for review: the requirements and what is expected of each, the node groups, the version to sign and who signed. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. While the requirements are a draft, their content is empty.
 
 ### Example Usage
 
@@ -69,7 +69,7 @@ func main() {
 
 ## UpdateProjectClusterRequirements
 
-Applies one change to the requirements: add or remove a requirement or the checks of a block, or set what a requirement expects. Signed requirements go back to with_customer to sign again. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. Needs an owner, administrator or collaborator.
+Applies one change to your requirements: add or remove a requirement or the checks of a block, or set what a requirement expects. Signed requirements need to be signed again. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. Needs an owner, administrator or collaborator.
 
 ### Example Usage
 
@@ -132,7 +132,7 @@ func main() {
 
 ## SignProjectClusterRequirements
 
-Signs the requirements as the authenticated user, for the requirements_version they were shown. A version that no longer matches the requirements is refused. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. Needs an owner or administrator.
+Signs the requirements as you, for the requirements_version you were shown. A version that no longer matches the requirements is refused. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. Needs an owner or administrator.
 
 ### Example Usage
 
@@ -245,7 +245,7 @@ func main() {
 
 ## GetProjectClusterNodeGroups
 
-Lists the node groups of a cluster project. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. While the cluster's requirements are a draft, the list is empty.
+Lists your cluster's node groups. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. While the requirements are a draft, the list is empty.
 
 ### Example Usage
 
@@ -297,7 +297,7 @@ func main() {
 
 ## CreateProjectClusterNodeGroup
 
-Adds a node group to a cluster project. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. Signed requirements go back to the customer to sign again. Needs an owner, administrator or collaborator.
+Adds a node group to your cluster. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. Signed requirements need to be signed again. Needs an owner, administrator or collaborator.
 
 ### Example Usage
 
@@ -362,7 +362,7 @@ func main() {
 
 ## DeleteProjectClusterNodeGroup
 
-Removes a cluster project's node group. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. Signed requirements go back to the customer to sign again. Needs an owner, administrator or collaborator.
+Removes one of your cluster's node groups. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. Signed requirements need to be signed again. Needs an owner, administrator or collaborator.
 
 ### Example Usage
 
@@ -415,7 +415,7 @@ func main() {
 
 ## UpdateProjectClusterNodeGroup
 
-Changes the attributes sent of a cluster project's node group. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. Signed requirements go back to the customer to sign again. Needs an owner, administrator or collaborator.
+Changes the attributes sent of one of your cluster's node groups. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. Signed requirements need to be signed again. Needs an owner, administrator or collaborator.
 
 ### Example Usage
 
