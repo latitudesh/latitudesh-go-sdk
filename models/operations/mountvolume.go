@@ -8,75 +8,75 @@ import (
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
-type MountVolumeType string
+type MountVolumeBlockStorageType string
 
 const (
-	MountVolumeTypeVolumes MountVolumeType = "volumes"
+	MountVolumeBlockStorageTypeVolumes MountVolumeBlockStorageType = "volumes"
 )
 
-func (e MountVolumeType) ToPointer() *MountVolumeType {
+func (e MountVolumeBlockStorageType) ToPointer() *MountVolumeBlockStorageType {
 	return &e
 }
-func (e *MountVolumeType) UnmarshalJSON(data []byte) error {
+func (e *MountVolumeBlockStorageType) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
 	}
 	switch v {
 	case "volumes":
-		*e = MountVolumeType(v)
+		*e = MountVolumeBlockStorageType(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for MountVolumeType: %v", v)
+		return fmt.Errorf("invalid value for MountVolumeBlockStorageType: %v", v)
 	}
 }
 
-type MountVolumeAttributes struct {
+type MountVolumeBlockStorageAttributes struct {
 	// NVMe Qualified Name (NQN) of the client/server that will access the volume. Format: nqn.YYYY-MM.domain:identifier (e.g., "nqn.2024-01.com.example:server01"). This uniquely identifies the NVMe client and must be configured on the client server.
 	Nqn string `json:"nqn"`
 }
 
-func (m *MountVolumeAttributes) GetNqn() string {
+func (m *MountVolumeBlockStorageAttributes) GetNqn() string {
 	if m == nil {
 		return ""
 	}
 	return m.Nqn
 }
 
-type MountVolumeData struct {
-	Type       MountVolumeType       `json:"type"`
-	Attributes MountVolumeAttributes `json:"attributes"`
+type MountVolumeBlockStorageData struct {
+	Type       MountVolumeBlockStorageType       `json:"type"`
+	Attributes MountVolumeBlockStorageAttributes `json:"attributes"`
 }
 
-func (m *MountVolumeData) GetType() MountVolumeType {
+func (m *MountVolumeBlockStorageData) GetType() MountVolumeBlockStorageType {
 	if m == nil {
-		return MountVolumeType("")
+		return MountVolumeBlockStorageType("")
 	}
 	return m.Type
 }
 
-func (m *MountVolumeData) GetAttributes() MountVolumeAttributes {
+func (m *MountVolumeBlockStorageData) GetAttributes() MountVolumeBlockStorageAttributes {
 	if m == nil {
-		return MountVolumeAttributes{}
+		return MountVolumeBlockStorageAttributes{}
 	}
 	return m.Attributes
 }
 
-type MountVolumeRequestBody struct {
-	Data MountVolumeData `json:"data"`
+type MountVolumeBlockStorageRequestBody struct {
+	Data MountVolumeBlockStorageData `json:"data"`
 }
 
-func (m *MountVolumeRequestBody) GetData() MountVolumeData {
+func (m *MountVolumeBlockStorageRequestBody) GetData() MountVolumeBlockStorageData {
 	if m == nil {
-		return MountVolumeData{}
+		return MountVolumeBlockStorageData{}
 	}
 	return m.Data
 }
 
 type MountVolumeRequest struct {
 	// Volume ID
-	ID          string                 `pathParam:"style=simple,explode=false,name=id"`
-	RequestBody MountVolumeRequestBody `request:"mediaType=application/json"`
+	ID          string                             `pathParam:"style=simple,explode=false,name=id"`
+	RequestBody MountVolumeBlockStorageRequestBody `request:"mediaType=application/json"`
 }
 
 func (m *MountVolumeRequest) GetID() string {
@@ -86,9 +86,9 @@ func (m *MountVolumeRequest) GetID() string {
 	return m.ID
 }
 
-func (m *MountVolumeRequest) GetRequestBody() MountVolumeRequestBody {
+func (m *MountVolumeRequest) GetRequestBody() MountVolumeBlockStorageRequestBody {
 	if m == nil {
-		return MountVolumeRequestBody{}
+		return MountVolumeBlockStorageRequestBody{}
 	}
 	return m.RequestBody
 }

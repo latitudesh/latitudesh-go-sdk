@@ -1,0 +1,9 @@
+# ClusterRequirementSignoffs
+
+
+## Fields
+
+| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `Data`                                                                                                   | [][components.ClusterRequirementSignoffsData](../../models/components/clusterrequirementsignoffsdata.md) | :heavy_minus_sign:                                                                                       | N/A                                                                                                      |
+| `Meta`                                                                                                   | [*components.ClusterRequirementSignoffsMeta](../../models/components/clusterrequirementsignoffsmeta.md)  | :heavy_minus_sign:                                                                                       | N/A                                                                                                      |

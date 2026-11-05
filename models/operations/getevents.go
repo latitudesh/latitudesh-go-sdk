@@ -14,7 +14,7 @@ type GetEventsRequest struct {
 	FilterProject *string `queryParam:"style=form,explode=true,name=filter[project]"`
 	// The target type(s) of the event to filter by
 	FilterTargetName []string `queryParam:"style=form,explode=true,name=filter[target_name]"`
-	// The target id of the event to filter by
+	// The target id of the event to filter by. An LKS cluster id also returns the events of the cluster node pools
 	FilterTargetID *string `queryParam:"style=form,explode=true,name=filter[target_id]"`
 	// The action performed in event to filter by
 	FilterAction *string `queryParam:"style=form,explode=true,name=filter[action]"`

@@ -18,13 +18,13 @@ func (g *GetProjectRequest) GetProjectID() string {
 	return g.ProjectID
 }
 
-type Meta struct {
+type GetProjectMeta struct {
 }
 
 // GetProjectResponseBody - Success
 type GetProjectResponseBody struct {
 	Data *components.Project `json:"data,omitempty"`
-	Meta *Meta               `json:"meta,omitempty"`
+	Meta *GetProjectMeta     `json:"meta,omitempty"`
 }
 
 func (g *GetProjectResponseBody) GetData() *components.Project {
@@ -34,7 +34,7 @@ func (g *GetProjectResponseBody) GetData() *components.Project {
 	return g.Data
 }
 
-func (g *GetProjectResponseBody) GetMeta() *Meta {
+func (g *GetProjectResponseBody) GetMeta() *GetProjectMeta {
 	if g == nil {
 		return nil
 	}

@@ -154,6 +154,32 @@ func (d *DiskLayout) GetMountPoint() *string {
 	return d.MountPoint
 }
 
+type DeployConfigBios string
+
+const (
+	DeployConfigBiosEnabled  DeployConfigBios = "enabled"
+	DeployConfigBiosDisabled DeployConfigBios = "disabled"
+)
+
+func (e DeployConfigBios) ToPointer() *DeployConfigBios {
+	return &e
+}
+func (e *DeployConfigBios) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "enabled":
+		fallthrough
+	case "disabled":
+		*e = DeployConfigBios(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for DeployConfigBios: %v", v)
+	}
+}
+
 type DeployConfigAttributes struct {
 	OperatingSystem *string      `json:"operating_system,omitempty"`
 	Hostname        *string      `json:"hostname,omitempty"`
@@ -167,6 +193,8 @@ type DeployConfigAttributes struct {
 	PersistentNetboot *bool   `json:"persistent_netboot,omitempty"`
 	PublicNetwork     *bool   `json:"public_network,omitempty"`
 	PublicNetworkID   *string `json:"public_network_id,omitempty"`
+	// Custom BIOS settings applied on the last reinstall, reapplied on the next one unless it sends `bios`. Keys are BIOS setting names (e.g. `cpu_virtualization`), values are `enabled` or `disabled`.
+	Bios map[string]DeployConfigBios `json:"bios,omitempty"`
 }
 
 func (d *DeployConfigAttributes) GetOperatingSystem() *string {
@@ -244,6 +272,13 @@ func (d *DeployConfigAttributes) GetPublicNetworkID() *string {
 		return nil
 	}
 	return d.PublicNetworkID
+}
+
+func (d *DeployConfigAttributes) GetBios() map[string]DeployConfigBios {
+	if d == nil {
+		return nil
+	}
+	return d.Bios
 }
 
 type DeployConfigData struct {

@@ -2664,8 +2664,7 @@ func (s *Servers) RunAction(ctx context.Context, serverID string, requestBody op
 }
 
 // CreateIpmiSession - Create IPMI credentials
-// Generates IPMI credentials for a given server. Remote access creates a VPN connection to the internal network of your server so you can connect to its IPMI.
-// You will have to use a VPN client such as https://openvpn.net to connect. See `VPN Sessions` API to create a VPN connection.
+// Generates IPMI credentials for a given server. Open `ipmi_url` in a browser to reach the server's IPMI directly, and sign in with the returned username and password.
 //
 // Related guide: https://docs.latitude.sh/docs/ipmi
 func (s *Servers) CreateIpmiSession(ctx context.Context, serverID string, opts ...operations.Option) (*operations.CreateIpmiSessionResponse, error) {

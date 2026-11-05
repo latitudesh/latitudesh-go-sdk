@@ -1,0 +1,9 @@
+# SignClusterRequirementsData
+
+
+## Fields
+
+| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `Type`                                                                                                       | [components.SignClusterRequirementsType](../../models/components/signclusterrequirementstype.md)             | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `Attributes`                                                                                                 | [components.SignClusterRequirementsAttributes](../../models/components/signclusterrequirementsattributes.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |

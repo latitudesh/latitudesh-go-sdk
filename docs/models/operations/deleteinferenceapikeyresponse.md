@@ -1,0 +1,9 @@
+# DeleteInferenceAPIKeyResponse
+
+
+## Fields
+
+| Field                                                                                                         | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                                    | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                            | :heavy_check_mark:                                                                                            | N/A                                                                                                           |
+| `Object`                                                                                                      | [*operations.DeleteInferenceAPIKeyResponseBody](../../models/operations/deleteinferenceapikeyresponsebody.md) | :heavy_minus_sign:                                                                                            | Success                                                                                                       |

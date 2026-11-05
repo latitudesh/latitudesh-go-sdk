@@ -1827,7 +1827,7 @@ func (s *Lks) ListLksNodePools(ctx context.Context, clusterID string, opts ...op
 // CreateLksNodePool - Create a node pool
 // Adds a node pool to an LKS cluster. `mode` decides where the pool's nodes come from:
 //
-// - `on_demand` (default): the platform provisions `count` servers of `plan` from stock, so both fields are required.
+// - `on_demand` (default): the platform provisions `count` servers of `plan` from stock, so both fields are required. Creation is rejected with 422 before any server is provisioned when the plan is not a bare metal plan, the cluster's site is not available for LKS, or the requested `count` exceeds available stock at that site.
 // - `allocated`: the pool is built from `server_ids`, bare metal servers already in the cluster project. Each server is reinstalled with the LKS node image, which erases its disks. `plan` and `count` are rejected: the pool uses the plan the servers share, and `count` is the number of servers. Each server that fails an eligibility check is reported as its own 422 error, pointing at its index in `server_ids` and listing every reason in `meta.reasons`. `GET /lks/allocatable_servers` shows which servers can join. Allocated node pools are available only in on-demand projects: a reserved project is refused with 422 `RESERVED_PROJECT_NOT_SUPPORTED`.
 //
 // `kubernetes_version` defaults to the control-plane patch and may never be newer than it. `max_pods_per_node` and `mode` are set once, here — they cannot be changed later.
@@ -2595,6 +2595,8 @@ func (s *Lks) DeleteLksNodePool(ctx context.Context, clusterID string, id string
 //
 // For an allocated node pool, `server_ids` replaces `count`: send the whole set of servers the pool should have. Added servers are checked as on create and reinstalled to join; removed servers are drained and reinstalled with a clean OS, with no data, keys or user data restored. A server set change cannot be combined with a `kubernetes_version` change.
 //
+// Raising `count` checks available stock of the pool's plan at the cluster's site for the added nodes only (new `count` minus current `count`). When stock is insufficient, the request is rejected with 422 `INSUFFICIENT_STOCK` and the node pool is left unchanged. Lowering `count` is not checked against stock.
+//
 // The node pool must be idle: one that is provisioning, updating, scaling, upgrading, paused or deleting rejects the request with 409.
 func (s *Lks) UpdateLksNodePool(ctx context.Context, clusterID string, id string, updateLksNodePool components.UpdateLksNodePool, opts ...operations.Option) (*operations.UpdateLksNodePoolResponse, error) {
 	request := operations.UpdateLksNodePoolRequest{
@@ -3123,7 +3125,11 @@ func (s *Lks) ListLksNodes(ctx context.Context, clusterID string, nodePoolID str
 
 // ListLksAvailableVersions - List available Kubernetes versions
 // Lists the Kubernetes patches the platform offers, with their lifecycle flags. Use a version with `available_for_creation: true` when creating a cluster or a node pool, and one with `available_for_upgrade: true` when upgrading. Exactly one entry has `default: true`.
-func (s *Lks) ListLksAvailableVersions(ctx context.Context, opts ...operations.Option) (*operations.ListLksAvailableVersionsResponse, error) {
+func (s *Lks) ListLksAvailableVersions(ctx context.Context, filterSite *string, opts ...operations.Option) (*operations.ListLksAvailableVersionsResponse, error) {
+	request := operations.ListLksAvailableVersionsRequest{
+		FilterSite: filterSite,
+	}
+
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -3174,6 +3180,10 @@ func (s *Lks) ListLksAvailableVersions(ctx context.Context, opts ...operations.O
 	}
 	req.Header.Set("Accept", "application/vnd.api+json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
+
+	if err := utils.PopulateQueryParams(ctx, req, request, nil, nil); err != nil {
+		return nil, fmt.Errorf("error populating query params: %w", err)
+	}
 
 	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
@@ -3296,6 +3306,27 @@ func (s *Lks) ListLksAvailableVersions(ctx context.Context, opts ...operations.O
 			}
 
 			res.LksKubernetesVersions = &out
+		default:
+			rawBody, err := utils.ConsumeRawBody(httpRes)
+			if err != nil {
+				return nil, err
+			}
+			return nil, components.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
+		}
+	case httpRes.StatusCode == 404:
+		switch {
+		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/vnd.api+json`):
+			rawBody, err := utils.ConsumeRawBody(httpRes)
+			if err != nil {
+				return nil, err
+			}
+
+			var out components.ErrorObject
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
+				return nil, components.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
+			}
+
+			return nil, &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
