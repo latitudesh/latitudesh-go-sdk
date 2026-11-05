@@ -116,7 +116,7 @@ func main() {
 
 | Error Type               | Status Code              | Content Type             |
 | ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403                      | application/vnd.api+json |
+| components.ErrorObject   | 403, 409                 | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
 ## List
@@ -224,7 +224,7 @@ func main() {
 
 | Error Type               | Status Code              | Content Type             |
 | ------------------------ | ------------------------ | ------------------------ |
-| components.ErrorObject   | 403                      | application/vnd.api+json |
+| components.ErrorObject   | 403, 409                 | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 
 ## Get

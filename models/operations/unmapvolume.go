@@ -3,12 +3,80 @@
 package operations
 
 import (
+	"encoding/json"
+	"fmt"
 	"github.com/latitudesh/latitudesh-go-sdk/models/components"
 )
 
+type UnmapVolumeBlockStorageType string
+
+const (
+	UnmapVolumeBlockStorageTypeVolumes UnmapVolumeBlockStorageType = "volumes"
+)
+
+func (e UnmapVolumeBlockStorageType) ToPointer() *UnmapVolumeBlockStorageType {
+	return &e
+}
+func (e *UnmapVolumeBlockStorageType) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "volumes":
+		*e = UnmapVolumeBlockStorageType(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for UnmapVolumeBlockStorageType: %v", v)
+	}
+}
+
+type UnmapVolumeBlockStorageAttributes struct {
+	// ID of the server to unmap the volume from. Required when the volume is mapped to more than one server; when it is mapped to a single server, that server is unmapped if this is omitted.
+	ServerID *string `json:"server_id,omitempty"`
+}
+
+func (u *UnmapVolumeBlockStorageAttributes) GetServerID() *string {
+	if u == nil {
+		return nil
+	}
+	return u.ServerID
+}
+
+type UnmapVolumeBlockStorageData struct {
+	Type       *UnmapVolumeBlockStorageType       `json:"type,omitempty"`
+	Attributes *UnmapVolumeBlockStorageAttributes `json:"attributes,omitempty"`
+}
+
+func (u *UnmapVolumeBlockStorageData) GetType() *UnmapVolumeBlockStorageType {
+	if u == nil {
+		return nil
+	}
+	return u.Type
+}
+
+func (u *UnmapVolumeBlockStorageData) GetAttributes() *UnmapVolumeBlockStorageAttributes {
+	if u == nil {
+		return nil
+	}
+	return u.Attributes
+}
+
+type UnmapVolumeBlockStorageRequestBody struct {
+	Data *UnmapVolumeBlockStorageData `json:"data,omitempty"`
+}
+
+func (u *UnmapVolumeBlockStorageRequestBody) GetData() *UnmapVolumeBlockStorageData {
+	if u == nil {
+		return nil
+	}
+	return u.Data
+}
+
 type UnmapVolumeRequest struct {
 	// Volume ID
-	ID string `pathParam:"style=simple,explode=false,name=id"`
+	ID          string                              `pathParam:"style=simple,explode=false,name=id"`
+	RequestBody *UnmapVolumeBlockStorageRequestBody `request:"mediaType=application/json"`
 }
 
 func (u *UnmapVolumeRequest) GetID() string {
@@ -16,6 +84,13 @@ func (u *UnmapVolumeRequest) GetID() string {
 		return ""
 	}
 	return u.ID
+}
+
+func (u *UnmapVolumeRequest) GetRequestBody() *UnmapVolumeBlockStorageRequestBody {
+	if u == nil {
+		return nil
+	}
+	return u.RequestBody
 }
 
 type UnmapVolumeMeta struct {

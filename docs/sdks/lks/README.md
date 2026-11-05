@@ -740,7 +740,7 @@ func main() {
 
 Adds a node pool to an LKS cluster. `mode` decides where the pool's nodes come from:
 
-- `on_demand` (default): the platform provisions `count` servers of `plan` from stock, so both fields are required.
+- `on_demand` (default): the platform provisions `count` servers of `plan` from stock, so both fields are required. Creation is rejected with 422 before any server is provisioned when the plan is not a bare metal plan, the cluster's site is not available for LKS, or the requested `count` exceeds available stock at that site.
 - `allocated`: the pool is built from `server_ids`, bare metal servers already in the cluster project. Each server is reinstalled with the LKS node image, which erases its disks. `plan` and `count` are rejected: the pool uses the plan the servers share, and `count` is the number of servers. Each server that fails an eligibility check is reported as its own 422 error, pointing at its index in `server_ids` and listing every reason in `meta.reasons`. `GET /lks/allocatable_servers` shows which servers can join. Allocated node pools are available only in on-demand projects: a reserved project is refused with 422 `RESERVED_PROJECT_NOT_SUPPORTED`.
 
 `kubernetes_version` defaults to the control-plane patch and may never be newer than it. `max_pods_per_node` and `mode` are set once, here — they cannot be changed later.
@@ -1165,6 +1165,8 @@ A newer `kubernetes_version` rolls a node-recreating upgrade; it must not be low
 
 For an allocated node pool, `server_ids` replaces `count`: send the whole set of servers the pool should have. Added servers are checked as on create and reinstalled to join; removed servers are drained and reinstalled with a clean OS, with no data, keys or user data restored. A server set change cannot be combined with a `kubernetes_version` change.
 
+Raising `count` checks available stock of the pool's plan at the cluster's site for the added nodes only (new `count` minus current `count`). When stock is insufficient, the request is rejected with 422 `INSUFFICIENT_STOCK` and the node pool is left unchanged. Lowering `count` is not checked against stock.
+
 The node pool must be idle: one that is provisioning, updating, scaling, upgrading, paused or deleting rejects the request with 409.
 
 
@@ -1549,7 +1551,7 @@ func main() {
         latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
     )
 
-    res, err := s.Lks.ListLksAvailableVersions(ctx)
+    res, err := s.Lks.ListLksAvailableVersions(ctx, nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -1561,10 +1563,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `ctx`                                                                     | [context.Context](https://pkg.go.dev/context#Context)                     | :heavy_check_mark:                                                        | The context to use for the request.                                       |
+| `filterSite`                                                              | `*string`                                                                 | :heavy_minus_sign:                                                        | Site slug. Includes versions released there ahead of general availability |
+| `opts`                                                                    | [][operations.Option](../../models/operations/option.md)                  | :heavy_minus_sign:                                                        | The options for this request.                                             |
 
 ### Response
 
@@ -1574,6 +1577,7 @@ func main() {
 
 | Error Type               | Status Code              | Content Type             |
 | ------------------------ | ------------------------ | ------------------------ |
+| components.ErrorObject   | 404                      | application/vnd.api+json |
 | components.ErrorObject   | 502                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 

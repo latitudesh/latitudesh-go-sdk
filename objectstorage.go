@@ -2574,6 +2574,8 @@ func (s *ObjectStorage) PostStorageBucketLifecycleRules(ctx context.Context, buc
 		fallthrough
 	case httpRes.StatusCode == 404:
 		fallthrough
+	case httpRes.StatusCode == 409:
+		fallthrough
 	case httpRes.StatusCode == 422:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/vnd.api+json`):

@@ -36,6 +36,7 @@ type Features struct {
 	UserData   *bool `json:"user_data,omitempty"`
 	Accelerate *bool `json:"accelerate,omitempty"`
 	Rescue     *bool `json:"rescue,omitempty"`
+	Arm64      *bool `json:"arm64,omitempty"`
 	Workflow   *bool `json:"workflow,omitempty"`
 }
 
@@ -72,6 +73,13 @@ func (f *Features) GetRescue() *bool {
 		return nil
 	}
 	return f.Rescue
+}
+
+func (f *Features) GetArm64() *bool {
+	if f == nil {
+		return nil
+	}
+	return f.Arm64
 }
 
 func (f *Features) GetWorkflow() *bool {

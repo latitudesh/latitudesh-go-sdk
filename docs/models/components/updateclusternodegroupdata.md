@@ -1,0 +1,9 @@
+# UpdateClusterNodeGroupData
+
+
+## Fields
+
+| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `Type`                                                                                                     | [components.UpdateClusterNodeGroupType](../../models/components/updateclusternodegrouptype.md)             | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `Attributes`                                                                                               | [components.UpdateClusterNodeGroupAttributes](../../models/components/updateclusternodegroupattributes.md) | :heavy_check_mark:                                                                                         | At least one attribute. Only the attributes sent change.                                                   |

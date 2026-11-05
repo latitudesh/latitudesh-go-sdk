@@ -1,0 +1,9 @@
+# MountVolumeBlockStorageData
+
+
+## Fields
+
+| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `Type`                                                                                                       | [operations.MountVolumeBlockStorageType](../../models/operations/mountvolumeblockstoragetype.md)             | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `Attributes`                                                                                                 | [operations.MountVolumeBlockStorageAttributes](../../models/operations/mountvolumeblockstorageattributes.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |

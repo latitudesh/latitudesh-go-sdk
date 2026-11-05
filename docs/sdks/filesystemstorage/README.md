@@ -58,6 +58,48 @@ func main() {
     }
 }
 ```
+### Example Usage: LocationUnavailable
+
+<!-- UsageSnippet language="go" operationID="create-filesystem" method="post" path="/storage/filesystems" example="LocationUnavailable" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	latitudeshgosdk "github.com/latitudesh/latitudesh-go-sdk"
+	"github.com/latitudesh/latitudesh-go-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := latitudeshgosdk.New(
+        latitudeshgosdk.WithSecurity(os.Getenv("LATITUDESH_BEARER")),
+    )
+
+    res, err := s.FilesystemStorage.CreateFilesystem(ctx, operations.CreateFilesystemFilesystemStorageRequestBody{
+        Data: operations.CreateFilesystemFilesystemStorageData{
+            Type: operations.CreateFilesystemFilesystemStorageTypeFilesystems,
+            Attributes: operations.CreateFilesystemFilesystemStorageAttributes{
+                Project: "<value>",
+                Name: "<value>",
+                Region: "<value>",
+                Protocols: []operations.CreateFilesystemProtocols{
+                    operations.CreateFilesystemProtocolsNfs4,
+                },
+            },
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Object != nil {
+        // handle response
+    }
+}
+```
 ### Example Usage: Storage creation frozen
 
 <!-- UsageSnippet language="go" operationID="create-filesystem" method="post" path="/storage/filesystems" example="Storage creation frozen" -->
@@ -117,6 +159,7 @@ func main() {
 
 | Error Type               | Status Code              | Content Type             |
 | ------------------------ | ------------------------ | ------------------------ |
+| components.ErrorObject   | 422                      | application/vnd.api+json |
 | components.ErrorObject   | 503                      | application/vnd.api+json |
 | components.APIError      | 4XX, 5XX                 | \*/\*                    |
 

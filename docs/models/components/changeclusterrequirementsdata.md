@@ -1,0 +1,9 @@
+# ChangeClusterRequirementsData
+
+
+## Fields
+
+| Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `Type`                                                                                                           | [components.ChangeClusterRequirementsType](../../models/components/changeclusterrequirementstype.md)             | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `Attributes`                                                                                                     | [components.ChangeClusterRequirementsAttributes](../../models/components/changeclusterrequirementsattributes.md) | :heavy_check_mark:                                                                                               | Exactly one of add, add_checks, remove, remove_checks or set. expected and note go with add and set.             |

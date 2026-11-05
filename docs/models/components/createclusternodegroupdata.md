@@ -1,0 +1,9 @@
+# CreateClusterNodeGroupData
+
+
+## Fields
+
+| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `Type`                                                                                                     | [components.CreateClusterNodeGroupType](../../models/components/createclusternodegrouptype.md)             | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `Attributes`                                                                                               | [components.CreateClusterNodeGroupAttributes](../../models/components/createclusternodegroupattributes.md) | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
