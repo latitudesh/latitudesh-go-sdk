@@ -1,6 +1,6 @@
 # RequirementsState
 
-draft until Latitude.sh shares them; with_customer to review and sign; signed once an owner or administrator signs. Any later change moves them back to with_customer.
+draft while they're being prepared; awaiting_signature to review and sign; signed once an owner or administrator signs. Any later change asks for a new signature.
 
 ## Example Usage
 
@@ -15,8 +15,8 @@ value := components.RequirementsStateDraft
 
 ## Values
 
-| Name                            | Value                           |
-| ------------------------------- | ------------------------------- |
-| `RequirementsStateDraft`        | draft                           |
-| `RequirementsStateWithCustomer` | with_customer                   |
-| `RequirementsStateSigned`       | signed                          |
+| Name                                 | Value                                |
+| ------------------------------------ | ------------------------------------ |
+| `RequirementsStateDraft`             | draft                                |
+| `RequirementsStateAwaitingSignature` | awaiting_signature                   |
+| `RequirementsStateSigned`            | signed                               |

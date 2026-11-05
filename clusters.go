@@ -31,7 +31,7 @@ func newClusters(rootSDK *Latitudesh, sdkConfig config.SDKConfiguration, hooks *
 }
 
 // GetProjectClusterRequirements - Get cluster requirements
-// Shows a cluster project's requirements for review: the requirement blocks and their expected values, the node groups, the version to sign and who signed. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. While the requirements are a draft, their content is empty.
+// Shows your cluster's requirements for review: the requirements and what is expected of each, the node groups, the version to sign and who signed. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. While the requirements are a draft, their content is empty.
 func (s *Clusters) GetProjectClusterRequirements(ctx context.Context, projectID string, opts ...operations.Option) (*operations.GetProjectClusterRequirementsResponse, error) {
 	request := operations.GetProjectClusterRequirementsRequest{
 		ProjectID: projectID,
@@ -243,7 +243,7 @@ func (s *Clusters) GetProjectClusterRequirements(ctx context.Context, projectID 
 }
 
 // UpdateProjectClusterRequirements - Change cluster requirements
-// Applies one change to the requirements: add or remove a requirement or the checks of a block, or set what a requirement expects. Signed requirements go back to with_customer to sign again. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. Needs an owner, administrator or collaborator.
+// Applies one change to your requirements: add or remove a requirement or the checks of a block, or set what a requirement expects. Signed requirements need to be signed again. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. Needs an owner, administrator or collaborator.
 func (s *Clusters) UpdateProjectClusterRequirements(ctx context.Context, projectID string, changeClusterRequirements components.ChangeClusterRequirements, opts ...operations.Option) (*operations.UpdateProjectClusterRequirementsResponse, error) {
 	request := operations.UpdateProjectClusterRequirementsRequest{
 		ProjectID:                 projectID,
@@ -469,7 +469,7 @@ func (s *Clusters) UpdateProjectClusterRequirements(ctx context.Context, project
 }
 
 // SignProjectClusterRequirements - Sign cluster requirements
-// Signs the requirements as the authenticated user, for the requirements_version they were shown. A version that no longer matches the requirements is refused. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. Needs an owner or administrator.
+// Signs the requirements as you, for the requirements_version you were shown. A version that no longer matches the requirements is refused. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. Needs an owner or administrator.
 func (s *Clusters) SignProjectClusterRequirements(ctx context.Context, projectID string, signClusterRequirements components.SignClusterRequirements, opts ...operations.Option) (*operations.SignProjectClusterRequirementsResponse, error) {
 	request := operations.SignProjectClusterRequirementsRequest{
 		ProjectID:               projectID,
@@ -905,7 +905,7 @@ func (s *Clusters) GetProjectClusterRequirementSignoffs(ctx context.Context, pro
 }
 
 // GetProjectClusterNodeGroups - List cluster node groups
-// Lists the node groups of a cluster project. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. While the cluster's requirements are a draft, the list is empty.
+// Lists your cluster's node groups. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. While the requirements are a draft, the list is empty.
 func (s *Clusters) GetProjectClusterNodeGroups(ctx context.Context, projectID string, opts ...operations.Option) (*operations.GetProjectClusterNodeGroupsResponse, error) {
 	request := operations.GetProjectClusterNodeGroupsRequest{
 		ProjectID: projectID,
@@ -1117,7 +1117,7 @@ func (s *Clusters) GetProjectClusterNodeGroups(ctx context.Context, projectID st
 }
 
 // CreateProjectClusterNodeGroup - Create a cluster node group
-// Adds a node group to a cluster project. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. Signed requirements go back to the customer to sign again. Needs an owner, administrator or collaborator.
+// Adds a node group to your cluster. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. Signed requirements need to be signed again. Needs an owner, administrator or collaborator.
 func (s *Clusters) CreateProjectClusterNodeGroup(ctx context.Context, projectID string, createClusterNodeGroup components.CreateClusterNodeGroup, opts ...operations.Option) (*operations.CreateProjectClusterNodeGroupResponse, error) {
 	request := operations.CreateProjectClusterNodeGroupRequest{
 		ProjectID:              projectID,
@@ -1343,7 +1343,7 @@ func (s *Clusters) CreateProjectClusterNodeGroup(ctx context.Context, projectID 
 }
 
 // DeleteProjectClusterNodeGroup - Delete a cluster node group
-// Removes a cluster project's node group. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. Signed requirements go back to the customer to sign again. Needs an owner, administrator or collaborator.
+// Removes one of your cluster's node groups. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. Signed requirements need to be signed again. Needs an owner, administrator or collaborator.
 func (s *Clusters) DeleteProjectClusterNodeGroup(ctx context.Context, projectID string, id string, opts ...operations.Option) (*operations.DeleteProjectClusterNodeGroupResponse, error) {
 	request := operations.DeleteProjectClusterNodeGroupRequest{
 		ProjectID: projectID,
@@ -1539,7 +1539,7 @@ func (s *Clusters) DeleteProjectClusterNodeGroup(ctx context.Context, projectID 
 }
 
 // UpdateProjectClusterNodeGroup - Update a cluster node group
-// Changes the attributes sent of a cluster project's node group. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. Signed requirements go back to the customer to sign again. Needs an owner, administrator or collaborator.
+// Changes the attributes sent of one of your cluster's node groups. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. Signed requirements need to be signed again. Needs an owner, administrator or collaborator.
 func (s *Clusters) UpdateProjectClusterNodeGroup(ctx context.Context, projectID string, id string, updateClusterNodeGroup components.UpdateClusterNodeGroup, opts ...operations.Option) (*operations.UpdateProjectClusterNodeGroupResponse, error) {
 	request := operations.UpdateProjectClusterNodeGroupRequest{
 		ProjectID:              projectID,
