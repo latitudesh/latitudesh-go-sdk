@@ -1,23 +1,23 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: ed81e0f6b0d114393b73434b99f007a8
+  docChecksum: 9d4a296285d4168a35248a23607a287b
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.806.0
-  generationVersion: 2.956.1
-  releaseVersion: 1.21.3
-  configChecksum: 9a1b59d7915c7c489cd09ff395df0286
+  speakeasyVersion: 1.808.1
+  generationVersion: 2.960.8
+  releaseVersion: 1.21.4
+  configChecksum: 23a94acc520c7b95ec567c8ba58b20e5
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: d02bc563-2399-4c3b-b074-625867776c40
-  pristine_commit_hash: 4964cd79271420b74ee2ceccf8fe80ee3b8f64c9
-  pristine_tree_hash: 94538102da6840440c59f5b36bded46336aaa208
+  generation_id: f60816eb-e2b6-4e13-9bf9-daff19bf66fc
+  pristine_commit_hash: b5f464d9186920158653dc07f08035b048f6b6a3
+  pristine_tree_hash: 979ac1a011a2c8196612b4c0c0b22f52a0c0b13f
 features:
   go:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.15
-    core: 3.16.4
+    core: 3.16.6
     defaultEnabledRetries: 0.2.0
     deprecations: 2.81.3
     devContainers: 2.90.0
@@ -932,8 +932,8 @@ trackedFiles:
     pristine_git_object: 67f7d8fbb5bc62b0b37c8a1150927a7c89c4098e
   docs/models/components/inferencemodelattributes.md:
     id: 02f3d2130397
-    last_write_checksum: sha1:d93b0150469603e4a5ae0ee6c24c40bd7bbf1252
-    pristine_git_object: 48abee9f6563909cbe9977d0f9eaac51d3258a71
+    last_write_checksum: sha1:e6cf6b9a7a71d56ad6546c26a95a3ef9618fde7f
+    pristine_git_object: 3f7977518a2db729884ca4a129076ca29da75f33
   docs/models/components/inferencemodels.md:
     id: 9c018c3fe588
     last_write_checksum: sha1:3da61c8e28f622b774136208bbfdb69a4276620d
@@ -5956,12 +5956,12 @@ trackedFiles:
     pristine_git_object: eb0bb38db83eb6d64d7b4d47d783b92f97a5e69f
   internal/utils/json.go:
     id: ad03e3c502d8
-    last_write_checksum: sha1:6d0fd62687d0bcfba48be8faf73032e895de6a1d
-    pristine_git_object: 6c3eedd44d6839f1245349ee3a74c1af5e308747
+    last_write_checksum: sha1:683443180e6343abcdf38848729f70823f6536b3
+    pristine_git_object: 43f840de8b925fd7078f8933a4f6ce2263c7e820
   internal/utils/pathparams.go:
     id: 1f3e0c30fd90
-    last_write_checksum: sha1:a6a3fa2e2c8b66d89e4eeb8706a29d5ebcb28dde
-    pristine_git_object: c736e3f6fdd251570b15452961ab0ef64b1e8003
+    last_write_checksum: sha1:1feb03abcbc667db25689ce3362ca1f9fa022a27
+    pristine_git_object: 7b59d88c7d836733053f79a16f197129136dc27c
   internal/utils/queryparams.go:
     id: e7f604e65a58
     last_write_checksum: sha1:5b89cd1c4500b1238c0f13b1dc50807ce1cd18df
@@ -6000,8 +6000,8 @@ trackedFiles:
     pristine_git_object: 3f417d76ab1ce17678fd54b6c17f8a5428d5e262
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:7ec0158062675a07c0715e75cc7dc18a037cc274
-    pristine_git_object: 4e59ced7d9f97a56d43a03f76021f22d38c63c2d
+    last_write_checksum: sha1:d69f31287e0b77280ed1bfd659ca345e646c30ee
+    pristine_git_object: 84e8c8dbdc74c74b710c4549188b1b56e6c937e6
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -6240,8 +6240,8 @@ trackedFiles:
     pristine_git_object: a54557f6b6bf7982399ffc27258023c551eee907
   models/components/inferencemodel.go:
     id: 292ef8a25c75
-    last_write_checksum: sha1:2a544681519156a39520ab186cedf9735fdc5947
-    pristine_git_object: fad03e6c55d67fcedf79406adf70be08d2c8a952
+    last_write_checksum: sha1:3bc60b94475c5043a09e0379b8ce546798f28ec5
+    pristine_git_object: e3a9653dceb5e4271679157cd5e3a931ce97292a
   models/components/inferencemodels.go:
     id: 797d186de0a2
     last_write_checksum: sha1:4ab518aa855d32ac686bcf145f38ad9898e16e9f
@@ -12955,7 +12955,7 @@ examples:
           project_id: "proj_AoW6vRnwkvLn0"
       responses:
         "200":
-          application/vnd.api+json: {"data": [{"id": "llama-3.3-70b-instruct", "type": "inference_models", "attributes": {"display_name": "Llama 3.3 70B Instruct", "description": "Meta's Llama 3.3 70B instruction-tuned model.", "provider": "meta", "modality": "text", "context_length": 131072, "input_price_per_million_tokens": "0.00", "output_price_per_million_tokens": "0.00", "capabilities": ["chat"], "regions": ["dallas"], "created_at": "2026-01-14T15:56:29+00:00", "updated_at": "2026-01-14T15:56:29+00:00"}}]}
+          application/vnd.api+json: {"data": [{"id": "llama-3.3-70b-instruct", "type": "inference_models", "attributes": {"display_name": "Llama 3.3 70B Instruct", "description": "Meta's Llama 3.3 70B instruction-tuned model.", "provider": "meta", "modality": "text", "context_length": 131072, "input_price_per_million_tokens": "0.00", "cached_input_price_per_million_tokens": "0.00", "output_price_per_million_tokens": "0.00", "capabilities": ["chat"], "regions": ["dallas"], "created_at": "2026-01-14T15:56:29+00:00", "updated_at": "2026-01-14T15:56:29+00:00"}}]}
   get-inference-api-keys:
     Success:
       parameters:
@@ -13117,9 +13117,7 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Go SDK Changes:
-  * `Latitudesh.Clusters.GetProjectClusterRequirements()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)
-  * `Latitudesh.Clusters.UpdateProjectClusterRequirements()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)
-  * `Latitudesh.Clusters.SignProjectClusterRequirements()`:  `response.Data.Attributes` **Changed** (Breaking ⚠️)
+  * `Latitudesh.Inference.GetInferenceModels()`:  `response.Data[].Attributes.CachedInputPricePerMillionTokens` **Added**
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

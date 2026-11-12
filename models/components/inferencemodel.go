@@ -41,6 +41,8 @@ type InferenceModelAttributes struct {
 	ContextLength *int64  `json:"context_length,omitempty"`
 	// USD per million tokens as a decimal string with 2 to 6 decimal places
 	InputPricePerMillionTokens *string `json:"input_price_per_million_tokens,omitempty"`
+	// USD per million cached input tokens as a decimal string with 2 to 6 decimal places
+	CachedInputPricePerMillionTokens *string `json:"cached_input_price_per_million_tokens,omitempty"`
 	// USD per million tokens as a decimal string with 2 to 6 decimal places
 	OutputPricePerMillionTokens *string    `json:"output_price_per_million_tokens,omitempty"`
 	Capabilities                []string   `json:"capabilities,omitempty"`
@@ -100,6 +102,13 @@ func (i *InferenceModelAttributes) GetInputPricePerMillionTokens() *string {
 		return nil
 	}
 	return i.InputPricePerMillionTokens
+}
+
+func (i *InferenceModelAttributes) GetCachedInputPricePerMillionTokens() *string {
+	if i == nil {
+		return nil
+	}
+	return i.CachedInputPricePerMillionTokens
 }
 
 func (i *InferenceModelAttributes) GetOutputPricePerMillionTokens() *string {
