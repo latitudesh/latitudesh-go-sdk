@@ -69,6 +69,8 @@ type Items struct {
 	Check    *string `json:"check,omitempty"`
 	Expected *string `json:"expected,omitempty"`
 	Note     *string `json:"note,omitempty"`
+	// The node group the requirement applies to; absent or null for the whole cluster
+	NodeGroupID *string `json:"node_group_id,omitempty"`
 }
 
 func (i *Items) GetID() *string {
@@ -111,6 +113,13 @@ func (i *Items) GetNote() *string {
 		return nil
 	}
 	return i.Note
+}
+
+func (i *Items) GetNodeGroupID() *string {
+	if i == nil {
+		return nil
+	}
+	return i.NodeGroupID
 }
 
 type Values struct {

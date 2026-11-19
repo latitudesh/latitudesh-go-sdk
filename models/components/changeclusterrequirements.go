@@ -30,7 +30,7 @@ func (e *ChangeClusterRequirementsType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// ChangeClusterRequirementsAttributes - Exactly one of add, add_checks, remove, remove_checks or set. expected and note go with add and set.
+// ChangeClusterRequirementsAttributes - Exactly one of add, add_checks, remove, remove_checks or set. expected, note and node_group_id go with add and set.
 type ChangeClusterRequirementsAttributes struct {
 	// A requirement to add
 	Add *string `json:"add,omitempty"`
@@ -44,6 +44,8 @@ type ChangeClusterRequirementsAttributes struct {
 	Set      *string `json:"set,omitempty"`
 	Expected *string `json:"expected,omitempty"`
 	Note     *string `json:"note,omitempty"`
+	// One of the cluster's node groups the requirement applies to; null for the whole cluster. A set without it keeps the current scope.
+	NodeGroupID *string `json:"node_group_id,omitempty"`
 }
 
 func (c *ChangeClusterRequirementsAttributes) GetAdd() *string {
@@ -95,9 +97,16 @@ func (c *ChangeClusterRequirementsAttributes) GetNote() *string {
 	return c.Note
 }
 
+func (c *ChangeClusterRequirementsAttributes) GetNodeGroupID() *string {
+	if c == nil {
+		return nil
+	}
+	return c.NodeGroupID
+}
+
 type ChangeClusterRequirementsData struct {
 	Type ChangeClusterRequirementsType `json:"type"`
-	// Exactly one of add, add_checks, remove, remove_checks or set. expected and note go with add and set.
+	// Exactly one of add, add_checks, remove, remove_checks or set. expected, note and node_group_id go with add and set.
 	Attributes ChangeClusterRequirementsAttributes `json:"attributes"`
 }
 

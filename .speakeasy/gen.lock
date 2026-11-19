@@ -1,23 +1,23 @@
 lockVersion: 2.0.0
 id: 1d2b49ca-e692-4590-b2f5-07027618048a
 management:
-  docChecksum: 9d4a296285d4168a35248a23607a287b
+  docChecksum: 27569a3a3636335066785419bc0f16c5
   docVersion: "2023-06-01"
-  speakeasyVersion: 1.808.1
-  generationVersion: 2.960.8
-  releaseVersion: 1.21.4
-  configChecksum: 23a94acc520c7b95ec567c8ba58b20e5
+  speakeasyVersion: 1.810.0
+  generationVersion: 2.961.1
+  releaseVersion: 1.21.5
+  configChecksum: f37886b37de22a77222b7def87a23fd1
   repoURL: https://github.com/latitudesh/latitudesh-go-sdk.git
   installationURL: https://github.com/latitudesh/latitudesh-go-sdk
 persistentEdits:
-  generation_id: f60816eb-e2b6-4e13-9bf9-daff19bf66fc
-  pristine_commit_hash: b5f464d9186920158653dc07f08035b048f6b6a3
-  pristine_tree_hash: 979ac1a011a2c8196612b4c0c0b22f52a0c0b13f
+  generation_id: da5a33e5-0f3f-4f02-9406-433169c07bcb
+  pristine_commit_hash: b94728985cfd59598f5dbd9ce65fce9033a8c18e
+  pristine_tree_hash: 864343a6f3a3af1d194c3eea563db1a91f1cd1cb
 features:
   go:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.15
-    core: 3.16.6
+    core: 3.16.7
     defaultEnabledRetries: 0.2.0
     deprecations: 2.81.3
     devContainers: 2.90.0
@@ -80,8 +80,8 @@ trackedFiles:
     pristine_git_object: 00eede6a4a29d9c0cd87de15417688ba85c20989
   clusters.go:
     id: 79c6e40bd195
-    last_write_checksum: sha1:347c1d3e563ab14571443b633f7367fba00eefe6
-    pristine_git_object: 09d946ddf160cc8fa551c401185c6c173187db14
+    last_write_checksum: sha1:df7c2f9b4477ca10f25699dbe208eeee67b888d1
+    pristine_git_object: f959a0155307905c9a1b9c5e8b03cda612f2a97d
   docs/models/components/accesscredentials.md:
     id: b1beddea503a
     last_write_checksum: sha1:ee956ac02ba6ad969172120e2fbc2fc8df00e21d
@@ -304,12 +304,12 @@ trackedFiles:
     pristine_git_object: 3dd710e44a6d991d358307ec1a4648f0ab38aed5
   docs/models/components/changeclusterrequirementsattributes.md:
     id: 1bc45a77f82b
-    last_write_checksum: sha1:6dbcd11d64db235c2b2d349f6f44193de2ddf4a5
-    pristine_git_object: d59656654cbffb4391e1cee433586f31a06c76de
+    last_write_checksum: sha1:84798a2d6461969e4a1c1a31b05a2dd503f7de98
+    pristine_git_object: 2b5b2a2d03ff6b34bd6b1f1009254d28bbddd216
   docs/models/components/changeclusterrequirementsdata.md:
     id: 04909a162a61
-    last_write_checksum: sha1:29d628e9b86f971a2fde11da8368d4906a05622f
-    pristine_git_object: f561be8da65ceed4b35ad3d42eae714694189062
+    last_write_checksum: sha1:0e264809b73dd7c8f34ca9484935e279e060a838
+    pristine_git_object: ee2789f1d7f8698d8cbea6bb2629bf0ae26acd5b
   docs/models/components/changeclusterrequirementstype.md:
     id: 794b161e56be
     last_write_checksum: sha1:c6db71e269caabfae7b771d431d8cdd2678fc6ce
@@ -1024,8 +1024,8 @@ trackedFiles:
     pristine_git_object: c217287183bc552c3d0a594014654be20a6cb7d0
   docs/models/components/items.md:
     id: 88ffcd973b51
-    last_write_checksum: sha1:6d208f4989963a8633e2197c3adbef4b2ca32f16
-    pristine_git_object: 8df3d4756e751b48b843b83903ba4a8612fac306
+    last_write_checksum: sha1:b8945db2696235cee32a4f8253f995961bf772e1
+    pristine_git_object: 8d5b5caf20bd6a420cb52d64eaebfd6b990ed10b
   docs/models/components/kind.md:
     id: 72cd1832e8b4
     last_write_checksum: sha1:6e61d82c5c051ff05ceeb1df63ce901697c5e77a
@@ -5764,8 +5764,8 @@ trackedFiles:
     pristine_git_object: e76308ea4eb11316f7998e63edefad170132049c
   docs/sdks/clusters/README.md:
     id: d6bdd36799e6
-    last_write_checksum: sha1:4839840fceb5af713639462013946e92ac1585c4
-    pristine_git_object: 088a0fa6ff671ab70982a20f13b6aa4230b892d9
+    last_write_checksum: sha1:a187a0ffcc6cfa9c64c713a52cda93074ca97ca8
+    pristine_git_object: dad47873b8dc1e178e8397ef03db41eb465e8a90
   docs/sdks/elasticips/README.md:
     id: d3a0d795d883
     last_write_checksum: sha1:ab00fd7f4b98ddbb3eb9f8d82aaa75bbbeeea18e
@@ -6000,8 +6000,8 @@ trackedFiles:
     pristine_git_object: 3f417d76ab1ce17678fd54b6c17f8a5428d5e262
   latitudesh.go:
     id: 6de3069a054f
-    last_write_checksum: sha1:d69f31287e0b77280ed1bfd659ca345e646c30ee
-    pristine_git_object: 84e8c8dbdc74c74b710c4549188b1b56e6c937e6
+    last_write_checksum: sha1:fe709b9e11b859b5ba20cb974cd8a9491f13d6e4
+    pristine_git_object: ae88877c1221aa26c2c3a95af502aec5e50b8651
   latitudeshprojectssshkeys.go:
     id: 5417ed774d17
     last_write_checksum: sha1:98fadb4114b8e46f9bbdcdd2148e494bf76d351c
@@ -6080,8 +6080,8 @@ trackedFiles:
     pristine_git_object: 7f6716734735101919e75bab0b5ae7643161ff79
   models/components/changeclusterrequirements.go:
     id: 4b2f75803609
-    last_write_checksum: sha1:3a8196e2173d7e604e8345294dbf57df0ed0aad6
-    pristine_git_object: f32558fbf6cf87c59caa47c1a41aead94fe4f684
+    last_write_checksum: sha1:9ea50fe4d9b64e9032c881aa0780cdb19662ea0f
+    pristine_git_object: 0a6dcb3e852c7ddebda5ef24eba9a170812ea7db
   models/components/clusternodegroup.go:
     id: 015fbdb8875f
     last_write_checksum: sha1:8d543c5a7ab2e902ec691da6c6ce2d5e04d418d3
@@ -6104,8 +6104,8 @@ trackedFiles:
     pristine_git_object: 956cb8d1d37d34b731f7c325d3f7ec791be017ff
   models/components/clusterrequirementsdata.go:
     id: 73898a94b918
-    last_write_checksum: sha1:69bd50c1d49eb109bbbc97f65e9733d2aee68efb
-    pristine_git_object: 1e0533b27df85c3f8bebd3c9de0be7eb104146ae
+    last_write_checksum: sha1:b6ddfda96bf8f32401b6b566693375c4363e626e
+    pristine_git_object: be15d16ece8ea350d1f88569f766470b0485ab10
   models/components/clusterrequirementsignoffs.go:
     id: 19761ad3a51e
     last_write_checksum: sha1:a32e377065d24da8ffa35b219736a7ab787e3ca5
@@ -13115,9 +13115,7 @@ examples:
           application/vnd.api+json: {"data": {"id": "sbx-demo", "type": "sandbox_execs", "attributes": {"stdout": "Python 3.12.0\n", "stderr": "", "exit_code": 0, "truncated": false}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Go SDK Changes:
-  * `Latitudesh.Inference.GetInferenceModels()`:  `response.Data[].Attributes.CachedInputPricePerMillionTokens` **Added**
+releaseNotes: "## Go SDK Changes:\n* `Latitudesh.Clusters.GetProjectClusterRequirements()`:  `response.Data.Attributes.Requirements.Items[].NodeGroupId` **Added**\n* `Latitudesh.Clusters.UpdateProjectClusterRequirements()`: \n  *  `request.ChangeClusterRequirements.Data.Attributes.NodeGroupId` **Added**\n  *  `response.Data.Attributes.Requirements.Items[].NodeGroupId` **Added**\n* `Latitudesh.Clusters.SignProjectClusterRequirements()`:  `response.Data.Attributes.Requirements.Items[].NodeGroupId` **Added**\n* `Latitudesh.Clusters.DeleteProjectClusterNodeGroup()`:  `error.status[409]` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
