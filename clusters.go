@@ -1343,7 +1343,7 @@ func (s *Clusters) CreateProjectClusterNodeGroup(ctx context.Context, projectID 
 }
 
 // DeleteProjectClusterNodeGroup - Delete a cluster node group
-// Removes one of your cluster's node groups. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. Signed requirements need to be signed again. Needs an owner, administrator or collaborator.
+// Removes a node group from your cluster. You can't remove it while your requirements are signed, or while requirements apply only to this node group.
 func (s *Clusters) DeleteProjectClusterNodeGroup(ctx context.Context, projectID string, id string, opts ...operations.Option) (*operations.DeleteProjectClusterNodeGroupResponse, error) {
 	request := operations.DeleteProjectClusterNodeGroupRequest{
 		ProjectID: projectID,
@@ -1513,6 +1513,8 @@ func (s *Clusters) DeleteProjectClusterNodeGroup(ctx context.Context, projectID 
 	case httpRes.StatusCode == 403:
 		fallthrough
 	case httpRes.StatusCode == 404:
+		fallthrough
+	case httpRes.StatusCode == 409:
 		fallthrough
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)

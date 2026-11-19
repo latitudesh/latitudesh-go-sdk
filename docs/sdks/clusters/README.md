@@ -362,7 +362,7 @@ func main() {
 
 ## DeleteProjectClusterNodeGroup
 
-Removes one of your cluster's node groups. Only available for projects that have a GPU cluster; any other project answers 404 PROJECT_NOT_A_CLUSTER. Signed requirements need to be signed again. Needs an owner, administrator or collaborator.
+Removes a node group from your cluster. You can't remove it while your requirements are signed, or while requirements apply only to this node group.
 
 ### Example Usage
 
